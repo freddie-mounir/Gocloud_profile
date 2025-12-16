@@ -21,10 +21,10 @@
   <link rel="stylesheet" href="css/mobile-menu.css">
   <link rel="stylesheet" href="css/main.css">
 
-
-
-  <!--=====JQUERY=======-->
-  <script src="js/jquery-3-7-1.min.js"></script>
+  <!--=====RESOURCE PRELOAD HINTS=======-->
+  <link rel="preload" href="css/bootstrap.min.css" as="style">
+  <link rel="preload" href="css/main.css" as="style">
+  <link rel="preload" href="js/jquery-3-7-1.min.js" as="script">
 </head>
 
 <body class="body tg-heading-subheading animation-style3">
@@ -50,7 +50,7 @@
       <div id="ctn-preloader" class="ctn-preloader ctn-preloader1">
         <div class="animation-preloader">
           <div class="spinner">
-            <img src="/images/gocloud logo.jpeg" alt="" srcset="" height="200px" width="200px"
+            <img src="images/gocloud logo.jpeg" alt="" srcset="" height="200px" width="200px"
               style="border-radius: 50%;">
           </div>
           <div class="txt-loading">
@@ -94,7 +94,7 @@
           </p>
         </div>
         <div class="col-lg-6" style="height: 60px;">
-          <img src="/images/odoo_learning_partner_rgb (1).png" alt="">
+          <img src="images/odoo_learning_partner_rgb (1).png" alt="">
         </div>
       </div>
     </div>
@@ -313,7 +313,7 @@
                 <img src="images/bahgat-removebg-preview.png" height="50" alt="">
               </div>
               <div class="brand-single-box">
-                <img src="/images/onecare-removebg-preview.png" height="50">
+                <img src="images/onecare-removebg-preview.png" height="50">
               </div>
 
               <div class="brand-single-box">
@@ -606,27 +606,24 @@
     }
   </style>
   <script type="text/javascript">
-    $(document).ready(function () {
-      $('<div/>', {
-        'class': 'whatsapp-float'
-      }).appendTo('body');
+    // WhatsApp button - vanilla JS (no jQuery dependency)
+    document.addEventListener('DOMContentLoaded', function () {
+      var whatsappFloat = document.createElement('div');
+      whatsappFloat.className = 'whatsapp-float';
 
-      $('<div/>', {
-        'class': 'my-float'
-      }).appendTo('.whatsapp-float');
+      var myFloat = document.createElement('div');
+      myFloat.className = 'my-float';
 
-      $('<i/>', {
-        'class': 'fa-brands fa-whatsapp'
-      }).appendTo('.my-float');
+      var icon = document.createElement('i');
+      icon.className = 'fa-brands fa-whatsapp';
 
-      $('<div/>', {
-        'class': 'my-float-text'
-      }).appendTo('.whatsapp-float');
-    });
+      myFloat.appendChild(icon);
+      whatsappFloat.appendChild(myFloat);
+      document.body.appendChild(whatsappFloat);
 
-    $(document).on('click', '.whatsapp-float', function () {
-      // Redirect to WhatsApp URL
-      window.location.href = 'https://wa.me/+201017383815?text=Hello from Gocloud';
+      whatsappFloat.addEventListener('click', function () {
+        window.location.href = 'https://wa.me/+201017383815?text=Hello from Gocloud';
+      });
     });
   </script>
 
@@ -635,23 +632,25 @@
   </script>
 
 
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/fontawesome.js"></script>
-  <script src="js/jquery.countup.js"></script>
-  <script src="js/mobile-menu.js"></script>
-  <script src="js/jquery.magnific-popup.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/slick-slider.js"></script>
-  <script src="js/gsap.min.js"></script>
-  <script src="js/ScrollTrigger.min.js"></script>
-  <script src="js/Splitetext.js"></script>
-  <script src="js/text-animation.js"></script>
-  <script src="js/SmoothScroll.js"></script>
-  <script src="js/jquery.lineProgressbar.js"></script>
-  <script src="js/ripple-btn.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/typewriter.js"></script>
+  <!--=====SCRIPTS - jQuery loads sync, others deferred=======-->
+  <script src="js/jquery-3-7-1.min.js"></script>
+  <script src="js/bootstrap.min.js" defer></script>
+  <script src="js/aos.js" defer></script>
+  <script src="js/fontawesome.js" defer></script>
+  <script src="js/jquery.countup.js" defer></script>
+  <script src="js/mobile-menu.js" defer></script>
+  <script src="js/jquery.magnific-popup.js" defer></script>
+  <script src="js/owl.carousel.min.js" defer></script>
+  <script src="js/slick-slider.js" defer></script>
+  <script src="js/gsap.min.js" defer></script>
+  <script src="js/ScrollTrigger.min.js" defer></script>
+  <script src="js/Splitetext.js" defer></script>
+  <script src="js/text-animation.js" defer></script>
+  <script src="js/SmoothScroll.js" defer></script>
+  <script src="js/jquery.lineProgressbar.js" defer></script>
+  <script src="js/ripple-btn.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/typewriter.js" defer></script>
 
 
 </body>

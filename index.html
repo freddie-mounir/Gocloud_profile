@@ -4,6 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoCloud - Cloud Services and Solutions</title>
+  <meta name="description"
+    content="GoCloud provides premium cloud services, solutions, and consulting for businesses. Discover our offerings and get started today.">
+  <meta name="keywords" content="cloud services, cloud solutions, GoCloud, cloud consulting, cloud hosting">
+  <link rel="canonical" href="https://www.gocloud.com/" />
+  <meta property="og:title" content="GoCloud - Cloud Services and Solutions" />
+  <meta property="og:description"
+    content="GoCloud provides premium cloud services, solutions, and consulting for businesses." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.gocloud.com/" />
+  <meta property="og:image" content="https://www.gocloud.com/images/gocloud-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GoCloud - Cloud Services and Solutions" />
+  <meta name="twitter:description"
+    content="GoCloud provides premium cloud services, solutions, and consulting for businesses." />
+  <meta name="twitter:image" content="https://www.gocloud.com/images/gocloud-logo.png" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://www.gocloud.com/",
+      "logo": "https://www.gocloud.com/images/gocloud-logo.png",
+      "name": "GoCloud",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+1-800-555-1234",
+        "contactType": "Customer Service"
+      }]
+    }
+    </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GoCloud | IT Solutions</title>
 
   <!--=====FAV ICON=======-->
@@ -22,10 +55,11 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-
-
-  <!--=====JQUERY=======-->
-  <script src="js/jquery-3-7-1.min.js"></script>
+  <!--=====RESOURCE PRELOAD HINTS=======-->
+  <link rel="preload" href="css/bootstrap.min.css" as="style">
+  <link rel="preload" href="css/main.css" as="style">
+  <link rel="preload" href="js/jquery-3-7-1.min.js" as="script">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 
   <!-- style -->
   <style>
@@ -106,7 +140,7 @@
       <div id="ctn-preloader" class="ctn-preloader ctn-preloader1">
         <div class="animation-preloader">
           <div class="spinner">
-            <img src="/images/gocloud logo.jpeg" alt="" srcset="" height="200px" width="200px"
+            <img src="images/gocloud logo.jpeg" alt="GoCloud Logo" height="200px" width="200px"
               style="border-radius: 50%;">
           </div>
           <div class="txt-loading">
@@ -148,7 +182,7 @@
           </p>
         </div>
         <div class="col-lg-6" style="height: 60px;">
-          <img src="/images/odoo_partner" alt="">
+          <img src="images/odoo_learning_partner_rgb (1).png" alt="Odoo Partner">
         </div>
       </div>
     </div>
@@ -245,27 +279,24 @@
     }
   </style>
   <script type="text/javascript">
-    $(document).ready(function () {
-      $('<div/>', {
-        'class': 'whatsapp-float'
-      }).appendTo('body');
+    // WhatsApp button - vanilla JS (no jQuery dependency)
+    document.addEventListener('DOMContentLoaded', function () {
+      var whatsappFloat = document.createElement('div');
+      whatsappFloat.className = 'whatsapp-float';
 
-      $('<div/>', {
-        'class': 'my-float'
-      }).appendTo('.whatsapp-float');
+      var myFloat = document.createElement('div');
+      myFloat.className = 'my-float';
 
-      $('<i/>', {
-        'class': 'fa-brands fa-whatsapp'
-      }).appendTo('.my-float');
+      var icon = document.createElement('i');
+      icon.className = 'fa-brands fa-whatsapp';
 
-      $('<div/>', {
-        'class': 'my-float-text'
-      }).appendTo('.whatsapp-float');
-    });
+      myFloat.appendChild(icon);
+      whatsappFloat.appendChild(myFloat);
+      document.body.appendChild(whatsappFloat);
 
-    $(document).on('click', '.whatsapp-float', function () {
-      // Redirect to WhatsApp URL
-      window.location.href = 'https://wa.me/+201017383815?text=Hello from Gocloud';
+      whatsappFloat.addEventListener('click', function () {
+        window.location.href = 'https://wa.me/+201017383815?text=Hello from Gocloud';
+      });
     });
   </script>
   <!--=====Mobile header start=======-->
@@ -392,7 +423,7 @@
         <div class="col-lg-7">
           <div class="hero1-all-images">
             <div class="image2 ">
-              <img src="/images/laptop.png" alt="" width="500px" height="500px">
+              <img src="images/laptop.png" alt="" width="500px" height="500px">
             </div>
             <div class="d-flex counter-box shape-animaiton2 counter-box-width shadow-lg-3"
               style="background-color: #1a237e; border-radius: 15px; padding: 15px;">
@@ -1227,23 +1258,25 @@
         </footer>
         <!--===== FOOTER AREA END =======-->
 
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/aos.js"></script>
-        <script src="js/fontawesome.js"></script>
-        <script src="js/jquery.countup.js"></script>
-        <script src="js/mobile-menu.js"></script>
-        <script src="js/jquery.magnific-popup.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/slick-slider.js"></script>
-        <script src="js/gsap.min.js"></script>
-        <script src="js/ScrollTrigger.min.js"></script>
-        <script src="js/Splitetext.js"></script>
-        <script src="js/text-animation.js"></script>
-        <script src="js/SmoothScroll.js"></script>
-        <script src="js/jquery.lineProgressbar.js"></script>
-        <script src="js/ripple-btn.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/typewriter.js"></script>
+        <!--=====SCRIPTS - jQuery loads sync, others deferred=======-->
+        <script src="js/jquery-3-7-1.min.js"></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="js/aos.js" defer></script>
+        <script src="js/fontawesome.js" defer></script>
+        <script src="js/jquery.countup.js" defer></script>
+        <script src="js/mobile-menu.js" defer></script>
+        <script src="js/jquery.magnific-popup.js" defer></script>
+        <script src="js/owl.carousel.min.js" defer></script>
+        <script src="js/slick-slider.js" defer></script>
+        <script src="js/gsap.min.js" defer></script>
+        <script src="js/ScrollTrigger.min.js" defer></script>
+        <script src="js/Splitetext.js" defer></script>
+        <script src="js/text-animation.js" defer></script>
+        <script src="js/SmoothScroll.js" defer></script>
+        <script src="js/jquery.lineProgressbar.js" defer></script>
+        <script src="js/ripple-btn.js" defer></script>
+        <script src="js/main.js" defer></script>
+        <script src="js/typewriter.js" defer></script>
 
         <!-- Odoo Partnership Modal -->
         <div class="modal fade" id="odooPartnershipModal" tabindex="-1" aria-labelledby="odooPartnershipModalLabel"
