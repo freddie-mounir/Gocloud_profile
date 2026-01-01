@@ -22,7 +22,6 @@ function tg_title_animation() {
 
         var getclass = quote.closest('.tg-heading-subheading').className;
         var animation = getclass.split('animation-');
-        if (animation[1] == "style4") return
 
         quote.split = new SplitText(quote, {
             type: "lines,words,chars",
@@ -30,19 +29,6 @@ function tg_title_animation() {
         });
         gsap.set(quote, { perspective: 400 });
 
-        if (animation[1] == "style1") {
-            gsap.set(quote.split.chars, {
-                opacity: 0,
-                y: "90%",
-                rotateX: "-40deg"
-            });
-        }
-        if (animation[1] == "style2") {
-            gsap.set(quote.split.chars, {
-                opacity: 0,
-                x: "50"
-            });
-        }
         if (animation[1] == "style3") {
             gsap.set(quote.split.chars, {
                 opacity: 0,

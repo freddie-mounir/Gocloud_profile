@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< Updated upstream
+  <title>About Page</title>
+=======
   <title>GoCloud - About Us</title>
   <meta name="description"
     content="Learn more about GoCloud, our mission, values, and the team behind our premium cloud services.">
@@ -34,13 +37,10 @@
       }]
     }
     </script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Page</title>
+>>>>>>> Stashed changes
 
   <!--=====FAV ICON=======-->
-  <link rel="shortcut icon" href="images/gocloud logo.jpeg" type="image/x-icon">
+  <link rel="shortcut icon" href="images/gocloud logo.webp" type="image/x-icon">
 
 
   <!--=====CSS=======-->
@@ -51,14 +51,19 @@
   <link rel="stylesheet" href="css/slick-slider.css">
   <link rel="stylesheet" href="css/owl.carousel.min.css">
   <link rel="stylesheet" href="css/aos.css">
+<<<<<<< Updated upstream
   <link rel="stylesheet" href="css/mobile-menu.css">
   <link rel="stylesheet" href="css/main.css">
+=======
+  <link rel="stylesheet" href="css/mobile-menu.min.css">
+  <link rel="stylesheet" href="css/main.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+>>>>>>> Stashed changes
 
-  <!--=====RESOURCE PRELOAD HINTS=======-->
-  <link rel="preload" href="css/bootstrap.min.css" as="style">
-  <link rel="preload" href="css/main.css" as="style">
-  <link rel="preload" href="js/jquery-3-7-1.min.js" as="script">
+
+
+  <!--=====JQUERY=======-->
+  <script src="js/jquery-3-7-1.min.js"></script>
   <style>
     .beliefs-container {
       position: relative;
@@ -163,7 +168,11 @@
       <div id="ctn-preloader" class="ctn-preloader ctn-preloader1">
         <div class="animation-preloader">
           <div class="spinner">
-            <img src="images/gocloud logo.jpeg" alt="" srcset="" height="200px" width="200px"
+<<<<<<< Updated upstream
+            <img src="/images/gocloud logo.jpeg" alt="" srcset="" height="200px" width="200px"
+=======
+            <img src="images/gocloud logo.webp" alt="" srcset="" height="200px" width="200px" loading="lazy"
+>>>>>>> Stashed changes
               style="border-radius: 50%;">
           </div>
           <div class="txt-loading">
@@ -207,7 +216,11 @@
           </p>
         </div>
         <div class="col-lg-6" style="height: 60px;">
-          <img src="images/odoo_learning_partner_rgb (1).png" alt="">
+<<<<<<< Updated upstream
+          <img src="/images/odoo_learning_partner_rgb (1).png" alt="">
+=======
+          <img src="images/odoo_learning_partner_rgb (1).webp" alt="" loading="lazy">
+>>>>>>> Stashed changes
         </div>
       </div>
     </div>
@@ -223,7 +236,7 @@
             <div class="header-elements">
               <div class="">
                 <a href="index.html">
-                  <img src="images/gocloud logo.jpeg" alt="gocloud" height="100px" width="100px">
+                  <img src="images/gocloud logo.webp" alt="gocloud" height="100px" width="100px">
                 </a>
               </div>
 
@@ -249,7 +262,7 @@
               <div class="header1-buttons">
                 <div class="contact-btn">
                   <div class="icon">
-                    <img src="images/header1-icon.png" alt="">
+                    <img src="images/header1-icon.webp" alt="" loading="lazy">
                   </div>
                   <div class="headding">
                     <p>Make a Call</p>
@@ -306,24 +319,27 @@
     }
   </style>
   <script type="text/javascript">
-    // WhatsApp button - vanilla JS (no jQuery dependency)
-    document.addEventListener('DOMContentLoaded', function () {
-      var whatsappFloat = document.createElement('div');
-      whatsappFloat.className = 'whatsapp-float';
+    $(document).ready(function () {
+      $('<div/>', {
+        'class': 'whatsapp-float'
+      }).appendTo('body');
 
-      var myFloat = document.createElement('div');
-      myFloat.className = 'my-float';
+      $('<div/>', {
+        'class': 'my-float'
+      }).appendTo('.whatsapp-float');
 
-      var icon = document.createElement('i');
-      icon.className = 'fa-brands fa-whatsapp';
+      $('<i/>', {
+        'class': 'fa-brands fa-whatsapp'
+      }).appendTo('.my-float');
 
-      myFloat.appendChild(icon);
-      whatsappFloat.appendChild(myFloat);
-      document.body.appendChild(whatsappFloat);
+      $('<div/>', {
+        'class': 'my-float-text'
+      }).appendTo('.whatsapp-float');
+    });
 
-      whatsappFloat.addEventListener('click', function () {
-        window.location.href = 'https://wa.me/+201017383815?text=Hello from Gocloud';
-      });
+    $(document).on('click', '.whatsapp-float', function () {
+      // Redirect to WhatsApp URL
+      window.location.href = 'https://wa.me/+201017383815?text=Hello from Gocloud';
     });
   </script>
 
@@ -334,7 +350,7 @@
         <div class="col-12">
           <div class="mobile-header-elements">
             <div class="mobile-logo">
-              <a href="index.html"><img src="images/gocloud logo.jpeg" height="100" width="100" alt=""></a>
+              <a href="index.html"><img src="images/gocloud logo.webp" height="100" width="100" alt="" loading="lazy"></a>
             </div>
             <div class="mobile-nav-icon">
               <i class="fa-duotone fa-bars-staggered"></i>
@@ -346,7 +362,7 @@
 
     <div class="mobile-sidebar d-block d-md-none d-lg-none">
       <div class="logo-m">
-        <a href="index.html"><img src="images/gocloud logo.jpeg" height="100" width="100" alt=""></a>
+        <a href="index.html"><img src="images/gocloud logo.webp" height="100" width="100" alt="" loading="lazy"></a>
       </div>
       <div class="menu-close">
         <i class="fa-solid fa-xmark"></i>
@@ -370,7 +386,7 @@
 
           <div class="contact-box">
             <div class="icon">
-              <img src="images/footer1-icon1.png" alt="">
+              <img src="images/footer1-icon1.webp" alt="">
             </div>
             <div class="pera">
               <a href="tel://0233762533">0233762533</a>
@@ -379,7 +395,7 @@
 
           <div class="contact-box">
             <div class="icon">
-              <img src="images/footer1-icon2.png" alt="">
+              <img src="images/footer1-icon2.webp" alt="">
             </div>
             <div class="pera">
               <a href="tel://+201017383815">+201017383815</a>
@@ -388,7 +404,7 @@
 
           <div class="contact-box">
             <div class="icon">
-              <img src="images/footer1-icon3.png" alt="">
+              <img src="images/footer1-icon3.webp" alt="">
             </div>
             <div class="pera">
               <a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a>
@@ -397,7 +413,7 @@
 
           <div class="contact-box">
             <div class="icon">
-              <img src="images/footer1-icon4.png" alt="">
+              <img src="images/footer1-icon4.webp" alt="">
             </div>
             <div class="pera">
               <a href="https://gocloudeg.com">www.gocloudeg.com</a>
@@ -434,7 +450,7 @@
           <div class="main-heading">
             <h1>About Us</h1>
             <div class="space16"></div>
-            <span class="span"><img src="images/span1.png" alt=""> <a href="index.html">Home</a> <span class="arrow"><i
+            <span class="span"><img src="images/span1.webp" alt=""> <a href="index.html">Home</a> <span class="arrow"><i
                   class="fa-regular fa-angle-right"></i></span> About</span>
           </div>
         </div>
@@ -456,42 +472,46 @@
 
 
               <div class="brand-single-box h-32">
-                <img src="images/wellcare-removebg-preview.png" height="50" alt="">
+                <img src="images/wellcare-removebg-preview.webp" height="50" alt="">
               </div>
 
               <div class="brand-single-box h-32">
-                <img src="images/Goldera-removebg-preview.png" height="50" alt="">
+                <img src="images/Goldera-removebg-preview.webp" height="50" alt="">
               </div>
 
               <div class="brand-single-box">
-                <img src="images/unicare-removebg-preview (1).png" height="50px" alt="">
+                <img src="images/unicare-removebg-preview (1).webp" height="50px" alt="">
               </div>
 
               <div class="brand-single-box">
-                <img src="images/professional-removebg-preview.png" height="50" alt="">
+                <img src="images/professional-removebg-preview.webp" height="50" alt="">
               </div>
 
               <div class="brand-single-box">
-                <img src="images/Mashreq-removebg-preview.png" height="50" alt="">
+                <img src="images/Mashreq-removebg-preview.webp" height="50" alt="">
               </div>
 
               <div class="brand-single-box">
-                <img src="images/omega-removebg-preview.png" height="50" alt="">
+                <img src="images/omega-removebg-preview.webp" height="50" alt="">
               </div>
 
               <div class="brand-single-box">
-                <img src="images/bahgat-removebg-preview.png" height="50" alt="">
+                <img src="images/bahgat-removebg-preview.webp" height="50" alt="">
               </div>
               <div class="brand-single-box">
-                <img src="images/onecare-removebg-preview.png" height="50">
+<<<<<<< Updated upstream
+                <img src="/images/onecare-removebg-preview.png" height="50">
+=======
+                <img src="images/onecare-removebg-preview.webp" height="50">
+>>>>>>> Stashed changes
               </div>
 
               <div class="brand-single-box">
-                <img src="images/egmed-removebg-preview.png" height="50" alt="">
+                <img src="images/egmed-removebg-preview.webp" height="50" alt="">
               </div>
 
               <div class="brand-single-box">
-                <img src="images/empire_of_gold-removebg-preview.png" height="50" alt="">
+                <img src="images/empire_of_gold-removebg-preview.webp" height="50" alt="">
               </div>
 
 
@@ -514,7 +534,7 @@
         <div class="col-lg-6">
           <div class="about2-images">
             <div class="image2">
-              <img src="images/about-tab-img.png" height="500">
+              <img src="images/about-tab-img.webp" height="500">
             </div>
             <div class="counter-box shape-animaiton3">
               <h3 id="yearsCounter">+<span></span></h3>
@@ -537,7 +557,7 @@
         <div class="col-lg-6">
           <div class="heading1 text-center">
             <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" class=" span text-center">
-              <img src="images/gocloud logo.jpeg" height="50" width="50">
+              <img src="images/gocloud logo.webp" height="50" width="50">
               About Us
             </span>
             <h2 class="text-center" data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400">Empower Your
@@ -603,7 +623,7 @@
         <div class="col-lg-6">
           <div class="heading1 text-center">
             <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" class="span text-center"><img
-                src="images/gocloud logo.jpeg" height="50" width="50"> Our Mission</span>
+                src="images/gocloud logo.webp" height="50" width="50"> Our Mission</span>
             <h2 data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400">Innovating for Success: Our
               Technology Mission</h2>
             <div class="space16"></div>
@@ -623,7 +643,11 @@
         <div class="col-lg-6">
           <div class="solution-images">
             <div class="image2">
-              <img src="images/mission.png" loading="lazy" alt="Our Mission">
+<<<<<<< Updated upstream
+              <img src="images/mission.png">
+=======
+              <img src="images/mission.webp" loading="lazy" alt="Our Mission">
+>>>>>>> Stashed changes
             </div>
           </div>
         </div>
@@ -643,21 +667,33 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="image">
-                  <img src="images/paperless.png" loading="lazy" alt="Digital transformation">
+<<<<<<< Updated upstream
+                  <img src="images/paperless.png" alt="">
+=======
+                  <img src="images/paperless.webp" loading="lazy" alt="Digital transformation">
+>>>>>>> Stashed changes
                 </div>
               </div>
 
               <div class="col-lg-6">
                 <div class="space30"></div>
                 <div class="image">
-                  <img src="images/digital.jpg" height="170" loading="lazy" alt="Digital solutions">
+<<<<<<< Updated upstream
+                  <img src="images/digital.jpg" height="170">
+=======
+                  <img src="images/digital.webp" height="170" loading="lazy" alt="Digital solutions">
+>>>>>>> Stashed changes
                 </div>
               </div>
 
               <div class="col-lg-6">
                 <div class="space30"></div>
                 <div class="image">
-                  <img src="images/goals.png" height="170" loading="lazy" alt="Business goals">
+<<<<<<< Updated upstream
+                  <img src="images/goals.png" height="170">
+=======
+                  <img src="images/goals.webp" height="170" loading="lazy" alt="Business goals">
+>>>>>>> Stashed changes
                 </div>
               </div>
 
@@ -667,7 +703,7 @@
         <div class="col-lg-6">
           <div class="heading1 text-center">
             <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" class="span"><img
-                src="images/gocloud logo.jpeg" height="50" width="50"> Our Vision</span>
+                src="images/gocloud logo.webp" height="50" width="50"> Our Vision</span>
             <h2 data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400" class="text-center">Driving
               Innovation: Our Vision at Gocloud</h2>
             <div class="space16"></div>
@@ -708,7 +744,7 @@
         <div class="col-lg-12 text-center">
           <div class="heading1">
             <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" class="span"><img
-                src="images/gocloud logo.jpeg" height="50" width="50"> Our Core Beliefs</span>
+                src="images/gocloud logo.webp" height="50" width="50"> Our Core Beliefs</span>
             <h2 data-aos="fade-left" data-aos-delay="400" data-aos-duration="400">What Drives Us Forward</h2>
           </div>
         </div>
@@ -739,7 +775,7 @@
         <div class="col-lg-10 text-center m-auto">
           <div class="heading1">
             <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" class="span"><img
-                src="images/span1.png" alt=""> Our Story</span>
+                src="images/span1.webp" alt=""> Our Story</span>
             <h2 data-aos="fade-left" data-aos-delay="400" data-aos-duration="400">Our Company Milestones</h2>
           </div>
         </div>
@@ -795,7 +831,7 @@
 
                 <div class="col-lg-6 text-center">
                   <div class="image">
-                    <img src="images/about-tab-img.png" alt="">
+                    <img src="images/about-tab-img.webp" alt="">
                   </div>
                 </div>
               </div>
@@ -817,8 +853,12 @@
 
                 <div class="col-lg-6">
                   <div class="image">
-                    <img src="images/technology services.png" height="400" class="w-full" loading="lazy"
+<<<<<<< Updated upstream
+                    <img src="images/technology services.png" height="400" class="w-full">
+=======
+                    <img src="images/technology services.webp" height="400" class="w-full" loading="lazy"
                       alt="Technology services">
+>>>>>>> Stashed changes
                   </div>
                 </div>
               </div>
@@ -868,8 +908,12 @@
 
                 <div class="col-lg-6">
                   <div class="image">
-                    <img src="images/odoo about .PNG" height="400" class="w-full" loading="lazy"
+<<<<<<< Updated upstream
+                    <img src="images/odoo about .PNG" height="400" class="w-full">
+=======
+                    <img src="images/odoo about .webp" height="400" class="w-full" loading="lazy"
                       alt="Odoo ERP solutions">
+>>>>>>> Stashed changes
                   </div>
                 </div>
               </div>
@@ -893,7 +937,7 @@
       <div class="col-lg-10 text-center m-auto">
         <div class="heading1">
           <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" class="span"><img
-              src="images/span1.png" alt=""> Our org chart</span>
+              src="images/span1.webp" alt=""> Our org chart</span>
           <h2 data-aos="fade-left" data-aos-delay="400" data-aos-duration="400">Our Company Org Chart</h2>
         </div>
       </div>
@@ -1147,7 +1191,7 @@
                 </div>
                 <div class="space20"></div>
                 <div>
-                  <p>At <span> <img src="images/gocloud logo.jpeg" height="70" width="70"></span>we're
+                  <p>At <span> <img src="images/gocloud logo.webp" height="70" width="70"></span>we're
                     dedicated to
                     deliver innovative technology
                     solutions
@@ -1198,7 +1242,7 @@
 
                 <div class="contact-box justify-content-center">
                   <div class="icon">
-                    <img src="images/footer1-icon1.png" alt="">
+                    <img src="images/footer1-icon1.webp" alt="">
                   </div>
                   <div class="pera">
                     <a href="tel:+20233762533">0233762533</a>
@@ -1207,7 +1251,7 @@
 
                 <div class="contact-box justify-content-center">
                   <div class="icon">
-                    <img src="images/footer1-icon2.png" alt="">
+                    <img src="images/footer1-icon2.webp" alt="">
                   </div>
                   <div class="pera">
                     <a href="tel://+201017383815">+201017383815</a>
@@ -1216,7 +1260,7 @@
 
                 <div class="contact-box justify-content-center">
                   <div class="icon">
-                    <img src="images/footer1-icon3.png" alt="">
+                    <img src="images/footer1-icon3.webp" alt="">
                   </div>
                   <div class="text-wrap pera">
                     <a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a>
@@ -1225,7 +1269,7 @@
 
                 <div class="contact-box justify-content-center">
                   <div class="icon">
-                    <img src="images/footer1-icon4.png" alt="">
+                    <img src="images/footer1-icon4.webp" alt="">
                   </div>
                   <div class="pera">
                     <a href="https://gocloudeg.com">www.gocloudeg.com</a>
@@ -1258,26 +1302,23 @@
     <!--===== FOOTER AREA END =======-->
 
 
-    <!--=====SCRIPTS - jQuery loads sync, others deferred=======-->
-    <script src="js/jquery-3-7-1.min.js"></script>
-    <script src="js/bootstrap.min.js" defer></script>
-    <script src="js/aos.js" defer></script>
-    <script src="js/fontawesome.js" defer></script>
-    <script src="js/jquery.countup.js" defer></script>
-    <script src="js/mobile-menu.js" defer></script>
-    <script src="js/jquery.magnific-popup.js" defer></script>
-    <script src="js/owl.carousel.min.js" defer></script>
-    <script src="js/slick-slider.js" defer></script>
-    <script src="js/gsap.min.js" defer></script>
-    <script src="js/ScrollTrigger.min.js" defer></script>
-    <script src="js/Splitetext.js" defer></script>
-    <script src="js/text-animation.js" defer></script>
-    <script src="js/SmoothScroll.js" defer></script>
-    <script src="js/jquery.lineProgressbar.js" defer></script>
-    <script src="js/ripple-btn.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/typewriter.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/fontawesome.js"></script>
+    <script src="js/jquery.countup.js"></script>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/slick-slider.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="js/Splitetext.js"></script>
+    <script src="js/text-animation.js"></script>
+    <script src="js/SmoothScroll.js"></script>
+    <script src="js/jquery.lineProgressbar.js"></script>
+    <script src="js/ripple-btn.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/typewriter.js"></script>
 
 </body>
 
