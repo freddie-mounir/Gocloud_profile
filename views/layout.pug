@@ -1,0 +1,99 @@
+block variables
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title=pageTitle
+    meta(name="description", content=pageDescription)
+    meta(name="keywords", content=pageKeywords)
+    link(rel="canonical", href=canonicalUrl)
+    meta(property="og:title", content=pageTitle)
+    meta(property="og:description", content=pageDescription)
+    meta(property="og:type", content="website")
+    meta(property="og:url", content=canonicalUrl)
+    meta(property="og:image", content=ogImage)
+    meta(name="twitter:card", content="summary_large_image")
+    meta(name="twitter:title", content=pageTitle)
+    meta(name="twitter:description", content=pageDescription)
+    meta(name="twitter:image", content=ogImage)
+    // Accessibility improvements
+    meta(name="theme-color", content="#ffffff")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    // Accessibility meta tags
+    meta(name="robots", content="index, follow")
+    meta(name="googlebot", content="index, follow")
+
+    script(type="application/ld+json").
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "url": "https://www.gocloudeg.com/",
+        "logo": "https://www.gocloudeg.com/images/gocloud-logo.png",
+        "name": "GoCloud",
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+1-800-555-1234",
+          "contactType": "Customer Service"
+        }]
+      }
+
+    // Favicon
+    link(rel="shortcut icon", href="images/gocloud logo.webp", type="image/x-icon")
+
+    // CSS (CDN)
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css")
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css")
+    link(rel="stylesheet", href="css/nice-select.min.css")
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css")
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css")
+    link(rel="stylesheet", href="https://unpkg.com/aos@next/dist/aos.css")
+    link(rel="stylesheet", href="css/mobile-menu.min.css")
+    link(rel="stylesheet", href="css/main.min.css")
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css")
+
+    // Resource preload hints
+    link(rel="preload", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css", as="style")
+    link(rel="preload", href="css/main.min.css", as="style")
+    link(rel="preload", href="https://code.jquery.com/jquery-3.7.1.min.js", as="script")
+    // Font preload with font-display: swap for better performance
+    link(rel="preload", href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap", as="style", onload="this.onload=null;this.rel='stylesheet'")
+    noscript
+      link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap")
+    link(rel="dns-prefetch", href="//cdn.jsdelivr.net")
+    link(rel="dns-prefetch", href="//cdnjs.cloudflare.com")
+    link(rel="dns-prefetch", href="//unpkg.com")
+    link(rel="dns-prefetch", href="//kit.fontawesome.com")
+
+    // Custom styles
+    block styles
+
+  body(class="body tg-heading-subheading animation-style3")
+    // Main content wrapper
+    #main-content(role="main")
+      block content
+
+    // Scripts (CDN)
+    script(src="https://code.jquery.com/jquery-3.7.1.min.js")
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js", defer)
+    script(src="https://unpkg.com/aos@next/dist/aos.js", defer)
+    script(src="https://kit.fontawesome.com/your-kit-id.js", crossorigin="anonymous", defer)
+    script(src="js/jquery.countup.min.js", defer)
+    script(src="js/mobile-menu.min.js", defer)
+    script(src="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js", defer)
+    script(src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js", defer)
+    script(src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", defer)
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js", defer)
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js", defer)
+    script(src="js/Splitetext.min.js", defer)
+    script(src="js/text-animation.min.js", defer)
+    script(src="js/SmoothScroll.min.js", defer)
+    script(src="js/jquery.lineProgressbar.min.js", defer)
+    script(src="js/ripple-btn.min.js", defer)
+    script(src="js/main.min.js", defer)
+    script(src="js/typewriter.min.js", defer)
+    script(src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js", defer)
+    
+    // Page specific scripts
+    block scripts

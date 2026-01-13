@@ -1,0 +1,119 @@
+extends layout.pug
+
+block content
+  // Include components
+  include components/preloader.pug
+  include components/top-banner.pug
+  include components/header.pug
+
+  // Hero Section
+  .common-hero
+    .container
+      .row.align-items-center.text-center
+        .col-lg-6.m-auto
+          .main-heading
+            h1 Cloud Services
+            .space16
+            .span
+              img(src="images/span1.webp" alt="" loading="lazy")
+              |  
+              a(href="service.html") Service
+              |  
+              span.arrow
+                i.fa-regular.fa-angle-right
+              |  
+              | Cloud Services
+
+  // Marquee Section
+  section.hero10-benar
+    .container-fluid.p-0
+      .row
+        .col-12
+          .marquee-wrap.marquee-wrap-inner.h-20
+            .marquee-text
+              .brand-single-box.h-32
+                img(src="images/wellcare-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box.h-32
+                img(src="images/Goldera-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/unicare-removebg-preview (1).webp" height="50px" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/professional-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/Mashreq-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/omega-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/bahgat-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box.h-32
+                img(src="images/onecare-removebg-preview.webp" height="50" alt="OneCare Partner Logo" loading="lazy")
+
+              .brand-single-box
+                img(src="images/egmed-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/empire_of_gold-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+      .slider-after
+
+  // Services Cards Section
+  section
+    .d-flex.flex-lg-row.flex-column.container
+      .col-lg-4.col-md-12.mx-2.m-2.col-12
+        .servcie2-box
+          .heading1
+            h4.text-center.text-white Hosting
+            .space16
+            p.text-white Our hosting solutions provide reliable, secure, and scalable infrastructure for your applications and websites. We offer flexible hosting options including shared, dedicated, and cloud hosting, backed by 24/7 technical support and robust security measures to ensure maximum uptime and performance for your business.
+
+      .col-lg-4.col-md-12.m-2.col-12
+        div
+          .servcie2-box
+            .heading1
+              h4.text-center.text-white Containerization
+              .space16
+              p.text-white We specialize in implementing and managing containerization solutions using Docker and Kubernetes, enabling seamless application deployment and scaling. Our DevOps expertise helps organizations automate their development pipeline, implement CI/CD practices.
+
+      .col-lg-4.col-md-12.m-2.col-12
+        div
+          .servcie2-box
+            .heading1
+              h4.text-center.text-white Linux Support
+              .space16
+              p.text-white Our Linux support services provide comprehensive system administration, security hardening, and performance optimization for your Linux environments. We offer expert assistance in server configuration, package management, user administration, and troubleshooting.
+
+  // Partners Section
+  .space40
+  .space16
+    h1.text-center Our Technologies
+
+  // Partners Logos Section
+  .container.mt-5
+    .row.justify-content-center.text-center
+      .col-md-3.mb-4
+        img(src="images/linux.webp" height="100" width="100" alt="Linux" class="img-fluid partner-logo" loading="lazy")
+
+      .col-md-3.mb-4
+        img(src="images/net.webp" height="100" width="100" alt="Microsoft" class="img-fluid partner-logo" loading="lazy")
+
+      .col-md-3.mb-4
+        img(src="images/contabo.webp" height="100" width="100" alt="Contabo" class="img-fluid partner-logo" loading="lazy")
+
+      .col-md-3.mb-4
+        img(src="images/oracle.webp" height="100" width="100" alt="Oracle" class="img-fluid partner-logo" loading="lazy")
+
+      .col-md-3.mb-4
+        img(src="images/docker.webp" height="100" width="100" alt="docker" class="img-fluid partner-logo" loading="lazy")
+
+  // Include footer
+  include components/footer.pug
+
+  // Include whatsapp button
+  include components/whatsapp-button.pug

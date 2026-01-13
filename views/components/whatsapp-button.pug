@@ -1,6 +1,5 @@
-
-<!-- WhatsApp Floating Button Component-->
-<style>
+// WhatsApp Floating Button Component
+style.
   .whatsapp-float {
     position: fixed;
     width: 60px;
@@ -15,30 +14,28 @@
     z-index: 100;
     cursor: pointer;
   }
-  
+
   .my-float {
     margin-top: 16px;
   }
-  
-</style>
-<script type="text/javascript">
+
+script(type="text/javascript").
   // WhatsApp button - vanilla JS (no jQuery dependency)
   document.addEventListener('DOMContentLoaded', function () {
     var whatsappFloat = document.createElement('div');
     whatsappFloat.className = 'whatsapp-float';
-  
+
     var myFloat = document.createElement('div');
     myFloat.className = 'my-float';
-  
+
     var icon = document.createElement('i');
     icon.className = 'fa-brands fa-whatsapp';
-  
+
     myFloat.appendChild(icon);
     whatsappFloat.appendChild(myFloat);
     document.body.appendChild(whatsappFloat);
-  
+
     whatsappFloat.addEventListener('click', function () {
       window.location.href = 'https://wa.me/+201017383815?text=Hello from Gocloud';
     });
   });
-</script>

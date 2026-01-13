@@ -1,0 +1,90 @@
+extends layout.pug
+
+block styles
+
+block content
+  // Include components
+  include components/preloader.pug
+  include components/top-banner.pug
+  include components/header.pug
+
+  // Hero Section
+  .hero-terms
+    .container
+      h1.title Terms and Conditions
+      p Last Updated: January 1, 2025
+
+  // Terms Content Section
+  .terms-section
+    .container
+      .row
+        .col-lg-10.m-auto.terms-content
+          p Welcome to GoCloud. These Terms and Conditions ("Terms", "Terms and Conditions") govern your relationship with GoCloud website ("Website", "Service") operated by GoCloud ("us", "we", or "our").
+          p Please read these Terms and Conditions carefully before using our website and services. By accessing or using the Website, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service.
+
+          h2.mt-5.mb-3 1. Website Terms
+          p.mb-3 By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority and have given us your consent to allow any of your minor dependents to use this site.
+          p.mb-3 You may not use our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).
+
+          h2.mt-5.mb-3 2. General Conditions
+          p.mb-3 We reserve the right to refuse service to anyone for any reason at any time.
+          p.mb-3 You understand that your content (not including credit card information), may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices.
+          p.mb-3 You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service without the express written permission by us.
+          p.mb-3 The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.
+
+          h2.mt-5.mb-3 3. Software and Services
+          p.mb-3 Certain products or services may be available exclusively online through the website. These products or services may have limited quantities and are subject to return or exchange only according to our Return Policy.
+          p.mb-3 We have made every effort to display as accurately as possible the colors, features, specifications, and details of the products available on the website. However, we do not guarantee that the colors, features, specifications, and details of the products will be accurate, complete, reliable, current, or free of other errors, and your electronic display may not accurately reflect the actual colors and details of the products.
+          p.mb-3 We reserve the right, but are not obligated, to limit the sales of our products or Services to any person, geographic region or jurisdiction. We may exercise this right on a case-by-case basis.
+
+          h2.mt-5.mb-3 4. User Accounts
+          p.mb-3 When you create an account with us, you must provide information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Service.
+          p.mb-3 You are responsible for safeguarding the password that you use to access the Service and for any activities or actions under your password, whether your password is with our Service or a third-party service.
+          p.mb-3 You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.
+
+          h2.mt-5.mb-3 5. Intellectual Property Rights
+          p.mb-3 The Service and its original content, features and functionality are and will remain the exclusive property of GoCloud and its licensors. The Service is protected by copyright, trademark, and other laws of both Egypt and foreign countries.
+          p.mb-3 Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of GoCloud.
+
+          h2.mt-5.mb-3 6. Software Licenses
+          p.mb-3 If you access or use any software provided by GoCloud, whether as part of the Service or separately, you agree to be bound by the terms of the end-user license agreement or other terms of service that accompany such software.
+          p.mb-3 You may not reverse engineer, decompile, or disassemble any software provided by GoCloud, except to the extent that such restriction is expressly prohibited by applicable law.
+
+          h2.mt-5.mb-3 7. Service Level Agreement (SLA)
+          p.mb-3 GoCloud strives to provide high-quality services with minimal downtime. Our Service Level Agreement (SLA) outlines our commitment to service availability and performance metrics.
+
+          h2.mt-5.mb-3 8. Termination
+          p.mb-3 We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
+          p.mb-3 Upon termination, your right to use the Service will immediately cease. If you wish to terminate your account, you may simply discontinue using the Service.
+
+          h2.mt-5.mb-3 9. Governing Law
+          p.mb-3 These Terms shall be interpreted and governed by the laws of Egypt, without regard to its conflict of law provisions.
+          p.mb-3 Any dispute relating in any way to your visit to or use of the Service shall be adjudicated in the courts of Egypt.
+
+          h2.mt-5.mb-3 10. Changes to Terms and Conditions
+          p.mb-3 We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days notice prior to any new terms taking effect.
+          p.mb-3 What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.
+
+          h2.mt-5.mb-3 11. Limitation of Liability
+          p.mb-3 In no event shall GoCloud, its directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the Service.
+
+          h2.mt-5.mb-3 12. Governing Law
+          p.mb-3 These Terms shall be interpreted and governed by the laws of Egypt, without regard to its conflict of law provisions.
+          p.mb-3 Any dispute relating in any way to your visit to or use of the Service shall be adjudicated in the courts of Egypt.
+
+          h2.mt-5.mb-3 13. Changes to Terms and Conditions
+          p.mb-3 We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days notice prior to any new terms taking effect.
+          p.mb-3 What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.
+
+          h2.mt-5.mb-3 14. Contact Information
+          p.mb-3 Questions about the Terms and Conditions should be sent to us at 
+            a(href="mailto:marketing@gocloudeg.com") marketing@gocloudeg.com
+            | .
+
+          p.mt-5 Last updated: January 1, 2025
+
+  // Include footer
+  include components/footer.pug
+
+  // Include whatsapp button
+  include components/whatsapp-button.pug

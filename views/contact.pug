@@ -1,0 +1,158 @@
+extends layout.pug
+
+block variables
+  - var pageTitle = "GoCloud - Contact Us"
+  - var pageDescription = "Get in touch with GoCloud for premium cloud services and IT solutions."
+  - var pageKeywords = "contact, gocloud, support, inquiry"
+  - var canonicalUrl = "https://www.gocloud.com/contact.html"
+  - var ogImage = "https://www.gocloud.com/images/gocloud-logo.png"
+
+block styles
+  // Additional styles for contact page
+
+block content
+  // Include components
+  include components/preloader.pug
+  include components/top-banner.pug
+  include components/header.pug
+
+  // Hero Section
+  .common-hero
+    .container
+      .row.align-items-center.text-center
+        .col-lg-8.m-auto
+          .main-heading
+            h1 Contact Us
+            .space16
+            .span
+              img(src="images/span1.webp" alt="" loading="lazy")
+              |  
+              a(href="index.html") Home
+              |  
+              span
+                i.fa-regular.fa-angle-right
+              |  
+              | Contact Us
+
+  // Marquee Section
+  section.hero10-benar
+    .container-fluid.p-0
+      .row
+        .col-12
+          .marquee-wrap.marquee-wrap-inner.h-20
+            .marquee-text
+              .brand-single-box.h-32
+                img(src="images/wellcare-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box.h-32
+                img(src="images/Goldera-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/unicare-removebg-preview (1).webp" height="50px" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/professional-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/Mashreq-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/omega-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/bahgat-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box.h-32
+                img(src="images/onecare-removebg-preview.webp" height="50" alt="OneCare Partner Logo" loading="lazy")
+
+              .brand-single-box
+                img(src="images/egmed-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/empire_of_gold-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+      .slider-after
+
+  .space100
+
+  // Contact Section
+  .contact-page
+    .container
+      .row
+        .col-lg-6
+          .contact-boxs
+            .heading1
+              h2.text-center Contact Information
+              .space16
+              p.text-center(style="font-size: larger;") We are so glad to hear from you
+
+            .contact-box
+              .icon
+                img(src="images/contact-page-icon1.webp" alt="" loading="lazy")
+              .heading
+                h5 Contact Us
+                a.text(href="tel:(124)555-6565") +2 01017383815
+
+            .contact-box
+              .icon
+                img(src="images/contact-page-icon2.webp" alt="" loading="lazy")
+              .heading
+                h5 Send Us a Mail
+                a.text(href="mailto:marketing@gocloudeg.com") marketing@gocloudeg.com
+
+            .contact-box
+              .icon
+                img(src="images/contact-page-icon3.webp" alt="" loading="lazy")
+              .heading
+                h5 Office Location
+                a.text.ms-2 Behind Royal Pyramids Language School, Ahram Gardens, Gate 4, Giza
+
+        .col-lg-6
+          .contact-form-details
+            form#contactForm
+              .row
+                .col-lg-6
+                  .single-input
+                    input(type="text" name="firstName" placeholder="First Name")
+
+                .col-lg-6
+                  .single-input
+                    input(type="text" name="lastName" placeholder="Last Name")
+
+                .col-lg-6
+                  .single-input
+                    input(name="email" id="email" placeholder="Email")
+
+                .col-lg-6
+                  .single-input
+                    input(name="phone" type="number" placeholder="Phone")
+
+                .col-lg-12
+                  .single-input
+                    input(type="text" name="subject" id="subject" placeholder="Subject")
+
+                .col-lg-12
+                  .single-input
+                    textarea(id="message" name="message" cols="30" rows="5" placeholder="Message")
+
+                .col-lg-12
+                  button.theme-btn1(type="submit") Submit
+                    span
+                      i.fa-solid.fa-arrow-right
+
+  .space100
+
+  // Map Section
+  .contact-map-page
+    iframe(
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.7555468388896!2d31.092484099999993!3d29.9577093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584fb4638aaa63%3A0x74386c45582e348d!2sGo%20Cloud!5e0!3m2!1sen!2seg!4v1751108580597!5m2!1sen!2seg"
+      width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    )
+
+  // Include footer
+  include components/footer.pug
+
+  // Include whatsapp button
+  include components/whatsapp-button.pug
+
+  //- Script moved to main.js

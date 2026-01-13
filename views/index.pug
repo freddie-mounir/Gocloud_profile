@@ -1,0 +1,366 @@
+extends layout.pug
+
+block variables
+  - var pageTitle = "GoCloud - Home"
+  - var pageDescription = "Transform Your Business With Next Generation IT Solutions"
+  - var pageKeywords = "GoCloud, IT Solutions, Cloud, ERP, Odoo"
+  - var canonicalUrl = "https://www.gocloud.com/"
+  - var ogImage = "https://www.gocloud.com/images/gocloud-logo.png"
+
+
+block content
+  // Include components
+  include components/preloader.pug
+  include components/top-banner.pug
+  include components/header.pug
+
+  // Hero Section
+  .hero1(style="background-image: url(images/hero1-bg.png); background-position: center; background-repeat: no-repeat; background-size: cover;")
+    .container
+      .row
+        .col-lg-5
+          .main-headding
+            .span(style="color:blue" data-aos="zoom-in-left" data-aos-duration="700")
+              img(src="images/gocloud%20logo.webp" height="40" width="40" alt="")
+              | Gocloud Technology & It Solution
+            h1.title.tg-element-title
+              | Transform Your Business With Next Generation 
+              span.after(style="color:green;") IT Solutions
+            .space16
+            p Welcome to Gocloud — your partner in tailored technology and IT solutions, designed to streamline operations and drive your business forward.
+
+            .space30
+            .buttons
+              a.theme-btn1(href="#CTA") Get Started Now 
+                span
+                  i.fa-solid.fa-arrow-right
+
+        .col-lg-7
+          .hero1-all-images
+            .image2
+              img(src="images/laptop.webp" alt="Laptop showing cloud solutions" width="500px" height="500px")
+
+            .d-flex.counter-box.shape-animaiton2.counter-box-width.shadow-lg-3(style="background-color: #1a237e; border-radius: 15px; padding: 15px;")
+              p.fs-3.text-white#yearsCounter
+                | + 
+                span 10
+              p.text-warning.fw-bold.w-auto
+                | Years Of 
+                br
+                | Experience
+
+            .shape1
+              img(src="images/header1-shape1.png" alt="")
+
+  // Numbers Section
+  .container
+    .row.hero-bottom-area
+      .col-lg-3
+        .single-box
+          .icon
+            img(src="images/hero-bottom-icon1.png" alt="")
+          .headding
+            h5.text-danger.text-center(style="margin-left: 2rem;") Users
+            p(style="margin-left: 2rem;") Ready to support
+            p(style="color: black; margin-left: 2rem;") +80k
+
+      .col-lg-3
+        .single-box
+          .icon
+            img(src="images/hero-bottom-icon2.png" alt="")
+          .headding
+            .headding
+              h5.text-danger.text-center(style="margin-left: 2rem;") Corporates
+              p(style="margin-left: 2rem;") Our loyal Clients
+              p(style="color: black; margin-left: 2rem;") +20
+
+      .col-lg-3
+        .single-box
+          .icon
+            img(src="images/hero-bottom-icon3.png" alt="")
+          .headding
+            .headding
+              h5.text-danger.text-center(style=" margin-left: 2rem;") Solutions
+              p(style="margin-left: 2rem;") Service we deliver
+              p(style="color: black; margin-left: 2rem;") +10
+
+      .col-lg-3
+        .single-box
+          .icon
+            img(src="images/hero-bottom-icon4.png" alt="")
+          .headding
+            .headding
+              h5.text-danger.text-center(style="margin-left: 2rem;") Projects
+              p(style="margin-left: 2rem;") Agile Products
+              p(style="color: black; margin-left: 2rem;") +50
+
+  // About Section
+  .about1.sp
+    .container
+      .row.align-items-center
+        .col-lg-6
+          .about-image
+            .image1
+              img(src="images/about1-img1.webp" alt="")
+            .image2.image-anime
+              img(src="images/about1-img2.webp" alt="")
+            .icon-box
+              img(src="images/gocloud%20logo.webp" height="50px" width="50px" alt="")
+              h4 24/7 Support
+              p Gocloud Technology & It Solution
+
+        .col-lg-6
+          .heading1.text-center
+            .span(style="color: green;" data-aos="zoom-in-left" data-aos-duration="700")
+              img(src="images/gocloud%20logo.webp" height="50px" width="50px" alt="")
+              | About Our Company
+            h2.title.tg-element-title Discover Our Story Empowering Business Through Innovation
+            .space16
+            p(data-aos="fade-left" data-aos-duration="800") Gocloud is a pioneering force in the world of technology and IT solutions, committed to transforming how businesses succeed in the digital age. Our approach is built on collaboration, transparency, and an unwavering commitment to excellence. By staying ahead of the curve and embracing innovation, we empower our clients to outperform the competition.
+
+            ul.list(data-aos="fade-left" data-aos-duration="1100")
+              li
+                span
+                  i.fa-solid.fa-check
+                | Dramatically re-engineer value added IT systems.
+              li
+                span
+                  i.fa-solid.fa-check
+                | Revisualize your work cycle with value added systems
+              li
+                span
+                  i.fa-solid.fa-check
+                | Tailor your ERP as per your imagination.
+
+            .space30
+            div(data-aos="fade-left" data-aos-duration="900")
+              a.theme-btn1(href="service.html") Discover More 
+                span
+                  i.fa-solid.fa-arrow-right
+
+  // Services Section
+  .service.sp
+    .container
+      .row
+        .col-lg-8.m-auto.text-center
+          .heading1
+            .span(data-aos="zoom-in-left" data-aos-duration="700")
+              img(src="images/gocloud%20logo.webp" height="50px" width="50px" alt="")
+              | Our Services
+            h2.title.tg-element-title Empower Your Business With Our Comprehensive Technology & IT Solutions
+
+      .space20
+
+      .row.flex-wrap.service-cards
+        .col-lg-4(data-aos="zoom-in-up" data-aos-duration="700")
+          .single-box.text-center
+            div(style="margin-bottom: 3rem;")
+              a
+                .icon.m-auto
+                  svg(xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24")
+                    path(fill="#888888" d="M12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5l1.53.11A2.98 2.98 0 0 1 22 15c0 1.65-1.35 3-3 3H6c-2.21 0-4-1.79-4-4c0-2.05 1.53-3.76 3.56-3.97l1.07-.11l.5-.95A5.47 5.47 0 0 1 12 6m0-2C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 14c0 3.31 2.69 6 6h13c2.76 0 5-2.24 5-5c0-2.64-2.05-4.78-4.65-4.96A7.49 7.49 0 0 0 12 4")
+
+            .heading1
+              h4
+                a(href="cloud-services.html") Cloud Solutions
+              .space16
+              p Harness the power of cloud with our robust cloud solutions. Whether you're looking to migrate to the cloud, optimize your existing infrastructure, or build scalable cloud-native Apps.
+
+              .mt-5(data-aos="fade-left" data-aos-duration="900")
+                a.theme-btn2(href="cloud-services.html") Discover More 
+                  span
+                    i.fa-solid.fa-arrow-right
+
+              .space16
+
+        .col-lg-4(data-aos="zoom-in-up" data-aos-duration="1100")
+          .single-box.text-center
+            div(style="margin-bottom: 3rem;")
+              .icon.m-auto
+                svg(xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24")
+                  path(fill="#888888" d="M21.1 15.796a2.9 2.9 0 1 1 0-5.8a2.9 2.9 0 0 1 0 5.8m0-1.2a1.7 1.7 0 1 0 .002-3.4H21.1a1.7 1.7 0 0 0 3.4m-6.065 1.2a2.9 2.9 0 1 1 0-5.8a2.9 2.9 0 0 1 0 5.8m0-1.2a1.7 1.7 0 1 0 .002-3.4h-.002a1.7 1.7 0 0 0 0 3.4m-3.17-1.738c0 1.62-1.298 2.938-2.898 2.938s-2.9-1.314-2.9-2.936S7.248 10 8.968 10c.636 0 1.224.134 1.7.484v-1.68a.6.6 0 0 1 1.2 0v4.054zm-2.898 1.74a1.7 1.7 0 0 0 .002-3.4h-.002a1.7 1.7 0 0 0 0 3.4M2.9 15.796a2.9 2.9 0 1 1 0-5.8a2.9 2.9 0 0 1 0 5.8m0-1.2a1.7 1.7 0 1 0 .002-3.4H2.9a1.7 1.7 0 0 0 0 3.4")
+
+            .heading1.mt-5
+              h4
+                a(href="odoo-dev.html") Odoo ERP development
+              .space16
+              p ERP systems are crucial for streamlining business processes by integrating various functions into a single platform, enhancing efficiency and collaboration. They provide real-time data and analytics, enabling informed decision-making and improved resource management
+
+              .mt-5(data-aos="fade-left" data-aos-duration="900")
+                a.theme-btn2(href="odoo-dev.html") Discover More 
+                  span
+                    i.fa-solid.fa-arrow-right
+
+        .col-lg-4(data-aos="zoom-in-up" data-aos-duration="800")
+          .single-box.text-center
+            div(style="margin-bottom: 3rem;")
+              .icon.m-auto
+                svg(xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24")
+                  path(fill="#888888" d="M21.1 15.796a2.9 2.9 0 1 1 0-5.8a2.9 2.9 0 0 1 0 5.8m0-1.2a1.7 1.7 0 1 0 .002-3.4H21.1a1.7 1.7 0 0 0 0 3.4m-6.065 1.2a2.9 2.9 0 1 1 0-5.8a2.9 2.9 0 0 1 0 5.8m0-1.2a1.7 1.7 0 1 0 .002-3.4h-.002a1.7 1.7 0 0 0 0 3.4m-3.17-1.738c0 1.62-1.298 2.938-2.898 2.938s-2.9-1.314-2.9-2.936S7.248 10 8.968 10c.636 0 1.224.134 1.7.484v-1.68a.6.6 0 0 1 1.2 0v4.054zm-2.898 1.74a1.7 1.7 0 0 0 .002-3.4h-.002a1.7 1.7 0 0 0 0 3.4M2.9 15.796a2.9 2.9 0 1 1 0-5.8a2.9 2.9 0 0 1 0 5.8m0-1.2a1.7 1.7 0 1 0 .002-3.4H2.9a1.7 1.7 0 0 0 0 3.4")
+
+            .heading1
+              h4
+                a(href="odoo-imp.html") Odoo ERP implementation
+              .space16
+              p Implement your business industry and imagine your workflow, see all your ideas going on screen
+
+              .mt-5(data-aos="fade-left" data-aos-duration="900")
+                a.theme-btn2(href="odoo-imp.html") Discover More 
+                  span
+                    i.fa-solid.fa-arrow-right
+
+        .col-lg-4(data-aos="zoom-in-up" data-aos-duration="1200")
+          .single-box.text-center
+            div(style="margin-bottom: 3rem;")
+              .icon.m-auto
+                svg(xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24")
+                  path(fill="#888888" d="M7 22q-.825 0-1.412-.587T5 20t.588-1.412T7 18t1.413.588T9 20t-.587 1.413T7 22m10 0q-.825 0-1.412-.587T15 20t.588-1.412T17 18t1.413.588T19 20t-.587 1.413T17 22M5.2 4h14.75q.575 0 .875.513t.025 1.037l-3.55 6.4q-.275.5-.737.775T15.55 13H8.1L7 15h12v2H7q-1.125 0-1.7-.987t-.05-1.963L6.6 11.6L3 4H1V2h3.25z")
+
+            .heading1
+              h4
+                a(href="portfolio.html") Portofolio & Ecommerce
+              .space16
+              p We craft stunning portfolio websites and powerful eCommerce platforms that elevate your brand and drive results
+
+              .mt-5(data-aos="fade-left" data-aos-duration="900")
+                a.theme-btn2(href="portfolio.html") Discover More 
+                  span
+                    i.fa-solid.fa-arrow-right
+
+        .col-lg-4(data-aos="zoom-in-up" data-aos-duration="900")
+          .single-box.text-center
+            div(style="margin-bottom: 3rem;")
+              .icon.m-auto
+                svg(xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24")
+                  path(fill="#888888" d="M15.21 2H8.75A6.76 6.76 0 0 0 2 8.75v6.5A6.76 6.76 0 0 0 8.75 22h6.5A6.76 6.76 0 0 0 22 15.25v-6.5A6.76 6.76 0 0 0 15.21 2m1.89 10.69h-.14a.76.76 0 0 1-.74-.62l-.18-1l-1.31 2a1.71 1.71 0 0 1-2.32.5l-2.27-1.44a.18.18 0 0 0-.13 0a.2.2 0 0-.13.08L7.56 15.3a.77.77 0 0 1-.6.3a.74.74 0 0 1-.45-.15a.75.75 0 0 1-.15-1l2.32-3.09a1.71 1.71 0 0 1 2.25-.43l2.28 1.44a.23.23 0 0 0 .28-.06l1.34-2l-1.08.15a.753.753 0 0 1-.28-1.48l2.76-.51h.36a.12.12 0 0 1 .08 0l.15.08l.15.12q.054.065.09.14a.5.5 0 0 1 .06.15l.52 2.8a.75.75 0 0 1-.54.93")
+
+            .heading1.mt-5
+              h4
+                a(href="business.html") Business intelligence
+              .space16
+              p Transform your data into actionable insights with our Business Intelligence solutions. We help organizations harness their data through intuitive dashboards, real-time analytics, and custom reporting tools that drive informed decision-making and business growth.
+
+              .mt-5(data-aos="fade-left" data-aos-duration="900")
+                a.theme-btn2(href="business.html" style="transition: all 0.3s ease;") Discover More 
+                  span
+                    i.fa-solid.fa-arrow-right
+
+  // Work Section
+  .work.sp
+    .container
+      .row.align-items-center
+        .col-lg-6
+          .heading1.text-center
+            .span(data-aos="zoom-in-left" data-aos-duration="700")
+              img(src="images/gocloud%20logo.webp" height="50px" width="50px" alt="GoCloud Logo")
+              | Solutions
+            h2.title.tg-element-title Imagine your startup has ERP system
+            .space16
+            p(data-aos="fade-right" data-aos-duration="700") At Gocloud, we understand that every business is unique, even startups and SMEs have the ability to monitor their business through robust ERP system.
+
+            .single-items(data-aos="fade-right" data-aos-duration="700")
+              div
+                .icon
+                  img(src="images/crm.png" alt="CRM Solutions Icon")
+              div
+                h4
+                  a(href="service-details.html") CRM to manager your customers relations
+                .space10
+                p If you want to make a comprehensive relations with your customers and don't miss any Lead, Then Our CRM is All you need
+
+            .single-items(data-aos="fade-right" data-aos-duration="900")
+              div
+                .icon
+                  img(src="images/erp.png" alt="ERP Systems Icon")
+              div
+                h4
+                  a(href="service-details.html") Odoo ERP solutions for all your business
+                .space10
+                p Focus on your core business activities in one Hub.
+
+            .single-items(data-aos="fade-right" data-aos-duration="1100")
+              div
+                .icon
+                  img(src="images/business-intelligence.png" alt="Business Intelligence Icon")
+              div
+                h4
+                  a(href="service-details.html") Business intelligence
+                .space10
+                p Transform your data into actionable insights with our Business Intelligence solutions.
+
+        .col-lg-6
+          .image-anime
+            img(src="images/work-bg.png" alt="" class="bg-image shape-animaiton4")
+
+  // CTA Section
+  .cta(id="CTA" style="background-color: green;")
+    .container
+      .row.align-items-center.m-3
+        .col-lg-7
+          .heading1-w.text-center
+            h2.title At GoCloud, We're Committed To Businesses
+            .space16
+            p(data-aos="fade-right" data-aos-duration="700") Take the first step towards achieving your business goals by contacting us today. Schedule a consultation with one of our IT specialists to discuss your objectives and explore how our innovative solutions can propel.
+
+        .col-lg-5
+          .buttons.text-center
+            a.cta-btn1(href="images/company profile.pdf" download) Download Our Company Profile 
+              span
+                i.fa-solid.fa-arrow-right
+
+  // Include footer
+  include components/footer.pug
+
+  // Include whatsapp button
+  include components/whatsapp-button.pug
+
+  // Odoo Partnership Modal
+  #odooPartnershipModal.modal.fade(tabindex='-1' aria-labelledby='odooPartnershipModalLabel' aria-hidden='true')
+    .modal-dialog.modal-lg.modal-dialog-centered
+      .modal-content
+        .modal-body
+          .row.align-items-center
+            .col-md-6.mb-3.mb-md-0
+              img.img-fluid.rounded.shadow-lg(src='images/odoo_partner.jpg' alt='Odoo Partnership')
+            .col-md-6
+              h4.fw-bold.mb-3
+                | Strategic 
+                span(style='color:rgba(198, 17, 198, 0.893)') Odoo
+                |  Partnership
+              p
+                | We're Official Odoo partners, the world's most popular all-in-one ERP business software!
+              p
+                | This collaboration allows us to provide enhanced ERP and CRM solutions tailored specifically for
+                | your business needs.
+              ul.list-unstyled
+                li.mb-2
+                  i.fa-solid.fa-check.text-primary.me-2
+                  |  Comprehensive business management
+                li.mb-2
+                  i.fa-solid.fa-check.text-primary.me-2
+                  |  Seamless integration
+                li.mb-2
+                  i.fa-solid.fa-check.text-primary.me-2
+                  |  Customized solutions
+                li.mb-2
+                  i.fa-solid.fa-check.text-primary.me-2
+                  |  Expert implementation
+
+block scripts
+  script.
+    document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(function() {
+        var modalEl = document.getElementById('odooPartnershipModal');
+        if (modalEl && typeof bootstrap !== 'undefined') {
+          // Clean up any manual class manipulation from other scripts
+          if (modalEl.classList.contains('show') && modalEl.style.display === 'block' && !document.querySelector('.modal-backdrop')) {
+            modalEl.classList.remove('show');
+            modalEl.style.display = '';
+          }
+
+          var modalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
+          modalInstance.show();
+        }
+      }, 2500);
+    });
+

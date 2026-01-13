@@ -1,1284 +1,767 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GoCloud - About Us</title>
-  <meta name="description"
-    content="Learn more about GoCloud, our mission, values, and the team behind our premium cloud services.">
-  <meta name="keywords" content="GoCloud, about, cloud services, company, team">
-  <link rel="canonical" href="https://www.gocloud.com/about.html" />
-  <meta property="og:title" content="GoCloud - About Us" />
-  <meta property="og:description"
-    content="Learn more about GoCloud, our mission, values, and the team behind our premium cloud services." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.gocloud.com/about.html" />
-  <meta property="og:image" content="https://www.gocloud.com/images/gocloud-logo.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="GoCloud - About Us" />
-  <meta name="twitter:description"
-    content="Learn more about GoCloud, our mission, values, and the team behind our premium cloud services." />
-  <meta name="twitter:image" content="https://www.gocloud.com/images/gocloud-logo.png" />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "url": "https://www.gocloud.com/",
-      "logo": "https://www.gocloud.com/images/gocloud-logo.png",
-      "name": "GoCloud",
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "telephone": "+1-800-555-1234",
-        "contactType": "Customer Service"
-      }]
-    }
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoCloud - About Us</title>
+    <meta name="description" content="Learn more about GoCloud, our mission, values, and the team behind our premium cloud services.">
+    <meta name="keywords" content="GoCloud, about, cloud services, company, team">
+    <link rel="canonical" href="https://www.gocloud.com/about.html">
+    <meta property="og:title" content="GoCloud - About Us">
+    <meta property="og:description" content="Learn more about GoCloud, our mission, values, and the team behind our premium cloud services.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gocloud.com/about.html">
+    <meta property="og:image" content="https://www.gocloud.com/images/gocloud-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GoCloud - About Us">
+    <meta name="twitter:description" content="Learn more about GoCloud, our mission, values, and the team behind our premium cloud services.">
+    <meta name="twitter:image" content="https://www.gocloud.com/images/gocloud-logo.png">
+    <!-- Accessibility improvements-->
+    <meta name="theme-color" content="#ffffff">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Accessibility meta tags-->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "url": "https://www.gocloudeg.com/",
+        "logo": "https://www.gocloudeg.com/images/gocloud-logo.png",
+        "name": "GoCloud",
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+1-800-555-1234",
+          "contactType": "Customer Service"
+        }]
+      }
+      
     </script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Page</title>
-
-  <!--=====FAV ICON=======-->
-  <link rel="shortcut icon" href="images/gocloud logo.jpeg" type="image/x-icon">
-
-
-  <!--=====CSS=======-->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/fontawesome.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <link rel="stylesheet" href="css/nice-select.css">
-  <link rel="stylesheet" href="css/slick-slider.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/aos.css">
-  <link rel="stylesheet" href="css/mobile-menu.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-
-  <!--=====RESOURCE PRELOAD HINTS=======-->
-  <link rel="preload" href="css/bootstrap.min.css" as="style">
-  <link rel="preload" href="css/main.css" as="style">
-  <link rel="preload" href="js/jquery-3-7-1.min.js" as="script">
-  <style>
-    .beliefs-container {
-      position: relative;
-      height: 400px;
-      overflow: hidden;
-      background: rgba(245, 245, 245, 0.1);
-      border-radius: 20px;
-    }
-
-    .blob {
-      position: absolute;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 24px;
-      font-weight: bold;
-      color: white;
-      padding: 40px;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    .blob span {
-      z-index: 1;
-    }
-
-    .blob1 {
-      background: rgba(75, 120, 180, 0.8);
-      width: 200px;
-      height: 200px;
-      left: 20%;
-      top: 30%;
-      animation-delay: 0s;
-    }
-
-    .blob2 {
-      background: rgba(100, 150, 200, 0.8);
-      width: 180px;
-      height: 180px;
-      left: 45%;
-      top: 40%;
-      animation-delay: 2s;
-    }
-
-    .blob3 {
-      background: rgba(50, 100, 160, 0.8);
-      width: 160px;
-      height: 160px;
-      left: 70%;
-      top: 35%;
-      animation-delay: 4s;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0px) scale(1);
-      }
-
-      50% {
-        transform: translateY(-20px) scale(1.05);
-      }
-
-      100% {
-        transform: translateY(0px) scale(1);
-      }
-    }
-
-    .blob::before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: inherit;
-      border-radius: 50%;
-      filter: blur(10px);
-      z-index: -1;
-    }
-  </style>
-</head>
-
-<body class="body tg-heading-subheading animation-style3">
-
-
-
-  <!--=====progress END=======-->
-
-  <div class="paginacontainer">
-
-    <div class="progress-wrap">
-      <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
-      </svg>
-    </div>
-
-  </div>
-
-  <!--=====progress END=======-->
-
-  <!-- Preloader -->
-  <section>
-    <div id="preloader">
-      <div id="ctn-preloader" class="ctn-preloader ctn-preloader1">
-        <div class="animation-preloader">
-          <div class="spinner">
-            <img src="images/gocloud logo.jpeg" alt="" srcset="" height="200px" width="200px"
-              style="border-radius: 50%;">
-          </div>
-          <div class="txt-loading">
-            <span data-text-preloader="G" class="letters-loading">
-              G
-            </span>
-            <span data-text-preloader="O" class="letters-loading">
-              O
-            </span>
-            <span data-text-preloader="C" class="letters-loading">
-              C
-            </span>
-            <span data-text-preloader="L" class="letters-loading">
-              L
-            </span>
-            <span data-text-preloader="O" class="letters-loading">
-              O
-            </span>
-            <span data-text-preloader="U" class="letters-loading">
-              U
-            </span>
-            <span data-text-preloader="D" class="letters-loading">
-              D
-            </span>
-          </div>
-        </div>
-        <div class="loader-section-left loader-section section-left"></div>
-        <div class="loader-section-right loader-section section-right"></div>
-      </div>
-    </div>
-  </section>
-
-  <!--=====HEADER START=======-->
-  <!-- ===== top banner ===== -->
-
-  <div class="header-top" style="background-color: #017E84;">
-    <div class="container">
-      <div class="flex row justify-content-around align-items-center">
-        <div class="col-lg-6">
-          <p style="color: white;" class="typewriter fs-5 fw-bold" id="typewriterText">
-          </p>
-        </div>
-        <div class="col-lg-6" style="height: 60px;">
-          <img src="images/odoo_learning_partner_rgb (1).png" alt="">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="images/gocloud logo.webp" type="image/x-icon">
+    <!-- CSS (CDN)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
+    <link rel="stylesheet" href="css/nice-select.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="css/mobile-menu.min.css">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Resource preload hints-->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="css/main.min.css" as="style">
+    <link rel="preload" href="https://code.jquery.com/jquery-3.7.1.min.js" as="script">
+    <!-- Font preload with font-display: swap for better performance-->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap">
+    </noscript>
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="dns-prefetch" href="//kit.fontawesome.com">
+    <!-- Custom styles-->
+  </head>
+  <body class="body tg-heading-subheading animation-style3">
+    <!-- Main content wrapper-->
+    <div id="main-content" role="main">
+      <!-- Include components-->
+      <!-- Preloader Component-->
+      <div class="paginacontainer">
+        <div class="progress-wrap">
+          <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+          </svg>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- end of top banner -->
-
-  <header>
-    <div class="header-area header-area1 header-area-all d-none d-md-block d-lg-block" id="header">
+      <section>
+        <div id="preloader">
+          <div class="ctn-preloader ctn-preloader1" id="ctn-preloader">
+            <div class="animation-preloader">
+              <div class="spinner"><img src="images/gocloud%20logo.webp" alt="GoCloud Logo" height="200px" width="200px" loading="lazy" style="border-radius: 50%;"></div>
+              <div class="txt-loading"><span class="letters-loading" data-text-preloader="G">G</span><span class="letters-loading" data-text-preloader="O">O</span><span class="letters-loading" data-text-preloader="C">C</span><span class="letters-loading" data-text-preloader="L">L</span><span class="letters-loading" data-text-preloader="O">O</span><span class="letters-loading" data-text-preloader="U">U</span><span class="letters-loading" data-text-preloader="D">D</span></div>
+            </div>
+            <div class="loader-section-left loader-section section-left"></div>
+            <div class="loader-section-right loader-section section-right"></div>
+          </div>
+        </div>
+      </section>
+      <!-- Top Banner Component-->
+      <div class="header-top" style="background-color: #017E84;">
+        <div class="container">
+          <div class="flex row justify-content-around align-items-center">
+            <div class="col-lg-6">
+              <p class="typewriter fs-5 fw-bold" id="typewriterText" style="color: white;"></p>
+            </div>
+            <div class="col-lg-6" style="height: 60px;"><img src="images/odoo_learning_partner_rgb%20(1).png" alt="Odoo Partner" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Header Component-->
+      <header role="banner">
+        <div class="header-area header-area1 header-area-all d-none d-md-block d-lg-block" id="header">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="header-elements">
+                  <div><a href="index.html" aria-label="GoCloud Home"><img src="images/gocloud%20logo.webp" alt="GoCloud Logo" height="100px" width="100px" loading="lazy"></a></div>
+                  <nav role="navigation" aria-label="Main Navigation">
+                    <div class="main-menu-ex main-menu-ex1">
+                      <ul role="menubar">
+                        <li class="dropdown-menu-parrent" role="none"><a href="/" role="menuitem">Home</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="about.html" role="menuitem">About</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="service.html" role="menuitem">Services</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="https://erp.gocloudeg.com/web/login" target="_blank" rel="noopener noreferrer" role="menuitem"></a>
+                          <button class="btn bg-primary" type="button">Login</button>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+                  <div class="header1-buttons">
+                    <div class="contact-btn">
+                      <div class="icon"><img src="images/header1-icon.webp" alt="" loading="lazy"></div>
+                      <div class="headding">
+                        <p>Make a Call</p><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a>
+                      </div>
+                    </div>
+                    <div class="button"><a class="theme-btn1" href="https://gocloudeg.com/survey/start/e6323978-a3c5-430f-a14b-88d2ce1169da" aria-label="Get a Quote">Get A Quote <span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Mobile Header-->
+      <header role="banner">
+        <div class="mobile-header d-block d-md-none d-lg-none">
+          <div class="container-fluid">
+            <div class="col-12">
+              <div class="mobile-header-elements">
+                <div class="mobile-logo"><a href="index.html" aria-label="GoCloud Home"><img src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy"></a></div>
+                <div class="mobile-nav-icon">
+                  <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><i class="fa-duotone fa-bars-staggered" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-sidebar d-block d-md-none d-lg-none" role="dialog" aria-label="Mobile navigation menu">
+          <div class="logo-m"><a href="index.html" aria-label="GoCloud Home"><img src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy"></a></div>
+          <div class="menu-close">
+            <button type="button" aria-label="Close navigation menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+          </div>
+          <div class="mobile-nav">
+            <nav role="navigation" aria-label="Mobile Navigation">
+              <ul role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem">About Us</a></li>
+                <li role="none"><a href="service.html" role="menuitem">Services</a></li>
+                <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+              </ul>
+            </nav>
+            <div class="mobile-button"><a class="menu-btn2" href="https://erp.gocloudeg.com/web/login" aria-label="Login to ERP system">Login<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+            <div class="single-footer-items">
+              <h3>Contact Us</h3>
+              <div class="contact-box">
+                <div class="icon"><img src="images/footer1-icon1.webp" alt="Phone Icon" loading="lazy"></div>
+                <div class="pera"><a href="tel://0233762533" aria-label="Call us at 0233762533">0233762533</a></div>
+              </div>
+              <div class="contact-box">
+                <div class="icon"><img src="images/footer1-icon2.webp" alt="Mobile Phone Icon" loading="lazy"></div>
+                <div class="pera"><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a></div>
+              </div>
+              <div class="contact-box">
+                <div class="icon"><img src="images/footer1-icon3.webp" alt="Email Icon" loading="lazy"></div>
+                <div class="pera"><a href="mailto:marketing@gocloudeg.com" aria-label="Send email to marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
+              </div>
+              <div class="contact-box">
+                <div class="icon"><img src="images/footer1-icon4.webp" alt="Website Icon" loading="lazy"></div>
+                <div class="pera"><a href="https://gocloudeg.com" aria-label="Visit GoCloud website">www.gocloudeg.com</a></div>
+              </div>
+            </div>
+            <div class="contact-infos">
+              <h3>Our Location</h3>
+              <ul class="social-icon">
+                <li><a href="https://www.linkedin.com/company/gocloud-co/posts/?feedView=all"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.google.com/search?q=gocloud+eg&amp;sca_esv=1b465dddb89ef670&amp;sxsrf=AE3TifPO8dDI2un8QLeuyTZoAmiw1QCmhA%3A1750690736441&amp;ei=sGtZaLfRGoaNkdUP4_DKyAI&amp;ved=0ahUKEwi36dOb54eOAxWGRqQEHWO4EikQ4dUDCBA&amp;uact=5&amp;oq=gocloud+&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiCGdvY2xvdWQgMgoQIxjwBRgnGMkCMgQQIxgnMgUQABiABDIKEAAYgAQYQxiKBTILEC4YgAQYxwEYrwEyChAAGIAEGEMYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigVInw5Q3AFY3AFwAXgBkAEAmAHXCaAB1wmqAQM3LTG4AQPIAQD4AQGYAgKgAvcJwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYKkgcFMS43LTGgB9YKsgcDNy0xuAfpCcIHAzMtMsgHGg&amp;sclient=gws-wiz-serp"><i class="fa-brands fa-google"></i></a></li>
+                <li><a href="https://www.youtube.com/@GoCloudeg"><i class="fa-brands fa-youtube"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Hero Section-->
+      <div class="common-hero">
+        <div class="container">
+          <div class="row align-items-center text-center">
+            <div class="col-lg-6 m-auto">
+              <div class="main-heading">
+                <h1>About Us</h1>
+                <div class="space16"></div><span class="span"><img src="images/span1.webp" alt="" loading="lazy"> <a href="index.html">Home</a> <span class="arrow"><i class="fa-regular fa-angle-right"></i></span> About</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Marquee Section-->
+      <section class="hero10-benar">
+        <div class="container-fluid p-0">
+          <div class="row">
+            <div class="col-12">
+              <div class="marquee-wrap marquee-wrap-inner h-20">
+                <div class="marquee-text">
+                  <div class="brand-single-box h-32"><img src="images/wellcare-removebg-preview.webp" height="50" alt="" loading="lazy"></div>
+                  <div class="brand-single-box h-32"><img src="images/Goldera-removebg-preview.webp" height="50" alt="" loading="lazy"></div>
+                  <div class="brand-single-box"><img src="images/unicare-removebg-preview (1).webp" height="50px" alt="" loading="lazy"></div>
+                  <div class="brand-single-box"><img src="images/professional-removebg-preview.webp" height="50" alt="" loading="lazy"></div>
+                  <div class="brand-single-box"><img src="images/Mashreq-removebg-preview.webp" height="50" alt="" loading="lazy"></div>
+                  <div class="brand-single-box"><img src="images/omega-removebg-preview.webp" height="50" alt="" loading="lazy"></div>
+                  <div class="brand-single-box"><img src="images/bahgat-removebg-preview.webp" height="50" alt="" loading="lazy"></div>
+                  <div class="brand-single-box h-32"><img src="images/onecare-removebg-preview.webp" height="50" alt="OneCare Partner Logo" loading="lazy"></div>
+                  <div class="brand-single-box"><img src="images/egmed-removebg-preview.webp" height="50" alt="" loading="lazy"></div>
+                  <div class="brand-single-box"><img src="images/empire_of_gold-removebg-preview.webp" height="50" alt="" loading="lazy"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-after"></div>
+        </div>
+      </section>
+      <!-- About Area-->
+      <div class="about2 about-page-sec sp">
+        <div class="container">
+          <div class="row align-items-center justify-content-start">
+            <div class="col-lg-6">
+              <div class="about2-images">
+                <div class="image2"><img src="images/about-tab-img.webp" height="500" loading="lazy"></div>
+                <div class="counter-box shape-animaiton3">
+                  <h3 id="yearsCounter">+<span></span></h3>
+                  <p>Years Of <br>Experience</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="heading1 text-center"><span class="span text-center" data-aos="fade-left" data-aos-delay="300" data-aos-duration="400"><img src="images/gocloud logo.webp" height="50" width="50" loading="lazy">About Us</span>
+                <h2 class="text-center" data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400">Empower Your Business With Our Comprehensive Software Solutions</h2>
+                <div class="space16"></div>
+                <p class="text-center" data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="700">Welcome to GoCloud, your trusted partner in digital transformation and innovative IT solutions. As a leading technology company, we specialize in delivering cutting-edge software development, cloud computing, and enterprise solutions that drive business growth and operational excellence. Our commitment to quality and innovation has established us as a premier technology partner for businesses across diverse industries.</p>
+                <div class="space10"></div>
+                <div class="porgress-line-all">
+                  <div class="progress-line" data-aos="fade-left" data-aos-delay="400" data-aos-duration="400">
+                    <div class="heading">
+                      <h6>Industry specific software</h6>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                  <div class="progress-line" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400">
+                    <div class="heading">
+                      <h6>Odoo ERP implementation</h6>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="75"></div>
+                    </div>
+                  </div>
+                  <div class="progress-line" data-aos="fade-left" data-aos-delay="600" data-aos-duration="400">
+                    <div class="heading">
+                      <h6>IT & cloud solutions</h6>
+                      <p></p>
+                    </div>
+                    <div class="progress">
+                      <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="space30"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Solution Area (Mission)-->
+      <div class="solution sp bg1">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <div class="heading1 text-center"><span class="span text-center" data-aos="fade-left" data-aos-delay="300" data-aos-duration="400"><img src="images/gocloud logo.webp" height="50" width="50" loading="lazy"> Our Mission</span>
+                <h2 data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400">Innovating for Success: Our Technology Mission</h2>
+                <div class="space16"></div>
+                <p data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400">Build good reputation and Earn the trust and satisfaction from success partners (employees and clients) by providing the effort, expertise and efficiency</p>
+                <div class="space16"></div>
+                <p data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400">At GoCloud, our mission is to empower businesses through technology. We believe in harnessing the power of innovation to drive growth, efficiency, and sustainability for our clients. Through our tailored technology solutions and unwavering commitment to excellence, we strive to be the catalyst for positive change in the digital landscape.</p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="solution-images">
+                <div class="image2"><img src="images/mission.webp" loading="lazy" alt="Our Mission"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Solution Area (Vision)-->
+      <div class="solution about-solution sp">
+        <div class="container mt-md-4">
+          <div class="row align-items-center">
+            <div class="col-lg-6 mt-md-3">
+              <div class="images">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="image"><img src="images/paperless.webp" loading="lazy" alt="Digital transformation"></div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="space30"></div>
+                    <div class="image"><img src="images/digital.webp" height="170" loading="lazy" alt="Digital solutions"></div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="space30"></div>
+                    <div class="image"><img src="images/goals.webp" height="170" loading="lazy" alt="Business goals"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="heading1 text-center"><span class="span" data-aos="fade-left" data-aos-delay="300" data-aos-duration="400"><img src="images/gocloud logo.webp" height="50" width="50" loading="lazy"> Our Vision</span>
+                <h2 class="text-center" data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400">Driving Innovation: Our Vision at Gocloud</h2>
+                <div class="space16"></div>
+                <p class="text-center" data-aos="zoom-in-up" data-aos-delay="500" data-aos-duration="400">At GoCloud, we envision becoming the undisputed leader in technology and software services, setting new industry standards through innovation and excellence. Our vision encompasses delivering transformative digital solutions that empower businesses to thrive in an increasingly connected world. We strive to be recognized not just for our technical expertise, but for our ability to drive meaningful business outcomes through cutting-edge technology implementation, exceptional service delivery, and unwavering commitment to client success. Through continuous innovation, strategic partnerships, and investment in emerging technologies, we aim to shape the future of digital transformation while maintaining our position as a trusted technology partner for organizations worldwide.</p>
+                <div class="item-box"></div>
+                <div>
+                  <h3 class="text-center text-primary" data-aos="fade-left" data-aos-delay="600" data-aos-duration="400">Digital transformation Leaders</h3>
+                  <div class="space10"></div>
+                  <p class="text-center" data-aos="fade-left" data-aos-delay="700" data-aos-duration="400">Build a reliable and secure network infrastructure that supports your business operations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Core Beliefs-->
+      <div class="core-beliefs sp">
+        <div class="container justify-content-center">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <div class="heading1"><span class="span" data-aos="fade-left" data-aos-delay="300" data-aos-duration="400"><img src="images/gocloud logo.webp" height="50" width="50" loading="lazy"> Our Core Beliefs</span>
+                <h2 data-aos="fade-left" data-aos-delay="400" data-aos-duration="400">What Drives Us Forward</h2>
+              </div>
+            </div>
+          </div>
+          <div class="beliefs-container justify-content-center">
+            <!-- Animated blobs with words-->
+            <div class="blob blob1"><span>Excellence</span></div>
+            <div class="blob blob2"><span>Transparency</span></div>
+            <div class="blob blob3"><span>Progress</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- About Tabs-->
+      <div class="about-tabs sp bg1">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 text-center m-auto">
+              <div class="heading1"><span class="span" data-aos="fade-left" data-aos-delay="300" data-aos-duration="400"><img src="images/span1.webp" alt="" loading="lazy"> Our Story</span>
+                <h2 data-aos="fade-left" data-aos-delay="400" data-aos-duration="400">Our Company Milestones</h2>
+              </div>
+            </div>
+          </div>
+          <div class="row d-flex">
+            <div class="col-lg-10 col-md-12 m-auto">
+              <ul class="nav nav-pills tab-header-all mb-3 justify-content-center" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="about-tab1-tab" data-bs-toggle="pill" data-bs-target="#about-tab1" type="button" role="tab" aria-controls="about-tab1" aria-selected="true">2015</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="about-tab2-tab" data-bs-toggle="pill" data-bs-target="#about-tab2" type="button" role="tab" aria-controls="about-tab2" aria-selected="false">2017</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="about-tab3-tab" data-bs-toggle="pill" data-bs-target="#about-tab3" type="button" role="tab" aria-controls="about-tab3" aria-selected="false">2019</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="about-tab4-tab" data-bs-toggle="pill" data-bs-target="#about-tab4" type="button" role="tab" aria-controls="about-tab4" aria-selected="false">2023</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="space60"></div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="about-tab1" role="tabpanel" aria-labelledby="about-tab1-tab">
+                  <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-12">
+                      <div class="tab-content-box">
+                        <div class="heading1">
+                          <h5>2015 - A Legacy of Innovation</h5>
+                          <div class="space24"></div>
+                          <p><span class="text">Early Years:</span> In 2015, GoCloud emerged with a clear vision to revolutionize the technology landscape in Egypt. Starting with a dedicated team of innovative professionals, we recognized the growing demand for comprehensive digital solutions in the MENA region. Our initial focus was on delivering customized software solutions that would help local businesses embrace digital transformation and compete in an increasingly technology-driven market.</p>
+                          <div class="space16"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                      <div class="image"><img src="images/about-tab-img.webp" alt="" loading="lazy"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="about-tab2" role="tabpanel" aria-labelledby="about-tab2-tab">
+                  <div class="row align-items-center">
+                    <div class="col-lg-6">
+                      <div class="tab-content-box">
+                        <div class="heading1">
+                          <h5>2017 - More Than One Service</h5>
+                          <div class="space24"></div>
+                          <p><span class="text">Expansion & Innovation:</span> As technology continued to evolve, so we expanded our service offerings to include a wide range of solutions, from IT services and cloud computing to data analytics and artificial intelligence.</p>
+                          <div class="space16"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image"><img class="w-full" src="images/technology services.webp" height="400" loading="lazy" alt="Technology services"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="about-tab3" role="tabpanel" aria-labelledby="about-tab3-tab">
+                  <div class="row align-items-center">
+                    <div class="col-lg-6">
+                      <div class="tab-content-box">
+                        <div class="heading1">
+                          <h5>2023 - ELITE Boom</h5>
+                          <div class="space24"></div>
+                          <p><span class="text">Medical insurance solution:</span> ELITE is our comprehensive medical insurance management system, designed specifically for the healthcare insurance industry. This innovative solution streamlines the entire insurance lifecycle - from policy creation and claims processing to provider network management and regulatory compliance. Built with cutting-edge technology, ELITE empowers insurance companies to deliver efficient, transparent, and customer-centric services while optimizing operational costs.</p>
+                          <div class="space16"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image"><img class="w-full" src="images/elite.webp" height="400" loading="lazy"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="about-tab4" role="tabpanel" aria-labelledby="about-tab4-tab">
+                  <div class="row align-items-center">
+                    <div class="col-lg-6">
+                      <div class="tab-content-box">
+                        <div class="heading1">
+                          <h5>2025 - ERP & CRM Era</h5>
+                          <div class="space24"></div>
+                          <p><span class="text">Odoo ERP & CRM Solutions:</span> We specialize in implementing comprehensive Odoo ERP & CRM systems tailored for diverse business sectors. Our solutions empower real estate companies with property management and sales tracking, help gold investment firms streamline operations and inventory control, and enable medical facilities to efficiently manage patient records and healthcare services - all through one integrated platform.</p>
+                          <div class="space16"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="image"><img class="w-full" src="images/odoo about .webp" height="400" loading="lazy" alt="Odoo ERP solutions"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Organization Chart-->
+      <div class="space60"></div>
       <div class="container">
         <div class="row">
-          <div class="col-12">
-            <div class="header-elements">
-              <div class="">
-                <a href="index.html">
-                  <img src="images/gocloud logo.jpeg" alt="gocloud" height="100px" width="100px">
-                </a>
-              </div>
-
-
-              <div class="main-menu-ex main-menu-ex1">
-                <ul>
-                  <li class="dropdown-menu-parrent"><a href="/">Home</a></li>
-                  <li class="dropdown-menu-parrent"><a href="About.html">About</a></li>
-                  <li class="dropdown-menu-parrent"><a href="Service.html">Services</a></li>
-                  <li class="dropdown-menu-parrent"><a href="Contact.html">Contact</a></li>
-
-                  <li class="dropdown-menu-parrent">
-                    <a href="https://erp.gocloudeg.com/web/login" target="_blank">
-                      <button class="btn bg-primary">Login
-                      </button>
-                    </a>
-                  </li>
-                </ul>
-                </li>
-                </ul>
-              </div>
-
-              <div class="header1-buttons">
-                <div class="contact-btn">
-                  <div class="icon">
-                    <img src="images/header1-icon.png" alt="">
-                  </div>
-                  <div class="headding">
-                    <p>Make a Call</p>
-                    <a href="tel://+201017383815">+201017383815</a>
-                  </div>
-                </div>
-                <div class="button">
-                  <a class="theme-btn1"
-                    href="https://gocloudeg.com/survey/start/e6323978-a3c5-430f-a14b-88d2ce1169da">Get A Quote <span><i
-                        class="fa-solid fa-arrow-right"></i></span></a>
-                </div>
-              </div>
-
+          <div class="col-lg-10 text-center m-auto">
+            <div class="heading1"><span class="span" data-aos="fade-left" data-aos-delay="300" data-aos-duration="400"><img src="images/span1.webp" alt="" loading="lazy"> Our org chart</span>
+              <h2 data-aos="fade-left" data-aos-delay="400" data-aos-duration="400">Our Company Org Chart</h2>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </header>
-  <!--=====HEADER END=======-->
-
-  <!-- what's app icon -->
-
-  <style>
-    /*WhatsApp css*/
-    .whatsapp-float {
-      position: fixed;
-      width: 60px;
-      height: 60px;
-      bottom: 100px;
-      right: 30px;
-      background-color: #25d366;
-      color: #FFF;
-      border-radius: 40px;
-      text-align: center;
-      font-size: 30px;
-      z-index: 100;
-      cursor: pointer;
-    }
-
-    .my-float {
-      margin-top: 16px;
-    }
-
-    .my-float-icon {
-      margin-bottom: 16px;
-    }
-
-    .my-float-text {
-      position: absolute;
-      top: 0;
-      left: 0;
-      font-size: 12px;
-    }
-  </style>
-  <script type="text/javascript">
-    // WhatsApp button - vanilla JS (no jQuery dependency)
-    document.addEventListener('DOMContentLoaded', function () {
-      var whatsappFloat = document.createElement('div');
-      whatsappFloat.className = 'whatsapp-float';
-
-      var myFloat = document.createElement('div');
-      myFloat.className = 'my-float';
-
-      var icon = document.createElement('i');
-      icon.className = 'fa-brands fa-whatsapp';
-
-      myFloat.appendChild(icon);
-      whatsappFloat.appendChild(myFloat);
-      document.body.appendChild(whatsappFloat);
-
-      whatsappFloat.addEventListener('click', function () {
-        window.location.href = 'https://wa.me/+201017383815?text=Hello from Gocloud';
-      });
-    });
-  </script>
-
-  <!--=====Mobile header start=======-->
-  <header>
-    <div class="mobile-header d-block d-md-none d-lg-none">
-      <div class="container-fluid">
-        <div class="col-12">
-          <div class="mobile-header-elements">
-            <div class="mobile-logo">
-              <a href="index.html"><img src="images/gocloud logo.jpeg" height="100" width="100" alt=""></a>
-            </div>
-            <div class="mobile-nav-icon">
-              <i class="fa-duotone fa-bars-staggered"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="mobile-sidebar d-block d-md-none d-lg-none">
-      <div class="logo-m">
-        <a href="index.html"><img src="images/gocloud logo.jpeg" height="100" width="100" alt=""></a>
-      </div>
-      <div class="menu-close">
-        <i class="fa-solid fa-xmark"></i>
-      </div>
-      <div class="mobile-nav">
-
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="service.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-
-        <div class="mobile-button">
-          <a class="menu-btn2" href="https://erp.gocloudeg.com/web/login">Login<span><i
-                class="fa-solid fa-arrow-right"></i></span></a>
-        </div>
-
-        <div class="single-footer-items">
-          <h3>Contact Us</h3>
-
-          <div class="contact-box">
-            <div class="icon">
-              <img src="images/footer1-icon1.png" alt="">
-            </div>
-            <div class="pera">
-              <a href="tel://0233762533">0233762533</a>
-            </div>
-          </div>
-
-          <div class="contact-box">
-            <div class="icon">
-              <img src="images/footer1-icon2.png" alt="">
-            </div>
-            <div class="pera">
-              <a href="tel://+201017383815">+201017383815</a>
-            </div>
-          </div>
-
-          <div class="contact-box">
-            <div class="icon">
-              <img src="images/footer1-icon3.png" alt="">
-            </div>
-            <div class="pera">
-              <a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a>
-            </div>
-          </div>
-
-          <div class="contact-box">
-            <div class="icon">
-              <img src="images/footer1-icon4.png" alt="">
-            </div>
-            <div class="pera">
-              <a href="https://gocloudeg.com">www.gocloudeg.com</a>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="contact-infos">
-          <h3>Our Location</h3>
-          <ul class="social-icon">
-            <li><a href="https://www.linkedin.com/company/gocloud-co/posts/?feedView=all"><i
-                  class="fa-brands fa-linkedin-in"></i></a></li>
-            <li><a
-                href="https://www.google.com/search?q=gocloud+eg&sca_esv=1b465dddb89ef670&sxsrf=AE3TifPO8dDI2un8QLeuyTZoAmiw1QCmhA%3A1750690736441&ei=sGtZaLfRGoaNkdUP4_DKyAI&ved=0ahUKEwi36dOb54eOAxWGRqQEHWO4EikQ4dUDCBA&uact=5&oq=gocloud+&gs_lp=Egxnd3Mtd2l6LXNlcnAiCGdvY2xvdWQgMgoQIxjwBRgnGMkCMgQQIxgnMgUQABiABDIKEAAYgAQYQxiKBTILEC4YgAQYxwEYrwEyChAAGIAEGEMYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigVInw5Q3AFY3AFwAXgBkAEAmAHXCaAB1wmqAQM3LTG4AQPIAQD4AQGYAgKgAvcJwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYKkgcFMS43LTGgB9YKsgcDNy0xuAfpCcIHAzMtMsgHGg&sclient=gws-wiz-serp"><i
-                  class="fa-brands fa-google"></i></a></li>
-            <li><a href="https://www.youtube.com/@GoCloudeg"><i class="fa-brands fa-youtube"></i></a></li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </header>
-
-  <!--=====Mobile header end=======-->
-
-
-  <!--=====HERO AREA START=======-->
-
-  <div class="common-hero">
-    <div class="container">
-      <div class="row align-items-center text-center">
-        <div class="col-lg-6 m-auto">
-          <div class="main-heading">
-            <h1>About Us</h1>
-            <div class="space16"></div>
-            <span class="span"><img src="images/span1.png" alt=""> <a href="index.html">Home</a> <span class="arrow"><i
-                  class="fa-regular fa-angle-right"></i></span> About</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!--=====HERO AREA END=======-->
-
-  <section class="hero10-benar">
-    <div class="container-fluid p-0">
-      <div class="row">
-        <div class="col-12">
-          <div class="marquee-wrap marquee-wrap-inner h-120">
-            <div class="marquee-text">
-
-
-
-
-              <div class="brand-single-box h-32">
-                <img src="images/wellcare-removebg-preview.png" height="50" alt="">
-              </div>
-
-              <div class="brand-single-box h-32">
-                <img src="images/Goldera-removebg-preview.png" height="50" alt="">
-              </div>
-
-              <div class="brand-single-box">
-                <img src="images/unicare-removebg-preview (1).png" height="50px" alt="">
-              </div>
-
-              <div class="brand-single-box">
-                <img src="images/professional-removebg-preview.png" height="50" alt="">
-              </div>
-
-              <div class="brand-single-box">
-                <img src="images/Mashreq-removebg-preview.png" height="50" alt="">
-              </div>
-
-              <div class="brand-single-box">
-                <img src="images/omega-removebg-preview.png" height="50" alt="">
-              </div>
-
-              <div class="brand-single-box">
-                <img src="images/bahgat-removebg-preview.png" height="50" alt="">
-              </div>
-              <div class="brand-single-box">
-                <img src="images/onecare-removebg-preview.png" height="50">
-              </div>
-
-              <div class="brand-single-box">
-                <img src="images/egmed-removebg-preview.png" height="50" alt="">
-              </div>
-
-              <div class="brand-single-box">
-                <img src="images/empire_of_gold-removebg-preview.png" height="50" alt="">
-              </div>
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="slider-after"></div>
-    </div>
-  </section>
-
-
-  <!--=====ABOUT AREA START =======-->
-
-  <div class="about2 about-page-sec sp">
-    <div class="container">
-      <div class="row align-items-center justify-content-start">
-        <div class="col-lg-6">
-          <div class="about2-images">
-            <div class="image2">
-              <img src="images/about-tab-img.png" height="500">
-            </div>
-            <div class="counter-box shape-animaiton3">
-              <h3 id="yearsCounter">+<span></span></h3>
-              <p>Years Of <br> Experience</p>
-            </div>
-          </div>
-          <script>
-            // Calculate years between now and 2015
-            function calculateYears() {
-              const startYear = 2015;
-              const currentYear = new Date().getFullYear();
-              const yearsDiff = currentYear - startYear;
-              document.querySelector('#yearsCounter span').textContent = yearsDiff;
-            }
-            // Run calculation when page loads
-            calculateYears();
-          </script>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="heading1 text-center">
-            <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" class=" span text-center">
-              <img src="images/gocloud logo.jpeg" height="50" width="50">
-              About Us
-            </span>
-            <h2 class="text-center" data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400">Empower Your
-              Business With Our
-              Comprehensive Software Solutions</h2>
-            <div class="space16"></div>
-            <p class="text-center" data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="700">Welcome to
-              GoCloud, your trusted
-              partner in digital transformation and innovative IT solutions. As a
-              leading technology company, we specialize in delivering cutting-edge software development, cloud
-              computing, and enterprise solutions that drive business growth and operational excellence. Our commitment
-              to quality and innovation has established us as a premier technology partner for businesses across diverse
-              industries.</p>
-
-            <div class="space10"></div>
-
-            <div class="porgress-line-all">
-              <div class="progress-line" data-aos="fade-left" data-aos-delay="400" data-aos-duration="400">
-                <div class=" heading">
-                  <h6>Industry specific software</h6>
-                </div>
-                <div class="progress">
-                  <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="progress-line" data-aos="fade-left" data-aos-delay="500" data-aos-duration="400">
-                <div class="heading">
-                  <h6>Odoo ERP implementation</h6>
-
-                </div>
-                <div class="progress">
-                  <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                    aria-valuemax="75"></div>
-                </div>
-              </div>
-              <div class="progress-line" data-aos="fade-left" data-aos-delay="600" data-aos-duration="400">
-                <div class="heading">
-                  <h6>IT & cloud solutions</h6>
-                  <p></p>
-                </div>
-                <div class="progress">
-                  <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                    aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="space30"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--=====ABOUT AREA END=======-->
-
-  <!--=====SOLUTION AREA START=======-->
-
-  <div class="solution sp bg1">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <div class="heading1 text-center">
-            <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" class="span text-center"><img
-                src="images/gocloud logo.jpeg" height="50" width="50"> Our Mission</span>
-            <h2 data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400">Innovating for Success: Our
-              Technology Mission</h2>
-            <div class="space16"></div>
-            <p data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400">Build good reputation and Earn the
-              trust and satisfaction from success partners (employees and clients)
-              by providing the effort, expertise and efficiency</p>
-            <div class="space16"></div>
-            <p data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400">At GoCloud, our mission is to empower
-              businesses through technology. We believe in harnessing the power
-              of innovation to drive growth, efficiency, and sustainability for our clients. Through our tailored
-              technology solutions and unwavering commitment to excellence, we strive to be the catalyst for positive
-              change in the digital landscape.</p>
-
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="solution-images">
-            <div class="image2">
-              <img src="images/mission.png" loading="lazy" alt="Our Mission">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!--=====SOLUTION AREA END=======-->
-
-  <!--=====SOLUTION AREA START=======-->
-
-  <div class="solution about-solution sp">
-    <div class="container mt-md-4">
-      <div class="row align-items-center">
-        <div class="col-lg-6 mt-md-3">
-          <div class="images">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="image">
-                  <img src="images/paperless.png" loading="lazy" alt="Digital transformation">
-                </div>
-              </div>
-
-              <div class="col-lg-6">
-                <div class="space30"></div>
-                <div class="image">
-                  <img src="images/digital.jpg" height="170" loading="lazy" alt="Digital solutions">
-                </div>
-              </div>
-
-              <div class="col-lg-6">
-                <div class="space30"></div>
-                <div class="image">
-                  <img src="images/goals.png" height="170" loading="lazy" alt="Business goals">
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="heading1 text-center">
-            <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" class="span"><img
-                src="images/gocloud logo.jpeg" height="50" width="50"> Our Vision</span>
-            <h2 data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400" class="text-center">Driving
-              Innovation: Our Vision at Gocloud</h2>
-            <div class="space16"></div>
-            <p data-aos="zoom-in-up" data-aos-delay="500" data-aos-duration="400" class="text-center">At GoCloud, we
-              envision becoming the undisputed leader in technology and software services, setting new industry
-              standards through innovation and excellence. Our vision encompasses delivering transformative digital
-              solutions that empower businesses to thrive in an increasingly connected world. We strive to be recognized
-              not just for our technical expertise, but for our ability to drive meaningful business outcomes through
-              cutting-edge technology implementation, exceptional service delivery, and unwavering commitment to client
-              success. Through continuous innovation, strategic partnerships, and investment in emerging technologies,
-              we aim to shape the future of digital transformation while maintaining our position as a trusted
-              technology partner for organizations worldwide.</p>
-
-            <div class="item-box">
-            </div>
-            <div>
-              <h3 class="text-center text-primary" data-aos="fade-left" data-aos-delay="600" data-aos-duration="400">
-                Digital transformation Leaders</h3>
-              <div class="space10"></div>
-              <p class="text-center" data-aos="fade-left" data-aos-delay="700" data-aos-duration="400">Build a reliable
-                and secure network infrastructure that supports your business operations
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  </div>
-
-  <!--=====SOLUTION AREA END=======-->
-
-  <!-- Core Beliefs -->
-  <div class="core-beliefs sp">
-    <div class="container justify-content-center">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <div class="heading1">
-            <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" class="span"><img
-                src="images/gocloud logo.jpeg" height="50" width="50"> Our Core Beliefs</span>
-            <h2 data-aos="fade-left" data-aos-delay="400" data-aos-duration="400">What Drives Us Forward</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="beliefs-container justify-content-center">
-        <!-- Animated blobs with words -->
-        <div class="blob blob1">
-          <span>Excellence</span>
-        </div>
-        <div class="blob blob2">
-          <span>Transparency</span>
-        </div>
-        <div class="blob blob3">
-          <span>Progress</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <!--=====TAB START=======-->
-
-  <div class="about-tabs sp bg1">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10 text-center m-auto">
-          <div class="heading1">
-            <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" class="span"><img
-                src="images/span1.png" alt=""> Our Story</span>
-            <h2 data-aos="fade-left" data-aos-delay="400" data-aos-duration="400">Our Company Milestones</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="row d-flex">
-        <div class="col-lg-10 col-md-12 m-auto">
-          <ul class="nav nav-pills tab-header-all mb-3 justify-content-center" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="about-tab1-tab" data-bs-toggle="pill" data-bs-target="#about-tab1"
-                type="button" role="tab" aria-controls="about-tab1" aria-selected="true">2015</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="about-tab2-tab" data-bs-toggle="pill" data-bs-target="#about-tab2"
-                type="button" role="tab" aria-controls="about-tab2" aria-selected="false">2017</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="about-tab3-tab" data-bs-toggle="pill" data-bs-target="#about-tab3"
-                type="button" role="tab" aria-controls="about-tab3" aria-selected="false">2019</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="about-tab4-tab" data-bs-toggle="pill" data-bs-target="#about-tab4"
-                type="button" role="tab" aria-controls="about-tab4" aria-selected="false">2023</button>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="space60"></div>
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="about-tab1" role="tabpanel" aria-labelledby="about-tab1-tab">
-              <div class="row align-items-center">
-                <div class="col-lg-6 col-md-12">
-                  <div class="tab-content-box">
-                    <div class="heading1">
-                      <h5>2015 - A Legacy of Innovation</h5>
-                      <div class="space24"></div>
-                      <p><span class="text">Early Years:</span> In 2015, GoCloud emerged with a clear vision to
-                        revolutionize
-                        the technology landscape in Egypt. Starting with a dedicated team of innovative professionals,
-                        we
-                        recognized the growing demand for comprehensive digital solutions in the MENA region. Our
-                        initial focus
-                        was on delivering customized software solutions that would help local businesses embrace digital
-                        transformation and compete in an increasingly technology-driven market.</p>
-                      <div class="space16"></div>
-
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-6 text-center">
-                  <div class="image">
-                    <img src="images/about-tab-img.png" alt="">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="about-tab2" role="tabpanel" aria-labelledby="about-tab2-tab">
-              <div class="row align-items-center">
-                <div class="col-lg-6">
-                  <div class="tab-content-box">
-                    <div class="heading1">
-                      <h5>2017 - More Than One Service</h5>
-                      <div class="space24"></div>
-                      <p><span class="text">Expansion & Innovation:</span> As technology continued to evolve, so we
-                        expanded our service offerings to include a wide range of solutions, from
-                        IT services and cloud computing to data analytics and artificial intelligence.</p>
-                      <div class="space16"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-6">
-                  <div class="image">
-                    <img src="images/technology services.png" height="400" class="w-full" loading="lazy"
-                      alt="Technology services">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="about-tab3" role="tabpanel" aria-labelledby="about-tab3-tab">
-              <div class="row align-items-center">
-                <div class="col-lg-6">
-                  <div class="tab-content-box">
-                    <div class="heading1">
-                      <h5>2023 - ELITE Boom</h5>
-                      <div class="space24"></div>
-                      <p><span class="text">Medical insurance solution:</span> ELITE is our comprehensive medical
-                        insurance management system, designed specifically for the healthcare insurance industry. This
-                        innovative solution streamlines the entire insurance lifecycle - from policy creation and claims
-                        processing to provider network management and regulatory compliance. Built with cutting-edge
-                        technology, ELITE empowers insurance companies to deliver efficient, transparent, and
-                        customer-centric services while optimizing operational costs.</p>
-                      <div class="space16"></div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-6">
-                  <div class="image">
-                    <img src="images/elite.webp" height="400" class="w-full">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="about-tab4" role="tabpanel" aria-labelledby="about-tab4-tab">
-              <div class="row align-items-center">
-                <div class="col-lg-6">
-                  <div class="tab-content-box">
-                    <div class="heading1">
-                      <h5>2025 - ERP & CRM Era </h5>
-                      <div class="space24"></div>
-                      <p><span class="text">Odoo ERP & CRM Solutions:</span> We specialize in implementing comprehensive
-                        Odoo ERP & CRM systems tailored for diverse business sectors. Our solutions empower real estate
-                        companies with property management and sales tracking, help gold investment firms streamline
-                        operations and inventory control, and enable medical facilities to efficiently manage patient
-                        records and healthcare services - all through one integrated platform.</p>
-                      <div class="space16"></div>
-
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-6">
-                  <div class="image">
-                    <img src="images/odoo about .PNG" height="400" class="w-full" loading="lazy"
-                      alt="Odoo ERP solutions">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-
-  <!--=====TAB END=======-->
-
-  <!--=====TESTIMONIAL AREA START=======-->
-
-  <!-- organization chart-->
-  <div class="space60"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 text-center m-auto">
-        <div class="heading1">
-          <span data-aos="fade-left" data-aos-delay="300" data-aos-duration="400" class="span"><img
-              src="images/span1.png" alt=""> Our org chart</span>
-          <h2 data-aos="fade-left" data-aos-delay="400" data-aos-duration="400">Our Company Org Chart</h2>
-        </div>
-      </div>
-    </div>
-    <div class="org-chart mb-20">
-      <ul>
-        <li>
-          <div class="node">
-            <div class="title">Chief Executive Officer</div>
-            <div class="role">Sets Vision & Strategy</div>
-          </div>
+        <div class="org-chart mb-20">
           <ul>
             <li>
               <div class="node">
-                <div class="title">Chief Technology Officer</div>
-                <div class="role">Leads Technology</div>
+                <div class="title">Chief Executive Officer</div>
+                <div class="role">Sets Vision & Strategy</div>
               </div>
               <ul>
                 <li>
                   <div class="node">
-                    <div class="title">Engineering Manager</div>
-                    <div class="role">Manages Dev Teams</div>
+                    <div class="title">Chief Technology Officer</div>
+                    <div class="role">Leads Technology</div>
                   </div>
                   <ul>
                     <li>
                       <div class="node">
-                        <div class="title">Tech Lead</div>
-                        <div class="role">Project Technical Lead</div>
+                        <div class="title">Engineering Manager</div>
+                        <div class="role">Manages Dev Teams</div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="node">
+                            <div class="title">Tech Lead</div>
+                            <div class="role">Project Technical Lead</div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="node">
+                            <div class="title">Senior Software Engineer</div>
+                            <div class="role">Develops Complex Features</div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="node">
+                            <div class="title">Software Engineer</div>
+                            <div class="role">Core Development</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <div class="node">
+                        <div class="title">Head of Cloud & DevOps</div>
+                        <div class="role">Manages Infrastructure</div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="node">
+                            <div class="title">DevOps Engineer</div>
+                            <div class="role">CI/CD & Automation</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                    <li>
+                      <div class="node">
+                        <div class="title">QA Lead</div>
+                        <div class="role">Ensures Quality</div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="node">
+                            <div class="title">QA Automation Engineer</div>
+                            <div class="role">Builds Test Scripts</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <div class="node">
+                    <div class="title">Head of Product</div>
+                    <div class="role">Defines Product Roadmap</div>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="node">
+                        <div class="title">Product Manager</div>
+                        <div class="role">Gathers Requirements</div>
                       </div>
                     </li>
                     <li>
                       <div class="node">
-                        <div class="title">Senior Software Engineer</div>
-                        <div class="role">Develops Complex Features</div>
+                        <div class="title">UI/UX Lead</div>
+                        <div class="role">Leads Design</div>
+                      </div>
+                      <ul>
+                        <li>
+                          <div class="node">
+                            <div class="title">Product Designer</div>
+                            <div class="role">Creates Mockups & Prototypes</div>
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <div class="node">
+                    <div class="title">Head of Business development</div>
+                    <div class="role">Leads Sales & Marketing</div>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="node">
+                        <div class="title">Sales Manager</div>
+                        <div class="role">Closes Deals</div>
                       </div>
                     </li>
                     <li>
                       <div class="node">
-                        <div class="title">Software Engineer</div>
-                        <div class="role">Core Development</div>
+                        <div class="title">Marketing Manager</div>
+                        <div class="role">Builds Brand</div>
                       </div>
                     </li>
                   </ul>
                 </li>
                 <li>
                   <div class="node">
-                    <div class="title">Head of Cloud & DevOps</div>
-                    <div class="role">Manages Infrastructure</div>
+                    <div class="title">Head of Operations</div>
+                    <div class="role">Manages Internal Ops</div>
                   </div>
                   <ul>
                     <li>
                       <div class="node">
-                        <div class="title">DevOps Engineer</div>
-                        <div class="role">CI/CD & Automation</div>
+                        <div class="title">Project Manager</div>
+                        <div class="role">Manages Client Projects</div>
                       </div>
                     </li>
-                  </ul>
-                </li>
-                <li>
-                  <div class="node">
-                    <div class="title">QA Lead</div>
-                    <div class="role">Ensures Quality</div>
-                  </div>
-                  <ul>
                     <li>
                       <div class="node">
-                        <div class="title">QA Automation Engineer</div>
-                        <div class="role">Builds Test Scripts</div>
+                        <div class="title">HR & Finance</div>
+                        <div class="role">Admin & People Ops</div>
                       </div>
                     </li>
                   </ul>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <div class="node">
-                <div class="title">Head of Product</div>
-                <div class="role">Defines Product Roadmap</div>
-              </div>
-              <ul>
-                <li>
-                  <div class="node">
-                    <div class="title">Product Manager</div>
-                    <div class="role">Gathers Requirements</div>
-                  </div>
-                </li>
-                <li>
-                  <div class="node">
-                    <div class="title">UI/UX Lead</div>
-                    <div class="role">Leads Design</div>
-                  </div>
-                  <ul>
-                    <li>
-                      <div class="node">
-                        <div class="title">Product Designer</div>
-                        <div class="role">Creates Mockups & Prototypes</div>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <div class="node">
-                <div class="title">Head of Business development</div>
-                <div class="role">Leads Sales & Marketing</div>
-              </div>
-              <ul>
-                <li>
-                  <div class="node">
-                    <div class="title">Sales Manager</div>
-                    <div class="role">Closes Deals</div>
-                  </div>
-                </li>
-                <li>
-                  <div class="node">
-                    <div class="title">Marketing Manager</div>
-                    <div class="role">Builds Brand</div>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <div class="node">
-                <div class="title">Head of Operations</div>
-                <div class="role">Manages Internal Ops</div>
-              </div>
-              <ul>
-                <li>
-                  <div class="node">
-                    <div class="title">Project Manager</div>
-                    <div class="role">Manages Client Projects</div>
-                  </div>
-                </li>
-                <li>
-                  <div class="node">
-                    <div class="title">HR & Finance</div>
-                    <div class="role">Admin & People Ops</div>
-                  </div>
                 </li>
               </ul>
             </li>
           </ul>
-        </li>
-      </ul>
-    </div>
-
-    <!--=====TEAM AREA START=======-->
-
-    <!-- <div class="team2 about-page-team sp bg1">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 m-auto text-center">
-          <div class="heading1">
-            <span class="span"><img src="images/span1.png" alt=""> Our Team</span>
-            <h2>Meet With Our Expert Team</h2>
-          </div>
         </div>
       </div>
-
-      <div class="space30"></div>
-      <div class="row d-flex">
-        <div class="col-lg-4 col-md-6 justify-content-around">
-          <div class="team-box ">
-            <div class="image-area">
-              <div class="image">
-                <img src="images/walid.jpg" alt="">
-              </div>
-              <div class="icon-area">
-                <ul>
-                  <li><a href="https://www.linkedin.com/in/walid-el-azhary-5b951619/"><i
-                        class="fa-brands fa-linkedin-in"></i></a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="space30"></div>
-            <div class="heading1">
-              <h4>Walid Azhary</h4>
-              <div class="space10"></div>
-              <p>CEO & Founder</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6">
-          <div class="team-box">
-            <div class="image-area">
-              <div class="image">
-                <img src="images/team2-img2.png" alt="">
-              </div>
-              <div class="icon-area">
-                <ul>
-                  <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="space30"></div>
-            <div class="heading1">
-              <h4>Ahmed Azhary</h4>
-              <div class="space10"></div>
-              <p>Cheif Operations Officer</p>
-            </div>
-
-          </div>
-        </div>
-
-
-        <div class="col-lg-4 col-md-6">
-          <div class="team-box">
-            <div class="image-area">
-              <div class="image">
-                <img src="images/team2-img3.png" alt="">
-              </div>
-              <div class="icon-area">
-                <ul>
-                  <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="space30"></div>
-            <div class="heading1">
-              <h4><a href="#">Freddie Mounir</a></h4>
-              <div class="space10"></div>
-              <p>Head of Project Management</p>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div> -->
-
-    <!--=====TEAM AREA END=======-->
-
-
-
-    <!--===== FOOTER AREA START =======-->
-    <footer>
-      <div class="footer1 _relative text-center">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-3 col-md-6 col-12">
-              <div class="single-footer-items footer-logo-area">
-                <div class="footer-logo text-center">
-                  <!-- <a href=""><img src="images/gocloud logo.jpeg" height="100px" alt=""></a> -->
-                </div>
-                <div class="space20"></div>
-                <div>
-                  <p>At <span> <img src="images/gocloud logo.jpeg" height="70" width="70"></span>we're
-                    dedicated to
-                    deliver innovative technology
-                    solutions
-                    tailored to meet
-                    the unique needs of businesses like yours.
-                  </p>
+      <!-- Include footer-->
+      <!-- Footer Component-->
+      <footer>
+        <div class="footer1 _relative text-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-12">
+                <div class="single-footer-items">
+                  <p>At <span><img src="images/gocloud logo.webp" height="70" width="70" alt="GoCloud Logo" loading="lazy"></span>we're dedicated to deliver innovative technology solutions tailored to meet the unique needs of businesses like yours.</p>
                   <ul class="social-icon text-center">
-                    <li><a href="https://www.linkedin.com/company/gocloud-co/posts/?feedView=all"><i
-                          class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a
-                        href="https://www.google.com/search?q=gocloud+eg&sca_esv=1b465dddb89ef670&sxsrf=AE3TifPO8dDI2un8QLeuyTZoAmiw1QCmhA%3A1750690736441&ei=sGtZaLfRGoaNkdUP4_DKyAI&ved=0ahUKEwi36dOb54eOAxWGRqQEHWO4EikQ4dUDCBA&uact=5&oq=gocloud+&gs_lp=Egxnd3Mtd2l6LXNlcnAiCGdvY2xvdWQgMgoQIxjwBRgnGMkCMgQQIxgnMgUQABiABDIKEAAYgAQYQxiKBTILEC4YgAQYxwEYrwEyChAAGIAEGEMYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigVInw5Q3AFY3AFwAXgBkAEAmAHXCaAB1wmqAQM3LTG4AQPIAQD4AQGYAgKgAvcJwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYKkgcFMS43LTGgB9YKsgcDNy0xuAfpCcIHAzMtMsgHGg&sclient=gws-wiz-serp"><i
-                          class="fa-brands fa-google"></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/gocloud-co/posts/?feedView=all"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.google.com/search?q=gocloud+eg&amp;sca_esv=1b465dddb89ef670&amp;sxsrf=AE3TifPO8dDI2un8QLeuyTZoAmiw1QCmhA%3A1750690736441&amp;ei=sGtZaLfRGoaNkdUP4_DKyAI&amp;ved=0ahUKEwi36dOb54eOAxWGRqQEHWO4EikQ4dUDCBA&amp;uact=5&amp;oq=gocloud+&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiCGdvY2xvdWQgMgoQIxjwBRgnGMkCMgQQIxgnMgUQABiABDIKEAAYgAQYQxiKBTILEC4YgAQYxwEYrwEyChAAGIAEGEMYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigVInw5Q3AFY3AFwAXgBkAEAmAHXCaAB1wmqAQM3LTG4AQPIAQD4AQGYAgKgAvcJwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYKkgcFMS43LTGgB9YKsgcDNy0xuAfpCcIHAzMtMsgHGg&amp;sclient=gws-wiz-serp"><i class="fa-brands fa-google"></i></a></li>
                     <li><a href="https://www.youtube.com/@GoCloudeg"><i class="fa-brands fa-youtube"></i></a></li>
                   </ul>
                 </div>
               </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-12">
-              <div class="single-footer-items">
-                <h3>Our Services</h3>
-
-                <ul class="menu-list">
-                  <li><a href="cloud-services.html">Cloud Solutions</a></li>
-                  <li><a href="Oddo-dev.html">Odoo development </a></li>
-                  <li><a href="Oddo-imp.html">Odoo Implementation</a></li>
-                  <li><a href="Business.html">Business intelligence</a></li>
-                </ul>
+              <div class="col-lg-3 col-md-6 col-12">
+                <div class="single-footer-items">
+                  <h3>Our Services
+                    <div class="contact-box justify-content-center">
+                      <ul class="menu-list">
+                        <li><a href="cloud-services.html">Cloud Solutions</a></li>
+                        <li><a href="odoo-dev.html">Odoo development </a></li>
+                        <li><a href="odoo-imp.html">Odoo Implementation</a></li>
+                        <li><a href="business.html">Business intelligence</a></li>
+                      </ul>
+                    </div>
+                  </h3>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-6 col-12">
+                <div class="single-footer-items">
+                  <h3>Useful Links
+                    <div class="contact-box justify-content-center">
+                      <ul class="menu-list">
+                        <li><a href="about.html">About Us </a></li>
+                        <li><a href="service.html">Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                      </ul>
+                    </div>
+                  </h3>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-12 text-center">
+                <div class="single-footer-items">
+                  <h3>Contact Us</h3>
+                  <div class="contact-box justify-content-center">
+                    <div class="icon"><img src="images/footer1-icon1.webp" alt="" loading="lazy"></div>
+                    <div class="pera"><a href="tel:+20233762533">0233762533</a></div>
+                  </div>
+                  <div class="contact-box justify-content-center">
+                    <div class="icon"><img src="images/footer1-icon2.webp" alt="" loading="lazy"></div>
+                    <div class="pera"><a href="tel://+201017383815">+201017383815</a></div>
+                  </div>
+                  <div class="contact-box justify-content-center">
+                    <div class="icon"><img src="images/footer1-icon3.webp" alt="" loading="lazy"></div>
+                    <div class="text-wrap pera"><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
+                  </div>
+                  <div class="contact-box justify-content-center">
+                    <div class="icon"><img src="images/footer1-icon4.webp" alt="" loading="lazy"></div>
+                    <div class="pera"><a href="https://gocloudeg.com">www.gocloudeg.com</a></div>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div class="col-lg-2 col-md-6 col-12">
-              <div class="single-footer-items">
-                <h3>Useful Links</h3>
-
-                <ul class="menu-list">
-                  <li><a href="About.html">About Us </a></li>
-                  <li><a href="service.html">Services</a></li>
-                  <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-              </div>
-            </div>
-
-
-            <div class="col-lg-4 col-md-6 col-12 text-center">
-              <div class="single-footer-items ">
-                <h3>Contact Us</h3>
-
-                <div class="contact-box justify-content-center">
-                  <div class="icon">
-                    <img src="images/footer1-icon1.png" alt="">
-                  </div>
-                  <div class="pera">
-                    <a href="tel:+20233762533">0233762533</a>
-                  </div>
-                </div>
-
-                <div class="contact-box justify-content-center">
-                  <div class="icon">
-                    <img src="images/footer1-icon2.png" alt="">
-                  </div>
-                  <div class="pera">
-                    <a href="tel://+201017383815">+201017383815</a>
-                  </div>
-                </div>
-
-                <div class="contact-box justify-content-center">
-                  <div class="icon">
-                    <img src="images/footer1-icon3.png" alt="">
-                  </div>
-                  <div class="text-wrap pera">
-                    <a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a>
-                  </div>
-                </div>
-
-                <div class="contact-box justify-content-center">
-                  <div class="icon">
-                    <img src="images/footer1-icon4.png" alt="">
-                  </div>
-                  <div class="pera">
-                    <a href="https://gocloudeg.com">www.gocloudeg.com</a>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
+            <div class="space40"></div>
           </div>
-
-          <div class="space40"></div>
-        </div>
-      </div>
-
-      <div class="container row d-flex text-center mb-5 mx-auto">
-        <div class="col-5">
-          <div class="">
-            <p>Copyright @
-              <script>document.write(new Date().getFullYear())</script> Gocloud-eg. All Rights Reserved
-            </p>
+          <div class="container row d-flex text-center mb-5 mx-auto">
+            <div class="col-5">
+              <div>
+                <p>Copyright @ 
+                  <script>document.write(new Date().getFullYear())</script> Gocloud-eg. All Rights Reserved
+                </p>
+              </div>
+            </div>
+            <div class="col-5"><a href="conditions-terms.html">Terms & Conditions |</a><a href="privacy.html">Privacy Policy</a></div>
           </div>
         </div>
-        <div class="col-5">
-          <a href="conditions_terms.html">Terms & Conditions |</a>
-          <a href="privacy.html">Privacy Policy</a>
-        </div>
-      </div>
-    </footer>
-    <!--===== FOOTER AREA END =======-->
-
-
-    <!--=====SCRIPTS - jQuery loads sync, others deferred=======-->
-    <script src="js/jquery-3-7-1.min.js"></script>
-    <script src="js/bootstrap.min.js" defer></script>
-    <script src="js/aos.js" defer></script>
-    <script src="js/fontawesome.js" defer></script>
-    <script src="js/jquery.countup.js" defer></script>
-    <script src="js/mobile-menu.js" defer></script>
-    <script src="js/jquery.magnific-popup.js" defer></script>
-    <script src="js/owl.carousel.min.js" defer></script>
-    <script src="js/slick-slider.js" defer></script>
-    <script src="js/gsap.min.js" defer></script>
-    <script src="js/ScrollTrigger.min.js" defer></script>
-    <script src="js/Splitetext.js" defer></script>
-    <script src="js/text-animation.js" defer></script>
-    <script src="js/SmoothScroll.js" defer></script>
-    <script src="js/jquery.lineProgressbar.js" defer></script>
-    <script src="js/ripple-btn.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/typewriter.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-
-</body>
-
+      </footer>
+      <!-- Include whatsapp button-->
+      <!-- WhatsApp Floating Button Component-->
+      <style>
+        .whatsapp-float {
+          position: fixed;
+          width: 60px;
+          height: 60px;
+          bottom: 100px;
+          right: 30px;
+          background-color: #25d366;
+          color: #FFF;
+          border-radius: 40px;
+          text-align: center;
+          font-size: 30px;
+          z-index: 100;
+          cursor: pointer;
+        }
+        
+        .my-float {
+          margin-top: 16px;
+        }
+        
+      </style>
+      <script type="text/javascript">
+        // WhatsApp button - vanilla JS (no jQuery dependency)
+        document.addEventListener('DOMContentLoaded', function () {
+          var whatsappFloat = document.createElement('div');
+          whatsappFloat.className = 'whatsapp-float';
+        
+          var myFloat = document.createElement('div');
+          myFloat.className = 'my-float';
+        
+          var icon = document.createElement('i');
+          icon.className = 'fa-brands fa-whatsapp';
+        
+          myFloat.appendChild(icon);
+          whatsappFloat.appendChild(myFloat);
+          document.body.appendChild(whatsappFloat);
+        
+          whatsappFloat.addEventListener('click', function () {
+            window.location.href = 'https://wa.me/+201017383815?text=Hello from Gocloud';
+          });
+        });
+      </script>
+    </div>
+    <!-- Scripts (CDN)-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous" defer></script>
+    <script src="js/jquery.countup.min.js" defer></script>
+    <script src="js/mobile-menu.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="js/Splitetext.min.js" defer></script>
+    <script src="js/text-animation.min.js" defer></script>
+    <script src="js/SmoothScroll.min.js" defer></script>
+    <script src="js/jquery.lineProgressbar.min.js" defer></script>
+    <script src="js/ripple-btn.min.js" defer></script>
+    <script src="js/main.min.js" defer></script>
+    <script src="js/typewriter.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
+    <!-- Page specific scripts-->
+  </body>
 </html>

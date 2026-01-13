@@ -1,0 +1,24 @@
+{
+  "name": "gc_website_2025",
+  "version": "1.0.0",
+  "description": "GoCloud Website 2025",
+  "main": "index.js",
+  "scripts": {
+    "build": "pug views --out . --pretty",
+    "watch": "pug views --out . --pretty --watch",
+    "purge": "purgecss --config purgecss.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pug-cli": "^1.0.0-alpha6"
+  },
+  "devDependencies": {
+    "cssnano": "^7.1.2",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "purgecss": "^7.0.0",
+    "terser": "^5.44.1"
+  }
+}

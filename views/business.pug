@@ -1,0 +1,139 @@
+extends layout.pug
+
+block styles
+
+block content
+  // Include components
+  include components/preloader.pug
+  include components/top-banner.pug
+  include components/header.pug
+
+  // Hero Section
+  .common-hero
+    .container
+      .row.align-items-center.text-center
+        .col-lg-6.m-auto
+          .main-heading
+            h1 Business intelligence
+            .space16
+            .span
+              img(src="images/span1.webp" alt="" loading="lazy")
+              |  
+              a(href="service.html") Service
+              |  
+              span.arrow
+                i.fa-regular.fa-angle-right
+              |  
+              | business intelligence
+
+  // Marquee Section
+  section.hero10-benar
+    .container-fluid.p-0
+      .row
+        .col-12
+          .marquee-wrap.marquee-wrap-inner.h-20
+            .marquee-text
+              .brand-single-box.h-32
+                img(src="images/wellcare-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box.h-32
+                img(src="images/Goldera-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/unicare-removebg-preview (1).webp" height="50px" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/professional-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/Mashreq-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/omega-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/bahgat-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box.h-32
+                img(src="images/onecare-removebg-preview.webp" height="50" alt="OneCare Partner Logo" loading="lazy")
+
+              .brand-single-box
+                img(src="images/egmed-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+              .brand-single-box
+                img(src="images/empire_of_gold-removebg-preview.webp" height="50" alt="" loading="lazy")
+
+      .slider-after
+
+  .space40
+
+  // Business Intelligence Solutions Section
+  section.bg-image.py-5(style="background-image: url('images/blob-scene-haikei.svg'); background-size: cover; background-position: center; position: relative;")
+    div(style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;")
+    .container.position-relative
+      .row.align-items-center
+        .col-lg-12(data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000")
+          h2.text-black.text-center.fw-bold.mb-4 Business Intelligence Solutions
+          p.text-black.lead.mb-4 Transform your raw data into actionable insights with our comprehensive business intelligence solutions. We help organizations make data-driven decisions through advanced analytics, interactive dashboards, and real-time reporting capabilities.
+          ul.list-unstyled
+            li.mb-3
+              .d-flex.align-items-center
+                i.fas.fa-chart-line.text-black.me-3
+                span.text-black Advanced Analytics & Reporting
+            li.mb-3
+              .d-flex.align-items-center
+                i.fas.fa-database.text-black.me-3
+                span.text-black Data Warehousing Solutions
+            li.mb-3
+              .d-flex.align-items-center
+                i.fas.fa-desktop.text-black.me-3
+                span.text-black Interactive Dashboards
+
+  .space40
+
+  // Carousel Section
+  section
+    .container
+      .owl-carousel.owl-theme
+        .item
+          img(src="images/Data-Science.webp" class="image-anime" alt="Business Intelligence Image 1" loading="lazy")
+          .carousel-caption
+            h3 Data Analytics
+            p Advanced analytics solutions for your business
+        .item
+          img(src="images/dashboards.webp" alt="Business Intelligence Image 2" loading="lazy")
+          .carousel-caption
+            h3 Interactive Dashboards
+            p Real-time visualization of your business metrics
+        .item
+          img(src="images/reporting tool.webp" alt="Business Intelligence Image 3" loading="lazy")
+          .carousel-caption
+            h3 Reporting Tools
+            p Comprehensive reporting solutions
+        .item
+          img(src="images/data-integration.webp" alt="Business Intelligence Image 4" loading="lazy")
+          .carousel-caption
+            h3 Data Integration
+            p Seamless integration of multiple data sources
+
+    //- Script moved to main.js
+
+  .space40
+
+  .space16.mb-8
+    h1.text-center Our Technologies
+
+  // Partners Logos Section
+  section
+    .container.mt-5.text-center
+      .row.justify-content-center
+        .col-md-3.mb-4
+          img(src="images/Power-Bi.webp" height="300" width="300" alt="power-bi" class="img-fluid" loading="lazy")
+        .col-md-3.mb-4
+          img(src="images/metabase.webp" height="300" width="300" alt="metabase" class="img-fluid" loading="lazy")
+
+  // Include footer
+  include components/footer.pug
+
+  // Include whatsapp button
+  include components/whatsapp-button.pug
