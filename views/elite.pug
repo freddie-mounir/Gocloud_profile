@@ -30,40 +30,40 @@ block content
               | ISO Certified
           
           //- Main Headline
-          h1.elite-title.mb-4
+          h1.elite-title.mb-4(dir="rtl" style="text-align: right;")
             | نظام 
             span.highlight ELITE
             br
             | لإدارة التأمين الطبي
           
-          .elite-subtitle.mb-4
+          .elite-subtitle.mb-4(dir="rtl" style="text-align: right;")
             | الحل الوحيد في مصر الذي يربط نظام التأمين الطبي
             br
             | بـ Odoo ERP تلقائياً - دورة مالية 100% بدون أخطاء
           
           //- Key Benefits
-          .key-benefits.mb-4
-            .benefit-item
+          .key-benefits.mb-4(dir="rtl")
+            .benefit-item(style="flex-direction: row-reverse;")
+              span(style="margin-left: 15px;") معالجة فورية للمطالبات (24 ساعة بدلاً من 5 أيام)
               i.fas.fa-bolt.text-warning
-              span معالجة فورية للمطالبات (24 ساعة بدلاً من 5 أيام)
             
-            .benefit-item
+            .benefit-item(style="flex-direction: row-reverse;")
+              span(style="margin-left: 15px;") كشف الاحتيال بالذكاء الاصطناعي
               i.fas.fa-shield-alt.text-success
-              span كشف الاحتيال بالذكاء الاصطناعي
             
-            .benefit-item
+            .benefit-item(style="flex-direction: row-reverse;")
+              span(style="margin-left: 15px;") ربط تلقائي مع Odoo ERP
               i.fas.fa-sync.text-primary
-              span ربط تلقائي مع Odoo ERP
           
           //- CTA Buttons
-          .cta-buttons
-            a.btn.btn-primary.btn-lg.me-3(href="#demo-video" data-bs-toggle="modal")
-              i.fas.fa-play-circle.me-2
-              | شاهد الفيديو (2 دقيقة)
-            
+          .cta-buttons(dir="rtl" style="text-align: right;")
             a.btn.btn-outline-primary.btn-lg(href="#request-demo")
-              i.fas.fa-calendar-check.me-2
+              i.fas.fa-calendar-check.ms-2
               | احجز عرضاً تجريبياً مجانياً
+            
+            a.btn.btn-primary.btn-lg.ms-3(href="#demo-video" data-bs-toggle="modal")
+              i.fas.fa-play-circle.ms-2
+              | شاهد الفيديو (2 دقيقة)
         
         .col-lg-6
           .elite-dashboard-preview
@@ -73,42 +73,42 @@ block content
             )
             
             //- Floating Stats
-            .floating-stat.stat-1
+            .floating-stat.stat-1(dir="rtl")
               .stat-number 10,000+
               .stat-label مطالبة شهرياً
             
-            .floating-stat.stat-2
+            .floating-stat.stat-2(dir="rtl")
               .stat-number 100%
               .stat-label دقة المعالجة
             
-            .floating-stat.stat-3
+            .floating-stat.stat-3(dir="rtl")
               .stat-number 24h
               .stat-label وقت الاستجابة
 
   //- ===== Problem Statement =====
   section.problem-section.py-5.bg-light
     .container
-      .section-header.text-center.mb-5
+      .section-header.text-center.mb-5(dir="rtl")
         h2 المشاكل التي نحلها
         p.lead تحديات شركات TPA والتأمين الطبي في مصر
       
       .row.g-4
         .col-md-4
-          .problem-card
+          .problem-card(dir="rtl")
             .problem-icon.bg-danger
               i.fas.fa-clock
             h4 التأخير في المعالجة
             p معالجة المطالبات تأخذ 3-7 أيام مما يسبب استياء المؤمن عليهم
         
         .col-md-4
-          .problem-card
+          .problem-card(dir="rtl")
             .problem-icon.bg-warning
               i.fas.fa-exclamation-triangle
             h4 أخطاء الإدخال اليدوي
             p إدخال يدوي للبيانات يؤدي لأخطاء محاسبية وتأخير المدفوعات
         
         .col-md-4
-          .problem-card
+          .problem-card(dir="rtl")
             .problem-icon.bg-info
               i.fas.fa-user-secret
             h4 الاحتيال الطبي
@@ -117,123 +117,122 @@ block content
   //- ===== Solution: ELITE Features =====
   section.solution-section.py-5
     .container
-      .section-header.text-center.mb-5
+      .section-header.text-center.mb-5(dir="rtl")
         h2 كيف يحل ELITE هذه المشاكل
         p.lead حل شامل ومتكامل لإدارة التأمين الطبي
       
       .row.g-4
         //- Feature 1: Fast Processing
         .col-lg-6
-          .feature-box
+          .feature-box(dir="rtl")
             .row
-              .col-md-4
-                .feature-icon.bg-gradient-primary
-                  i.fas.fa-rocket
               .col-md-8
                 h3 معالجة فورية
                 p.mb-3 تقليل وقت معالجة المطالبات من 5 أيام إلى 24 ساعة
-                ul.feature-list
+                ul.feature-list(style="text-align: right;")
                   li موافقة/رفض تلقائي حسب الشروط
                   li إشعارات فورية للمؤمن عليهم
                   li تتبع حالة المطالبة لحظياً
+              .col-md-4
+                .feature-icon.bg-gradient-primary
+                  i.fas.fa-rocket
         
         //- Feature 2: Odoo Integration
         .col-lg-6
-          .feature-box
+          .feature-box(dir="rtl")
             .row
-              .col-md-4
-                .feature-icon.bg-gradient-success
-                  i.fas.fa-link
               .col-md-8
                 h3 ربط تلقائي مع Odoo
                 p.mb-3 كل مطالبة تتحول لقيد محاسبي تلقائياً
-                ul.feature-list
+                ul.feature-list(style="text-align: right;")
                   li مزامنة فورية مع نظام المحاسبة
                   li تسوية تلقائية مع المستشفيات
                   li تقارير مالية دقيقة 100%
+              .col-md-4
+                .feature-icon.bg-gradient-success
+                  i.fas.fa-link
         
         //- Feature 3: AI Fraud Detection
         .col-lg-6
-          .feature-box
+          .feature-box(dir="rtl")
             .row
-              .col-md-4
-                .feature-icon.bg-gradient-warning
-                  i.fas.fa-brain
               .col-md-8
                 h3 كشف الاحتيال بالذكاء الاصطناعي
                 p.mb-3 نظام AI يكتشف المطالبات المشبوهة تلقائياً
-                ul.feature-list
+                ul.feature-list(style="text-align: right;")
                   li تحليل نمط المطالبات
                   li كشف التكرار والمبالغة
                   li تنبيهات فورية للمراجعة
+              .col-md-4
+                .feature-icon.bg-gradient-warning
+                  i.fas.fa-brain
         
         //- Feature 4: Mobile Apps
         .col-lg-6
-          .feature-box
+          .feature-box(dir="rtl")
             .row
-              .col-md-4
-                .feature-icon.bg-gradient-info
-                  i.fas.fa-mobile-alt
               .col-md-8
                 h3 تطبيقات موبايل
                 p.mb-3 تطبيقات للمؤمن عليهم والأطباء
-                ul.feature-list
+                ul.feature-list(style="text-align: right;")
                   li تقديم المطالبات من الموبايل
                   li موافقات الأطباء إلكترونياً
                   li تتبع حالة المطالبة
+              .col-md-4
+                .feature-icon.bg-gradient-info
+                  i.fas.fa-mobile-alt
 
   //- ===== Complete Features Grid =====
   section.features-grid.py-5.bg-light
     .container
-      .section-header.text-center.mb-5
+      .section-header.text-center.mb-5(dir="rtl")
         h2 المميزات الكاملة لنظام ELITE
       
       .row.g-4
         .col-md-3
-          .feature-card-mini
+          .feature-card-mini(dir="rtl")
             i.fas.fa-users.text-primary
             h5 إدارة المؤمن عليهم
             p قاعدة بيانات شاملة مع السجل الطبي
         
         .col-md-3
-          .feature-card-mini
+          .feature-card-mini(dir="rtl")
             i.fas.fa-hospital.text-success
             h5 شبكة مقدمي الخدمة
             p ربط إلكتروني مع المستشفيات
         
         .col-md-3
-          .feature-card-mini
+          .feature-card-mini(dir="rtl")
             i.fas.fa-file-medical.text-info
             h5 إدارة الوثائق
             p أرشفة إلكترونية للوثائق الطبية
         
         .col-md-3
-          .feature-card-mini
+          .feature-card-mini(dir="rtl")
             i.fas.fa-chart-line.text-warning
             h5 تقارير وإحصائيات
             p لوحات تحكم تفاعلية ومؤشرات
         
         .col-md-3
-          .feature-card-mini
+          .feature-card-mini(dir="rtl")
             i.fas.fa-shield-virus.text-danger
             h5 الأمان والخصوصية
             p تشفير كامل للبيانات الطبية
         
         .col-md-3
-          .feature-card-mini
+          .feature-card-mini(dir="rtl")
             i.fas.fa-globe.text-primary
             h5 متعدد اللغات
             p واجهة عربي/إنجليزي
         
         .col-md-3
-          .feature-card-mini
+          .feature-card-mini(dir="rtl")
             i.fas.fa-cloud.text-info
-            h5 Cloud Native
             h5 Cloud Native
             p نشر سحابي آمن ومستقر
         
         .col-md-3
-          .feature-card-mini
+          .feature-card-mini(dir="rtl")
             i.fas.fa-headset.text-success
             h5 دعم فني 24/7
             p فريق دعم متاح على مدار الساعة
@@ -242,42 +241,42 @@ block content
   section.case-study.py-5
     .container
       .row.align-items-center
-        .col-lg-6
+        .col-lg-6.order-lg-2
           img.img-fluid.rounded.shadow-lg(
             src="images/elite-success-story.webp" 
             alt="Success Story"
           )
         
-        .col-lg-6
+        .col-lg-6.order-lg-1(dir="rtl")
           .badge.badge-success.mb-3
-            i.fas.fa-star.me-2
+            i.fas.fa-star.ms-2
             | قصة نجاح
           
           h2.mb-4 كيف ساعدنا شركة TPA رائدة في تحويل عملياتها
           
           .case-stats.mb-4
-            .stat-item
-              .stat-icon
-                i.fas.fa-arrow-down.text-success
+            .stat-item(style="text-align: right;")
               .stat-content
                 h3 80%
                 p تقليل وقت معالجة المطالبات
-            
-            .stat-item
               .stat-icon
-                i.fas.fa-arrow-up.text-success
+                i.fas.fa-arrow-down.text-success
+            
+            .stat-item(style="text-align: right;")
               .stat-content
                 h3 95%
                 p زيادة رضا المؤمن عليهم
-            
-            .stat-item
               .stat-icon
-                i.fas.fa-check-circle.text-success
+                i.fas.fa-arrow-up.text-success
+            
+            .stat-item(style="text-align: right;")
               .stat-content
                 h3 100%
                 p دقة البيانات المحاسبية
+              .stat-icon
+                i.fas.fa-check-circle.text-success
           
-          blockquote.testimonial
+          blockquote.testimonial(style="text-align: right;")
             p.quote
               | "نظام ELITE غيّر طريقة عملنا بالكامل. دلوقتي بنعالج 
               | أكثر من 10,000 مطالبة شهرياً بدقة 100% وفي وقت قياسي."
@@ -288,169 +287,169 @@ block content
   //- ===== Pricing Section =====
   section.pricing-section.py-5.bg-light
     .container
-      .section-header.text-center.mb-5
+      .section-header.text-center.mb-5(dir="rtl")
         h2 خطط الأسعار
         p.lead اختر الخطة المناسبة لحجم شركتك
       
       .row.g-4.justify-content-center
         //- Starter Plan
         .col-lg-4
-          .pricing-card
+          .pricing-card(dir="rtl")
             .plan-header
               h3 Starter
               .plan-price
-                span.currency EGP
                 span.amount 50,000
+                span.currency EGP
                 span.period /شهرياً
             
-            ul.plan-features
+            ul.plan-features(style="text-align: right;")
               li
-                i.fas.fa-check
                 | حتى 1,000 مطالبة شهرياً
+                i.fas.fa-check.ms-2
               li
-                i.fas.fa-check
                 | ربط مع Odoo ERP
+                i.fas.fa-check.ms-2
               li
-                i.fas.fa-check
                 | تطبيق موبايل
+                i.fas.fa-check.ms-2
               li
-                i.fas.fa-check
                 | دعم فني
+                i.fas.fa-check.ms-2
               li.disabled
-                i.fas.fa-times
                 | AI Fraud Detection
+                i.fas.fa-times.ms-2
             
             a.btn.btn-outline-primary.w-100(href="#contact") ابدأ الآن
         
         //- Professional Plan (Featured)
         .col-lg-4
-          .pricing-card.featured
+          .pricing-card.featured(dir="rtl")
             .popular-badge الأكثر طلباً
             .plan-header
               h3 Professional
               .plan-price
-                span.currency EGP
                 span.amount 80,000
+                span.currency EGP
                 span.period /شهرياً
             
-            ul.plan-features
+            ul.plan-features(style="text-align: right;")
               li
-                i.fas.fa-check
                 | حتى 5,000 مطالبة شهرياً
+                i.fas.fa-check.ms-2
               li
-                i.fas.fa-check
                 | ربط كامل مع Odoo ERP
+                i.fas.fa-check.ms-2
               li
-                i.fas.fa-check
                 | تطبيقات موبايل متقدمة
+                i.fas.fa-check.ms-2
               li
-                i.fas.fa-check
                 | دعم فني 24/7
+                i.fas.fa-check.ms-2
               li
-                i.fas.fa-check
                 | AI Fraud Detection
+                i.fas.fa-check.ms-2
             
             a.btn.btn-primary.w-100(href="#contact") ابدأ الآن
         
         //- Enterprise Plan
         .col-lg-4
-          .pricing-card
+          .pricing-card(dir="rtl")
             .plan-header
               h3 Enterprise
               .plan-price
                 span.amount مخصص
             
-            ul.plan-features
+            ul.plan-features(style="text-align: right;")
               li
-                i.fas.fa-check
                 | مطالبات غير محدودة
+                i.fas.fa-check.ms-2
               li
-                i.fas.fa-check
                 | تخصيص كامل
+                i.fas.fa-check.ms-2
               li
-                i.fas.fa-check
                 | ربط مع أنظمة متعددة
+                i.fas.fa-check.ms-2
               li
-                i.fas.fa-check
                 | فريق دعم مخصص
+                i.fas.fa-check.ms-2
               li
-                i.fas.fa-check
                 | AI + تقارير متقدمة
+                i.fas.fa-check.ms-2
             
             a.btn.btn-outline-primary.w-100(href="#contact") تواصل معنا
 
   //- ===== FAQ Section =====
   section.faq-section.py-5
     .container
-      .section-header.text-center.mb-5
+      .section-header.text-center.mb-5(dir="rtl")
         h2 الأسئلة الشائعة
         p.lead إجابات على أكثر الأسئلة تكراراً
       
       .row.justify-content-center
         .col-lg-8
-          .accordion#eliteFAQ
+          .accordion#eliteFAQ(dir="rtl")
             //- Q1
             .accordion-item
               h2.accordion-header#faq1
-                button.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#collapse1")
+                button.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" dir="rtl")
                   | كم يستغرق تطبيق نظام ELITE؟
               #collapse1.accordion-collapse.collapse.show(data-bs-parent="#eliteFAQ")
-                .accordion-body
+                .accordion-body(dir="rtl" style="text-align: right;")
                   | عادة من 4-8 أسابيع حسب حجم الشركة وتعقيد المتطلبات.
                   | نقدم خطة تطبيق تدريجية لضمان انتقال سلس.
             
             //- Q2
             .accordion-item
               h2.accordion-header#faq2
-                button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#collapse2")
+                button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" dir="rtl")
                   | هل يدعم ELITE التكامل مع أنظمة أخرى؟
               #collapse2.accordion-collapse.collapse(data-bs-parent="#eliteFAQ")
-                .accordion-body
+                .accordion-body(dir="rtl" style="text-align: right;")
                   | نعم، ELITE يدعم الربط مع Odoo ERP بشكل أساسي، كما يمكن
                   | الربط مع أنظمة المستشفيات والصيدليات عبر APIs.
             
             //- Q3
             .accordion-item
               h2.accordion-header#faq3
-                button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#collapse3")
+                button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" dir="rtl")
                   | هل البيانات آمنة ومشفرة؟
               #collapse3.accordion-collapse.collapse(data-bs-parent="#eliteFAQ")
-                .accordion-body
+                .accordion-body(dir="rtl" style="text-align: right;")
                   | بالتأكيد. نستخدم تشفير AES-256 لجميع البيانات، مع استضافة
                   | سحابية آمنة ونسخ احتياطية يومية.
             
             //- Q4
             .accordion-item
               h2.accordion-header#faq4
-                button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#collapse4")
+                button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" dir="rtl")
                   | هل يمكن تجربة النظام قبل الشراء؟
               #collapse4.accordion-collapse.collapse(data-bs-parent="#eliteFAQ")
-                .accordion-body
+                .accordion-body(dir="rtl" style="text-align: right;")
                   | نعم، نقدم عرضاً تجريبياً مجانياً لمدة 14 يوم مع بياناتك الفعلية
                   | لتتأكد من ملاءمة النظام لاحتياجاتك.
 
   //- ===== Final CTA Section =====
   section.final-cta.py-5
-    .container.text-center
+    .container.text-center(dir="rtl")
       h2.mb-4 جاهز لتحويل عمليات التأمين الطبي؟
       p.lead.mb-4
         | احجز عرضاً توضيحياً مجانياً واكتشف كيف يمكن لـ ELITE
         | أن يوفر عليك الوقت والمال
       
       .cta-buttons
-        a.btn.btn-primary.btn-lg.me-3(href="#contact")
-          i.fas.fa-calendar-check.me-2
-          | احجز عرضاً تجريبياً مجانياً
-        
         a.btn.btn-outline-light.btn-lg(href="tel:+201000000000")
-          i.fas.fa-phone.me-2
           | اتصل بنا الآن
+          i.fas.fa-phone.ms-2
+        
+        a.btn.btn-primary.btn-lg.ms-3(href="#contact")
+          | احجز عرضاً تجريبياً مجانياً
+          i.fas.fa-calendar-check.ms-2
 
   //- ===== Demo Video Modal =====
   #demo-video.modal.fade(tabindex="-1")
     .modal-dialog.modal-xl
       .modal-content
-        .modal-header
+        .modal-header(dir="rtl")
           h5.modal-title نظام ELITE - شرح مبسط (دقيقتان)
           button.btn-close(type="button" data-bs-dismiss="modal")
         .modal-body
