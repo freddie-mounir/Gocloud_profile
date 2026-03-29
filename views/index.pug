@@ -14,12 +14,18 @@ block content
   include components/top-banner.pug
   include components/header.pug
 
-  // Hero Section
+  // Hero Section - Keep Original, just enhance the CTA
   .hero1(style="background-image: url(images/hero1-bg.png); background-position: center; background-repeat: no-repeat; background-size: cover;")
     .container
       .row
         .col-lg-5
           .main-headding
+            // Add Odoo Partner Badge
+            .mb-3
+              .badge.badge-primary.me-2(style="font-size: 0.9rem; padding: 10px 15px;")
+                i.fas.fa-award.me-2
+                | Official Odoo Gold Partner
+            
             .span(style="color:blue" data-aos="zoom-in-left" data-aos-duration="700")
               img(src="images/gocloud%20logo.webp" height="40" width="40" alt="")
               | Gocloud Technology & It Solution
@@ -51,6 +57,26 @@ block content
 
             .shape1
               img(src="images/header1-shape1.png" alt="")
+
+  // ===== NEW: ELITE Product Highlight Banner =====
+  section.elite-banner.py-5(style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);")
+    .container
+      .row.align-items-center
+        .col-lg-8
+          .text-white
+            .badge.badge-warning.mb-3(style="font-size: 1rem; padding: 10px 20px;")
+              i.fas.fa-star.me-2
+              | منتجنا المميز
+            h2.display-5.fw-bold.mb-3(style="color: #ffd700;") نظام ELITE لإدارة التأمين الطبي
+            p.lead.mb-4
+              | الحل الوحيد في مصر الذي يربط نظام التأمين الطبي بـ Odoo ERP تلقائياً
+              br
+              | ✓ معالجة 10,000+ مطالبة شهرياً  |  ✓ دقة 100%  |  ✓ كشف احتيال AI
+        
+        .col-lg-4.text-end
+          a.btn.btn-light.btn-lg.px-5.py-3(href="/elite.html" style="font-size: 1.2rem;")
+            | اكتشف ELITE
+            i.fas.fa-arrow-left.ms-2
 
   // Numbers Section
   .container
@@ -363,4 +389,5 @@ block scripts
         }
       }, 2500);
     });
+
 
