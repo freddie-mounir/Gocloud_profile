@@ -16,29 +16,41 @@
     "odoo",
     "web-development",
     "pug",
-    "responsive-design"
+    "responsive-design",
+    "pwa"
   ],
   "scripts": {
     "dev": "npm run watch",
     "start": "npm run serve",
     "build": "pug views --out . --pretty",
-    "build:prod": "npm run build && npm run minify:css && npm run minify:js",
+    "build:prod": "npm run build && npm run optimize",
     "watch": "pug views --out . --pretty --watch",
     "serve": "npx http-server . -p 8000 -o",
-    "minify:css": "postcss css/main.css -o css/main.min.css",
-    "minify:js": "terser js/main.js -o js/main.min.js --compress --mangle",
+    "optimize": "npm run minify:css && npm run minify:js && npm run purge",
+    "minify:css": "postcss css/main.css -o css/main.min.css && postcss css/font-loading.css -o css/font-loading.min.css",
+    "minify:js": "npm run minify:js:main && npm run minify:js:lazy && npm run minify:js:sw && npm run minify:js:perf",
+    "minify:js:main": "terser js/main.js -o js/main.min.js --compress --mangle",
+    "minify:js:lazy": "terser js/lazy-load.js -o js/lazy-load.min.js --compress --mangle",
+    "minify:js:sw": "terser js/sw-register.js -o js/sw-register.min.js --compress --mangle",
+    "minify:js:perf": "terser js/performance-monitor.js -o js/performance-monitor.min.js --compress --mangle",
     "purge": "purgecss --config purgecss.config.js",
     "lint": "eslint js/**/*.js",
     "lint:fix": "eslint js/**/*.js --fix",
     "format": "prettier --write \"**/*.{js,json,css,md,pug}\"",
     "format:check": "prettier --check \"**/*.{js,json,css,md,pug}\"",
+    "test": "npm run test:lighthouse && npm run test:html",
     "test:lighthouse": "lighthouse http://localhost:8000 --output=html --output-path=./lighthouse-report.html --view",
+    "test:lighthouse:ci": "lighthouse http://localhost:8000 --output=json --output-path=./lighthouse-report.json",
     "test:html": "html-validate \"*.html\"",
+    "test:perf": "node scripts/performance-test.js",
     "audit": "npm audit",
     "audit:fix": "npm audit fix",
-    "clean": "rimraf dist/",
+    "clean": "rimraf dist/ *.html lighthouse-report.*",
     "prebuild:prod": "npm run clean",
-    "postbuild:prod": "echo Build completed successfully!"
+    "postbuild:prod": "npm run validate",
+    "validate": "echo ✅ Build validation complete!",
+    "generate:icons": "node scripts/generate-icons.js",
+    "generate:sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "pug-cli": "^1.0.0-alpha6"
@@ -58,5 +70,11 @@
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead",
+    "not ie <= 11"
+  ]
 }
