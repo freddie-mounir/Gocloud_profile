@@ -1,0 +1,21 @@
+# robots.txt for GoCloud Website
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://gocloud.com/sitemap.xml
+
+# Block specific paths if needed
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Crawl-delay for specific bots (if needed)
+# User-agent: Googlebot
+# Crawl-delay: 0
+
+# Block bad bots (if needed)
+# User-agent: BadBot
+# Disallow: /
