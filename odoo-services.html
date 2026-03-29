@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات Odoo المتقدمة | GoCloud</title>
+    <meta name="description" content="حلول Odoo ERP مخصصة مع لوحات تحكم ذكية لإدارة المبيعات، المخزون، والعملاء. خبراء في تطوير Odoo للقطاعات المختلفة">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Header Component-->
+    <header role="banner">
+      <div class="header-area header-area1 header-area-all d-none d-md-block d-lg-block" id="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="header-elements">
+                <div><a href="index.html" aria-label="GoCloud Home"><img src="images/gocloud%20logo.webp" alt="GoCloud Logo" height="100px" width="100px" loading="lazy"></a></div>
+                <nav role="navigation" aria-label="Main Navigation">
+                  <div class="main-menu-ex main-menu-ex1">
+                    <ul role="menubar">
+                      <li class="dropdown-menu-parrent" role="none"><a href="index.html" role="menuitem">Home</a></li>
+                      <li class="dropdown-menu-parrent" role="none"><a href="About.html" role="menuitem">About</a></li>
+                      <li class="dropdown-menu-parrent" role="none"><a href="service.html" role="menuitem">Services</a></li>
+                      <li class="dropdown-menu-parrent" role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">
+                           ELITE<span class="badge badge-warning ms-1" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                      <li class="dropdown-menu-parrent" role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+                      <li class="dropdown-menu-parrent" role="none"><a href="https://erp.gocloudeg.com/web/login" target="_blank" rel="noopener noreferrer" role="menuitem"></a>
+                        <button class="btn bg-primary" type="button">Login</button>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+                <div class="header1-buttons">
+                  <div class="contact-btn">
+                    <div class="icon"><img src="images/header1-icon.webp" alt="" loading="lazy"></div>
+                    <div class="headding">
+                      <p>Make a Call</p><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a>
+                    </div>
+                  </div>
+                  <div class="button"><a class="theme-btn1" href="https://gocloudeg.com/survey/start/e6323978-a3c5-430f-a14b-88d2ce1169da" aria-label="Get a Quote">Get A Quote <span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Mobile Header-->
+    <header role="banner">
+      <div class="mobile-header d-block d-md-none d-lg-none">
+        <div class="container-fluid">
+          <div class="col-12">
+            <div class="mobile-header-elements">
+              <div class="mobile-logo"><a href="index.html" aria-label="GoCloud Home"><img src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy"></a></div>
+              <div class="mobile-nav-icon">
+                <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><i class="fa-duotone fa-bars-staggered" aria-hidden="true"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-sidebar d-block d-md-none d-lg-none" role="dialog" aria-label="Mobile navigation menu">
+        <div class="logo-m"><a href="index.html" aria-label="GoCloud Home"><img src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy"></a></div>
+        <div class="menu-close">
+          <button type="button" aria-label="Close navigation menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <div class="mobile-nav">
+          <nav role="navigation" aria-label="Mobile Navigation">
+            <ul role="menubar">
+              <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+              <li role="none"><a href="about.html" role="menuitem">About Us</a></li>
+              <li role="none"><a href="service.html" role="menuitem">Services</a></li>
+              <li role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">ELITE <span class="badge badge-warning ms-2" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+              <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="mobile-button"><a class="menu-btn2" href="https://erp.gocloudeg.com/web/login" aria-label="Login to ERP system">Login<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+          <div class="single-footer-items">
+            <h3>Contact Us</h3>
+            <div class="contact-box">
+              <div class="icon"><img src="images/footer1-icon1.webp" alt="Phone Icon" loading="lazy"></div>
+              <div class="pera"><a href="tel://0233762533" aria-label="Call us at 0233762533">0233762533</a></div>
+            </div>
+            <div class="contact-box">
+              <div class="icon"><img src="images/footer1-icon2.webp" alt="Mobile Phone Icon" loading="lazy"></div>
+              <div class="pera"><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a></div>
+            </div>
+            <div class="contact-box">
+              <div class="icon"><img src="images/footer1-icon3.webp" alt="Email Icon" loading="lazy"></div>
+              <div class="pera"><a href="mailto:marketing@gocloudeg.com" aria-label="Send email to marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
+            </div>
+            <div class="contact-box">
+              <div class="icon"><img src="images/footer1-icon4.webp" alt="Website Icon" loading="lazy"></div>
+              <div class="pera"><a href="https://gocloudeg.com" aria-label="Visit GoCloud website">www.gocloudeg.com</a></div>
+            </div>
+          </div>
+          <div class="contact-infos">
+            <h3>Our Location</h3>
+            <ul class="social-icon">
+              <li><a href="https://www.linkedin.com/company/gocloud-co/posts/?feedView=all"><i class="fa-brands fa-linkedin-in"></i></a></li>
+              <li><a href="https://www.google.com/search?q=gocloud+eg&amp;sca_esv=1b465dddb89ef670&amp;sxsrf=AE3TifPO8dDI2un8QLeuyTZoAmiw1QCmhA%3A1750690736441&amp;ei=sGtZaLfRGoaNkdUP4_DKyAI&amp;ved=0ahUKEwi36dOb54eOAxWGRqQEHWO4EikQ4dUDCBA&amp;uact=5&amp;oq=gocloud+&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiCGdvY2xvdWQgMgoQIxjwBRgnGMkCMgQQIxgnMgUQABiABDIKEAAYgAQYQxiKBTILEC4YgAQYxwEYrwEyChAAGIAEGEMYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigVInw5Q3AFY3AFwAXgBkAEAmAHXCaAB1wmqAQM3LTG4AQPIAQD4AQGYAgKgAvcJwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYKkgcFMS43LTGgB9YKsgcDNy0xuAfpCcIHAzMtMsgHGg&amp;sclient=gws-wiz-serp"><i class="fa-brands fa-google"></i></a></li>
+              <li><a href="https://www.youtube.com/@GoCloudeg"><i class="fa-brands fa-youtube"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Top Banner Component-->
+    <div class="header-top" style="background-color: #017E84;">
+      <div class="container">
+        <div class="flex row justify-content-around align-items-center">
+          <div class="col-lg-6">
+            <p class="typewriter fs-5 fw-bold" id="typewriterText" style="color: white;"></p>
+          </div>
+          <div class="col-lg-6" style="height: 60px;"><img src="images/odoo_learning_partner_rgb%20(1).png" alt="Odoo Partner" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+    <section class="odoo-hero position-relative">
+      <div class="container">
+        <div class="row align-items-center py-5">
+          <div class="col-lg-6" dir="rtl">
+            <div class="hero-content">
+              <div class="badge bg-primary mb-3" style="font-size: 1rem; padding: 10px 20px;"><i class="fab fa-odoo me-2"></i>Odoo Gold Partner</div>
+              <h1 class="display-4 fw-bold mb-4" style="color: #1e293b;">حلول <span style="color: #7c3aed;">Odoo ERP</span><br>مُصممة خصيصاً لأعمالك</h1>
+              <p class="lead mb-4" style="color: #475569; font-size: 1.2rem;">
+                نطور أنظمة Odoo متكاملة مع لوحات تحكم ذكية (Dashboards) 
+                تُحول بياناتك إلى قرارات فورية. خبرة +8 سنوات في القطاعات الطبية والتجارية.
+              </p>
+              <div class="key-features mb-4">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="feature-badge"><i class="fas fa-chart-line text-success me-2"></i><span>لوحات تحكم مخصصة</span></div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-badge"><i class="fas fa-mobile-alt text-primary me-2"></i><span>تطبيقات موبايل</span></div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-badge"><i class="fas fa-users text-info me-2"></i><span>CRM متقدم</span></div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-badge"><i class="fas fa-box text-warning me-2"></i><span>إدارة المخزون</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="cta-buttons"><a class="btn btn-primary btn-lg me-3" href="https://wa.me/201017383815?text=مرحباً، أريد استشارة حول خدمات Odoo" target="_blank"><i class="fab fa-whatsapp me-2"></i>استشارة مجانية</a><a class="btn btn-outline-primary btn-lg" href="#case-studies"><i class="fas fa-briefcase me-2"></i>شاهد مشاريعنا</a></div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-image position-relative"><img class="img-fluid rounded shadow-lg" src="images/odoo-dashboard-hero.webp" alt="Odoo Dashboard" style="border-radius: 20px;">
+              <div class="floating-stat" style="position: absolute; top: 20px; right: -20px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <div class="d-flex align-items-center">
+                  <div class="icon-box" style="background: #10b981; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center;"><i class="fas fa-users" style="color: white; font-size: 24px;"></i></div>
+                  <div class="ms-3">
+                    <div class="h3 mb-0" style="color: #10b981;">50+</div><small style="color: #64748b;">عميل راضي</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="services-overview py-5 bg-light">
+      <div class="container">
+        <div class="section-header text-center mb-5" dir="rtl">
+          <h2 class="display-5 fw-bold">خدمات Odoo الشاملة</h2>
+          <p class="lead text-muted">من التخطيط إلى التشغيل، نرافقك في كل خطوة</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card h-100 text-center" style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s;">
+              <div class="icon-wrapper mb-4" style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;"><i class="fas fa-rocket" style="color: white; font-size: 36px;"></i></div>
+              <h3 class="h4 mb-3">تنفيذ Odoo (Implementation)</h3>
+              <p class="text-muted mb-4">نقل أعمالك بالكامل إلى Odoo مع تخصيص كامل لاحتياجاتك. تدريب الفريق، نقل البيانات، والدعم الفني.</p>
+              <ul class="features-list text-start" dir="rtl" style="list-style: none; padding: 0;">
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>تحليل احتياجات العمل</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>تخصيص النظام</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>تدريب شامل للفريق</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>دعم ما بعد التشغيل</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card h-100 text-center featured" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(102,126,234,0.4); transform: scale(1.05);">
+              <div class="popular-badge" style="position: absolute; top: -15px; right: 20px; background: #f59e0b; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold;">الأكثر طلباً</div>
+              <div class="icon-wrapper mb-4" style="width: 80px; height: 80px; margin: 0 auto; background: rgba(255,255,255,0.2); border-radius: 20px; display: flex; align-items: center; justify-content: center;"><i class="fas fa-code" style="color: white; font-size: 36px;"></i></div>
+              <h3 class="h4 mb-3" style="color: white;">التطوير المخصص</h3>
+              <p class="mb-4" style="color: rgba(255,255,255,0.9);">نطور modules مخصصة و dashboards ذكية تحول Odoo لنظام فريد يناسب عملك 100%.</p>
+              <ul class="features-list text-start" dir="rtl" style="list-style: none; padding: 0; color: white;">
+                <li class="mb-2"><i class="fas fa-check-circle me-2"></i>Custom CRM Modules</li>
+                <li class="mb-2"><i class="fas fa-check-circle me-2"></i>Dashboards تفاعلية</li>
+                <li class="mb-2"><i class="fas fa-check-circle me-2"></i>API Integration</li>
+                <li class="mb-2"><i class="fas fa-check-circle me-2"></i>Mobile Apps (iOS/Android)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card h-100 text-center" style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+              <div class="icon-wrapper mb-4" style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;"><i class="fas fa-headset" style="color: white; font-size: 36px;"></i></div>
+              <h3 class="h4 mb-3">الدعم والصيانة</h3>
+              <p class="text-muted mb-4">دعم فني مستمر 24/7، تحديثات دورية، وحل المشاكل فوراً لضمان استمرارية عملك.</p>
+              <ul class="features-list text-start" dir="rtl" style="list-style: none; padding: 0;">
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>دعم فني 24/7</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>تحديثات Odoo</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>إصلاح الأخطاء</li>
+                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>تحسين الأداء</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="dashboards-showcase py-5">
+      <div class="container">
+        <div class="section-header text-center mb-5" dir="rtl">
+          <h2 class="display-5 fw-bold">لوحات تحكم ذكية مُصممة خصيصاً</h2>
+          <p class="lead text-muted">حوّل بياناتك إلى رؤى قابلة للتنفيذ</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="dashboard-card" style="background: #1e293b; padding: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);"><img class="img-fluid" src="images/dashboard-sales.png" alt="Sales Dashboard" style="width: 100%; height: auto;">
+              <div class="p-4">
+                <h4 class="text-white mb-3">Dashboard مبيعات المجوهرات</h4>
+                <p class="text-white-50">
+                   تتبع الذهب والفضة بالجرام، أهداف الفريق، والعملاء الجدد - كل شيء في مكان واحد.</p>
+                <div class="badges"><span class="badge bg-warning me-2">Gold & Silver Tracking</span><span class="badge bg-success">Team Targets</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="dashboard-card" style="background: #1e293b; padding: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);"><img class="img-fluid" src="images/dashboard-branch.png" alt="Branch Dashboard" style="width: 100%; height: auto;">
+              <div class="p-4">
+                <h4 class="text-white mb-3">Dashboard الفروع</h4>
+                <h4 class="text-white mb-3">Dashboard الفروع</h4>
+                <p class="text-white-50">مراقبة جميع الفروع في الوقت الفعلي: المبيعات، المخزون، والأنشطة.</p>
+                <div class="badges"><span class="badge bg-info me-2">Real-time Monitoring</span><span class="badge bg-primary">Multi-Branch</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="dashboard-card" style="background: #1e293b; padding: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);"><img class="img-fluid" src="images/dashboard-crm.png" alt="CRM Dashboard" style="width: 100%; height: auto;">
+              <div class="p-4">
+                <h4 class="text-white mb-3">CRM Dashboard متقدم</h4>
+                <p class="text-white-50">إدارة العملاء المحتملين، الأنشطة، والمواعيد بذكاء AI.</p>
+                <div class="badges"><span class="badge bg-success me-2">AI-Powered</span><span class="badge bg-danger">Lead Scoring</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="case-studies py-5 bg-light" id="case-studies">
+      <div class="container">
+        <div class="section-header text-center mb-5" dir="rtl">
+          <h2 class="display-5 fw-bold">عملاؤنا المتميزون</h2>
+          <p class="lead text-muted">شركات رائدة تثق في حلولنا</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="case-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <div class="company-logo h-100 d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); padding: 40px;">
+                    <div class="text-center"><i class="fas fa-gem" style="font-size: 48px; color: white; margin-bottom: 15px;"></i>
+                      <h4 class="text-white">Gold Era</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="p-4">
+                    <h4 class="mb-3">Gold Era - نظام CRM متكامل</h4>
+                    <p class="text-muted mb-3">نظام إدارة شامل لمبيعات المجوهرات والذهب مع تتبع دقيق بالجرام ولوحات تحكم متقدمة.</p>
+                    <div class="features mb-3">
+                      <div class="badge bg-primary me-2 mb-2">Custom CRM</div>
+                      <div class="badge bg-warning me-2 mb-2">Gold Tracking</div>
+                      <div class="badge bg-success mb-2">Team Dashboards</div>
+                    </div><a class="btn btn-outline-primary" href="https://gold-era.eg/" target="_blank">زيارة الموقع<i class="fas fa-external-link-alt ms-2"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="case-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <div class="company-logo h-100 d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #8B4513 0%, #D4AF37 100%); padding: 40px;">
+                    <div class="text-center"><i class="fas fa-ring" style="font-size: 48px; color: white; margin-bottom: 15px;"></i>
+                      <h4 class="text-white">Dahab Zaman</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="p-4">
+                    <h4 class="mb-3">Dahab Zaman - منصة تجارة إلكترونية</h4>
+                    <p class="text-muted mb-3">Odoo eCommerce متكامل مع إدارة المخزون والمبيعات متعددة القنوات.</p>
+                    <div class="features mb-3">
+                      <div class="badge bg-info me-2 mb-2">eCommerce</div>
+                      <div class="badge bg-success me-2 mb-2">Multi-channel</div>
+                      <div class="badge bg-primary mb-2">Inventory Management</div>
+                    </div><a class="btn btn-outline-primary" href="https://dahabzaman.eg/" target="_blank">زيارة الموقع<i class="fas fa-external-link-alt ms-2"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="case-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <div class="company-logo h-100 d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%); padding: 40px;">
+                    <div class="text-center"><i class="fas fa-heartbeat" style="font-size: 48px; color: white; margin-bottom: 15px;"></i>
+                      <h4 class="text-white">EgMed</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="p-4">
+                    <h4 class="mb-3">EgMed - نظام إدارة المستلزمات الطبية</h4>
+                    <p class="text-muted mb-3">حل Odoo متكامل لإدارة المستلزمات الطبية مع تتبع دقيق للمخزون وتواريخ الصلاحية.</p>
+                    <div class="features mb-3">
+                      <div class="badge bg-danger me-2 mb-2">Medical Supplies</div>
+                      <div class="badge bg-warning me-2 mb-2">Expiry Tracking</div>
+                      <div class="badge bg-success mb-2">Multi-warehouse</div>
+                    </div><a class="btn btn-outline-primary" href="https://www.egmed.com/" target="_blank">زيارة الموقع<i class="fas fa-external-link-alt ms-2"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="case-card" style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+              <div class="row g-0">
+                <div class="col-md-5">
+                  <div class="company-logo h-100 d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 40px;">
+                    <div class="text-center"><i class="fas fa-clinic-medical" style="font-size: 48px; color: white; margin-bottom: 15px;"></i>
+                      <h4 class="text-white">Gulf Med</h4>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-7">
+                  <div class="p-4">
+                    <h4 class="mb-3">Gulf Med Egypt - CRM طبي متقدم</h4>
+                    <p class="text-muted mb-3">نظام CRM مخصص لإدارة العملاء والموردين في القطاع الطبي مع لوحات تحكم ذكية.</p>
+                    <div class="features mb-3">
+                      <div class="badge bg-primary me-2 mb-2">Medical CRM</div>
+                      <div class="badge bg-info me-2 mb-2">Supplier Management</div>
+                      <div class="badge bg-success mb-2">Smart Dashboards</div>
+                    </div><a class="btn btn-outline-primary" href="https://gulfmedegypt.com/" target="_blank">زيارة الموقع<i class="fas fa-external-link-alt ms-2"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="why-choose-us py-5">
+      <div class="container">
+        <div class="section-header text-center mb-5" dir="rtl">
+          <h2 class="display-5 fw-bold">لماذا GoCloud لخدمات Odoo؟</h2>
+          <p class="lead text-muted">خبرة محلية، معايير عالمية</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="feature-box text-center h-100" style="padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+              <div class="icon-circle mb-4 mx-auto" style="width: 80px; height: 80px; background: rgba(102,126,234,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-award" style="font-size: 36px; color: #667eea;"></i></div>
+              <h4 class="mb-3">+8 سنوات خبرة</h4>
+              <p class="text-muted">خبراء معتمدون في تطوير وتنفيذ Odoo</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="feature-box text-center h-100" style="padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+              <div class="icon-circle mb-4 mx-auto" style="width: 80px; height: 80px; background: rgba(16,185,129,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-users-cog" style="font-size: 36px; color: #10b981;"></i></div>
+              <h4 class="mb-3">50+ مشروع ناجح</h4>
+              <p class="text-muted">عملاء راضون في قطاعات متعددة</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="feature-box text-center h-100" style="padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+              <div class="icon-circle mb-4 mx-auto" style="width: 80px; height: 80px; background: rgba(245,158,11,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-rocket" style="font-size: 36px; color: #f59e0b;"></i></div>
+              <h4 class="mb-3">تسليم سريع</h4>
+              <p class="text-muted">ننفذ مشاريعك في الوقت المحدد</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="feature-box text-center h-100" style="padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+              <div class="icon-circle mb-4 mx-auto" style="width: 80px; height: 80px; background: rgba(239,68,68,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;"><i class="fas fa-headset" style="font-size: 36px; color: #ef4444;"></i></div>
+              <h4 class="mb-3">دعم مستمر</h4>
+              <p class="text-muted">نرافقك بعد التشغيل بدعم فني 24/7</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pricing py-5 bg-light">
+      <div class="container">
+        <div class="section-header text-center mb-5" dir="rtl">
+          <h2 class="display-5 fw-bold">باقات خدمات Odoo</h2>
+          <p class="lead text-muted">اختر الباقة المناسبة لحجم عملك</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-4">
+            <div class="pricing-card h-100" style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;">
+              <h3 class="mb-3">Odoo Implementation</h3>
+              <div class="price mb-4">
+                <div class="h2" style="color: #667eea;">حسب المشروع</div><small class="text-muted">ابدأ من 50,000 EGP</small>
+              </div>
+              <ul class="features-list text-start mb-4" dir="rtl" style="list-style: none; padding: 0;">
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>تحليل احتياجات مفصل</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>تنفيذ Odoo كامل</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>تدريب شامل للفريق</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>نقل البيانات</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>3 أشهر دعم فني</li>
+              </ul><a class="btn btn-outline-primary w-100" href="https://wa.me/201017383815?text=مرحباً، أريد معرفة المزيد عن باقة Odoo Implementation" target="_blank"><i class="fab fa-whatsapp me-2"></i>تواصل معنا</a>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="pricing-card featured h-100" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(102,126,234,0.4); transform: scale(1.05); text-align: center; position: relative;">
+              <div class="popular-badge" style="position: absolute; top: -15px; right: 20px; background: #f59e0b; color: white; padding: 5px 20px; border-radius: 20px; font-weight: bold;">الأكثر طلباً</div>
+              <h3 class="mb-3" style="color: white;">Custom Development</h3>
+              <div class="price mb-4" style="color: white;">
+                <div class="h2">حسب المتطلبات</div><small>ابدأ من 30,000 EGP</small>
+              </div>
+              <ul class="features-list text-start mb-4" dir="rtl" style="list-style: none; padding: 0; color: white;">
+                <li class="mb-3"><i class="fas fa-check-circle me-2"></i>Custom Modules</li>
+                <li class="mb-3"><i class="fas fa-check-circle me-2"></i>Dashboards مخصصة</li>
+                <li class="mb-3"><i class="fas fa-check-circle me-2"></i>API Integration</li>
+                <li class="mb-3"><i class="fas fa-check-circle me-2"></i>Mobile Apps</li>
+                <li class="mb-3"><i class="fas fa-check-circle me-2"></i>دعم فني مستمر</li>
+              </ul><a class="btn btn-light w-100" href="https://wa.me/201017383815?text=مرحباً، أريد معرفة المزيد عن باقة Custom Development" target="_blank"><i class="fab fa-whatsapp me-2"></i>ابدأ مشروعك</a>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="pricing-card h-100" style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;">
+              <h3 class="mb-3">Support & Maintenance</h3>
+              <div class="price mb-4">
+                <div class="h2" style="color: #667eea;">شهرياً</div><small class="text-muted">ابدأ من 5,000 EGP</small>
+              </div>
+              <ul class="features-list text-start mb-4" dir="rtl" style="list-style: none; padding: 0;">
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>دعم فني 24/7</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>تحديثات Odoo</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>إصلاح الأخطاء</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>تحسين الأداء</li>
+                <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>تقارير شهرية</li>
+              </ul><a class="btn btn-outline-primary w-100" href="https://wa.me/201017383815?text=مرحباً، أريد معرفة المزيد عن باقة Support" target="_blank"><i class="fab fa-whatsapp me-2"></i>تواصل معنا</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="final-cta py-5" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+      <div class="container text-center" dir="rtl">
+        <h2 class="display-5 fw-bold text-white mb-4">جاهز لتحويل أعمالك مع Odoo؟</h2>
+        <p class="lead text-white mb-5">احجز استشارة مجانية الآن ودعنا نساعدك في اختيار الحل المثالي</p>
+        <div class="cta-buttons"><a class="btn btn-light btn-lg me-3" href="https://wa.me/201017383815?text=مرحباً، أريد استشارة مجانية حول Odoo" target="_blank"><i class="fab fa-whatsapp me-2"></i>استشارة مجانية عبر WhatsApp</a><a class="btn btn-outline-light btn-lg" href="tel:+201017383815"><i class="fas fa-phone me-2"></i>اتصل الآن</a></div>
+      </div>
+    </section>
+    <!-- Footer Component-->
+    <footer>
+      <div class="footer1 _relative text-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer-items">
+                <p>At <span><img src="images/gocloud logo.webp" height="70" width="70" alt="GoCloud Logo" loading="lazy"></span>we're dedicated to deliver innovative technology solutions tailored to meet the unique needs of businesses like yours.</p>
+                <ul class="social-icon text-center">
+                  <li><a href="https://www.linkedin.com/company/gocloud-co/posts/?feedView=all"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                  <li><a href="https://www.google.com/search?q=gocloud+eg&amp;sca_esv=1b465dddb89ef670&amp;sxsrf=AE3TifPO8dDI2un8QLeuyTZoAmiw1QCmhA%3A1750690736441&amp;ei=sGtZaLfRGoaNkdUP4_DKyAI&amp;ved=0ahUKEwi36dOb54eOAxWGRqQEHWO4EikQ4dUDCBA&amp;uact=5&amp;oq=gocloud+&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiCGdvY2xvdWQgMgoQIxjwBRgnGMkCMgQQIxgnMgUQABiABDIKEAAYgAQYQxiKBTILEC4YgAQYxwEYrwEyChAAGIAEGEMYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigVInw5Q3AFY3AFwAXgBkAEAmAHXCaAB1wmqAQM3LTG4AQPIAQD4AQGYAgKgAvcJwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYKkgcFMS43LTGgB9YKsgcDNy0xuAfpCcIHAzMtMsgHGg&amp;sclient=gws-wiz-serp"><i class="fa-brands fa-google"></i></a></li>
+                  <li><a href="https://www.youtube.com/@GoCloudeg"><i class="fa-brands fa-youtube"></i></a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <div class="single-footer-items">
+                <h3>Our Services
+                  <div class="contact-box justify-content-center">
+                    <ul class="menu-list">
+                      <li><a href="cloud-services.html">Cloud Solutions</a></li>
+                      <li><a href="odoo-dev.html">Odoo development </a></li>
+                      <li><a href="odoo-imp.html">Odoo Implementation</a></li>
+                      <li><a href="business.html">Business intelligence</a></li>
+                    </ul>
+                  </div>
+                </h3>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-6 col-12">
+              <div class="single-footer-items">
+                <h3>Useful Links
+                  <div class="contact-box justify-content-center">
+                    <ul class="menu-list">
+                      <li><a href="about.html">About Us </a></li>
+                      <li><a href="service.html">Services</a></li>
+                      <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                  </div>
+                </h3>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 text-center">
+              <div class="single-footer-items">
+                <h3>Contact Us</h3>
+                <div class="contact-box justify-content-center">
+                  <div class="icon"><img src="images/footer1-icon1.webp" alt="" loading="lazy"></div>
+                  <div class="pera"><a href="tel:+20233762533">0233762533</a></div>
+                </div>
+                <div class="contact-box justify-content-center">
+                  <div class="icon"><img src="images/footer1-icon2.webp" alt="" loading="lazy"></div>
+                  <div class="pera"><a href="tel://+201017383815">+201017383815</a></div>
+                </div>
+                <div class="contact-box justify-content-center">
+                  <div class="icon"><img src="images/footer1-icon3.webp" alt="" loading="lazy"></div>
+                  <div class="text-wrap pera"><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
+                </div>
+                <div class="contact-box justify-content-center">
+                  <div class="icon"><img src="images/footer1-icon4.webp" alt="" loading="lazy"></div>
+                  <div class="pera"><a href="https://gocloudeg.com">www.gocloudeg.com</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="space40"></div>
+        </div>
+        <div class="container row d-flex text-center mb-5 mx-auto">
+          <div class="col-5">
+            <div>
+              <p>Copyright @ 
+                <script>document.write(new Date().getFullYear())</script> Gocloud-eg. All Rights Reserved
+              </p>
+            </div>
+          </div>
+          <div class="col-5"><a href="conditions-terms.html">Terms & Conditions |</a><a href="privacy.html">Privacy Policy</a></div>
+        </div>
+      </div>
+    </footer>
+    <!-- WhatsApp Floating Button Component-->
+    <style>
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 100px;
+        right: 30px;
+        background-color: #25d366;
+        color: #FFF;
+        border-radius: 40px;
+        text-align: center;
+        font-size: 30px;
+        z-index: 100;
+        cursor: pointer;
+      }
+      
+      .my-float {
+        margin-top: 16px;
+      }
+      
+    </style>
+    <script type="text/javascript">
+      // WhatsApp button - vanilla JS (no jQuery dependency)
+      document.addEventListener('DOMContentLoaded', function () {
+        var whatsappFloat = document.createElement('div');
+        whatsappFloat.className = 'whatsapp-float';
+      
+        var myFloat = document.createElement('div');
+        myFloat.className = 'my-float';
+      
+        var icon = document.createElement('i');
+        icon.className = 'fa-brands fa-whatsapp';
+      
+        myFloat.appendChild(icon);
+        whatsappFloat.appendChild(myFloat);
+        document.body.appendChild(whatsappFloat);
+      
+        whatsappFloat.addEventListener('click', function () {
+          window.location.href = 'https://wa.me/+201017383815?text=Hello from Gocloud';
+        });
+      });
+    </script>
+    <style>
+      * {
+        font-family: 'Cairo', sans-serif;
+      }
+      
+      body {
+        overflow-x: hidden;
+      }
+      
+      .odoo-hero {
+        background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+        padding: 80px 0 60px;
+      }
+      
+      .feature-badge {
+        background: #f1f5f9;
+        padding: 12px 20px;
+        border-radius: 10px;
+        display: inline-flex;
+        align-items: center;
+        font-weight: 600;
+        color: #334155;
+      }
+      
+      .service-card {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+      }
+      
+      .dashboard-card {
+        transition: all 0.3s ease;
+      }
+      
+      .dashboard-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
+      }
+      
+      .case-card {
+        transition: all 0.3s ease;
+      }
+      
+      .case-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
+      }
+      
+      .pricing-card {
+        transition: all 0.3s ease;
+      }
+      
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+      }
+      
+      @media (max-width: 768px) {
+        .pricing-card.featured {
+          transform: scale(1) !important;
+        }
+      }
+      
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
