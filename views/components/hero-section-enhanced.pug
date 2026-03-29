@@ -1,0 +1,247 @@
+//- Enhanced Hero Section for GoCloud Website
+//- Focus: Healthcare + Odoo Integration
+
+mixin hero-section-enhanced
+  section.hero-section.healthcare-focused
+    .container
+      .row.align-items-center
+        .col-lg-6.hero-content
+          //- Badge للتميز
+          .hero-badge
+            span.badge.badge-primary
+              i.fas.fa-award
+              | Official Odoo Gold Partner
+          
+          //- العنوان الرئيسي - واضح ومحدد
+          h1.hero-title.animate__animated.animate__fadeInUp
+            | نظام إدارة التأمين الطبي 
+            span.highlight ELITE
+            br
+            | + حلول Odoo المتكاملة
+            br
+            span.subtitle لنمو الشركات في مصر
+          
+          //- النقطة الفريدة (USP)
+          .hero-usp.animate__animated.animate__fadeInUp.animate__delay-1s
+            .usp-card
+              i.fas.fa-link.text-primary
+              .usp-content
+                h3 الوحيدون في مصر
+                p ربط نظام التأمين الطبي بـ Odoo ERP
+                p.small دورة مالية 100% بدون أخطاء
+          
+          //- الإحصائيات
+          .hero-stats.row.mt-4
+            .col-4
+              .stat-item
+                h3.stat-number
+                  span(data-count="10000") 0
+                  | +
+                p.stat-label مطالبة طبية شهرياً
+            
+            .col-4
+              .stat-item
+                h3.stat-number 100%
+                p.stat-label دقة المعالجة
+            
+            .col-4
+              .stat-item
+                h3.stat-number
+                  span(data-count="50") 0
+                  | +
+                p.stat-label عميل راضٍ
+          
+          //- أزرار CTA قوية
+          .hero-cta.mt-4
+            a.btn.btn-primary.btn-lg.me-3(href="#demo")
+              i.fas.fa-play-circle.me-2
+              | شاهد نظام ELITE (فيديو 2 دقيقة)
+            
+            a.btn.btn-outline-primary.btn-lg(href="#consultation")
+              i.fas.fa-calendar-check.me-2
+              | احجز استشارة مجانية
+        
+        .col-lg-6.hero-visual
+          //- صورة أو فيديو السيستم الحقيقي
+          .hero-dashboard
+            //- استبدل stock photos بسكرين شوت حقيقي
+            img.img-fluid.shadow-lg.rounded(
+              src="images/elite-dashboard-real.webp" 
+              alt="نظام ELITE Dashboard"
+              loading="eager"
+            )
+            
+            //- Floating elements للتفاعل
+            .floating-card.card-1
+              i.fas.fa-shield-alt.text-success
+              span Fraud Detection AI
+            
+            .floating-card.card-2
+              i.fas.fa-sync.text-primary
+              span Real-time Odoo Sync
+            
+            .floating-card.card-3
+              i.fas.fa-chart-line.text-info
+              span Live Analytics
+
+//- CSS للتصميم الجديد
+style.
+  .hero-section.healthcare-focused {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 100px 0;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('images/pattern.svg') repeat;
+    opacity: 0.1;
+  }
+  
+  .hero-badge {
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+  }
+  
+  .hero-badge .badge {
+    font-size: 14px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 30px;
+  }
+  
+  .hero-title .highlight {
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255,215,0,0.5);
+  }
+  
+  .hero-title .subtitle {
+    font-size: 2rem;
+    font-weight: 400;
+    display: block;
+    margin-top: 10px;
+    color: rgba(255,255,255,0.9);
+  }
+  
+  .hero-usp {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    margin: 30px 0;
+  }
+  
+  .usp-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .usp-card i {
+    font-size: 3rem;
+  }
+  
+  .usp-content h3 {
+    color: #2563eb;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .usp-content p {
+    margin: 5px 0;
+    color: #334155;
+    font-weight: 600;
+  }
+  
+  .hero-stats .stat-item {
+    text-align: center;
+    color: white;
+  }
+  
+  .hero-stats .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+  }
+  
+  .hero-stats .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+  
+  .hero-dashboard {
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .floating-card {
+    position: absolute;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .floating-card.card-1 {
+    top: 20%;
+    right: -10%;
+    animation-delay: 0s;
+  }
+  
+  .floating-card.card-2 {
+    top: 50%;
+    left: -10%;
+    animation-delay: 1s;
+  }
+  
+  .floating-card.card-3 {
+    bottom: 20%;
+    right: 10%;
+    animation-delay: 2s;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+    
+    .hero-title .subtitle {
+      font-size: 1.3rem;
+    }
+    
+    .floating-card {
+      display: none;
+    }
+  }
