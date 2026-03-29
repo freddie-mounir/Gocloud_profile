@@ -1,32 +1,18 @@
-doctype html
-html(lang="ar" dir="rtl")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    title خدمات Odoo المتقدمة | GoCloud
-    meta(name="description" content="حلول Odoo ERP مخصصة مع لوحات تحكم ذكية لإدارة المبيعات، المخزون، والعملاء. خبراء في تطوير Odoo للقطاعات المختلفة")
-    
-    //- Main Site CSS (Same as other pages)
-    link(rel="stylesheet" href="css/plugins/bootstrap.min.css")
-    link(rel="stylesheet" href="css/plugins/fontawesome.css")
-    link(rel="stylesheet" href="css/plugins/mobile.css")
-    link(rel="stylesheet" href="css/plugins/magnific-popup.css")
-    link(rel="stylesheet" href="css/plugins/slick-slider.css")
-    link(rel="stylesheet" href="css/plugins/owlcarousel.min.css")
-    link(rel="stylesheet" href="css/plugins/aos.css")
-    link(rel="stylesheet" href="css/typography.css")
-    link(rel="stylesheet" href="css/master.css")
-    
-    //- Google Fonts - Cairo
-    link(rel="preconnect" href="https://fonts.googleapis.com")
-    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
-    link(href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet")
-    
-  body
-    //- Header
-    include components/header.pug
-    include components/top-banner.pug
-    
+//- Odoo Services landing page
+
+extends layout
+
+block variables
+  - var pageTitle = "خدمات Odoo المتقدمة | GoCloud"
+  - var pageDescription = "حلول Odoo ERP مخصصة مع لوحات تحكم ذكية لإدارة المبيعات، المخزون، والعملاء. خبراء في تطوير Odoo للقطاعات المختلفة"
+  - var pageKeywords = "Odoo, ERP, Custom Development, Odoo Implementation, CRM, Dashboards"
+  - var canonicalUrl = "https://www.gocloudeg.com/odoo-services"
+
+block content
+  include components/preloader.pug
+  include components/top-banner.pug
+  include components/header.pug
+
     //- ===== Hero Section =====
     section.odoo-hero.position-relative
       .container
@@ -249,10 +235,10 @@ html(lang="ar" dir="rtl")
                   .company-logo.h-100.d-flex.align-items-center.justify-content-center(style="background: linear-gradient(135deg, #8B4513 0%, #D4AF37 100%); padding: 40px;")
                     .text-center
                       i.fas.fa-ring(style="font-size: 48px; color: white; margin-bottom: 15px;")
-                      h4.text-white Dahab Zaman
+                      h4.text-white Dahab زامن
                 .col-md-7
                   .p-4
-                    h4.mb-3 Dahab Zaman - منصة تجارة إلكترونية
+                    h4.mb-3 Dahab زامن - منصة تجارة إلكترونية
                     p.text-muted.mb-3
                       | Odoo eCommerce متكامل مع إدارة المخزون والمبيعات متعددة القنوات.
                     .features.mb-3
@@ -457,81 +443,66 @@ html(lang="ar" dir="rtl")
             i.fas.fa-phone.me-2
             | اتصل الآن
 
-    //- Footer
-    include components/footer.pug
-    include components/whatsapp-button.pug
+  //- Footer & WhatsApp Button
+  include components/footer.pug
+  include components/whatsapp-button.pug
 
-    //- Custom Styles
-    style.
-      * {
-        font-family: 'Cairo', sans-serif;
+  //- Custom Styles for Odoo Services Page
+  style.
+    .odoo-hero {
+      background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+      padding: 80px 0 60px;
+    }
+    
+    .feature-badge {
+      background: #f1f5f9;
+      padding: 12px 20px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      font-weight: 600;
+      color: #334155;
+    }
+    
+    .service-card {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
+    }
+    
+    .dashboard-card {
+      transition: all 0.3s ease;
+    }
+    
+    .dashboard-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
+    }
+    
+    .case-card {
+      transition: all 0.3s ease;
+    }
+    
+    .case-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
+    }
+    
+    .pricing-card {
+      transition: all 0.3s ease;
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+    }
+    
+    @media (max-width: 768px) {
+      .pricing-card.featured {
+        transform: scale(1) !important;
       }
-      
-      body {
-        overflow-x: hidden;
-      }
-      
-      .odoo-hero {
-        background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
-        padding: 80px 0 60px;
-      }
-      
-      .feature-badge {
-        background: #f1f5f9;
-        padding: 12px 20px;
-        border-radius: 10px;
-        display: inline-flex;
-        align-items: center;
-        font-weight: 600;
-        color: #334155;
-      }
-      
-      .service-card {
-        position: relative;
-        transition: all 0.3s ease;
-      }
-      
-      .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important;
-      }
-      
-      .dashboard-card {
-        transition: all 0.3s ease;
-      }
-      
-      .dashboard-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
-      }
-      
-      .case-card {
-        transition: all 0.3s ease;
-      }
-      
-      .case-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
-      }
-      
-      .pricing-card {
-        transition: all 0.3s ease;
-      }
-      
-      .pricing-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
-      }
-      
-      @media (max-width: 768px) {
-        .pricing-card.featured {
-          transform: scale(1) !important;
-        }
-      }
-
-    //- Bootstrap JS & Site Scripts
-    script(src="js/plugins/jquery-3-6-0.min.js")
-    script(src="js/plugins/bootstrap.min.js")
-    script(src="js/plugins/mobile.js")
-    script(src="js/plugins/aos.js")
-    script(src="js/main.js")
+    }
