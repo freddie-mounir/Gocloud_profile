@@ -13,435 +13,435 @@ block content
   include components/top-banner.pug
   include components/header.pug
 
-    //- ===== Hero Section =====
-    section.odoo-hero.position-relative
-      .container
-        .row.align-items-center.py-5
-          .col-lg-6(dir="rtl")
-            .hero-content
-              .badge.bg-primary.mb-3(style="font-size: 1rem; padding: 10px 20px;")
-                i.fab.fa-odoo.me-2
-                | Odoo Gold Partner
-              
-              h1.display-4.fw-bold.mb-4(style="color: #1e293b;")
-                | حلول 
-                span(style="color: #7c3aed;") Odoo ERP
-                br
-                | مُصممة خصيصاً لأعمالك
-              
-              p.lead.mb-4(style="color: #475569; font-size: 1.2rem;")
-                | نطور أنظمة Odoo متكاملة مع لوحات تحكم ذكية (Dashboards) 
-                | تُحول بياناتك إلى قرارات فورية. خبرة +8 سنوات في القطاعات الطبية والتجارية.
-              
-              .key-features.mb-4
-                .row.g-3
-                  .col-md-6
-                    .feature-badge
-                      i.fas.fa-chart-line.text-success.me-2
-                      span لوحات تحكم مخصصة
-                  .col-md-6
-                    .feature-badge
-                      i.fas.fa-mobile-alt.text-primary.me-2
-                      span تطبيقات موبايل
-                  .col-md-6
-                    .feature-badge
-                      i.fas.fa-users.text-info.me-2
-                      span CRM متقدم
-                  .col-md-6
-                    .feature-badge
-                      i.fas.fa-box.text-warning.me-2
-                      span إدارة المخزون
-              
-              .cta-buttons
-                a.btn.btn-primary.btn-lg.me-3(
-                  href="https://wa.me/201017383815?text=مرحباً، أريد استشارة حول خدمات Odoo"
-                  target="_blank"
-                )
-                  i.fab.fa-whatsapp.me-2
-                  | استشارة مجانية
-                
-                a.btn.btn-outline-primary.btn-lg(href="#case-studies")
-                  i.fas.fa-briefcase.me-2
-                  | شاهد مشاريعنا
+  //- ===== Hero Section =====
+  section.odoo-hero.position-relative
+  .container
+    .row.align-items-center.py-5
+      .col-lg-6(dir="rtl")
+        .hero-content
+          .badge.bg-primary.mb-3(style="font-size: 1rem; padding: 10px 20px;")
+            i.fab.fa-odoo.me-2
+            | Odoo Gold Partner
           
-          .col-lg-6
-            .hero-image.position-relative
-              img.img-fluid.rounded.shadow-lg(
-                src="images/odoo-dashboard-hero.webp"
-                alt="Odoo Dashboard"
-                style="border-radius: 20px;"
-              )
-              //- Floating Stats
-              .floating-stat(style="position: absolute; top: 20px; right: -20px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);")
-                .d-flex.align-items-center
-                  .icon-box(style="background: #10b981; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center;")
-                    i.fas.fa-users(style="color: white; font-size: 24px;")
-                  .ms-3
-                    .h3.mb-0(style="color: #10b981;") 50+
-                    small(style="color: #64748b;") عميل راضي
-
-    //- ===== Services Overview =====
-    section.services-overview.py-5.bg-light
-      .container
-        .section-header.text-center.mb-5(dir="rtl")
-          h2.display-5.fw-bold خدمات Odoo الشاملة
-          p.lead.text-muted من التخطيط إلى التشغيل، نرافقك في كل خطوة
+          h1.display-4.fw-bold.mb-4(style="color: #1e293b;")
+            | حلول 
+            span(style="color: #7c3aed;") Odoo ERP
+            br
+            | مُصممة خصيصاً لأعمالك
+          
+          p.lead.mb-4(style="color: #475569; font-size: 1.2rem;")
+            | نطور أنظمة Odoo متكاملة مع لوحات تحكم ذكية (Dashboards) 
+            | تُحول بياناتك إلى قرارات فورية. خبرة +8 سنوات في القطاعات الطبية والتجارية.
+          
+          .key-features.mb-4
+            .row.g-3
+              .col-md-6
+                .feature-badge
+                  i.fas.fa-chart-line.text-success.me-2
+                  span لوحات تحكم مخصصة
+              .col-md-6
+                .feature-badge
+                  i.fas.fa-mobile-alt.text-primary.me-2
+                  span تطبيقات موبايل
+              .col-md-6
+                .feature-badge
+                  i.fas.fa-users.text-info.me-2
+                  span CRM متقدم
+              .col-md-6
+                .feature-badge
+                  i.fas.fa-box.text-warning.me-2
+                  span إدارة المخزون
+          
+          .cta-buttons
+            a.btn.btn-primary.btn-lg.me-3(
+              href="https://wa.me/201017383815?text=مرحباً، أريد استشارة حول خدمات Odoo"
+              target="_blank"
+            )
+              i.fab.fa-whatsapp.me-2
+              | استشارة مجانية
+            
+            a.btn.btn-outline-primary.btn-lg(href="#case-studies")
+              i.fas.fa-briefcase.me-2
+              | شاهد مشاريعنا
         
-        .row.g-4
-          //- Service 1: Odoo Implementation
-          .col-lg-4.col-md-6
-            .service-card.h-100.text-center(style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s;")
-              .icon-wrapper.mb-4(style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;")
-                i.fas.fa-rocket(style="color: white; font-size: 36px;")
-              h3.h4.mb-3 تنفيذ Odoo (Implementation)
-              p.text-muted.mb-4
-                | نقل أعمالك بالكامل إلى Odoo مع تخصيص كامل لاحتياجاتك. تدريب الفريق، نقل البيانات، والدعم الفني.
-              ul.features-list.text-start(dir="rtl" style="list-style: none; padding: 0;")
-                li.mb-2
-                  i.fas.fa-check-circle.text-success.me-2
-                  | تحليل احتياجات العمل
-                li.mb-2
-                  i.fas.fa-check-circle.text-success.me-2
-                  | تخصيص النظام
-                li.mb-2
-                  i.fas.fa-check-circle.text-success.me-2
-                  | تدريب شامل للفريق
-                li.mb-2
-                  i.fas.fa-check-circle.text-success.me-2
-                  | دعم ما بعد التشغيل
-
-          //- Service 2: Custom Development
-          .col-lg-4.col-md-6
-            .service-card.h-100.text-center.featured(style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(102,126,234,0.4); transform: scale(1.05);")
-              .popular-badge(style="position: absolute; top: -15px; right: 20px; background: #f59e0b; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold;") الأكثر طلباً
-              .icon-wrapper.mb-4(style="width: 80px; height: 80px; margin: 0 auto; background: rgba(255,255,255,0.2); border-radius: 20px; display: flex; align-items: center; justify-content: center;")
-                i.fas.fa-code(style="color: white; font-size: 36px;")
-              h3.h4.mb-3(style="color: white;") التطوير المخصص
-              p.mb-4(style="color: rgba(255,255,255,0.9);")
-                | نطور modules مخصصة و dashboards ذكية تحول Odoo لنظام فريد يناسب عملك 100%.
-              ul.features-list.text-start(dir="rtl" style="list-style: none; padding: 0; color: white;")
-                li.mb-2
-                  i.fas.fa-check-circle.me-2
-                  | Custom CRM Modules
-                li.mb-2
-                  i.fas.fa-check-circle.me-2
-                  | Dashboards تفاعلية
-                li.mb-2
-                  i.fas.fa-check-circle.me-2
-                  | API Integration
-                li.mb-2
-                  i.fas.fa-check-circle.me-2
-                  | Mobile Apps (iOS/Android)
-
-          //- Service 3: Support & Maintenance
-          .col-lg-4.col-md-6
-            .service-card.h-100.text-center(style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);")
-              .icon-wrapper.mb-4(style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;")
-                i.fas.fa-headset(style="color: white; font-size: 36px;")
-              h3.h4.mb-3 الدعم والصيانة
-              p.text-muted.mb-4
-                | دعم فني مستمر 24/7، تحديثات دورية، وحل المشاكل فوراً لضمان استمرارية عملك.
-              ul.features-list.text-start(dir="rtl" style="list-style: none; padding: 0;")
-                li.mb-2
-                  i.fas.fa-check-circle.text-success.me-2
-                  | دعم فني 24/7
-                li.mb-2
-                  i.fas.fa-check-circle.text-success.me-2
-                  | تحديثات Odoo
-                li.mb-2
-                  i.fas.fa-check-circle.text-success.me-2
-                  | إصلاح الأخطاء
-                li.mb-2
-                  i.fas.fa-check-circle.text-success.me-2
-                  | تحسين الأداء
-
-    //- ===== Custom Dashboards Showcase =====
-    section.dashboards-showcase.py-5
-      .container
-        .section-header.text-center.mb-5(dir="rtl")
-          h2.display-5.fw-bold لوحات تحكم ذكية مُصممة خصيصاً
-          p.lead.text-muted حوّل بياناتك إلى رؤى قابلة للتنفيذ
-        
-        .row.g-4
-          .col-lg-4
-            .dashboard-card(style="background: #1e293b; padding: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);")
-              img.img-fluid(src="images/dashboard-sales.png" alt="Sales Dashboard" style="width: 100%; height: auto;")
-              .p-4
-                h4.text-white.mb-3 Dashboard مبيعات المجوهرات
-                p.text-white-50 
-                  | تتبع الذهب والفضة بالجرام، أهداف الفريق، والعملاء الجدد - كل شيء في مكان واحد.
-                .badges
-                  span.badge.bg-warning.me-2 Gold & Silver Tracking
-                  span.badge.bg-success Team Targets
-
-          .col-lg-4
-            .dashboard-card(style="background: #1e293b; padding: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);")
-              img.img-fluid(src="images/dashboard-branch.png" alt="Branch Dashboard" style="width: 100%; height: auto;")
-              .p-4
-                h4.text-white.mb-3 Dashboard الفروع
-                h4.text-white.mb-3 Dashboard الفروع
-                p.text-white-50
-                  | مراقبة جميع الفروع في الوقت الفعلي: المبيعات، المخزون، والأنشطة.
-                .badges
-                  span.badge.bg-info.me-2.real-time-monitoring
-                  span.badge.bg-primary.multi-branch
-
-          .col-lg-4
-            .dashboard-card(style="background: #1e293b; padding: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);")
-              img.img-fluid(src="images/dashboard-crm.png" alt="CRM Dashboard" style="width: 100%; height: auto;")
-              .p-4
-                h4.text-white.mb-3 CRM Dashboard متقدم
-                p.text-white-50
-                  | إدارة العملاء المحتملين، الأنشطة، والمواعيد بذكاء AI.
-                .badges
-                  span.badge.bg-success.me-2 AI-Powered
-                  span.badge.bg-danger Lead Scoring
-
-    //- ===== Case Studies =====
-    section#case-studies.case-studies.py-5.bg-light
-      .container
-        .section-header.text-center.mb-5(dir="rtl")
-          h2.display-5.fw-bold عملاؤنا المتميزون
-          p.lead.text-muted شركات رائدة تثق في حلولنا
-        
-        .row.g-4
-          //- Gold Era
-          .col-lg-6
-            .case-card(style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);")
-              .row.g-0
-                .col-md-5
-                  .company-logo.h-100.d-flex.align-items-center.justify-content-center(style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); padding: 40px;")
-                    .text-center
-                      i.fas.fa-gem(style="font-size: 48px; color: white; margin-bottom: 15px;")
-                      h4.text-white Gold Era
-                .col-md-7
-                  .p-4
-                    h4.mb-3 Gold Era - نظام CRM متكامل
-                    p.text-muted.mb-3
-                      | نظام إدارة شامل لمبيعات المجوهرات والذهب مع تتبع دقيق بالجرام ولوحات تحكم متقدمة.
-                    .features.mb-3
-                      .badge.bg-primary.me-2.mb-2 Custom CRM
-                      .badge.bg-warning.me-2.mb-2 Gold Tracking
-                      .badge.bg-success.mb-2 Team Dashboards
-                    a.btn.btn-outline-primary(href="https://gold-era.eg/" target="_blank")
-                      | زيارة الموقع
-                      i.fas.fa-external-link-alt.ms-2
-
-          //- Dahab Zaman
-          .col-lg-6
-            .case-card(style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);")
-              .row.g-0
-                .col-md-5
-                  .company-logo.h-100.d-flex.align-items-center.justify-content-center(style="background: linear-gradient(135deg, #8B4513 0%, #D4AF37 100%); padding: 40px;")
-                    .text-center
-                      i.fas.fa-ring(style="font-size: 48px; color: white; margin-bottom: 15px;")
-                      h4.text-white Dahab زامن
-                .col-md-7
-                  .p-4
-                    h4.mb-3 Dahab زامن - منصة تجارة إلكترونية
-                    p.text-muted.mb-3
-                      | Odoo eCommerce متكامل مع إدارة المخزون والمبيعات متعددة القنوات.
-                    .features.mb-3
-                      .badge.bg-info.me-2.mb-2 eCommerce
-                      .badge.bg-success.me-2.mb-2 Multi-channel
-                      .badge.bg-primary.mb-2 Inventory Management
-                    a.btn.btn-outline-primary(href="https://dahabzaman.eg/" target="_blank")
-                      | زيارة الموقع
-                      i.fas.fa-external-link-alt.ms-2
-
-          //- EgMed
-          .col-lg-6
-            .case-card(style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);")
-              .row.g-0
-                .col-md-5
-                  .company-logo.h-100.d-flex.align-items-center.justify-content-center(style="background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%); padding: 40px;")
-                    .text-center
-                      i.fas.fa-heartbeat(style="font-size: 48px; color: white; margin-bottom: 15px;")
-                      h4.text-white EgMed
-                .col-md-7
-                  .p-4
-                    h4.mb-3 EgMed - نظام إدارة المستلزمات الطبية
-                    p.text-muted.mb-3
-                      | حل Odoo متكامل لإدارة المستلزمات الطبية مع تتبع دقيق للمخزون وتواريخ الصلاحية.
-                    .features.mb-3
-                      .badge.bg-danger.me-2.mb-2 Medical Supplies
-                      .badge.bg-warning.me-2.mb-2 Expiry Tracking
-                      .badge.bg-success.mb-2 Multi-warehouse
-                    a.btn.btn-outline-primary(href="https://www.egmed.com/" target="_blank")
-                      | زيارة الموقع
-                      i.fas.fa-external-link-alt.ms-2
-
-          //- Gulf Med
-          .col-lg-6
-            .case-card(style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);")
-              .row.g-0
-                .col-md-5
-                  .company-logo.h-100.d-flex.align-items-center.justify-content-center(style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 40px;")
-                    .text-center
-                      i.fas.fa-clinic-medical(style="font-size: 48px; color: white; margin-bottom: 15px;")
-                      h4.text-white Gulf Med
-                .col-md-7
-                  .p-4
-                    h4.mb-3 Gulf Med Egypt - CRM طبي متقدم
-                    p.text-muted.mb-3
-                      | نظام CRM مخصص لإدارة العملاء والموردين في القطاع الطبي مع لوحات تحكم ذكية.
-                    .features.mb-3
-                      .badge.bg-primary.me-2.mb-2 Medical CRM
-                      .badge.bg-info.me-2.mb-2 Supplier Management
-                      .badge.bg-success.mb-2 Smart Dashboards
-                    a.btn.btn-outline-primary(href="https://gulfmedegypt.com/" target="_blank")
-                      | زيارة الموقع
-                      i.fas.fa-external-link-alt.ms-2
-
-    //- ===== Why Choose Us =====
-    section.why-choose-us.py-5
-      .container
-        .section-header.text-center.mb-5(dir="rtl")
-          h2.display-5.fw-bold لماذا GoCloud لخدمات Odoo؟
-          p.lead.text-muted خبرة محلية، معايير عالمية
-        
-        .row.g-4
-          .col-lg-3.col-md-6
-            .feature-box.text-center.h-100(style="padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);")
-              .icon-circle.mb-4.mx-auto(style="width: 80px; height: 80px; background: rgba(102,126,234,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;")
-                i.fas.fa-award(style="font-size: 36px; color: #667eea;")
-              h4.mb-3 +8 سنوات خبرة
-              p.text-muted خبراء معتمدون في تطوير وتنفيذ Odoo
-
-          .col-lg-3.col-md-6
-            .feature-box.text-center.h-100(style="padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);")
-              .icon-circle.mb-4.mx-auto(style="width: 80px; height: 80px; background: rgba(16,185,129,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;")
-                i.fas.fa-users-cog(style="font-size: 36px; color: #10b981;")
-              h4.mb-3 50+ مشروع ناجح
-              p.text-muted عملاء راضون في قطاعات متعددة
-
-          .col-lg-3.col-md-6
-            .feature-box.text-center.h-100(style="padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);")
-              .icon-circle.mb-4.mx-auto(style="width: 80px; height: 80px; background: rgba(245,158,11,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;")
-                i.fas.fa-rocket(style="font-size: 36px; color: #f59e0b;")
-              h4.mb-3 تسليم سريع
-              p.text-muted ننفذ مشاريعك في الوقت المحدد
-
-          .col-lg-3.col-md-6
-            .feature-box.text-center.h-100(style="padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);")
-              .icon-circle.mb-4.mx-auto(style="width: 80px; height: 80px; background: rgba(239,68,68,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;")
-                i.fas.fa-headset(style="font-size: 36px; color: #ef4444;")
-              h4.mb-3 دعم مستمر
-              p.text-muted نرافقك بعد التشغيل بدعم فني 24/7
-
-    //- ===== Pricing Section =====
-    section.pricing.py-5.bg-light
-      .container
-        .section-header.text-center.mb-5(dir="rtl")
-          h2.display-5.fw-bold باقات خدمات Odoo
-          p.lead.text-muted اختر الباقة المناسبة لحجم عملك
-        
-        .row.g-4.justify-content-center
-          .col-lg-4
-            .pricing-card.h-100(style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;")
-              h3.mb-3 Odoo Implementation
-              .price.mb-4
-                .h2(style="color: #667eea;") حسب المشروع
-                small.text-muted ابدأ من 50,000 EGP
-              ul.features-list.text-start.mb-4(dir="rtl" style="list-style: none; padding: 0;")
-                li.mb-3
-                  i.fas.fa-check-circle.text-success.me-2
-                  | تحليل احتياجات مفصل
-                li.mb-3
-                  i.fas.fa-check-circle.text-success.me-2
-                  | تنفيذ Odoo كامل
-                li.mb-3
-                  i.fas.fa-check-circle.text-success.me-2
-                  | تدريب شامل للفريق
-                li.mb-3
-                  i.fas.fa-check-circle.text-success.me-2
-                  | نقل البيانات
-                li.mb-3
-                  i.fas.fa-check-circle.text-success.me-2
-                  | 3 أشهر دعم فني
-              a.btn.btn-outline-primary.w-100(
-                href="https://wa.me/201017383815?text=مرحباً، أريد معرفة المزيد عن باقة Odoo Implementation"
-                target="_blank"
-              )
-                i.fab.fa-whatsapp.me-2
-                | تواصل معنا
-
-          .col-lg-4
-            .pricing-card.featured.h-100(style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(102,126,234,0.4); transform: scale(1.05); text-align: center; position: relative;")
-              .popular-badge(style="position: absolute; top: -15px; right: 20px; background: #f59e0b; color: white; padding: 5px 20px; border-radius: 20px; font-weight: bold;") الأكثر طلباً
-              h3.mb-3(style="color: white;") Custom Development
-              .price.mb-4(style="color: white;")
-                .h2 حسب المتطلبات
-                small ابدأ من 30,000 EGP
-              ul.features-list.text-start.mb-4(dir="rtl" style="list-style: none; padding: 0; color: white;")
-                li.mb-3
-                  i.fas.fa-check-circle.me-2
-                  | Custom Modules
-                li.mb-3
-                  i.fas.fa-check-circle.me-2
-                  | Dashboards مخصصة
-                li.mb-3
-                  i.fas.fa-check-circle.me-2
-                  | API Integration
-                li.mb-3
-                  i.fas.fa-check-circle.me-2
-                  | Mobile Apps
-                li.mb-3
-                  i.fas.fa-check-circle.me-2
-                  | دعم فني مستمر
-              a.btn.btn-light.w-100(
-                href="https://wa.me/201017383815?text=مرحباً، أريد معرفة المزيد عن باقة Custom Development"
-                target="_blank"
-              )
-                i.fab.fa-whatsapp.me-2
-                | ابدأ مشروعك
-
-          .col-lg-4
-            .pricing-card.h-100(style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;")
-              h3.mb-3 Support & Maintenance
-              .price.mb-4
-                .h2(style="color: #667eea;") شهرياً
-                small.text-muted ابدأ من 5,000 EGP
-              ul.features-list.text-start.mb-4(dir="rtl" style="list-style: none; padding: 0;")
-                li.mb-3
-                  i.fas.fa-check-circle.text-success.me-2
-                  | دعم فني 24/7
-                li.mb-3
-                  i.fas.fa-check-circle.text-success.me-2
-                  | تحديثات Odoo
-                li.mb-3
-                  i.fas.fa-check-circle.text-success.me-2
-                  | إصلاح الأخطاء
-                li.mb-3
-                  i.fas.fa-check-circle.text-success.me-2
-                  | تحسين الأداء
-                li.mb-3
-                  i.fas.fa-check-circle.text-success.me-2
-                  | تقارير شهرية
-              a.btn.btn-outline-primary.w-100(
-                href="https://wa.me/201017383815?text=مرحباً، أريد معرفة المزيد عن باقة Support"
-                target="_blank"
-              )
-                i.fab.fa-whatsapp.me-2
-                | تواصل معنا
-
-    //- ===== Final CTA =====
-    section.final-cta.py-5(style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);")
-      .container.text-center(dir="rtl")
-        h2.display-5.fw-bold.text-white.mb-4 جاهز لتحويل أعمالك مع Odoo؟
-        p.lead.text-white.mb-5
-          | احجز استشارة مجانية الآن ودعنا نساعدك في اختيار الحل المثالي
-        .cta-buttons
-          a.btn.btn-light.btn-lg.me-3(
-            href="https://wa.me/201017383815?text=مرحباً، أريد استشارة مجانية حول Odoo"
-            target="_blank"
+      .col-lg-6
+        .hero-image.position-relative
+          img.img-fluid.rounded.shadow-lg(
+            src="images/odoo-dashboard-hero.webp"
+            alt="Odoo Dashboard"
+            style="border-radius: 20px;"
           )
-            i.fab.fa-whatsapp.me-2
-            | استشارة مجانية عبر WhatsApp
-          
-          a.btn.btn-outline-light.btn-lg(href="tel:+201017383815")
-            i.fas.fa-phone.me-2
-            | اتصل الآن
+          //- Floating Stats
+          .floating-stat(style="position: absolute; top: 20px; right: -20px; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);")
+            .d-flex.align-items-center
+              .icon-box(style="background: #10b981; width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center;")
+                i.fas.fa-users(style="color: white; font-size: 24px;")
+              .ms-3
+                .h3.mb-0(style="color: #10b981;") 50+
+                small(style="color: #64748b;") عميل راضي
+
+  //- ===== Services Overview =====
+  section.services-overview.py-5.bg-light
+    .container
+      .section-header.text-center.mb-5(dir="rtl")
+        h2.display-5.fw-bold خدمات Odoo الشاملة
+        p.lead.text-muted من التخطيط إلى التشغيل، نرافقك في كل خطوة
+      
+      .row.g-4
+        //- Service 1: Odoo Implementation
+        .col-lg-4.col-md-6
+          .service-card.h-100.text-center(style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: transform 0.3s;")
+            .icon-wrapper.mb-4(style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;")
+              i.fas.fa-rocket(style="color: white; font-size: 36px;")
+            h3.h4.mb-3 تنفيذ Odoo (Implementation)
+            p.text-muted.mb-4
+              | نقل أعمالك بالكامل إلى Odoo مع تخصيص كامل لاحتياجاتك. تدريب الفريق، نقل البيانات، والدعم الفني.
+            ul.features-list.text-start(dir="rtl" style="list-style: none; padding: 0;")
+              li.mb-2
+                i.fas.fa-check-circle.text-success.me-2
+                | تحليل احتياجات العمل
+              li.mb-2
+                i.fas.fa-check-circle.text-success.me-2
+                | تخصيص النظام
+              li.mb-2
+                i.fas.fa-check-circle.text-success.me-2
+                | تدريب شامل للفريق
+              li.mb-2
+                i.fas.fa-check-circle.text-success.me-2
+                | دعم ما بعد التشغيل
+
+        //- Service 2: Custom Development
+        .col-lg-4.col-md-6
+          .service-card.h-100.text-center.featured(style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(102,126,234,0.4); transform: scale(1.05);")
+            .popular-badge(style="position: absolute; top: -15px; right: 20px; background: #f59e0b; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: bold;") الأكثر طلباً
+            .icon-wrapper.mb-4(style="width: 80px; height: 80px; margin: 0 auto; background: rgba(255,255,255,0.2); border-radius: 20px; display: flex; align-items: center; justify-content: center;")
+              i.fas.fa-code(style="color: white; font-size: 36px;")
+            h3.h4.mb-3(style="color: white;") التطوير المخصص
+            p.mb-4(style="color: rgba(255,255,255,0.9);")
+              | نطور modules مخصصة و dashboards ذكية تحول Odoo لنظام فريد يناسب عملك 100%.
+            ul.features-list.text-start(dir="rtl" style="list-style: none; padding: 0; color: white;")
+              li.mb-2
+                i.fas.fa-check-circle.me-2
+                | Custom CRM Modules
+              li.mb-2
+                i.fas.fa-check-circle.me-2
+                | Dashboards تفاعلية
+              li.mb-2
+                i.fas.fa-check-circle.me-2
+                | API Integration
+              li.mb-2
+                i.fas.fa-check-circle.me-2
+                | Mobile Apps (iOS/Android)
+
+        //- Service 3: Support & Maintenance
+        .col-lg-4.col-md-6
+          .service-card.h-100.text-center(style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);")
+            .icon-wrapper.mb-4(style="width: 80px; height: 80px; margin: 0 auto; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 20px; display: flex; align-items: center; justify-content: center;")
+              i.fas.fa-headset(style="color: white; font-size: 36px;")
+            h3.h4.mb-3 الدعم والصيانة
+            p.text-muted.mb-4
+              | دعم فني مستمر 24/7، تحديثات دورية، وحل المشاكل فوراً لضمان استمرارية عملك.
+            ul.features-list.text-start(dir="rtl" style="list-style: none; padding: 0;")
+              li.mb-2
+                i.fas.fa-check-circle.text-success.me-2
+                | دعم فني 24/7
+              li.mb-2
+                i.fas.fa-check-circle.text-success.me-2
+                | تحديثات Odoo
+              li.mb-2
+                i.fas.fa-check-circle.text-success.me-2
+                | إصلاح الأخطاء
+              li.mb-2
+                i.fas.fa-check-circle.text-success.me-2
+                | تحسين الأداء
+
+  //- ===== Custom Dashboards Showcase =====
+  section.dashboards-showcase.py-5
+    .container
+      .section-header.text-center.mb-5(dir="rtl")
+        h2.display-5.fw-bold لوحات تحكم ذكية مُصممة خصيصاً
+        p.lead.text-muted حوّل بياناتك إلى رؤى قابلة للتنفيذ
+      
+      .row.g-4
+        .col-lg-4
+          .dashboard-card(style="background: #1e293b; padding: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);")
+            img.img-fluid(src="images/dashboard-sales.png" alt="Sales Dashboard" style="width: 100%; height: auto;")
+            .p-4
+              h4.text-white.mb-3 Dashboard مبيعات المجوهرات
+              p.text-white-50 
+                | تتبع الذهب والفضة بالجرام، أهداف الفريق، والعملاء الجدد - كل شيء في مكان واحد.
+              .badges
+                span.badge.bg-warning.me-2 Gold & Silver Tracking
+                span.badge.bg-success Team Targets
+
+        .col-lg-4
+          .dashboard-card(style="background: #1e293b; padding: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);")
+            img.img-fluid(src="images/dashboard-branch.png" alt="Branch Dashboard" style="width: 100%; height: auto;")
+            .p-4
+              h4.text-white.mb-3 Dashboard الفروع
+              h4.text-white.mb-3 Dashboard الفروع
+              p.text-white-50
+                | مراقبة جميع الفروع في الوقت الفعلي: المبيعات، المخزون، والأنشطة.
+              .badges
+                span.badge.bg-info.me-2.real-time-monitoring
+                span.badge.bg-primary.multi-branch
+
+        .col-lg-4
+          .dashboard-card(style="background: #1e293b; padding: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);")
+            img.img-fluid(src="images/dashboard-crm.png" alt="CRM Dashboard" style="width: 100%; height: auto;")
+            .p-4
+              h4.text-white.mb-3 CRM Dashboard متقدم
+              p.text-white-50
+                | إدارة العملاء المحتملين، الأنشطة، والمواعيد بذكاء AI.
+              .badges
+                span.badge.bg-success.me-2 AI-Powered
+                span.badge.bg-danger Lead Scoring
+
+  //- ===== Case Studies =====
+  section#case-studies.case-studies.py-5.bg-light
+    .container
+      .section-header.text-center.mb-5(dir="rtl")
+        h2.display-5.fw-bold عملاؤنا المتميزون
+        p.lead.text-muted شركات رائدة تثق في حلولنا
+      
+      .row.g-4
+        //- Gold Era
+        .col-lg-6
+          .case-card(style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);")
+            .row.g-0
+              .col-md-5
+                .company-logo.h-100.d-flex.align-items-center.justify-content-center(style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); padding: 40px;")
+                  .text-center
+                    i.fas.fa-gem(style="font-size: 48px; color: white; margin-bottom: 15px;")
+                    h4.text-white Gold Era
+              .col-md-7
+                .p-4
+                  h4.mb-3 Gold Era - نظام CRM متكامل
+                  p.text-muted.mb-3
+                    | نظام إدارة شامل لمبيعات المجوهرات والذهب مع تتبع دقيق بالجرام ولوحات تحكم متقدمة.
+                  .features.mb-3
+                    .badge.bg-primary.me-2.mb-2 Custom CRM
+                    .badge.bg-warning.me-2.mb-2 Gold Tracking
+                    .badge.bg-success.mb-2 Team Dashboards
+                  a.btn.btn-outline-primary(href="https://gold-era.eg/" target="_blank")
+                    | زيارة الموقع
+                    i.fas.fa-external-link-alt.ms-2
+
+        //- Dahab Zaman
+        .col-lg-6
+          .case-card(style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);")
+            .row.g-0
+              .col-md-5
+                .company-logo.h-100.d-flex.align-items-center.justify-content-center(style="background: linear-gradient(135deg, #8B4513 0%, #D4AF37 100%); padding: 40px;")
+                  .text-center
+                    i.fas.fa-ring(style="font-size: 48px; color: white; margin-bottom: 15px;")
+                    h4.text-white Dahab زامن
+              .col-md-7
+                .p-4
+                  h4.mb-3 Dahab زامن - منصة تجارة إلكترونية
+                  p.text-muted.mb-3
+                    | Odoo eCommerce متكامل مع إدارة المخزون والمبيعات متعددة القنوات.
+                  .features.mb-3
+                    .badge.bg-info.me-2.mb-2 eCommerce
+                    .badge.bg-success.me-2.mb-2 Multi-channel
+                    .badge.bg-primary.mb-2 Inventory Management
+                  a.btn.btn-outline-primary(href="https://dahabzaman.eg/" target="_blank")
+                    | زيارة الموقع
+                    i.fas.fa-external-link-alt.ms-2
+
+        //- EgMed
+        .col-lg-6
+          .case-card(style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);")
+            .row.g-0
+              .col-md-5
+                .company-logo.h-100.d-flex.align-items-center.justify-content-center(style="background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%); padding: 40px;")
+                  .text-center
+                    i.fas.fa-heartbeat(style="font-size: 48px; color: white; margin-bottom: 15px;")
+                    h4.text-white EgMed
+              .col-md-7
+                .p-4
+                  h4.mb-3 EgMed - نظام إدارة المستلزمات الطبية
+                  p.text-muted.mb-3
+                    | حل Odoo متكامل لإدارة المستلزمات الطبية مع تتبع دقيق للمخزون وتواريخ الصلاحية.
+                  .features.mb-3
+                    .badge.bg-danger.me-2.mb-2 Medical Supplies
+                    .badge.bg-warning.me-2.mb-2 Expiry Tracking
+                    .badge.bg-success.mb-2 Multi-warehouse
+                  a.btn.btn-outline-primary(href="https://www.egmed.com/" target="_blank")
+                    | زيارة الموقع
+                    i.fas.fa-external-link-alt.ms-2
+
+        //- Gulf Med
+        .col-lg-6
+          .case-card(style="background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);")
+            .row.g-0
+              .col-md-5
+                .company-logo.h-100.d-flex.align-items-center.justify-content-center(style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 40px;")
+                  .text-center
+                    i.fas.fa-clinic-medical(style="font-size: 48px; color: white; margin-bottom: 15px;")
+                    h4.text-white Gulf Med
+              .col-md-7
+                .p-4
+                  h4.mb-3 Gulf Med Egypt - CRM طبي متقدم
+                  p.text-muted.mb-3
+                    | نظام CRM مخصص لإدارة العملاء والموردين في القطاع الطبي مع لوحات تحكم ذكية.
+                  .features.mb-3
+                    .badge.bg-primary.me-2.mb-2 Medical CRM
+                    .badge.bg-info.me-2.mb-2 Supplier Management
+                    .badge.bg-success.mb-2 Smart Dashboards
+                  a.btn.btn-outline-primary(href="https://gulfmedegypt.com/" target="_blank")
+                    | زيارة الموقع
+                    i.fas.fa-external-link-alt.ms-2
+
+  //- ===== Why Choose Us =====
+  section.why-choose-us.py-5
+    .container
+      .section-header.text-center.mb-5(dir="rtl")
+        h2.display-5.fw-bold لماذا GoCloud لخدمات Odoo؟
+        p.lead.text-muted خبرة محلية، معايير عالمية
+      
+      .row.g-4
+        .col-lg-3.col-md-6
+          .feature-box.text-center.h-100(style="padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);")
+            .icon-circle.mb-4.mx-auto(style="width: 80px; height: 80px; background: rgba(102,126,234,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;")
+              i.fas.fa-award(style="font-size: 36px; color: #667eea;")
+            h4.mb-3 +8 سنوات خبرة
+            p.text-muted خبراء معتمدون في تطوير وتنفيذ Odoo
+
+        .col-lg-3.col-md-6
+          .feature-box.text-center.h-100(style="padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);")
+            .icon-circle.mb-4.mx-auto(style="width: 80px; height: 80px; background: rgba(16,185,129,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;")
+              i.fas.fa-users-cog(style="font-size: 36px; color: #10b981;")
+            h4.mb-3 50+ مشروع ناجح
+            p.text-muted عملاء راضون في قطاعات متعددة
+
+        .col-lg-3.col-md-6
+          .feature-box.text-center.h-100(style="padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);")
+            .icon-circle.mb-4.mx-auto(style="width: 80px; height: 80px; background: rgba(245,158,11,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;")
+              i.fas.fa-rocket(style="font-size: 36px; color: #f59e0b;")
+            h4.mb-3 تسليم سريع
+            p.text-muted ننفذ مشاريعك في الوقت المحدد
+
+        .col-lg-3.col-md-6
+          .feature-box.text-center.h-100(style="padding: 30px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.08);")
+            .icon-circle.mb-4.mx-auto(style="width: 80px; height: 80px; background: rgba(239,68,68,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;")
+              i.fas.fa-headset(style="font-size: 36px; color: #ef4444;")
+            h4.mb-3 دعم مستمر
+            p.text-muted نرافقك بعد التشغيل بدعم فني 24/7
+
+  //- ===== Pricing Section =====
+  section.pricing.py-5.bg-light
+    .container
+      .section-header.text-center.mb-5(dir="rtl")
+        h2.display-5.fw-bold باقات خدمات Odoo
+        p.lead.text-muted اختر الباقة المناسبة لحجم عملك
+      
+      .row.g-4.justify-content-center
+        .col-lg-4
+          .pricing-card.h-100(style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;")
+            h3.mb-3 Odoo Implementation
+            .price.mb-4
+              .h2(style="color: #667eea;") حسب المشروع
+              small.text-muted ابدأ من 50,000 EGP
+            ul.features-list.text-start.mb-4(dir="rtl" style="list-style: none; padding: 0;")
+              li.mb-3
+                i.fas.fa-check-circle.text-success.me-2
+                | تحليل احتياجات مفصل
+              li.mb-3
+                i.fas.fa-check-circle.text-success.me-2
+                | تنفيذ Odoo كامل
+              li.mb-3
+                i.fas.fa-check-circle.text-success.me-2
+                | تدريب شامل للفريق
+              li.mb-3
+                i.fas.fa-check-circle.text-success.me-2
+                | نقل البيانات
+              li.mb-3
+                i.fas.fa-check-circle.text-success.me-2
+                | 3 أشهر دعم فني
+            a.btn.btn-outline-primary.w-100(
+              href="https://wa.me/201017383815?text=مرحباً، أريد معرفة المزيد عن باقة Odoo Implementation"
+              target="_blank"
+            )
+              i.fab.fa-whatsapp.me-2
+              | تواصل معنا
+
+        .col-lg-4
+          .pricing-card.featured.h-100(style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 20px; box-shadow: 0 10px 40px rgba(102,126,234,0.4); transform: scale(1.05); text-align: center; position: relative;")
+            .popular-badge(style="position: absolute; top: -15px; right: 20px; background: #f59e0b; color: white; padding: 5px 20px; border-radius: 20px; font-weight: bold;") الأكثر طلباً
+            h3.mb-3(style="color: white;") Custom Development
+            .price.mb-4(style="color: white;")
+              .h2 حسب المتطلبات
+              small ابدأ من 30,000 EGP
+            ul.features-list.text-start.mb-4(dir="rtl" style="list-style: none; padding: 0; color: white;")
+              li.mb-3
+                i.fas.fa-check-circle.me-2
+                | Custom Modules
+              li.mb-3
+                i.fas.fa-check-circle.me-2
+                | Dashboards مخصصة
+              li.mb-3
+                i.fas.fa-check-circle.me-2
+                | API Integration
+              li.mb-3
+                i.fas.fa-check-circle.me-2
+                | Mobile Apps
+              li.mb-3
+                i.fas.fa-check-circle.me-2
+                | دعم فني مستمر
+            a.btn.btn-light.w-100(
+              href="https://wa.me/201017383815?text=مرحباً، أريد معرفة المزيد عن باقة Custom Development"
+              target="_blank"
+            )
+              i.fab.fa-whatsapp.me-2
+              | ابدأ مشروعك
+
+        .col-lg-4
+          .pricing-card.h-100(style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center;")
+            h3.mb-3 Support & Maintenance
+            .price.mb-4
+              .h2(style="color: #667eea;") شهرياً
+              small.text-muted ابدأ من 5,000 EGP
+            ul.features-list.text-start.mb-4(dir="rtl" style="list-style: none; padding: 0;")
+              li.mb-3
+                i.fas.fa-check-circle.text-success.me-2
+                | دعم فني 24/7
+              li.mb-3
+                i.fas.fa-check-circle.text-success.me-2
+                | تحديثات Odoo
+              li.mb-3
+                i.fas.fa-check-circle.text-success.me-2
+                | إصلاح الأخطاء
+              li.mb-3
+                i.fas.fa-check-circle.text-success.me-2
+                | تحسين الأداء
+              li.mb-3
+                i.fas.fa-check-circle.text-success.me-2
+                | تقارير شهرية
+            a.btn.btn-outline-primary.w-100(
+              href="https://wa.me/201017383815?text=مرحباً، أريد معرفة المزيد عن باقة Support"
+              target="_blank"
+            )
+              i.fab.fa-whatsapp.me-2
+              | تواصل معنا
+
+  //- ===== Final CTA =====
+  section.final-cta.py-5(style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);")
+    .container.text-center(dir="rtl")
+      h2.display-5.fw-bold.text-white.mb-4 جاهز لتحويل أعمالك مع Odoo؟
+      p.lead.text-white.mb-5
+        | احجز استشارة مجانية الآن ودعنا نساعدك في اختيار الحل المثالي
+      .cta-buttons
+        a.btn.btn-light.btn-lg.me-3(
+          href="https://wa.me/201017383815?text=مرحباً، أريد استشارة مجانية حول Odoo"
+          target="_blank"
+        )
+          i.fab.fa-whatsapp.me-2
+          | استشارة مجانية عبر WhatsApp
+        
+        a.btn.btn-outline-light.btn-lg(href="tel:+201017383815")
+          i.fas.fa-phone.me-2
+          | اتصل الآن
 
   //- Footer & WhatsApp Button
   include components/footer.pug
