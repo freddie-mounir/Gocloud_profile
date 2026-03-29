@@ -461,26 +461,27 @@ block content
       
       .row.justify-content-center
         .col-lg-10
-          //- Main Video (Featured)
+          //- Playlist Embed (More Reliable)
           .featured-video.mb-4
             .ratio.ratio-16x9.rounded.shadow-lg
               iframe(
-                src="https://www.youtube.com/embed/YGqrtTIsvYU"
-                title="ELITE System - Full Demo"
+                src="https://www.youtube.com/embed/videoseries?list=PL4gLQMepBmISlPelJuRx09EtDa27O-mN0"
+                title="ELITE System - Complete Playlist"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
               )
           
-          //- Video Playlist Link
+          //- Direct YouTube Link (Fallback)
           .text-center.mt-4
+            p.text-muted(dir="rtl") أو شاهد مباشرة على YouTube
             a.btn.btn-outline-primary.btn-lg(
               href="https://www.youtube.com/playlist?list=PL4gLQMepBmISlPelJuRx09EtDa27O-mN0"
               target="_blank"
               rel="noopener noreferrer"
             )
               i.fab.fa-youtube.me-2
-              | شاهد جميع الفيديوهات (Playlist كامل)
+              | افتح Playlist على YouTube
 
   //- ===== Final CTA Section =====
   section.final-cta.py-5
@@ -509,8 +510,8 @@ block content
         .modal-body.p-0
           .ratio.ratio-16x9
             iframe(
-              src="https://www.youtube.com/embed/YGqrtTIsvYU"
-              title="ELITE System Demo"
+              src="https://www.youtube.com/embed/videoseries?list=PL4gLQMepBmISlPelJuRx09EtDa27O-mN0"
+              title="ELITE System Demo Playlist"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
