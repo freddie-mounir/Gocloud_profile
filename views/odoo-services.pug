@@ -6,10 +6,17 @@ html(lang="ar" dir="rtl")
     title خدمات Odoo المتقدمة | GoCloud
     meta(name="description" content="حلول Odoo ERP مخصصة مع لوحات تحكم ذكية لإدارة المبيعات، المخزون، والعملاء. خبراء في تطوير Odoo للقطاعات المختلفة")
     
-    //- Bootstrap RTL
-    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet")
-    //- Font Awesome
-    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css")
+    //- Main Site CSS (Same as other pages)
+    link(rel="stylesheet" href="css/plugins/bootstrap.min.css")
+    link(rel="stylesheet" href="css/plugins/fontawesome.css")
+    link(rel="stylesheet" href="css/plugins/mobile.css")
+    link(rel="stylesheet" href="css/plugins/magnific-popup.css")
+    link(rel="stylesheet" href="css/plugins/slick-slider.css")
+    link(rel="stylesheet" href="css/plugins/owlcarousel.min.css")
+    link(rel="stylesheet" href="css/plugins/aos.css")
+    link(rel="stylesheet" href="css/typography.css")
+    link(rel="stylesheet" href="css/master.css")
+    
     //- Google Fonts - Cairo
     link(rel="preconnect" href="https://fonts.googleapis.com")
     link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
@@ -190,8 +197,8 @@ html(lang="ar" dir="rtl")
                 p.text-white-50
                   | مراقبة جميع الفروع في الوقت الفعلي: المبيعات، المخزون، والأنشطة.
                 .badges
-                  span.badge.bg-info.me-2 Real-time Monitoring
-                  span.badge.bg-primary Multi-Branch
+                  span.badge.bg-info.me-2.real-time-monitoring
+                  span.badge.bg-primary.multi-branch
 
           .col-lg-4
             .dashboard-card(style="background: #1e293b; padding: 0; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);")
@@ -464,51 +471,6 @@ html(lang="ar" dir="rtl")
         overflow-x: hidden;
       }
       
-      /* ===== Header RTL Fixes ===== */
-      .header-area {
-        direction: rtl !important;
-      }
-      
-      .header-elements {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        direction: rtl;
-      }
-      
-      /* Logo on the right for RTL */
-      .header-elements > div:first-child {
-        order: 3;
-      }
-      
-      /* Navigation in the center */
-      .header-elements nav {
-        order: 2;
-        flex: 1;
-      }
-      
-      .main-menu-ex ul {
-        display: flex;
-        justify-content: center;
-        gap: 25px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      
-      /* Contact buttons on the left */
-      .header1-buttons {
-        order: 1;
-        display: flex;
-        gap: 20px;
-        align-items: center;
-      }
-      
-      /* Fix top banner RTL */
-      .header-top1-area {
-        direction: rtl;
-      }
-      
       .odoo-hero {
         background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
         padding: 80px 0 60px;
@@ -535,3 +497,41 @@ html(lang="ar" dir="rtl")
       }
       
       .dashboard-card {
+        transition: all 0.3s ease;
+      }
+      
+      .dashboard-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3) !important;
+      }
+      
+      .case-card {
+        transition: all 0.3s ease;
+      }
+      
+      .case-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
+      }
+      
+      .pricing-card {
+        transition: all 0.3s ease;
+      }
+      
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+      }
+      
+      @media (max-width: 768px) {
+        .pricing-card.featured {
+          transform: scale(1) !important;
+        }
+      }
+
+    //- Bootstrap JS & Site Scripts
+    script(src="js/plugins/jquery-3-6-0.min.js")
+    script(src="js/plugins/bootstrap.min.js")
+    script(src="js/plugins/mobile.js")
+    script(src="js/plugins/aos.js")
+    script(src="js/main.js")
