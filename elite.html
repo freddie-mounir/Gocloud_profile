@@ -601,7 +601,7 @@
             </div>
             <div class="modal-body p-0">
               <div class="ratio ratio-16x9">
-                <iframe src="https://www.youtube.com/embed/videoseries?list=PL4gLQMepBmISlPelJuRx09EtDa27O-mN0" title="ELITE System Demo Playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe id="eliteVideoPlayer" src="https://www.youtube.com/embed/videoseries?list=PL4gLQMepBmISlPelJuRx09EtDa27O-mN0" title="ELITE System Demo Playlist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
             </div>
           </div>
@@ -1085,7 +1085,27 @@
         .testimonial .quote {
           color: #1e293b;
         }
+        
       </style>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Get modal and iframe elements
+          const videoModal = document.getElementById('demo-video');
+          const videoPlayer = document.getElementById('eliteVideoPlayer');
+          
+          if (videoModal && videoPlayer) {
+            // Stop video when modal is hidden
+            videoModal.addEventListener('hidden.bs.modal', function () {
+              // Get the iframe src
+              const videoSrc = videoPlayer.src;
+              // Reset the src to stop the video
+              videoPlayer.src = '';
+              // Restore the src (this stops the video but keeps it ready)
+              videoPlayer.src = videoSrc;
+            });
+          }
+        });
+      </script>
     </div>
     <!-- Scripts (CDN)-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
