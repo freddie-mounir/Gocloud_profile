@@ -452,6 +452,36 @@ block content
                   | نعم، نقدم عرضاً تجريبياً مجانياً لمدة 14 يوم مع بياناتك الفعلية
                   | لتتأكد من ملاءمة النظام لاحتياجاتك.
 
+  //- ===== Video Gallery Section =====
+  section.video-gallery.py-5.bg-light
+    .container
+      .section-header.text-center.mb-5(dir="rtl")
+        h2 شاهد ELITE في العمل
+        p.lead فيديوهات توضيحية شاملة عن جميع المميزات
+      
+      .row.justify-content-center
+        .col-lg-10
+          //- Main Video (Featured)
+          .featured-video.mb-4
+            .ratio.ratio-16x9.rounded.shadow-lg
+              iframe(
+                src="https://www.youtube.com/embed/Z1u1bJNl_m4?si=qpODHf53kAk0ljUh"
+                title="ELITE System - Full Demo"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              )
+          
+          //- Video Playlist Link
+          .text-center.mt-4
+            a.btn.btn-outline-primary.btn-lg(
+              href="https://www.youtube.com/playlist?list=PL4gLQMepBmISlPelJuRx09EtDa27O-mN0"
+              target="_blank"
+              rel="noopener noreferrer"
+            )
+              i.fab.fa-youtube.me-2
+              | شاهد جميع الفيديوهات (Playlist كامل)
+
   //- ===== Final CTA Section =====
   section.final-cta.py-5
     .container.text-center(dir="rtl")
@@ -474,12 +504,15 @@ block content
     .modal-dialog.modal-xl
       .modal-content
         .modal-header(dir="rtl")
-          h5.modal-title نظام ELITE - شرح مبسط (دقيقتان)
-          button.btn-close(type="button" data-bs-dismiss="modal")
-        .modal-body
+          h5.modal-title نظام ELITE - شرح مبسط
+          button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
+        .modal-body.p-0
           .ratio.ratio-16x9
             iframe(
-              src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+              src="https://www.youtube.com/embed/Z1u1bJNl_m4?si=qpODHf53kAk0ljUh"
+              title="ELITE System Demo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             )
 
