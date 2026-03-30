@@ -1,6 +1,0 @@
-<svg width="300" height="150" xmlns="http://www.w3.org/2000/svg">
-  <rect width="300" height="150" fill="#000000"/>
-  <text x="150" y="75" font-family="Arial, sans-serif" font-size="24" fill="#FFD700" text-anchor="middle" dominant-baseline="middle">Dahab Zaman</text>
-  <circle cx="150" cy="50" r="20" fill="none" stroke="#FFD700" stroke-width="3"/>
-  <path d="M 150 70 Q 140 85 150 100 Q 160 85 150 70" fill="#FFD700"/>
-</svg>
