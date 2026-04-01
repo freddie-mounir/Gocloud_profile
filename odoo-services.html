@@ -40,7 +40,7 @@
     <!-- Favicon-->
     <link rel="shortcut icon" href="images/gocloud logo.webp" type="image/x-icon">
     <!-- CSS (CDN)-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@latest/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
     <link rel="stylesheet" href="css/nice-select.min.css">
@@ -49,7 +49,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <link rel="stylesheet" href="css/mobile-menu.min.css">
     <link rel="stylesheet" href="css/main.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
     <!-- Resource preload hints-->
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style">
     <link rel="preload" href="css/main.min.css" as="style">
@@ -68,7 +68,6 @@
   <body class="body tg-heading-subheading animation-style3">
     <!-- Main content wrapper-->
     <div id="main-content" role="main">
-      <!-- Preloader Component-->
       <div class="paginacontainer">
         <div class="progress-wrap">
           <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -76,26 +75,68 @@
           </svg>
         </div>
       </div>
+      <style>
+        /* Preloader overrides */
+        .ctn-preloader.ctn-preloader1 .loader-section-left{background:linear-gradient(135deg,#0E38B1 0%,#0a2a8a 100%)}
+        .ctn-preloader.ctn-preloader1 .loader-section-right{background:linear-gradient(135deg,#0a2a8a 0%,#0E38B1 100%)}
+        .ctn-preloader .animation-preloader .spinner{border:none!important;animation:none!important;height:auto!important;width:auto!important;margin:0 auto 1.5rem!important;display:flex;flex-direction:column;align-items:center}
+        .preloader-logo{width:90px;height:90px;border-radius:20px;box-shadow:0 16px 48px rgba(0,0,0,.25);animation:preloaderPulse 1.8s ease-in-out infinite;background:#fff;padding:8px}
+        .preloader-logo img{width:100%;height:100%;object-fit:contain;border-radius:12px}
+        .ctn-preloader .animation-preloader .txt-loading{font:700 1.6rem 'Figtree',sans-serif!important;letter-spacing:.35em;margin-top:.5rem}
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading{color:rgba(255,255,255,.15)}
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading:before{color:rgba(255,255,255,.85)}
+        .preloader-bar{width:160px;height:3px;background:rgba(255,255,255,.12);border-radius:4px;margin:1.5rem auto 0;overflow:hidden}
+        .preloader-bar-inner{height:100%;width:40%;background:linear-gradient(90deg,#A1E934,#fff);border-radius:4px;animation:preloaderSlide 1.2s ease-in-out infinite}
+        .preloader-tagline{color:rgba(255,255,255,.45);font-size:.75rem;font-weight:500;letter-spacing:.15em;margin-top:1rem;text-transform:uppercase}
+        @keyframes preloaderPulse{0%,100%{transform:scale(1);box-shadow:0 16px 48px rgba(0,0,0,.25)}50%{transform:scale(1.06);box-shadow:0 20px 56px rgba(14,56,177,.35)}}
+        @keyframes preloaderSlide{0%{transform:translateX(-100%)}50%{transform:translateX(200%)}100%{transform:translateX(400%)}}
+        
+      </style>
       <section>
         <div id="preloader">
           <div class="ctn-preloader ctn-preloader1" id="ctn-preloader">
             <div class="animation-preloader">
-              <div class="spinner"><img src="images/gocloud%20logo.webp" alt="GoCloud Logo" height="200px" width="200px" loading="lazy" style="border-radius: 50%;"></div>
+              <div class="spinner">
+                <div class="preloader-logo"><img src="images/gocloud%20logo.webp" alt="GoCloud" width="90" height="90"></div>
+              </div>
               <div class="txt-loading"><span class="letters-loading" data-text-preloader="G">G</span><span class="letters-loading" data-text-preloader="O">O</span><span class="letters-loading" data-text-preloader="C">C</span><span class="letters-loading" data-text-preloader="L">L</span><span class="letters-loading" data-text-preloader="O">O</span><span class="letters-loading" data-text-preloader="U">U</span><span class="letters-loading" data-text-preloader="D">D</span></div>
+              <div class="preloader-bar">
+                <div class="preloader-bar-inner"></div>
+              </div>
+              <div class="preloader-tagline">Smart Software Solutions</div>
             </div>
             <div class="loader-section-left loader-section section-left"></div>
             <div class="loader-section-right loader-section section-right"></div>
           </div>
         </div>
       </section>
-      <!-- Top Banner Component-->
-      <div class="header-top" style="background-color: #017E84;">
+      <style>
+        .top-bar{background:linear-gradient(90deg,#0a1e5e 0%,#0E38B1 50%,#0a1e5e 100%);padding:8px 0;position:relative;z-index:1000}
+        .top-bar-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+        .top-bar-left{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+        .top-bar-item{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.8);font-size:.78rem;font-weight:500}
+        .top-bar-item i{color:#A1E934;font-size:.7rem}
+        .top-bar-item a{color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
+        .top-bar-item a:hover{color:#fff}
+        .top-bar-right{display:flex;align-items:center;gap:12px}
+        .top-bar-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:4px 14px 4px 4px;font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.02em}
+        .top-bar-badge img{height:22px;border-radius:50%;background:#fff;padding:1px}
+        .top-bar-social a{color:rgba(255,255,255,.5);font-size:.8rem;margin-left:8px;transition:color .2s}
+        .top-bar-social a:hover{color:#A1E934}
+        
+      </style>
+      <div class="top-bar">
         <div class="container">
-          <div class="flex row justify-content-around align-items-center">
-            <div class="col-lg-6">
-              <p class="typewriter fs-5 fw-bold" id="typewriterText" style="color: white;"></p>
+          <div class="top-bar-inner">
+            <div class="top-bar-left">
+              <div class="top-bar-item"><i class="fas fa-phone-alt"></i><a href="tel:+201017383815">+2 010 1738 3815</a></div>
+              <div class="top-bar-item"><i class="fas fa-envelope"></i><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
+              <div class="top-bar-item"><i class="fas fa-map-marker-alt"></i><span>Giza, Egypt</span></div>
             </div>
-            <div class="col-lg-6" style="height: 60px;"><img src="images/odoo_learning_partner_rgb%20(1).png" alt="Odoo Partner" loading="lazy"></div>
+            <div class="top-bar-right">
+              <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Learning Partner" width="22" height="22">Odoo Learning Partner</div>
+              <div class="top-bar-social"><a href="https://www.linkedin.com/company/gocloudtechnology/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
+            </div>
           </div>
         </div>
       </div>
@@ -110,16 +151,11 @@
                   <nav role="navigation" aria-label="Main Navigation">
                     <div class="main-menu-ex main-menu-ex1">
                       <ul role="menubar">
-                        <li class="dropdown-menu-parrent" role="none"><a href="index.html" role="menuitem">Home</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="About.html" role="menuitem">About</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="about.html" role="menuitem">About</a></li>
                         <li class="dropdown-menu-parrent" role="none"><a href="service.html" role="menuitem">Services</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"> <i class="fab fa-odoo me-1"></i>Odoo Services</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">
-                             ELITE<span class="badge badge-warning ms-1" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-1"></i>Odoo Services</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">ELITE<span class="badge badge-warning ms-1" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
                         <li class="dropdown-menu-parrent" role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="https://erp.gocloudeg.com/web/login" target="_blank" rel="noopener noreferrer" role="menuitem"></a>
-                          <button class="btn bg-primary" type="button">Login</button>
-                        </li>
                       </ul>
                     </div>
                   </nav>
@@ -130,7 +166,7 @@
                         <p>Make a Call</p><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a>
                       </div>
                     </div>
-                    <div class="button"><a class="theme-btn1" href="https://gocloudeg.com/survey/start/e6323978-a3c5-430f-a14b-88d2ce1169da" aria-label="Get a Quote">Get A Quote <span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+                    <div class="button"><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
                   </div>
                 </div>
               </div>
@@ -164,11 +200,11 @@
                 <li role="none"><a href="about.html" role="menuitem">About Us</a></li>
                 <li role="none"><a href="service.html" role="menuitem">Services</a></li>
                 <li role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-2"></i>Odoo Services</a></li>
-                <li role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">ELITE <span class="badge badge-warning ms-2" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                <li role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">ELITE<span class="badge badge-warning ms-2" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
                 <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
               </ul>
             </nav>
-            <div class="mobile-button"><a class="menu-btn2" href="https://erp.gocloudeg.com/web/login" aria-label="Login to ERP system">Login<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+            <div class="mobile-button"><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
             <div class="single-footer-items">
               <h3>Contact Us</h3>
               <div class="contact-box">
@@ -524,79 +560,80 @@
       </section>
       <!-- Footer Component-->
       <footer>
-        <div class="footer1 _relative text-center">
+        <div class="footer1 _relative">
           <div class="container">
-            <div class="row">
+            <div class="row gy-4">
               <div class="col-lg-3 col-md-6 col-12">
-                <div class="single-footer-items">
-                  <p>At <span><img src="images/gocloud logo.webp" height="70" width="70" alt="GoCloud Logo" loading="lazy"></span>we're dedicated to deliver innovative technology solutions tailored to meet the unique needs of businesses like yours.</p>
-                  <ul class="social-icon text-center">
-                    <li><a href="https://www.linkedin.com/company/gocloud-co/posts/?feedView=all"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href="https://www.google.com/search?q=gocloud+eg&amp;sca_esv=1b465dddb89ef670&amp;sxsrf=AE3TifPO8dDI2un8QLeuyTZoAmiw1QCmhA%3A1750690736441&amp;ei=sGtZaLfRGoaNkdUP4_DKyAI&amp;ved=0ahUKEwi36dOb54eOAxWGRqQEHWO4EikQ4dUDCBA&amp;uact=5&amp;oq=gocloud+&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiCGdvY2xvdWQgMgoQIxjwBRgnGMkCMgQQIxgnMgUQABiABDIKEAAYgAQYQxiKBTILEC4YgAQYxwEYrwEyChAAGIAEGEMYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigVInw5Q3AFY3AFwAXgBkAEAmAHXCaAB1wmqAQM3LTG4AQPIAQD4AQGYAgKgAvcJwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYKkgcFMS43LTGgB9YKsgcDNy0xuAfpCcIHAzMtMsgHGg&amp;sclient=gws-wiz-serp"><i class="fa-brands fa-google"></i></a></li>
-                    <li><a href="https://www.youtube.com/@GoCloudeg"><i class="fa-brands fa-youtube"></i></a></li>
+                <div class="single-footer-items"><a class="footer-logo d-inline-block mb-3" href="index.html" aria-label="GoCloud Home"><img src="images/gocloud logo.webp" height="60" width="60" alt="GoCloud Logo" loading="lazy"></a>
+                  <p class="footer-desc">We're dedicated to delivering innovative technology solutions tailored to meet the unique needs of businesses like yours.</p>
+                  <ul class="social-icon d-flex gap-2 mt-3">
+                    <li><a href="https://www.linkedin.com/company/gocloud-co/posts/?feedView=all" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.google.com/search?q=gocloud+eg" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fa-brands fa-google"></i></a></li>
+                    <li><a href="https://www.youtube.com/@GoCloudeg" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-lg-3 col-md-6 col-12">
                 <div class="single-footer-items">
-                  <h3>Our Services
-                    <div class="contact-box justify-content-center">
-                      <ul class="menu-list">
-                        <li><a href="cloud-services.html">Cloud Solutions</a></li>
-                        <li><a href="odoo-dev.html">Odoo development </a></li>
-                        <li><a href="odoo-imp.html">Odoo Implementation</a></li>
-                        <li><a href="business.html">Business intelligence</a></li>
-                      </ul>
-                    </div>
-                  </h3>
+                  <h3>Our Services</h3>
+                  <ul class="menu-list">
+                    <li><a href="cloud-services.html"><i class="fa-solid fa-chevron-right me-2"></i>Cloud Solutions</a></li>
+                    <li><a href="odoo-services.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Services</a></li>
+                    <li><a href="odoo-imp.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Implementation</a></li>
+                    <li><a href="business.html"><i class="fa-solid fa-chevron-right me-2"></i>Business Intelligence</a></li>
+                    <li><a href="portfolio.html"><i class="fa-solid fa-chevron-right me-2"></i>Portfolio & E-commerce</a></li>
+                    <li><a href="elite.html"><i class="fa-solid fa-chevron-right me-2"></i>ELITE Medical Insurance</a></li>
+                  </ul>
                 </div>
               </div>
               <div class="col-lg-2 col-md-6 col-12">
                 <div class="single-footer-items">
-                  <h3>Useful Links
-                    <div class="contact-box justify-content-center">
-                      <ul class="menu-list">
-                        <li><a href="about.html">About Us </a></li>
-                        <li><a href="service.html">Services</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                      </ul>
-                    </div>
-                  </h3>
+                  <h3>Useful Links</h3>
+                  <ul class="menu-list">
+                    <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i>About Us</a></li>
+                    <li><a href="service.html"><i class="fa-solid fa-chevron-right me-2"></i>Services</a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-2"></i>Contact Us</a></li>
+                    <li><a href="conditions-terms.html"><i class="fa-solid fa-chevron-right me-2"></i>Terms & Conditions</a></li>
+                    <li><a href="privacy.html"><i class="fa-solid fa-chevron-right me-2"></i>Privacy Policy</a></li>
+                  </ul>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-12 text-center">
+              <div class="col-lg-4 col-md-6 col-12">
                 <div class="single-footer-items">
                   <h3>Contact Us</h3>
-                  <div class="contact-box justify-content-center">
-                    <div class="icon"><img src="images/footer1-icon1.webp" alt="" loading="lazy"></div>
-                    <div class="pera"><a href="tel:+20233762533">0233762533</a></div>
+                  <div class="contact-box">
+                    <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="pera"><a href="tel:+20233762533">02 3376 2533</a></div>
                   </div>
-                  <div class="contact-box justify-content-center">
-                    <div class="icon"><img src="images/footer1-icon2.webp" alt="" loading="lazy"></div>
-                    <div class="pera"><a href="tel://+201017383815">+201017383815</a></div>
+                  <div class="contact-box">
+                    <div class="icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div class="pera"><a href="tel:+201017383815">+20 101 738 3815</a></div>
                   </div>
-                  <div class="contact-box justify-content-center">
-                    <div class="icon"><img src="images/footer1-icon3.webp" alt="" loading="lazy"></div>
-                    <div class="text-wrap pera"><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
+                  <div class="contact-box">
+                    <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="pera"><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
                   </div>
-                  <div class="contact-box justify-content-center">
-                    <div class="icon"><img src="images/footer1-icon4.webp" alt="" loading="lazy"></div>
-                    <div class="pera"><a href="https://gocloudeg.com">www.gocloudeg.com</a></div>
+                  <div class="contact-box">
+                    <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="pera"><span>Cairo, Egypt</span></div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="space40"></div>
           </div>
-          <div class="container row d-flex text-center mb-5 mx-auto">
-            <div class="col-5">
-              <div>
-                <p>Copyright @ 
-                  <script>document.write(new Date().getFullYear())</script> Gocloud-eg. All Rights Reserved
-                </p>
+          <div class="footer-bottom">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                  <p class="mb-0">&copy;
+                    <script>document.write(new Date().getFullYear())</script> GoCloud. All Rights Reserved.
+                  </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end"><a href="conditions-terms.html">Terms & Conditions</a><span class="mx-2">|</span><a href="privacy.html">Privacy Policy</a></div>
               </div>
             </div>
-            <div class="col-5"><a href="conditions-terms.html">Terms & Conditions |</a><a href="privacy.html">Privacy Policy</a></div>
           </div>
         </div>
       </footer>
@@ -720,9 +757,9 @@
     <script src="js/SmoothScroll.min.js" defer></script>
     <script src="js/jquery.lineProgressbar.min.js" defer></script>
     <script src="js/ripple-btn.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
     <script src="js/main.min.js" defer></script>
     <script src="js/typewriter.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" defer></script>
     <!-- Page specific scripts-->
   </body>
 </html>

@@ -1,0 +1,6 @@
+{
+  "disallowDuplicateAttributes": true,
+  "requireLowerCaseAttributes": true,
+  "requireLowerCaseTags": true,
+  "validateIndentation": 2
+}

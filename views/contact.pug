@@ -1,158 +1,207 @@
 extends layout.pug
 
 block variables
-  - var pageTitle = "GoCloud - Contact Us"
-  - var pageDescription = "Get in touch with GoCloud for premium cloud services and IT solutions."
-  - var pageKeywords = "contact, gocloud, support, inquiry"
+  - var pageTitle = "Contact GoCloud — Get in Touch for ERP, Cloud & Insurance Solutions"
+  - var pageDescription = "Reach out to GoCloud for Odoo ERP implementation, cloud computing, ELITE medical-insurance platform, or any IT consultation. Office in Giza, Egypt."
+  - var pageKeywords = "contact GoCloud, Odoo ERP consultation, cloud services Egypt, ELITE insurance, IT solutions Giza"
   - var canonicalUrl = "https://www.gocloud.com/contact.html"
   - var ogImage = "https://www.gocloud.com/images/gocloud-logo.png"
 
 block styles
-  // Additional styles for contact page
+  style.
+    /* ── Hero ── */
+    .contact-hero{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 60%,#0E38B1 100%);padding:6rem 0 4rem;position:relative;overflow:hidden}
+    .contact-hero::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:80px;background:#fff;clip-path:polygon(0 60%,100% 0,100% 100%,0 100%)}
+    .contact-hero h1{font-size:2.75rem;font-weight:800;color:#fff}
+    .contact-hero p{color:rgba(255,255,255,.8);max-width:540px}
+    .contact-hero .breadcrumb-link{color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem}
+    .contact-hero .breadcrumb-link:hover{color:#fff}
+    .contact-hero .breadcrumb-sep{color:rgba(255,255,255,.35);margin:0 8px}
+    .contact-hero .breadcrumb-current{color:#A1E934;font-weight:600;font-size:.9rem}
+
+    /* ── Section helpers ── */
+    .section-tag{display:inline-flex;align-items:center;gap:8px;background:#EEF2FF;border-radius:50px;padding:6px 16px;font-size:.8rem;font-weight:600;color:#0E38B1;margin-bottom:1rem}
+    .section-tag img{height:24px;width:24px}
+    .section-heading{font-size:2rem;font-weight:800;color:#0D0E10;margin-bottom:1rem}
+
+    /* ── Contact cards ── */
+    .contact-main{padding:5rem 0}
+    .info-card{background:#fff;border:1px solid #e9ecef;border-radius:16px;padding:2rem 1.5rem;text-align:center;box-shadow:0 2px 16px rgba(0,0,0,.04);transition:all .35s;height:100%}
+    .info-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(14,56,177,.1);border-color:#0E38B1}
+    .info-icon{width:56px;height:56px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;margin-bottom:1rem;background:linear-gradient(135deg,#0E38B1,#113ADC)}
+    .info-card h5{font-size:1rem;font-weight:700;margin-bottom:.5rem;color:#0D0E10}
+    .info-card p,.info-card a{font-size:.9rem;color:#4a4b5c;text-decoration:none;line-height:1.6}
+    .info-card a:hover{color:#0E38B1}
+
+    /* ── Form area ── */
+    .contact-form-section{padding:0 0 5rem}
+    .contact-form-wrap{background:#fff;border:1px solid #e9ecef;border-radius:20px;padding:2.5rem;box-shadow:0 4px 24px rgba(0,0,0,.05)}
+    .contact-form-wrap .form-label{font-weight:600;font-size:.85rem;color:#0D0E10;margin-bottom:.35rem}
+    .contact-form-wrap .form-control{border:1px solid #dee2e6;border-radius:12px;padding:.7rem 1rem;font-size:.9rem;transition:all .3s}
+    .contact-form-wrap .form-control:focus{border-color:#0E38B1;box-shadow:0 0 0 3px rgba(14,56,177,.1)}
+    .contact-form-wrap textarea.form-control{resize:vertical;min-height:120px}
+    .btn-submit{background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;border:none;border-radius:50px;padding:12px 32px;font-weight:600;font-size:.95rem;transition:all .3s;display:inline-flex;align-items:center;gap:8px}
+    .btn-submit:hover{box-shadow:0 8px 24px rgba(14,56,177,.3);transform:translateY(-2px);color:#fff}
+
+    /* ── Map ── */
+    .map-section{background:#f7f9ff;padding:5rem 0}
+    .map-wrap{border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.08);border:1px solid #e9ecef}
+    .map-wrap iframe{width:100%;height:400px;border:0;display:block}
+
+    /* ── Quick-CTA ── */
+    .contact-cta{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 100%);border-radius:16px;padding:3rem 2rem;margin-bottom:5rem}
+    .contact-cta h3{color:#fff;font-weight:800;font-size:1.5rem}
+    .contact-cta p{color:rgba(255,255,255,.8);font-size:.95rem}
+    .btn-cta-wa{background:#25D366;color:#fff;border:none;border-radius:50px;padding:12px 28px;font-weight:600;font-size:.95rem;display:inline-flex;align-items:center;gap:8px;transition:all .3s;text-decoration:none}
+    .btn-cta-wa:hover{background:#1fb855;box-shadow:0 8px 24px rgba(37,211,102,.3);color:#fff;transform:translateY(-2px)}
 
 block content
-  // Include components
+  //- Components
   include components/preloader.pug
   include components/top-banner.pug
   include components/header.pug
 
-  // Hero Section
-  .common-hero
+  //---------- HERO ----------
+  .contact-hero
     .container
-      .row.align-items-center.text-center
-        .col-lg-8.m-auto
-          .main-heading
-            h1 Contact Us
-            .space16
-            .span
-              img(src="images/span1.webp" alt="" loading="lazy")
-              |  
-              a(href="index.html") Home
-              |  
-              span
-                i.fa-regular.fa-angle-right
-              |  
-              | Contact Us
+      .row.align-items-center
+        .col-lg-7
+          .mb-3
+            a.breadcrumb-link(href="index.html") Home
+            span.breadcrumb-sep /
+            span.breadcrumb-current Contact Us
+          h1
+            | Let's Talk About
+            br
+            | Your Next Project
+          .space16
+          p Whether you need Odoo ERP consultation, cloud migration, or a custom insurance platform — we're here to help.
 
-  // Marquee Section
-  section.hero10-benar
-    .container-fluid.p-0
-      .row
-        .col-12
-          .marquee-wrap.marquee-wrap-inner.h-20
-            .marquee-text
-              .brand-single-box.h-32
-                img(src="images/wellcare-removebg-preview.webp" height="50" alt="" loading="lazy")
+  //---------- PARTNER MARQUEE ----------
+  include components/marquee-brands.pug
 
-              .brand-single-box.h-32
-                img(src="images/Goldera-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/unicare-removebg-preview (1).webp" height="50px" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/professional-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/Mashreq-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/omega-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/bahgat-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box.h-32
-                img(src="images/onecare-removebg-preview.webp" height="50" alt="OneCare Partner Logo" loading="lazy")
-
-              .brand-single-box
-                img(src="images/egmed-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/empire_of_gold-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-      .slider-after
-
-  .space100
-
-  // Contact Section
-  .contact-page
+  //---------- CONTACT INFO CARDS ----------
+  section.contact-main
     .container
-      .row
-        .col-lg-6
-          .contact-boxs
-            .heading1
-              h2.text-center Contact Information
-              .space16
-              p.text-center(style="font-size: larger;") We are so glad to hear from you
+      .row.text-center.mb-5
+        .col-lg-8.mx-auto
+          .section-tag
+            img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
+            | Get in Touch
+          h2.section-heading Contact Information
+          p.text-muted We'd love to hear from you. Reach out through any of the channels below.
 
-            .contact-box
-              .icon
-                img(src="images/contact-page-icon1.webp" alt="" loading="lazy")
-              .heading
-                h5 Contact Us
-                a.text(href="tel:(124)555-6565") +2 01017383815
+      .row.g-4.mb-5
+        .col-md-4(data-aos="fade-up" data-aos-delay="100")
+          .info-card
+            .info-icon
+              i.fas.fa-phone-alt
+            h5 Call Us
+            a(href="tel:+201017383815") +2 010 1738 3815
+        .col-md-4(data-aos="fade-up" data-aos-delay="200")
+          .info-card
+            .info-icon
+              i.fas.fa-envelope
+            h5 Email Us
+            a(href="mailto:marketing@gocloudeg.com") marketing@gocloudeg.com
+        .col-md-4(data-aos="fade-up" data-aos-delay="300")
+          .info-card
+            .info-icon
+              i.fas.fa-map-marker-alt
+            h5 Visit Our Office
+            p Behind Royal Pyramids Language School, Ahram Gardens, Gate 4, Giza
 
-            .contact-box
-              .icon
-                img(src="images/contact-page-icon2.webp" alt="" loading="lazy")
-              .heading
-                h5 Send Us a Mail
-                a.text(href="mailto:marketing@gocloudeg.com") marketing@gocloudeg.com
-
-            .contact-box
-              .icon
-                img(src="images/contact-page-icon3.webp" alt="" loading="lazy")
-              .heading
-                h5 Office Location
-                a.text.ms-2 Behind Royal Pyramids Language School, Ahram Gardens, Gate 4, Giza
-
-        .col-lg-6
-          .contact-form-details
+  //---------- FORM + SIDE INFO ----------
+  section.contact-form-section
+    .container
+      .row.g-5.align-items-start
+        .col-lg-7(data-aos="fade-right")
+          .contact-form-wrap
+            h4.fw-bold.mb-1 Send Us a Message
+            p.text-muted.mb-4(style="font-size:.9rem") Fill in the form below and we'll get back to you within 24 hours.
             form#contactForm
-              .row
-                .col-lg-6
-                  .single-input
-                    input(type="text" name="firstName" placeholder="First Name")
+              .row.g-3
+                .col-md-6
+                  label.form-label(for="firstName") First Name
+                  input.form-control(type="text" id="firstName" name="firstName" placeholder="John" required)
+                .col-md-6
+                  label.form-label(for="lastName") Last Name
+                  input.form-control(type="text" id="lastName" name="lastName" placeholder="Doe" required)
+                .col-md-6
+                  label.form-label(for="email") Email Address
+                  input.form-control(type="email" id="email" name="email" placeholder="john@company.com" required)
+                .col-md-6
+                  label.form-label(for="phone") Phone Number
+                  input.form-control(type="tel" id="phone" name="phone" placeholder="+20 xxx xxx xxxx")
+                .col-12
+                  label.form-label(for="subject") Subject
+                  input.form-control(type="text" id="subject" name="subject" placeholder="e.g. Odoo ERP implementation inquiry" required)
+                .col-12
+                  label.form-label(for="message") Message
+                  textarea.form-control(id="message" name="message" rows="5" placeholder="Tell us about your project or question..." required)
+                .col-12.mt-4
+                  button.btn-submit(type="submit")
+                    | Send Message
+                    i.fa-solid.fa-paper-plane
 
-                .col-lg-6
-                  .single-input
-                    input(type="text" name="lastName" placeholder="Last Name")
+        .col-lg-5(data-aos="fade-left")
+          .mb-4
+            h5.fw-bold Why Contact GoCloud?
+            p.text-muted(style="font-size:.9rem;line-height:1.7") We don't just respond — we listen, analyze your requirements, and propose practical solutions tailored to your business. Here's what you can expect:
+          .d-flex.align-items-start.gap-3.mb-3
+            .info-icon.flex-shrink-0(style="width:42px;height:42px;font-size:1rem")
+              i.fas.fa-clock
+            div
+              h6.fw-bold.mb-1(style="font-size:.9rem") Fast Response
+              p.text-muted.mb-0(style="font-size:.825rem") We respond within 24 hours on business days.
+          .d-flex.align-items-start.gap-3.mb-3
+            .info-icon.flex-shrink-0(style="width:42px;height:42px;font-size:1rem")
+              i.fas.fa-comments
+            div
+              h6.fw-bold.mb-1(style="font-size:.9rem") Free Consultation
+              p.text-muted.mb-0(style="font-size:.825rem") Initial project discussion is always on us.
+          .d-flex.align-items-start.gap-3.mb-3
+            .info-icon.flex-shrink-0(style="width:42px;height:42px;font-size:1rem")
+              i.fas.fa-file-alt
+            div
+              h6.fw-bold.mb-1(style="font-size:.9rem") Detailed Proposal
+              p.text-muted.mb-0(style="font-size:.825rem") You'll receive a clear scope, timeline, and quote.
+          .d-flex.align-items-start.gap-3
+            .info-icon.flex-shrink-0(style="width:42px;height:42px;font-size:1rem")
+              i.fas.fa-shield-alt
+            div
+              h6.fw-bold.mb-1(style="font-size:.9rem") NDA Available
+              p.text-muted.mb-0(style="font-size:.825rem") We're happy to sign an NDA before discussing details.
 
-                .col-lg-6
-                  .single-input
-                    input(name="email" id="email" placeholder="Email")
+  //---------- MAP ----------
+  section.map-section
+    .container
+      .row.text-center.mb-4
+        .col-lg-8.mx-auto
+          .section-tag
+            img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
+            | Our Location
+          h2.section-heading Find Us on the Map
+      .map-wrap(data-aos="fade-up")
+        iframe(
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.7555468388896!2d31.092484099999993!3d29.9577093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584fb4638aaa63%3A0x74386c45582e348d!2sGo%20Cloud!5e0!3m2!1sen!2seg!4v1751108580597!5m2!1sen!2seg"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="GoCloud office location on Google Maps"
+        )
 
-                .col-lg-6
-                  .single-input
-                    input(name="phone" type="number" placeholder="Phone")
+  //---------- QUICK CTA ----------
+  section.py-0
+    .container
+      .contact-cta.text-center(data-aos="fade-up")
+        h3 Prefer a Quick Chat?
+        p.mx-auto(style="max-width:500px") Skip the form — message us directly on WhatsApp and get an instant response from our team.
+        .space16
+        a.btn-cta-wa(href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer")
+          i.fab.fa-whatsapp(style="font-size:1.2rem")
+          | Chat on WhatsApp
 
-                .col-lg-12
-                  .single-input
-                    input(type="text" name="subject" id="subject" placeholder="Subject")
-
-                .col-lg-12
-                  .single-input
-                    textarea(id="message" name="message" cols="30" rows="5" placeholder="Message")
-
-                .col-lg-12
-                  button.theme-btn1(type="submit") Submit
-                    span
-                      i.fa-solid.fa-arrow-right
-
-  .space100
-
-  // Map Section
-  .contact-map-page
-    iframe(
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.7555468388896!2d31.092484099999993!3d29.9577093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584fb4638aaa63%3A0x74386c45582e348d!2sGo%20Cloud!5e0!3m2!1sen!2seg!4v1751108580597!5m2!1sen!2seg"
-      width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-    )
-
-  // Include footer
+  //- Footer & WhatsApp
   include components/footer.pug
-
-  // Include whatsapp button
   include components/whatsapp-button.pug
-
-  //- Script moved to main.js
