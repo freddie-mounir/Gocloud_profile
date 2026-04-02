@@ -1,0 +1,150 @@
+extends layout-rtl.pug
+
+block variables
+  - var pageTitle = "مدونة GoCloud — مقالات في التأمين الطبي وتطبيقات أودو"
+  - var pageDescription = "مقالات متخصصة في إدارة التأمين الطبي ونظام ELITE وتطبيقات Odoo ERP — نصائح وحلول لتحسين أعمالك."
+  - var pageKeywords = "مدونة GoCloud, تأمين طبي, Odoo ERP, ELITE, تحول رقمي, إدارة أعمال"
+  - var canonicalUrl = "https://www.gocloudeg.com/blog/"
+  - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+
+block structuredData
+  script(type="application/ld+json").
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "مدونة GoCloud",
+      "description": "مقالات متخصصة في إدارة التأمين الطبي وتطبيقات Odoo ERP",
+      "url": "https://www.gocloudeg.com/blog/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "GoCloud",
+        "logo": { "@type": "ImageObject", "url": "https://www.gocloudeg.com/images/gocloud-logo.png" }
+      }
+    }
+
+block styles
+  style.
+    /* ── Blog hero ── */
+    .blog-hero{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 60%,#0E38B1 100%);padding:5rem 0 3.5rem;position:relative;overflow:hidden}
+    .blog-hero::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:80px;background:#f7f9ff;clip-path:polygon(0 60%,100% 0,100% 100%,0 100%)}
+    .blog-hero h1{font-size:2.5rem;font-weight:800;color:#fff}
+    .blog-hero p{color:rgba(255,255,255,.75);font-size:1rem;max-width:560px}
+    .blog-hero .breadcrumb-link{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem}
+    .blog-hero .breadcrumb-link:hover{color:#fff}
+    .blog-hero .breadcrumb-sep{color:rgba(255,255,255,.3);margin:0 8px}
+    .blog-hero .breadcrumb-current{color:#A1E934;font-weight:600;font-size:.85rem}
+
+    /* ── Nav bar (blog) ── */
+    .blog-nav{background:#fff;border-bottom:1px solid #e9ecef;padding:.75rem 0;position:sticky;top:0;z-index:100}
+    .blog-nav .logo-link{display:flex;align-items:center;gap:8px;text-decoration:none;color:#0D0E10;font-weight:700;font-size:1rem}
+    .blog-nav .logo-link img{height:32px;width:32px}
+    .blog-nav .nav-links{display:flex;align-items:center;gap:1.5rem}
+    .blog-nav .nav-links a{color:#4a4b5c;text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
+    .blog-nav .nav-links a:hover,.blog-nav .nav-links a.active{color:#0E38B1}
+    .blog-nav .back-link{display:inline-flex;align-items:center;gap:6px;color:#0E38B1;text-decoration:none;font-size:.85rem;font-weight:600}
+    .blog-nav .back-link:hover{text-decoration:underline}
+
+    /* ── Filters ── */
+    .blog-filters{background:#f7f9ff;padding:2rem 0 1rem}
+    .filter-btn{background:#fff;border:1px solid #dee2e6;border-radius:50px;padding:8px 20px;font-size:.85rem;font-weight:600;color:#4a4b5c;cursor:pointer;transition:all .25s}
+    .filter-btn:hover,.filter-btn.active{background:#0E38B1;color:#fff;border-color:#0E38B1}
+
+    /* ── Post cards ── */
+    .blog-grid{background:#f7f9ff;padding:0 0 4rem}
+    .blog-card{background:#fff;border:1px solid #e9ecef;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .35s;height:100%;display:flex;flex-direction:column}
+    .blog-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(14,56,177,.1);border-color:#0E38B1}
+    .blog-card-img{width:100%;height:200px;object-fit:cover}
+    .blog-card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+    .blog-card-cat{display:inline-block;background:#EEF2FF;color:#0E38B1;font-size:.7rem;font-weight:700;padding:3px 12px;border-radius:50px;margin-bottom:.75rem;width:fit-content}
+    .blog-card-title{font-size:1.1rem;font-weight:700;color:#0D0E10;margin-bottom:.5rem;line-height:1.5}
+    .blog-card-title a{color:inherit;text-decoration:none}
+    .blog-card-title a:hover{color:#0E38B1}
+    .blog-card-excerpt{font-size:.875rem;color:#4a4b5c;line-height:1.65;flex:1}
+    .blog-card-meta{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:.75rem;border-top:1px solid #f0f1f5;font-size:.78rem;color:#999}
+    .blog-card-read{color:#0E38B1;font-weight:600;font-size:.85rem;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+    .blog-card-read:hover{text-decoration:underline}
+
+    /* ── Empty state ── */
+    .no-posts{text-align:center;padding:4rem 0;color:#999;font-size:1rem}
+
+block content
+  //---------- BLOG NAV ----------
+  nav.blog-nav
+    .container
+      .d-flex.align-items-center.justify-content-between
+        a.logo-link(href="../index.html")
+          img(src="../images/gocloud%20logo.webp" alt="GoCloud" width="32" height="32")
+          span GoCloud
+        .nav-links.d-none.d-md-flex
+          a(href="../index.html") الرئيسية
+          a(href="../service.html") الخدمات
+          a(href="../contact.html") تواصل معنا
+          a.active(href="index.html") المدونة
+        a.back-link.d-md-none(href="../index.html")
+          i.fas.fa-arrow-right
+          | الرئيسية
+
+  //---------- HERO ----------
+  .blog-hero
+    .container.text-center
+      .mb-3
+        a.breadcrumb-link(href="../index.html") الرئيسية
+        span.breadcrumb-sep /
+        span.breadcrumb-current المدونة
+      h1 مدونة GoCloud
+      p.mx-auto مقالات متخصصة في التأمين الطبي وتطبيقات Odoo ERP — نصائح عملية وحلول لتحسين أعمالك
+
+  //---------- FILTERS ----------
+  section.blog-filters
+    .container.text-center
+      .d-flex.gap-2.justify-content-center.flex-wrap
+        button.filter-btn.active(data-filter="all") الكل
+        button.filter-btn(data-filter="insurance") التأمين الطبي
+        button.filter-btn(data-filter="odoo") تطبيقات أودو
+
+  //---------- POST GRID ----------
+  section.blog-grid
+    .container
+      .row.g-4#blogGrid
+        each post in posts
+          .col-lg-4.col-md-6.blog-item(data-category=post.category data-aos="fade-up")
+            .blog-card
+              img.blog-card-img(src=`../${post.image}` alt=post.title loading="lazy")
+              .blog-card-body
+                .blog-card-cat= post.categoryLabel
+                h3.blog-card-title
+                  a(href=`${post.slug}.html`)= post.title
+                p.blog-card-excerpt= post.excerpt
+                .blog-card-meta
+                  span
+                    i.far.fa-calendar-alt.ms-1
+                    |  #{post.date}
+                  a.blog-card-read(href=`${post.slug}.html`)
+                    | اقرأ المزيد
+                    i.fas.fa-arrow-left.me-1
+
+      .no-posts.d-none#noPosts
+        i.far.fa-folder-open.d-block.mb-3(style="font-size:2.5rem;color:#ccc")
+        | لا توجد مقالات في هذا التصنيف حالياً
+
+block scripts
+  script.
+    // Category filter
+    document.querySelectorAll('.filter-btn').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+        btn.classList.add('active');
+        var cat=btn.getAttribute('data-filter');
+        var items=document.querySelectorAll('.blog-item');
+        var visible=0;
+        items.forEach(function(item){
+          if(cat==='all'||item.getAttribute('data-category')===cat){
+            item.style.display='';
+            visible++;
+          }else{
+            item.style.display='none';
+          }
+        });
+        document.getElementById('noPosts').classList.toggle('d-none',visible>0);
+      });
+    });

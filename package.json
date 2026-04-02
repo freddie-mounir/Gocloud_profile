@@ -22,9 +22,10 @@
   "scripts": {
     "dev": "browser-sync start --server --files '*.html, css/*.css, js/*.js'",
     "start": "npm-run-all --parallel watch:pug dev",
-    "build": "pug views --out . --pretty",
+    "build": "node scripts/build-blog.js && pug views -o . --pretty",
+    "build:blog": "node scripts/build-blog.js",
     "build:prod": "npm run build && npm run optimize",
-    "watch": "pug views --out . --pretty --watch",
+    "watch": "pug views -o . --pretty --watch",
     "watch:pug": "pug views -o . --pretty --watch",
     "serve": "npx http-server . -p 8000 -o",
     "optimize": "npm run minify:css && npm run minify:js && npm run purge",
@@ -53,7 +54,6 @@
     "generate:icons": "node scripts/generate-icons.js",
     "generate:sitemap": "node scripts/generate-sitemap.js"
   },
-  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "browser-sync": "^3.0.4",
@@ -64,6 +64,7 @@
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
     "prettier": "^3.3.3",
+    "pug": "^3.0.4",
     "pug-cli": "^1.0.0-alpha6",
     "purgecss": "^7.0.0",
     "rimraf": "^6.0.1",

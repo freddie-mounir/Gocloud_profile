@@ -1,0 +1,75 @@
+block variables
+doctype html
+html(lang="ar" dir="rtl")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title=pageTitle
+    meta(name="description" content=pageDescription)
+    meta(name="keywords" content=pageKeywords)
+    link(rel="canonical" href=canonicalUrl)
+    //- OG / Twitter
+    meta(property="og:title" content=pageTitle)
+    meta(property="og:description" content=pageDescription)
+    meta(property="og:type" content="article")
+    meta(property="og:url" content=canonicalUrl)
+    meta(property="og:image" content=ogImage)
+    meta(property="og:locale" content="ar_EG")
+    meta(name="twitter:card" content="summary_large_image")
+    meta(name="twitter:title" content=pageTitle)
+    meta(name="twitter:description" content=pageDescription)
+    meta(name="twitter:image" content=ogImage)
+    //- SEO
+    meta(name="theme-color" content="#0E38B1")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="robots" content="index, follow")
+    meta(name="googlebot" content="index, follow")
+    //- hreflang — Arabic blog, English site
+    link(rel="alternate" hreflang="ar" href=canonicalUrl)
+    link(rel="alternate" hreflang="en" href="https://www.gocloudeg.com/")
+    link(rel="alternate" hreflang="x-default" href="https://www.gocloudeg.com/")
+
+    //- Structured data
+    block structuredData
+
+    //- Favicon
+    link(rel="icon" href="../images/favicon.ico" sizes="32x32")
+    link(rel="icon" href="../images/gocloud logo.webp" type="image/webp")
+    //- PWA Manifest
+    link(rel="manifest" href="../manifest.json")
+
+    //- CSS — Bootstrap RTL build
+    link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha384-blOohCVdhjmtROpu8+CfTnUWham9nkX7P7OZQMst+RUnhtoY/9qemFAkIKOYxDI3" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous")
+
+    //- Arabic web font (IBM Plex Sans Arabic)
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap")
+
+    //- Base RTL styles
+    style.
+      *{font-family:'IBM Plex Sans Arabic','Figtree',sans-serif}
+      body{background:#fff;color:#0D0E10;line-height:1.7}
+      img{max-width:100%;height:auto}
+      a{transition:color .2s}
+      .section-tag{display:inline-flex;align-items:center;gap:8px;background:#EEF2FF;border-radius:50px;padding:6px 16px;font-size:.8rem;font-weight:600;color:#0E38B1;margin-bottom:1rem}
+      .section-tag img{height:24px;width:24px}
+      .section-heading{font-size:2rem;font-weight:800;color:#0D0E10;margin-bottom:1rem}
+
+    //- Page-specific styles
+    block styles
+
+  body
+    #main-content(role="main")
+      block content
+
+    //- Scripts (minimal — blog pages don't need carousels/sliders)
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer)
+    script(src="https://unpkg.com/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" defer)
+    script.
+      document.addEventListener('DOMContentLoaded',function(){AOS.init({duration:600,once:true})});
+
+    //- Page-specific scripts
+    block scripts

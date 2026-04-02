@@ -1,5 +1,12 @@
 extends layout.pug
 
+block variables
+  - var pageTitle = "Privacy Policy — GoCloud"
+  - var pageDescription = "GoCloud's privacy policy explaining how we collect, use, and protect your personal data across our website and services."
+  - var pageKeywords = "GoCloud privacy policy, data protection, personal data, GDPR"
+  - var canonicalUrl = "https://www.gocloudeg.com/privacy.html"
+  - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+
 block styles
 
 block content
@@ -55,7 +62,7 @@ block content
           p
             strong GoCloud
             br
-            | Email: 
+            | Email:
             a(href="mailto:marketing@gocloudeg.com") marketing@gocloudeg.com
             br
             | Phone: +201017383815

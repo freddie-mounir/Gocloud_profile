@@ -31,7 +31,7 @@ const MAX_IMAGE_CACHE = 100;
 // Install event - cache static assets
 self.addEventListener('install', event => {
   console.log('[SW] Installing service worker...');
-  
+
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then(cache => {
@@ -42,14 +42,14 @@ self.addEventListener('install', event => {
         console.error('[SW] Error caching static assets:', error);
       })
   );
-  
+
   self.skipWaiting();
 });
 
 // Activate event - clean up old caches
 self.addEventListener('activate', event => {
   console.log('[SW] Activating service worker...');
-  
+
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
@@ -62,7 +62,7 @@ self.addEventListener('activate', event => {
       );
     })
   );
-  
+
   self.clients.claim();
 });
 
@@ -103,11 +103,13 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     fetch(request)
       .then(response => {
-        const responseClone = response.clone();
-        caches.open(DYNAMIC_CACHE).then(cache => {
-          cache.put(request, responseClone);
-          trimCache(DYNAMIC_CACHE, MAX_DYNAMIC_CACHE);
-        });
+        if (response.ok) {
+          const responseClone = response.clone();
+          caches.open(DYNAMIC_CACHE).then(cache => {
+            cache.put(request, responseClone);
+            trimCache(DYNAMIC_CACHE, MAX_DYNAMIC_CACHE);
+          });
+        }
         return response;
       })
       .catch(() => caches.match(request))
@@ -120,6 +122,7 @@ function handleStaticRequest(request) {
     .then(response => {
       return response || fetch(request)
         .then(fetchResponse => {
+          if (!fetchResponse.ok) return fetchResponse;
           return caches.open(STATIC_CACHE).then(cache => {
             cache.put(request, fetchResponse.clone());
             return fetchResponse;
@@ -137,6 +140,7 @@ function handleImageRequest(request) {
     .then(response => {
       return response || fetch(request)
         .then(fetchResponse => {
+          if (!fetchResponse.ok) return fetchResponse;
           return caches.open(IMAGE_CACHE).then(cache => {
             cache.put(request, fetchResponse.clone());
             trimCache(IMAGE_CACHE, MAX_IMAGE_CACHE);
@@ -154,10 +158,12 @@ function handleImageRequest(request) {
 function handlePageRequest(request) {
   return fetch(request)
     .then(response => {
-      const responseClone = response.clone();
-      caches.open(DYNAMIC_CACHE).then(cache => {
-        cache.put(request, responseClone);
-      });
+      if (response.ok) {
+        const responseClone = response.clone();
+        caches.open(DYNAMIC_CACHE).then(cache => {
+          cache.put(request, responseClone);
+        });
+      }
       return response;
     })
     .catch(() => {
@@ -170,8 +176,8 @@ function handlePageRequest(request) {
 
 // Check if URL is a static asset
 function isStaticAsset(url) {
-  return url.includes('/css/') || 
-         url.includes('/js/') || 
+  return url.includes('/css/') ||
+         url.includes('/js/') ||
          url.includes('/fonts/') ||
          url.endsWith('.css') ||
          url.endsWith('.js');
@@ -195,7 +201,7 @@ self.addEventListener('message', event => {
   if (event.data.action === 'skipWaiting') {
     self.skipWaiting();
   }
-  
+
   if (event.data.action === 'clearCache') {
     event.waitUntil(
       caches.keys().then(cacheNames => {
