@@ -22,7 +22,7 @@
   "scripts": {
     "dev": "browser-sync start --server --files '*.html, css/*.css, js/*.js'",
     "start": "npm-run-all --parallel watch:pug dev",
-    "build": "node scripts/build-blog.js && pug views -o . --pretty",
+    "build": "node scripts/bundle-assets.js && node scripts/build-blog.js && pug views -o . --pretty",
     "build:blog": "node scripts/build-blog.js",
     "build:prod": "npm run build && npm run optimize",
     "watch": "pug views -o . --pretty --watch",

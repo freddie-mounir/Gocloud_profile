@@ -3,7 +3,7 @@
  * Implements font-display: swap and preloading strategies
  */
 
-/* 
+/*
  * FOUT (Flash of Unstyled Text) Prevention
  * Using font-display: swap for better performance
  */
@@ -14,15 +14,16 @@
   font-style: normal;
   font-weight: 300 900;
   font-display: swap; /* Show fallback immediately, swap when loaded */
-  src: local('Figtree'),
-       url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+  src:
+    local('Figtree'),
+    url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 }
 
 /* System font stack as fallback */
 :root {
-  --font-primary: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
-                  'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 
-                  'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-primary:
+    'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 }
 
@@ -55,7 +56,7 @@ body {
 <link rel="preload" href="/fonts/figtree-variable.woff2" as="font" type="font/woff2" crossorigin>
 */
 
-/* 
+/*
  * Optional: Use FontFace API for programmatic loading
  * Add to JavaScript:
  */
@@ -93,10 +94,47 @@ body {
   font-display: swap;
 }
 
-/* 
+/*
  * Performance tip: Use variable fonts when possible
  * They're typically smaller than loading multiple font weights
  */
+
+/**
+ * Mobile Tap Target Sizing
+ * Ensure interactive elements meet 48x48px minimum for accessibility
+ */
+@media (max-width: 991px) {
+  a,
+  button,
+  [role='button'],
+  input[type='submit'],
+  input[type='button'],
+  .theme-btn1,
+  .btn,
+  .menu-list a,
+  .social-icon a,
+  .mobile-nav a {
+    min-height: 48px;
+    min-width: 48px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .menu-list li {
+    margin-bottom: 4px;
+  }
+  .social-icon li a {
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+  }
+  .contact-box .icon {
+    min-width: 48px;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
 /* Size adjust to prevent layout shift */
 @font-face {
@@ -110,5 +148,8 @@ body {
 
 /* Use fallback during loading */
 .fonts-loading body {
-  font-family: 'Figtree Fallback', -apple-system, sans-serif;
+  font-family:
+    'Figtree Fallback',
+    -apple-system,
+    sans-serif;
 }
