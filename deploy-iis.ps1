@@ -130,7 +130,8 @@ $rootFiles = @(
     "sw.js",
     "robots.txt",
     "sitemap.xml",
-    ".htaccess"
+    ".htaccess",
+    "google8ec4a2e3b3ab7585.html"
 )
 
 foreach ($file in $rootFiles) {
