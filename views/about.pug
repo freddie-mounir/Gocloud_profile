@@ -94,6 +94,21 @@ block styles
     .dept-sub-team{margin-left:18px;padding-left:10px;border-left:2px solid #e9ecef}
     .dept-sub-team .dept-member .member-dot{background:#A1E934}
 
+    /* ── Meet Our Team ── */
+    .team-section{padding:5rem 0}
+    .team-leader-card{background:#fff;border-radius:20px;border:1px solid #e9ecef;box-shadow:0 4px 24px rgba(0,0,0,.05);overflow:hidden;transition:all .35s;height:100%}
+    .team-leader-card:hover{box-shadow:0 12px 40px rgba(14,56,177,.12);border-color:#0E38B1;transform:translateY(-4px)}
+    .team-leader-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
+    .team-leader-body{padding:1.5rem;text-align:center}
+    .team-leader-body h4{font-size:1.1rem;font-weight:700;color:#0D0E10;margin-bottom:.2rem}
+    .team-leader-body .team-role{font-size:.85rem;color:#0E38B1;font-weight:600;margin-bottom:.5rem}
+    .team-leader-body p{font-size:.82rem;color:#676879;line-height:1.55;margin-bottom:.75rem}
+    .team-leader-social a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#EEF2FF;color:#0E38B1;font-size:.85rem;transition:all .3s;margin:0 3px}
+    .team-leader-social a:hover{background:#0E38B1;color:#fff}
+    .team-gallery-img{border-radius:16px;width:100%;height:260px;object-fit:cover;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:all .35s}
+    .team-gallery-img:hover{box-shadow:0 10px 32px rgba(14,56,177,.15);transform:translateY(-4px)}
+    .team-gallery-caption{text-align:center;margin-top:.75rem;font-size:.85rem;font-weight:600;color:#4a4b5c}
+
 block content
   //- Components
   include components/preloader.pug
@@ -432,6 +447,65 @@ block content
                 .member-info
                   .org-title HR &amp; Finance
                   .org-role Admin &amp; People Ops
+
+  //---------- MEET OUR TEAM ----------
+  section.team-section
+    .container
+      .row.text-center.mb-5
+        .col-lg-8.mx-auto
+          .section-tag
+            img(src="images/gocloud%20logo.webp" alt="" loading="lazy" width="24" height="24")
+            | Our People
+          h2.section-heading Meet Our Team
+          p.section-lead.mx-auto The talented people behind GoCloud's success — passionate about technology, committed to delivering results.
+
+      //- Leadership Cards
+      .row.g-4.justify-content-center.mb-5
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="100")
+          .team-leader-card
+            img.team-leader-img(src="images/team/WalidAzhary.webp" alt="Walid Azhary — CEO" loading="lazy" width="400" height="533")
+            .team-leader-body
+              h4 Walid Azhary
+              .team-role Chief Executive Officer
+              p Visionary leader with 10+ years in enterprise software. Drives GoCloud's strategic direction and client partnerships across the MENA region.
+              .team-leader-social
+                a(href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn")
+                  i.fab.fa-linkedin-in
+
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="200")
+          .team-leader-card
+            img.team-leader-img(src="images/team/AhmedAzhary.webp" alt="Ahmed Azhary — CTO" loading="lazy" width="400" height="533")
+            .team-leader-body
+              h4 Ahmed Azhary
+              .team-role Chief Technology Officer
+              p Leads the engineering and product teams. Expert in Odoo ERP customization, cloud architecture, and building scalable enterprise solutions.
+              .team-leader-social
+                a(href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn")
+                  i.fab.fa-linkedin-in
+
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="300")
+          .team-leader-card
+            img.team-leader-img(src="images/team/freddie1.jpeg" alt="Freddie — Business Development Manager" loading="lazy" width="400" height="533")
+            .team-leader-body
+              h4 Freddie Mounir
+              .team-role Business Development Manager
+              p Drives strategic partnerships and client acquisition. Focused on expanding GoCloud's market presence and identifying new business opportunities across the region.
+              .team-leader-social
+                a(href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn")
+                  i.fab.fa-linkedin-in
+
+      //- Team Gallery
+      h4.text-center.mb-4(data-aos="fade-up" style="font-weight:700;color:#0D0E10") Life at GoCloud
+      .row.g-4
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="100")
+          img.team-gallery-img(src="images/team/TraningTeam.webp" alt="GoCloud training team with certificates" loading="lazy" width="600" height="400")
+          .team-gallery-caption Training &amp; Certification
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="200")
+          img.team-gallery-img(src="images/team/EmanAbdo.webp" alt="Eman Abdo at GoCloud event" loading="lazy" width="600" height="400")
+          .team-gallery-caption Industry Events &amp; Conferences
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="300")
+          img.team-gallery-img(src="images/team/OperationTeam.webp" alt="GoCloud operations team gathering" loading="lazy" width="600" height="400")
+          .team-gallery-caption Our Team Culture
 
   //- Footer & WhatsApp
   include components/footer.pug

@@ -1,5 +1,64 @@
 [
   {
+    "id": "enterprises-switching-to-odoo-2026",
+    "slug": "enterprises-switching-to-odoo-2026",
+    "title": "لماذا تتحول الشركات الكبرى إلى Odoo في 2026؟ مقارنة مع SAP وOracle وMicrosoft",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "مقارنة شاملة بين Odoo وأنظمة ERP العملاقة — SAP وOracle وMicrosoft Dynamics — ولماذا تختار المؤسسات الكبرى الانتقال إلى Odoo في 2026.",
+    "author": "فريق GoCloud",
+    "date": "2026-04-06",
+    "image": "images/blog-odoo-vs-sap-oracle.png",
+    "tags": [
+      "Odoo",
+      "SAP",
+      "Oracle",
+      "مقارنة ERP",
+      "تحول رقمي",
+      "Odoo 2026"
+    ],
+    "featured": true
+  },
+  {
+    "id": "odoo-construction-companies",
+    "slug": "odoo-construction-companies",
+    "title": "هل Odoo 20 مناسب لشركات المقاولات؟ نظرة على المميزات الجديدة والتحديات الحقيقية",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "مع تحديثات Odoo 20 الجديدة لقطاع الإنشاءات، هل أصبح النظام جاهزاً فعلاً لإدارة مشاريع المقاولات؟ نستعرض المميزات والتحديات الحقيقية.",
+    "author": "فريق GoCloud",
+    "date": "2026-04-06",
+    "image": "images/blog-odoo-construction.png",
+    "tags": [
+      "Odoo",
+      "مقاولات",
+      "إنشاءات",
+      "ERP",
+      "Odoo 20",
+      "إدارة مشاريع"
+    ],
+    "featured": false
+  },
+  {
+    "id": "odoo-pricing-explained",
+    "slug": "odoo-pricing-explained",
+    "title": "تكلفة مشروع Odoo: لماذا يختلف السعر من شركة لأخرى؟ دليلك الشامل",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "تعرّف على المكونات الثلاثة الأساسية لتكلفة مشروع Odoo ERP — من التراخيص إلى التنفيذ والدعم — ولماذا أرخص عرض ليس دائماً الأذكى.",
+    "author": "فريق GoCloud",
+    "date": "2026-04-06",
+    "image": "images/blog-odoo-pricing.png",
+    "tags": [
+      "Odoo",
+      "تسعير Odoo",
+      "تكلفة ERP",
+      "تنفيذ أودو",
+      "استثمار تقني"
+    ],
+    "featured": true
+  },
+  {
     "id": "odoo-crm-medical-supplies",
     "slug": "odoo-crm-medical-supplies",
     "title": "Odoo CRM لشركات المستلزمات الطبية — مراقبة فرق المبيعات وزيادة الإيرادات",

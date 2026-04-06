@@ -133,7 +133,7 @@ echo  [5/6] Backing up current site on VPS...
 
 for /f %%A in ('powershell -Command "Get-Date -Format yyyyMMdd-HHmmss"') do set TIMESTAMP=%%A
 
-ssh -p %SSH_PORT% %VPS_USER%@%VPS_HOST% "powershell -Command \"New-Item -ItemType Directory -Path 'C:\inetpub\backups' -Force | Out-Null; if (Test-Path '%VPS_REMOTE_PATH%') { Copy-Item '%VPS_REMOTE_PATH%' 'C:\inetpub\backups\gocloud-%TIMESTAMP%' -Recurse -Force; Write-Host 'Backup created: gocloud-%TIMESTAMP%' } else { Write-Host 'No existing site to backup' }\""
+ssh -p %SSH_PORT% %VPS_USER%@%VPS_HOST% "New-Item -ItemType Directory -Path C:\inetpub\backups -Force | Out-Null; if (Test-Path C:\inetpub\wwwroot\GoCloud_website_project) { Copy-Item C:\inetpub\wwwroot\GoCloud_website_project C:\inetpub\backups\gocloud-%TIMESTAMP% -Recurse -Force; Write-Host 'Backup created: gocloud-%TIMESTAMP%' } else { Write-Host 'No existing site to backup' }"
 
 echo  [OK] Backup done
 echo.

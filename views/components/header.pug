@@ -54,14 +54,14 @@ header(role="banner")
               img(src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy")
           .mobile-nav-icon
             button.mobile-menu-toggle(type="button" aria-label="Open navigation menu" aria-expanded="false")
-              i.fa-duotone.fa-bars-staggered(aria-hidden="true")
+              i.fa-solid.fa-bars(aria-hidden="true")
 
   .mobile-sidebar.d-block.d-md-none.d-lg-none(role="dialog" aria-label="Mobile navigation menu")
     .logo-m
       a(href="index.html" aria-label="GoCloud Home")
         img(src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy")
     .menu-close
-      button(type="button" aria-label="Close navigation menu")
+      button.mobile-menu-close-btn(type="button" aria-label="Close navigation menu")
         i.fa-solid.fa-xmark(aria-hidden="true")
     .mobile-nav
       nav(role="navigation" aria-label="Mobile Navigation")

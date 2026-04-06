@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google Analytics (GA4)-->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-60G03RQLPB"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-60G03RQLPB');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms and Conditions — GoCloud</title>
@@ -35,10 +27,39 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
+        "@type": ["Organization", "LocalBusiness"],
+        "@id": "https://www.gocloudeg.com/#organization",
+        "name": "GoCloud",
         "url": "https://www.gocloudeg.com/",
         "logo": "https://www.gocloudeg.com/images/gocloud-logo.png",
-        "name": "GoCloud",
+        "image": "https://www.gocloudeg.com/images/gocloud-logo.png",
+        "description": "Professional Odoo ERP implementation, cloud solutions, and business intelligence services in Egypt.",
+        "telephone": "+201017383815",
+        "email": "marketing@gocloudeg.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Behind Royal Pyramids Language School, Ahram Gardens, Gate 4",
+          "addressLocality": "Giza",
+          "addressRegion": "Giza",
+          "addressCountry": "EG"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 29.9577093,
+          "longitude": 31.0924841
+        },
+        "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJY6qKY7RPWBQRjTQuWEVsOHQ",
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }],
+        "sameAs": [
+          "https://www.linkedin.com/company/gocloud-co",
+          "https://www.facebook.com/GoCloudEg/",
+          "https://www.youtube.com/@GoCloudeg"
+        ],
         "contactPoint": [{
           "@type": "ContactPoint",
           "telephone": "+201017383815",
@@ -54,30 +75,35 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/icon-192x192.png">
     <!-- PWA Manifest-->
     <link rel="manifest" href="manifest.json">
-    <!-- CSS (CDN)-->
+    <!-- Critical CSS (render-blocking — needed for above-the-fold)-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha384-blOohCVdhjmtROpu8+CfTnUWham9nkX7P7OZQMst+RUnhtoY/9qemFAkIKOYxDI3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css" integrity="sha384-BzI6huNjli1y/9x1UdWL6qKDFkPsARwL5jA52HvMQscsUrvEx/0sxAoQw8Lr+Dgw" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" integrity="sha384-MUdXdzn1OB/0zkr4yGLnCqZ/n9ut5N7Ifes9RP2d5xKsTtcPiuiwthWczWuiqFOn" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" integrity="sha384-kcNNzf7wI8//ZkNUaDd5JwxLoFaBgkj9Z4O4NwtuX9Lkmsz0HoITOxJsGkYxDuyG" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/plugins-bundle.min.css">
     <link rel="stylesheet" href="css/main.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" integrity="sha384-VtAbyHBFULcj75mXhsQnIQUrCiTcHosNqmBMhE2t5jRWaFO1DviOnG9pxHSeNF9k" crossorigin="anonymous">
-    <!-- Resource preload hints-->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" as="style" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="preload" href="css/main.min.css" as="style">
-    <link rel="preload" href="https://code.jquery.com/jquery-3.7.1.min.js" as="script" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/plugins-bundle.min.css">
+    <!-- Non-critical CSS (deferred — for below-fold components)-->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css" as="style" integrity="sha384-BzI6huNjli1y/9x1UdWL6qKDFkPsARwL5jA52HvMQscsUrvEx/0sxAoQw8Lr+Dgw" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" as="style" integrity="sha384-MUdXdzn1OB/0zkr4yGLnCqZ/n9ut5N7Ifes9RP2d5xKsTtcPiuiwthWczWuiqFOn" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" as="style" integrity="sha384-kcNNzf7wI8//ZkNUaDd5JwxLoFaBgkj9Z4O4NwtuX9Lkmsz0HoITOxJsGkYxDuyG" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://unpkg.com/aos@2.3.4/dist/aos.css" as="style" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" as="style" integrity="sha384-VtAbyHBFULcj75mXhsQnIQUrCiTcHosNqmBMhE2t5jRWaFO1DviOnG9pxHSeNF9k" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    </noscript>
+    <!-- Preconnect & DNS prefetch for CDNs and third-party origins-->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Font preload with font-display: swap for better performance-->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap">
     </noscript>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Custom styles-->
   </head>
   <body class="body tg-heading-subheading animation-style3">
@@ -125,6 +151,7 @@
             <div class="loader-section-right loader-section section-right"></div>
           </div>
         </div>
+        <script>(function(){var t=setTimeout(function(){var p=document.getElementById('ctn-preloader');if(p){p.classList.add('loaded');p.style.opacity='0';setTimeout(function(){p.style.display='none'},400)}},3000);window.addEventListener('load',function(){clearTimeout(t)})})();</script>
       </section>
       <style>
         .top-bar{background:linear-gradient(90deg,#0a1e5e 0%,#0E38B1 50%,#0a1e5e 100%);padding:8px 0;position:relative;z-index:1000}
@@ -139,6 +166,7 @@
         .top-bar-badge img{height:22px;border-radius:50%;background:#fff;padding:1px}
         .top-bar-social a{color:rgba(255,255,255,.5);font-size:.8rem;margin-left:8px;transition:color .2s}
         .top-bar-social a:hover{color:#A1E934}
+        @media(max-width:767px){.top-bar{position:fixed;top:0;left:0;width:100%;z-index:1001;padding:6px 0}.top-bar-right{display:none}.top-bar-left{gap:.75rem}.top-bar-item{font-size:.7rem}}
         
       </style>
       <div class="top-bar">
@@ -199,7 +227,7 @@
               <div class="mobile-header-elements">
                 <div class="mobile-logo"><a href="index.html" aria-label="GoCloud Home"><img src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy"></a></div>
                 <div class="mobile-nav-icon">
-                  <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><i class="fa-duotone fa-bars-staggered" aria-hidden="true"></i></button>
+                  <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
                 </div>
               </div>
             </div>
@@ -208,7 +236,7 @@
         <div class="mobile-sidebar d-block d-md-none d-lg-none" role="dialog" aria-label="Mobile navigation menu">
           <div class="logo-m"><a href="index.html" aria-label="GoCloud Home"><img src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy"></a></div>
           <div class="menu-close">
-            <button type="button" aria-label="Close navigation menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            <button class="mobile-menu-close-btn" type="button" aria-label="Close navigation menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
           </div>
           <div class="mobile-nav">
             <nav role="navigation" aria-label="Mobile Navigation">
@@ -370,8 +398,9 @@
                   </div>
                   <div class="contact-box">
                     <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
-                    <div class="pera"><span>Cairo, Egypt</span></div>
+                    <div class="pera"><a href="https://www.google.com/maps/place/?q=place_id:ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer">Ahram Gardens, Gate 4, Giza, Egypt</a></div>
                   </div>
+                  <div class="d-flex gap-2 mt-3"><a class="btn btn-sm btn-outline-light" href="https://www.google.com/maps/dir/?api=1&amp;destination=GoCloud&amp;destination_place_id=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right me-1"></i>Directions</a><a class="btn btn-sm btn-outline-light" href="https://search.google.com/local/writereview?placeid=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-star me-1"></i>Review Us</a></div>
                 </div>
               </div>
             </div>
@@ -447,6 +476,22 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" integrity="sha384-Hf6yat1C7ze92LpS287AKvB24pRLwa+YxYmOVZKCiBHybkfxZDYy7TuKW/KbcS3i" crossorigin="anonymous" defer></script>
     <script src="js/plugins-bundle.min.js" defer></script>
     <script src="js/main.min.js" defer></script>
+    <!-- Google Analytics (GA4) — loaded after page content for better mobile performance-->
+    <script>
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-60G03RQLPB';
+        s.async = true;
+        document.head.appendChild(s);
+        s.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-60G03RQLPB');
+        };
+      });
+      
+    </script>
     <!-- Page specific scripts-->
   </body>
 </html>
