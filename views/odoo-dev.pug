@@ -1,5 +1,12 @@
 extends layout.pug
 
+block variables
+  - var pageTitle = "Odoo Custom Development — Tailored Modules & Integrations | GoCloud"
+  - var pageDescription = "GoCloud's Odoo custom development services — bespoke modules, API integrations, workflow automation, and advanced reporting tailored to your business processes."
+  - var pageKeywords = "Odoo custom development, Odoo modules, API integration, workflow automation, Odoo developer Egypt, custom ERP"
+  - var canonicalUrl = "https://www.gocloudeg.com/odoo-dev.html"
+  - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+
 block styles
 
 block content
@@ -18,52 +25,16 @@ block content
             .space16
             .span
               img(src="images/span1.webp" alt="" loading="lazy")
-              |  
+              |
               a(href="service.html") Service
-              |  
+              |
               span.arrow
                 i.fa-regular.fa-angle-right
-              |  
+              |
               | Cloud Services
 
   // Marquee Section
-  section.hero10-benar
-    .container-fluid.p-0
-      .row
-        .col-12
-          .marquee-wrap.marquee-wrap-inner.h-20
-            .marquee-text
-              .brand-single-box.h-32
-                img(src="images/wellcare-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box.h-32
-                img(src="images/Goldera-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/unicare-removebg-preview (1).webp" height="50px" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/professional-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/Mashreq-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/omega-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/bahgat-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box.h-32
-                img(src="images/onecare-removebg-preview.webp" height="50" alt="OneCare Partner Logo" loading="lazy")
-
-              .brand-single-box
-                img(src="images/egmed-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/empire_of_gold-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-      .slider-after
+  include components/marquee-brands.pug
 
   // Text & Image Section
   .container.my-5
@@ -86,7 +57,7 @@ block content
             | Technical Support & Maintenance
 
       .col-lg-6(data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000")
-        .position-relative.image-anime(style="transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='skew(3deg, 3deg)'" onmouseout="this.style.transform='scale(1)'")
+        .position-relative.image-anime.image-hover-skew
           img(src="images/odoo fix.webp" alt="Odoo Development" class="img-fluid rounded shadow-lg" loading="lazy")
           .position-absolute.top-0.start-0.w-100.h-100
 
@@ -94,7 +65,7 @@ block content
   .container.my-5
     .row.align-items-center
       .col-lg-6(data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000")
-        .position-relative.image-anime(style="transition: transform 0.3s ease-in-out;" onmouseover="this.style.transform='skew(3deg, 3deg)'" onmouseout="this.style.transform='scale(1)'")
+        .position-relative.image-anime.image-hover-skew
           img(src="images/visit CRM.webp" alt="Odoo Development" class="img-fluid rounded shadow-lg" loading="lazy")
           .position-absolute.top-0.start-0.w-100.h-100
 

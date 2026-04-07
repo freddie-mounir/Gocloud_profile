@@ -1,7 +1,61 @@
 extends layout.pug
 
-block styles
+block variables
+  - var pageTitle = "Business Intelligence Solutions | GoCloud"
+  - var pageDescription = "Transform raw data into actionable insights with GoCloud's business intelligence solutions. Advanced analytics, interactive dashboards, and real-time reporting powered by Power BI & Metabase."
+  - var pageKeywords = "business intelligence, data analytics, Power BI, Metabase, dashboards, reporting, data warehousing, GoCloud"
+  - var canonicalUrl = "https://www.gocloudeg.com/business.html"
+  - var ogImage = "https://www.gocloudeg.com/images/Data-Science.webp"
 
+block styles
+  style.
+    .bi-hero-img {
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.15);
+    }
+    .bi-feature-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+      transition: transform .3s ease, box-shadow .3s ease;
+      height: 100%;
+    }
+    .bi-feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,.12);
+    }
+    .bi-feature-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .bi-process-step {
+      position: relative;
+      padding: 2rem 1.5rem;
+      background: #f8f9fa;
+      border-radius: 12px;
+      text-align: center;
+      height: 100%;
+    }
+    .bi-process-step .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #0d6efd;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
 block content
   // Include components
   include components/preloader.pug
@@ -14,123 +68,121 @@ block content
       .row.align-items-center.text-center
         .col-lg-6.m-auto
           .main-heading
-            h1 Business intelligence
+            h1 Business Intelligence
             .space16
             .span
-              img(src="images/span1.webp" alt="" loading="lazy")
-              |  
+              img(src="images/span1.webp" alt="decorative divider" loading="lazy")
+              |
               a(href="service.html") Service
-              |  
+              |
               span.arrow
                 i.fa-regular.fa-angle-right
-              |  
-              | business intelligence
+              |
+              | Business Intelligence
 
   // Marquee Section
-  section.hero10-benar
-    .container-fluid.p-0
-      .row
-        .col-12
-          .marquee-wrap.marquee-wrap-inner.h-20
-            .marquee-text
-              .brand-single-box.h-32
-                img(src="images/wellcare-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box.h-32
-                img(src="images/Goldera-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/unicare-removebg-preview (1).webp" height="50px" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/professional-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/Mashreq-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/omega-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/bahgat-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box.h-32
-                img(src="images/onecare-removebg-preview.webp" height="50" alt="OneCare Partner Logo" loading="lazy")
-
-              .brand-single-box
-                img(src="images/egmed-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/empire_of_gold-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-      .slider-after
+  include components/marquee-brands.pug
 
   .space40
 
-  // Business Intelligence Solutions Section
-  section.bg-image.py-5(style="background-image: url('images/blob-scene-haikei.svg'); background-size: cover; background-position: center; position: relative;")
-    div(style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;")
-    .container.position-relative
-      .row.align-items-center
-        .col-lg-12(data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000")
-          h2.text-black.text-center.fw-bold.mb-4 Business Intelligence Solutions
-          p.text-black.lead.mb-4 Transform your raw data into actionable insights with our comprehensive business intelligence solutions. We help organizations make data-driven decisions through advanced analytics, interactive dashboards, and real-time reporting capabilities.
-          ul.list-unstyled
-            li.mb-3
-              .d-flex.align-items-center
-                i.fas.fa-chart-line.text-black.me-3
-                span.text-black Advanced Analytics & Reporting
-            li.mb-3
-              .d-flex.align-items-center
-                i.fas.fa-database.text-black.me-3
-                span.text-black Data Warehousing Solutions
-            li.mb-3
-              .d-flex.align-items-center
-                i.fas.fa-desktop.text-black.me-3
-                span.text-black Interactive Dashboards
+  // Overview Section — Text + Image
+  .container.my-5
+    .row.align-items-center
+      .col-lg-6(data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000")
+        h2.fw-bold.mb-4 Data-Driven Decisions Start Here
+        p.lead.mb-4 Transform your raw data into actionable insights with our comprehensive business intelligence solutions. We help organizations make confident, data-driven decisions through advanced analytics, interactive dashboards, and real-time reporting.
+        ul.list-unstyled
+          li.mb-3
+            i.fas.fa-check-circle.text-primary.me-2
+            | Real-time KPI monitoring &amp; alerting
+          li.mb-3
+            i.fas.fa-check-circle.text-primary.me-2
+            | Custom dashboards tailored to your business
+          li.mb-3
+            i.fas.fa-check-circle.text-primary.me-2
+            | Automated report generation &amp; delivery
+          li.mb-3
+            i.fas.fa-check-circle.text-primary.me-2
+            | Data consolidation from multiple sources
+      .col-lg-6(data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000")
+        .position-relative.image-anime
+          img.bi-hero-img.img-fluid(src="images/Data-Science.webp" alt="Business intelligence data analytics dashboard" loading="lazy")
 
   .space40
 
-  // Carousel Section
-  section
+  // Services Feature Cards
+  section.py-5(style="background: #f8f9fa;")
     .container
-      .owl-carousel.owl-theme
-        .item
-          img(src="images/Data-Science.webp" class="image-anime" alt="Business Intelligence Image 1" loading="lazy")
-          .carousel-caption
-            h3 Data Analytics
-            p Advanced analytics solutions for your business
-        .item
-          img(src="images/dashboards.webp" alt="Business Intelligence Image 2" loading="lazy")
-          .carousel-caption
-            h3 Interactive Dashboards
-            p Real-time visualization of your business metrics
-        .item
-          img(src="images/reporting tool.webp" alt="Business Intelligence Image 3" loading="lazy")
-          .carousel-caption
-            h3 Reporting Tools
-            p Comprehensive reporting solutions
-        .item
-          img(src="images/data-integration.webp" alt="Business Intelligence Image 4" loading="lazy")
-          .carousel-caption
-            h3 Data Integration
-            p Seamless integration of multiple data sources
-
-    //- Script moved to main.js
+      .text-center.mb-5(data-aos="fade-up")
+        h2.fw-bold What We Offer
+        p.lead.text-muted Comprehensive BI services to unlock the full value of your data
+      .row.g-4
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="100")
+          .bi-feature-card
+            .bi-feature-icon(style="background: rgba(13,110,253,.1); color: #0d6efd;")
+              i.fas.fa-chart-line
+            h5.fw-bold Advanced Analytics
+            p.text-muted.mb-0 Uncover hidden patterns and trends with statistical analysis, predictive modeling, and machine learning capabilities.
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="200")
+          .bi-feature-card
+            .bi-feature-icon(style="background: rgba(25,135,84,.1); color: #198754;")
+              i.fas.fa-tachometer-alt
+            h5.fw-bold Interactive Dashboards
+            p.text-muted.mb-0 Visualize complex datasets through intuitive, interactive dashboards that update in real time for faster decision-making.
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="300")
+          .bi-feature-card
+            .bi-feature-icon(style="background: rgba(255,193,7,.1); color: #ffc107;")
+              i.fas.fa-database
+            h5.fw-bold Data Warehousing
+            p.text-muted.mb-0 Centralize and structure your data from disparate sources into a single, reliable warehouse for consistent reporting.
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="400")
+          .bi-feature-card
+            .bi-feature-icon(style="background: rgba(220,53,69,.1); color: #dc3545;")
+              i.fas.fa-file-alt
+            h5.fw-bold Automated Reporting
+            p.text-muted.mb-0 Schedule and automate report generation, reducing manual effort and ensuring stakeholders always have up-to-date information.
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="500")
+          .bi-feature-card
+            .bi-feature-icon(style="background: rgba(111,66,193,.1); color: #6f42c1;")
+              i.fas.fa-plug
+            h5.fw-bold Data Integration
+            p.text-muted.mb-0 Seamlessly connect ERP systems, CRMs, spreadsheets, and third-party APIs into a unified analytics pipeline.
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="600")
+          .bi-feature-card
+            .bi-feature-icon(style="background: rgba(13,202,240,.1); color: #0dcaf0;")
+              i.fas.fa-shield-alt
+            h5.fw-bold Data Governance
+            p.text-muted.mb-0 Implement access controls, data quality rules, and compliance standards to keep your analytics trustworthy and secure.
 
   .space40
 
-  .space16.mb-8
-    h1.text-center Our Technologies
-
-  // Partners Logos Section
-  section
-    .container.mt-5.text-center
-      .row.justify-content-center
-        .col-md-3.mb-4
-          img(src="images/Power-Bi.webp" height="300" width="300" alt="power-bi" class="img-fluid" loading="lazy")
-        .col-md-3.mb-4
-          img(src="images/metabase.webp" height="300" width="300" alt="metabase" class="img-fluid" loading="lazy")
+  // Our Process Section
+  section.py-5
+    .container
+      .text-center.mb-5(data-aos="fade-up")
+        h2.fw-bold Our Approach
+        p.lead.text-muted A proven process from raw data to business value
+      .row.g-4
+        .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="100")
+          .bi-process-step
+            .step-number 1
+            h5.fw-bold Discover
+            p.text-muted.mb-0 We assess your data landscape, business objectives, and current pain points.
+        .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="200")
+          .bi-process-step
+            .step-number 2
+            h5.fw-bold Design
+            p.text-muted.mb-0 We architect the data model, choose the right tools, and plan your dashboards.
+        .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="300")
+          .bi-process-step
+            .step-number 3
+            h5.fw-bold Deliver
+            p.text-muted.mb-0 We build, test, and deploy your BI solution with full stakeholder training.
+        .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="400")
+          .bi-process-step
+            .step-number 4
+            h5.fw-bold Optimize
+            p.text-muted.mb-0 Ongoing monitoring, refinement, and support to maximize your ROI.
 
   // Include footer
   include components/footer.pug

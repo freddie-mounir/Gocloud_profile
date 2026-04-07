@@ -1,396 +1,512 @@
 extends layout.pug
 
 block variables
-  - var pageTitle = "GoCloud - About Us"
-  - var pageDescription = "Learn more about GoCloud, our mission, values, and the team behind our premium cloud services."
-  - var pageKeywords = "GoCloud, about, cloud services, company, team"
-  - var canonicalUrl = "https://www.gocloud.com/about.html"
-  - var ogImage = "https://www.gocloud.com/images/gocloud-logo.png"
+  - var pageTitle = "About GoCloud — Odoo ERP & Insurance Technology Experts"
+  - var pageDescription = "Discover GoCloud's story — from a Cairo startup in 2015 to an official Odoo partner delivering ERP, cloud, and ELITE medical-insurance solutions across the MENA region."
+  - var pageKeywords = "GoCloud, about, Odoo ERP partner, ELITE insurance, cloud solutions, digital transformation Egypt, MENA technology"
+  - var canonicalUrl = "https://www.gocloudeg.com/about.html"
+  - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
 
 block styles
+  style.
+    /* ── Hero ── */
+    .about-hero{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 60%,#0E38B1 100%);padding:6rem 0 4rem;position:relative;overflow:hidden}
+    .about-hero::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:80px;background:#fff;clip-path:polygon(0 60%,100% 0,100% 100%,0 100%)}
+    .about-hero h1{font-size:2.75rem;font-weight:800;color:#fff}
+    .about-hero p{color:rgba(255,255,255,.8);max-width:540px}
+    .about-hero .breadcrumb-link{color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem}
+    .about-hero .breadcrumb-link:hover{color:#fff}
+    .about-hero .breadcrumb-sep{color:rgba(255,255,255,.35);margin:0 8px}
+    .about-hero .breadcrumb-current{color:#A1E934;font-weight:600;font-size:.9rem}
+
+    /* ── Section helpers ── */
+    .section-tag{display:inline-flex;align-items:center;gap:8px;background:#EEF2FF;border-radius:50px;padding:6px 16px;font-size:.8rem;font-weight:600;color:#0E38B1;margin-bottom:1rem}
+    .section-tag img{height:24px;width:24px}
+    .section-heading{font-size:2rem;font-weight:800;color:#0D0E10;margin-bottom:1rem}
+    .section-lead{color:#4a4b5c;font-size:1.05rem;line-height:1.7;max-width:620px}
+
+    /* ── About intro ── */
+    .about-intro{padding:5rem 0}
+    .about-intro .intro-img{border-radius:20px;box-shadow:0 20px 50px rgba(14,56,177,.12);width:100%}
+    .about-stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2rem}
+    .about-stat-card{background:#fff;border:1px solid #e9ecef;border-radius:14px;padding:1.25rem;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .3s}
+    .about-stat-card:hover{border-color:#0E38B1;box-shadow:0 8px 24px rgba(14,56,177,.1)}
+    .about-stat-card .stat-num{font-size:1.75rem;font-weight:800;color:#0E38B1}
+    .about-stat-card .stat-label{font-size:.8rem;color:#676879;margin-top:2px}
+    .about-counter-badge{position:absolute;bottom:-18px;right:20px;background:#1a237e;color:#fff;border-radius:14px;padding:1rem 1.5rem;box-shadow:0 8px 28px rgba(26,35,126,.3);display:flex;align-items:center;gap:10px;z-index:2}
+    .about-counter-badge .counter-num{font-size:1.75rem;font-weight:800;line-height:1}
+    .about-counter-badge .counter-text{font-size:.75rem;font-weight:600;color:#ffc107;line-height:1.3}
+
+    /* ── Mission / Vision ── */
+    .mv-section{padding:5rem 0}
+    .mv-section.bg-light-blue{background:#f7f9ff}
+    .mv-icon-box{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,#0E38B1,#113ADC);display:inline-flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;margin-bottom:1.25rem}
+    .mv-card{background:#fff;border-radius:20px;padding:2.5rem;box-shadow:0 4px 24px rgba(0,0,0,.05);height:100%;border:1px solid #e9ecef;transition:all .35s}
+    .mv-card:hover{box-shadow:0 12px 40px rgba(14,56,177,.1);border-color:#0E38B1}
+    .mv-card h4{font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
+    .mv-card p{color:#4a4b5c;font-size:.925rem;line-height:1.65}
+    .vision-img{border-radius:20px;box-shadow:0 16px 40px rgba(0,0,0,.08);width:100%}
+
+    /* ── Core values ── */
+    .values-section{padding:5rem 0;background:#f7f9ff}
+    .value-card{text-align:center;padding:2rem 1.5rem;background:#fff;border-radius:16px;border:1px solid #e9ecef;box-shadow:0 2px 16px rgba(0,0,0,.04);transition:all .35s;height:100%}
+    .value-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(14,56,177,.1);border-color:#0E38B1}
+    .value-icon{width:56px;height:56px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;font-size:1.3rem;color:#fff;margin-bottom:1rem}
+    .value-card h5{font-size:1.05rem;font-weight:700;margin-bottom:.5rem}
+    .value-card p{color:#676879;font-size:.875rem;line-height:1.6}
+
+    /* ── Milestones timeline ── */
+    .milestones-section{padding:5rem 0}
+    .timeline{position:relative;padding:2rem 0}
+    .timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#0E38B1,#A1E934);border-radius:4px;transform:translateX(-50%)}
+    .timeline-item{position:relative;width:50%;padding:0 3rem 3rem}
+    .timeline-item:nth-child(odd){left:0;text-align:right;padding-right:3rem;padding-left:0}
+    .timeline-item:nth-child(even){left:50%;text-align:left;padding-left:3rem;padding-right:0}
+    .timeline-dot{position:absolute;top:0;width:16px;height:16px;background:#0E38B1;border:3px solid #fff;border-radius:50%;box-shadow:0 0 0 4px rgba(14,56,177,.2);z-index:2}
+    .timeline-item:nth-child(odd) .timeline-dot{right:-8px}
+    .timeline-item:nth-child(even) .timeline-dot{left:-8px}
+    .timeline-card{background:#fff;border-radius:16px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid #e9ecef;transition:all .3s;text-align:left}
+    .timeline-card:hover{box-shadow:0 10px 32px rgba(14,56,177,.1);border-color:#0E38B1}
+    .timeline-card .year-badge{display:inline-block;background:#EEF2FF;color:#0E38B1;font-weight:800;font-size:.9rem;padding:4px 14px;border-radius:50px;margin-bottom:.75rem}
+    .timeline-card h4{font-size:1.1rem;font-weight:700;margin-bottom:.5rem;color:#0D0E10}
+    .timeline-card p{font-size:.9rem;color:#4a4b5c;line-height:1.65;margin:0}
+    .timeline-card .milestone-img{border-radius:12px;margin-top:1rem;width:100%;max-height:200px;object-fit:cover}
+    @media(max-width:768px){.timeline::before{left:20px}.timeline-item,.timeline-item:nth-child(even){left:0;width:100%;padding-left:3.5rem;padding-right:0;text-align:left}.timeline-item:nth-child(odd){text-align:left;padding-left:3.5rem;padding-right:0}.timeline-dot,.timeline-item:nth-child(odd) .timeline-dot,.timeline-item:nth-child(even) .timeline-dot{left:12px!important;right:auto!important}}
+
+    /* ── Org chart (card layout) ── */
+    .org-section{padding:5rem 0;background:#f7f9ff}
+    .org-ceo{max-width:280px;margin:0 auto 1rem;background:linear-gradient(135deg,#0E38B1,#113ADC);border-radius:16px;padding:1.25rem 1.5rem;text-align:center;color:#fff;box-shadow:0 8px 28px rgba(14,56,177,.25);position:relative}
+    .org-ceo .org-title{font-weight:800;font-size:1rem}
+    .org-ceo .org-role{font-size:.8rem;color:rgba(255,255,255,.75);margin-top:2px}
+    .org-connector{width:2px;height:32px;background:#c7d2fe;margin:0 auto}
+    .org-connector-h{height:2px;background:#c7d2fe;margin:0 auto}
+    .dept-card{background:#fff;border:1px solid #e0e4f0;border-radius:16px;box-shadow:0 2px 14px rgba(0,0,0,.04);overflow:hidden;height:100%;transition:all .3s}
+    .dept-card:hover{box-shadow:0 8px 28px rgba(14,56,177,.1);border-color:#0E38B1}
+    .dept-head{background:#EEF2FF;padding:1rem 1.25rem;border-bottom:1px solid #e0e4f0;text-align:center}
+    .dept-head .org-title{font-weight:700;font-size:.9rem;color:#0E38B1}
+    .dept-head .org-role{font-size:.75rem;color:#676879;margin-top:2px}
+    .dept-members{padding:1rem 1.25rem}
+    .dept-member{display:flex;align-items:flex-start;gap:10px;padding:.5rem 0;border-bottom:1px solid #f0f1f5}
+    .dept-member:last-child{border-bottom:none}
+    .dept-member .member-dot{width:8px;height:8px;border-radius:50%;background:#0E38B1;flex-shrink:0;margin-top:5px}
+    .dept-member .member-info .org-title{font-weight:600;font-size:.8rem;color:#0D0E10}
+    .dept-member .member-info .org-role{font-size:.72rem;color:#676879}
+    .dept-sub-team{margin-left:18px;padding-left:10px;border-left:2px solid #e9ecef}
+    .dept-sub-team .dept-member .member-dot{background:#A1E934}
+
+    /* ── Meet Our Team ── */
+    .team-section{padding:5rem 0}
+    .team-leader-card{background:#fff;border-radius:20px;border:1px solid #e9ecef;box-shadow:0 4px 24px rgba(0,0,0,.05);overflow:hidden;transition:all .35s;height:100%}
+    .team-leader-card:hover{box-shadow:0 12px 40px rgba(14,56,177,.12);border-color:#0E38B1;transform:translateY(-4px)}
+    .team-leader-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top}
+    .team-leader-body{padding:1.5rem;text-align:center}
+    .team-leader-body h4{font-size:1.1rem;font-weight:700;color:#0D0E10;margin-bottom:.2rem}
+    .team-leader-body .team-role{font-size:.85rem;color:#0E38B1;font-weight:600;margin-bottom:.5rem}
+    .team-leader-body p{font-size:.82rem;color:#676879;line-height:1.55;margin-bottom:.75rem}
+    .team-leader-social a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#EEF2FF;color:#0E38B1;font-size:.85rem;transition:all .3s;margin:0 3px}
+    .team-leader-social a:hover{background:#0E38B1;color:#fff}
+    .team-gallery-img{border-radius:16px;width:100%;height:260px;object-fit:cover;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:all .35s}
+    .team-gallery-img:hover{box-shadow:0 10px 32px rgba(14,56,177,.15);transform:translateY(-4px)}
+    .team-gallery-caption{text-align:center;margin-top:.75rem;font-size:.85rem;font-weight:600;color:#4a4b5c}
 
 block content
-  // Include components
+  //- Components
   include components/preloader.pug
   include components/top-banner.pug
   include components/header.pug
 
-  // Hero Section
-  .common-hero
+  //---------- HERO ----------
+  .about-hero
     .container
-      .row.align-items-center.text-center
-        .col-lg-6.m-auto
-          .main-heading
-            h1 About Us
-            .space16
-            span.span
-              img(src="images/span1.webp" alt="" loading="lazy")
-              |  
-              a(href="index.html") Home
-              |  
-              span.arrow
-                i.fa-regular.fa-angle-right
-              |  About
+      .row.align-items-center
+        .col-lg-7
+          .mb-3
+            a.breadcrumb-link(href="index.html") Home
+            span.breadcrumb-sep /
+            span.breadcrumb-current About Us
+          h1
+            | Who We Are &amp;
+            br
+            | What Drives Us
+          .space16
+          p We've been delivering tailored Odoo ERP, cloud, and insurance technology solutions since 2015 — helping businesses across the MENA region digitize, automate, and grow.
 
-  // Marquee Section
-  section.hero10-benar
-    .container-fluid.p-0
-      .row
-        .col-12
-          .marquee-wrap.marquee-wrap-inner.h-20
-            .marquee-text
-              .brand-single-box.h-32
-                img(src="images/wellcare-removebg-preview.webp" height="50" alt="" loading="lazy")
+  //---------- PARTNER MARQUEE ----------
+  include components/marquee-brands.pug
 
-              .brand-single-box.h-32
-                img(src="images/Goldera-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/unicare-removebg-preview (1).webp" height="50px" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/professional-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/Mashreq-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/omega-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/bahgat-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box.h-32
-                img(src="images/onecare-removebg-preview.webp" height="50" alt="OneCare Partner Logo" loading="lazy")
-
-              .brand-single-box
-                img(src="images/egmed-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/empire_of_gold-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-      .slider-after
-
-  // About Area
-  .about2.about-page-sec.sp
+  //---------- ABOUT INTRO ----------
+  section.about-intro
     .container
-      .row.align-items-center.justify-content-start
-        .col-lg-6
-          .about2-images
-            .image2
-              img(src="images/about-tab-img.webp" height="500" loading="lazy")
-            .counter-box.shape-animaiton3
-              h3#yearsCounter
+      .row.align-items-center.g-5
+        .col-lg-6(data-aos="fade-right")
+          .position-relative
+            img.intro-img(src="images/about-tab-img.webp" alt="GoCloud team at work" loading="lazy" width="530" height="394")
+            .about-counter-badge
+              .counter-num#yearsCounter
                 | +
-                span
-              p Years Of 
+                span 10
+              .counter-text
+                | Years Of
                 br
                 | Experience
-          //- Script moved to main.js
+        .col-lg-6(data-aos="fade-left")
+          .section-tag
+            img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
+            | About GoCloud
+          h2.section-heading Empowering Businesses With Comprehensive Software Solutions
+          p.section-lead GoCloud is your trusted partner in digital transformation and innovative IT solutions. We specialize in delivering cutting-edge software development, cloud computing, and enterprise solutions that drive business growth and operational excellence across diverse industries.
+          .about-stat-grid
+            .about-stat-card
+              .stat-num +80K
+              .stat-label Supported Users
+            .about-stat-card
+              .stat-num +120
+              .stat-label Projects Delivered
+            .about-stat-card
+              .stat-num +15
+              .stat-label Industries Served
+            .about-stat-card
+              .stat-num +40
+              .stat-label Team Members
 
-        .col-lg-6
-          .heading1.text-center
-            span.span.text-center(data-aos="fade-left" data-aos-delay="300" data-aos-duration="400")
-              img(src="images/gocloud logo.webp" height="50" width="50" loading="lazy")
-              | About Us
-            h2.text-center(data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400") Empower Your Business With Our Comprehensive Software Solutions
-            .space16
-            p.text-center(data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="700") Welcome to GoCloud, your trusted partner in digital transformation and innovative IT solutions. As a leading technology company, we specialize in delivering cutting-edge software development, cloud computing, and enterprise solutions that drive business growth and operational excellence. Our commitment to quality and innovation has established us as a premier technology partner for businesses across diverse industries.
-
-            .space10
-
-            .porgress-line-all
-              .progress-line(data-aos="fade-left" data-aos-delay="400" data-aos-duration="400")
-                .heading
-                  h6 Industry specific software
-                .progress
-                  .progress-bar.w-75(role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100")
-              .progress-line(data-aos="fade-left" data-aos-delay="500" data-aos-duration="400")
-                .heading
-                  h6 Odoo ERP implementation
-                .progress
-                  .progress-bar.w-75(role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="75")
-              .progress-line(data-aos="fade-left" data-aos-delay="600" data-aos-duration="400")
-                .heading
-                  h6 IT & cloud solutions
-                  p
-                .progress
-                  .progress-bar.w-75(role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100")
-
-            .space30
-
-  // Solution Area (Mission)
-  .solution.sp.bg1
+  //---------- MISSION & VISION ----------
+  section.mv-section.bg-light-blue
     .container
-      .row.align-items-center
-        .col-lg-6
-          .heading1.text-center
-            span.span.text-center(data-aos="fade-left" data-aos-delay="300" data-aos-duration="400")
-              img(src="images/gocloud logo.webp" height="50" width="50" loading="lazy")
-              |  Our Mission
-            h2(data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400") Innovating for Success: Our Technology Mission
-            .space16
-            p(data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400") Build good reputation and Earn the trust and satisfaction from success partners (employees and clients) by providing the effort, expertise and efficiency
-            .space16
-            p(data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400") At GoCloud, our mission is to empower businesses through technology. We believe in harnessing the power of innovation to drive growth, efficiency, and sustainability for our clients. Through our tailored technology solutions and unwavering commitment to excellence, we strive to be the catalyst for positive change in the digital landscape.
+      .row.text-center.mb-5
+        .col-lg-8.mx-auto
+          .section-tag
+            img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
+            | Our Purpose
+          h2.section-heading Our Mission &amp; Vision
+      .row.g-4
+        .col-lg-6(data-aos="fade-up" data-aos-delay="100")
+          .mv-card
+            .mv-icon-box
+              i.fas.fa-bullseye
+            h4 Our Mission
+            .space8
+            p.fw-semibold.text-primary.mb-3(style="font-size:.95rem") Build good reputation and earn the trust and satisfaction from success partners — employees and clients — by providing the effort, expertise, and efficiency.
+            p At GoCloud, our mission is to empower businesses through technology. We believe in harnessing the power of innovation to drive growth, efficiency, and sustainability for our clients. Through our tailored technology solutions and unwavering commitment to excellence, we strive to be the catalyst for positive change in the digital landscape.
+        .col-lg-6(data-aos="fade-up" data-aos-delay="200")
+          .mv-card
+            .mv-icon-box
+              i.fas.fa-eye
+            h4 Our Vision
+            .space8
+            p At GoCloud, we envision becoming a leading force in technology and software services, setting new industry standards through innovation and excellence. We strive to deliver transformative digital solutions that empower businesses to thrive in an increasingly connected world — recognized not just for technical expertise, but for driving meaningful business outcomes.
+            .space8
+            .d-flex.align-items-center.gap-2.mt-2
+              i.fas.fa-rocket.text-primary
+              span.fw-semibold(style="color:#0E38B1;font-size:.925rem") Digital Transformation Leaders
 
-        .col-lg-6
-          .solution-images
-            .image2
-              img(src="images/mission.webp" loading="lazy" alt="Our Mission")
-
-  // Solution Area (Vision)
-  .solution.about-solution.sp
-    .container.mt-md-4
-      .row.align-items-center
-        .col-lg-6.mt-md-3
-          .images
-            .row
-              .col-lg-12
-                .image
-                  img(src="images/paperless.webp" loading="lazy" alt="Digital transformation")
-
-              .col-lg-6
-                .space30
-                .image
-                  img(src="images/digital.webp" height="170" loading="lazy" alt="Digital solutions")
-
-              .col-lg-6
-                .space30
-                .image
-                  img(src="images/goals.webp" height="170" loading="lazy" alt="Business goals")
-
-        .col-lg-6
-          .heading1.text-center
-            span.span(data-aos="fade-left" data-aos-delay="300" data-aos-duration="400")
-              img(src="images/gocloud logo.webp" height="50" width="50" loading="lazy")
-              |  Our Vision
-            h2.text-center(data-aos="zoom-in-up" data-aos-delay="300" data-aos-duration="400") Driving Innovation: Our Vision at Gocloud
-            .space16
-            p.text-center(data-aos="zoom-in-up" data-aos-delay="500" data-aos-duration="400") At GoCloud, we envision becoming the undisputed leader in technology and software services, setting new industry standards through innovation and excellence. Our vision encompasses delivering transformative digital solutions that empower businesses to thrive in an increasingly connected world. We strive to be recognized not just for our technical expertise, but for our ability to drive meaningful business outcomes through cutting-edge technology implementation, exceptional service delivery, and unwavering commitment to client success. Through continuous innovation, strategic partnerships, and investment in emerging technologies, we aim to shape the future of digital transformation while maintaining our position as a trusted technology partner for organizations worldwide.
-
-            .item-box
-            div
-              h3.text-center.text-primary(data-aos="fade-left" data-aos-delay="600" data-aos-duration="400") Digital transformation Leaders
-              .space10
-              p.text-center(data-aos="fade-left" data-aos-delay="700" data-aos-duration="400") Build a reliable and secure network infrastructure that supports your business operations
-
-  // Core Beliefs
-  .core-beliefs.sp
-    .container.justify-content-center
-      .row
-        .col-lg-12.text-center
-          .heading1
-            span.span(data-aos="fade-left" data-aos-delay="300" data-aos-duration="400")
-              img(src="images/gocloud logo.webp" height="50" width="50" loading="lazy")
-              |  Our Core Beliefs
-            h2(data-aos="fade-left" data-aos-delay="400" data-aos-duration="400") What Drives Us Forward
-
-      .beliefs-container.justify-content-center
-        // Animated blobs with words
-        .blob.blob1
-          span Excellence
-        .blob.blob2
-          span Transparency
-        .blob.blob3
-          span Progress
-
-  // About Tabs
-  .about-tabs.sp.bg1
+  section.mv-section
     .container
-      .row
-        .col-lg-10.text-center.m-auto
-          .heading1
-            span.span(data-aos="fade-left" data-aos-delay="300" data-aos-duration="400")
-              img(src="images/span1.webp" alt="" loading="lazy")
-              |  Our Story
-            h2(data-aos="fade-left" data-aos-delay="400" data-aos-duration="400") Our Company Milestones
+      .row.align-items-center.g-5
+        .col-lg-6(data-aos="fade-right")
+          .row.g-3
+            .col-12
+              img.vision-img(src="images/paperless.webp" alt="Digital transformation" loading="lazy" width="1024" height="1024")
+            .col-6
+              img.vision-img(src="images/digital.webp" alt="Digital solutions" style="height:170px;object-fit:cover" loading="lazy" width="1280" height="810")
+            .col-6
+              img.vision-img(src="images/goals.webp" alt="Business goals" style="height:170px;object-fit:cover" loading="lazy" width="1024" height="1024")
+        .col-lg-6(data-aos="fade-left")
+          .section-tag
+            img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
+            | Why GoCloud
+          h2.section-heading What Sets Us Apart
+          .space16
+          .row.g-3
+            .col-sm-6
+              .value-card
+                .value-icon(style="background:linear-gradient(135deg,#0E38B1,#113ADC)")
+                  i.fas.fa-cogs
+                h5 Tailored Solutions
+                p We build industry-specific systems — not generic templates.
+            .col-sm-6
+              .value-card
+                .value-icon(style="background:linear-gradient(135deg,#0E38B1,#113ADC)")
+                  i.fas.fa-handshake
+                h5 Long-Term Partnership
+                p We support you from discovery through launch and beyond.
+            .col-sm-6
+              .value-card
+                .value-icon(style="background:linear-gradient(135deg,#0E38B1,#113ADC)")
+                  i.fas.fa-award
+                h5 Odoo Certified
+                p Official Odoo partner with certified ERP consultants.
+            .col-sm-6
+              .value-card
+                .value-icon(style="background:linear-gradient(135deg,#0E38B1,#113ADC)")
+                  i.fas.fa-shield-alt
+                h5 Domain Expertise
+                p Deep knowledge in healthcare insurance, trade &amp; distribution.
 
-      .row.d-flex
-        .col-lg-10.col-md-12.m-auto
-          ul.nav.nav-pills.tab-header-all.mb-3.justify-content-center#pills-tab(role="tablist")
-            li.nav-item(role="presentation")
-              button.nav-link.active#about-tab1-tab(data-bs-toggle="pill" data-bs-target="#about-tab1" type="button" role="tab" aria-controls="about-tab1" aria-selected="true") 2015
-            li.nav-item(role="presentation")
-              button.nav-link#about-tab2-tab(data-bs-toggle="pill" data-bs-target="#about-tab2" type="button" role="tab" aria-controls="about-tab2" aria-selected="false") 2017
-            li.nav-item(role="presentation")
-              button.nav-link#about-tab3-tab(data-bs-toggle="pill" data-bs-target="#about-tab3" type="button" role="tab" aria-controls="about-tab3" aria-selected="false") 2019
-            li.nav-item(role="presentation")
-              button.nav-link#about-tab4-tab(data-bs-toggle="pill" data-bs-target="#about-tab4" type="button" role="tab" aria-controls="about-tab4" aria-selected="false") 2023
+  //---------- CORE VALUES ----------
+  section.values-section
+    .container
+      .row.text-center.mb-5
+        .col-lg-8.mx-auto
+          .section-tag
+            img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
+            | Our Core Beliefs
+          h2.section-heading What Drives Us Forward
+      .row.g-4
+        .col-md-4(data-aos="fade-up" data-aos-delay="100")
+          .value-card
+            .value-icon(style="background:linear-gradient(135deg,#0E38B1,#113ADC)")
+              i.fas.fa-gem
+            h5 Excellence
+            p We set high standards in every project — from code quality and design to client communication and delivery.
+        .col-md-4(data-aos="fade-up" data-aos-delay="200")
+          .value-card
+            .value-icon(style="background:linear-gradient(135deg,#10B981,#059669)")
+              i.fas.fa-lock-open
+            h5 Transparency
+            p Honest timelines, clear pricing, and open communication — so you always know where your project stands.
+        .col-md-4(data-aos="fade-up" data-aos-delay="300")
+          .value-card
+            .value-icon(style="background:linear-gradient(135deg,#F59E0B,#D97706)")
+              i.fas.fa-chart-line
+            h5 Progress
+            p We continuously learn and evolve — adopting new technologies and refining our processes to stay ahead.
 
-      .space60
-      .row
-        .col-lg-12
-          .tab-content#pills-tabContent
-            .tab-pane.fade.show.active#about-tab1(role="tabpanel" aria-labelledby="about-tab1-tab")
-              .row.align-items-center
-                .col-lg-6.col-md-12
-                  .tab-content-box
-                    .heading1
-                      h5 2015 - A Legacy of Innovation
-                      .space24
-                      p
-                        span.text Early Years:
-                        |  In 2015, GoCloud emerged with a clear vision to revolutionize the technology landscape in Egypt. Starting with a dedicated team of innovative professionals, we recognized the growing demand for comprehensive digital solutions in the MENA region. Our initial focus was on delivering customized software solutions that would help local businesses embrace digital transformation and compete in an increasingly technology-driven market.
-                      .space16
+  //---------- COMPANY MILESTONES ----------
+  section.milestones-section
+    .container
+      .row.text-center.mb-5
+        .col-lg-8.mx-auto
+          .section-tag
+            img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
+            | Our Story
+          h2.section-heading Company Milestones
 
-                .col-lg-6.text-center
-                  .image
-                    img(src="images/about-tab-img.webp" alt="" loading="lazy")
+      .timeline
+        //- 2015
+        .timeline-item(data-aos="fade-right")
+          .timeline-dot
+          .timeline-card
+            .year-badge 2015
+            h4 A Legacy of Innovation
+            p In 2015, GoCloud emerged with a clear vision to revolutionize the technology landscape in Egypt. Starting with a dedicated team of innovative professionals, we recognized the growing demand for comprehensive digital solutions in the MENA region. Our initial focus was on delivering customized software solutions that would help local businesses embrace digital transformation.
+            img.milestone-img(src="images/about-tab-img.webp" alt="GoCloud early days" loading="lazy" width="530" height="394")
 
-            .tab-pane.fade#about-tab2(role="tabpanel" aria-labelledby="about-tab2-tab")
-              .row.align-items-center
-                .col-lg-6
-                  .tab-content-box
-                    .heading1
-                      h5 2017 - More Than One Service
-                      .space24
-                      p
-                        span.text Expansion & Innovation:
-                        |  As technology continued to evolve, so we expanded our service offerings to include a wide range of solutions, from IT services and cloud computing to data analytics and artificial intelligence.
-                      .space16
+        //- 2017
+        .timeline-item(data-aos="fade-left")
+          .timeline-dot
+          .timeline-card
+            .year-badge 2017
+            h4 Expanding Our Horizons
+            p As technology continued to evolve, so did we. We expanded our service offerings to include a wide range of solutions — from IT services and cloud computing to data analytics and artificial intelligence — establishing ourselves as a multi-domain technology partner.
+            img.milestone-img(src="images/technology%20services.webp" alt="Technology services expansion" loading="lazy" width="1024" height="1024")
 
-                .col-lg-6
-                  .image
-                    img.w-full(src="images/technology services.webp" height="400" loading="lazy" alt="Technology services")
+        //- 2023
+        .timeline-item(data-aos="fade-right")
+          .timeline-dot
+          .timeline-card
+            .year-badge 2023
+            h4 ELITE Platform Launch
+            p ELITE — our comprehensive medical insurance management system — was born. Designed specifically for the healthcare insurance industry, it streamlines the entire insurance lifecycle: policy creation, claims processing, provider network management, and regulatory compliance. Built with cutting-edge technology, ELITE empowers insurance companies to deliver efficient, transparent, and customer-centric services.
+            img.milestone-img(src="images/m-cloud-logo.jpg" alt="ELITE insurance platform" loading="lazy" width="512" height="512")
 
-            .tab-pane.fade#about-tab3(role="tabpanel" aria-labelledby="about-tab3-tab")
-              .row.align-items-center
-                .col-lg-6
-                  .tab-content-box
-                    .heading1
-                      h5 2023 - ELITE Boom
-                      .space24
-                      p
-                        span.text Medical insurance solution:
-                        |  ELITE is our comprehensive medical insurance management system, designed specifically for the healthcare insurance industry. This innovative solution streamlines the entire insurance lifecycle - from policy creation and claims processing to provider network management and regulatory compliance. Built with cutting-edge technology, ELITE empowers insurance companies to deliver efficient, transparent, and customer-centric services while optimizing operational costs.
-                      .space16
+        //- 2025
+        .timeline-item(data-aos="fade-left")
+          .timeline-dot
+          .timeline-card
+            .year-badge 2025
+            h4 ERP &amp; CRM Era
+            p We expanded into comprehensive Odoo ERP &amp; CRM implementations tailored for diverse business sectors. Our solutions empower real estate companies, gold investment firms, and medical facilities — all through one integrated platform. Today, as an official Odoo partner, we continue to drive digital transformation across the region.
+            img.milestone-img(src="images/odoo%20about%20.webp" alt="Odoo ERP solutions" loading="lazy" width="1024" height="1024")
 
-                .col-lg-6
-                  .image
-                    img.w-full(src="images/elite.webp" height="400" loading="lazy")
+  //---------- ORGANIZATION CHART ----------
+  section.org-section
+    .container
+      .row.text-center.mb-4
+        .col-lg-8.mx-auto
+          .section-tag
+            img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
+            | Our Team Structure
+          h2.section-heading Company Organization
 
-            .tab-pane.fade#about-tab4(role="tabpanel" aria-labelledby="about-tab4-tab")
-              .row.align-items-center
-                .col-lg-6
-                  .tab-content-box
-                    .heading1
-                      h5 2025 - ERP & CRM Era
-                      .space24
-                      p
-                        span.text Odoo ERP & CRM Solutions:
-                        |  We specialize in implementing comprehensive Odoo ERP & CRM systems tailored for diverse business sectors. Our solutions empower real estate companies with property management and sales tracking, help gold investment firms streamline operations and inventory control, and enable medical facilities to efficiently manage patient records and healthcare services - all through one integrated platform.
-                      .space16
+      //- CEO
+      .org-ceo(data-aos="fade-down")
+        .org-title Chief Executive Officer
+        .org-role Sets Vision &amp; Strategy
+      .org-connector
+      .org-connector-h(style="max-width:75%;margin:0 auto")
 
-                .col-lg-6
-                  .image
-                    img.w-full(src="images/odoo about .webp" height="400" loading="lazy" alt="Odoo ERP solutions")
+      //- Department cards
+      .row.g-4.mt-1
+        //- Technology
+        .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="100")
+          .dept-card
+            .dept-head
+              .org-title Chief Technology Officer
+              .org-role Leads Technology
+            .dept-members
+              .dept-member
+                .member-dot
+                .member-info
+                  .org-title Engineering Manager
+                  .org-role Manages Dev Teams
+              .dept-sub-team
+                .dept-member
+                  .member-dot
+                  .member-info
+                    .org-title Tech Lead
+                    .org-role Project Technical Lead
+                .dept-member
+                  .member-dot
+                  .member-info
+                    .org-title Senior Software Engineer
+                    .org-role Develops Complex Features
+                .dept-member
+                  .member-dot
+                  .member-info
+                    .org-title Software Engineer
+                    .org-role Core Development
+              .dept-member
+                .member-dot
+                .member-info
+                  .org-title Head of Cloud &amp; DevOps
+                  .org-role Manages Infrastructure
+              .dept-sub-team
+                .dept-member
+                  .member-dot
+                  .member-info
+                    .org-title DevOps Engineer
+                    .org-role CI/CD &amp; Automation
+              .dept-member
+                .member-dot
+                .member-info
+                  .org-title QA Lead
+                  .org-role Ensures Quality
+              .dept-sub-team
+                .dept-member
+                  .member-dot
+                  .member-info
+                    .org-title QA Automation Engineer
+                    .org-role Builds Test Scripts
 
-  // Organization Chart
-  .space60
-  .container
-    .row
-      .col-lg-10.text-center.m-auto
-        .heading1
-          span.span(data-aos="fade-left" data-aos-delay="300" data-aos-duration="400")
-            img(src="images/span1.webp" alt="" loading="lazy")
-            |  Our org chart
-          h2(data-aos="fade-left" data-aos-delay="400" data-aos-duration="400") Our Company Org Chart
+        //- Product
+        .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="200")
+          .dept-card
+            .dept-head
+              .org-title Head of Product
+              .org-role Defines Product Roadmap
+            .dept-members
+              .dept-member
+                .member-dot
+                .member-info
+                  .org-title Product Manager
+                  .org-role Gathers Requirements
+              .dept-member
+                .member-dot
+                .member-info
+                  .org-title UI/UX Lead
+                  .org-role Leads Design
+              .dept-sub-team
+                .dept-member
+                  .member-dot
+                  .member-info
+                    .org-title Product Designer
+                    .org-role Creates Mockups &amp; Prototypes
 
-    .org-chart.mb-20
-      ul
-        li
-          .node
-            .title Chief Executive Officer
-            .role Sets Vision & Strategy
-          ul
-            li
-              .node
-                .title Chief Technology Officer
-                .role Leads Technology
-              ul
-                li
-                  .node
-                    .title Engineering Manager
-                    .role Manages Dev Teams
-                  ul
-                    li
-                      .node
-                        .title Tech Lead
-                        .role Project Technical Lead
-                    li
-                      .node
-                        .title Senior Software Engineer
-                        .role Develops Complex Features
-                    li
-                      .node
-                        .title Software Engineer
-                        .role Core Development
-                li
-                  .node
-                    .title Head of Cloud & DevOps
-                    .role Manages Infrastructure
-                  ul
-                    li
-                      .node
-                        .title DevOps Engineer
-                        .role CI/CD & Automation
-                li
-                  .node
-                    .title QA Lead
-                    .role Ensures Quality
-                  ul
-                    li
-                      .node
-                        .title QA Automation Engineer
-                        .role Builds Test Scripts
-            li
-              .node
-                .title Head of Product
-                .role Defines Product Roadmap
-              ul
-                li
-                  .node
-                    .title Product Manager
-                    .role Gathers Requirements
-                li
-                  .node
-                    .title UI/UX Lead
-                    .role Leads Design
-                  ul
-                    li
-                      .node
-                        .title Product Designer
-                        .role Creates Mockups & Prototypes
-            li
-              .node
-                .title Head of Business development
-                .role Leads Sales & Marketing
-              ul
-                li
-                  .node
-                    .title Sales Manager
-                    .role Closes Deals
-                li
-                  .node
-                    .title Marketing Manager
-                    .role Builds Brand
-            li
-              .node
-                .title Head of Operations
-                .role Manages Internal Ops
-              ul
-                li
-                  .node
-                    .title Project Manager
-                    .role Manages Client Projects
-                li
-                  .node
-                    .title HR & Finance
-                    .role Admin & People Ops
+        //- Business Development
+        .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="300")
+          .dept-card
+            .dept-head
+              .org-title Head of Business Development
+              .org-role Leads Sales &amp; Marketing
+            .dept-members
+              .dept-member
+                .member-dot
+                .member-info
+                  .org-title Sales Manager
+                  .org-role Closes Deals
+              .dept-member
+                .member-dot
+                .member-info
+                  .org-title Marketing Manager
+                  .org-role Builds Brand
 
-  // Include footer
+        //- Operations
+        .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="400")
+          .dept-card
+            .dept-head
+              .org-title Head of Operations
+              .org-role Manages Internal Ops
+            .dept-members
+              .dept-member
+                .member-dot
+                .member-info
+                  .org-title Project Manager
+                  .org-role Manages Client Projects
+              .dept-member
+                .member-dot
+                .member-info
+                  .org-title HR &amp; Finance
+                  .org-role Admin &amp; People Ops
+
+  //---------- MEET OUR TEAM ----------
+  section.team-section
+    .container
+      .row.text-center.mb-5
+        .col-lg-8.mx-auto
+          .section-tag
+            img(src="images/gocloud%20logo.webp" alt="" loading="lazy" width="24" height="24")
+            | Our People
+          h2.section-heading Meet Our Team
+          p.section-lead.mx-auto The talented people behind GoCloud's success — passionate about technology, committed to delivering results.
+
+      //- Leadership Cards
+      .row.g-4.justify-content-center.mb-5
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="100")
+          .team-leader-card
+            img.team-leader-img(src="images/team/WalidAzhary.webp" alt="Walid Azhary — CEO" loading="lazy" width="400" height="533")
+            .team-leader-body
+              h4 Walid Azhary
+              .team-role Chief Executive Officer
+              p Visionary leader with 10+ years in enterprise software. Drives GoCloud's strategic direction and client partnerships across the MENA region.
+              .team-leader-social
+                a(href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn")
+                  i.fab.fa-linkedin-in
+
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="200")
+          .team-leader-card
+            img.team-leader-img(src="images/team/AhmedAzhary.webp" alt="Ahmed Azhary — CTO" loading="lazy" width="400" height="533")
+            .team-leader-body
+              h4 Ahmed Azhary
+              .team-role Chief Technology Officer
+              p Leads the engineering and product teams. Expert in Odoo ERP customization, cloud architecture, and building scalable enterprise solutions.
+              .team-leader-social
+                a(href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn")
+                  i.fab.fa-linkedin-in
+
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="300")
+          .team-leader-card
+            img.team-leader-img(src="images/team/freddie1.jpeg" alt="Freddie — Business Development Manager" loading="lazy" width="400" height="533")
+            .team-leader-body
+              h4 Freddie Mounir
+              .team-role Business Development Manager
+              p Drives strategic partnerships and client acquisition. Focused on expanding GoCloud's market presence and identifying new business opportunities across the region.
+              .team-leader-social
+                a(href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn")
+                  i.fab.fa-linkedin-in
+
+      //- Team Gallery
+      h4.text-center.mb-4(data-aos="fade-up" style="font-weight:700;color:#0D0E10") Life at GoCloud
+      .row.g-4
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="100")
+          img.team-gallery-img(src="images/team/TraningTeam.webp" alt="GoCloud training team with certificates" loading="lazy" width="600" height="400")
+          .team-gallery-caption Training &amp; Certification
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="200")
+          img.team-gallery-img(src="images/team/EmanAbdo.webp" alt="Eman Abdo at GoCloud event" loading="lazy" width="600" height="400")
+          .team-gallery-caption Industry Events &amp; Conferences
+        .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="300")
+          img.team-gallery-img(src="images/team/OperationTeam.webp" alt="GoCloud operations team gathering" loading="lazy" width="600" height="400")
+          .team-gallery-caption Our Team Culture
+
+  //- Footer & WhatsApp
   include components/footer.pug
-
-  // Include whatsapp button
   include components/whatsapp-button.pug

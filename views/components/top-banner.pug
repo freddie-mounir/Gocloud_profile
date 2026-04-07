@@ -1,8 +1,38 @@
-// Top Banner Component
-.header-top(style="background-color: #017E84;")
+//- Top announcement bar
+style.
+  .top-bar{background:linear-gradient(90deg,#0a1e5e 0%,#0E38B1 50%,#0a1e5e 100%);padding:8px 0;position:relative;z-index:1000}
+  .top-bar-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .top-bar-left{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  .top-bar-item{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.8);font-size:.78rem;font-weight:500}
+  .top-bar-item i{color:#A1E934;font-size:.7rem}
+  .top-bar-item a{color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
+  .top-bar-item a:hover{color:#fff}
+  .top-bar-right{display:flex;align-items:center;gap:12px}
+  .top-bar-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:4px 14px 4px 4px;font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.02em}
+  .top-bar-badge img{height:22px;border-radius:50%;background:#fff;padding:1px}
+  .top-bar-social a{color:rgba(255,255,255,.5);font-size:.8rem;margin-left:8px;transition:color .2s}
+  .top-bar-social a:hover{color:#A1E934}
+  @media(max-width:767px){.top-bar{position:fixed;top:0;left:0;width:100%;z-index:1001;padding:6px 0}.top-bar-right{display:none}.top-bar-left{gap:.75rem}.top-bar-item{font-size:.7rem}}
+
+.top-bar
   .container
-    .flex.row.justify-content-around.align-items-center
-      .col-lg-6
-        p.typewriter.fs-5.fw-bold#typewriterText(style="color: white;")
-      .col-lg-6(style="height: 60px;")
-        img(src="images/odoo_learning_partner_rgb%20(1).png" alt="Odoo Partner" loading="lazy")
+    .top-bar-inner
+      .top-bar-left
+        .top-bar-item
+          i.fas.fa-phone-alt
+          a(href="tel:+201017383815") +2 010 1738 3815
+        .top-bar-item
+          i.fas.fa-envelope
+          a(href="mailto:marketing@gocloudeg.com") marketing@gocloudeg.com
+        .top-bar-item
+          i.fas.fa-map-marker-alt
+          span Giza, Egypt
+      .top-bar-right
+        .top-bar-badge
+          img(src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Learning Partner" width="22" height="22")
+          | Odoo Learning Partner
+        .top-bar-social
+          a(href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn")
+            i.fab.fa-linkedin-in
+          a(href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook")
+            i.fab.fa-facebook-f

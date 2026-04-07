@@ -1,5 +1,12 @@
 extends layout.pug
 
+block variables
+  - var pageTitle = "Cloud Services — Infrastructure, Hosting & Migration | GoCloud"
+  - var pageDescription = "Enterprise cloud services including infrastructure management, server hosting, cloud migration, and 24/7 monitoring. Secure and scalable solutions for Egyptian businesses."
+  - var pageKeywords = "cloud services Egypt, cloud hosting, server management, cloud migration, infrastructure, GoCloud"
+  - var canonicalUrl = "https://www.gocloudeg.com/cloud-services.html"
+  - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+
 block content
   // Include components
   include components/preloader.pug
@@ -16,52 +23,16 @@ block content
             .space16
             .span
               img(src="images/span1.webp" alt="" loading="lazy")
-              |  
+              |
               a(href="service.html") Service
-              |  
+              |
               span.arrow
                 i.fa-regular.fa-angle-right
-              |  
+              |
               | Cloud Services
 
   // Marquee Section
-  section.hero10-benar
-    .container-fluid.p-0
-      .row
-        .col-12
-          .marquee-wrap.marquee-wrap-inner.h-20
-            .marquee-text
-              .brand-single-box.h-32
-                img(src="images/wellcare-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box.h-32
-                img(src="images/Goldera-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/unicare-removebg-preview (1).webp" height="50px" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/professional-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/Mashreq-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/omega-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/bahgat-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box.h-32
-                img(src="images/onecare-removebg-preview.webp" height="50" alt="OneCare Partner Logo" loading="lazy")
-
-              .brand-single-box
-                img(src="images/egmed-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-              .brand-single-box
-                img(src="images/empire_of_gold-removebg-preview.webp" height="50" alt="" loading="lazy")
-
-      .slider-after
+  include components/marquee-brands.pug
 
   // Services Cards Section
   section

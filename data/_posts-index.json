@@ -1,0 +1,213 @@
+[
+  {
+    "id": "enterprises-switching-to-odoo-2026",
+    "slug": "enterprises-switching-to-odoo-2026",
+    "title": "لماذا تتحول الشركات الكبرى إلى Odoo في 2026؟ مقارنة مع SAP وOracle وMicrosoft",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "مقارنة شاملة بين Odoo وأنظمة ERP العملاقة — SAP وOracle وMicrosoft Dynamics — ولماذا تختار المؤسسات الكبرى الانتقال إلى Odoo في 2026.",
+    "author": "فريق GoCloud",
+    "date": "2026-04-06",
+    "image": "images/blog-odoo-vs-sap-oracle.png",
+    "tags": [
+      "Odoo",
+      "SAP",
+      "Oracle",
+      "مقارنة ERP",
+      "تحول رقمي",
+      "Odoo 2026"
+    ],
+    "featured": true
+  },
+  {
+    "id": "odoo-construction-companies",
+    "slug": "odoo-construction-companies",
+    "title": "هل Odoo 20 مناسب لشركات المقاولات؟ نظرة على المميزات الجديدة والتحديات الحقيقية",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "مع تحديثات Odoo 20 الجديدة لقطاع الإنشاءات، هل أصبح النظام جاهزاً فعلاً لإدارة مشاريع المقاولات؟ نستعرض المميزات والتحديات الحقيقية.",
+    "author": "فريق GoCloud",
+    "date": "2026-04-06",
+    "image": "images/blog-odoo-construction.png",
+    "tags": [
+      "Odoo",
+      "مقاولات",
+      "إنشاءات",
+      "ERP",
+      "Odoo 20",
+      "إدارة مشاريع"
+    ],
+    "featured": false
+  },
+  {
+    "id": "odoo-pricing-explained",
+    "slug": "odoo-pricing-explained",
+    "title": "تكلفة مشروع Odoo: لماذا يختلف السعر من شركة لأخرى؟ دليلك الشامل",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "تعرّف على المكونات الثلاثة الأساسية لتكلفة مشروع Odoo ERP — من التراخيص إلى التنفيذ والدعم — ولماذا أرخص عرض ليس دائماً الأذكى.",
+    "author": "فريق GoCloud",
+    "date": "2026-04-06",
+    "image": "images/blog-odoo-pricing.png",
+    "tags": [
+      "Odoo",
+      "تسعير Odoo",
+      "تكلفة ERP",
+      "تنفيذ أودو",
+      "استثمار تقني"
+    ],
+    "featured": true
+  },
+  {
+    "id": "odoo-crm-medical-supplies",
+    "slug": "odoo-crm-medical-supplies",
+    "title": "Odoo CRM لشركات المستلزمات الطبية — مراقبة فرق المبيعات وزيادة الإيرادات",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "كيف يساعد Odoo CRM المخصص شركات المستلزمات الطبية في مراقبة فرق المبيعات الميدانية وتحسين التنبؤ بالمبيعات وتحليل السوق لزيادة الإيرادات.",
+    "author": "فريق GoCloud",
+    "date": "2026-04-02",
+    "image": "images/blog-crm-medical-dashboard.png",
+    "tags": [
+      "Odoo CRM",
+      "مستلزمات طبية",
+      "مراقبة المبيعات",
+      "تنبؤ بالمبيعات",
+      "تحليل السوق"
+    ],
+    "featured": true
+  },
+  {
+    "id": "unified-medical-insurance-portal",
+    "slug": "unified-medical-insurance-portal",
+    "title": "بوابة تأمين طبي موحدة — لماذا النظام الواحد أفضل من ثلاثة أنظمة منفصلة؟",
+    "category": "insurance",
+    "categoryLabel": "التأمين الطبي",
+    "excerpt": "تعرّف على أهمية وجود بوابة تأمين طبي واحدة تخدم شركة التأمين و TPA ومقدمي الخدمة الطبية، وعيوب استخدام أنظمة منفصلة لكل طرف.",
+    "author": "فريق GoCloud",
+    "date": "2026-04-02",
+    "image": "images/elite-dashboard.webp",
+    "tags": [
+      "بوابة موحدة",
+      "تأمين طبي",
+      "TPA",
+      "مقدمو الخدمة",
+      "ELITE",
+      "تكامل الأنظمة"
+    ],
+    "featured": true
+  },
+  {
+    "id": "document-management-medical-insurance",
+    "slug": "document-management-medical-insurance",
+    "title": "أهمية نظام إدارة الوثائق المتكامل مع نظام التأمين الطبي",
+    "category": "insurance",
+    "categoryLabel": "التأمين الطبي",
+    "excerpt": "كيف يؤثر نظام إدارة وثائق متكامل تماماً مع عمليات التأمين الطبي على كفاءة العمليات وتقليل الأخطاء وتسريع تسوية المطالبات.",
+    "author": "فريق GoCloud",
+    "date": "2026-04-01",
+    "image": "images/dashboards.avif",
+    "tags": [
+      "إدارة الوثائق",
+      "تأمين طبي",
+      "ELITE",
+      "رقمنة",
+      "كفاءة العمليات"
+    ],
+    "featured": false
+  },
+  {
+    "id": "odoo-crm-gold-trading",
+    "slug": "odoo-crm-gold-trading",
+    "title": "كيف يُحدث Odoo CRM ثورة في إدارة شركات تجارة الذهب؟",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "اكتشف كيف يساعد Odoo CRM شركات تجارة الذهب في ضبط سياسات البيع وتحقيق المستهدفات ومتابعة أداء الفروع لحظياً من خلال لوحة تحكم متكاملة.",
+    "author": "فريق GoCloud",
+    "date": "2026-04-01",
+    "image": "images/blog-branch-dashboard.png",
+    "tags": [
+      "Odoo CRM",
+      "تجارة الذهب",
+      "لوحة تحكم الفروع",
+      "مستهدفات المبيعات",
+      "سياسات البيع"
+    ],
+    "featured": true
+  },
+  {
+    "id": "odoo-distribution-supply-chain",
+    "slug": "odoo-distribution-supply-chain",
+    "title": "كيف يساعد Odoo شركات التوزيع في تحسين سلسلة التوريد",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "تعرّف على كيفية استخدام نظام Odoo ERP في تحسين عمليات التوزيع وإدارة سلسلة التوريد — من المستودعات حتى التوصيل النهائي.",
+    "author": "فريق GoCloud",
+    "date": "2026-03-25",
+    "image": "images/technology%20services.webp",
+    "tags": [
+      "Odoo",
+      "سلسلة التوريد",
+      "توزيع",
+      "مخزون",
+      "ERP"
+    ],
+    "featured": false
+  },
+  {
+    "id": "why-odoo-erp",
+    "slug": "why-odoo-erp",
+    "title": "لماذا تختار Odoo ERP لإدارة أعمالك؟ 7 أسباب مقنعة",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "اكتشف لماذا يُعد Odoo ERP الخيار الأمثل للشركات المتوسطة والكبيرة التي تبحث عن نظام متكامل لإدارة الموارد بكفاءة وفعالية.",
+    "author": "فريق GoCloud",
+    "date": "2026-03-15",
+    "image": "images/odoo_partner.webp",
+    "tags": [
+      "Odoo",
+      "ERP",
+      "تخطيط موارد",
+      "إدارة أعمال",
+      "تحول رقمي"
+    ],
+    "featured": true
+  },
+  {
+    "id": "insurance-challenges-technology",
+    "slug": "insurance-challenges-technology",
+    "title": "5 تحديات تواجه شركات التأمين الطبي وكيف تحلها التكنولوجيا",
+    "category": "insurance",
+    "categoryLabel": "التأمين الطبي",
+    "excerpt": "اكتشف أبرز التحديات التي تواجه قطاع التأمين الطبي في المنطقة العربية وكيف يمكن للحلول التقنية الحديثة أن تتغلب عليها.",
+    "author": "فريق GoCloud",
+    "date": "2026-03-10",
+    "image": "images/elite-dashboard.webp",
+    "tags": [
+      "تأمين طبي",
+      "تحول رقمي",
+      "مطالبات",
+      "احتيال",
+      "تكنولوجيا"
+    ],
+    "featured": false
+  },
+  {
+    "id": "elite-insurance-system",
+    "slug": "elite-insurance-system",
+    "title": "ما هو نظام إدارة التأمين الطبي ELITE؟ دليل شامل",
+    "category": "insurance",
+    "categoryLabel": "التأمين الطبي",
+    "excerpt": "تعرّف على نظام ELITE لإدارة التأمين الطبي — المنصة المتكاملة التي تُبسّط دورة حياة التأمين بالكامل من إصدار الوثائق حتى تسوية المطالبات.",
+    "author": "فريق GoCloud",
+    "date": "2026-03-01",
+    "image": "images/m-cloud-logo.jpg",
+    "tags": [
+      "ELITE",
+      "تأمين طبي",
+      "إدارة مطالبات",
+      "تكنولوجيا التأمين"
+    ],
+    "featured": true
+  }
+]

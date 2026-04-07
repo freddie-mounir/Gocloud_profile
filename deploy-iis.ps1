@@ -1,4 +1,4 @@
-# GoCloud Website - IIS Deployment Script
+﻿# GoCloud Website - IIS Deployment Script
 # Run this script to prepare and deploy the website
 
 param(
@@ -17,21 +17,21 @@ $DeploymentFolder = Join-Path $ProjectRoot "deployment"
 # Step 1: Build Project
 if (-not $SkipBuild) {
     Write-Host "📦 Step 1: Building project..." -ForegroundColor Yellow
-    
+
     # Compile Pug to HTML
     Write-Host "  → Compiling Pug templates..." -ForegroundColor Gray
     npm run build 2>&1 | Out-Null
-    
+
     if ($LASTEXITCODE -ne 0) {
         Write-Host "  ✗ Build failed!" -ForegroundColor Red
         exit 1
     }
-    
+
     Write-Host "  ✓ Build completed" -ForegroundColor Green
-    
+
     # Minify JavaScript files
     Write-Host "  → Minifying JavaScript..." -ForegroundColor Gray
-    
+
     # Check if source files exist before minifying
     if (Test-Path "js\lazy-load.js") {
         npx terser js/lazy-load.js -o js/lazy-load.min.js --compress --mangle 2>&1 | Out-Null
@@ -42,7 +42,7 @@ if (-not $SkipBuild) {
     if (Test-Path "js\performance-monitor.js") {
         npx terser js/performance-monitor.js -o js/performance-monitor.min.js --compress --mangle 2>&1 | Out-Null
     }
-    
+
     Write-Host "  ✓ Optimization completed" -ForegroundColor Green
     Write-Host ""
 }
@@ -66,16 +66,19 @@ Write-Host "📋 Step 3: Copying files..." -ForegroundColor Yellow
 Write-Host "  → Copying HTML files..." -ForegroundColor Gray
 $htmlFiles = @(
     "index.html",
-    "about.html", 
+    "about.html",
     "service.html",
     "portfolio.html",
     "contact.html",
     "business.html",
     "cloud-services.html",
+    "elite.html",
     "odoo-dev.html",
     "odoo-imp.html",
+    "odoo-services.html",
     "conditions-terms.html",
     "privacy.html",
+    "layout.html",
     "404.html",
     "offline.html"
 )
@@ -109,6 +112,16 @@ if (Test-Path "fonts") {
     Copy-Item -Path "fonts" -Destination $DeploymentFolder -Recurse -Force
 }
 
+Write-Host "  → Copying blog directory..." -ForegroundColor Gray
+if (Test-Path "blog") {
+    Copy-Item -Path "blog" -Destination $DeploymentFolder -Recurse -Force
+}
+
+Write-Host "  → Copying components directory..." -ForegroundColor Gray
+if (Test-Path "components") {
+    Copy-Item -Path "components" -Destination $DeploymentFolder -Recurse -Force
+}
+
 # Copy root files
 Write-Host "  → Copying configuration files..." -ForegroundColor Gray
 $rootFiles = @(
@@ -116,7 +129,9 @@ $rootFiles = @(
     "manifest.json",
     "sw.js",
     "robots.txt",
-    "sitemap.xml"
+    "sitemap.xml",
+    ".htaccess",
+    "google8ec4a2e3b3ab7585.html"
 )
 
 foreach ($file in $rootFiles) {
@@ -143,7 +158,7 @@ Build: Production
 Files Included:
 - HTML pages: $($htmlFiles.Count)
 - CSS directory
-- JavaScript directory  
+- JavaScript directory
 - Images directory
 - Fonts directory
 - Configuration files
@@ -215,7 +230,7 @@ Write-Host "IIS Path: $DeployPath" -ForegroundColor White
 Write-Host ""
 
 Write-Host "📋 Post-Deployment Checklist:" -ForegroundColor Cyan
-Write-Host "  □ Configure IIS website binding" 
+Write-Host "  □ Configure IIS website binding"
 Write-Host "  □ Install SSL certificate"
 Write-Host "  □ Test HTTPS redirect"
 Write-Host "  □ Verify service worker registration"
