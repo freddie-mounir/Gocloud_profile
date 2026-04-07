@@ -690,6 +690,20 @@
           </div>
         </div>
       </div>
+      <section class="data-security-section" dir="rtl" lang="ar" aria-label="أمان البيانات">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <div class="data-security-card">
+                <div class="data-security-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
+                <h2 class="data-security-title">أمان البيانات</h2>
+                <p class="data-security-text">نحن نلتزم بأعلى معايير حماية البيانات والخصوصية، ويتم تشفير كافة البيانات والعمليات المالية والغير مالية وفقاً للمعايير الدولية.</p>
+                <div class="data-security-badges"><span class="data-security-badge"><i class="fa-solid fa-lock me-2"></i>تشفير البيانات</span><span class="data-security-badge"><i class="fa-solid fa-user-shield me-2"></i>حماية الخصوصية</span><span class="data-security-badge"><i class="fa-solid fa-globe me-2"></i>معايير دولية</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- Footer Component-->
       <footer>
         <div class="footer1 _relative">
@@ -1170,6 +1184,82 @@
         
         .testimonial .quote {
           color: #1e293b;
+        }
+        
+        /* Data Security Section */
+        .data-security-section {
+          background: linear-gradient(135deg, #0E38B1 0%, #1a237e 100%);
+          padding: 80px 0;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+        .data-security-section::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle at 30% 50%, rgba(161, 233, 52, 0.08) 0%, transparent 50%);
+          pointer-events: none;
+        }
+        .data-security-card {
+          background: rgba(255, 255, 255, 0.07);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 20px;
+          padding: 50px 40px;
+          backdrop-filter: blur(10px);
+        }
+        .data-security-icon {
+          width: 80px;
+          height: 80px;
+          background: linear-gradient(135deg, #A1E934, #7cc020);
+          border-radius: 50%;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 24px;
+        }
+        .data-security-icon i { font-size: 2rem; color: #1a237e; }
+        .data-security-title {
+          color: #fff;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 20px;
+          font-family: 'Tahoma', 'Arial', 'Segoe UI', sans-serif;
+        }
+        .data-security-text {
+          color: rgba(255, 255, 255, 0.9);
+          font-size: 1.2rem;
+          line-height: 2;
+          max-width: 700px;
+          margin: 0 auto 30px;
+          font-family: 'Tahoma', 'Arial', 'Segoe UI', sans-serif;
+        }
+        .data-security-badges {
+          display: flex;
+          justify-content: center;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .data-security-badge {
+          display: inline-flex;
+          align-items: center;
+          background: rgba(161, 233, 52, 0.15);
+          border: 1px solid rgba(161, 233, 52, 0.3);
+          border-radius: 50px;
+          padding: 8px 20px;
+          color: #A1E934;
+          font-size: 0.9rem;
+          font-weight: 600;
+          font-family: 'Tahoma', 'Arial', 'Segoe UI', sans-serif;
+        }
+        @media (max-width: 767px) {
+          .data-security-section { padding: 50px 0; }
+          .data-security-card { padding: 30px 20px; }
+          .data-security-title { font-size: 1.5rem; }
+          .data-security-text { font-size: 1rem; }
         }
         
       </style>
