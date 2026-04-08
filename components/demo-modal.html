@@ -1,0 +1,134 @@
+
+<div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content" style="border: none; border-radius: 20px; overflow: hidden;">
+      <div class="modal-header" style="background: linear-gradient(135deg, #0E38B1 0%, #113ADC 100%); border: none; padding: 1.75rem 2rem;">
+        <div class="d-flex align-items-center gap-3">
+          <div class="d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(161, 233, 52, 0.2); border-radius: 12px;"><i class="fa-solid fa-calendar-check" style="font-size: 1.25rem; color: #A1E934;" aria-hidden="true"></i></div>
+          <div>
+            <h5 class="mb-0" id="demoModalLabel" style="color: #fff; font-weight: 700; font-size: 1.25rem;">Book a Free Demo</h5>
+            <p class="mb-0" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">See how GoCloud solutions can transform your business</p>
+          </div>
+        </div>
+        <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="padding: 2rem;">
+        <form id="demoBookingForm" novalidate="novalidate">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="demoFirstName" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-user me-1" style="color: #0E38B1;" aria-hidden="true"></i>First Name<span class="text-danger">*</span></label>
+              <input class="form-control" id="demoFirstName" type="text" name="firstName" placeholder="e.g. Ahmed" required="required" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;"/>
+              <div class="invalid-feedback">Please enter your first name.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="demoLastName" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-user me-1" style="color: #0E38B1;" aria-hidden="true"></i>Last Name<span class="text-danger">*</span></label>
+              <input class="form-control" id="demoLastName" type="text" name="lastName" placeholder="e.g. Hassan" required="required" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;"/>
+              <div class="invalid-feedback">Please enter your last name.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="demoEmail" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-envelope me-1" style="color: #0E38B1;" aria-hidden="true"></i>Email Address<span class="text-danger">*</span></label>
+              <input class="form-control" id="demoEmail" type="email" name="email" placeholder="e.g. ahmed@company.com" required="required" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;"/>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="demoPhone" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-mobile-screen me-1" style="color: #0E38B1;" aria-hidden="true"></i>Mobile Number<span class="text-danger">*</span></label>
+              <input class="form-control" id="demoPhone" type="tel" name="phone" placeholder="e.g. +20 10X XXX XXXX" required="required" pattern="[\+]?[0-9\s\-]{8,20}" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;"/>
+              <div class="invalid-feedback">Please enter a valid mobile number.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="demoCompany" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-building me-1" style="color: #0E38B1;" aria-hidden="true"></i>Company Name</label>
+              <input class="form-control" id="demoCompany" type="text" name="company" placeholder="e.g. ABC Corp" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="demoService" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-cogs me-1" style="color: #0E38B1;" aria-hidden="true"></i>Interested In</label>
+              <select class="form-select" id="demoService" name="service" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                <option value="" selected="selected">Select a service...</option>
+                <option value="Odoo ERP">Odoo ERP Implementation</option>
+                <option value="Cloud Solutions">Cloud Solutions</option>
+                <option value="ELITE Insurance">ELITE Medical Insurance Platform</option>
+                <option value="Business Intelligence">Business Intelligence</option>
+                <option value="Custom Development">Custom Software Development</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="demoDate" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-calendar me-1" style="color: #0E38B1;" aria-hidden="true"></i>Preferred Date<span class="text-danger">*</span></label>
+              <input class="form-control" id="demoDate" type="date" name="preferredDate" required="required" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;"/>
+              <div class="invalid-feedback">Please select a preferred date.</div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="demoTime" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-clock me-1" style="color: #0E38B1;" aria-hidden="true"></i>Preferred Time<span class="text-danger">*</span></label>
+              <select class="form-select" id="demoTime" name="preferredTime" required="required" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                <option value="" selected="selected">Select a time slot...</option>
+                <option value="09:00 - 10:00 AM">09:00 — 10:00 AM</option>
+                <option value="10:00 - 11:00 AM">10:00 — 11:00 AM</option>
+                <option value="11:00 - 12:00 PM">11:00 — 12:00 PM</option>
+                <option value="12:00 - 01:00 PM">12:00 — 01:00 PM</option>
+                <option value="01:00 - 02:00 PM">01:00 — 02:00 PM</option>
+                <option value="02:00 - 03:00 PM">02:00 — 03:00 PM</option>
+                <option value="03:00 - 04:00 PM">03:00 — 04:00 PM</option>
+                <option value="04:00 - 05:00 PM">04:00 — 05:00 PM</option>
+              </select>
+              <div class="invalid-feedback">Please select a preferred time.</div>
+            </div>
+            <div class="col-12">
+              <label class="form-label" for="demoNotes" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-comment me-1" style="color: #0E38B1;" aria-hidden="true"></i>Additional Notes</label>
+              <textarea class="form-control" id="demoNotes" name="notes" rows="3" placeholder="Tell us about your requirements or questions..." style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6; resize: vertical;"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer" style="border-top: 1px solid #e9ecef; padding: 1.25rem 2rem;">
+        <button class="btn btn-light" type="button" data-bs-dismiss="modal" style="border-radius: 50px; padding: 10px 24px; font-weight: 600;">Cancel</button>
+        <button class="btn" id="demoSubmitBtn" type="button" style="background: linear-gradient(135deg, #0E38B1, #113ADC); color: #fff; border: none; border-radius: 50px; padding: 10px 28px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>Submit Request</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var submitBtn = document.getElementById('demoSubmitBtn');
+    var form = document.getElementById('demoBookingForm');
+    var modal = document.getElementById('demoModal');
+    var dateInput = document.getElementById('demoDate');
+    if (dateInput) {
+      var today = new Date().toISOString().split('T')[0];
+      dateInput.setAttribute('min', today);
+    }
+    if (submitBtn && form) {
+      submitBtn.addEventListener('click', function () {
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+          return;
+        }
+        var firstName = document.getElementById('demoFirstName').value.trim();
+        var lastName = document.getElementById('demoLastName').value.trim();
+        var email = document.getElementById('demoEmail').value.trim();
+        var phone = document.getElementById('demoPhone').value.trim();
+        var company = document.getElementById('demoCompany').value.trim();
+        var service = document.getElementById('demoService').value;
+        var date = document.getElementById('demoDate').value;
+        var time = document.getElementById('demoTime').value;
+        var notes = document.getElementById('demoNotes').value.trim();
+        var subject = 'Demo Request from ' + firstName + ' ' + lastName;
+        var body = 'Name: ' + firstName + ' ' + lastName + '\n'
+          + 'Email: ' + email + '\n'
+          + 'Mobile: ' + phone + '\n'
+          + (company ? 'Company: ' + company + '\n' : '')
+          + (service ? 'Service Interest: ' + service + '\n' : '')
+          + 'Preferred Date: ' + date + '\n'
+          + 'Preferred Time: ' + time + '\n'
+          + (notes ? 'Notes: ' + notes + '\n' : '');
+        window.location.href = 'mailto:marketing@gocloudeg.com'
+          + '?subject=' + encodeURIComponent(subject)
+          + '&body=' + encodeURIComponent(body);
+        var bsModal = bootstrap.Modal.getInstance(modal);
+        if (bsModal) {
+          bsModal.hide();
+        }
+        form.reset();
+        form.classList.remove('was-validated');
+      });
+    }
+  });
+</script>

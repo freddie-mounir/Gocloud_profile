@@ -8,82 +8,163 @@ block variables
   - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
 
 block styles
+  style.
+    /* ── Hero ── */
+    .terms-hero{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 60%,#0E38B1 100%);padding:6rem 0 4rem;position:relative;overflow:hidden}
+    .terms-hero::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:80px;background:#fff;clip-path:polygon(0 60%,100% 0,100% 100%,0 100%)}
+    .terms-hero h1{font-size:2.75rem;font-weight:800;color:#fff}
+    .terms-hero p{color:rgba(255,255,255,.8);max-width:540px}
+    .terms-hero .breadcrumb-link{color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem}
+    .terms-hero .breadcrumb-link:hover{color:#fff}
+    .terms-hero .breadcrumb-sep{color:rgba(255,255,255,.35);margin:0 8px}
+    .terms-hero .breadcrumb-current{color:#A1E934;font-weight:600;font-size:.9rem}
+
+    /* ── Section helpers ── */
+    .section-tag{display:inline-flex;align-items:center;gap:8px;background:#EEF2FF;border-radius:50px;padding:6px 16px;font-size:.8rem;font-weight:600;color:#0E38B1;margin-bottom:1rem}
+    .section-tag img{height:24px;width:24px}
+    .section-heading{font-size:2rem;font-weight:800;color:#0D0E10;margin-bottom:1rem}
+    .section-lead{color:#4a4b5c;font-size:1.05rem;line-height:1.7;max-width:620px}
+
+    /* ── Terms content ── */
+    .terms-section{padding:5rem 0}
+    .terms-content h3{font-size:1.25rem;font-weight:700;color:#0D0E10;margin-top:2.5rem;margin-bottom:.75rem;padding-left:14px;border-left:3px solid #0E38B1}
+    .terms-content p{color:#4a4b5c;font-size:.95rem;line-height:1.75}
+    .terms-content ul{color:#4a4b5c;font-size:.95rem;line-height:1.75;padding-left:1.25rem}
+    .terms-content ul li{margin-bottom:.5rem}
+    .terms-content .intro-text{font-size:1.05rem;line-height:1.8;color:#4a4b5c;margin-bottom:2rem}
+
+    /* ── Highlight cards ── */
+    .terms-highlight{background:#f7f9ff;border:1px solid #e9ecef;border-radius:16px;padding:2rem;margin:2rem 0;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+    .terms-highlight h4{font-size:1.1rem;font-weight:700;color:#0E38B1;margin-bottom:1rem}
+    .terms-highlight ul{margin-bottom:0}
+
+    /* ── Contact box ── */
+    .contact-info-box{background:#fff;border:1px solid #e9ecef;border-left:4px solid #0E38B1;border-radius:12px;padding:1.5rem 2rem;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+    .contact-info-box a{color:#0E38B1;text-decoration:none;transition:color .3s}
+    .contact-info-box a:hover{color:#113ADC}
+    @media(max-width:767px){.terms-hero h1{font-size:2rem}}
 
 block content
-  // Include components
   include components/preloader.pug
   include components/top-banner.pug
   include components/header.pug
 
-  // Hero Section
-  .hero-terms
+  //---------- HERO ----------
+  .terms-hero
     .container
-      h1.title Terms and Conditions
-      p Last Updated: January 1, 2025
+      .row.align-items-center
+        .col-lg-7
+          .mb-3
+            a.breadcrumb-link(href="index.html") Home
+            span.breadcrumb-sep /
+            span.breadcrumb-current Terms &amp; Conditions
+          h1 Terms &amp; Conditions
+          .space16
+          p Please read these terms carefully before using GoCloud's website and services.
+          .mt-3
+            span.badge.rounded-pill.bg-light.text-dark.px-3.py-2
+              i.fa-solid.fa-calendar-alt.me-2
+              | Last Updated: April 2026
 
-  // Terms Content Section
-  .terms-section
+  //---------- TERMS CONTENT ----------
+  section.terms-section
     .container
+      .row.text-center.mb-5
+        .col-lg-8.mx-auto
+          .section-tag
+            img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
+            | Legal
+          h2.section-heading Terms of Service
+          p.text-muted The following terms govern your use of the GoCloud website, products, and services.
+
       .row
         .col-lg-10.m-auto.terms-content
-          p Welcome to GoCloud. These Terms and Conditions ("Terms", "Terms and Conditions") govern your relationship with GoCloud website ("Website", "Service") operated by GoCloud ("us", "we", or "our").
-          p Please read these Terms and Conditions carefully before using our website and services. By accessing or using the Website, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service.
+          p.intro-text Welcome to GoCloud. These Terms and Conditions ("Terms") govern your access to and use of the GoCloud website and all related services — including Odoo ERP consulting, cloud computing solutions, and the ELITE medical-insurance platform. By accessing or using our website, you agree to be bound by these Terms. If you do not agree, please do not use our services.
 
-          h2.mt-5.mb-3 1. Website Terms
-          p.mb-3 By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority and have given us your consent to allow any of your minor dependents to use this site.
-          p.mb-3 You may not use our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).
+          h3 1. Acceptance of Terms
+          p By accessing, browsing, or using this website, you acknowledge that you have read, understood, and agree to comply with these Terms and all applicable laws and regulations. GoCloud reserves the right to update or modify these Terms at any time, and your continued use of the website constitutes acceptance of such changes.
 
-          h2.mt-5.mb-3 2. General Conditions
-          p.mb-3 We reserve the right to refuse service to anyone for any reason at any time.
-          p.mb-3 You understand that your content (not including credit card information), may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices.
-          p.mb-3 You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service without the express written permission by us.
-          p.mb-3 The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.
+          h3 2. Services Overview
+          p GoCloud provides technology consulting and implementation services including, but not limited to:
+          ul
+            li Odoo ERP implementation, customization, and support.
+            li Cloud computing infrastructure and migration services.
+            li The ELITE medical insurance management platform.
+            li Custom software development and IT consulting.
+          p The specific scope, deliverables, and timelines for any engagement are defined in individual service agreements or statements of work executed between GoCloud and the client.
 
-          h2.mt-5.mb-3 3. Software and Services
-          p.mb-3 Certain products or services may be available exclusively online through the website. These products or services may have limited quantities and are subject to return or exchange only according to our Return Policy.
-          p.mb-3 We have made every effort to display as accurately as possible the colors, features, specifications, and details of the products available on the website. However, we do not guarantee that the colors, features, specifications, and details of the products will be accurate, complete, reliable, current, or free of other errors, and your electronic display may not accurately reflect the actual colors and details of the products.
-          p.mb-3 We reserve the right, but are not obligated, to limit the sales of our products or Services to any person, geographic region or jurisdiction. We may exercise this right on a case-by-case basis.
+          h3 3. Use of the Website
+          p You agree to use this website solely for lawful purposes and in a manner that does not infringe upon the rights of others or restrict their use of the website. Specifically, you shall not:
+          ul
+            li Use the website for any fraudulent, unlawful, or unauthorized purpose.
+            li Attempt to gain unauthorized access to any part of the website, its servers, or connected systems.
+            li Reproduce, duplicate, copy, sell, or exploit any portion of the website without express written permission from GoCloud.
+            li Introduce any viruses, malware, or harmful code to the website.
 
-          h2.mt-5.mb-3 4. User Accounts
-          p.mb-3 When you create an account with us, you must provide information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Service.
-          p.mb-3 You are responsible for safeguarding the password that you use to access the Service and for any activities or actions under your password, whether your password is with our Service or a third-party service.
-          p.mb-3 You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.
+          h3 4. Intellectual Property
+          p All content on this website — including text, graphics, logos, images, software, and design elements — is the exclusive property of GoCloud or its licensors and is protected by copyright, trademark, and other intellectual property laws of Egypt and international treaties.
+          p You may not use, reproduce, or distribute any content from this website without prior written consent from GoCloud. The GoCloud name, logo, and all related trademarks may not be used in connection with any product or service that is not affiliated with GoCloud.
 
-          h2.mt-5.mb-3 5. Intellectual Property Rights
-          p.mb-3 The Service and its original content, features and functionality are and will remain the exclusive property of GoCloud and its licensors. The Service is protected by copyright, trademark, and other laws of both Egypt and foreign countries.
-          p.mb-3 Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of GoCloud.
+          h3 5. User Accounts
+          p Certain services may require you to create an account. When you do, you agree to:
+          ul
+            li Provide accurate, current, and complete information during registration.
+            li Maintain the security and confidentiality of your account credentials.
+            li Accept responsibility for all activities that occur under your account.
+            li Notify GoCloud immediately if you suspect unauthorized use of your account.
+          p GoCloud reserves the right to suspend or terminate accounts that violate these Terms or are inactive for an extended period.
 
-          h2.mt-5.mb-3 6. Software Licenses
-          p.mb-3 If you access or use any software provided by GoCloud, whether as part of the Service or separately, you agree to be bound by the terms of the end-user license agreement or other terms of service that accompany such software.
-          p.mb-3 You may not reverse engineer, decompile, or disassemble any software provided by GoCloud, except to the extent that such restriction is expressly prohibited by applicable law.
+          h3 6. Service Agreements &amp; Licensing
+          p Access to GoCloud's software products and platforms — including the ELITE platform and Odoo implementations — is governed by separate end-user license agreements (EULAs) or subscription terms provided at the time of purchase or enrollment.
+          p You may not reverse engineer, decompile, disassemble, or attempt to derive the source code of any GoCloud software, except where such restriction is expressly prohibited by applicable law.
 
-          h2.mt-5.mb-3 7. Service Level Agreement (SLA)
-          p.mb-3 GoCloud strives to provide high-quality services with minimal downtime. Our Service Level Agreement (SLA) outlines our commitment to service availability and performance metrics.
+          .terms-highlight
+            h4
+              i.fa-solid.fa-file-contract.me-2
+              | Key Service Terms
+            ul
+              li All project deliverables are subject to the terms defined in the applicable statement of work.
+              li Software licenses are non-transferable unless explicitly stated otherwise.
+              li Support and maintenance terms are defined in the relevant service level agreement (SLA).
+              li GoCloud strives for high service availability, with uptime commitments outlined in individual SLAs.
 
-          h2.mt-5.mb-3 8. Termination
-          p.mb-3 We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
-          p.mb-3 Upon termination, your right to use the Service will immediately cease. If you wish to terminate your account, you may simply discontinue using the Service.
+          h3 7. Payment Terms
+          p Where applicable, fees for GoCloud's services are outlined in the relevant service agreement. Unless otherwise specified:
+          ul
+            li Payments are due within the timeframe stated in the invoice.
+            li All fees are quoted in the currency specified and are exclusive of applicable taxes.
+            li Late payments may be subject to suspension of services or additional charges as outlined in the service agreement.
 
-          h2.mt-5.mb-3 9. Governing Law
-          p.mb-3 These Terms shall be interpreted and governed by the laws of Egypt, without regard to its conflict of law provisions.
-          p.mb-3 Any dispute relating in any way to your visit to or use of the Service shall be adjudicated in the courts of Egypt.
+          h3 8. Limitation of Liability
+          p To the maximum extent permitted by law, GoCloud, its directors, employees, partners, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, data, use, or goodwill — arising from your use of the website or services.
+          p GoCloud's total liability for any claim related to the services shall not exceed the amount paid by you to GoCloud for the specific service giving rise to the claim.
 
-          h2.mt-5.mb-3 10. Changes to Terms and Conditions
-          p.mb-3 We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days notice prior to any new terms taking effect.
-          p.mb-3 What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.
+          h3 9. Confidentiality
+          p Both parties agree to maintain the confidentiality of any proprietary or sensitive information exchanged during the course of a service engagement. This obligation survives the termination of any service agreement.
 
-          h2.mt-5.mb-3 11. Limitation of Liability
-          p.mb-3 In no event shall GoCloud, its directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the Service.
+          h3 10. Termination
+          p GoCloud may suspend or terminate your access to the website or services at any time, without prior notice, for conduct that violates these Terms or is otherwise harmful to GoCloud or other users.
+          p Upon termination, your right to use the website and services will cease immediately. Any provisions of these Terms that by their nature should survive termination shall remain in effect.
 
-          h2.mt-5.mb-3 12. Contact Information
-          p.mb-3 Questions about the Terms and Conditions should be sent to us at
-            a(href="mailto:marketing@gocloudeg.com") marketing@gocloudeg.com
-            | .
+          h3 11. Governing Law &amp; Jurisdiction
+          p These Terms shall be governed by and construed in accordance with the laws of the Arab Republic of Egypt. Any disputes arising from or related to these Terms or your use of the website shall be subject to the exclusive jurisdiction of the courts of Egypt.
 
-          p.mt-5 Last updated: January 1, 2025
+          h3 12. Changes to These Terms
+          p GoCloud reserves the right to modify these Terms at any time. Material changes will be communicated by posting the updated Terms on this page with a revised effective date. Your continued use of the website after such changes constitutes your acceptance of the updated Terms.
 
-  // Include footer
+          h3 13. Contact Us
+          p If you have any questions about these Terms and Conditions, please contact us:
+          .contact-info-box.mt-3
+            p.mb-2
+              strong
+                i.fa-solid.fa-building.me-2
+                | GoCloud
+            p.mb-2
+              i.fa-solid.fa-envelope.me-2
+              a(href="mailto:marketing@gocloudeg.com") marketing@gocloudeg.com
+            p.mb-0
+              i.fa-solid.fa-phone.me-2
+              a(href="tel:+201017383815") +20 101 738 3815
+
   include components/footer.pug
-
-  // Include whatsapp button
   include components/whatsapp-button.pug

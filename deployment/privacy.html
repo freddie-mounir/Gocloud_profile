@@ -105,6 +105,43 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap">
     </noscript>
     <!-- Custom styles-->
+    <style>
+      /* ── Hero ── */
+      .privacy-hero{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 60%,#0E38B1 100%);padding:6rem 0 4rem;position:relative;overflow:hidden}
+      .privacy-hero::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:80px;background:#fff;clip-path:polygon(0 60%,100% 0,100% 100%,0 100%)}
+      .privacy-hero h1{font-size:2.75rem;font-weight:800;color:#fff}
+      .privacy-hero p{color:rgba(255,255,255,.8);max-width:540px}
+      .privacy-hero .breadcrumb-link{color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem}
+      .privacy-hero .breadcrumb-link:hover{color:#fff}
+      .privacy-hero .breadcrumb-sep{color:rgba(255,255,255,.35);margin:0 8px}
+      .privacy-hero .breadcrumb-current{color:#A1E934;font-weight:600;font-size:.9rem}
+      
+      /* ── Section helpers ── */
+      .section-tag{display:inline-flex;align-items:center;gap:8px;background:#EEF2FF;border-radius:50px;padding:6px 16px;font-size:.8rem;font-weight:600;color:#0E38B1;margin-bottom:1rem}
+      .section-tag img{height:24px;width:24px}
+      .section-heading{font-size:2rem;font-weight:800;color:#0D0E10;margin-bottom:1rem}
+      .section-lead{color:#4a4b5c;font-size:1.05rem;line-height:1.7;max-width:620px}
+      
+      /* ── Privacy content ── */
+      .privacy-section{padding:5rem 0}
+      .privacy-content h3{font-size:1.25rem;font-weight:700;color:#0D0E10;margin-top:2.5rem;margin-bottom:.75rem;padding-left:14px;border-left:3px solid #0E38B1}
+      .privacy-content p{color:#4a4b5c;font-size:.95rem;line-height:1.75}
+      .privacy-content ul{color:#4a4b5c;font-size:.95rem;line-height:1.75;padding-left:1.25rem}
+      .privacy-content ul li{margin-bottom:.5rem}
+      .privacy-content .intro-text{font-size:1.05rem;line-height:1.8;color:#4a4b5c;margin-bottom:2rem}
+      
+      /* ── Highlight cards ── */
+      .privacy-highlight{background:#f7f9ff;border:1px solid #e9ecef;border-radius:16px;padding:2rem;margin:2rem 0;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+      .privacy-highlight h4{font-size:1.1rem;font-weight:700;color:#0E38B1;margin-bottom:1rem}
+      .privacy-highlight ul{margin-bottom:0}
+      
+      /* ── Contact box ── */
+      .contact-info-box{background:#fff;border:1px solid #e9ecef;border-left:4px solid #0E38B1;border-radius:12px;padding:1.5rem 2rem;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+      .contact-info-box a{color:#0E38B1;text-decoration:none;transition:color .3s}
+      .contact-info-box a:hover{color:#113ADC}
+      @media(max-width:767px){.privacy-hero h1{font-size:2rem}}
+      
+    </style>
   </head>
   <body class="body tg-heading-subheading animation-style3">
     <!-- Main content wrapper-->
@@ -177,7 +214,7 @@
               <div class="top-bar-item"><i class="fas fa-map-marker-alt"></i><span>Giza, Egypt</span></div>
             </div>
             <div class="top-bar-right">
-              <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Learning Partner" width="22" height="22">Odoo Learning Partner</div>
+              <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22">Odoo Official Partner</div>
               <div class="top-bar-social"><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
             </div>
           </div>
@@ -210,7 +247,7 @@
                         <p>Make a Call</p><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a>
                       </div>
                     </div>
-                    <div class="button"><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+                    <div class="button d-flex gap-2"><a class="theme-btn1" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i>Book a Free Demo</a><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
                   </div>
                 </div>
               </div>
@@ -249,7 +286,7 @@
                 <li role="none"><a href="blog/index.html" role="menuitem"><i class="fas fa-blog me-2"></i>Blog</a></li>
               </ul>
             </nav>
-            <div class="mobile-button"><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+            <div class="mobile-button"><a class="menu-btn2 mb-2" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i>Book a Free Demo</a><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
             <div class="single-footer-items">
               <h3>Contact Us</h3>
               <div class="contact-box">
@@ -280,47 +317,89 @@
           </div>
         </div>
       </header>
-      <!-- Hero Area-->
-      <div class="hero-privacy">
+      <div class="privacy-hero">
         <div class="container">
-          <h1 class="title">Privacy Policy</h1>
-          <p>Last Updated: October 2025</p>
-        </div>
-      </div>
-      <!-- Privacy Content-->
-      <div class="privacy-section">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-10 m-auto privacy-content">
-              <p>At GoCloud, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your data when you visit our website or use our services.</p>
-              <h3>1. Information We Collect</h3>
-              <p>We may collect personal identification information from Users in a variety of ways, including, but not limited to, when Users visit our site, register on the site, place an order, fill out a form, and in connection with other activities, services, features, or resources we make available on our Site.</p>
-              <ul>
-                <li><strong>Personal Identification Information:</strong> Name, email address, phone number, company name, and job title.</li>
-                <li><strong>Technical Data:</strong> IP address, browser type, operating system, and access times.</li>
-                <li><strong>Usage Data:</strong> Information about how you use our website and services.</li>
-              </ul>
-              <h3>2. How We Use Your Information</h3>
-              <p>GoCloud collects and uses Users personal information for the following purposes:</p>
-              <ul>
-                <li>To improve customer service: Information you provide helps us respond to your customer service requests and support needs more efficiently.</li>
-                <li>To personalize user experience: We may use information in the aggregate to understand how our Users as a group use the services and resources provided on our Site.</li>
-                <li>To improve our Site: We may use feedback you provide to improve our products and services.</li>
-                <li>To send periodic emails: We may use the email address to send User information and updates pertaining to their order.</li>
-              </ul>
-              <h3>3. Web Browser Cookies</h3>
-              <p>Our Site may use "cookies" to enhance User experience. User's web browser places cookies on their hard drive for record-keeping purposes and sometimes to track information about them. User may choose to set their web browser to refuse cookies, or to alert you when cookies are being sent.</p>
-              <h3>4. Sharing Your Personal Information</h3>
-              <p>We do not sell, trade, or rent Users personal identification information to others. We may share generic aggregated demographic information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates, and advertisers.</p>
-              <h3>5. Security of Your Data</h3>
-              <p>We adopt appropriate data collection, storage, and processing practices and security measures to protect against unauthorized access, alteration, disclosure, or destruction of your personal information, username, password, transaction information, and data stored on our Site.</p>
-              <h3>6. Contact Us</h3>
-              <p>If you have any questions about this Privacy Policy, please contact us at:</p>
-              <p><strong>GoCloud</strong><br>Email:<a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a><br>Phone: +201017383815</p>
+          <div class="row align-items-center">
+            <div class="col-lg-7">
+              <div class="mb-3"><a class="breadcrumb-link" href="index.html">Home</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Privacy Policy</span></div>
+              <h1>Privacy Policy</h1>
+              <div class="space16"></div>
+              <p>Learn how GoCloud collects, uses, and protects your personal information across our website and services.</p>
+              <div class="mt-3"><span class="badge rounded-pill bg-light text-dark px-3 py-2"><i class="fa-solid fa-calendar-alt me-2"></i>Last Updated: April 2026</span></div>
             </div>
           </div>
         </div>
       </div>
+      <section class="privacy-section">
+        <div class="container">
+          <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+              <div class="section-tag"><img src="images/gocloud%20logo.webp" alt="" loading="lazy">Data Privacy</div>
+              <h2 class="section-heading">Your Privacy Matters to Us</h2>
+              <p class="text-muted">We are committed to transparency in how we handle your data.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-10 m-auto privacy-content">
+              <p class="intro-text">At GoCloud, we are committed to protecting your privacy and safeguarding your personal information. This Privacy Policy describes how we collect, use, and protect your data when you visit our website or engage with our services — including Odoo ERP consultations, cloud solutions, and the ELITE medical-insurance platform.</p>
+              <h3>1. Information We Collect</h3>
+              <p>We may collect the following types of information when you interact with our website — for example, by submitting a contact form, requesting a consultation, or browsing our pages:</p>
+              <ul>
+                <li><strong>Contact Information:</strong> Name, email address, phone number, company name, and job title.</li>
+                <li><strong>Technical Data:</strong> IP address, browser type, operating system, referring URLs, and access timestamps.</li>
+                <li><strong>Usage Data:</strong> Pages visited, time spent on pages, and navigation paths across our website.</li>
+              </ul>
+              <h3>2. How We Use Your Information</h3>
+              <p>We use the information we collect for the following purposes:</p>
+              <ul>
+                <li><strong>Service Delivery:</strong> To respond to your inquiries, provide consultations, and deliver the services you request.</li>
+                <li><strong>Website Improvement:</strong> To analyze usage patterns and improve our website's content, performance, and user experience.</li>
+                <li><strong>Communication:</strong> To send relevant updates about our services, only when you have opted in to receive such communications.</li>
+              </ul>
+              <h3>3. Cookies &amp; Tracking Technologies</h3>
+              <p>Our website uses cookies and similar technologies to enhance your browsing experience and gather analytics data. You can manage your cookie preferences through your browser settings. We use:</p>
+              <ul>
+                <li><strong>Essential Cookies:</strong> Required for core website functionality.</li>
+                <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our website (e.g., Google Analytics).</li>
+              </ul>
+              <h3>4. Data Sharing &amp; Third Parties</h3>
+              <p>We do not sell, trade, or rent your personal information. We may share anonymized, aggregated data with trusted partners for analytics purposes. Any third-party service providers we work with are contractually obligated to protect your data and use it only for the purposes we specify.</p>
+              <h3>5. Data Security</h3>
+              <p>We implement industry-standard security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. This includes encryption of data in transit, secure server infrastructure, and regular security assessments.</p>
+              <div class="privacy-highlight">
+                <h4><i class="fa-solid fa-shield-halved me-2"></i>Our Security Commitments</h4>
+                <ul>
+                  <li>SSL/TLS encryption for all data transmitted through our website.</li>
+                  <li>Secure server infrastructure hosted in compliance with international standards.</li>
+                  <li>Regular security audits and vulnerability assessments.</li>
+                  <li>Access control policies limiting data access to authorized personnel only.</li>
+                </ul>
+              </div>
+              <h3>6. Your Rights</h3>
+              <p>You have the right to:</p>
+              <ul>
+                <li>Request access to the personal data we hold about you.</li>
+                <li>Request correction or deletion of your personal data.</li>
+                <li>Opt out of marketing communications at any time.</li>
+                <li>Lodge a complaint with a relevant data protection authority.</li>
+              </ul>
+              <h3>7. Data Retention</h3>
+              <p>We retain your personal data only for as long as necessary to fulfill the purposes outlined in this policy or as required by law. When data is no longer needed, it is securely deleted or anonymized.</p>
+              <h3>8. Third-Party Links</h3>
+              <p>Our website may contain links to third-party websites or services that are not operated by GoCloud. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party sites. We encourage you to review the privacy policy of every site you visit.</p>
+              <h3>9. Changes to This Policy</h3>
+              <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically to stay informed about how we protect your data.</p>
+              <h3>10. Contact Us</h3>
+              <p>If you have any questions or concerns about this Privacy Policy or how we handle your data, please contact us:</p>
+              <div class="contact-info-box mt-3">
+                <p class="mb-2"><strong><i class="fa-solid fa-building me-2"></i>GoCloud</strong></p>
+                <p class="mb-2"><i class="fa-solid fa-envelope me-2"></i><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></p>
+                <p class="mb-0"><i class="fa-solid fa-phone me-2"></i><a href="tel:+201017383815">+20 101 738 3815</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- Footer Component-->
       <footer>
         <div class="footer1 _relative">
@@ -328,7 +407,7 @@
             <div class="row gy-4">
               <div class="col-lg-3 col-md-6 col-12">
                 <div class="single-footer-items"><a class="footer-logo d-inline-block mb-3" href="index.html" aria-label="GoCloud Home"><img src="images/gocloud logo.webp" height="60" width="60" alt="GoCloud Logo" loading="lazy"></a>
-                  <p class="footer-desc">We're dedicated to delivering innovative technology solutions tailored to meet the unique needs of businesses like yours.</p>
+                  <p class="footer-desc">As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.</p>
                   <ul class="social-icon d-flex gap-2 mt-3">
                     <li><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
                     <li><a href="https://www.google.com/search?q=gocloud+eg" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fa-brands fa-google"></i></a></li>
@@ -446,6 +525,196 @@
         });
       </script>
     </main>
+    <!-- Demo Booking Modal (global)-->
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="border: none; border-radius: 20px; overflow: hidden;">
+          <div class="modal-header" style="background: linear-gradient(135deg, #0E38B1 0%, #113ADC 100%); border: none; padding: 1.75rem 2rem;">
+            <div class="d-flex align-items-center gap-3">
+              <div class="d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(161, 233, 52, 0.2); border-radius: 12px;"><i class="fa-solid fa-calendar-check" style="font-size: 1.25rem; color: #A1E934;" aria-hidden="true"></i></div>
+              <div>
+                <h5 class="mb-0" id="demoModalLabel" style="color: #fff; font-weight: 700; font-size: 1.25rem;">Book a Free Demo</h5>
+                <p class="mb-0" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">See how GoCloud solutions can transform your business</p>
+              </div>
+            </div>
+            <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="padding: 2rem;">
+            <form id="demoBookingForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="demoFirstName" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-user me-1" style="color: #0E38B1;" aria-hidden="true"></i>First Name<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoFirstName" type="text" name="firstName" placeholder="e.g. Ahmed" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please enter your first name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoLastName" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-user me-1" style="color: #0E38B1;" aria-hidden="true"></i>Last Name<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoLastName" type="text" name="lastName" placeholder="e.g. Hassan" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please enter your last name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoEmail" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-envelope me-1" style="color: #0E38B1;" aria-hidden="true"></i>Email Address<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoEmail" type="email" name="email" placeholder="e.g. ahmed@company.com" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoPhone" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-mobile-screen me-1" style="color: #0E38B1;" aria-hidden="true"></i>Mobile Number<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoPhone" type="tel" name="phone" placeholder="e.g. +20 10X XXX XXXX" required pattern="[\+]?[0-9\s\-]{8,20}" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please enter a valid mobile number.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoCompany" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-building me-1" style="color: #0E38B1;" aria-hidden="true"></i>Company Name</label>
+                  <input class="form-control" id="demoCompany" type="text" name="company" placeholder="e.g. ABC Corp" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoService" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-cogs me-1" style="color: #0E38B1;" aria-hidden="true"></i>Interested In</label>
+                  <select class="form-select" id="demoService" name="service" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                    <option value="" selected>Select a service...</option>
+                    <option value="Odoo ERP">Odoo ERP Implementation</option>
+                    <option value="Cloud Solutions">Cloud Solutions</option>
+                    <option value="ELITE Insurance">ELITE Medical Insurance Platform</option>
+                    <option value="Business Intelligence">Business Intelligence</option>
+                    <option value="Custom Development">Custom Software Development</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoDate" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-calendar me-1" style="color: #0E38B1;" aria-hidden="true"></i>Preferred Date<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoDate" type="date" name="preferredDate" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please select a preferred date.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoTime" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-clock me-1" style="color: #0E38B1;" aria-hidden="true"></i>Preferred Time<span class="text-danger">*</span></label>
+                  <select class="form-select" id="demoTime" name="preferredTime" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                    <option value="" selected>Select a time slot...</option>
+                    <option value="09:00 - 10:00 AM">09:00 — 10:00 AM</option>
+                    <option value="10:00 - 11:00 AM">10:00 — 11:00 AM</option>
+                    <option value="11:00 - 12:00 PM">11:00 — 12:00 PM</option>
+                    <option value="12:00 - 01:00 PM">12:00 — 01:00 PM</option>
+                    <option value="01:00 - 02:00 PM">01:00 — 02:00 PM</option>
+                    <option value="02:00 - 03:00 PM">02:00 — 03:00 PM</option>
+                    <option value="03:00 - 04:00 PM">03:00 — 04:00 PM</option>
+                    <option value="04:00 - 05:00 PM">04:00 — 05:00 PM</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a preferred time.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="demoNotes" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-comment me-1" style="color: #0E38B1;" aria-hidden="true"></i>Additional Notes</label>
+                  <textarea class="form-control" id="demoNotes" name="notes" rows="3" placeholder="Tell us about your requirements or questions..." style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6; resize: vertical;"></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer" style="border-top: 1px solid #e9ecef; padding: 1.25rem 2rem;">
+            <button class="btn btn-light" type="button" data-bs-dismiss="modal" style="border-radius: 50px; padding: 10px 24px; font-weight: 600;">Cancel</button>
+            <button class="btn" id="demoSubmitBtn" type="button" style="background: linear-gradient(135deg, #0E38B1, #113ADC); color: #fff; border: none; border-radius: 50px; padding: 10px 28px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>Submit Request</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var submitBtn = document.getElementById('demoSubmitBtn');
+        var form = document.getElementById('demoBookingForm');
+        var modal = document.getElementById('demoModal');
+        var dateInput = document.getElementById('demoDate');
+        if (dateInput) {
+          var today = new Date().toISOString().split('T')[0];
+          dateInput.setAttribute('min', today);
+        }
+        if (submitBtn && form) {
+          submitBtn.addEventListener('click', function () {
+            if (!form.checkValidity()) {
+              form.classList.add('was-validated');
+              return;
+            }
+            var firstName = document.getElementById('demoFirstName').value.trim();
+            var lastName = document.getElementById('demoLastName').value.trim();
+            var email = document.getElementById('demoEmail').value.trim();
+            var phone = document.getElementById('demoPhone').value.trim();
+            var company = document.getElementById('demoCompany').value.trim();
+            var service = document.getElementById('demoService').value;
+            var date = document.getElementById('demoDate').value;
+            var time = document.getElementById('demoTime').value;
+            var notes = document.getElementById('demoNotes').value.trim();
+            var subject = 'Demo Request from ' + firstName + ' ' + lastName;
+            var body = 'Name: ' + firstName + ' ' + lastName + '\n'
+              + 'Email: ' + email + '\n'
+              + 'Mobile: ' + phone + '\n'
+              + (company ? 'Company: ' + company + '\n' : '')
+              + (service ? 'Service Interest: ' + service + '\n' : '')
+              + 'Preferred Date: ' + date + '\n'
+              + 'Preferred Time: ' + time + '\n'
+              + (notes ? 'Notes: ' + notes + '\n' : '');
+            window.location.href = 'mailto:marketing@gocloudeg.com'
+              + '?subject=' + encodeURIComponent(subject)
+              + '&body=' + encodeURIComponent(body);
+            var bsModal = bootstrap.Modal.getInstance(modal);
+            if (bsModal) {
+              bsModal.hide();
+            }
+            form.reset();
+            form.classList.remove('was-validated');
+          });
+        }
+      });
+    </script>
+    <!-- AI Chatbot Widget (global)-->
+    <style>
+      .gc-chat-btn{position:fixed;bottom:170px;right:30px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;border:none;cursor:pointer;z-index:1100;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(14,56,177,.35);transition:all .3s}
+      .gc-chat-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(14,56,177,.45)}
+      .gc-chat-btn .gc-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;background:#A1E934;border-radius:50%;border:2px solid #fff;animation:gc-pulse 2s infinite}
+      @keyframes gc-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+      .gc-chat-btn i{font-size:1.4rem}
+      .gc-chat-panel{position:fixed;bottom:170px;right:30px;width:380px;height:520px;background:#fff;border-radius:20px;box-shadow:0 12px 48px rgba(0,0,0,.15);z-index:1100;display:none;flex-direction:column;overflow:hidden;border:1px solid #e9ecef}
+      .gc-chat-panel.gc-open{display:flex}
+      .gc-chat-header{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 100%);padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+      .gc-chat-header img{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.15);padding:4px}
+      .gc-chat-header-info{flex:1}
+      .gc-chat-header-info h6{color:#fff;font-size:.9rem;font-weight:700;margin:0}
+      .gc-chat-header-info span{color:rgba(255,255,255,.7);font-size:.72rem}
+      .gc-chat-close{background:none;border:none;color:rgba(255,255,255,.7);font-size:1.1rem;cursor:pointer;padding:4px 8px;border-radius:8px;transition:all .2s}
+      .gc-chat-close:hover{color:#fff;background:rgba(255,255,255,.15)}
+      .gc-chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#f8f9fb}
+      .gc-chat-messages::-webkit-scrollbar{width:4px}
+      .gc-chat-messages::-webkit-scrollbar-thumb{background:#c7d2fe;border-radius:4px}
+      .gc-msg{max-width:85%;padding:10px 14px;border-radius:16px;font-size:.875rem;line-height:1.6;word-wrap:break-word}
+      .gc-msg a{color:inherit;text-decoration:underline}
+      .gc-msg-bot{background:#fff;color:#333;align-self:flex-start;border:1px solid #e9ecef;border-bottom-left-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+      .gc-msg-user{background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+      .gc-typing{align-self:flex-start;background:#fff;border:1px solid #e9ecef;border-radius:16px;padding:10px 18px;display:none;gap:4px;align-items:center;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+      .gc-typing.gc-show{display:flex}
+      .gc-typing span{width:6px;height:6px;background:#0E38B1;border-radius:50%;animation:gc-bounce .6s infinite alternate}
+      .gc-typing span:nth-child(2){animation-delay:.2s}
+      .gc-typing span:nth-child(3){animation-delay:.4s}
+      @keyframes gc-bounce{to{transform:translateY(-6px);opacity:.4}}
+      .gc-chat-input{display:flex;align-items:center;gap:8px;padding:12px 16px;border-top:1px solid #e9ecef;background:#fff;flex-shrink:0}
+      .gc-chat-input input{flex:1;border:1px solid #dee2e6;border-radius:50px;padding:10px 16px;font-size:.875rem;outline:none;transition:border-color .2s}
+      .gc-chat-input input:focus{border-color:#0E38B1;box-shadow:0 0 0 3px rgba(14,56,177,.1)}
+      .gc-chat-input button{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+      .gc-chat-input button:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(14,56,177,.3)}
+      .gc-chat-input button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+      .gc-chat-powered{text-align:center;padding:6px;font-size:.65rem;color:#999;background:#fff;border-top:1px solid #f0f1f5;flex-shrink:0}
+      @media(max-width:576px){.gc-chat-panel{width:100%;height:100%;bottom:0;right:0;border-radius:0}.gc-chat-btn{bottom:160px;right:20px}}
+      
+    </style>
+    <button class="gc-chat-btn" id="gcChatBtn" type="button" aria-label="Open AI Chat Assistant" title="Chat with GoCloud AI"><i class="fa-solid fa-robot" aria-hidden="true"></i><span class="gc-badge" aria-hidden="true"></span></button>
+    <div class="gc-chat-panel" id="gcChatPanel" role="dialog" aria-label="GoCloud AI Chat Assistant">
+      <div class="gc-chat-header"><img src="images/gocloud%20logo.webp" alt="GoCloud" loading="lazy">
+        <div class="gc-chat-header-info">
+          <h6>GoCloud AI Assistant</h6><span><i class="fa-solid fa-circle me-1" style="font-size:6px;color:#A1E934;"></i>Online</span>
+        </div>
+        <button class="gc-chat-close" type="button" aria-label="Close chat"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </div>
+      <div class="gc-chat-messages" id="gcChatMessages" aria-live="polite" aria-label="Chat messages"></div>
+      <div class="gc-typing" id="gcTyping" aria-label="Assistant is typing"><span></span><span></span><span></span></div>
+      <div class="gc-chat-input">
+        <input id="gcChatInput" type="text" placeholder="Ask about Odoo, ELITE, or our services..." aria-label="Type your message" autocomplete="off" maxlength="500">
+        <button id="gcChatSend" type="button" aria-label="Send message"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+      </div>
+      <div class="gc-chat-powered">Powered by GoCloud AI</div>
+    </div>
+    <script src="js/chatbot.min.js" defer></script>
     <!-- Scripts (CDN)-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>

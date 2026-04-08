@@ -8,39 +8,39 @@ mixin social-proof-section
       .clients-section.mb-5
         .section-header.text-center.mb-4
           h2.section-title يثق بنا
-        
+
         .clients-grid
           //- Official Odoo Partner Badge
           .client-logo.featured
             .partner-badge
-              img(src="images/partners/odoo-gold-partner.svg" alt="Odoo Gold Partner")
-              .badge-label Official Gold Partner
-          
+              img(src="images/partners/odoo-gold-partner.svg" alt="Odoo Official Partner")
+              .badge-label Odoo Official Partner
+
           //- Real Clients (بعد الموافقة)
           .client-logo
             img(src="images/clients/tpa-company.png" alt="TPA Company")
             .hover-info
               span.client-name شركة TPA
               span.client-industry التأمين الطبي
-          
+
           .client-logo
             img(src="images/clients/distribution-company.png" alt="Distribution")
             .hover-info
               span.client-name شركة توزيع رائدة
               span.client-industry التجارة
-          
+
           .client-logo
             img(src="images/clients/manufacturing-company.png" alt="Manufacturing")
             .hover-info
               span.client-name مصنع كبير
               span.client-industry التصنيع
-          
+
           .client-logo
             img(src="images/clients/hospital.png" alt="Hospital")
             .hover-info
               span.client-name مستشفى خاص
               span.client-industry الرعاية الصحية
-      
+
       //- Statistics Section
       .statistics-section.mb-5
         .row.text-center.g-4
@@ -52,7 +52,7 @@ mixin social-proof-section
                 span(data-count="50") 0
                 | +
               p.stat-label عميل راضٍ
-          
+
           .col-md-3
             .stat-box
               .stat-icon.bg-success
@@ -61,7 +61,7 @@ mixin social-proof-section
                 span(data-count="100") 0
                 | +
               p.stat-label مشروع ناجح
-          
+
           .col-md-3
             .stat-box
               .stat-icon.bg-info
@@ -70,7 +70,7 @@ mixin social-proof-section
                 span(data-count="10000") 0
                 | +
               p.stat-label ساعة عمل
-          
+
           .col-md-3
             .stat-box
               .stat-icon.bg-warning
@@ -79,52 +79,52 @@ mixin social-proof-section
                 span(data-count="8") 0
                 | +
               p.stat-label سنوات خبرة
-      
+
       //- Testimonials
       .testimonials-section.mb-5
         .section-header.text-center.mb-4
           h2.section-title ماذا يقول عملاؤنا
-        
+
         .row.g-4
           .col-lg-4
             .testimonial-card
               .quote-icon
                 i.fas.fa-quote-right
               p.testimonial-text
-                | "نظام ELITE حل مشكلة التأخير في معالجة المطالبات. 
+                | "نظام ELITE حل مشكلة التأخير في معالجة المطالبات.
                 | دلوقتي بنعالج 10,000 مطالبة شهرياً بدقة 100%"
               .testimonial-author
                 .author-info
                   h5 م. أحمد محمود
                   p مدير تكنولوجيا المعلومات
                   span.company شركة TPA رائدة
-          
+
           .col-lg-4
             .testimonial-card
               .quote-icon
                 i.fas.fa-quote-right
               p.testimonial-text
-                | "الربط بين ELITE و Odoo وفر علينا 80% من الوقت 
+                | "الربط بين ELITE و Odoo وفر علينا 80% من الوقت
                 | اللي كنا بنضيعه في الإدخال اليدوي"
               .testimonial-author
                 .author-info
                   h5 أ. سارة حسن
                   p المدير المالي
                   span.company شركة تأمين طبي
-          
+
           .col-lg-4
             .testimonial-card
               .quote-icon
                 i.fas.fa-quote-right
               p.testimonial-text
-                | "فريق GoCloud محترف جداً. الدعم الفني متوفر 24/7 
+                | "فريق GoCloud محترف جداً. الدعم الفني متوفر 24/7
                 | والتدريب كان شامل لكل الموظفين"
               .testimonial-author
                 .author-info
                   h5 د. محمد علي
                   p مدير عام
                   span.company مستشفى خاص
-      
+
       //- Case Study Highlight
       .case-study-banner
         .row.align-items-center
@@ -135,23 +135,23 @@ mixin social-proof-section
             h3 كيف ساعدنا شركة TPA في تقليل وقت معالجة المطالبات من 5 أيام لـ 24 ساعة
             p.lead
               | دراسة حالة شاملة عن تحول رقمي ناجح في قطاع التأمين الطبي
-            
+
             .case-results
               .result-item
                 i.fas.fa-arrow-down.text-success
-                strong 80% 
+                strong 80%
                 span تقليل الوقت
-              
+
               .result-item
                 i.fas.fa-arrow-up.text-success
-                strong 95% 
+                strong 95%
                 span رضا العملاء
-              
+
               .result-item
                 i.fas.fa-check-circle.text-success
-                strong 100% 
+                strong 100%
                 span دقة البيانات
-          
+
           .col-lg-4
             a.btn.btn-light.btn-lg.w-100(href="/case-studies/tpa-success.html")
               i.fas.fa-file-alt.me-2
@@ -162,14 +162,14 @@ style.
   #social-proof {
     background: #f8fafc;
   }
-  
+
   .clients-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
     align-items: center;
   }
-  
+
   .client-logo {
     background: white;
     padding: 30px;
@@ -180,27 +180,27 @@ style.
     position: relative;
     overflow: hidden;
   }
-  
+
   .client-logo:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   }
-  
+
   .client-logo.featured {
     grid-column: span 2;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 40px;
   }
-  
+
   .partner-badge {
     text-align: center;
   }
-  
+
   .partner-badge img {
     max-width: 200px;
     filter: brightness(0) invert(1);
   }
-  
+
   .badge-label {
     display: block;
     color: white;
@@ -208,7 +208,7 @@ style.
     margin-top: 15px;
     font-size: 1.1rem;
   }
-  
+
   .client-logo img {
     max-width: 120px;
     height: auto;
@@ -216,12 +216,12 @@ style.
     opacity: 0.7;
     transition: all 0.3s;
   }
-  
+
   .client-logo:hover img {
     filter: grayscale(0%);
     opacity: 1;
   }
-  
+
   .hover-info {
     position: absolute;
     bottom: -100%;
@@ -231,24 +231,24 @@ style.
     padding: 15px;
     transition: all 0.3s;
   }
-  
+
   .client-logo:hover .hover-info {
     bottom: 0;
   }
-  
+
   .hover-info .client-name {
     display: block;
     color: white;
     font-weight: 700;
     font-size: 0.9rem;
   }
-  
+
   .hover-info .client-industry {
     display: block;
     color: rgba(255,255,255,0.9);
     font-size: 0.8rem;
   }
-  
+
   .stat-box {
     background: white;
     padding: 40px 20px;
@@ -256,12 +256,12 @@ style.
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     transition: all 0.3s;
   }
-  
+
   .stat-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   }
-  
+
   .stat-icon {
     width: 70px;
     height: 70px;
@@ -271,24 +271,24 @@ style.
     justify-content: center;
     margin: 0 auto 20px;
   }
-  
+
   .stat-icon i {
     font-size: 2rem;
     color: white;
   }
-  
+
   .stat-number {
     font-size: 3rem;
     font-weight: 800;
     color: #1e293b;
     margin-bottom: 10px;
   }
-  
+
   .stat-label {
     color: #64748b;
     font-size: 1.1rem;
   }
-  
+
   .testimonial-card {
     background: white;
     padding: 40px;
@@ -297,7 +297,7 @@ style.
     height: 100%;
     position: relative;
   }
-  
+
   .quote-icon {
     position: absolute;
     top: 20px;
@@ -305,7 +305,7 @@ style.
     font-size: 3rem;
     color: #e2e8f0;
   }
-  
+
   .testimonial-text {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -313,44 +313,44 @@ style.
     margin-bottom: 30px;
     font-style: italic;
   }
-  
+
   .author-info h5 {
     font-weight: 700;
     color: #1e293b;
     margin-bottom: 5px;
   }
-  
+
   .author-info p {
     color: #64748b;
     margin-bottom: 5px;
   }
-  
+
   .author-info .company {
     color: #2563eb;
     font-weight: 600;
     font-size: 0.9rem;
   }
-  
+
   .case-study-banner {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 50px;
     border-radius: 20px;
     color: white;
   }
-  
+
   .case-study-banner h3 {
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 15px;
   }
-  
+
   .case-results {
     display: flex;
     gap: 30px;
     margin-top: 25px;
     flex-wrap: wrap;
   }
-  
+
   .result-item {
     display: flex;
     align-items: center;
@@ -359,16 +359,16 @@ style.
     padding: 15px 20px;
     border-radius: 10px;
   }
-  
+
   .result-item i {
     font-size: 1.5rem;
   }
-  
+
   .result-item strong {
     font-size: 1.5rem;
     margin-right: 5px;
   }
-  
+
   .result-item span {
     opacity: 0.9;
     font-size: 0.9rem;

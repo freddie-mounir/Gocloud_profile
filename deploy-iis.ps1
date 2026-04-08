@@ -4,7 +4,8 @@
 param(
     [string]$DeployPath = "C:\inetpub\wwwroot\gocloud",
     [switch]$BuildOnly = $false,
-    [switch]$SkipBuild = $false
+    [switch]$SkipBuild = $false,
+    [switch]$WithImages = $false
 )
 
 Write-Host "🚀 GoCloud Website Deployment Script" -ForegroundColor Cyan
@@ -102,9 +103,13 @@ if (Test-Path "js") {
     Copy-Item -Path "js" -Destination $DeploymentFolder -Recurse -Force
 }
 
-Write-Host "  → Copying images directory..." -ForegroundColor Gray
-if (Test-Path "images") {
-    Copy-Item -Path "images" -Destination $DeploymentFolder -Recurse -Force
+if ($WithImages) {
+    Write-Host "  → Copying images directory..." -ForegroundColor Gray
+    if (Test-Path "images") {
+        Copy-Item -Path "images" -Destination $DeploymentFolder -Recurse -Force
+    }
+} else {
+    Write-Host "  → Skipping images (use -WithImages to include)" -ForegroundColor DarkGray
 }
 
 Write-Host "  → Copying fonts directory..." -ForegroundColor Gray
@@ -120,6 +125,21 @@ if (Test-Path "blog") {
 Write-Host "  → Copying components directory..." -ForegroundColor Gray
 if (Test-Path "components") {
     Copy-Item -Path "components" -Destination $DeploymentFolder -Recurse -Force
+}
+
+Write-Host "  → Copying API directory..." -ForegroundColor Gray
+if (Test-Path "api") {
+    $apiDest = Join-Path $DeploymentFolder "api"
+    New-Item -ItemType Directory -Path $apiDest -Force | Out-Null
+    Copy-Item -Path "api\server.js" -Destination $apiDest -Force
+    Copy-Item -Path "api\system-prompt.js" -Destination $apiDest -Force
+    Copy-Item -Path "api\package.json" -Destination $apiDest -Force
+    if (Test-Path "api\package-lock.json") {
+        Copy-Item -Path "api\package-lock.json" -Destination $apiDest -Force
+    }
+    if (Test-Path "api\.env.example") {
+        Copy-Item -Path "api\.env.example" -Destination $apiDest -Force
+    }
 }
 
 # Copy root files

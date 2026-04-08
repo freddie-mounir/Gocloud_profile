@@ -2,7 +2,8 @@
 # Builds, packages, and deploys to VPS via SSH/SCP
 #
 # Usage:
-#   .\publish.ps1                    # Full build + deploy
+#   .\publish.ps1                    # Full build + deploy (no images)
+#   .\publish.ps1 -WithImages        # Full build + deploy including images
 #   .\publish.ps1 -SkipBuild         # Deploy without rebuilding
 #   .\publish.ps1 -DryRun            # Build + show what would be deployed
 #   .\publish.ps1 -User admin        # Use a different SSH username
@@ -13,7 +14,8 @@ param(
     [string]$RemotePath = "C:\inetpub\wwwroot\GoCloud_website_project",
     [int]$SshPort = 22,
     [switch]$SkipBuild = $false,
-    [switch]$DryRun = $false
+    [switch]$DryRun = $false,
+    [switch]$WithImages = $false
 )
 
 $ErrorActionPreference = "Stop"
@@ -25,6 +27,11 @@ Write-Host "  GoCloud - Publish to VPS" -ForegroundColor Cyan
 Write-Host "  ========================" -ForegroundColor Cyan
 Write-Host "  Target: $User@$VpsHost" -ForegroundColor Gray
 Write-Host "  Remote: $RemotePath" -ForegroundColor Gray
+if ($WithImages) {
+    Write-Host "  Images: Included" -ForegroundColor Yellow
+} else {
+    Write-Host "  Images: Skipped (use -WithImages to include)" -ForegroundColor DarkGray
+}
 Write-Host ""
 
 # ── Step 1: Check SSH availability ──
@@ -79,7 +86,9 @@ if (-not $SkipBuild) {
 Write-Host "[3/5] Staging deployment package..." -ForegroundColor Yellow
 Push-Location $ProjectRoot
 try {
-    powershell -ExecutionPolicy Bypass -File "$ProjectRoot\deploy-iis.ps1" -BuildOnly 2>&1 | Out-Null
+    $deployArgs = @('-ExecutionPolicy', 'Bypass', '-File', "$ProjectRoot\deploy-iis.ps1", '-BuildOnly')
+    if ($WithImages) { $deployArgs += '-WithImages' }
+    powershell @deployArgs 2>&1 | Out-Null
     if (-not (Test-Path $DeploymentFolder)) {
         Write-Host "  ERROR: Deployment folder not created!" -ForegroundColor Red
         exit 1
@@ -89,7 +98,7 @@ try {
     if (Test-Path "google8ec4a2e3b3ab7585.html") {
         Copy-Item "google8ec4a2e3b3ab7585.html" "$DeploymentFolder\" -Force
     }
-    if (Test-Path "images\icons") {
+    if ($WithImages -and (Test-Path "images\icons")) {
         New-Item -ItemType Directory -Path "$DeploymentFolder\images\icons" -Force | Out-Null
         Copy-Item "images\icons\*" "$DeploymentFolder\images\icons\" -Force
     }
@@ -131,6 +140,15 @@ if ($LASTEXITCODE -ne 0) {
 
 $elapsed = [math]::Round(((Get-Date) - $startTime).TotalSeconds, 1)
 Write-Host "  OK - Upload completed in ${elapsed}s" -ForegroundColor Green
+
+# ── Step 6: Install API dependencies on VPS ──
+Write-Host "[6/6] Installing API dependencies on VPS..." -ForegroundColor Yellow
+$apiInstall = ssh -p $SshPort "$User@$VpsHost" "cd C:\inetpub\wwwroot\GoCloud_website_project\api; npm install --omit=dev 2>&1" 2>&1
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "  WARN - API dependency install failed. May need manual setup." -ForegroundColor Yellow
+} else {
+    Write-Host "  OK - API dependencies installed" -ForegroundColor Green
+}
 
 # ── Done ──
 Write-Host ""

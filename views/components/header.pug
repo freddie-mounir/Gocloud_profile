@@ -38,7 +38,10 @@ header(role="banner")
                 .headding
                   p Make a Call
                   a(href="tel://+201017383815" aria-label="Call us at +201017383815") +201017383815
-              .button
+              .button.d-flex.gap-2
+                a.theme-btn1(href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo")
+                  i.fa-solid.fa-calendar-check.me-1(aria-hidden="true")
+                  | Book a Free Demo
                 a.theme-btn1(href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp") Get A Quote
                   span
                     i.fa-solid.fa-arrow-right(aria-hidden="true")
@@ -88,6 +91,9 @@ header(role="banner")
               | Blog
 
       .mobile-button
+        a.menu-btn2.mb-2(href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo")
+          i.fa-solid.fa-calendar-check.me-1(aria-hidden="true")
+          | Book a Free Demo
         a.menu-btn2(href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp") Get A Quote
           span
             i.fa-solid.fa-arrow-right(aria-hidden="true")

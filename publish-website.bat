@@ -2,6 +2,9 @@
 REM ============================================================
 REM  GoCloud Website - Build & Publish to VPS
 REM  Run this from your DEV PC to deploy the website
+REM  Usage:
+REM    publish-website.bat              Deploy without images (fast)
+REM    publish-website.bat /WITHIMAGES  Deploy including images (full)
 REM ============================================================
 
 title GoCloud - Publish Website
@@ -13,6 +16,15 @@ set VPS_REMOTE_PATH=C:\inetpub\wwwroot\GoCloud_website_project
 set SSH_PORT=22
 set PROJECT_DIR=%~dp0
 set DEPLOYMENT_DIR=%PROJECT_DIR%deployment
+set WITH_IMAGES=0
+
+REM Parse arguments
+:parse_args
+if "%~1"=="" goto done_args
+if /i "%~1"=="/WITHIMAGES" set WITH_IMAGES=1
+shift
+goto parse_args
+:done_args
 
 echo.
 echo  =========================================
@@ -20,6 +32,11 @@ echo   GoCloud - Build ^& Publish to VPS
 echo  =========================================
 echo  Target: %VPS_USER%@%VPS_HOST%
 echo  Remote: %VPS_REMOTE_PATH%
+if "%WITH_IMAGES%"=="1" (
+echo  Images: Included
+) else (
+echo  Images: Skipped ^(use /WITHIMAGES to include^)
+)
 echo  =========================================
 echo.
 
@@ -95,7 +112,11 @@ REM --- Stage deployment package ---
 echo  [4/6] Staging deployment package...
 echo  ------------------------------------------------
 
-powershell -ExecutionPolicy Bypass -File "%PROJECT_DIR%deploy-iis.ps1" -BuildOnly
+if "%WITH_IMAGES%"=="1" (
+    powershell -ExecutionPolicy Bypass -File "%PROJECT_DIR%deploy-iis.ps1" -BuildOnly -WithImages
+) else (
+    powershell -ExecutionPolicy Bypass -File "%PROJECT_DIR%deploy-iis.ps1" -BuildOnly
+)
 if %errorlevel% neq 0 (
     echo  [ERROR] Deployment staging failed!
     popd
@@ -114,9 +135,11 @@ REM Copy extra files that deploy-iis.ps1 might miss
 if exist "google8ec4a2e3b3ab7585.html" (
     copy /y "google8ec4a2e3b3ab7585.html" "%DEPLOYMENT_DIR%\" >nul 2>&1
 )
-if exist "images\icons" (
-    if not exist "%DEPLOYMENT_DIR%\images\icons" mkdir "%DEPLOYMENT_DIR%\images\icons"
-    xcopy /y /q "images\icons\*" "%DEPLOYMENT_DIR%\images\icons\" >nul 2>&1
+if "%WITH_IMAGES%"=="1" (
+    if exist "images\icons" (
+        if not exist "%DEPLOYMENT_DIR%\images\icons" mkdir "%DEPLOYMENT_DIR%\images\icons"
+        xcopy /y /q "images\icons\*" "%DEPLOYMENT_DIR%\images\icons\" >nul 2>&1
+    )
 )
 
 popd
@@ -152,6 +175,19 @@ if %errorlevel% neq 0 (
     echo  Check your SSH connection and try again.
     pause
     exit /b 1
+)
+
+echo  [OK] Upload completed
+echo.
+
+REM --- Install API dependencies on VPS ---
+echo  [7/7] Installing API dependencies on VPS...
+ssh -p %SSH_PORT% %VPS_USER%@%VPS_HOST% "cd C:\inetpub\wwwroot\GoCloud_website_project\api && npm install --omit=dev 2>&1"
+
+if %errorlevel% neq 0 (
+    echo  [WARN] API dependency install failed - may need manual setup
+) else (
+    echo  [OK] API dependencies installed
 )
 
 echo.

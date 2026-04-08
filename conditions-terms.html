@@ -105,11 +105,47 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap">
     </noscript>
     <!-- Custom styles-->
+    <style>
+      /* ── Hero ── */
+      .terms-hero{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 60%,#0E38B1 100%);padding:6rem 0 4rem;position:relative;overflow:hidden}
+      .terms-hero::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:80px;background:#fff;clip-path:polygon(0 60%,100% 0,100% 100%,0 100%)}
+      .terms-hero h1{font-size:2.75rem;font-weight:800;color:#fff}
+      .terms-hero p{color:rgba(255,255,255,.8);max-width:540px}
+      .terms-hero .breadcrumb-link{color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem}
+      .terms-hero .breadcrumb-link:hover{color:#fff}
+      .terms-hero .breadcrumb-sep{color:rgba(255,255,255,.35);margin:0 8px}
+      .terms-hero .breadcrumb-current{color:#A1E934;font-weight:600;font-size:.9rem}
+      
+      /* ── Section helpers ── */
+      .section-tag{display:inline-flex;align-items:center;gap:8px;background:#EEF2FF;border-radius:50px;padding:6px 16px;font-size:.8rem;font-weight:600;color:#0E38B1;margin-bottom:1rem}
+      .section-tag img{height:24px;width:24px}
+      .section-heading{font-size:2rem;font-weight:800;color:#0D0E10;margin-bottom:1rem}
+      .section-lead{color:#4a4b5c;font-size:1.05rem;line-height:1.7;max-width:620px}
+      
+      /* ── Terms content ── */
+      .terms-section{padding:5rem 0}
+      .terms-content h3{font-size:1.25rem;font-weight:700;color:#0D0E10;margin-top:2.5rem;margin-bottom:.75rem;padding-left:14px;border-left:3px solid #0E38B1}
+      .terms-content p{color:#4a4b5c;font-size:.95rem;line-height:1.75}
+      .terms-content ul{color:#4a4b5c;font-size:.95rem;line-height:1.75;padding-left:1.25rem}
+      .terms-content ul li{margin-bottom:.5rem}
+      .terms-content .intro-text{font-size:1.05rem;line-height:1.8;color:#4a4b5c;margin-bottom:2rem}
+      
+      /* ── Highlight cards ── */
+      .terms-highlight{background:#f7f9ff;border:1px solid #e9ecef;border-radius:16px;padding:2rem;margin:2rem 0;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+      .terms-highlight h4{font-size:1.1rem;font-weight:700;color:#0E38B1;margin-bottom:1rem}
+      .terms-highlight ul{margin-bottom:0}
+      
+      /* ── Contact box ── */
+      .contact-info-box{background:#fff;border:1px solid #e9ecef;border-left:4px solid #0E38B1;border-radius:12px;padding:1.5rem 2rem;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+      .contact-info-box a{color:#0E38B1;text-decoration:none;transition:color .3s}
+      .contact-info-box a:hover{color:#113ADC}
+      @media(max-width:767px){.terms-hero h1{font-size:2rem}}
+      
+    </style>
   </head>
   <body class="body tg-heading-subheading animation-style3">
     <!-- Main content wrapper-->
     <main id="main-content">
-      <!-- Include components-->
       <div class="paginacontainer">
         <div class="progress-wrap">
           <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -178,7 +214,7 @@
               <div class="top-bar-item"><i class="fas fa-map-marker-alt"></i><span>Giza, Egypt</span></div>
             </div>
             <div class="top-bar-right">
-              <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Learning Partner" width="22" height="22">Odoo Learning Partner</div>
+              <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22">Odoo Official Partner</div>
               <div class="top-bar-social"><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
             </div>
           </div>
@@ -211,7 +247,7 @@
                         <p>Make a Call</p><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a>
                       </div>
                     </div>
-                    <div class="button"><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+                    <div class="button d-flex gap-2"><a class="theme-btn1" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i>Book a Free Demo</a><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
                   </div>
                 </div>
               </div>
@@ -250,7 +286,7 @@
                 <li role="none"><a href="blog/index.html" role="menuitem"><i class="fas fa-blog me-2"></i>Blog</a></li>
               </ul>
             </nav>
-            <div class="mobile-button"><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+            <div class="mobile-button"><a class="menu-btn2 mb-2" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i>Book a Free Demo</a><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
             <div class="single-footer-items">
               <h3>Contact Us</h3>
               <div class="contact-box">
@@ -281,63 +317,104 @@
           </div>
         </div>
       </header>
-      <!-- Hero Section-->
-      <div class="hero-terms">
+      <div class="terms-hero">
         <div class="container">
-          <h1 class="title">Terms and Conditions</h1>
-          <p>Last Updated: January 1, 2025</p>
-        </div>
-      </div>
-      <!-- Terms Content Section-->
-      <div class="terms-section">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-10 m-auto terms-content">
-              <p>Welcome to GoCloud. These Terms and Conditions ("Terms", "Terms and Conditions") govern your relationship with GoCloud website ("Website", "Service") operated by GoCloud ("us", "we", or "our").</p>
-              <p>Please read these Terms and Conditions carefully before using our website and services. By accessing or using the Website, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service.</p>
-              <h2 class="mt-5 mb-3">1. Website Terms</h2>
-              <p class="mb-3">By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority and have given us your consent to allow any of your minor dependents to use this site.</p>
-              <p class="mb-3">You may not use our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).</p>
-              <h2 class="mt-5 mb-3">2. General Conditions</h2>
-              <p class="mb-3">We reserve the right to refuse service to anyone for any reason at any time.</p>
-              <p class="mb-3">You understand that your content (not including credit card information), may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices.</p>
-              <p class="mb-3">You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service without the express written permission by us.</p>
-              <p class="mb-3">The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.</p>
-              <h2 class="mt-5 mb-3">3. Software and Services</h2>
-              <p class="mb-3">Certain products or services may be available exclusively online through the website. These products or services may have limited quantities and are subject to return or exchange only according to our Return Policy.</p>
-              <p class="mb-3">We have made every effort to display as accurately as possible the colors, features, specifications, and details of the products available on the website. However, we do not guarantee that the colors, features, specifications, and details of the products will be accurate, complete, reliable, current, or free of other errors, and your electronic display may not accurately reflect the actual colors and details of the products.</p>
-              <p class="mb-3">We reserve the right, but are not obligated, to limit the sales of our products or Services to any person, geographic region or jurisdiction. We may exercise this right on a case-by-case basis.</p>
-              <h2 class="mt-5 mb-3">4. User Accounts</h2>
-              <p class="mb-3">When you create an account with us, you must provide information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Service.</p>
-              <p class="mb-3">You are responsible for safeguarding the password that you use to access the Service and for any activities or actions under your password, whether your password is with our Service or a third-party service.</p>
-              <p class="mb-3">You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>
-              <h2 class="mt-5 mb-3">5. Intellectual Property Rights</h2>
-              <p class="mb-3">The Service and its original content, features and functionality are and will remain the exclusive property of GoCloud and its licensors. The Service is protected by copyright, trademark, and other laws of both Egypt and foreign countries.</p>
-              <p class="mb-3">Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of GoCloud.</p>
-              <h2 class="mt-5 mb-3">6. Software Licenses</h2>
-              <p class="mb-3">If you access or use any software provided by GoCloud, whether as part of the Service or separately, you agree to be bound by the terms of the end-user license agreement or other terms of service that accompany such software.</p>
-              <p class="mb-3">You may not reverse engineer, decompile, or disassemble any software provided by GoCloud, except to the extent that such restriction is expressly prohibited by applicable law.</p>
-              <h2 class="mt-5 mb-3">7. Service Level Agreement (SLA)</h2>
-              <p class="mb-3">GoCloud strives to provide high-quality services with minimal downtime. Our Service Level Agreement (SLA) outlines our commitment to service availability and performance metrics.</p>
-              <h2 class="mt-5 mb-3">8. Termination</h2>
-              <p class="mb-3">We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
-              <p class="mb-3">Upon termination, your right to use the Service will immediately cease. If you wish to terminate your account, you may simply discontinue using the Service.</p>
-              <h2 class="mt-5 mb-3">9. Governing Law</h2>
-              <p class="mb-3">These Terms shall be interpreted and governed by the laws of Egypt, without regard to its conflict of law provisions.</p>
-              <p class="mb-3">Any dispute relating in any way to your visit to or use of the Service shall be adjudicated in the courts of Egypt.</p>
-              <h2 class="mt-5 mb-3">10. Changes to Terms and Conditions</h2>
-              <p class="mb-3">We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days notice prior to any new terms taking effect.</p>
-              <p class="mb-3">What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.</p>
-              <h2 class="mt-5 mb-3">11. Limitation of Liability</h2>
-              <p class="mb-3">In no event shall GoCloud, its directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the Service.</p>
-              <h2 class="mt-5 mb-3">12. Contact Information</h2>
-              <p class="mb-3">Questions about the Terms and Conditions should be sent to us at<a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a>.</p>
-              <p class="mt-5">Last updated: January 1, 2025</p>
+          <div class="row align-items-center">
+            <div class="col-lg-7">
+              <div class="mb-3"><a class="breadcrumb-link" href="index.html">Home</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Terms &amp; Conditions</span></div>
+              <h1>Terms &amp; Conditions</h1>
+              <div class="space16"></div>
+              <p>Please read these terms carefully before using GoCloud's website and services.</p>
+              <div class="mt-3"><span class="badge rounded-pill bg-light text-dark px-3 py-2"><i class="fa-solid fa-calendar-alt me-2"></i>Last Updated: April 2026</span></div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Include footer-->
+      <section class="terms-section">
+        <div class="container">
+          <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+              <div class="section-tag"><img src="images/gocloud%20logo.webp" alt="" loading="lazy">Legal</div>
+              <h2 class="section-heading">Terms of Service</h2>
+              <p class="text-muted">The following terms govern your use of the GoCloud website, products, and services.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-10 m-auto terms-content">
+              <p class="intro-text">Welcome to GoCloud. These Terms and Conditions ("Terms") govern your access to and use of the GoCloud website and all related services — including Odoo ERP consulting, cloud computing solutions, and the ELITE medical-insurance platform. By accessing or using our website, you agree to be bound by these Terms. If you do not agree, please do not use our services.</p>
+              <h3>1. Acceptance of Terms</h3>
+              <p>By accessing, browsing, or using this website, you acknowledge that you have read, understood, and agree to comply with these Terms and all applicable laws and regulations. GoCloud reserves the right to update or modify these Terms at any time, and your continued use of the website constitutes acceptance of such changes.</p>
+              <h3>2. Services Overview</h3>
+              <p>GoCloud provides technology consulting and implementation services including, but not limited to:</p>
+              <ul>
+                <li>Odoo ERP implementation, customization, and support.</li>
+                <li>Cloud computing infrastructure and migration services.</li>
+                <li>The ELITE medical insurance management platform.</li>
+                <li>Custom software development and IT consulting.</li>
+              </ul>
+              <p>The specific scope, deliverables, and timelines for any engagement are defined in individual service agreements or statements of work executed between GoCloud and the client.</p>
+              <h3>3. Use of the Website</h3>
+              <p>You agree to use this website solely for lawful purposes and in a manner that does not infringe upon the rights of others or restrict their use of the website. Specifically, you shall not:</p>
+              <ul>
+                <li>Use the website for any fraudulent, unlawful, or unauthorized purpose.</li>
+                <li>Attempt to gain unauthorized access to any part of the website, its servers, or connected systems.</li>
+                <li>Reproduce, duplicate, copy, sell, or exploit any portion of the website without express written permission from GoCloud.</li>
+                <li>Introduce any viruses, malware, or harmful code to the website.</li>
+              </ul>
+              <h3>4. Intellectual Property</h3>
+              <p>All content on this website — including text, graphics, logos, images, software, and design elements — is the exclusive property of GoCloud or its licensors and is protected by copyright, trademark, and other intellectual property laws of Egypt and international treaties.</p>
+              <p>You may not use, reproduce, or distribute any content from this website without prior written consent from GoCloud. The GoCloud name, logo, and all related trademarks may not be used in connection with any product or service that is not affiliated with GoCloud.</p>
+              <h3>5. User Accounts</h3>
+              <p>Certain services may require you to create an account. When you do, you agree to:</p>
+              <ul>
+                <li>Provide accurate, current, and complete information during registration.</li>
+                <li>Maintain the security and confidentiality of your account credentials.</li>
+                <li>Accept responsibility for all activities that occur under your account.</li>
+                <li>Notify GoCloud immediately if you suspect unauthorized use of your account.</li>
+              </ul>
+              <p>GoCloud reserves the right to suspend or terminate accounts that violate these Terms or are inactive for an extended period.</p>
+              <h3>6. Service Agreements &amp; Licensing</h3>
+              <p>Access to GoCloud's software products and platforms — including the ELITE platform and Odoo implementations — is governed by separate end-user license agreements (EULAs) or subscription terms provided at the time of purchase or enrollment.</p>
+              <p>You may not reverse engineer, decompile, disassemble, or attempt to derive the source code of any GoCloud software, except where such restriction is expressly prohibited by applicable law.</p>
+              <div class="terms-highlight">
+                <h4><i class="fa-solid fa-file-contract me-2"></i>Key Service Terms</h4>
+                <ul>
+                  <li>All project deliverables are subject to the terms defined in the applicable statement of work.</li>
+                  <li>Software licenses are non-transferable unless explicitly stated otherwise.</li>
+                  <li>Support and maintenance terms are defined in the relevant service level agreement (SLA).</li>
+                  <li>GoCloud strives for high service availability, with uptime commitments outlined in individual SLAs.</li>
+                </ul>
+              </div>
+              <h3>7. Payment Terms</h3>
+              <p>Where applicable, fees for GoCloud's services are outlined in the relevant service agreement. Unless otherwise specified:</p>
+              <ul>
+                <li>Payments are due within the timeframe stated in the invoice.</li>
+                <li>All fees are quoted in the currency specified and are exclusive of applicable taxes.</li>
+                <li>Late payments may be subject to suspension of services or additional charges as outlined in the service agreement.</li>
+              </ul>
+              <h3>8. Limitation of Liability</h3>
+              <p>To the maximum extent permitted by law, GoCloud, its directors, employees, partners, and affiliates shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, data, use, or goodwill — arising from your use of the website or services.</p>
+              <p>GoCloud's total liability for any claim related to the services shall not exceed the amount paid by you to GoCloud for the specific service giving rise to the claim.</p>
+              <h3>9. Confidentiality</h3>
+              <p>Both parties agree to maintain the confidentiality of any proprietary or sensitive information exchanged during the course of a service engagement. This obligation survives the termination of any service agreement.</p>
+              <h3>10. Termination</h3>
+              <p>GoCloud may suspend or terminate your access to the website or services at any time, without prior notice, for conduct that violates these Terms or is otherwise harmful to GoCloud or other users.</p>
+              <p>Upon termination, your right to use the website and services will cease immediately. Any provisions of these Terms that by their nature should survive termination shall remain in effect.</p>
+              <h3>11. Governing Law &amp; Jurisdiction</h3>
+              <p>These Terms shall be governed by and construed in accordance with the laws of the Arab Republic of Egypt. Any disputes arising from or related to these Terms or your use of the website shall be subject to the exclusive jurisdiction of the courts of Egypt.</p>
+              <h3>12. Changes to These Terms</h3>
+              <p>GoCloud reserves the right to modify these Terms at any time. Material changes will be communicated by posting the updated Terms on this page with a revised effective date. Your continued use of the website after such changes constitutes your acceptance of the updated Terms.</p>
+              <h3>13. Contact Us</h3>
+              <p>If you have any questions about these Terms and Conditions, please contact us:</p>
+              <div class="contact-info-box mt-3">
+                <p class="mb-2"><strong><i class="fa-solid fa-building me-2"></i>GoCloud</strong></p>
+                <p class="mb-2"><i class="fa-solid fa-envelope me-2"></i><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></p>
+                <p class="mb-0"><i class="fa-solid fa-phone me-2"></i><a href="tel:+201017383815">+20 101 738 3815</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- Footer Component-->
       <footer>
         <div class="footer1 _relative">
@@ -345,7 +422,7 @@
             <div class="row gy-4">
               <div class="col-lg-3 col-md-6 col-12">
                 <div class="single-footer-items"><a class="footer-logo d-inline-block mb-3" href="index.html" aria-label="GoCloud Home"><img src="images/gocloud logo.webp" height="60" width="60" alt="GoCloud Logo" loading="lazy"></a>
-                  <p class="footer-desc">We're dedicated to delivering innovative technology solutions tailored to meet the unique needs of businesses like yours.</p>
+                  <p class="footer-desc">As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.</p>
                   <ul class="social-icon d-flex gap-2 mt-3">
                     <li><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
                     <li><a href="https://www.google.com/search?q=gocloud+eg" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fa-brands fa-google"></i></a></li>
@@ -419,7 +496,6 @@
           </div>
         </div>
       </footer>
-      <!-- Include whatsapp button-->
       <!-- WhatsApp Floating Button Component-->
       <style>
         .whatsapp-float {
@@ -464,6 +540,196 @@
         });
       </script>
     </main>
+    <!-- Demo Booking Modal (global)-->
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="border: none; border-radius: 20px; overflow: hidden;">
+          <div class="modal-header" style="background: linear-gradient(135deg, #0E38B1 0%, #113ADC 100%); border: none; padding: 1.75rem 2rem;">
+            <div class="d-flex align-items-center gap-3">
+              <div class="d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(161, 233, 52, 0.2); border-radius: 12px;"><i class="fa-solid fa-calendar-check" style="font-size: 1.25rem; color: #A1E934;" aria-hidden="true"></i></div>
+              <div>
+                <h5 class="mb-0" id="demoModalLabel" style="color: #fff; font-weight: 700; font-size: 1.25rem;">Book a Free Demo</h5>
+                <p class="mb-0" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">See how GoCloud solutions can transform your business</p>
+              </div>
+            </div>
+            <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="padding: 2rem;">
+            <form id="demoBookingForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="demoFirstName" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-user me-1" style="color: #0E38B1;" aria-hidden="true"></i>First Name<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoFirstName" type="text" name="firstName" placeholder="e.g. Ahmed" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please enter your first name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoLastName" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-user me-1" style="color: #0E38B1;" aria-hidden="true"></i>Last Name<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoLastName" type="text" name="lastName" placeholder="e.g. Hassan" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please enter your last name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoEmail" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-envelope me-1" style="color: #0E38B1;" aria-hidden="true"></i>Email Address<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoEmail" type="email" name="email" placeholder="e.g. ahmed@company.com" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoPhone" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-mobile-screen me-1" style="color: #0E38B1;" aria-hidden="true"></i>Mobile Number<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoPhone" type="tel" name="phone" placeholder="e.g. +20 10X XXX XXXX" required pattern="[\+]?[0-9\s\-]{8,20}" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please enter a valid mobile number.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoCompany" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-building me-1" style="color: #0E38B1;" aria-hidden="true"></i>Company Name</label>
+                  <input class="form-control" id="demoCompany" type="text" name="company" placeholder="e.g. ABC Corp" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoService" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-cogs me-1" style="color: #0E38B1;" aria-hidden="true"></i>Interested In</label>
+                  <select class="form-select" id="demoService" name="service" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                    <option value="" selected>Select a service...</option>
+                    <option value="Odoo ERP">Odoo ERP Implementation</option>
+                    <option value="Cloud Solutions">Cloud Solutions</option>
+                    <option value="ELITE Insurance">ELITE Medical Insurance Platform</option>
+                    <option value="Business Intelligence">Business Intelligence</option>
+                    <option value="Custom Development">Custom Software Development</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoDate" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-calendar me-1" style="color: #0E38B1;" aria-hidden="true"></i>Preferred Date<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoDate" type="date" name="preferredDate" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please select a preferred date.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoTime" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-clock me-1" style="color: #0E38B1;" aria-hidden="true"></i>Preferred Time<span class="text-danger">*</span></label>
+                  <select class="form-select" id="demoTime" name="preferredTime" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                    <option value="" selected>Select a time slot...</option>
+                    <option value="09:00 - 10:00 AM">09:00 — 10:00 AM</option>
+                    <option value="10:00 - 11:00 AM">10:00 — 11:00 AM</option>
+                    <option value="11:00 - 12:00 PM">11:00 — 12:00 PM</option>
+                    <option value="12:00 - 01:00 PM">12:00 — 01:00 PM</option>
+                    <option value="01:00 - 02:00 PM">01:00 — 02:00 PM</option>
+                    <option value="02:00 - 03:00 PM">02:00 — 03:00 PM</option>
+                    <option value="03:00 - 04:00 PM">03:00 — 04:00 PM</option>
+                    <option value="04:00 - 05:00 PM">04:00 — 05:00 PM</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a preferred time.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="demoNotes" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-comment me-1" style="color: #0E38B1;" aria-hidden="true"></i>Additional Notes</label>
+                  <textarea class="form-control" id="demoNotes" name="notes" rows="3" placeholder="Tell us about your requirements or questions..." style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6; resize: vertical;"></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer" style="border-top: 1px solid #e9ecef; padding: 1.25rem 2rem;">
+            <button class="btn btn-light" type="button" data-bs-dismiss="modal" style="border-radius: 50px; padding: 10px 24px; font-weight: 600;">Cancel</button>
+            <button class="btn" id="demoSubmitBtn" type="button" style="background: linear-gradient(135deg, #0E38B1, #113ADC); color: #fff; border: none; border-radius: 50px; padding: 10px 28px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>Submit Request</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var submitBtn = document.getElementById('demoSubmitBtn');
+        var form = document.getElementById('demoBookingForm');
+        var modal = document.getElementById('demoModal');
+        var dateInput = document.getElementById('demoDate');
+        if (dateInput) {
+          var today = new Date().toISOString().split('T')[0];
+          dateInput.setAttribute('min', today);
+        }
+        if (submitBtn && form) {
+          submitBtn.addEventListener('click', function () {
+            if (!form.checkValidity()) {
+              form.classList.add('was-validated');
+              return;
+            }
+            var firstName = document.getElementById('demoFirstName').value.trim();
+            var lastName = document.getElementById('demoLastName').value.trim();
+            var email = document.getElementById('demoEmail').value.trim();
+            var phone = document.getElementById('demoPhone').value.trim();
+            var company = document.getElementById('demoCompany').value.trim();
+            var service = document.getElementById('demoService').value;
+            var date = document.getElementById('demoDate').value;
+            var time = document.getElementById('demoTime').value;
+            var notes = document.getElementById('demoNotes').value.trim();
+            var subject = 'Demo Request from ' + firstName + ' ' + lastName;
+            var body = 'Name: ' + firstName + ' ' + lastName + '\n'
+              + 'Email: ' + email + '\n'
+              + 'Mobile: ' + phone + '\n'
+              + (company ? 'Company: ' + company + '\n' : '')
+              + (service ? 'Service Interest: ' + service + '\n' : '')
+              + 'Preferred Date: ' + date + '\n'
+              + 'Preferred Time: ' + time + '\n'
+              + (notes ? 'Notes: ' + notes + '\n' : '');
+            window.location.href = 'mailto:marketing@gocloudeg.com'
+              + '?subject=' + encodeURIComponent(subject)
+              + '&body=' + encodeURIComponent(body);
+            var bsModal = bootstrap.Modal.getInstance(modal);
+            if (bsModal) {
+              bsModal.hide();
+            }
+            form.reset();
+            form.classList.remove('was-validated');
+          });
+        }
+      });
+    </script>
+    <!-- AI Chatbot Widget (global)-->
+    <style>
+      .gc-chat-btn{position:fixed;bottom:170px;right:30px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;border:none;cursor:pointer;z-index:1100;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(14,56,177,.35);transition:all .3s}
+      .gc-chat-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(14,56,177,.45)}
+      .gc-chat-btn .gc-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;background:#A1E934;border-radius:50%;border:2px solid #fff;animation:gc-pulse 2s infinite}
+      @keyframes gc-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+      .gc-chat-btn i{font-size:1.4rem}
+      .gc-chat-panel{position:fixed;bottom:170px;right:30px;width:380px;height:520px;background:#fff;border-radius:20px;box-shadow:0 12px 48px rgba(0,0,0,.15);z-index:1100;display:none;flex-direction:column;overflow:hidden;border:1px solid #e9ecef}
+      .gc-chat-panel.gc-open{display:flex}
+      .gc-chat-header{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 100%);padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+      .gc-chat-header img{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.15);padding:4px}
+      .gc-chat-header-info{flex:1}
+      .gc-chat-header-info h6{color:#fff;font-size:.9rem;font-weight:700;margin:0}
+      .gc-chat-header-info span{color:rgba(255,255,255,.7);font-size:.72rem}
+      .gc-chat-close{background:none;border:none;color:rgba(255,255,255,.7);font-size:1.1rem;cursor:pointer;padding:4px 8px;border-radius:8px;transition:all .2s}
+      .gc-chat-close:hover{color:#fff;background:rgba(255,255,255,.15)}
+      .gc-chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#f8f9fb}
+      .gc-chat-messages::-webkit-scrollbar{width:4px}
+      .gc-chat-messages::-webkit-scrollbar-thumb{background:#c7d2fe;border-radius:4px}
+      .gc-msg{max-width:85%;padding:10px 14px;border-radius:16px;font-size:.875rem;line-height:1.6;word-wrap:break-word}
+      .gc-msg a{color:inherit;text-decoration:underline}
+      .gc-msg-bot{background:#fff;color:#333;align-self:flex-start;border:1px solid #e9ecef;border-bottom-left-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+      .gc-msg-user{background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+      .gc-typing{align-self:flex-start;background:#fff;border:1px solid #e9ecef;border-radius:16px;padding:10px 18px;display:none;gap:4px;align-items:center;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+      .gc-typing.gc-show{display:flex}
+      .gc-typing span{width:6px;height:6px;background:#0E38B1;border-radius:50%;animation:gc-bounce .6s infinite alternate}
+      .gc-typing span:nth-child(2){animation-delay:.2s}
+      .gc-typing span:nth-child(3){animation-delay:.4s}
+      @keyframes gc-bounce{to{transform:translateY(-6px);opacity:.4}}
+      .gc-chat-input{display:flex;align-items:center;gap:8px;padding:12px 16px;border-top:1px solid #e9ecef;background:#fff;flex-shrink:0}
+      .gc-chat-input input{flex:1;border:1px solid #dee2e6;border-radius:50px;padding:10px 16px;font-size:.875rem;outline:none;transition:border-color .2s}
+      .gc-chat-input input:focus{border-color:#0E38B1;box-shadow:0 0 0 3px rgba(14,56,177,.1)}
+      .gc-chat-input button{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+      .gc-chat-input button:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(14,56,177,.3)}
+      .gc-chat-input button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+      .gc-chat-powered{text-align:center;padding:6px;font-size:.65rem;color:#999;background:#fff;border-top:1px solid #f0f1f5;flex-shrink:0}
+      @media(max-width:576px){.gc-chat-panel{width:100%;height:100%;bottom:0;right:0;border-radius:0}.gc-chat-btn{bottom:160px;right:20px}}
+      
+    </style>
+    <button class="gc-chat-btn" id="gcChatBtn" type="button" aria-label="Open AI Chat Assistant" title="Chat with GoCloud AI"><i class="fa-solid fa-robot" aria-hidden="true"></i><span class="gc-badge" aria-hidden="true"></span></button>
+    <div class="gc-chat-panel" id="gcChatPanel" role="dialog" aria-label="GoCloud AI Chat Assistant">
+      <div class="gc-chat-header"><img src="images/gocloud%20logo.webp" alt="GoCloud" loading="lazy">
+        <div class="gc-chat-header-info">
+          <h6>GoCloud AI Assistant</h6><span><i class="fa-solid fa-circle me-1" style="font-size:6px;color:#A1E934;"></i>Online</span>
+        </div>
+        <button class="gc-chat-close" type="button" aria-label="Close chat"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </div>
+      <div class="gc-chat-messages" id="gcChatMessages" aria-live="polite" aria-label="Chat messages"></div>
+      <div class="gc-typing" id="gcTyping" aria-label="Assistant is typing"><span></span><span></span><span></span></div>
+      <div class="gc-chat-input">
+        <input id="gcChatInput" type="text" placeholder="Ask about Odoo, ELITE, or our services..." aria-label="Type your message" autocomplete="off" maxlength="500">
+        <button id="gcChatSend" type="button" aria-label="Send message"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+      </div>
+      <div class="gc-chat-powered">Powered by GoCloud AI</div>
+    </div>
+    <script src="js/chatbot.min.js" defer></script>
     <!-- Scripts (CDN)-->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
