@@ -1,30 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <meta name="robots" content="noindex, nofollow" />
-    <meta name="description" />
-    <meta name="keywords" />
-    <link rel="canonical" />
-    <meta property="og:title" />
-    <meta property="og:description" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" />
-    <meta property="og:image" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" />
-    <meta name="twitter:description" />
-    <meta name="twitter:image" />
+    <meta name="description">
+    <meta name="keywords">
+    <link rel="canonical">
+    <meta property="og:title">
+    <meta property="og:description">
+    <meta property="og:type" content="website">
+    <meta property="og:url">
+    <meta property="og:image">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title">
+    <meta name="twitter:description">
+    <meta name="twitter:image">
     <!-- Accessibility improvements-->
-    <meta name="theme-color" content="#ffffff" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#ffffff">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Accessibility meta tags-->
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-    <link rel="alternate" hreflang="en" />
-    <link rel="alternate" hreflang="x-default" />
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="alternate" hreflang="en">
+    <link rel="alternate" hreflang="x-default">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -50,326 +49,111 @@
           "longitude": 31.0924841
         },
         "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJY6qKY7RPWBQRjTQuWEVsOHQ",
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
-            "opens": "09:00",
-            "closes": "18:00"
-          }
-        ],
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }],
         "sameAs": [
           "https://www.linkedin.com/company/gocloud-co",
           "https://www.facebook.com/GoCloudEg/",
           "https://www.youtube.com/@GoCloudeg"
         ],
-        "contactPoint": [
-          {
-            "@type": "ContactPoint",
-            "telephone": "+201017383815",
-            "contactType": "Customer Service"
-          }
-        ]
+        "contactPoint": [{
+          "@type": "ContactPoint",
+          "telephone": "+201017383815",
+          "contactType": "Customer Service"
+        }]
       }
+      
     </script>
     <!-- Favicon-->
-    <link rel="icon" href="images/favicon.ico" sizes="32x32" />
-    <link rel="icon" href="images/gocloud logo.webp" type="image/webp" />
+    <link rel="icon" href="images/favicon.ico" sizes="32x32">
+    <link rel="icon" href="images/gocloud logo.webp" type="image/webp">
     <!-- Apple Touch Icon-->
-    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/icon-192x192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/icon-192x192.png">
     <!-- PWA Manifest-->
-    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="manifest.json">
     <!-- Critical CSS (render-blocking — needed for above-the-fold)-->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha384-blOohCVdhjmtROpu8+CfTnUWham9nkX7P7OZQMst+RUnhtoY/9qemFAkIKOYxDI3"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/main.min.css" />
-    <link rel="stylesheet" href="css/plugins-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha384-blOohCVdhjmtROpu8+CfTnUWham9nkX7P7OZQMst+RUnhtoY/9qemFAkIKOYxDI3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/plugins-bundle.min.css">
     <!-- Non-critical CSS (deferred — for below-fold components)-->
-    <link
-      rel="preload"
-      href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css"
-      as="style"
-      integrity="sha384-BzI6huNjli1y/9x1UdWL6qKDFkPsARwL5jA52HvMQscsUrvEx/0sxAoQw8Lr+Dgw"
-      crossorigin="anonymous"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
-    <link
-      rel="preload"
-      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-      as="style"
-      integrity="sha384-MUdXdzn1OB/0zkr4yGLnCqZ/n9ut5N7Ifes9RP2d5xKsTtcPiuiwthWczWuiqFOn"
-      crossorigin="anonymous"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
-    <link
-      rel="preload"
-      href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css"
-      as="style"
-      integrity="sha384-kcNNzf7wI8//ZkNUaDd5JwxLoFaBgkj9Z4O4NwtuX9Lkmsz0HoITOxJsGkYxDuyG"
-      crossorigin="anonymous"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
-    <link
-      rel="preload"
-      href="https://unpkg.com/aos@2.3.4/dist/aos.css"
-      as="style"
-      integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9"
-      crossorigin="anonymous"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
-    <link
-      rel="preload"
-      href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-      as="style"
-      integrity="sha384-VtAbyHBFULcj75mXhsQnIQUrCiTcHosNqmBMhE2t5jRWaFO1DviOnG9pxHSeNF9k"
-      crossorigin="anonymous"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css" as="style" integrity="sha384-BzI6huNjli1y/9x1UdWL6qKDFkPsARwL5jA52HvMQscsUrvEx/0sxAoQw8Lr+Dgw" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" as="style" integrity="sha384-MUdXdzn1OB/0zkr4yGLnCqZ/n9ut5N7Ifes9RP2d5xKsTtcPiuiwthWczWuiqFOn" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" as="style" integrity="sha384-kcNNzf7wI8//ZkNUaDd5JwxLoFaBgkj9Z4O4NwtuX9Lkmsz0HoITOxJsGkYxDuyG" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://unpkg.com/aos@2.3.4/dist/aos.css" as="style" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" as="style" integrity="sha384-VtAbyHBFULcj75mXhsQnIQUrCiTcHosNqmBMhE2t5jRWaFO1DviOnG9pxHSeNF9k" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css"
-      />
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-      />
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css"
-      />
-      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
     </noscript>
     <!-- Preconnect & DNS prefetch for CDNs and third-party origins-->
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Font preload with font-display: swap for better performance-->
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap"
-      as="style"
-      onload="
-        this.onload = null;
-        this.rel = 'stylesheet';
-      "
-    />
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap"
-      />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap">
     </noscript>
     <!-- Custom styles-->
   </head>
   <body class="body tg-heading-subheading animation-style3">
     <!-- Main content wrapper-->
-    <main id="main-content"></main>
+    <main id="main-content">
+    </main>
     <!-- Demo Booking Modal (global)-->
-    <div
-      class="modal fade"
-      id="demoModal"
-      tabindex="-1"
-      aria-labelledby="demoModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content" style="border: none; border-radius: 20px; overflow: hidden">
-          <div
-            class="modal-header"
-            style="
-              background: linear-gradient(135deg, #0e38b1 0%, #113adc 100%);
-              border: none;
-              padding: 1.75rem 2rem;
-            "
-          >
+        <div class="modal-content" style="border: none; border-radius: 20px; overflow: hidden;">
+          <div class="modal-header" style="background: linear-gradient(135deg, #0E38B1 0%, #113ADC 100%); border: none; padding: 1.75rem 2rem;">
             <div class="d-flex align-items-center gap-3">
-              <div
-                class="d-flex align-items-center justify-content-center"
-                style="
-                  width: 48px;
-                  height: 48px;
-                  background: rgba(161, 233, 52, 0.2);
-                  border-radius: 12px;
-                "
-              >
-                <i
-                  class="fa-solid fa-calendar-check"
-                  style="font-size: 1.25rem; color: #a1e934"
-                  aria-hidden="true"
-                ></i>
-              </div>
+              <div class="d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(161, 233, 52, 0.2); border-radius: 12px;"><i class="fa-solid fa-calendar-check" style="font-size: 1.25rem; color: #A1E934;" aria-hidden="true"></i></div>
               <div>
-                <h5
-                  class="mb-0"
-                  id="demoModalLabel"
-                  style="color: #fff; font-weight: 700; font-size: 1.25rem"
-                >
-                  Book a Free Demo
-                </h5>
-                <p class="mb-0" style="color: rgba(255, 255, 255, 0.7); font-size: 0.85rem">
-                  See how GoCloud solutions can transform your business
-                </p>
+                <h5 class="mb-0" id="demoModalLabel" style="color: #fff; font-weight: 700; font-size: 1.25rem;">Book a Free Demo</h5>
+                <p class="mb-0" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">See how GoCloud solutions can transform your business</p>
               </div>
             </div>
-            <button
-              class="btn-close btn-close-white"
-              type="button"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body" style="padding: 2rem">
+          <div class="modal-body" style="padding: 2rem;">
             <form id="demoBookingForm" novalidate>
               <div class="row g-3">
                 <div class="col-md-6">
-                  <label
-                    class="form-label"
-                    for="demoFirstName"
-                    style="font-weight: 600; font-size: 0.85rem; color: #0d0e10"
-                    ><i class="fa-solid fa-user me-1" style="color: #0e38b1" aria-hidden="true"></i
-                    >First Name<span class="text-danger">*</span></label
-                  >
-                  <input
-                    class="form-control"
-                    id="demoFirstName"
-                    type="text"
-                    name="firstName"
-                    placeholder="e.g. Ahmed"
-                    required
-                    style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6"
-                  />
+                  <label class="form-label" for="demoFirstName" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-user me-1" style="color: #0E38B1;" aria-hidden="true"></i>First Name<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoFirstName" type="text" name="firstName" placeholder="e.g. Ahmed" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
                   <div class="invalid-feedback">Please enter your first name.</div>
                 </div>
                 <div class="col-md-6">
-                  <label
-                    class="form-label"
-                    for="demoLastName"
-                    style="font-weight: 600; font-size: 0.85rem; color: #0d0e10"
-                    ><i class="fa-solid fa-user me-1" style="color: #0e38b1" aria-hidden="true"></i
-                    >Last Name<span class="text-danger">*</span></label
-                  >
-                  <input
-                    class="form-control"
-                    id="demoLastName"
-                    type="text"
-                    name="lastName"
-                    placeholder="e.g. Hassan"
-                    required
-                    style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6"
-                  />
+                  <label class="form-label" for="demoLastName" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-user me-1" style="color: #0E38B1;" aria-hidden="true"></i>Last Name<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoLastName" type="text" name="lastName" placeholder="e.g. Hassan" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
                   <div class="invalid-feedback">Please enter your last name.</div>
                 </div>
                 <div class="col-md-6">
-                  <label
-                    class="form-label"
-                    for="demoEmail"
-                    style="font-weight: 600; font-size: 0.85rem; color: #0d0e10"
-                    ><i
-                      class="fa-solid fa-envelope me-1"
-                      style="color: #0e38b1"
-                      aria-hidden="true"
-                    ></i
-                    >Email Address<span class="text-danger">*</span></label
-                  >
-                  <input
-                    class="form-control"
-                    id="demoEmail"
-                    type="email"
-                    name="email"
-                    placeholder="e.g. ahmed@company.com"
-                    required
-                    style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6"
-                  />
+                  <label class="form-label" for="demoEmail" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-envelope me-1" style="color: #0E38B1;" aria-hidden="true"></i>Email Address<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoEmail" type="email" name="email" placeholder="e.g. ahmed@company.com" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
                   <div class="invalid-feedback">Please enter a valid email address.</div>
                 </div>
                 <div class="col-md-6">
-                  <label
-                    class="form-label"
-                    for="demoPhone"
-                    style="font-weight: 600; font-size: 0.85rem; color: #0d0e10"
-                    ><i
-                      class="fa-solid fa-mobile-screen me-1"
-                      style="color: #0e38b1"
-                      aria-hidden="true"
-                    ></i
-                    >Mobile Number<span class="text-danger">*</span></label
-                  >
-                  <input
-                    class="form-control"
-                    id="demoPhone"
-                    type="tel"
-                    name="phone"
-                    placeholder="e.g. +20 10X XXX XXXX"
-                    required
-                    pattern="[\+]?[0-9\s\-]{8,20}"
-                    style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6"
-                  />
+                  <label class="form-label" for="demoPhone" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-mobile-screen me-1" style="color: #0E38B1;" aria-hidden="true"></i>Mobile Number<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoPhone" type="tel" name="phone" placeholder="e.g. +20 10X XXX XXXX" required pattern="[\+]?[0-9\s\-]{8,20}" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
                   <div class="invalid-feedback">Please enter a valid mobile number.</div>
                 </div>
                 <div class="col-md-6">
-                  <label
-                    class="form-label"
-                    for="demoCompany"
-                    style="font-weight: 600; font-size: 0.85rem; color: #0d0e10"
-                    ><i
-                      class="fa-solid fa-building me-1"
-                      style="color: #0e38b1"
-                      aria-hidden="true"
-                    ></i
-                    >Company Name</label
-                  >
-                  <input
-                    class="form-control"
-                    id="demoCompany"
-                    type="text"
-                    name="company"
-                    placeholder="e.g. ABC Corp"
-                    style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6"
-                  />
+                  <label class="form-label" for="demoCompany" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-building me-1" style="color: #0E38B1;" aria-hidden="true"></i>Company Name</label>
+                  <input class="form-control" id="demoCompany" type="text" name="company" placeholder="e.g. ABC Corp" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
                 </div>
                 <div class="col-md-6">
-                  <label
-                    class="form-label"
-                    for="demoService"
-                    style="font-weight: 600; font-size: 0.85rem; color: #0d0e10"
-                    ><i class="fa-solid fa-cogs me-1" style="color: #0e38b1" aria-hidden="true"></i
-                    >Interested In</label
-                  >
-                  <select
-                    class="form-select"
-                    id="demoService"
-                    name="service"
-                    style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6"
-                  >
+                  <label class="form-label" for="demoService" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-cogs me-1" style="color: #0E38B1;" aria-hidden="true"></i>Interested In</label>
+                  <select class="form-select" id="demoService" name="service" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
                     <option value="" selected>Select a service...</option>
                     <option value="Odoo ERP">Odoo ERP Implementation</option>
                     <option value="Cloud Solutions">Cloud Solutions</option>
@@ -380,42 +164,13 @@
                   </select>
                 </div>
                 <div class="col-md-6">
-                  <label
-                    class="form-label"
-                    for="demoDate"
-                    style="font-weight: 600; font-size: 0.85rem; color: #0d0e10"
-                    ><i
-                      class="fa-solid fa-calendar me-1"
-                      style="color: #0e38b1"
-                      aria-hidden="true"
-                    ></i
-                    >Preferred Date<span class="text-danger">*</span></label
-                  >
-                  <input
-                    class="form-control"
-                    id="demoDate"
-                    type="date"
-                    name="preferredDate"
-                    required
-                    style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6"
-                  />
+                  <label class="form-label" for="demoDate" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-calendar me-1" style="color: #0E38B1;" aria-hidden="true"></i>Preferred Date<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoDate" type="date" name="preferredDate" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
                   <div class="invalid-feedback">Please select a preferred date.</div>
                 </div>
                 <div class="col-md-6">
-                  <label
-                    class="form-label"
-                    for="demoTime"
-                    style="font-weight: 600; font-size: 0.85rem; color: #0d0e10"
-                    ><i class="fa-solid fa-clock me-1" style="color: #0e38b1" aria-hidden="true"></i
-                    >Preferred Time<span class="text-danger">*</span></label
-                  >
-                  <select
-                    class="form-select"
-                    id="demoTime"
-                    name="preferredTime"
-                    required
-                    style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6"
-                  >
+                  <label class="form-label" for="demoTime" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-clock me-1" style="color: #0E38B1;" aria-hidden="true"></i>Preferred Time<span class="text-danger">*</span></label>
+                  <select class="form-select" id="demoTime" name="preferredTime" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
                     <option value="" selected>Select a time slot...</option>
                     <option value="09:00 - 10:00 AM">09:00 — 10:00 AM</option>
                     <option value="10:00 - 11:00 AM">10:00 — 11:00 AM</option>
@@ -429,61 +184,15 @@
                   <div class="invalid-feedback">Please select a preferred time.</div>
                 </div>
                 <div class="col-12">
-                  <label
-                    class="form-label"
-                    for="demoNotes"
-                    style="font-weight: 600; font-size: 0.85rem; color: #0d0e10"
-                    ><i
-                      class="fa-solid fa-comment me-1"
-                      style="color: #0e38b1"
-                      aria-hidden="true"
-                    ></i
-                    >Additional Notes</label
-                  >
-                  <textarea
-                    class="form-control"
-                    id="demoNotes"
-                    name="notes"
-                    rows="3"
-                    placeholder="Tell us about your requirements or questions..."
-                    style="
-                      border-radius: 12px;
-                      padding: 0.7rem 1rem;
-                      border: 1px solid #dee2e6;
-                      resize: vertical;
-                    "
-                  ></textarea>
+                  <label class="form-label" for="demoNotes" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-comment me-1" style="color: #0E38B1;" aria-hidden="true"></i>Additional Notes</label>
+                  <textarea class="form-control" id="demoNotes" name="notes" rows="3" placeholder="Tell us about your requirements or questions..." style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6; resize: vertical;"></textarea>
                 </div>
               </div>
             </form>
           </div>
-          <div class="modal-footer" style="border-top: 1px solid #e9ecef; padding: 1.25rem 2rem">
-            <button
-              class="btn btn-light"
-              type="button"
-              data-bs-dismiss="modal"
-              style="border-radius: 50px; padding: 10px 24px; font-weight: 600"
-            >
-              Cancel
-            </button>
-            <button
-              class="btn"
-              id="demoSubmitBtn"
-              type="button"
-              style="
-                background: linear-gradient(135deg, #0e38b1, #113adc);
-                color: #fff;
-                border: none;
-                border-radius: 50px;
-                padding: 10px 28px;
-                font-weight: 600;
-                display: inline-flex;
-                align-items: center;
-                gap: 8px;
-              "
-            >
-              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>Submit Request
-            </button>
+          <div class="modal-footer" style="border-top: 1px solid #e9ecef; padding: 1.25rem 2rem;">
+            <button class="btn btn-light" type="button" data-bs-dismiss="modal" style="border-radius: 50px; padding: 10px 24px; font-weight: 600;">Cancel</button>
+            <button class="btn" id="demoSubmitBtn" type="button" style="background: linear-gradient(135deg, #0E38B1, #113ADC); color: #fff; border: none; border-radius: 50px; padding: 10px 28px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>Submit Request</button>
           </div>
         </div>
       </div>
@@ -514,33 +223,17 @@
             var time = document.getElementById('demoTime').value;
             var notes = document.getElementById('demoNotes').value.trim();
             var subject = 'Demo Request from ' + firstName + ' ' + lastName;
-            var body =
-              'Name: ' +
-              firstName +
-              ' ' +
-              lastName +
-              '\n' +
-              'Email: ' +
-              email +
-              '\n' +
-              'Mobile: ' +
-              phone +
-              '\n' +
-              (company ? 'Company: ' + company + '\n' : '') +
-              (service ? 'Service Interest: ' + service + '\n' : '') +
-              'Preferred Date: ' +
-              date +
-              '\n' +
-              'Preferred Time: ' +
-              time +
-              '\n' +
-              (notes ? 'Notes: ' + notes + '\n' : '');
-            window.location.href =
-              'mailto:marketing@gocloudeg.com' +
-              '?subject=' +
-              encodeURIComponent(subject) +
-              '&body=' +
-              encodeURIComponent(body);
+            var body = 'Name: ' + firstName + ' ' + lastName + '\n'
+              + 'Email: ' + email + '\n'
+              + 'Mobile: ' + phone + '\n'
+              + (company ? 'Company: ' + company + '\n' : '')
+              + (service ? 'Service Interest: ' + service + '\n' : '')
+              + 'Preferred Date: ' + date + '\n'
+              + 'Preferred Time: ' + time + '\n'
+              + (notes ? 'Notes: ' + notes + '\n' : '');
+            window.location.href = 'mailto:marketing@gocloudeg.com'
+              + '?subject=' + encodeURIComponent(subject)
+              + '&body=' + encodeURIComponent(body);
             var bsModal = bootstrap.Modal.getInstance(modal);
             if (bsModal) {
               bsModal.hide();
@@ -553,382 +246,87 @@
     </script>
     <!-- AI Chatbot Widget (global)-->
     <style>
-      .gc-chat-btn {
-        position: fixed;
-        bottom: 170px;
-        right: 30px;
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #0e38b1, #113adc);
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        z-index: 1100;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 20px rgba(14, 56, 177, 0.35);
-        transition: all 0.3s;
-      }
-      .gc-chat-btn:hover {
-        transform: scale(1.08);
-        box-shadow: 0 6px 28px rgba(14, 56, 177, 0.45);
-      }
-      .gc-chat-btn .gc-badge {
-        position: absolute;
-        top: -2px;
-        right: -2px;
-        width: 18px;
-        height: 18px;
-        background: #a1e934;
-        border-radius: 50%;
-        border: 2px solid #fff;
-        animation: gc-pulse 2s infinite;
-      }
-      @keyframes gc-pulse {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.2);
-        }
-      }
-      .gc-chat-btn i {
-        font-size: 1.4rem;
-      }
-      .gc-chat-panel {
-        position: fixed;
-        bottom: 170px;
-        right: 30px;
-        width: 380px;
-        height: 520px;
-        background: #fff;
-        border-radius: 20px;
-        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
-        z-index: 1100;
-        display: none;
-        flex-direction: column;
-        overflow: hidden;
-        border: 1px solid #e9ecef;
-      }
-      .gc-chat-panel.gc-open {
-        display: flex;
-      }
-      .gc-chat-header {
-        background: linear-gradient(135deg, #0e38b1 0%, #113adc 100%);
-        padding: 16px 20px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-shrink: 0;
-      }
-      .gc-chat-header img {
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.15);
-        padding: 4px;
-      }
-      .gc-chat-header-info {
-        flex: 1;
-      }
-      .gc-chat-header-info h6 {
-        color: #fff;
-        font-size: 0.9rem;
-        font-weight: 700;
-        margin: 0;
-      }
-      .gc-chat-header-info span {
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 0.72rem;
-      }
-      .gc-chat-close {
-        background: none;
-        border: none;
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 1.1rem;
-        cursor: pointer;
-        padding: 4px 8px;
-        border-radius: 8px;
-        transition: all 0.2s;
-      }
-      .gc-chat-close:hover {
-        color: #fff;
-        background: rgba(255, 255, 255, 0.15);
-      }
-      .gc-chat-messages {
-        flex: 1;
-        overflow-y: auto;
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        background: #f8f9fb;
-      }
-      .gc-chat-messages::-webkit-scrollbar {
-        width: 4px;
-      }
-      .gc-chat-messages::-webkit-scrollbar-thumb {
-        background: #c7d2fe;
-        border-radius: 4px;
-      }
-      .gc-msg {
-        max-width: 85%;
-        padding: 10px 14px;
-        border-radius: 16px;
-        font-size: 0.875rem;
-        line-height: 1.6;
-        word-wrap: break-word;
-      }
-      .gc-msg a {
-        color: inherit;
-        text-decoration: underline;
-      }
-      .gc-msg-bot {
-        background: #fff;
-        color: #333;
-        align-self: flex-start;
-        border: 1px solid #e9ecef;
-        border-bottom-left-radius: 4px;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-      }
-      .gc-msg-user {
-        background: linear-gradient(135deg, #0e38b1, #113adc);
-        color: #fff;
-        align-self: flex-end;
-        border-bottom-right-radius: 4px;
-      }
-      .gc-typing {
-        align-self: flex-start;
-        background: #fff;
-        border: 1px solid #e9ecef;
-        border-radius: 16px;
-        padding: 10px 18px;
-        display: none;
-        gap: 4px;
-        align-items: center;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-      }
-      .gc-typing.gc-show {
-        display: flex;
-      }
-      .gc-typing span {
-        width: 6px;
-        height: 6px;
-        background: #0e38b1;
-        border-radius: 50%;
-        animation: gc-bounce 0.6s infinite alternate;
-      }
-      .gc-typing span:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-      .gc-typing span:nth-child(3) {
-        animation-delay: 0.4s;
-      }
-      @keyframes gc-bounce {
-        to {
-          transform: translateY(-6px);
-          opacity: 0.4;
-        }
-      }
-      .gc-chat-input {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 16px;
-        border-top: 1px solid #e9ecef;
-        background: #fff;
-        flex-shrink: 0;
-      }
-      .gc-chat-input input {
-        flex: 1;
-        border: 1px solid #dee2e6;
-        border-radius: 50px;
-        padding: 10px 16px;
-        font-size: 0.875rem;
-        outline: none;
-        transition: border-color 0.2s;
-      }
-      .gc-chat-input input:focus {
-        border-color: #0e38b1;
-        box-shadow: 0 0 0 3px rgba(14, 56, 177, 0.1);
-      }
-      .gc-chat-input button {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #0e38b1, #113adc);
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.2s;
-        flex-shrink: 0;
-      }
-      .gc-chat-input button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 12px rgba(14, 56, 177, 0.3);
-      }
-      .gc-chat-input button:disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
-        transform: none;
-        box-shadow: none;
-      }
-      .gc-chat-powered {
-        text-align: center;
-        padding: 6px;
-        font-size: 0.65rem;
-        color: #999;
-        background: #fff;
-        border-top: 1px solid #f0f1f5;
-        flex-shrink: 0;
-      }
-      @media (max-width: 576px) {
-        .gc-chat-panel {
-          width: 100%;
-          height: 100%;
-          bottom: 0;
-          right: 0;
-          border-radius: 0;
-        }
-        .gc-chat-btn {
-          bottom: 160px;
-          right: 20px;
-        }
-      }
+      .gc-chat-btn{position:fixed;bottom:170px;right:30px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;border:none;cursor:pointer;z-index:1100;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(14,56,177,.35);transition:all .3s}
+      .gc-chat-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(14,56,177,.45)}
+      .gc-chat-btn .gc-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;background:#A1E934;border-radius:50%;border:2px solid #fff;animation:gc-pulse 2s infinite}
+      @keyframes gc-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+      .gc-chat-btn i{font-size:1.4rem}
+      .gc-chat-panel{position:fixed;bottom:170px;right:30px;width:380px;height:520px;background:#fff;border-radius:20px;box-shadow:0 12px 48px rgba(0,0,0,.15);z-index:1100;display:none;flex-direction:column;overflow:hidden;border:1px solid #e9ecef}
+      .gc-chat-panel.gc-open{display:flex}
+      .gc-chat-header{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 100%);padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+      .gc-chat-header img{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.15);padding:4px}
+      .gc-chat-header-info{flex:1}
+      .gc-chat-header-info h6{color:#fff;font-size:.9rem;font-weight:700;margin:0}
+      .gc-chat-header-info span{color:rgba(255,255,255,.7);font-size:.72rem}
+      .gc-chat-close{background:none;border:none;color:rgba(255,255,255,.7);font-size:1.1rem;cursor:pointer;padding:4px 8px;border-radius:8px;transition:all .2s}
+      .gc-chat-close:hover{color:#fff;background:rgba(255,255,255,.15)}
+      .gc-chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#f8f9fb}
+      .gc-chat-messages::-webkit-scrollbar{width:4px}
+      .gc-chat-messages::-webkit-scrollbar-thumb{background:#c7d2fe;border-radius:4px}
+      .gc-msg{max-width:85%;padding:10px 14px;border-radius:16px;font-size:.875rem;line-height:1.6;word-wrap:break-word}
+      .gc-msg a{color:inherit;text-decoration:underline}
+      .gc-msg-bot{background:#fff;color:#333;align-self:flex-start;border:1px solid #e9ecef;border-bottom-left-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+      .gc-msg-user{background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+      .gc-typing{align-self:flex-start;background:#fff;border:1px solid #e9ecef;border-radius:16px;padding:10px 18px;display:none;gap:4px;align-items:center;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+      .gc-typing.gc-show{display:flex}
+      .gc-typing span{width:6px;height:6px;background:#0E38B1;border-radius:50%;animation:gc-bounce .6s infinite alternate}
+      .gc-typing span:nth-child(2){animation-delay:.2s}
+      .gc-typing span:nth-child(3){animation-delay:.4s}
+      @keyframes gc-bounce{to{transform:translateY(-6px);opacity:.4}}
+      .gc-chat-input{display:flex;align-items:center;gap:8px;padding:12px 16px;border-top:1px solid #e9ecef;background:#fff;flex-shrink:0}
+      .gc-chat-input input{flex:1;border:1px solid #dee2e6;border-radius:50px;padding:10px 16px;font-size:.875rem;outline:none;transition:border-color .2s}
+      .gc-chat-input input:focus{border-color:#0E38B1;box-shadow:0 0 0 3px rgba(14,56,177,.1)}
+      .gc-chat-input button{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+      .gc-chat-input button:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(14,56,177,.3)}
+      .gc-chat-input button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+      .gc-chat-powered{text-align:center;padding:6px;font-size:.65rem;color:#999;background:#fff;border-top:1px solid #f0f1f5;flex-shrink:0}
+      @media(max-width:576px){.gc-chat-panel{width:100%;height:100%;bottom:0;right:0;border-radius:0}.gc-chat-btn{bottom:160px;right:20px}}
+      
     </style>
-    <button
-      class="gc-chat-btn"
-      id="gcChatBtn"
-      type="button"
-      aria-label="Open AI Chat Assistant"
-      title="Chat with GoCloud AI"
-    >
-      <i class="fa-solid fa-robot" aria-hidden="true"></i
-      ><span class="gc-badge" aria-hidden="true"></span>
-    </button>
-    <div
-      class="gc-chat-panel"
-      id="gcChatPanel"
-      role="dialog"
-      aria-label="GoCloud AI Chat Assistant"
-    >
-      <div class="gc-chat-header">
-        <img src="images/gocloud%20logo.webp" alt="GoCloud" loading="lazy" />
+    <button class="gc-chat-btn" id="gcChatBtn" type="button" aria-label="Open AI Chat Assistant" title="Chat with GoCloud AI"><i class="fa-solid fa-robot" aria-hidden="true"></i><span class="gc-badge" aria-hidden="true"></span></button>
+    <div class="gc-chat-panel" id="gcChatPanel" role="dialog" aria-label="GoCloud AI Chat Assistant">
+      <div class="gc-chat-header"><img src="images/gocloud%20logo.webp" alt="GoCloud" loading="lazy">
         <div class="gc-chat-header-info">
-          <h6>GoCloud AI Assistant</h6>
-          <span
-            ><i class="fa-solid fa-circle me-1" style="font-size: 6px; color: #a1e934"></i
-            >Online</span
-          >
+          <h6>GoCloud AI Assistant</h6><span><i class="fa-solid fa-circle me-1" style="font-size:6px;color:#A1E934;"></i>Online</span>
         </div>
-        <button class="gc-chat-close" type="button" aria-label="Close chat">
-          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-        </button>
+        <button class="gc-chat-close" type="button" aria-label="Close chat"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
       </div>
-      <div
-        class="gc-chat-messages"
-        id="gcChatMessages"
-        aria-live="polite"
-        aria-label="Chat messages"
-      ></div>
-      <div class="gc-typing" id="gcTyping" aria-label="Assistant is typing">
-        <span></span><span></span><span></span>
-      </div>
+      <div class="gc-chat-messages" id="gcChatMessages" aria-live="polite" aria-label="Chat messages"></div>
+      <div class="gc-typing" id="gcTyping" aria-label="Assistant is typing"><span></span><span></span><span></span></div>
       <div class="gc-chat-input">
-        <input
-          id="gcChatInput"
-          type="text"
-          placeholder="Ask about Odoo, ELITE, or our services..."
-          aria-label="Type your message"
-          autocomplete="off"
-          maxlength="500"
-        />
-        <button id="gcChatSend" type="button" aria-label="Send message">
-          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-        </button>
+        <input id="gcChatInput" type="text" placeholder="Ask about Odoo, ELITE, or our services..." aria-label="Type your message" autocomplete="off" maxlength="500">
+        <button id="gcChatSend" type="button" aria-label="Send message"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
       </div>
       <div class="gc-chat-powered">Powered by GoCloud AI</div>
     </div>
     <script src="js/chatbot.min.js" defer></script>
     <!-- Scripts (CDN)-->
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script
-      src="https://unpkg.com/aos@2.3.4/dist/aos.js"
-      integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js"
-      integrity="sha384-fexNtx3nPE3sjIQuGk8G2X8X/aSEBVMC58R839hkgsY/Xjhvkm7m2otGhwrdESWj"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js"
-      integrity="sha384-l/y5WJTphApmSlx76Ev6k4G3zxu/+19CVvn9OTKI7gs4Yu5Hm8mjpdtdr5oyhnNo"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-      integrity="sha384-YGnnOBKslPJVs35GG0TtAZ4uO7BHpHlqJhs0XK3k6cuVb6EBtl+8xcvIIOKV5wB+"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-      integrity="sha384-d+vyQ0dYcymoP8ndq2hW7FGC50nqGdXUEgoOUGxbbkAJwZqL7h+jKN0GGgn9hFDS"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
-      integrity="sha384-poC0r6usQOX2Ayt/VGA+t81H6V3iN9L+Irz9iO8o+s0X20tLpzc9DOOtnKxhaQSE"
-      crossorigin="anonymous"
-      defer
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"
-      integrity="sha384-Hf6yat1C7ze92LpS287AKvB24pRLwa+YxYmOVZKCiBHybkfxZDYy7TuKW/KbcS3i"
-      crossorigin="anonymous"
-      defer
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js" integrity="sha384-fexNtx3nPE3sjIQuGk8G2X8X/aSEBVMC58R839hkgsY/Xjhvkm7m2otGhwrdESWj" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js" integrity="sha384-l/y5WJTphApmSlx76Ev6k4G3zxu/+19CVvn9OTKI7gs4Yu5Hm8mjpdtdr5oyhnNo" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" integrity="sha384-YGnnOBKslPJVs35GG0TtAZ4uO7BHpHlqJhs0XK3k6cuVb6EBtl+8xcvIIOKV5wB+" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha384-d+vyQ0dYcymoP8ndq2hW7FGC50nqGdXUEgoOUGxbbkAJwZqL7h+jKN0GGgn9hFDS" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha384-poC0r6usQOX2Ayt/VGA+t81H6V3iN9L+Irz9iO8o+s0X20tLpzc9DOOtnKxhaQSE" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" integrity="sha384-Hf6yat1C7ze92LpS287AKvB24pRLwa+YxYmOVZKCiBHybkfxZDYy7TuKW/KbcS3i" crossorigin="anonymous" defer></script>
     <script src="js/plugins-bundle.min.js" defer></script>
     <script src="js/main.min.js" defer></script>
     <!-- Google Analytics (GA4) — loaded after page content for better mobile performance-->
     <script>
-      window.addEventListener('load', function () {
+      window.addEventListener('load', function() {
         var s = document.createElement('script');
         s.src = 'https://www.googletagmanager.com/gtag/js?id=G-60G03RQLPB';
         s.async = true;
         document.head.appendChild(s);
-        s.onload = function () {
+        s.onload = function() {
           window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
+          function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-60G03RQLPB');
         };
       });
+      
     </script>
     <!-- Page specific scripts-->
   </body>
