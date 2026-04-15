@@ -788,9 +788,9 @@
       .gc-typing span:nth-child(2){animation-delay:.2s}
       .gc-typing span:nth-child(3){animation-delay:.4s}
       @keyframes gc-bounce{to{transform:translateY(-6px);opacity:.4}}
-      .gc-chat-input{display:flex;align-items:center;gap:8px;padding:12px 16px;border-top:1px solid #e9ecef;background:#fff;flex-shrink:0}
-      .gc-chat-input input{flex:1;border:1px solid #dee2e6;border-radius:50px;padding:10px 16px;font-size:.875rem;outline:none;transition:border-color .2s}
-      .gc-chat-input input:focus{border-color:#0E38B1;box-shadow:0 0 0 3px rgba(14,56,177,.1)}
+      .gc-chat-input{display:flex;align-items:flex-end;gap:8px;padding:12px 16px;border-top:1px solid #e9ecef;background:#fff;flex-shrink:0}
+      .gc-chat-input textarea{flex:1;border:1px solid #dee2e6;border-radius:20px;padding:10px 16px;font-size:.875rem;outline:none;transition:border-color .2s;resize:none;max-height:120px;min-height:40px;height:40px;line-height:1.4;font-family:inherit;overflow-y:auto}
+      .gc-chat-input textarea:focus{border-color:#0E38B1;box-shadow:0 0 0 3px rgba(14,56,177,.1)}
       .gc-chat-input button{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
       .gc-chat-input button:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(14,56,177,.3)}
       .gc-chat-input button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
@@ -806,10 +806,11 @@
         </div>
         <button class="gc-chat-close" type="button" aria-label="Close chat"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
       </div>
-      <div class="gc-chat-messages" id="gcChatMessages" aria-live="polite" aria-label="Chat messages"></div>
-      <div class="gc-typing" id="gcTyping" aria-label="Assistant is typing"><span></span><span></span><span></span></div>
+      <div class="gc-chat-messages" id="gcChatMessages" aria-live="polite" aria-label="Chat messages">
+        <div class="gc-typing" id="gcTyping" aria-label="Assistant is typing"><span></span><span></span><span></span></div>
+      </div>
       <div class="gc-chat-input">
-        <input id="gcChatInput" type="text" placeholder="Ask about Odoo, ELITE, or our services..." aria-label="Type your message" autocomplete="off" maxlength="500">
+        <textarea id="gcChatInput" placeholder="Ask about Odoo, ELITE, or our services..." aria-label="Type your message" autocomplete="off" maxlength="500" rows="1"></textarea>
         <button id="gcChatSend" type="button" aria-label="Send message"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
       </div>
       <div class="gc-chat-powered">Powered by GoCloud AI</div>

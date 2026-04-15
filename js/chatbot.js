@@ -65,6 +65,11 @@
       /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g,
       '<a href="mailto:$1">$1</a>'
     );
+    // Wrap phone numbers in LTR span to prevent RTL reversal
+    formatted = formatted.replace(
+      /(\+?\d[\d\s\-().]{6,}\d)/g,
+      '<span dir="ltr" style="unicode-bidi:embed">$1</span>'
+    );
     // Convert newlines to <br>
     formatted = formatted.replace(/\n/g, '<br>');
     return formatted;
@@ -73,6 +78,7 @@
   function addMessage(text, role) {
     var msgDiv = document.createElement('div');
     msgDiv.className = 'gc-msg ' + (role === 'user' ? 'gc-msg-user' : 'gc-msg-bot');
+    msgDiv.setAttribute('dir', 'auto');
     if (role === 'user') {
       msgDiv.textContent = text;
     } else {
@@ -131,6 +137,7 @@
     history.push({ role: 'user', text: text });
     saveHistory();
     chatInput.value = '';
+    chatInput.style.height = '40px';
     setInputEnabled(false);
     showTyping();
 
@@ -221,6 +228,11 @@
         e.preventDefault();
         sendMessage();
       }
+    });
+
+    chatInput.addEventListener('input', function () {
+      chatInput.style.height = '40px';
+      chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + 'px';
     });
 
     // Close on Escape key
