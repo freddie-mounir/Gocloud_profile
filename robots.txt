@@ -11,6 +11,9 @@ Sitemap: https://www.gocloudeg.com/sitemap.xml
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /private/
+Disallow: /deployment/
+Disallow: /layout.html
+Disallow: /offline.html
 
 # Crawl-delay for specific bots (if needed)
 # User-agent: Googlebot
