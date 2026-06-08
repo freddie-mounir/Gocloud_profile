@@ -1,10 +1,10 @@
 /**
  * GoCloud Service Worker
  * Implements caching strategies and offline support
- * Version: 2.0.0
+ * Version: 2.0.1
  */
 
-const CACHE_VERSION = 'gocloud-v2.0.0';
+const CACHE_VERSION = 'gocloud-v2.0.1';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DYNAMIC_CACHE = `${CACHE_VERSION}-dynamic`;
 const IMAGE_CACHE = `${CACHE_VERSION}-images`;

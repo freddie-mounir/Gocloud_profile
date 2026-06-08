@@ -1,5 +1,47 @@
 [
   {
+    "id": "crm-gold-investment-egypt-middle-east",
+    "slug": "crm-gold-investment-egypt-middle-east",
+    "title": "أهمية CRM لشركات تجارة واستثمار الذهب في مصر والشرق الأوسط: من متابعة العملاء إلى زيادة الأرباح",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "دليل عملي يوضح لماذا تحتاج شركات تجارة الذهب والسبائك والاستثمار في مصر والشرق الأوسط إلى CRM احترافي لإدارة العملاء والمستثمرين والفروع والتسعير ومتابعة فرص البيع بدقة أعلى ونمو أسرع.",
+    "author": "فريق GoCloud",
+    "date": "2026-06-08",
+    "image": "images/blog-crm-gold-investment-egypt-middle-east.svg",
+    "tags": [
+      "CRM",
+      "شركات الذهب",
+      "استثمار الذهب",
+      "مصر",
+      "الشرق الأوسط",
+      "Odoo CRM",
+      "إدارة العملاء"
+    ],
+    "featured": true
+  },
+  {
+    "id": "odoo-sales-inventory-trade-distribution",
+    "slug": "odoo-sales-inventory-trade-distribution",
+    "title": "لماذا تختلف أرقام المبيعات عن المخزون في شركات التجارة والتوزيع؟ وكيف يعالج Odoo السبب الحقيقي",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "مقال عملي يشرح السبب الحقيقي وراء اختلاف أرقام المبيعات عن المخزون في شركات التجارة والتوزيع، وكيف يساعد Odoo على توحيد الإجراءات ورفع دقة التقارير وتسريع التسليم.",
+    "author": "فريق GoCloud",
+    "date": "2026-06-07",
+    "image": "images/blog-odoo-trade-workflow-6.png",
+    "tags": [
+      "Odoo",
+      "التجارة والتوزيع",
+      "إدارة المخزون",
+      "المبيعات والمخزون",
+      "سلسلة التوريد",
+      "ERP",
+      "Workflow"
+    ],
+    "featured": true
+  },
+  {
     "id": "enterprises-switching-to-odoo-2026",
     "slug": "enterprises-switching-to-odoo-2026",
     "title": "لماذا تتحول الشركات الكبرى إلى Odoo في 2026؟ مقارنة مع SAP وOracle وMicrosoft",
