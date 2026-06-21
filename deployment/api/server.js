@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 
 // --- Middleware ---
 
-app.use(helmet());
+app.use(helmet({ contentSecurityPolicy: false }));
 
 app.use(
   cors({
@@ -38,7 +38,7 @@ const chatLimiter = rateLimit({
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
-  model: process.env.GEMINI_MODEL || 'gemini-2.0-flash',
+  model: process.env.GEMINI_MODEL || 'gemini-2.5-flash',
   systemInstruction: SYSTEM_PROMPT
 });
 
@@ -58,13 +58,18 @@ function buildHistory(rawHistory) {
   if (!Array.isArray(rawHistory)) {
     return [];
   }
-  return rawHistory
+  const mapped = rawHistory
     .slice(-20)
     .filter(msg => msg && msg.role && msg.text)
     .map(msg => ({
       role: msg.role === 'user' ? 'user' : 'model',
       parts: [{ text: sanitizeInput(msg.text) }]
     }));
+  // Gemini requires history to start with a 'user' message
+  while (mapped.length > 0 && mapped[0].role !== 'user') {
+    mapped.shift();
+  }
+  return mapped;
 }
 
 // --- Routes ---
