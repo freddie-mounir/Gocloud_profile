@@ -1,5 +1,26 @@
 [
   {
+    "id": "odoo-multi-branch-inventory-control",
+    "slug": "odoo-multi-branch-inventory-control",
+    "title": "إدارة المخزون متعدد الفروع مع Odoo: كيف توحّد البيانات وتسرّع التحويلات وتقلّل الفاقد؟",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "دليل عملي يوضح كيف يساعد Odoo شركات التجزئة متعددة الفروع على توحيد بيانات المخزون، تسريع التحويلات بين الفروع، وتطبيق أدوات Stock Control مثل الجرد الدوري والباركود لتقليل الأخطاء والفاقد.",
+    "author": "فريق GoCloud",
+    "date": "2026-07-08",
+    "image": "images/Multi_Inventory_blog_post.png",
+    "tags": [
+      "Odoo",
+      "إدارة المخزون",
+      "تعدد الفروع",
+      "Stock Control",
+      "الجرد الدوري",
+      "الباركود",
+      "التجزئة"
+    ],
+    "featured": true
+  },
+  {
     "id": "world-cup-2026-ai-ref-cctv-odoo",
     "slug": "world-cup-2026-ai-ref-cctv-odoo",
     "title": "تقنيات كأس العالم 2026 في أمريكا وكندا والمكسيك: الذكاء الاصطناعي وكاميرات الحكام وما الذي تتعلمه الشركات منها؟",
