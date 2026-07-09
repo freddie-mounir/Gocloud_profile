@@ -8,19 +8,7 @@ block variables
   - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
 
 block structuredData
-  script(type="application/ld+json").
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "name": "مدونة GoCloud",
-      "description": "مقالات متخصصة في إدارة التأمين الطبي وتطبيقات Odoo ERP",
-      "url": "https://www.gocloudeg.com/blog/",
-      "publisher": {
-        "@type": "Organization",
-        "name": "GoCloud",
-        "logo": { "@type": "ImageObject", "url": "https://www.gocloudeg.com/images/gocloud-logo.png" }
-      }
-    }
+  script(type="application/ld+json", src="schema/index.json")
 
 block styles
   style.
@@ -127,24 +115,3 @@ block content
         i.far.fa-folder-open.d-block.mb-3(style="font-size:2.5rem;color:#ccc")
         | لا توجد مقالات في هذا التصنيف حالياً
 
-block scripts
-  script.
-    // Category filter
-    document.querySelectorAll('.filter-btn').forEach(function(btn){
-      btn.addEventListener('click',function(){
-        document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
-        btn.classList.add('active');
-        var cat=btn.getAttribute('data-filter');
-        var items=document.querySelectorAll('.blog-item');
-        var visible=0;
-        items.forEach(function(item){
-          if(cat==='all'||item.getAttribute('data-category')===cat){
-            item.style.display='';
-            visible++;
-          }else{
-            item.style.display='none';
-          }
-        });
-        document.getElementById('noPosts').classList.toggle('d-none',visible>0);
-      });
-    });

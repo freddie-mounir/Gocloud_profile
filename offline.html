@@ -136,44 +136,13 @@
         It looks like you've lost your internet connection. Don't worry, you can still browse cached
         pages.
       </p>
-      <button class="btn" onclick="checkConnection()">Try Again</button>
+      <button class="btn" id="offlineRetryBtn">Try Again</button>
 
       <div id="connection-status" class="connection-status offline">
         🔌 No internet connection detected
       </div>
 
-      <script>
-        function checkConnection() {
-          const statusEl = document.getElementById('connection-status');
-          statusEl.textContent = '🔄 Checking connection...';
-          statusEl.className = 'connection-status checking';
-
-          fetch('/', { method: 'HEAD', cache: 'no-cache' })
-            .then(() => {
-              statusEl.textContent = '✅ Connection restored! Redirecting...';
-              statusEl.className = 'connection-status online';
-              setTimeout(() => {
-                window.location.href = '/';
-              }, 1000);
-            })
-            .catch(() => {
-              statusEl.textContent = '❌ Still offline. Please check your connection.';
-              statusEl.className = 'connection-status offline';
-            });
-        }
-
-        // Auto-check connection every 5 seconds
-        setInterval(() => {
-          if (navigator.onLine) {
-            checkConnection();
-          }
-        }, 5000);
-
-        // Listen for online event
-        window.addEventListener('online', () => {
-          checkConnection();
-        });
-      </script>
+      <script src="js/offline-page.js" defer></script>
     </div>
   </body>
 </html>

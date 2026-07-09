@@ -12,15 +12,26 @@ const SYSTEM_PROMPT = require('./system-prompt');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+app.set('trust proxy', 1);
+
+const ALLOWED_ORIGINS = (process.env.CORS_ORIGIN || 'https://www.gocloudeg.com')
+  .split(',')
+  .map(v => v.trim())
+  .filter(Boolean);
+
+const REQUIRED_CHAT_TOKEN = process.env.CHATBOT_API_TOKEN || '';
+const CHAT_MINUTE_LIMIT = Number(process.env.CHAT_RATE_LIMIT_PER_MIN || 10);
+const CHAT_DAILY_LIMIT = Number(process.env.CHAT_RATE_LIMIT_PER_DAY || 250);
+
 // --- Middleware ---
 
 app.use(helmet({ contentSecurityPolicy: false }));
 
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || 'https://www.gocloudeg.com',
+    origin: ALLOWED_ORIGINS,
     methods: ['POST'],
-    allowedHeaders: ['Content-Type']
+    allowedHeaders: ['Content-Type', 'X-GoCloud-Chat-Token', 'X-Requested-With']
   })
 );
 
@@ -28,10 +39,18 @@ app.use(express.json({ limit: '16kb' }));
 
 const chatLimiter = rateLimit({
   windowMs: 60 * 1000,
-  max: 20,
+  max: CHAT_MINUTE_LIMIT,
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: 'Too many requests. Please try again in a moment.' }
+});
+
+const chatDailyLimiter = rateLimit({
+  windowMs: 24 * 60 * 60 * 1000,
+  max: CHAT_DAILY_LIMIT,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Daily request limit reached. Please try again later.' }
 });
 
 // --- Gemini Client ---
@@ -72,9 +91,51 @@ function buildHistory(rawHistory) {
   return mapped;
 }
 
+function isAllowedBrowserOrigin(req) {
+  const origin = req.get('origin');
+  const referer = req.get('referer');
+
+  if (origin && !ALLOWED_ORIGINS.includes(origin)) {
+    return false;
+  }
+
+  if (referer) {
+    try {
+      const refererOrigin = new URL(referer).origin;
+      if (!ALLOWED_ORIGINS.includes(refererOrigin)) {
+        return false;
+      }
+    } catch (err) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function requireChatAuth(req, res, next) {
+  if (!isAllowedBrowserOrigin(req)) {
+    return res.status(403).json({ error: 'Forbidden origin.' });
+  }
+
+  const userAgent = req.get('user-agent');
+  if (!userAgent) {
+    return res.status(400).json({ error: 'Missing user agent.' });
+  }
+
+  if (REQUIRED_CHAT_TOKEN) {
+    const token = req.get('x-gocloud-chat-token');
+    if (token !== REQUIRED_CHAT_TOKEN) {
+      return res.status(401).json({ error: 'Unauthorized request.' });
+    }
+  }
+
+  next();
+}
+
 // --- Routes ---
 
-app.post('/api/chat', chatLimiter, async (req, res) => {
+app.post('/api/chat', chatLimiter, chatDailyLimiter, requireChatAuth, async (req, res) => {
   try {
     const { message, history } = req.body;
     const userMessage = sanitizeInput(message);

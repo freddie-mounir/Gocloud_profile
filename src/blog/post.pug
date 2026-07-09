@@ -8,22 +8,7 @@ block variables
   - var ogImage = "https://www.gocloudeg.com/" + post.image
 
 block structuredData
-  script(type="application/ld+json").
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "#{post.title}",
-      "description": "#{post.excerpt}",
-      "image": "https://www.gocloudeg.com/#{post.image}",
-      "datePublished": "#{post.date}",
-      "author": { "@type": "Person", "name": "#{post.author}" },
-      "publisher": {
-        "@type": "Organization",
-        "name": "GoCloud",
-        "logo": { "@type": "ImageObject", "url": "https://www.gocloudeg.com/images/gocloud-logo.png" }
-      },
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.gocloudeg.com/blog/#{post.slug}.html" }
-    }
+  script(type="application/ld+json", src=`schema/${post.slug}.json`)
 
 block styles
   style.
@@ -159,7 +144,7 @@ block content
                 i.fab.fa-linkedin-in
               a.share-btn.fb(href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://www.gocloudeg.com/blog/' + post.slug + '.html')}` target="_blank" rel="noopener noreferrer" aria-label="Facebook")
                 i.fab.fa-facebook-f
-              button.share-btn.copy(onclick="navigator.clipboard.writeText(window.location.href);this.innerHTML='<i class=\\'fas fa-check\\'></i>';setTimeout(()=>{this.innerHTML='<i class=\\'fas fa-link\\'></i>'},2000)" aria-label="نسخ الرابط")
+              button.share-btn.copy(type="button" data-copy-url=`https://www.gocloudeg.com/blog/${post.slug}.html` aria-label="نسخ الرابط")
                 i.fas.fa-link
 
         //- Sidebar

@@ -17,6 +17,8 @@
   var isOpen = false;
   var isSending = false;
   var history = [];
+  var chatTokenMeta = document.querySelector('meta[name="gocloud-chat-token"]');
+  var chatToken = chatTokenMeta ? chatTokenMeta.getAttribute('content') : '';
 
   function loadHistory() {
     try {
@@ -144,9 +146,18 @@
     trackEvent('chatbot_message_sent', text.substring(0, 50));
 
     try {
+      var headers = {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+      };
+
+      if (chatToken) {
+        headers['X-GoCloud-Chat-Token'] = chatToken;
+      }
+
       var res = await fetch(API_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headers,
         body: JSON.stringify({
           message: text,
           history: history.slice(0, -1)

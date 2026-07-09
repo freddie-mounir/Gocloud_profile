@@ -981,22 +981,3 @@ block content
       .data-security-text { font-size: 1rem; }
     }
 
-  //- JavaScript to stop video when modal is closed
-  script.
-    document.addEventListener('DOMContentLoaded', function() {
-      // Get modal and iframe elements
-      const videoModal = document.getElementById('demo-video');
-      const videoPlayer = document.getElementById('eliteVideoPlayer');
-
-      if (videoModal && videoPlayer) {
-        // Stop video when modal is hidden
-        videoModal.addEventListener('hidden.bs.modal', function () {
-          // Get the iframe src
-          const videoSrc = videoPlayer.src;
-          // Reset the src to stop the video
-          videoPlayer.src = '';
-          // Restore the src (this stops the video but keeps it ready)
-          videoPlayer.src = videoSrc;
-        });
-      }
-    });

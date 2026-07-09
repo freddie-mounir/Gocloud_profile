@@ -41,6 +41,3 @@ section
         .preloader-tagline Smart Software Solutions
       .loader-section-left.loader-section.section-left
       .loader-section-right.loader-section.section-right
-  //- Auto-dismiss preloader after 3s to avoid blocking mobile interaction
-  script.
-    (function(){var t=setTimeout(function(){var p=document.getElementById('ctn-preloader');if(p){p.classList.add('loaded');p.style.opacity='0';setTimeout(function(){p.style.display='none'},400)}},3000);window.addEventListener('load',function(){clearTimeout(t)})})();

@@ -221,21 +221,20 @@
     </p>
 
     <div class="search-container">
-      <input 
-        type="text" 
-        class="search-input" 
+      <input
+        type="text"
+        class="search-input"
         placeholder="Search our site..."
         id="searchInput"
-        onkeypress="handleSearch(event)"
       >
-      <button class="btn" onclick="performSearch()">Search</button>
+      <button class="btn" id="searchBtn">Search</button>
     </div>
 
     <div style="margin-top: 20px;">
       <a href="/" class="btn">
         🏠 Go Home
       </a>
-      <a href="javascript:history.back()" class="btn btn-secondary">
+      <a href="#" id="goBackLink" class="btn btn-secondary">
         ← Go Back
       </a>
     </div>
@@ -255,28 +254,6 @@
     </div>
   </div>
 
-  <script>
-    function handleSearch(event) {
-      if (event.key === 'Enter') {
-        performSearch();
-      }
-    }
-
-    function performSearch() {
-      const query = document.getElementById('searchInput').value;
-      if (query.trim()) {
-        // Redirect to home with search query (implement search on your site)
-        window.location.href = '/?search=' + encodeURIComponent(query);
-      }
-    }
-
-    // Log 404 error for analytics
-    if (window.gtag) {
-      gtag('event', 'exception', {
-        description: '404 Error - ' + window.location.pathname,
-        fatal: false
-      });
-    }
-  </script>
+  <script src="js/404-page.js" defer></script>
 </body>
 </html>

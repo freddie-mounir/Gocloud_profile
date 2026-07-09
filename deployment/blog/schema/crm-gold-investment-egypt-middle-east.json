@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "أهمية CRM لشركات تجارة واستثمار الذهب في مصر والشرق الأوسط: من متابعة العملاء إلى زيادة الأرباح",
+  "description": "دليل عملي يوضح لماذا تحتاج شركات تجارة الذهب والسبائك والاستثمار في مصر والشرق الأوسط إلى CRM احترافي لإدارة العملاء والمستثمرين والفروع والتسعير ومتابعة فرص البيع بدقة أعلى ونمو أسرع.",
+  "image": "https://www.gocloudeg.com/images/blog-crm-gold-investment-egypt-middle-east.svg",
+  "datePublished": "2026-06-08",
+  "author": {
+    "@type": "Person",
+    "name": "فريق GoCloud"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GoCloud",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gocloudeg.com/images/gocloud-logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.gocloudeg.com/blog/crm-gold-investment-egypt-middle-east.html"
+  }
+}

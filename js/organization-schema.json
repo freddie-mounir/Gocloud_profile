@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "Organization",
+    "LocalBusiness"
+  ],
+  "@id": "https://www.gocloudeg.com/#organization",
+  "name": "GoCloud",
+  "url": "https://www.gocloudeg.com/",
+  "logo": "https://www.gocloudeg.com/images/gocloud-logo.png",
+  "image": "https://www.gocloudeg.com/images/gocloud-logo.png",
+  "description": "Professional Odoo ERP implementation, cloud solutions, and business intelligence services in Egypt.",
+  "telephone": "+201017383815",
+  "email": "marketing@gocloudeg.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Behind Royal Pyramids Language School, Ahram Gardens, Gate 4",
+    "addressLocality": "Giza",
+    "addressRegion": "Giza",
+    "addressCountry": "EG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 29.9577093,
+    "longitude": 31.0924841
+  },
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJY6qKY7RPWBQRjTQuWEVsOHQ",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/gocloud-co",
+    "https://www.facebook.com/GoCloudEg/",
+    "https://www.youtube.com/@GoCloudeg"
+  ],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+201017383815",
+      "contactType": "Customer Service"
+    }
+  ]
+}
