@@ -69,6 +69,7 @@ $htmlFiles = @(
     "index.html",
     "about.html",
     "service.html",
+    "faq.html",
     "portfolio.html",
     "contact.html",
     "business.html",
