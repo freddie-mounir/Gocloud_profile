@@ -2,6 +2,8 @@
 
 require('dotenv').config();
 
+const fs = require('fs');
+const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
@@ -22,6 +24,7 @@ const ALLOWED_ORIGINS = (process.env.CORS_ORIGIN || 'https://www.gocloudeg.com')
 const REQUIRED_CHAT_TOKEN = process.env.CHATBOT_API_TOKEN || '';
 const CHAT_MINUTE_LIMIT = Number(process.env.CHAT_RATE_LIMIT_PER_MIN || 10);
 const CHAT_DAILY_LIMIT = Number(process.env.CHAT_RATE_LIMIT_PER_DAY || 250);
+const NEWSLETTER_FILE = path.join(__dirname, 'newsletter-subscribers.json');
 
 // --- Middleware ---
 
@@ -51,6 +54,14 @@ const chatDailyLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: 'Daily request limit reached. Please try again later.' }
+});
+
+const newsletterLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: Number(process.env.NEWSLETTER_RATE_LIMIT_PER_15_MIN || 8),
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many subscription attempts. Please try again later.' }
 });
 
 // --- Gemini Client ---
@@ -133,6 +144,44 @@ function requireChatAuth(req, res, next) {
   next();
 }
 
+function requireAllowedOrigin(req, res, next) {
+  if (!isAllowedBrowserOrigin(req)) {
+    return res.status(403).json({ error: 'Forbidden origin.' });
+  }
+
+  next();
+}
+
+function sanitizeEmail(email) {
+  if (typeof email !== 'string') {
+    return '';
+  }
+
+  return email.trim().toLowerCase();
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function readNewsletterSubscribers() {
+  if (!fs.existsSync(NEWSLETTER_FILE)) {
+    return [];
+  }
+
+  try {
+    const raw = fs.readFileSync(NEWSLETTER_FILE, 'utf8');
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (err) {
+    return [];
+  }
+}
+
+function writeNewsletterSubscribers(subscribers) {
+  fs.writeFileSync(NEWSLETTER_FILE, JSON.stringify(subscribers, null, 2), 'utf8');
+}
+
 // --- Routes ---
 
 app.post('/api/chat', chatLimiter, chatDailyLimiter, requireChatAuth, async (req, res) => {
@@ -162,6 +211,40 @@ app.post('/api/chat', chatLimiter, chatDailyLimiter, requireChatAuth, async (req
 
     res.status(500).json({ error: 'Something went wrong. Please try again.' });
   }
+});
+
+app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, (req, res) => {
+  const email = sanitizeEmail(req.body && req.body.email);
+  const source = sanitizeInput(req.body && req.body.source).slice(0, 120);
+  const pageUrl = sanitizeInput(req.body && req.body.pageUrl).slice(0, 300);
+  const language = sanitizeInput(req.body && req.body.language).slice(0, 20);
+
+  if (!isValidEmail(email)) {
+    return res.status(400).json({ error: 'Valid email is required.' });
+  }
+
+  const subscribers = readNewsletterSubscribers();
+  const existing = subscribers.find(item => item && item.email === email);
+
+  if (existing) {
+    existing.source = source || existing.source || 'website';
+    existing.pageUrl = pageUrl || existing.pageUrl || '';
+    existing.language = language || existing.language || 'en';
+    existing.updatedAt = new Date().toISOString();
+    writeNewsletterSubscribers(subscribers);
+    return res.json({ ok: true, status: 'updated' });
+  }
+
+  subscribers.push({
+    email,
+    source: source || 'website',
+    pageUrl: pageUrl || '',
+    language: language || 'en',
+    createdAt: new Date().toISOString()
+  });
+
+  writeNewsletterSubscribers(subscribers);
+  return res.status(201).json({ ok: true, status: 'created' });
 });
 
 app.get('/api/health', (req, res) => {

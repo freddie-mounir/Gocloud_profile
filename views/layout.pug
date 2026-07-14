@@ -1,7 +1,28 @@
 block variables
+- var htmlLang = typeof pageLang !== 'undefined' ? pageLang : 'en'
+- var htmlDir = typeof pageDir !== 'undefined' ? pageDir : 'ltr'
+- var alternateAr = typeof alternateArUrl !== 'undefined' ? alternateArUrl : null
+- var alternateEn = typeof alternateEnUrl !== 'undefined' ? alternateEnUrl : null
+- var alternateDefault = alternateAr || alternateEn || null
 doctype html
-html(lang="en")
+html(lang=htmlLang, dir=htmlDir)
   head
+    script.
+      (function () {
+        var storageKey = 'gocloud-site-language';
+        var savedLanguage = null;
+        try {
+          savedLanguage = localStorage.getItem(storageKey);
+        } catch (error) {
+          savedLanguage = null;
+        }
+        var initialLanguage = savedLanguage === 'ar' || savedLanguage === 'en' ? savedLanguage : 'en';
+        var root = document.documentElement;
+        root.lang = initialLanguage;
+        root.dir = initialLanguage === 'ar' ? 'rtl' : 'ltr';
+        root.dataset.siteLang = initialLanguage;
+        root.classList.add('site-lang-' + initialLanguage);
+      }());
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title=pageTitle
@@ -23,10 +44,15 @@ html(lang="en")
     // Accessibility meta tags
     meta(name="robots", content="index, follow")
     meta(name="googlebot", content="index, follow")
-    link(rel="alternate", hreflang="en", href=canonicalUrl)
-    link(rel="alternate", hreflang="x-default", href=canonicalUrl)
+    if alternateAr
+      link(rel="alternate", hreflang="ar", href=alternateAr)
+    if alternateEn
+      link(rel="alternate", hreflang="en", href=alternateEn)
+    if alternateDefault
+      link(rel="alternate", hreflang="x-default", href=alternateDefault)
 
-    script(type="application/ld+json", src="js/organization-schema.json")
+    script(type="application/ld+json").
+      include ../js/organization-schema.json
     meta(name="gocloud-chat-token", content="")
 
     // Favicon
@@ -48,7 +74,7 @@ html(lang="en")
     link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css", integrity="sha384-MUdXdzn1OB/0zkr4yGLnCqZ/n9ut5N7Ifes9RP2d5xKsTtcPiuiwthWczWuiqFOn", crossorigin="anonymous")
     link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css", integrity="sha384-kcNNzf7wI8//ZkNUaDd5JwxLoFaBgkj9Z4O4NwtuX9Lkmsz0HoITOxJsGkYxDuyG", crossorigin="anonymous")
     link(rel="stylesheet", href="https://unpkg.com/aos@2.3.4/dist/aos.css", integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9", crossorigin="anonymous")
-    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css", integrity="sha384-VtAbyHBFULcj75mXhsQnIQUrCiTcHosNqmBMhE2t5jRWaFO1DviOnG9pxHSeNF9k", crossorigin="anonymous")
+    link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css", crossorigin="anonymous")
     //- Fallbacks for browsers with JS disabled
     noscript
       link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css")
@@ -67,6 +93,7 @@ html(lang="en")
     link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap")
     noscript
       link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap")
+    script(src="js/analytics.js", defer)
 
     // Custom styles
     block styles
@@ -91,10 +118,12 @@ html(lang="en")
     script(src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js", integrity="sha384-YGnnOBKslPJVs35GG0TtAZ4uO7BHpHlqJhs0XK3k6cuVb6EBtl+8xcvIIOKV5wB+", crossorigin="anonymous", defer)
     script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js", integrity="sha384-d+vyQ0dYcymoP8ndq2hW7FGC50nqGdXUEgoOUGxbbkAJwZqL7h+jKN0GGgn9hFDS", crossorigin="anonymous", defer)
     script(src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js", integrity="sha384-poC0r6usQOX2Ayt/VGA+t81H6V3iN9L+Irz9iO8o+s0X20tLpzc9DOOtnKxhaQSE", crossorigin="anonymous", defer)
-    script(src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js", integrity="sha384-Hf6yat1C7ze92LpS287AKvB24pRLwa+YxYmOVZKCiBHybkfxZDYy7TuKW/KbcS3i", crossorigin="anonymous", defer)
+    script(src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js", crossorigin="anonymous", defer)
     script(src="js/plugins-bundle.min.js", defer)
     script(src="js/security-init.js", defer)
+    script(src="js/site-language.js", defer)
     script(src="js/main.min.js", defer)
+    script(src="js/newsletter.js", defer)
 
     // Page specific scripts
     block scripts

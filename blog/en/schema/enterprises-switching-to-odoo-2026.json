@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "inLanguage": "en",
+  "headline": "Why Large Enterprises Are Moving to Odoo in 2026 — Compared with SAP, Oracle, and Microsoft",
+  "description": "A practical comparison between Odoo and major ERP platforms such as SAP, Oracle, and Microsoft Dynamics, and why large enterprises are moving to Odoo in 2026.",
+  "image": "https://www.gocloudeg.com/images/blog-odoo-vs-sap-oracle.png",
+  "datePublished": "2026-04-06",
+  "author": {
+    "@type": "Person",
+    "name": "GoCloud Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GoCloud",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gocloudeg.com/images/gocloud-logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.gocloudeg.com/blog/en/enterprises-switching-to-odoo-2026.html"
+  }
+}

@@ -1,6 +1,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
+  "inLanguage": "ar",
   "headline": "هل Odoo 20 مناسب لشركات المقاولات؟ نظرة على المميزات الجديدة والتحديات الحقيقية",
   "description": "مع تحديثات Odoo 20 الجديدة لقطاع الإنشاءات، هل أصبح النظام جاهزاً فعلاً لإدارة مشاريع المقاولات؟ نستعرض المميزات والتحديات الحقيقية.",
   "image": "https://www.gocloudeg.com/images/blog-odoo-construction.png",

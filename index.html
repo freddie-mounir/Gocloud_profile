@@ -1,20 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
+    <script>
+      (function () {
+        var storageKey = 'gocloud-site-language';
+        var savedLanguage = null;
+        try {
+          savedLanguage = localStorage.getItem(storageKey);
+        } catch (error) {
+          savedLanguage = null;
+        }
+        var initialLanguage = savedLanguage === 'ar' || savedLanguage === 'en' ? savedLanguage : 'en';
+        var root = document.documentElement;
+        root.lang = initialLanguage;
+        root.dir = initialLanguage === 'ar' ? 'rtl' : 'ltr';
+        root.dataset.siteLang = initialLanguage;
+        root.classList.add('site-lang-' + initialLanguage);
+      }());
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoCloud — Odoo ERP &amp; Insurance Technology Experts</title>
-    <meta name="description" content="GoCloud delivers industry-specific Odoo ERP solutions, medical insurance systems, and cloud infrastructure for healthcare, trade, and distribution businesses across Egypt and the Middle East.">
-    <meta name="keywords" content="Odoo ERP, medical insurance system, healthcare IT, trade ERP, Odoo implementation, Odoo customization, business intelligence, cloud hosting, GoCloud Egypt">
+    <title>GoCloud — خبراء أودو والتقنية</title>
+    <meta name="description" content="تقدم GoCloud حلول Odoo ERP المتخصصة وأنظمة التأمين الطبي والبنية التحتية السحابية للشركات في مجالات الرعاية الصحية والتجارة والتوزيع في مصر والشرق الأوسط.">
+    <meta name="keywords" content="Odoo ERP, نظام تأمين طبي, تقنية الرعاية الصحية, نظام تجارة, تنفيذ أودو, تخصيص أودو, ذكاء الأعمال, استضافة سحابية, GoCloud Egypt">
     <link rel="canonical" href="https://www.gocloudeg.com/">
-    <meta property="og:title" content="GoCloud — Odoo ERP &amp; Insurance Technology Experts">
-    <meta property="og:description" content="GoCloud delivers industry-specific Odoo ERP solutions, medical insurance systems, and cloud infrastructure for healthcare, trade, and distribution businesses across Egypt and the Middle East.">
+    <meta property="og:title" content="GoCloud — خبراء أودو والتقنية">
+    <meta property="og:description" content="تقدم GoCloud حلول Odoo ERP المتخصصة وأنظمة التأمين الطبي والبنية التحتية السحابية للشركات في مجالات الرعاية الصحية والتجارة والتوزيع في مصر والشرق الأوسط.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.gocloudeg.com/">
     <meta property="og:image" content="https://www.gocloudeg.com/images/gocloud-logo.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="GoCloud — Odoo ERP &amp; Insurance Technology Experts">
-    <meta name="twitter:description" content="GoCloud delivers industry-specific Odoo ERP solutions, medical insurance systems, and cloud infrastructure for healthcare, trade, and distribution businesses across Egypt and the Middle East.">
+    <meta name="twitter:title" content="GoCloud — خبراء أودو والتقنية">
+    <meta name="twitter:description" content="تقدم GoCloud حلول Odoo ERP المتخصصة وأنظمة التأمين الطبي والبنية التحتية السحابية للشركات في مجالات الرعاية الصحية والتجارة والتوزيع في مصر والشرق الأوسط.">
     <meta name="twitter:image" content="https://www.gocloudeg.com/images/gocloud-logo.png">
     <!-- Accessibility improvements-->
     <meta name="theme-color" content="#ffffff">
@@ -22,9 +39,7 @@
     <!-- Accessibility meta tags-->
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
-    <link rel="alternate" hreflang="en" href="https://www.gocloudeg.com/">
-    <link rel="alternate" hreflang="x-default" href="https://www.gocloudeg.com/">
-    <script type="application/ld+json" src="js/organization-schema.json"></script>
+    <script type="application/ld+json">include ../js/organization-schema.json</script>
     <meta name="gocloud-chat-token" content="">
     <!-- Favicon-->
     <link rel="icon" href="images/favicon.ico" sizes="32x32">
@@ -43,7 +58,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" integrity="sha384-MUdXdzn1OB/0zkr4yGLnCqZ/n9ut5N7Ifes9RP2d5xKsTtcPiuiwthWczWuiqFOn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" integrity="sha384-kcNNzf7wI8//ZkNUaDd5JwxLoFaBgkj9Z4O4NwtuX9Lkmsz0HoITOxJsGkYxDuyG" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" integrity="sha384-VtAbyHBFULcj75mXhsQnIQUrCiTcHosNqmBMhE2t5jRWaFO1DviOnG9pxHSeNF9k" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" crossorigin="anonymous">
     <noscript>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
@@ -62,10 +77,12 @@
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap">
     </noscript>
+    <script src="js/analytics.js" defer></script>
     <!-- Custom styles-->
     <style>
       .hero-badge{display:inline-flex;align-items:center;gap:8px;background:#0E38B1;border-radius:50px;padding:8px 18px;font-size:.8rem;font-weight:600;color:#fff;margin-bottom:1.5rem;box-shadow:0 4px 14px rgba(14,56,177,.3)}
       .hero-badge i{color:#A1E934;margin-right:2px}
+      .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
       .hero1 .main-headding h1{font-size:2.75rem;line-height:1.2;font-weight:800;color:#0D0E10}
       .hero1 .main-headding h1 .text-accent{color:#0E38B1}
       .hero1 .main-headding .hero-sub{font-size:1.05rem;line-height:1.7;color:#4a4b5c;max-width:480px}
@@ -138,7 +155,7 @@
               <div class="preloader-bar">
                 <div class="preloader-bar-inner"></div>
               </div>
-              <div class="preloader-tagline">Smart Software Solutions</div>
+              <div class="preloader-tagline" data-i18n-key="preloader.tagline">Smart Software Solutions</div>
             </div>
             <div class="loader-section-left loader-section section-left"></div>
             <div class="loader-section-right loader-section section-right"></div>
@@ -153,30 +170,68 @@
         .top-bar-item i{color:#A1E934;font-size:.7rem}
         .top-bar-item a{color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
         .top-bar-item a:hover{color:#fff}
+        .top-bar-lang .dropdown-toggle{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:6px 12px;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.04em;line-height:1}
+        .top-bar-lang .dropdown-toggle::after{margin-inline-start:4px}
+        .top-bar-lang .dropdown-toggle:hover,.top-bar-lang .dropdown-toggle:focus{background:rgba(255,255,255,.18);color:#fff;box-shadow:none}
+        .top-bar-lang .dropdown-toggle:focus-visible{outline:2px solid #A1E934;outline-offset:2px}
+        .top-bar-lang .dropdown-menu{display:none;min-width:150px;border-radius:14px;border:1px solid #dfe6fb;box-shadow:0 18px 36px rgba(8,31,99,.12);padding:.35rem}
+        .top-bar-lang .dropdown-menu.show{display:block}
+        .top-bar-lang .dropdown-item{border-radius:10px;font-size:.88rem;font-weight:700;padding:.55rem .8rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+        .top-bar-lang .dropdown-item.active,.top-bar-lang .dropdown-item:active{background:#0E38B1;color:#fff}
+        .top-bar-calls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+        .top-bar-call{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 14px;color:#fff;text-decoration:none;transition:background .2s,border-color .2s}
+        .top-bar-call:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.28);color:#fff}
+        .top-bar-call i{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(161,233,52,.15);color:#A1E934;font-size:.8rem}
+        .top-bar-call span{display:flex;flex-direction:column;line-height:1.15}
+        .top-bar-call strong{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.72);text-transform:uppercase;letter-spacing:.05em}
+        .top-bar-call em{font-style:normal;font-size:.8rem;font-weight:700;color:#fff}
+        .gc-phone-ltr{display:inline-block;direction:ltr;unicode-bidi:isolate}
         .top-bar-right{display:flex;align-items:center;gap:12px}
         .top-bar-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:4px 14px 4px 4px;font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.02em}
         .top-bar-badge img{height:22px;border-radius:50%;background:#fff;padding:1px}
         .top-bar-social a{color:rgba(255,255,255,.5);font-size:.8rem;margin-left:8px;transition:color .2s}
         .top-bar-social a:hover{color:#A1E934}
-        @media(max-width:767px){.top-bar{position:fixed;top:0;left:0;width:100%;z-index:1001;padding:6px 0}.top-bar-right{display:none}.top-bar-left{gap:.75rem}.top-bar-item{font-size:.7rem}}
+        @media(max-width:767px){.top-bar{position:fixed;top:0;left:0;width:100%;z-index:1001;padding:6px 0}.top-bar-right{display:none}.top-bar-left{gap:.55rem}.top-bar-item{font-size:.7rem}.top-bar-calls{width:100%;gap:6px}.top-bar-call{padding:4px 10px}.top-bar-call strong{font-size:.62rem}.top-bar-call em{font-size:.72rem}.top-bar-lang .dropdown-toggle{padding:5px 10px;font-size:.68rem}}
         
       </style>
       <div class="top-bar">
         <div class="container">
           <div class="top-bar-inner">
             <div class="top-bar-left">
-              <div class="top-bar-item"><i class="fas fa-phone-alt"></i><a href="tel:+201017383815">+2 010 1738 3815</a></div>
+              <div class="top-bar-calls"><a class="top-bar-call" href="tel:+201017383815" aria-label="Call GoCloud at +2 010 1738 3815"><i class="fas fa-phone-alt"></i><span><strong data-i18n-key="topbar.call_label">Make a Call</strong><em class="gc-phone-ltr">+2 010 1738 3815</em></span></a><a class="top-bar-call" href="tel:+201222666635" aria-label="Call GoCloud at +20 122 266 6635"><i class="fas fa-phone-alt"></i><span><strong data-i18n-key="topbar.call_label">Make a Call</strong><em class="gc-phone-ltr">+20 122 266 6635</em></span></a></div>
+              <div class="dropdown top-bar-lang">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language switch" data-site-language-toggle><i class="fas fa-globe" aria-hidden="true"></i><span data-site-language-label>AR</span></button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <button class="dropdown-item" type="button" data-site-language="ar"><span>العربية</span><span class="small text-muted">AR</span></button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" type="button" data-site-language="en"><span>English</span><span class="small text-muted">EN</span></button>
+                  </li>
+                </ul>
+              </div>
               <div class="top-bar-item"><i class="fas fa-envelope"></i><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
               <div class="top-bar-item"><i class="fas fa-map-marker-alt"></i><span>Giza, Egypt</span></div>
             </div>
             <div class="top-bar-right">
-              <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22">Odoo Official Partner</div>
+              <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22"><span data-i18n-key="topbar.partner_badge">Odoo Official Partner</span></div>
               <div class="top-bar-social"><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
             </div>
           </div>
         </div>
       </div>
       <!-- Header Component-->
+      <style>
+        .mobile-sidebar .gc-mobile-contact-compact h3{margin-bottom:8px!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box+.contact-box{margin-top:2px!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera,.mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{line-height:1.2}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{display:inline-block;margin:0!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera p{margin:0}
+        .mobile-sidebar .gc-mobile-contact-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+        
+      </style>
       <header role="banner">
         <div class="header-area header-area1 header-area-all d-none d-md-block d-lg-block" id="header">
           <div class="container">
@@ -187,23 +242,19 @@
                   <nav role="navigation" aria-label="Main Navigation">
                     <div class="main-menu-ex main-menu-ex1">
                       <ul role="menubar">
-                        <li class="dropdown-menu-parrent" role="none"><a href="about.html" role="menuitem">About</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="service.html" role="menuitem">Services</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-1"></i>Odoo Services</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">ELITE<span class="badge badge-warning ms-1" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="blog/index.html" role="menuitem"><i class="fas fa-blog me-1"></i>Blog</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="index.html" role="menuitem" data-i18n-key="nav.home">Home</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="about.html" role="menuitem" data-i18n-key="nav.about">About</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="service.html" role="menuitem" data-i18n-key="nav.services">Services</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="faq.html" role="menuitem" data-i18n-key="nav.faq">FAQ</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="blog/index.html" role="menuitem" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-blog me-1"></i><span data-i18n-key="nav.blog">Blog</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-1"></i><span data-i18n-key="nav.odoo_services">Odoo Services</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;"><span data-i18n-key="nav.elite">ELITE</span><span class="badge badge-warning ms-1" data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="contact.html" role="menuitem" data-i18n-key="nav.contact">Contact</a></li>
                       </ul>
                     </div>
                   </nav>
                   <div class="header1-buttons">
-                    <div class="contact-btn">
-                      <div class="icon"><img src="images/header1-icon.webp" alt="" width="22" height="22" loading="lazy"></div>
-                      <div class="headding">
-                        <p>Make a Call</p><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a>
-                      </div>
-                    </div>
-                    <div class="button d-flex gap-2"><a class="theme-btn1" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i>Book a Free Demo</a><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+                    <div class="button d-flex gap-2 flex-wrap justify-content-end"><a class="theme-btn1" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i><span data-i18n-key="nav.book_demo">Book a Free Demo</span></a><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp"><span data-i18n-key="nav.get_quote">Get A Quote</span><span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
                   </div>
                 </div>
               </div>
@@ -233,17 +284,18 @@
           <div class="mobile-nav">
             <nav role="navigation" aria-label="Mobile Navigation">
               <ul role="menubar">
-                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-                <li role="none"><a href="about.html" role="menuitem">About Us</a></li>
-                <li role="none"><a href="service.html" role="menuitem">Services</a></li>
-                <li role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-2"></i>Odoo Services</a></li>
-                <li role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">ELITE<span class="badge badge-warning ms-2" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
-                <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-                <li role="none"><a href="blog/index.html" role="menuitem"><i class="fas fa-blog me-2"></i>Blog</a></li>
+                <li role="none"><a href="index.html" role="menuitem" data-i18n-key="nav.home">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem" data-i18n-key="nav.about_us">About Us</a></li>
+                <li role="none"><a href="service.html" role="menuitem" data-i18n-key="nav.services">Services</a></li>
+                <li role="none"><a href="faq.html" role="menuitem" data-i18n-key="nav.faq">FAQ</a></li>
+                <li role="none"><a href="blog/index.html" role="menuitem" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-blog me-2"></i><span data-i18n-key="nav.blog">Blog</span></a></li>
+                <li role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-2"></i><span data-i18n-key="nav.odoo_services">Odoo Services</span></a></li>
+                <li role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;"><span data-i18n-key="nav.elite">ELITE</span><span class="badge badge-warning ms-2" data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                <li role="none"><a href="contact.html" role="menuitem" data-i18n-key="nav.contact">Contact</a></li>
               </ul>
             </nav>
-            <div class="mobile-button"><a class="menu-btn2 mb-2" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i>Book a Free Demo</a><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
-            <div class="single-footer-items">
+            <div class="mobile-button"><a class="menu-btn2 mb-2" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i><span data-i18n-key="nav.book_demo">Book a Free Demo</span></a><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp"><span data-i18n-key="nav.get_quote">Get A Quote</span><span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+            <div class="single-footer-items gc-mobile-contact-compact">
               <h3>Contact Us</h3>
               <div class="contact-box">
                 <div class="icon"><img src="images/footer1-icon1.webp" alt="Phone Icon" width="24" height="24" loading="lazy"></div>
@@ -251,7 +303,9 @@
               </div>
               <div class="contact-box">
                 <div class="icon"><img src="images/footer1-icon2.webp" alt="Mobile Phone Icon" width="24" height="24" loading="lazy"></div>
-                <div class="pera"><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a></div>
+                <div class="pera">
+                  <div class="d-flex flex-column gap-1"><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a><a href="tel://+201222666635" aria-label="Call us at +201222666635">+201222666635</a></div>
+                </div>
               </div>
               <div class="contact-box">
                 <div class="icon"><img src="images/footer1-icon3.webp" alt="Email Icon" width="24" height="24" loading="lazy"></div>
@@ -278,13 +332,13 @@
           <div class="row">
             <div class="col-lg-5">
               <div class="main-headding">
-                <div class="hero-badge"><i class="fas fa-award"></i>Official Odoo Partner</div>
-                <div class="span" style="color:blue" data-aos="zoom-in-left" data-aos-duration="700"><img src="images/gocloud%20logo.webp" height="40" width="40" alt="GoCloud logo">GoCloud Technology</div>
-                <h1 class="title tg-element-title">Odoo ERP Experts &amp;<br>Insurance Technology<br><span class="text-accent">Tailored to Your Industry</span></h1>
+                <div class="hero-badge"><i class="fas fa-award"></i><span data-i18n-key="home.hero_badge">شريك أودو المعتمد</span></div>
+                <div class="span" style="color:blue" data-aos="zoom-in-left" data-aos-duration="700"><img src="images/gocloud%20logo.webp" height="40" width="40" alt="GoCloud logo"><span data-i18n-key="home.brand_line">GoCloud Technology</span></div>
+                <h1 class="title"><span data-i18n-key="home.hero_title_line1">خبراء Odoo ERP و</span><br><span data-i18n-key="home.hero_title_line2">تقنيات التأمين الطبي</span><br><span class="text-accent" data-i18n-key="home.hero_title_line3">مصممة حسب احتياج قطاعك</span></h1>
                 <div class="space16"></div>
-                <p class="hero-sub">We implement, customize, and integrate Odoo ERP for healthcare, trade, and distribution — and power medical insurance operations with our ELITE platform.</p>
+                <p class="hero-sub" data-i18n-key="home.hero_sub">ننفذ ونخصص وندمج Odoo ERP لقطاعات الرعاية الصحية والتجارة والتوزيع، ونشغّل عمليات التأمين الطبي عبر منصة ELITE.</p>
                 <div class="space30"></div>
-                <div class="buttons d-flex gap-3 flex-wrap"><a class="theme-btn1" href="#CTA">Get Started Now<span><i class="fa-solid fa-arrow-right"></i></span></a><a class="btn btn-hero-outline" href="service.html">View All Services</a></div>
+                <div class="hero-actions"><a class="theme-btn1" href="#CTA"><span data-i18n-key="home.hero_primary_cta">ابدأ الآن</span><span><i class="fa-solid fa-arrow-right"></i></span></a><a class="btn btn-hero-outline" href="service.html"><span data-i18n-key="home.hero_secondary_cta">عرض الخدمات</span></a></div>
               </div>
             </div>
             <div class="col-lg-7">
@@ -295,7 +349,7 @@
                 </div>
                 <div class="d-flex counter-box shape-animaiton2 counter-box-width shadow-lg-3" style="background-color: #1a237e; border-radius: 15px; padding: 15px;">
                   <p class="fs-3 text-white" id="yearsCounter">+<span>10</span></p>
-                  <p class="text-warning fw-bold w-auto">Years Of<br>Experience</p>
+                  <p class="text-warning fw-bold w-auto"><span data-i18n-key="home.years_of">سنوات من</span><br><span data-i18n-key="home.experience">الخبرة</span></p>
                 </div>
                 <div class="shape1"><img src="images/header1-shape1.png" alt="" width="131" height="130"></div>
               </div>
@@ -309,25 +363,25 @@
             <div class="col-6 col-md-3">
               <div class="stat-item">
                 <div class="stat-num">+80K</div>
-                <div class="stat-label">Supported Users</div>
+                <div class="stat-label" data-i18n-key="home.stats.users">مستخدم مدعوم</div>
               </div>
             </div>
             <div class="col-6 col-md-3">
               <div class="stat-item">
                 <div class="stat-num">+20</div>
-                <div class="stat-label">Corporate Clients</div>
+                <div class="stat-label" data-i18n-key="home.stats.clients">عميل مؤسسي</div>
               </div>
             </div>
             <div class="col-6 col-md-3">
               <div class="stat-item">
                 <div class="stat-num">+10</div>
-                <div class="stat-label">Solutions Delivered</div>
+                <div class="stat-label" data-i18n-key="home.stats.solutions">حلول تم تنفيذها</div>
               </div>
             </div>
             <div class="col-6 col-md-3">
               <div class="stat-item">
                 <div class="stat-num">+50</div>
-                <div class="stat-label">Completed Projects</div>
+                <div class="stat-label" data-i18n-key="home.stats.projects">مشروع منجز</div>
               </div>
             </div>
           </div>
@@ -337,7 +391,7 @@
       <!-- Marquee-->
       <section class="partners-section">
         <div class="container">
-          <p class="partners-label">Trusted by leading organizations</p>
+          <p class="partners-label" data-i18n-key="shared.partners_label">Trusted by leading organizations</p>
         </div>
         <div class="partners-marquee" aria-label="Our partners">
           <div class="partners-track">
@@ -368,36 +422,36 @@
       <section class="py-5">
         <div class="container">
           <div class="text-center mb-5" data-aos="fade-up">
-            <h2 class="fw-bold">Industry Solutions, Not Generic Services</h2>
-            <p class="lead text-muted">We don't sell off-the-shelf software — we build solutions around how your industry actually works.</p>
+            <h2 class="fw-bold" data-i18n-key="home.solutions_title">حلول متخصصة، لا خدمات عامة</h2>
+            <p class="lead text-muted" data-i18n-key="home.solutions_subtitle">نحن لا نبيع برمجيات جاهزة — بل نبني حلولاً حول طريقة عمل قطاعك فعلياً.</p>
           </div>
           <div class="row g-4">
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
               <div class="sector-card">
                 <div class="sector-icon" style="background:#dc3545;"><i class="fas fa-heartbeat"></i></div>
-                <h3>Healthcare &amp; Medical Insurance</h3>
-                <p>From provider network management to claims processing and member portals — we deliver end-to-end digital infrastructure for insurance companies and healthcare organizations.</p>
+                <h3 data-i18n-key="home.healthcare_title">الرعاية الصحية والتأمين الطبي</h3>
+                <p data-i18n-key="home.healthcare_text">من إدارة شبكة مقدمي الخدمة إلى معالجة المطالبات وبوابات المشتركين — نوفر بنية رقمية متكاملة لشركات التأمين ومؤسسات الرعاية الصحية.</p>
                 <ul class="sector-features">
-                  <li><i class="fas fa-check-circle"></i>ELITE Medical Insurance Platform</li>
-                  <li><i class="fas fa-check-circle"></i>Claims &amp; policy administration</li>
-                  <li><i class="fas fa-check-circle"></i>Provider network &amp; approvals workflow</li>
-                  <li><i class="fas fa-check-circle"></i>Real-time member &amp; corporate portals</li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.healthcare_feature_1">منصة ELITE للتأمين الطبي</span></li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.healthcare_feature_2">إدارة المطالبات والسياسات</span></li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.healthcare_feature_3">شبكة مقدمي الخدمة ومسار الموافقات</span></li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.healthcare_feature_4">بوابات الأعضاء والشركات في الوقت الفعلي</span></li>
                 </ul>
-                <div class="mt-3"><a class="fw-semibold text-primary" href="elite.html">Explore Healthcare Solutions →</a></div>
+                <div class="mt-3"><a class="fw-semibold text-primary" href="elite.html"><span data-i18n-key="home.healthcare_link">استكشف حلول الرعاية الصحية →</span></a></div>
               </div>
             </div>
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
               <div class="sector-card">
                 <div class="sector-icon" style="background:#fd7e14;"><i class="fas fa-boxes"></i></div>
-                <h3>Trade &amp; Distribution</h3>
-                <p>Custom Odoo workflows for inventory, purchasing, sales, and logistics — built for gold trading, pharmaceutical distribution, and wholesale operations.</p>
+                <h3 data-i18n-key="home.trade_title">التجارة والتوزيع</h3>
+                <p data-i18n-key="home.trade_text">مسارات عمل Odoo مخصصة للمخزون والمشتريات والمبيعات واللوجستيات — مصممة لتجارة الذهب وتوزيع الأدوية والعمليات الجملة.</p>
                 <ul class="sector-features">
-                  <li><i class="fas fa-check-circle"></i>Gold investment management system</li>
-                  <li><i class="fas fa-check-circle"></i>Pharma CRM &amp; supply chain</li>
-                  <li><i class="fas fa-check-circle"></i>Inventory &amp; warehouse automation</li>
-                  <li><i class="fas fa-check-circle"></i>Multi-branch &amp; multi-currency support</li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.trade_feature_1">نظام إدارة استثمارات الذهب</span></li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.trade_feature_2">CRM وسلسلة الإمداد للدواء</span></li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.trade_feature_3">أتمتة المخزون والمستودعات</span></li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.trade_feature_4">دعم الفروع المتعددة والعملات المتعددة</span></li>
                 </ul>
-                <div class="mt-3"><a class="fw-semibold text-primary" href="odoo-services.html">Explore Trade Solutions →</a></div>
+                <div class="mt-3"><a class="fw-semibold text-primary" href="odoo-services.html"><span data-i18n-key="home.trade_link">استكشف حلول التجارة →</span></a></div>
               </div>
             </div>
           </div>
@@ -405,40 +459,40 @@
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
               <div class="sector-card">
                 <div class="sector-icon" style="background:#0E38B1;"><i class="fas fa-cloud"></i></div>
-                <h3>Cloud &amp; Infrastructure</h3>
-                <p>Reliable hosting, containerization, and Linux server management with 24/7 support.</p>
+                <h3 data-i18n-key="home.cloud_title">السحابة والبنية التحتية</h3>
+                <p data-i18n-key="home.cloud_text">استضافة موثوقة، وحاويات، وإدارة خوادم لينكس مع دعم على مدار الساعة.</p>
                 <ul class="sector-features">
-                  <li><i class="fas fa-check-circle"></i>Docker &amp; Kubernetes</li>
-                  <li><i class="fas fa-check-circle"></i>Server security hardening</li>
-                  <li><i class="fas fa-check-circle"></i>Migration &amp; optimization</li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.cloud_feature_1">Docker و Kubernetes</span></li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.cloud_feature_2">تقوية أمان الخوادم</span></li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.cloud_feature_3">الترحيل والتحسين</span></li>
                 </ul>
-                <div class="mt-3"><a class="fw-semibold text-primary" href="cloud-services.html">Learn more →</a></div>
+                <div class="mt-3"><a class="fw-semibold text-primary" href="cloud-services.html"><span data-i18n-key="home.cloud_link">اعرف المزيد →</span></a></div>
               </div>
             </div>
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
               <div class="sector-card">
                 <div class="sector-icon" style="background:#6E18EF;"><i class="fas fa-cogs"></i></div>
-                <h3>Odoo ERP &amp; CRM</h3>
-                <p>Full-cycle Odoo services — from module development and customization to deployment and staff training.</p>
+                <h3 data-i18n-key="home.odoo_title">Odoo ERP و CRM</h3>
+                <p data-i18n-key="home.odoo_text">خدمات Odoo الكاملة — من تطوير الوحدات والتخصيص إلى النشر وتدريب الموظفين.</p>
                 <ul class="sector-features">
-                  <li><i class="fas fa-check-circle"></i>Custom module development</li>
-                  <li><i class="fas fa-check-circle"></i>Third-party integrations</li>
-                  <li><i class="fas fa-check-circle"></i>End-to-end implementation</li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.odoo_feature_1">تطوير وحدات مخصصة</span></li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.odoo_feature_2">تكاملات مع الأطراف الخارجية</span></li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.odoo_feature_3">تنفيذ شامل من البداية للنهاية</span></li>
                 </ul>
-                <div class="mt-3"><a class="fw-semibold text-primary" href="odoo-dev.html">Learn more →</a></div>
+                <div class="mt-3"><a class="fw-semibold text-primary" href="odoo-dev.html"><span data-i18n-key="home.odoo_link">اعرف المزيد →</span></a></div>
               </div>
             </div>
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="500">
               <div class="sector-card">
                 <div class="sector-icon" style="background:#ffc107;"><i class="fas fa-chart-bar"></i></div>
-                <h3>Business Intelligence</h3>
-                <p>Interactive dashboards, automated reporting, and data consolidation powered by Power BI and Metabase.</p>
+                <h3 data-i18n-key="home.bi_title">ذكاء الأعمال</h3>
+                <p data-i18n-key="home.bi_text">لوحات تحكم تفاعلية وتقارير مؤتمتة وتوحيد للبيانات مدعوم عبر Power BI وMetabase.</p>
                 <ul class="sector-features">
-                  <li><i class="fas fa-check-circle"></i>Real-time KPI dashboards</li>
-                  <li><i class="fas fa-check-circle"></i>Automated report delivery</li>
-                  <li><i class="fas fa-check-circle"></i>Multi-source data integration</li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.bi_feature_1">لوحات KPI لحظية</span></li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.bi_feature_2">تسليم التقارير تلقائياً</span></li>
+                  <li><i class="fas fa-check-circle"></i><span data-i18n-key="home.bi_feature_3">تكامل بيانات من مصادر متعددة</span></li>
                 </ul>
-                <div class="mt-3"><a class="fw-semibold text-primary" href="business.html">Learn more →</a></div>
+                <div class="mt-3"><a class="fw-semibold text-primary" href="business.html"><span data-i18n-key="home.bi_link">اعرف المزيد →</span></a></div>
               </div>
             </div>
           </div>
@@ -459,25 +513,25 @@
             </div>
             <div class="col-lg-6">
               <div class="heading1">
-                <div class="span" style="color: green;" data-aos="zoom-in-left" data-aos-duration="700"><img src="images/gocloud%20logo.webp" height="50" width="50" alt="GoCloud logo">About GoCloud</div>
-                <h2 class="title tg-element-title">A Decade of Turning Complex Operations into Streamlined Systems</h2>
+                <div class="span" style="color: green;" data-aos="zoom-in-left" data-aos-duration="700"><img src="images/gocloud%20logo.webp" height="50" width="50" alt="GoCloud logo"><span data-i18n-key="home.about_kicker">من نحن في GoCloud</span></div>
+                <h2 class="title" data-i18n-key="home.about_title">عقد من تحويل العمليات المعقدة إلى أنظمة سلسة</h2>
                 <div class="space16"></div>
-                <p data-aos="fade-left" data-aos-duration="800">Since our founding, we've focused on two things: mastering Odoo ERP and building technology that solves real operational problems. From insurance workflows to multi-branch trade operations, our team delivers systems that companies actually use every day.</p>
+                <p data-aos="fade-left" data-aos-duration="800" data-i18n-key="home.about_text">منذ تأسيسنا ركزنا على أمرين: إتقان Odoo ERP وبناء تقنية تحل مشكلات تشغيلية حقيقية. من مسارات التأمين إلى عمليات التجارة متعددة الفروع، يقدم فريقنا أنظمة يستخدمها العملاء فعلياً كل يوم.</p>
                 <div class="space16"></div>
                 <div class="about-highlight" data-aos="fade-left" data-aos-duration="900">
-                  <h5>Official Odoo Partner</h5>
-                  <p>Certified expertise in customization, implementation, and integration</p>
+                  <h5 data-i18n-key="home.about_point_1_title">شريك أودو المعتمد</h5>
+                  <p data-i18n-key="home.about_point_1_text">خبرة معتمدة في التخصيص والتنفيذ والتكامل</p>
                 </div>
                 <div class="about-highlight" data-aos="fade-left" data-aos-duration="1000">
-                  <h5>Insurance Technology Pioneer</h5>
-                  <p>Built ELITE — a full medical insurance management platform</p>
+                  <h5 data-i18n-key="home.about_point_2_title">رائد في تقنيات التأمين</h5>
+                  <p data-i18n-key="home.about_point_2_text">بنينا ELITE — منصة متكاملة لإدارة التأمين الطبي</p>
                 </div>
                 <div class="about-highlight" data-aos="fade-left" data-aos-duration="1100">
-                  <h5>Full-Stack Delivery</h5>
-                  <p>From cloud infrastructure to analytics dashboards — one team, end to end</p>
+                  <h5 data-i18n-key="home.about_point_3_title">تسليم متكامل</h5>
+                  <p data-i18n-key="home.about_point_3_text">من البنية السحابية إلى لوحات التحليل — فريق واحد من البداية للنهاية</p>
                 </div>
                 <div class="space20"></div>
-                <div data-aos="fade-left" data-aos-duration="900"><a class="theme-btn1" href="about.html">Learn More About Us<span><i class="fa-solid fa-arrow-right"></i></span></a></div>
+                <div data-aos="fade-left" data-aos-duration="900"><a class="theme-btn1" href="about.html"><span data-i18n-key="home.about_link">اعرف المزيد عنا</span><span><i class="fa-solid fa-arrow-right"></i></span></a></div>
               </div>
             </div>
           </div>
@@ -488,18 +542,18 @@
           <div class="row align-items-center">
             <div class="col-lg-6" data-aos="fade-right">
               <div class="heading1">
-                <div class="span" data-aos="zoom-in-left" data-aos-duration="700"><img src="images/gocloud%20logo.webp" height="50" width="50" alt="GoCloud logo">Odoo Partnership</div>
-                <h2 class="title tg-element-title">Why Businesses Choose Our Odoo ERP</h2>
+                <div class="span" data-aos="zoom-in-left" data-aos-duration="700"><img src="images/gocloud%20logo.webp" height="50" width="50" alt="GoCloud logo"><span data-i18n-key="home.partner_kicker">شراكة أودو</span></div>
+                <h2 class="title" data-i18n-key="home.partner_title">لماذا تختار الشركات Odoo ERP من GoCloud؟</h2>
                 <div class="space16"></div>
-                <p>Even startups and SMEs can monitor their entire business through a robust ERP system. As an official Odoo partner, we bring certified expertise to every project.</p>
+                <p data-i18n-key="home.partner_text">حتى الشركات الناشئة والمتوسطة يمكنها مراقبة أعمالها بالكامل عبر نظام ERP قوي. وبصفتنا شريك أودو معتمد، نقدم خبرة موثقة لكل مشروع.</p>
                 <div class="single-items" data-aos="fade-right" data-aos-duration="700">
                   <div>
                     <div class="icon"><img src="images/crm.png" alt="CRM solutions" width="24" height="24"></div>
                   </div>
                   <div>
-                    <h3>CRM to Manage Your Customer Relations</h3>
+                    <h3 data-i18n-key="home.partner_item_1_title">CRM لإدارة علاقات العملاء</h3>
                     <div class="space10"></div>
-                    <p>Capture every lead, automate follow-ups, and build lasting customer relationships with a CRM built around your sales process.</p>
+                    <p data-i18n-key="home.partner_item_1_text">التقط كل فرصة، وأتمت المتابعات، وابنِ علاقات دائمة عبر CRM مصمم حول دورة البيع لديك.</p>
                   </div>
                 </div>
                 <div class="single-items" data-aos="fade-right" data-aos-duration="900">
@@ -507,9 +561,9 @@
                     <div class="icon"><img src="images/erp.png" alt="ERP systems" width="24" height="24"></div>
                   </div>
                   <div>
-                    <h3>Industry-Specific ERP Workflows</h3>
+                    <h3 data-i18n-key="home.partner_item_2_title">مسارات ERP خاصة بكل قطاع</h3>
                     <div class="space10"></div>
-                    <p>Pharma distribution, gold trading, healthcare operations — we configure Odoo modules to match your real-world processes.</p>
+                    <p data-i18n-key="home.partner_item_2_text">توزيع الأدوية وتجارة الذهب والرعاية الصحية — نهيئ وحدات Odoo لتناسب عملياتك الواقعية.</p>
                   </div>
                 </div>
                 <div class="single-items" data-aos="fade-right" data-aos-duration="1100">
@@ -517,9 +571,9 @@
                     <div class="icon"><img src="images/business-intelligence.png" alt="Business intelligence" width="24" height="24"></div>
                   </div>
                   <div>
-                    <h3>Built-In Business Intelligence</h3>
+                    <h3 data-i18n-key="home.partner_item_3_title">ذكاء أعمال مدمج</h3>
                     <div class="space10"></div>
-                    <p>From real-time dashboards to scheduled reports, get visibility into every corner of your operation.</p>
+                    <p data-i18n-key="home.partner_item_3_text">من لوحات التحكم اللحظية إلى التقارير المجدولة، احصل على رؤية كاملة لكل جزء من نشاطك.</p>
                   </div>
                 </div>
               </div>
@@ -532,60 +586,85 @@
       </section>
       <section class="py-5" style="background:#f7f9ff">
         <div class="container">
-          <div class="text-center mb-5" data-aos="fade-up"><span class="badge rounded-pill mb-3" style="background:#EEF2FF;color:#0E38B1;font-weight:600;font-size:.8rem;padding:6px 16px">أحدث المقالات — Latest Articles</span>
-            <h2 class="fw-bold">From Our Blog</h2>
-            <p class="text-muted">Insights on Medical Insurance Technology &amp; Odoo Business Solutions</p>
+          <div class="text-center mb-5" data-aos="fade-up"><span class="badge rounded-pill mb-3" style="background:#EEF2FF;color:#0E38B1;font-weight:600;font-size:.8rem;padding:6px 16px" data-i18n-key="home.blog_badge">أحدث المقالات — Latest Articles</span>
+            <h2 class="fw-bold" data-i18n-key="home.blog_title">من مدونتنا</h2>
+            <p class="text-muted" data-i18n-key="home.blog_subtitle">رؤى حول تقنيات التأمين الطبي وحلول أعمال Odoo</p>
           </div>
           <div class="row g-4">
             <div class="col-md-6 col-lg-4" data-aos="fade-up">
               <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"><img class="card-img-top" src="images/blog-crm-medical-dashboard.png" alt="Odoo CRM for Medical Supplies" loading="lazy" width="1879" height="686" style="height:200px;object-fit:cover">
                 <div class="card-body p-4"><span class="badge rounded-pill mb-2" style="background:#EEF2FF;color:#0E38B1;font-size:.72rem">تطبيقات أودو</span>
-                  <h5 class="card-title fw-bold" style="font-size:.95rem">Odoo CRM لشركات المستلزمات الطبية — مراقبة فرق المبيعات وزيادة الإيرادات</h5>
-                  <p class="card-text text-muted" style="font-size:.85rem">كيف يساعد Odoo CRM المخصص شركات المستلزمات الطبية في مراقبة فرق المبيعات الميدانية وتحسين التنبؤ بالمبيعات.</p>
+                  <h5 class="card-title fw-bold" style="font-size:.95rem" data-i18n-key="home.blog_card_1_title">Odoo CRM لشركات المستلزمات الطبية — مراقبة فرق المبيعات وزيادة الإيرادات</h5>
+                  <p class="card-text text-muted" style="font-size:.85rem" data-i18n-key="home.blog_card_1_text">كيف يساعد Odoo CRM المخصص شركات المستلزمات الطبية في مراقبة فرق المبيعات الميدانية وتحسين التنبؤ بالمبيعات.</p>
                 </div>
-                <div class="card-footer bg-white border-0 p-4 pt-0"><a class="fw-semibold text-decoration-none" href="blog/odoo-crm-medical-supplies.html" style="color:#0E38B1;font-size:.85rem">اقرأ المزيد &larr;</a></div>
+                <div class="card-footer bg-white border-0 p-4 pt-0"><a class="fw-semibold text-decoration-none" href="blog/odoo-crm-medical-supplies.html" style="color:#0E38B1;font-size:.85rem"><span data-i18n-key="home.blog_read_more">اقرأ المزيد &larr;</span></a></div>
               </div>
             </div>
             <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
               <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"><img class="card-img-top" src="images/elite-dashboard.webp" alt="Unified Medical Insurance Portal" loading="lazy" width="860" height="789" style="height:200px;object-fit:cover">
                 <div class="card-body p-4"><span class="badge rounded-pill mb-2" style="background:#EEF2FF;color:#0E38B1;font-size:.72rem">التأمين الطبي</span>
-                  <h5 class="card-title fw-bold" style="font-size:.95rem">بوابة تأمين طبي موحدة — لماذا النظام الواحد أفضل من ثلاثة أنظمة منفصلة؟</h5>
-                  <p class="card-text text-muted" style="font-size:.85rem">أهمية وجود بوابة تأمين طبي واحدة تخدم شركة التأمين و TPA ومقدمي الخدمة الطبية.</p>
+                  <h5 class="card-title fw-bold" style="font-size:.95rem" data-i18n-key="home.blog_card_2_title">بوابة تأمين طبي موحدة — لماذا النظام الواحد أفضل من ثلاثة أنظمة منفصلة؟</h5>
+                  <p class="card-text text-muted" style="font-size:.85rem" data-i18n-key="home.blog_card_2_text">أهمية وجود بوابة تأمين طبي واحدة تخدم شركة التأمين و TPA ومقدمي الخدمة الطبية.</p>
                 </div>
-                <div class="card-footer bg-white border-0 p-4 pt-0"><a class="fw-semibold text-decoration-none" href="blog/unified-medical-insurance-portal.html" style="color:#0E38B1;font-size:.85rem">اقرأ المزيد &larr;</a></div>
+                <div class="card-footer bg-white border-0 p-4 pt-0"><a class="fw-semibold text-decoration-none" href="blog/unified-medical-insurance-portal.html" style="color:#0E38B1;font-size:.85rem"><span data-i18n-key="home.blog_read_more">اقرأ المزيد &larr;</span></a></div>
               </div>
             </div>
             <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
               <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"><img class="card-img-top" src="images/blog-branch-dashboard.png" alt="Odoo CRM for Gold Trading" loading="lazy" width="1888" height="786" style="height:200px;object-fit:cover">
                 <div class="card-body p-4"><span class="badge rounded-pill mb-2" style="background:#EEF2FF;color:#0E38B1;font-size:.72rem">تطبيقات أودو</span>
-                  <h5 class="card-title fw-bold" style="font-size:.95rem">كيف يُحدث Odoo CRM ثورة في إدارة شركات تجارة الذهب؟</h5>
-                  <p class="card-text text-muted" style="font-size:.85rem">اكتشف كيف يساعد Odoo CRM شركات تجارة الذهب في ضبط سياسات البيع ومتابعة أداء الفروع لحظياً.</p>
+                  <h5 class="card-title fw-bold" style="font-size:.95rem" data-i18n-key="home.blog_card_3_title">كيف يُحدث Odoo CRM ثورة في إدارة شركات تجارة الذهب؟</h5>
+                  <p class="card-text text-muted" style="font-size:.85rem" data-i18n-key="home.blog_card_3_text">اكتشف كيف يساعد Odoo CRM شركات تجارة الذهب في ضبط سياسات البيع ومتابعة أداء الفروع لحظياً.</p>
                 </div>
-                <div class="card-footer bg-white border-0 p-4 pt-0"><a class="fw-semibold text-decoration-none" href="blog/odoo-crm-gold-trading.html" style="color:#0E38B1;font-size:.85rem">اقرأ المزيد &larr;</a></div>
+                <div class="card-footer bg-white border-0 p-4 pt-0"><a class="fw-semibold text-decoration-none" href="blog/odoo-crm-gold-trading.html" style="color:#0E38B1;font-size:.85rem"><span data-i18n-key="home.blog_read_more">اقرأ المزيد &larr;</span></a></div>
               </div>
             </div>
           </div>
-          <div class="text-center mt-4" data-aos="fade-up"><a class="btn btn-outline-primary btn-lg rounded-pill px-4 fw-semibold" href="blog/index.html">تصفح جميع المقالات<i class="fas fa-arrow-left ms-2"></i></a></div>
+          <div class="text-center mt-4" data-aos="fade-up"><a class="btn btn-outline-primary btn-lg rounded-pill px-4 fw-semibold" href="blog/index.html"><span data-i18n-key="home.blog_all">تصفح جميع المقالات</span><i class="fas fa-arrow-left ms-2"></i></a></div>
+          <div class="mt-5" data-aos="fade-up">
+            <div class="row justify-content-center">
+              <div class="col-lg-10">
+                <div class="home-cta text-center text-white">
+                  <h3 class="fw-bold mb-3" data-i18n-key="home.faq_cta_title">قبل أن تبدأ مشروعك، تصفح الأسئلة الشائعة</h3>
+                  <p class="lead mb-4 opacity-75" data-i18n-key="home.faq_cta_text">إجابات مختصرة وعملية حول تراخيص أودو، الشريك المناسب، وخدمات GoCloud Elite المتقدمة.</p>
+                  <div class="d-flex justify-content-center gap-3 flex-wrap"><a class="btn btn-light btn-lg fw-semibold px-4" href="faq.html#odoo"><i class="fas fa-circle-question me-2"></i><span data-i18n-key="home.faq_cta_odoo">أسئلة أودو الشائعة</span></a><a class="btn btn-outline-light btn-lg fw-semibold px-4" href="faq.html#elite"><i class="fas fa-shield-halved me-2"></i><span data-i18n-key="home.faq_cta_elite">أسئلة GoCloud Elite</span></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section class="py-5" id="CTA">
         <div class="container">
           <div class="home-cta text-center text-white" data-aos="fade-up">
-            <h2 class="fw-bold mb-3">Let's Build Something That Works for Your Industry</h2>
-            <p class="lead mb-4 opacity-75">Schedule a free consultation — tell us about your operations and we'll show you what's possible.</p>
-            <div class="d-flex justify-content-center gap-3 flex-wrap"><a class="btn btn-light btn-lg fw-semibold px-4" href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp me-2"></i>Start a Conversation</a><a class="btn btn-outline-light btn-lg fw-semibold px-4" href="images/company profile.pdf" download><i class="fas fa-download me-2"></i>Company Profile</a></div>
+            <h2 class="fw-bold mb-3" data-i18n-key="home.cta_title">لنبنِ معاً ما يناسب قطاعك فعلاً</h2>
+            <p class="lead mb-4 opacity-75" data-i18n-key="home.cta_text">احجز استشارة مجانية — أخبرنا عن طبيعة عملك وسنوضح لك ما يمكن تحقيقه.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap"><a class="btn btn-light btn-lg fw-semibold px-4" href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp me-2"></i><span data-i18n-key="home.cta_primary">ابدأ المحادثة</span></a><a class="btn btn-outline-light btn-lg fw-semibold px-4" href="images/company profile.pdf" download><i class="fas fa-download me-2"></i><span data-i18n-key="home.cta_secondary">الملف التعريفي للشركة</span></a></div>
           </div>
         </div>
       </section>
       <!-- Include footer-->
       <!-- Footer Component-->
+      <style>
+        .gc-footer-compact h3{margin-bottom:8px!important}
+        .gc-footer-compact .mb-3{margin-bottom:.6rem!important}
+        .gc-footer-compact .mb-2{margin-bottom:.35rem!important}
+        .gc-footer-compact [data-newsletter-feedback]{margin-top:.35rem!important}
+        .gc-footer-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+        .gc-footer-compact .contact-box+.contact-box{margin-top:2px!important}
+        .gc-footer-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+        .gc-footer-compact .contact-box .pera,.gc-footer-compact .contact-box .pera a{line-height:1.2}
+        .gc-footer-compact .contact-box .pera a{display:inline-block;margin:0!important}
+        .gc-footer-compact .contact-box .pera p{margin:0}
+        .gc-footer-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+        
+      </style>
       <footer>
         <div class="footer1 _relative">
           <div class="container">
             <div class="row gy-4">
               <div class="col-lg-3 col-md-6 col-12">
                 <div class="single-footer-items"><a class="footer-logo d-inline-block mb-3" href="index.html" aria-label="GoCloud Home"><img src="images/gocloud logo.webp" height="60" width="60" alt="GoCloud Logo" loading="lazy"></a>
-                  <p class="footer-desc">As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.</p>
+                  <p class="footer-desc" data-i18n-key="footer.about_text">As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.</p>
                   <ul class="social-icon d-flex gap-2 mt-3">
                     <li><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
                     <li><a href="https://www.google.com/search?q=gocloud+eg" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fa-brands fa-google"></i></a></li>
@@ -597,40 +676,53 @@
               </div>
               <div class="col-lg-3 col-md-6 col-12">
                 <div class="single-footer-items">
-                  <h3>Our Services</h3>
+                  <h3 data-i18n-key="footer.services_title">Our Services</h3>
                   <ul class="menu-list">
-                    <li><a href="cloud-services.html"><i class="fa-solid fa-chevron-right me-2"></i>Cloud Solutions</a></li>
-                    <li><a href="odoo-services.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Services</a></li>
-                    <li><a href="odoo-imp.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Implementation</a></li>
-                    <li><a href="odoo-dev.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Development</a></li>
-                    <li><a href="business.html"><i class="fa-solid fa-chevron-right me-2"></i>Business Intelligence</a></li>
-                    <li><a href="portfolio.html"><i class="fa-solid fa-chevron-right me-2"></i>Portfolio & E-commerce</a></li>
-                    <li><a href="elite.html"><i class="fa-solid fa-chevron-right me-2"></i>ELITE Medical Insurance</a></li>
+                    <li><a href="cloud-services.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.cloud_solutions">Cloud Solutions</span></a></li>
+                    <li><a href="odoo-services.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_services">Odoo Services</span></a></li>
+                    <li><a href="odoo-imp.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_implementation">Odoo Implementation</span></a></li>
+                    <li><a href="odoo-dev.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_development">Odoo Development</span></a></li>
+                    <li><a href="business.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.business_intelligence">Business Intelligence</span></a></li>
+                    <li><a href="portfolio.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.portfolio">Portfolio & E-commerce</span></a></li>
+                    <li><a href="elite.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.elite_medical">ELITE Medical Insurance</span></a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-lg-2 col-md-6 col-12">
                 <div class="single-footer-items">
-                  <h3>Useful Links</h3>
+                  <h3 data-i18n-key="footer.links_title">Useful Links</h3>
                   <ul class="menu-list">
-                    <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i>About Us</a></li>
-                    <li><a href="service.html"><i class="fa-solid fa-chevron-right me-2"></i>Services</a></li>
-                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-2"></i>Contact Us</a></li>
-                    <li><a href="conditions-terms.html"><i class="fa-solid fa-chevron-right me-2"></i>Terms & Conditions</a></li>
-                    <li><a href="privacy.html"><i class="fa-solid fa-chevron-right me-2"></i>Privacy Policy</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.about_us">About Us</span></a></li>
+                    <li><a href="service.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.services">Services</span></a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.contact_us">Contact Us</span></a></li>
+                    <li><a href="conditions-terms.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.terms">Terms & Conditions</span></a></li>
+                    <li><a href="privacy.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.privacy">Privacy Policy</span></a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-lg-4 col-md-6 col-12">
-                <div class="single-footer-items">
-                  <h3>Contact Us</h3>
+                <div class="single-footer-items gc-footer-compact">
+                  <h3 data-i18n-key="footer.contact_title">Contact Us</h3>
+                  <div class="mb-3">
+                    <p class="mb-2 fw-semibold" data-i18n-key="footer.newsletter_title">Stay updated with GoCloud insights</p>
+                    <form data-newsletter-form data-source="website-footer">
+                      <label class="visually-hidden" for="newsletterEmailFooter" data-i18n-key="footer.email_label">Email address</label>
+                      <div class="input-group input-group-sm">
+                        <input class="form-control" id="newsletterEmailFooter" type="email" name="email" placeholder="name@company.com" required autocomplete="email">
+                        <button class="btn btn-light text-dark" type="submit" data-i18n-key="footer.subscribe">Subscribe</button>
+                      </div>
+                    </form>
+                    <p class="small mt-2 mb-0" data-newsletter-feedback role="status" aria-live="polite"></p>
+                  </div>
                   <div class="contact-box">
                     <div class="icon"><i class="fa-solid fa-phone"></i></div>
-                    <div class="pera"><a href="tel:+20233762533">02 3376 2533</a></div>
+                    <div class="pera"><a class="gc-phone-ltr" href="tel:+20233762533">02 3376 2533</a></div>
                   </div>
                   <div class="contact-box">
                     <div class="icon"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <div class="pera"><a href="tel:+201017383815">+20 101 738 3815</a></div>
+                    <div class="pera">
+                      <div class="d-flex flex-column gap-1"><a class="gc-phone-ltr" href="tel:+201017383815">+20 101 738 3815</a><a class="gc-phone-ltr" href="tel:+201222666635">+20 122 266 6635</a></div>
+                    </div>
                   </div>
                   <div class="contact-box">
                     <div class="icon"><i class="fa-solid fa-envelope"></i></div>
@@ -640,7 +732,7 @@
                     <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div class="pera"><a href="https://www.google.com/maps/place/?q=place_id:ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer">Ahram Gardens, Gate 4, Giza, Egypt</a></div>
                   </div>
-                  <div class="d-flex gap-2 mt-3"><a class="btn btn-sm btn-outline-light" href="https://www.google.com/maps/dir/?api=1&amp;destination=GoCloud&amp;destination_place_id=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right me-1"></i>Directions</a><a class="btn btn-sm btn-outline-light" href="https://search.google.com/local/writereview?placeid=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-star me-1"></i>Review Us</a></div>
+                  <div class="d-flex gap-2 mt-3"><a class="btn btn-sm btn-outline-light" href="https://www.google.com/maps/dir/?api=1&amp;destination=GoCloud&amp;destination_place_id=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right me-1"></i><span data-i18n-key="footer.directions">Directions</span></a><a class="btn btn-sm btn-outline-light" href="https://search.google.com/local/writereview?placeid=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-star me-1"></i><span data-i18n-key="footer.review_us">Review Us</span></a></div>
                 </div>
               </div>
             </div>
@@ -649,9 +741,9 @@
             <div class="container">
               <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                  <p class="mb-0">&copy;<span id="gcCurrentYear"></span> GoCloud. All Rights Reserved.</p>
+                  <p class="mb-0">&copy;<span id="gcCurrentYear"></span><span data-i18n-key="footer.copyright"> GoCloud. All Rights Reserved.</span></p>
                 </div>
-                <div class="col-md-6 text-center text-md-end"><a href="conditions-terms.html">Terms & Conditions</a><span class="mx-2">|</span><a href="privacy.html">Privacy Policy</a></div>
+                <div class="col-md-6 text-center text-md-end"><a href="conditions-terms.html" data-i18n-key="footer.terms">Terms & Conditions</a><span class="mx-2">|</span><a href="privacy.html" data-i18n-key="footer.privacy">Privacy Policy</a></div>
               </div>
             </div>
           </div>
@@ -833,10 +925,12 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" integrity="sha384-YGnnOBKslPJVs35GG0TtAZ4uO7BHpHlqJhs0XK3k6cuVb6EBtl+8xcvIIOKV5wB+" crossorigin="anonymous" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha384-d+vyQ0dYcymoP8ndq2hW7FGC50nqGdXUEgoOUGxbbkAJwZqL7h+jKN0GGgn9hFDS" crossorigin="anonymous" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha384-poC0r6usQOX2Ayt/VGA+t81H6V3iN9L+Irz9iO8o+s0X20tLpzc9DOOtnKxhaQSE" crossorigin="anonymous" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" integrity="sha384-Hf6yat1C7ze92LpS287AKvB24pRLwa+YxYmOVZKCiBHybkfxZDYy7TuKW/KbcS3i" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" crossorigin="anonymous" defer></script>
     <script src="js/plugins-bundle.min.js" defer></script>
     <script src="js/security-init.js" defer></script>
+    <script src="js/site-language.js" defer></script>
     <script src="js/main.min.js" defer></script>
+    <script src="js/newsletter.js" defer></script>
     <!-- Page specific scripts-->
   </body>
 </html>

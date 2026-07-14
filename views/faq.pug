@@ -1,0 +1,171 @@
+extends layout.pug
+
+block variables
+  - var pageTitle = "الأسئلة الشائعة | GoCloud"
+  - var pageDescription = "الأسئلة الشائعة من GoCloud: إجابات واضحة حول أودو، التسعير، دور الشريك، وخدمات GoCloud Elite المتقدمة."
+  - var pageKeywords = "FAQ GoCloud, Odoo FAQ, GoCloud Elite, أودو, الأسئلة الشائعة, شريك أودو, استضافة أودو"
+  - var canonicalUrl = "https://www.gocloudeg.com/faq.html"
+  - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+  - var pageLang = "ar"
+  - var pageDir = "rtl"
+
+block styles
+  style.
+    /* FAQ-only header refinement: keep desktop header compact like other pages */
+    .header-area#header .header-elements{align-items:center}
+    .header-area#header .header-elements nav .main-menu-ex ul{gap:18px}
+    .header-area#header .header-elements nav .main-menu-ex ul li a{white-space:nowrap;font-size:1rem}
+    .header-area#header .header1-buttons .button{flex-wrap:nowrap!important;gap:.55rem!important}
+    .header-area#header .header1-buttons .button .theme-btn1{padding:.62rem .95rem;font-size:.88rem;line-height:1.2;white-space:nowrap}
+    .header-area#header .header1-buttons .button .theme-btn1 i{margin:0}
+    @media (max-width:1399.98px){
+      .header-area#header .header-elements nav .main-menu-ex ul{gap:14px}
+      .header-area#header .header-elements nav .main-menu-ex ul li a{font-size:.95rem}
+      .header-area#header .header1-buttons .button .theme-btn1{padding:.56rem .82rem;font-size:.82rem}
+    }
+    @media (max-width:1199.98px){
+      .header-area#header .header1-buttons .button{gap:.45rem!important}
+      .header-area#header .header1-buttons .button .theme-btn1{padding:.5rem .72rem;font-size:.78rem}
+    }
+
+    .faq-hero{position:relative;overflow:hidden;padding:5rem 0 3rem;background:radial-gradient(circle at top right,rgba(161,233,52,.22),transparent 28%),linear-gradient(135deg,#081f63 0%,#0E38B1 48%,#123fe0 100%)}
+    .faq-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.08),transparent 55%)}
+    .faq-hero .container{position:relative;z-index:1}
+    .faq-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);color:#fff;border-radius:999px;padding:.55rem 1rem;font-size:.82rem;font-weight:700;backdrop-filter:blur(10px)}
+    .faq-page-title{font-size:clamp(2rem,4vw,3.4rem);line-height:1.15;color:#fff;font-weight:900;margin:1rem 0}
+    .faq-page-subtitle{max-width:780px;color:rgba(255,255,255,.84);font-size:1.05rem;line-height:1.85;margin:0}
+    .faq-panel{margin-top:-2rem;position:relative;z-index:2}
+    .faq-shell{background:#fff;border:1px solid #dfe6fb;border-radius:28px;box-shadow:0 22px 70px rgba(8,31,99,.12);padding:2rem}
+    .faq-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:1.5rem;align-items:start}
+    .faq-search-card,.faq-quick-card,.faq-consult-card{background:#f8fbff;border:1px solid #e1e9ff;border-radius:20px;padding:1.25rem}
+    .faq-search-label{display:block;font-weight:800;color:#10205e;margin-bottom:.65rem}
+    .faq-search-input{width:100%;border:1px solid #d1ddff;border-radius:14px;padding:.9rem 1rem;font-size:.96rem;outline:none;transition:border-color .2s ease,box-shadow .2s ease;background:#fff}
+    .faq-search-input:focus{border-color:#0E38B1;box-shadow:0 0 0 4px rgba(14,56,177,.09)}
+    .faq-helper{margin:.75rem 0 0;color:#62709d;font-size:.92rem}
+    .faq-quick-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+    .faq-quick-link{display:block;text-decoration:none;background:#fff;border:1px solid #d8e3ff;border-radius:18px;padding:1.1rem;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;color:inherit}
+    .faq-quick-link:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(14,56,177,.12);border-color:#0E38B1}
+    .faq-quick-link i{display:inline-flex;width:46px;height:46px;align-items:center;justify-content:center;border-radius:14px;background:linear-gradient(135deg,#0E38B1,#2f66ff);color:#fff;margin-bottom:.9rem}
+    .faq-quick-link h3{font-size:1.02rem;font-weight:800;color:#10205e;margin-bottom:.4rem}
+    .faq-quick-link p{margin:0;color:#68779f;font-size:.9rem;line-height:1.7}
+    .faq-controls{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin:1.5rem 0 1rem}
+    .faq-cats{display:flex;gap:.75rem;flex-wrap:wrap}
+    .faq-cats button{border:1px solid #d6defb;background:#fff;color:#2940a4;font-weight:800;padding:.7rem 1.15rem;border-radius:14px;transition:all .25s ease}
+    .faq-cats button.active{border-color:#0E38B1;background:#0E38B1;color:#fff;box-shadow:0 10px 24px rgba(14,56,177,.18)}
+    .faq-status{color:#62709d;font-size:.95rem;margin-bottom:1rem}
+    .faq-accordion{display:grid;gap:.9rem}
+    .faq-item{border:1px solid #e1e8ff;border-radius:18px;background:#fff;overflow:hidden;transition:border-color .25s ease,box-shadow .25s ease}
+    .faq-item.active{border-color:#0E38B1;box-shadow:0 14px 34px rgba(14,56,177,.12)}
+    .faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem;border:0;background:transparent;padding:1.15rem 1.2rem;text-align:right;color:#10205e;font-size:1rem;font-weight:800;cursor:pointer}
+    .faq-page.is-en .faq-question{text-align:left}
+    .faq-question i{color:#0E38B1;transition:transform .25s ease}
+    .faq-item.active .faq-question i{transform:rotate(180deg)}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .28s ease}
+    .faq-answer-inner{padding:0 1.2rem 1.2rem;color:#55627f;font-size:.96rem;line-height:1.9}
+    .faq-empty{background:#fff8e9;border:1px solid #f0dcaa;color:#8d6a00;border-radius:16px;padding:1rem 1.1rem}
+    .faq-consult-card{margin-top:1.5rem;background:linear-gradient(135deg,#0E38B1 0%,#123fe0 100%);border-color:transparent;color:#fff}
+    .faq-consult-card h3{font-size:1.4rem;font-weight:900;margin-bottom:.75rem;color:#fff}
+    .faq-consult-card p{max-width:780px;color:rgba(255,255,255,.82);margin-bottom:1.1rem;line-height:1.8}
+    .faq-consult-actions{display:flex;gap:.85rem;flex-wrap:wrap}
+    .faq-consult-actions .btn{border-radius:999px;padding:.85rem 1.35rem;font-weight:800}
+    .faq-noscript{margin-top:1rem;background:#fff8e9;border:1px solid #f0dcaa;color:#8d6a00;border-radius:16px;padding:1rem 1.1rem}
+    .blog-newsletter{background:#fff;padding:0 0 4rem}
+    .newsletter-panel{background:linear-gradient(135deg,#0E38B1 0%,#1038c4 100%);border-radius:18px;padding:2rem;box-shadow:0 20px 38px rgba(14,56,177,.15)}
+    .newsletter-panel h2{color:#fff;font-size:1.55rem;font-weight:800;margin-bottom:.5rem}
+    .newsletter-panel p{color:rgba(255,255,255,.82);font-size:.95rem;margin-bottom:0}
+    .newsletter-panel .newsletter-form{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
+    .newsletter-panel .newsletter-input{flex:1;min-width:230px;border:none;border-radius:12px;padding:.8rem .95rem;font-size:.9rem}
+    .newsletter-panel .newsletter-input:focus{outline:none;box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+    .newsletter-panel .newsletter-btn{background:#A1E934;color:#0D0E10;border:none;border-radius:12px;padding:.8rem 1rem;font-size:.85rem;font-weight:800;white-space:nowrap}
+    .newsletter-panel .newsletter-btn:hover{background:#8dd22a}
+    .newsletter-panel .newsletter-feedback{min-height:1.1rem;font-size:.8rem;font-weight:600;color:#fff;margin-top:.5rem}
+    .newsletter-panel .newsletter-feedback.error{color:#ffd1d1}
+    .newsletter-panel .newsletter-feedback.success{color:#dbffd2}
+    @media (max-width: 991.98px){
+      .faq-hero{padding:4rem 0 2.5rem}
+      .faq-shell{padding:1.25rem}
+      .faq-grid{grid-template-columns:1fr}
+      .faq-quick-grid{grid-template-columns:1fr}
+      .faq-controls{align-items:stretch}
+    }
+    @media (max-width: 575.98px){
+      .newsletter-panel{padding:1.3rem}
+      .newsletter-panel h2{font-size:1.25rem}
+      .newsletter-panel .newsletter-form{flex-direction:column;align-items:stretch}
+      .newsletter-panel .newsletter-btn{width:100%}
+    }
+
+block content
+  include components/preloader.pug
+  include components/top-banner.pug
+  include components/header.pug
+
+  section.faq-hero
+    .container
+      span.faq-badge
+        i.fas.fa-circle-question
+        span(data-faq-badge) الأسئلة الشائعة
+      h1.faq-page-title(data-faq-title) إجابات واضحة قبل أن تبدأ مشروعك
+      p.faq-page-subtitle(data-faq-subtitle) صفحة FAQ مصممة لتختصر وقت القرار وتمنح الزائر إجابات دقيقة حول أودو، الشريك المناسب، وخدمات GoCloud Elite المتقدمة.
+
+  section.faq-panel
+    .container
+      .faq-page.faq-shell.is-ar(data-faq-page)
+        .faq-grid
+          div
+            .faq-search-card
+              label.faq-search-label(for="faqSearch" data-faq-search-label) ابحث داخل الأسئلة
+              input#faqSearch.faq-search-input(type="search" data-faq-search placeholder="اكتب كلمة مثل: التراخيص، الشريك، الاستضافة...")
+              p.faq-helper(data-faq-helper) اختر القسم المناسب أو ابحث مباشرة داخل الأسئلة.
+
+            .faq-controls
+              .faq-cats(role="tablist" aria-label="FAQ categories")
+                button.active(type="button" data-faq-category="odoo" aria-selected="true") أودو
+                button(type="button" data-faq-category="elite" aria-selected="false") GoCloud Elite
+
+            p.faq-status(data-faq-status) جاري تحميل الأسئلة الشائعة...
+            .faq-accordion(data-faq-accordion)
+            p.faq-empty(data-faq-empty hidden) لم يتم العثور على نتائج مطابقة. جرّب كلمة بحث أخرى أو انتقل إلى القسم الآخر.
+            noscript
+              p.faq-noscript لتصفح النسخة التفاعلية من الأسئلة الشائعة، يرجى تفعيل JavaScript.
+
+          div
+            .faq-quick-card
+              .faq-quick-grid
+                a.faq-quick-link(href="#odoo")
+                  i.fas.fa-cubes
+                  h3(data-faq-card-title="odoo") أسئلة أودو الشائعة
+                  p(data-faq-card-text="odoo") إجابات حول Community وEnterprise والتسعير ودور الشريك.
+                a.faq-quick-link(href="#elite")
+                  i.fas.fa-shield-halved
+                  h3(data-faq-card-title="elite") أسئلة GoCloud Elite
+                  p(data-faq-card-text="elite") إجابات حول الاستضافة المتقدمة والبيئات المعزولة واستلام المشاريع المتعثرة.
+
+            .faq-consult-card
+              h3(data-faq-consultation-title) هل تحتاج إجابة مرتبطة بحالتك الفعلية؟
+              p(data-faq-consultation-text) إذا كانت لديك متطلبات خاصة أو مشروع قائم يحتاج مراجعة، يمكن لفريق GoCloud تقديم توصية عملية مبنية على واقع أعمالك.
+              .faq-consult-actions
+                a.btn.btn-light(href="#" data-bs-toggle="modal" data-bs-target="#demoModal" data-faq-consultation-primary) احجز استشارة
+                a.btn.btn-outline-light(href="https://wa.me/201017383815?text=Hello%20GoCloud" target="_blank" rel="noopener noreferrer" data-faq-consultation-secondary) تواصل عبر واتساب
+
+  section.blog-newsletter
+    .container
+      .newsletter-panel(data-aos="fade-up")
+        .row.align-items-center.g-4
+          .col-lg-6
+            span.section-tag(data-faq-newsletter-tag)
+              i.fas.fa-bell
+              | نشرة FAQ من GoCloud
+            h2.mb-2(data-faq-newsletter-title) اشترك لتصلك آخر التحديثات العملية
+            p(data-faq-newsletter-text) تابع أحدث أسئلة Odoo وخدمات GoCloud Elite والنصائح المختصرة التي تساعدك على اتخاذ قرارات أسرع.
+          .col-lg-6
+            form.newsletter-form(data-newsletter-form data-source="faq-page")
+              label.visually-hidden(for="newsletterEmailFaq" data-faq-newsletter-label) البريد الإلكتروني
+              input#newsletterEmailFaq.newsletter-input(type="email" name="email" placeholder="name@company.com" required autocomplete="email")
+              button.newsletter-btn(type="submit" data-faq-newsletter-button) اشترك الآن
+            p.newsletter-feedback(data-newsletter-feedback role="status" aria-live="polite")
+
+  include components/whatsapp-button.pug
+
+block scripts
+  script(src="js/faq.js", defer)

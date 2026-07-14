@@ -1,10 +1,12 @@
 extends layout-rtl.pug
 
 block variables
-  - var pageTitle = "مدونة GoCloud — مقالات في التأمين الطبي وتطبيقات أودو"
-  - var pageDescription = "مقالات متخصصة في إدارة التأمين الطبي ونظام ELITE وتطبيقات Odoo ERP — نصائح وحلول لتحسين أعمالك."
-  - var pageKeywords = "مدونة GoCloud, تأمين طبي, Odoo ERP, ELITE, تحول رقمي, إدارة أعمال"
-  - var canonicalUrl = "https://www.gocloudeg.com/blog/"
+  - var locale = typeof pageLang !== 'undefined' ? pageLang : 'ar'
+  - var t = locale === 'en' ? { home: 'Home', pageTitle: 'GoCloud Blog — Medical Insurance and Odoo Insights', pageDescription: 'Specialized articles on medical insurance management, ELITE, and Odoo ERP applications.', pageKeywords: 'GoCloud Blog, Medical Insurance, Odoo ERP, ELITE, Digital Transformation, Business Management', breadcrumbCurrent: 'Blog', heroTitle: 'GoCloud Blog', heroText: 'Specialized articles in medical insurance and Odoo ERP applications — practical tips and solutions to improve your business.', filterAll: 'All', filterInsurance: 'Medical Insurance', filterOdoo: 'Odoo Applications', readMore: 'Read More', noPosts: 'No posts found in this category right now.', newsletterTitle: 'Subscribe to GoCloud Updates', newsletterText: 'Get the latest articles and practical insights on Odoo and medical insurance directly in your inbox.', newsletterEmail: 'Email address', newsletterButton: 'Subscribe Now' } : { home: 'الرئيسية', pageTitle: 'مدونة GoCloud — مقالات في التأمين الطبي وتطبيقات أودو', pageDescription: 'مقالات متخصصة في إدارة التأمين الطبي ونظام ELITE وتطبيقات Odoo ERP — نصائح وحلول لتحسين أعمالك.', pageKeywords: 'مدونة GoCloud, تأمين طبي, Odoo ERP, ELITE, تحول رقمي, إدارة أعمال', breadcrumbCurrent: 'المدونة', heroTitle: 'مدونة GoCloud', heroText: 'مقالات متخصصة في التأمين الطبي وتطبيقات Odoo ERP — نصائح عملية وحلول لتحسين أعمالك', filterAll: 'الكل', filterInsurance: 'التأمين الطبي', filterOdoo: 'تطبيقات أودو', readMore: 'اقرأ المزيد', noPosts: 'لا توجد مقالات في هذا التصنيف حالياً', newsletterTitle: 'اشترك في نشرات GoCloud', newsletterText: 'استقبل أحدث المقالات والرؤى العملية حول Odoo والتأمين الطبي مباشرة في بريدك.', newsletterEmail: 'البريد الإلكتروني', newsletterButton: 'اشترك الآن' }
+  - var pageTitle = t.pageTitle
+  - var pageDescription = t.pageDescription
+  - var pageKeywords = t.pageKeywords
+  - var canonicalUrl = typeof canonicalUrl !== 'undefined' ? canonicalUrl : 'https://www.gocloudeg.com/blog/'
   - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
 
 block structuredData
@@ -21,16 +23,8 @@ block styles
     .blog-hero .breadcrumb-link:hover{color:#fff}
     .blog-hero .breadcrumb-sep{color:rgba(255,255,255,.3);margin:0 8px}
     .blog-hero .breadcrumb-current{color:#A1E934;font-weight:600;font-size:.85rem}
-
-    /* ── Nav bar (blog) ── */
-    .blog-nav{background:#fff;border-bottom:1px solid #e9ecef;padding:.75rem 0;position:sticky;top:0;z-index:100}
-    .blog-nav .logo-link{display:flex;align-items:center;gap:8px;text-decoration:none;color:#0D0E10;font-weight:700;font-size:1rem}
-    .blog-nav .logo-link img{height:32px;width:32px}
-    .blog-nav .nav-links{display:flex;align-items:center;gap:1.5rem}
-    .blog-nav .nav-links a{color:#4a4b5c;text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
-    .blog-nav .nav-links a:hover,.blog-nav .nav-links a.active{color:#0E38B1}
-    .blog-nav .back-link{display:inline-flex;align-items:center;gap:6px;color:#0E38B1;text-decoration:none;font-size:.85rem;font-weight:600}
-    .blog-nav .back-link:hover{text-decoration:underline}
+    html[lang='en'] .blog-hero .container{text-align:left!important}
+    html[lang='en'] .blog-hero p{margin-left:0;margin-right:auto}
 
     /* ── Filters ── */
     .blog-filters{background:#f7f9ff;padding:2rem 0 1rem}
@@ -51,53 +45,67 @@ block styles
     .blog-card-meta{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:.75rem;border-top:1px solid #f0f1f5;font-size:.78rem;color:#999}
     .blog-card-read{color:#0E38B1;font-weight:600;font-size:.85rem;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
     .blog-card-read:hover{text-decoration:underline}
+    html[lang='en'] .blog-card-meta{flex-direction:row}
+    html[lang='en'] .blog-card-meta span i{margin-right:.25rem;margin-left:0!important}
+    html[lang='en'] .blog-card-read{flex-direction:row}
+    html[lang='en'] .blog-card-read i{transform:scaleX(-1);margin-left:.25rem!important;margin-right:0!important}
 
     /* ── Empty state ── */
     .no-posts{text-align:center;padding:4rem 0;color:#999;font-size:1rem}
 
+    /* ── Newsletter ── */
+    .blog-newsletter{background:#fff;padding:0 0 4rem}
+    .newsletter-panel{background:linear-gradient(135deg,#0E38B1 0%,#1038c4 100%);border-radius:18px;padding:2rem;box-shadow:0 20px 38px rgba(14,56,177,.15)}
+    .newsletter-panel h2{color:#fff;font-size:1.55rem;font-weight:800;margin-bottom:.5rem}
+    .newsletter-panel p{color:rgba(255,255,255,.82);font-size:.95rem;margin-bottom:0}
+    .newsletter-panel .newsletter-form{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
+    .newsletter-panel .newsletter-input{flex:1;min-width:230px;border:none;border-radius:12px;padding:.8rem .95rem;font-size:.9rem}
+    .newsletter-panel .newsletter-input:focus{outline:none;box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+    .newsletter-panel .newsletter-btn{background:#A1E934;color:#0D0E10;border:none;border-radius:12px;padding:.8rem 1rem;font-size:.85rem;font-weight:800;white-space:nowrap}
+    .newsletter-panel .newsletter-btn:hover{background:#8dd22a}
+    .newsletter-panel .newsletter-feedback{min-height:1.1rem;font-size:.8rem;font-weight:600;color:#fff;margin-top:.5rem}
+    .newsletter-panel .newsletter-feedback.error{color:#ffd1d1}
+    .newsletter-panel .newsletter-feedback.success{color:#dbffd2}
+    html[lang='en'] .newsletter-panel .row{text-align:left}
+
+    @media (max-width: 575.98px){
+      .newsletter-panel{padding:1.3rem}
+      .newsletter-panel h2{font-size:1.25rem}
+      .newsletter-panel .newsletter-form{flex-direction:column;align-items:stretch}
+      .newsletter-panel .newsletter-btn{width:100%}
+    }
+
 block content
-  //---------- BLOG NAV ----------
-  nav.blog-nav
-    .container
-      .d-flex.align-items-center.justify-content-between
-        a.logo-link(href="../index.html")
-          img(src="../images/gocloud%20logo.webp" alt="GoCloud" width="32" height="32")
-          span GoCloud
-        .nav-links.d-none.d-md-flex
-          a(href="../index.html") الرئيسية
-          a(href="../service.html") الخدمات
-          a(href="../contact.html") تواصل معنا
-          a.active(href="index.html") المدونة
-        a.back-link.d-md-none(href="../index.html")
-          i.fas.fa-arrow-right
-          | الرئيسية
+  - var pathPrefix = typeof pathPrefix !== 'undefined' ? pathPrefix : '../'
+  include ../../views/components/top-banner.pug
+  include ../../views/components/header.pug
 
   //---------- HERO ----------
   .blog-hero
     .container.text-center
       .mb-3
-        a.breadcrumb-link(href="../index.html") الرئيسية
+        a.breadcrumb-link(href=`${pathPrefix}index.html`)= t.home
         span.breadcrumb-sep /
-        span.breadcrumb-current المدونة
-      h1 مدونة GoCloud
-      p.mx-auto مقالات متخصصة في التأمين الطبي وتطبيقات Odoo ERP — نصائح عملية وحلول لتحسين أعمالك
+        span.breadcrumb-current(data-blog-breadcrumb-current)= t.breadcrumbCurrent
+      h1(data-blog-hero-title)= t.heroTitle
+      p.mx-auto(data-blog-hero-text)= t.heroText
 
   //---------- FILTERS ----------
   section.blog-filters
     .container.text-center
       .d-flex.gap-2.justify-content-center.flex-wrap
-        button.filter-btn.active(data-filter="all") الكل
-        button.filter-btn(data-filter="insurance") التأمين الطبي
-        button.filter-btn(data-filter="odoo") تطبيقات أودو
+        button.filter-btn.active(data-filter="all")= t.filterAll
+        button.filter-btn(data-filter="insurance")= t.filterInsurance
+        button.filter-btn(data-filter="odoo")= t.filterOdoo
 
   //---------- POST GRID ----------
   section.blog-grid
     .container
-      .row.g-4#blogGrid
+      .row.g-4.blog-grid-row#blogGrid
         each post in posts
-          .col-lg-4.col-md-6.blog-item(data-category=post.category data-aos="fade-up")
+          .col-lg-4.col-md-6.blog-item.blog-col(data-category=post.category data-aos="fade-up")
             .blog-card
-              img.blog-card-img(src=`../${post.image}` alt=post.title loading="lazy")
+              img.blog-card-img(src=`${pathPrefix}${post.image}` alt=post.title loading="lazy")
               .blog-card-body
                 .blog-card-cat= post.categoryLabel
                 h3.blog-card-title
@@ -108,10 +116,38 @@ block content
                     i.far.fa-calendar-alt.ms-1
                     |  #{post.date}
                   a.blog-card-read(href=`${post.slug}.html`)
-                    | اقرأ المزيد
+                    span.blog-read-label(data-blog-read-label)= t.readMore
                     i.fas.fa-arrow-left.me-1
 
       .no-posts.d-none#noPosts
         i.far.fa-folder-open.d-block.mb-3(style="font-size:2.5rem;color:#ccc")
-        | لا توجد مقالات في هذا التصنيف حالياً
+        span(data-blog-no-posts)= t.noPosts
+
+  section.blog-newsletter
+    .container
+      .newsletter-panel
+        .row.align-items-center.g-3
+          .col-lg-6
+            h2(data-blog-newsletter-title)= t.newsletterTitle
+            p(data-blog-newsletter-text)= t.newsletterText
+          .col-lg-6
+            form.newsletter-form(data-newsletter-form data-source="blog-index")
+              label.visually-hidden(for="newsletterEmailIndex" data-blog-newsletter-label)= t.newsletterEmail
+              input#newsletterEmailIndex.newsletter-input(type="email" name="email" placeholder="name@company.com" required autocomplete="email")
+              button.newsletter-btn(type="submit" data-blog-newsletter-button)= t.newsletterButton
+            p.newsletter-feedback(data-newsletter-feedback role="status" aria-live="polite")
+
+block scripts
+  script.
+    (function(){
+      // Fallback layout if Bootstrap grid CSS is unavailable on this page.
+      var fallbackStyle = document.createElement('style');
+      fallbackStyle.textContent = [
+        '.blog-grid-row{display:flex;flex-wrap:wrap;margin-left:-12px;margin-right:-12px}',
+        '.blog-col{box-sizing:border-box;width:100%;padding-left:12px;padding-right:12px}',
+        '@media (min-width:768px){.blog-col{width:50%}}',
+        '@media (min-width:992px){.blog-col{width:33.3333%}}'
+      ].join('');
+      document.head.appendChild(fallbackStyle);
+    })();
 

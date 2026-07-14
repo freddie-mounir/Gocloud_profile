@@ -1,6 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
+    <script>
+      (function () {
+        var storageKey = 'gocloud-site-language';
+        var savedLanguage = null;
+        try {
+          savedLanguage = localStorage.getItem(storageKey);
+        } catch (error) {
+          savedLanguage = null;
+        }
+        var initialLanguage = savedLanguage === 'ar' || savedLanguage === 'en' ? savedLanguage : 'en';
+        var root = document.documentElement;
+        root.lang = initialLanguage;
+        root.dir = initialLanguage === 'ar' ? 'rtl' : 'ltr';
+        root.dataset.siteLang = initialLanguage;
+        root.classList.add('site-lang-' + initialLanguage);
+      }());
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
@@ -22,9 +39,7 @@
     <!-- Accessibility meta tags-->
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
-    <link rel="alternate" hreflang="en">
-    <link rel="alternate" hreflang="x-default">
-    <script type="application/ld+json" src="js/organization-schema.json"></script>
+    <script type="application/ld+json">include ../js/organization-schema.json</script>
     <meta name="gocloud-chat-token" content="">
     <!-- Favicon-->
     <link rel="icon" href="images/favicon.ico" sizes="32x32">
@@ -43,7 +58,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" integrity="sha384-MUdXdzn1OB/0zkr4yGLnCqZ/n9ut5N7Ifes9RP2d5xKsTtcPiuiwthWczWuiqFOn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" integrity="sha384-kcNNzf7wI8//ZkNUaDd5JwxLoFaBgkj9Z4O4NwtuX9Lkmsz0HoITOxJsGkYxDuyG" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" integrity="sha384-VtAbyHBFULcj75mXhsQnIQUrCiTcHosNqmBMhE2t5jRWaFO1DviOnG9pxHSeNF9k" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" crossorigin="anonymous">
     <noscript>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
@@ -62,6 +77,7 @@
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap">
     </noscript>
+    <script src="js/analytics.js" defer></script>
     <!-- Custom styles-->
   </head>
   <body class="body tg-heading-subheading animation-style3">
@@ -221,10 +237,12 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" integrity="sha384-YGnnOBKslPJVs35GG0TtAZ4uO7BHpHlqJhs0XK3k6cuVb6EBtl+8xcvIIOKV5wB+" crossorigin="anonymous" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha384-d+vyQ0dYcymoP8ndq2hW7FGC50nqGdXUEgoOUGxbbkAJwZqL7h+jKN0GGgn9hFDS" crossorigin="anonymous" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha384-poC0r6usQOX2Ayt/VGA+t81H6V3iN9L+Irz9iO8o+s0X20tLpzc9DOOtnKxhaQSE" crossorigin="anonymous" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" integrity="sha384-Hf6yat1C7ze92LpS287AKvB24pRLwa+YxYmOVZKCiBHybkfxZDYy7TuKW/KbcS3i" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" crossorigin="anonymous" defer></script>
     <script src="js/plugins-bundle.min.js" defer></script>
     <script src="js/security-init.js" defer></script>
+    <script src="js/site-language.js" defer></script>
     <script src="js/main.min.js" defer></script>
+    <script src="js/newsletter.js" defer></script>
     <!-- Page specific scripts-->
   </body>
 </html>

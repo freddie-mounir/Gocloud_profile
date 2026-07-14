@@ -1,11 +1,13 @@
 extends layout.pug
 
 block variables
-  - var pageTitle = "About GoCloud — Odoo ERP & Insurance Technology Experts"
-  - var pageDescription = "Discover GoCloud's story — from a Cairo startup in 2015 to an official Odoo partner delivering ERP, cloud, and ELITE medical-insurance solutions across the MENA region."
-  - var pageKeywords = "GoCloud, about, Odoo ERP partner, ELITE insurance, cloud solutions, digital transformation Egypt, MENA technology"
+  - var pageTitle = "من نحن في GoCloud — خبراء Odoo والتقنية"
+  - var pageDescription = "تعرف على قصة GoCloud — من شركة ناشئة في القاهرة عام 2015 إلى شريك أودو معتمد يقدم حلول ERP والسحابة وELITE للتأمين الطبي في الشرق الأوسط وشمال أفريقيا."
+  - var pageKeywords = "GoCloud, من نحن, شريك أودو, ELITE, حلول سحابية, التحول الرقمي, تقنية مصر, MENA"
   - var canonicalUrl = "https://www.gocloudeg.com/about.html"
   - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+  - var pageLang = "ar"
+  - var pageDir = "rtl"
 
 block styles
   style.
@@ -121,15 +123,15 @@ block content
       .row.align-items-center
         .col-lg-7
           .mb-3
-            a.breadcrumb-link(href="index.html") Home
+            a.breadcrumb-link(href="index.html" data-i18n-key="about.breadcrumb_home") الرئيسية
             span.breadcrumb-sep /
-            span.breadcrumb-current About Us
+            span.breadcrumb-current(data-i18n-key="about.breadcrumb_current") من نحن
           h1
-            | Who We Are &amp;
+            span(data-i18n-key="about.hero_title_line1") من نحن و
             br
-            | What Drives Us
+            span(data-i18n-key="about.hero_title_line2") ما الذي يدفعنا
           .space16
-          p We've been delivering tailored Odoo ERP, cloud, and insurance technology solutions since 2015 — helping businesses across the MENA region digitize, automate, and grow.
+          p(data-i18n-key="about.hero_text") نقدم حلول Odoo ERP والسحابة وتقنيات التأمين المصممة خصيصاً منذ 2015 — لمساعدة الشركات في المنطقة على الرقمنة والأتمتة والنمو.
 
   //---------- PARTNER MARQUEE ----------
   include components/marquee-brands.pug
@@ -146,28 +148,28 @@ block content
                 | +
                 span 10
               .counter-text
-                | Years Of
+                span(data-i18n-key="about.years_of") سنوات من
                 br
-                | Experience
+                span(data-i18n-key="about.experience") الخبرة
         .col-lg-6(data-aos="fade-left")
           .section-tag
             img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
-            | About GoCloud
-          h2.section-heading Empowering Businesses With Comprehensive Software Solutions
-          p.section-lead GoCloud is your trusted partner in digital transformation and innovative IT solutions. We specialize in delivering cutting-edge software development, cloud computing, and enterprise solutions that drive business growth and operational excellence across diverse industries.
+            span(data-i18n-key="about.intro_kicker") عن GoCloud
+          h2.section-heading(data-i18n-key="about.intro_title") نمكّن الشركات بحلول برمجية متكاملة
+          p.section-lead(data-i18n-key="about.intro_text") GoCloud هو شريكك الموثوق في التحول الرقمي وحلول التقنية المبتكرة. نحن متخصصون في تطوير البرمجيات والحوسبة السحابية وحلول المؤسسات التي تدفع النمو والتميز التشغيلي عبر قطاعات متنوعة.
           .about-stat-grid
             .about-stat-card
               .stat-num +80K
-              .stat-label Supported Users
+              .stat-label(data-i18n-key="about.stat_users") مستخدم مدعوم
             .about-stat-card
               .stat-num +120
-              .stat-label Projects Delivered
+              .stat-label(data-i18n-key="about.stat_projects") مشروع تم تسليمه
             .about-stat-card
               .stat-num +15
-              .stat-label Industries Served
+              .stat-label(data-i18n-key="about.stat_industries") قطاعاً نخدمه
             .about-stat-card
               .stat-num +40
-              .stat-label Team Members
+              .stat-label(data-i18n-key="about.stat_team") عضو فريق
 
   //---------- MISSION & VISION ----------
   section.mv-section.bg-light-blue
@@ -176,28 +178,28 @@ block content
         .col-lg-8.mx-auto
           .section-tag
             img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
-            | Our Purpose
-          h2.section-heading Our Mission &amp; Vision
+            span(data-i18n-key="about.purpose_kicker") هدفنا
+          h2.section-heading(data-i18n-key="about.mission_vision_title") رسالتنا ورؤيتنا
       .row.g-4
         .col-lg-6(data-aos="fade-up" data-aos-delay="100")
           .mv-card
             .mv-icon-box
               i.fas.fa-bullseye
-            h4 Our Mission
+            h4(data-i18n-key="about.mission_title") رسالتنا
             .space8
-            p.fw-semibold.text-primary.mb-3(style="font-size:.95rem") Build good reputation and earn the trust and satisfaction from success partners — employees and clients — by providing the effort, expertise, and efficiency.
-            p At GoCloud, our mission is to empower businesses through technology. We believe in harnessing the power of innovation to drive growth, efficiency, and sustainability for our clients. Through our tailored technology solutions and unwavering commitment to excellence, we strive to be the catalyst for positive change in the digital landscape.
+            p.fw-semibold.text-primary.mb-3(style="font-size:.95rem" data-i18n-key="about.mission_callout") نبني سمعة قوية ونكسب ثقة ورضا شركائنا الناجحين — الموظفين والعملاء — عبر الجهد والخبرة والكفاءة.
+            p(data-i18n-key="about.mission_text") تتمثل رسالتنا في تمكين الشركات عبر التقنية. نحن نؤمن بتسخير قوة الابتكار لدفع النمو والكفاءة والاستدامة لعملائنا. ومن خلال حلولنا المصممة خصيصاً والتزامنا الدائم بالتميز، نسعى لأن نكون محفزاً للتغيير الإيجابي في المشهد الرقمي.
         .col-lg-6(data-aos="fade-up" data-aos-delay="200")
           .mv-card
             .mv-icon-box
               i.fas.fa-eye
-            h4 Our Vision
+            h4(data-i18n-key="about.vision_title") رؤيتنا
             .space8
-            p At GoCloud, we envision becoming a leading force in technology and software services, setting new industry standards through innovation and excellence. We strive to deliver transformative digital solutions that empower businesses to thrive in an increasingly connected world — recognized not just for technical expertise, but for driving meaningful business outcomes.
+            p(data-i18n-key="about.vision_text") نطمح في GoCloud إلى أن نصبح قوة رائدة في خدمات التقنية والبرمجيات، واضعين معايير جديدة للصناعة عبر الابتكار والتميز. ونسعى لتقديم حلول رقمية تحويلية تمكّن الشركات من النجاح في عالم يزداد ترابطاً — لنُعرف ليس فقط بخبرتنا التقنية، بل بقدرتنا على تحقيق نتائج أعمال ملموسة.
             .space8
             .d-flex.align-items-center.gap-2.mt-2
               i.fas.fa-rocket.text-primary
-              span.fw-semibold(style="color:#0E38B1;font-size:.925rem") Digital Transformation Leaders
+              span.fw-semibold(style="color:#0E38B1;font-size:.925rem" data-i18n-key="about.vision_badge") رواد التحول الرقمي
 
   section.mv-section
     .container
@@ -213,34 +215,34 @@ block content
         .col-lg-6(data-aos="fade-left")
           .section-tag
             img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
-            | Why GoCloud
-          h2.section-heading What Sets Us Apart
+            span(data-i18n-key="about.apart_kicker") لماذا GoCloud
+          h2.section-heading(data-i18n-key="about.apart_title") ما الذي يميزنا
           .space16
           .row.g-3
             .col-sm-6
               .value-card
                 .value-icon(style="background:linear-gradient(135deg,#0E38B1,#113ADC)")
                   i.fas.fa-cogs
-                h5 Tailored Solutions
-                p We build industry-specific systems — not generic templates.
+                h5(data-i18n-key="about.apart_1_title") حلول مصممة خصيصاً
+                p(data-i18n-key="about.apart_1_text") نبني أنظمة خاصة بكل قطاع — لا قوالب عامة.
             .col-sm-6
               .value-card
                 .value-icon(style="background:linear-gradient(135deg,#0E38B1,#113ADC)")
                   i.fas.fa-handshake
-                h5 Long-Term Partnership
-                p We support you from discovery through launch and beyond.
+                h5(data-i18n-key="about.apart_2_title") شراكة طويلة الأمد
+                p(data-i18n-key="about.apart_2_text") ندعمك من مرحلة الاكتشاف وحتى الإطلاق وما بعده.
             .col-sm-6
               .value-card
                 .value-icon(style="background:linear-gradient(135deg,#0E38B1,#113ADC)")
                   i.fas.fa-award
-                h5 Odoo Certified
-                p Official Odoo partner with certified ERP consultants.
+                h5(data-i18n-key="about.apart_3_title") معتمدون من Odoo
+                p(data-i18n-key="about.apart_3_text") شريك أودو رسمي مع مستشاري ERP معتمدين.
             .col-sm-6
               .value-card
                 .value-icon(style="background:linear-gradient(135deg,#0E38B1,#113ADC)")
                   i.fas.fa-shield-alt
-                h5 Domain Expertise
-                p Deep knowledge in healthcare insurance, trade &amp; distribution.
+                h5(data-i18n-key="about.apart_4_title") خبرة قطاعية
+                p(data-i18n-key="about.apart_4_text") معرفة عميقة في التأمين الصحي والتجارة والتوزيع.
 
   //---------- CORE VALUES ----------
   section.values-section
@@ -249,27 +251,27 @@ block content
         .col-lg-8.mx-auto
           .section-tag
             img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
-            | Our Core Beliefs
-          h2.section-heading What Drives Us Forward
+            span(data-i18n-key="about.values_kicker") مبادئنا الأساسية
+          h2.section-heading(data-i18n-key="about.values_title") ما الذي يدفعنا إلى الأمام
       .row.g-4
         .col-md-4(data-aos="fade-up" data-aos-delay="100")
           .value-card
             .value-icon(style="background:linear-gradient(135deg,#0E38B1,#113ADC)")
               i.fas.fa-gem
-            h5 Excellence
-            p We set high standards in every project — from code quality and design to client communication and delivery.
+            h5(data-i18n-key="about.value_1_title") التميز
+            p(data-i18n-key="about.value_1_text") نضع معايير عالية في كل مشروع — من جودة الكود والتصميم إلى التواصل مع العميل والتسليم.
         .col-md-4(data-aos="fade-up" data-aos-delay="200")
           .value-card
             .value-icon(style="background:linear-gradient(135deg,#10B981,#059669)")
               i.fas.fa-lock-open
-            h5 Transparency
-            p Honest timelines, clear pricing, and open communication — so you always know where your project stands.
+            h5(data-i18n-key="about.value_2_title") الشفافية
+            p(data-i18n-key="about.value_2_text") جداول زمنية واضحة، وتسعير صريح، وتواصل مفتوح — لتعرف دائماً أين يقف مشروعك.
         .col-md-4(data-aos="fade-up" data-aos-delay="300")
           .value-card
             .value-icon(style="background:linear-gradient(135deg,#F59E0B,#D97706)")
               i.fas.fa-chart-line
-            h5 Progress
-            p We continuously learn and evolve — adopting new technologies and refining our processes to stay ahead.
+            h5(data-i18n-key="about.value_3_title") التقدم
+            p(data-i18n-key="about.value_3_text") نتعلم ونتطور باستمرار — عبر تبني التقنيات الجديدة وتحسين عملياتنا لنظل في الصدارة.
 
   //---------- COMPANY MILESTONES ----------
   section.milestones-section
@@ -278,8 +280,8 @@ block content
         .col-lg-8.mx-auto
           .section-tag
             img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
-            | Our Story
-          h2.section-heading Company Milestones
+            span(data-i18n-key="about.story_kicker") قصتنا
+          h2.section-heading(data-i18n-key="about.story_title") محطات الشركة
 
       .timeline
         //- 2015
@@ -287,8 +289,8 @@ block content
           .timeline-dot
           .timeline-card
             .year-badge 2015
-            h4 A Legacy of Innovation
-            p In 2015, GoCloud emerged with a clear vision to revolutionize the technology landscape in Egypt. Starting with a dedicated team of innovative professionals, we recognized the growing demand for comprehensive digital solutions in the MENA region. Our initial focus was on delivering customized software solutions that would help local businesses embrace digital transformation.
+            h4(data-i18n-key="about.milestone_2015_title") بداية الابتكار
+            p(data-i18n-key="about.milestone_2015_text") في عام 2015، ظهرت GoCloud برؤية واضحة لإحداث تحول في مشهد التقنية في مصر. بدأنا بفريق متفانٍ من المحترفين المبتكرين، ووجدنا طلباً متزايداً على الحلول الرقمية المتكاملة في المنطقة. وانصب تركيزنا الأول على تقديم حلول برمجية مخصصة تساعد الشركات المحلية على تبني التحول الرقمي.
             img.milestone-img(src="images/about-tab-img.webp" alt="GoCloud early days" loading="lazy" width="530" height="394")
 
         //- 2017
@@ -296,8 +298,8 @@ block content
           .timeline-dot
           .timeline-card
             .year-badge 2017
-            h4 Expanding Our Horizons
-            p As technology continued to evolve, so did we. We expanded our service offerings to include a wide range of solutions — from IT services and cloud computing to data analytics and artificial intelligence — establishing ourselves as a multi-domain technology partner.
+            h4(data-i18n-key="about.milestone_2017_title") توسيع آفاقنا
+            p(data-i18n-key="about.milestone_2017_text") ومع تطور التقنية، تطورنا نحن أيضاً. وسّعنا خدماتنا لتشمل مجموعة واسعة من الحلول — من خدمات التقنية والحوسبة السحابية إلى تحليلات البيانات والذكاء الاصطناعي — لنرسخ مكانتنا كشريك تقني متعدد المجالات.
             img.milestone-img(src="images/technology%20services.webp" alt="Technology services expansion" loading="lazy" width="1024" height="1024")
 
         //- 2023
@@ -305,8 +307,8 @@ block content
           .timeline-dot
           .timeline-card
             .year-badge 2023
-            h4 ELITE Platform Launch
-            p ELITE — our comprehensive medical insurance management system — was born. Designed specifically for the healthcare insurance industry, it streamlines the entire insurance lifecycle: policy creation, claims processing, provider network management, and regulatory compliance. Built with cutting-edge technology, ELITE empowers insurance companies to deliver efficient, transparent, and customer-centric services.
+            h4(data-i18n-key="about.milestone_2023_title") إطلاق منصة ELITE
+            p(data-i18n-key="about.milestone_2023_text") وُلدت ELITE — نظامنا الشامل لإدارة التأمين الطبي. صُممت خصيصاً لصناعة التأمين الصحي، وهي تبسّط دورة التأمين بالكامل: إنشاء الوثائق، ومعالجة المطالبات، وإدارة شبكة مقدمي الخدمة، والامتثال التنظيمي. وبفضل التقنية المتقدمة، تمكّن ELITE شركات التأمين من تقديم خدمات فعالة وشفافة ومتمحورة حول العميل.
             img.milestone-img(src="images/m-cloud-logo.jpg" alt="ELITE insurance platform" loading="lazy" width="512" height="512")
 
         //- 2025
@@ -314,8 +316,8 @@ block content
           .timeline-dot
           .timeline-card
             .year-badge 2025
-            h4 ERP &amp; CRM Era
-            p We expanded into comprehensive Odoo ERP &amp; CRM implementations tailored for diverse business sectors. Our solutions empower real estate companies, gold investment firms, and medical facilities — all through one integrated platform. Today, as an official Odoo partner, we continue to drive digital transformation across the region.
+            h4(data-i18n-key="about.milestone_2025_title") عصر ERP و CRM
+            p(data-i18n-key="about.milestone_2025_text") توسعنا إلى تطبيقات شاملة لـ Odoo ERP و CRM مخصصة لقطاعات أعمال متنوعة. وتمكّن حلولنا شركات العقارات وشركات استثمار الذهب والمنشآت الطبية — عبر منصة واحدة متكاملة. واليوم، بصفتنا شريكاً رسمياً لـ Odoo، نواصل دفع التحول الرقمي في المنطقة.
             img.milestone-img(src="images/odoo%20about%20.webp" alt="Odoo ERP solutions" loading="lazy" width="1024" height="1024")
 
   //---------- ORGANIZATION CHART ----------
@@ -325,13 +327,13 @@ block content
         .col-lg-8.mx-auto
           .section-tag
             img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
-            | Our Team Structure
-          h2.section-heading Company Organization
+            span(data-i18n-key="about.team_structure_kicker") هيكل فريقنا
+          h2.section-heading(data-i18n-key="about.team_structure_title") تنظيم الشركة
 
       //- CEO
       .org-ceo(data-aos="fade-down")
-        .org-title Chief Executive Officer
-        .org-role Sets Vision &amp; Strategy
+        .org-title(data-i18n-key="about.org_ceo_title") Chief Executive Officer
+        .org-role(data-i18n-key="about.org_ceo_role") Sets Vision &amp; Strategy
       .org-connector
       .org-connector-h(style="max-width:75%;margin:0 auto")
 
@@ -341,112 +343,112 @@ block content
         .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="100")
           .dept-card
             .dept-head
-              .org-title Chief Technology Officer
-              .org-role Leads Technology
+              .org-title(data-i18n-key="about.org_cto_title") Chief Technology Officer
+              .org-role(data-i18n-key="about.org_cto_role") Leads Technology
             .dept-members
               .dept-member
                 .member-dot
                 .member-info
-                  .org-title Engineering Manager
-                  .org-role Manages Dev Teams
+                  .org-title(data-i18n-key="about.org_eng_manager_title") Engineering Manager
+                  .org-role(data-i18n-key="about.org_eng_manager_role") Manages Dev Teams
               .dept-sub-team
                 .dept-member
                   .member-dot
                   .member-info
-                    .org-title Tech Lead
-                    .org-role Project Technical Lead
+                    .org-title(data-i18n-key="about.org_tech_lead_title") Tech Lead
+                    .org-role(data-i18n-key="about.org_tech_lead_role") Project Technical Lead
                 .dept-member
                   .member-dot
                   .member-info
-                    .org-title Senior Software Engineer
-                    .org-role Develops Complex Features
+                    .org-title(data-i18n-key="about.org_senior_engineer_title") Senior Software Engineer
+                    .org-role(data-i18n-key="about.org_senior_engineer_role") Develops Complex Features
                 .dept-member
                   .member-dot
                   .member-info
-                    .org-title Software Engineer
-                    .org-role Core Development
+                    .org-title(data-i18n-key="about.org_engineer_title") Software Engineer
+                    .org-role(data-i18n-key="about.org_engineer_role") Core Development
               .dept-member
                 .member-dot
                 .member-info
-                  .org-title Head of Cloud &amp; DevOps
-                  .org-role Manages Infrastructure
+                  .org-title(data-i18n-key="about.org_cloud_head_title") Head of Cloud &amp; DevOps
+                  .org-role(data-i18n-key="about.org_cloud_head_role") Manages Infrastructure
               .dept-sub-team
                 .dept-member
                   .member-dot
                   .member-info
-                    .org-title DevOps Engineer
-                    .org-role CI/CD &amp; Automation
+                    .org-title(data-i18n-key="about.org_devops_title") DevOps Engineer
+                    .org-role(data-i18n-key="about.org_devops_role") CI/CD &amp; Automation
               .dept-member
                 .member-dot
                 .member-info
-                  .org-title QA Lead
-                  .org-role Ensures Quality
+                  .org-title(data-i18n-key="about.org_qa_lead_title") QA Lead
+                  .org-role(data-i18n-key="about.org_qa_lead_role") Ensures Quality
               .dept-sub-team
                 .dept-member
                   .member-dot
                   .member-info
-                    .org-title QA Automation Engineer
-                    .org-role Builds Test Scripts
+                    .org-title(data-i18n-key="about.org_qa_auto_title") QA Automation Engineer
+                    .org-role(data-i18n-key="about.org_qa_auto_role") Builds Test Scripts
 
         //- Product
         .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="200")
           .dept-card
             .dept-head
-              .org-title Head of Product
-              .org-role Defines Product Roadmap
+              .org-title(data-i18n-key="about.org_product_head_title") Head of Product
+              .org-role(data-i18n-key="about.org_product_head_role") Defines Product Roadmap
             .dept-members
               .dept-member
                 .member-dot
                 .member-info
-                  .org-title Product Manager
-                  .org-role Gathers Requirements
+                  .org-title(data-i18n-key="about.org_product_manager_title") Product Manager
+                  .org-role(data-i18n-key="about.org_product_manager_role") Gathers Requirements
               .dept-member
                 .member-dot
                 .member-info
-                  .org-title UI/UX Lead
-                  .org-role Leads Design
+                  .org-title(data-i18n-key="about.org_uiux_lead_title") UI/UX Lead
+                  .org-role(data-i18n-key="about.org_uiux_lead_role") Leads Design
               .dept-sub-team
                 .dept-member
                   .member-dot
                   .member-info
-                    .org-title Product Designer
-                    .org-role Creates Mockups &amp; Prototypes
+                    .org-title(data-i18n-key="about.org_product_designer_title") Product Designer
+                    .org-role(data-i18n-key="about.org_product_designer_role") Creates Mockups &amp; Prototypes
 
         //- Business Development
         .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="300")
           .dept-card
             .dept-head
-              .org-title Head of Business Development
-              .org-role Leads Sales &amp; Marketing
+              .org-title(data-i18n-key="about.org_biz_head_title") Head of Business Development
+              .org-role(data-i18n-key="about.org_biz_head_role") Leads Sales &amp; Marketing
             .dept-members
               .dept-member
                 .member-dot
                 .member-info
-                  .org-title Sales Manager
-                  .org-role Closes Deals
+                  .org-title(data-i18n-key="about.org_sales_manager_title") Sales Manager
+                  .org-role(data-i18n-key="about.org_sales_manager_role") Closes Deals
               .dept-member
                 .member-dot
                 .member-info
-                  .org-title Marketing Manager
-                  .org-role Builds Brand
+                  .org-title(data-i18n-key="about.org_marketing_manager_title") Marketing Manager
+                  .org-role(data-i18n-key="about.org_marketing_manager_role") Builds Brand
 
         //- Operations
         .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="400")
           .dept-card
             .dept-head
-              .org-title Head of Operations
-              .org-role Manages Internal Ops
+              .org-title(data-i18n-key="about.org_ops_head_title") Head of Operations
+              .org-role(data-i18n-key="about.org_ops_head_role") Manages Internal Ops
             .dept-members
               .dept-member
                 .member-dot
                 .member-info
-                  .org-title Project Manager
-                  .org-role Manages Client Projects
+                  .org-title(data-i18n-key="about.org_project_manager_title") Project Manager
+                  .org-role(data-i18n-key="about.org_project_manager_role") Manages Client Projects
               .dept-member
                 .member-dot
                 .member-info
-                  .org-title HR &amp; Finance
-                  .org-role Admin &amp; People Ops
+                  .org-title(data-i18n-key="about.org_hr_finance_title") HR &amp; Finance
+                  .org-role(data-i18n-key="about.org_hr_finance_role") Admin &amp; People Ops
 
   //---------- MEET OUR TEAM ----------
   section.team-section
@@ -455,9 +457,9 @@ block content
         .col-lg-8.mx-auto
           .section-tag
             img(src="images/gocloud%20logo.webp" alt="" loading="lazy" width="24" height="24")
-            | Our People
-          h2.section-heading Meet Our Team
-          p.section-lead.mx-auto The talented people behind GoCloud's success — passionate about technology, committed to delivering results.
+            span(data-i18n-key="about.people_kicker") فريقنا
+          h2.section-heading(data-i18n-key="about.people_title") تعرّف على فريقنا
+          p.section-lead.mx-auto(data-i18n-key="about.people_text") الأشخاص الموهوبون وراء نجاح GoCloud — شغوفون بالتقنية وملتزمون بتحقيق النتائج.
 
       //- Leadership Cards
       .row.g-4.justify-content-center.mb-5
@@ -466,8 +468,8 @@ block content
             img.team-leader-img(src="images/team/WalidAzhary.webp" alt="Walid Azhary — CEO" loading="lazy" width="400" height="533")
             .team-leader-body
               h4 Walid Azhary
-              .team-role Chief Executive Officer
-              p Visionary leader with 10+ years in enterprise software. Drives GoCloud's strategic direction and client partnerships across the MENA region.
+              .team-role(data-i18n-key="about.leader_1_role") Chief Executive Officer
+              p(data-i18n-key="about.leader_1_text") Visionary leader with 10+ years in enterprise software. Drives GoCloud's strategic direction and client partnerships across the MENA region.
               .team-leader-social
                 a(href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn")
                   i.fab.fa-linkedin-in
@@ -477,8 +479,8 @@ block content
             img.team-leader-img(src="images/team/AhmedAzhary.webp" alt="Ahmed Azhary — CTO" loading="lazy" width="400" height="533")
             .team-leader-body
               h4 Ahmed Azhary
-              .team-role Chief Technology Officer
-              p Leads the engineering and product teams. Expert in Odoo ERP customization, cloud architecture, and building scalable enterprise solutions.
+              .team-role(data-i18n-key="about.leader_2_role") Chief Technology Officer
+              p(data-i18n-key="about.leader_2_text") Leads the engineering and product teams. Expert in Odoo ERP customization, cloud architecture, and building scalable enterprise solutions.
               .team-leader-social
                 a(href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn")
                   i.fab.fa-linkedin-in
@@ -488,24 +490,24 @@ block content
             img.team-leader-img(src="images/team/freddie1.jpeg" alt="Freddie — Business Development Manager" loading="lazy" width="400" height="533")
             .team-leader-body
               h4 Freddie Mounir
-              .team-role Business Development Manager
-              p Drives strategic partnerships and client acquisition. Focused on expanding GoCloud's market presence and identifying new business opportunities across the region.
+              .team-role(data-i18n-key="about.leader_3_role") Business Development Manager
+              p(data-i18n-key="about.leader_3_text") Drives strategic partnerships and client acquisition. Focused on expanding GoCloud's market presence and identifying new business opportunities across the region.
               .team-leader-social
                 a(href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn")
                   i.fab.fa-linkedin-in
 
       //- Team Gallery
-      h4.text-center.mb-4(data-aos="fade-up" style="font-weight:700;color:#0D0E10") Life at GoCloud
+      h4.text-center.mb-4(data-aos="fade-up" style="font-weight:700;color:#0D0E10" data-i18n-key="about.life_title") الحياة في GoCloud
       .row.g-4
         .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="100")
           img.team-gallery-img(src="images/team/TraningTeam.webp" alt="GoCloud training team with certificates" loading="lazy" width="600" height="400")
-          .team-gallery-caption Training &amp; Certification
+          .team-gallery-caption(data-i18n-key="about.gallery_1") التدريب والشهادات
         .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="200")
           img.team-gallery-img(src="images/team/EmanAbdo.webp" alt="Eman Abdo at GoCloud event" loading="lazy" width="600" height="400")
-          .team-gallery-caption Industry Events &amp; Conferences
+          .team-gallery-caption(data-i18n-key="about.gallery_2") الفعاليات والمؤتمرات
         .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="300")
           img.team-gallery-img(src="images/team/OperationTeam.webp" alt="GoCloud operations team gathering" loading="lazy" width="600" height="400")
-          .team-gallery-caption Our Team Culture
+          .team-gallery-caption(data-i18n-key="about.gallery_3") ثقافة فريقنا
 
   //- Footer & WhatsApp
   include components/footer.pug

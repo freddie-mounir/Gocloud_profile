@@ -1,6 +1,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
+  "inLanguage": "ar",
   "headline": "بوابة تأمين طبي موحدة — لماذا النظام الواحد أفضل من ثلاثة أنظمة منفصلة؟",
   "description": "تعرّف على أهمية وجود بوابة تأمين طبي واحدة تخدم شركة التأمين و TPA ومقدمي الخدمة الطبية، وعيوب استخدام أنظمة منفصلة لكل طرف.",
   "image": "https://www.gocloudeg.com/images/elite-dashboard.webp",

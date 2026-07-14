@@ -1,16 +1,19 @@
 extends layout.pug
 
 block variables
-  - var pageTitle = "GoCloud — Odoo ERP & Insurance Technology Experts"
-  - var pageDescription = "GoCloud delivers industry-specific Odoo ERP solutions, medical insurance systems, and cloud infrastructure for healthcare, trade, and distribution businesses across Egypt and the Middle East."
-  - var pageKeywords = "Odoo ERP, medical insurance system, healthcare IT, trade ERP, Odoo implementation, Odoo customization, business intelligence, cloud hosting, GoCloud Egypt"
+  - var pageTitle = "GoCloud — خبراء أودو والتقنية"
+  - var pageDescription = "تقدم GoCloud حلول Odoo ERP المتخصصة وأنظمة التأمين الطبي والبنية التحتية السحابية للشركات في مجالات الرعاية الصحية والتجارة والتوزيع في مصر والشرق الأوسط."
+  - var pageKeywords = "Odoo ERP, نظام تأمين طبي, تقنية الرعاية الصحية, نظام تجارة, تنفيذ أودو, تخصيص أودو, ذكاء الأعمال, استضافة سحابية, GoCloud Egypt"
   - var canonicalUrl = "https://www.gocloudeg.com/"
   - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+  - var pageLang = "ar"
+  - var pageDir = "rtl"
 
 block styles
   style.
     .hero-badge{display:inline-flex;align-items:center;gap:8px;background:#0E38B1;border-radius:50px;padding:8px 18px;font-size:.8rem;font-weight:600;color:#fff;margin-bottom:1.5rem;box-shadow:0 4px 14px rgba(14,56,177,.3)}
     .hero-badge i{color:#A1E934;margin-right:2px}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
     .hero1 .main-headding h1{font-size:2.75rem;line-height:1.2;font-weight:800;color:#0D0E10}
     .hero1 .main-headding h1 .text-accent{color:#0E38B1}
     .hero1 .main-headding .hero-sub{font-size:1.05rem;line-height:1.7;color:#4a4b5c;max-width:480px}
@@ -56,24 +59,26 @@ block content
           .main-headding
             .hero-badge
               i.fas.fa-award
-              | Official Odoo Partner
+              span(data-i18n-key="home.hero_badge") شريك أودو المعتمد
             .span(style="color:blue" data-aos="zoom-in-left" data-aos-duration="700")
               img(src="images/gocloud%20logo.webp" height="40" width="40" alt="GoCloud logo")
-              | GoCloud Technology
-            h1.title.tg-element-title
-              | Odoo ERP Experts &amp;
+              span(data-i18n-key="home.brand_line") GoCloud Technology
+            h1.title
+              span(data-i18n-key="home.hero_title_line1") خبراء Odoo ERP و
               br
-              | Insurance Technology
+              span(data-i18n-key="home.hero_title_line2") تقنيات التأمين الطبي
               br
-              span.text-accent Tailored to Your Industry
+              span.text-accent(data-i18n-key="home.hero_title_line3") مصممة حسب احتياج قطاعك
             .space16
-            p.hero-sub We implement, customize, and integrate Odoo ERP for healthcare, trade, and distribution — and power medical insurance operations with our ELITE platform.
+            p.hero-sub(data-i18n-key="home.hero_sub") ننفذ ونخصص وندمج Odoo ERP لقطاعات الرعاية الصحية والتجارة والتوزيع، ونشغّل عمليات التأمين الطبي عبر منصة ELITE.
             .space30
-            .buttons.d-flex.gap-3.flex-wrap
-              a.theme-btn1(href="#CTA") Get Started Now
+            .hero-actions
+              a.theme-btn1(href="#CTA")
+                span(data-i18n-key="home.hero_primary_cta") ابدأ الآن
                 span
                   i.fa-solid.fa-arrow-right
-              a.btn.btn-hero-outline(href="service.html") View All Services
+              a.btn.btn-hero-outline(href="service.html")
+                span(data-i18n-key="home.hero_secondary_cta") عرض الخدمات
 
         .col-lg-7
           .hero1-all-images
@@ -86,9 +91,9 @@ block content
                 | +
                 span 10
               p.text-warning.fw-bold.w-auto
-                | Years Of
+                span(data-i18n-key="home.years_of") سنوات من
                 br
-                | Experience
+                span(data-i18n-key="home.experience") الخبرة
             .shape1
               img(src="images/header1-shape1.png" alt="" width="131" height="130")
 
@@ -99,19 +104,19 @@ block content
         .col-6.col-md-3
           .stat-item
             .stat-num +80K
-            .stat-label Supported Users
+            .stat-label(data-i18n-key="home.stats.users") مستخدم مدعوم
         .col-6.col-md-3
           .stat-item
             .stat-num +20
-            .stat-label Corporate Clients
+            .stat-label(data-i18n-key="home.stats.clients") عميل مؤسسي
         .col-6.col-md-3
           .stat-item
             .stat-num +10
-            .stat-label Solutions Delivered
+            .stat-label(data-i18n-key="home.stats.solutions") حلول تم تنفيذها
         .col-6.col-md-3
           .stat-item
             .stat-num +50
-            .stat-label Completed Projects
+            .stat-label(data-i18n-key="home.stats.projects") مشروع منجز
 
   .space40
 
@@ -124,8 +129,8 @@ block content
   section.py-5
     .container
       .text-center.mb-5(data-aos="fade-up")
-        h2.fw-bold Industry Solutions, Not Generic Services
-        p.lead.text-muted We don't sell off-the-shelf software — we build solutions around how your industry actually works.
+        h2.fw-bold(data-i18n-key="home.solutions_title") حلول متخصصة، لا خدمات عامة
+        p.lead.text-muted(data-i18n-key="home.solutions_subtitle") نحن لا نبيع برمجيات جاهزة — بل نبني حلولاً حول طريقة عمل قطاعك فعلياً.
 
       .row.g-4
         //- Healthcare
@@ -133,46 +138,48 @@ block content
           .sector-card
             .sector-icon(style="background:#dc3545;")
               i.fas.fa-heartbeat
-            h3 Healthcare &amp; Medical Insurance
-            p From provider network management to claims processing and member portals — we deliver end-to-end digital infrastructure for insurance companies and healthcare organizations.
+            h3(data-i18n-key="home.healthcare_title") الرعاية الصحية والتأمين الطبي
+            p(data-i18n-key="home.healthcare_text") من إدارة شبكة مقدمي الخدمة إلى معالجة المطالبات وبوابات المشتركين — نوفر بنية رقمية متكاملة لشركات التأمين ومؤسسات الرعاية الصحية.
             ul.sector-features
               li
                 i.fas.fa-check-circle
-                | ELITE Medical Insurance Platform
+                span(data-i18n-key="home.healthcare_feature_1") منصة ELITE للتأمين الطبي
               li
                 i.fas.fa-check-circle
-                | Claims &amp; policy administration
+                span(data-i18n-key="home.healthcare_feature_2") إدارة المطالبات والسياسات
               li
                 i.fas.fa-check-circle
-                | Provider network &amp; approvals workflow
+                span(data-i18n-key="home.healthcare_feature_3") شبكة مقدمي الخدمة ومسار الموافقات
               li
                 i.fas.fa-check-circle
-                | Real-time member &amp; corporate portals
+                span(data-i18n-key="home.healthcare_feature_4") بوابات الأعضاء والشركات في الوقت الفعلي
             .mt-3
-              a.fw-semibold.text-primary(href="elite.html") Explore Healthcare Solutions →
+              a.fw-semibold.text-primary(href="elite.html")
+                span(data-i18n-key="home.healthcare_link") استكشف حلول الرعاية الصحية →
 
         //- Trade & Distribution
         .col-lg-6(data-aos="fade-up" data-aos-delay="200")
           .sector-card
             .sector-icon(style="background:#fd7e14;")
               i.fas.fa-boxes
-            h3 Trade &amp; Distribution
-            p Custom Odoo workflows for inventory, purchasing, sales, and logistics — built for gold trading, pharmaceutical distribution, and wholesale operations.
+            h3(data-i18n-key="home.trade_title") التجارة والتوزيع
+            p(data-i18n-key="home.trade_text") مسارات عمل Odoo مخصصة للمخزون والمشتريات والمبيعات واللوجستيات — مصممة لتجارة الذهب وتوزيع الأدوية والعمليات الجملة.
             ul.sector-features
               li
                 i.fas.fa-check-circle
-                | Gold investment management system
+                span(data-i18n-key="home.trade_feature_1") نظام إدارة استثمارات الذهب
               li
                 i.fas.fa-check-circle
-                | Pharma CRM &amp; supply chain
+                span(data-i18n-key="home.trade_feature_2") CRM وسلسلة الإمداد للدواء
               li
                 i.fas.fa-check-circle
-                | Inventory &amp; warehouse automation
+                span(data-i18n-key="home.trade_feature_3") أتمتة المخزون والمستودعات
               li
                 i.fas.fa-check-circle
-                | Multi-branch &amp; multi-currency support
+                span(data-i18n-key="home.trade_feature_4") دعم الفروع المتعددة والعملات المتعددة
             .mt-3
-              a.fw-semibold.text-primary(href="odoo-services.html") Explore Trade Solutions →
+              a.fw-semibold.text-primary(href="odoo-services.html")
+                span(data-i18n-key="home.trade_link") استكشف حلول التجارة →
 
       .row.g-4.mt-2
         //- Cloud & Infrastructure
@@ -180,60 +187,63 @@ block content
           .sector-card
             .sector-icon(style="background:#0E38B1;")
               i.fas.fa-cloud
-            h3 Cloud &amp; Infrastructure
-            p Reliable hosting, containerization, and Linux server management with 24/7 support.
+            h3(data-i18n-key="home.cloud_title") السحابة والبنية التحتية
+            p(data-i18n-key="home.cloud_text") استضافة موثوقة، وحاويات، وإدارة خوادم لينكس مع دعم على مدار الساعة.
             ul.sector-features
               li
                 i.fas.fa-check-circle
-                | Docker &amp; Kubernetes
+                span(data-i18n-key="home.cloud_feature_1") Docker و Kubernetes
               li
                 i.fas.fa-check-circle
-                | Server security hardening
+                span(data-i18n-key="home.cloud_feature_2") تقوية أمان الخوادم
               li
                 i.fas.fa-check-circle
-                | Migration &amp; optimization
+                span(data-i18n-key="home.cloud_feature_3") الترحيل والتحسين
             .mt-3
-              a.fw-semibold.text-primary(href="cloud-services.html") Learn more →
+              a.fw-semibold.text-primary(href="cloud-services.html")
+                span(data-i18n-key="home.cloud_link") اعرف المزيد →
 
         //- Odoo ERP
         .col-lg-4(data-aos="fade-up" data-aos-delay="400")
           .sector-card
             .sector-icon(style="background:#6E18EF;")
               i.fas.fa-cogs
-            h3 Odoo ERP &amp; CRM
-            p Full-cycle Odoo services — from module development and customization to deployment and staff training.
+            h3(data-i18n-key="home.odoo_title") Odoo ERP و CRM
+            p(data-i18n-key="home.odoo_text") خدمات Odoo الكاملة — من تطوير الوحدات والتخصيص إلى النشر وتدريب الموظفين.
             ul.sector-features
               li
                 i.fas.fa-check-circle
-                | Custom module development
+                span(data-i18n-key="home.odoo_feature_1") تطوير وحدات مخصصة
               li
                 i.fas.fa-check-circle
-                | Third-party integrations
+                span(data-i18n-key="home.odoo_feature_2") تكاملات مع الأطراف الخارجية
               li
                 i.fas.fa-check-circle
-                | End-to-end implementation
+                span(data-i18n-key="home.odoo_feature_3") تنفيذ شامل من البداية للنهاية
             .mt-3
-              a.fw-semibold.text-primary(href="odoo-dev.html") Learn more →
+              a.fw-semibold.text-primary(href="odoo-dev.html")
+                span(data-i18n-key="home.odoo_link") اعرف المزيد →
 
         //- Business Intelligence
         .col-lg-4(data-aos="fade-up" data-aos-delay="500")
           .sector-card
             .sector-icon(style="background:#ffc107;")
               i.fas.fa-chart-bar
-            h3 Business Intelligence
-            p Interactive dashboards, automated reporting, and data consolidation powered by Power BI and Metabase.
+            h3(data-i18n-key="home.bi_title") ذكاء الأعمال
+            p(data-i18n-key="home.bi_text") لوحات تحكم تفاعلية وتقارير مؤتمتة وتوحيد للبيانات مدعوم عبر Power BI وMetabase.
             ul.sector-features
               li
                 i.fas.fa-check-circle
-                | Real-time KPI dashboards
+                span(data-i18n-key="home.bi_feature_1") لوحات KPI لحظية
               li
                 i.fas.fa-check-circle
-                | Automated report delivery
+                span(data-i18n-key="home.bi_feature_2") تسليم التقارير تلقائياً
               li
                 i.fas.fa-check-circle
-                | Multi-source data integration
+                span(data-i18n-key="home.bi_feature_3") تكامل بيانات من مصادر متعددة
             .mt-3
-              a.fw-semibold.text-primary(href="business.html") Learn more →
+              a.fw-semibold.text-primary(href="business.html")
+                span(data-i18n-key="home.bi_link") اعرف المزيد →
 
   //---------- ABOUT ----------
   .about1.sp
@@ -254,25 +264,26 @@ block content
           .heading1
             .span(style="color: green;" data-aos="zoom-in-left" data-aos-duration="700")
               img(src="images/gocloud%20logo.webp" height="50" width="50" alt="GoCloud logo")
-              | About GoCloud
-            h2.title.tg-element-title A Decade of Turning Complex Operations into Streamlined Systems
+              span(data-i18n-key="home.about_kicker") من نحن في GoCloud
+            h2.title(data-i18n-key="home.about_title") عقد من تحويل العمليات المعقدة إلى أنظمة سلسة
             .space16
-            p(data-aos="fade-left" data-aos-duration="800") Since our founding, we've focused on two things: mastering Odoo ERP and building technology that solves real operational problems. From insurance workflows to multi-branch trade operations, our team delivers systems that companies actually use every day.
+            p(data-aos="fade-left" data-aos-duration="800" data-i18n-key="home.about_text") منذ تأسيسنا ركزنا على أمرين: إتقان Odoo ERP وبناء تقنية تحل مشكلات تشغيلية حقيقية. من مسارات التأمين إلى عمليات التجارة متعددة الفروع، يقدم فريقنا أنظمة يستخدمها العملاء فعلياً كل يوم.
 
             .space16
             .about-highlight(data-aos="fade-left" data-aos-duration="900")
-              h5 Official Odoo Partner
-              p Certified expertise in customization, implementation, and integration
+              h5(data-i18n-key="home.about_point_1_title") شريك أودو المعتمد
+              p(data-i18n-key="home.about_point_1_text") خبرة معتمدة في التخصيص والتنفيذ والتكامل
             .about-highlight(data-aos="fade-left" data-aos-duration="1000")
-              h5 Insurance Technology Pioneer
-              p Built ELITE — a full medical insurance management platform
+              h5(data-i18n-key="home.about_point_2_title") رائد في تقنيات التأمين
+              p(data-i18n-key="home.about_point_2_text") بنينا ELITE — منصة متكاملة لإدارة التأمين الطبي
             .about-highlight(data-aos="fade-left" data-aos-duration="1100")
-              h5 Full-Stack Delivery
-              p From cloud infrastructure to analytics dashboards — one team, end to end
+              h5(data-i18n-key="home.about_point_3_title") تسليم متكامل
+              p(data-i18n-key="home.about_point_3_text") من البنية السحابية إلى لوحات التحليل — فريق واحد من البداية للنهاية
 
             .space20
             div(data-aos="fade-left" data-aos-duration="900")
-              a.theme-btn1(href="about.html") Learn More About Us
+              a.theme-btn1(href="about.html")
+                span(data-i18n-key="home.about_link") اعرف المزيد عنا
                 span
                   i.fa-solid.fa-arrow-right
 
@@ -284,37 +295,37 @@ block content
           .heading1
             .span(data-aos="zoom-in-left" data-aos-duration="700")
               img(src="images/gocloud%20logo.webp" height="50" width="50" alt="GoCloud logo")
-              | Odoo Partnership
-            h2.title.tg-element-title Why Businesses Choose Our Odoo ERP
+              span(data-i18n-key="home.partner_kicker") شراكة أودو
+            h2.title(data-i18n-key="home.partner_title") لماذا تختار الشركات Odoo ERP من GoCloud؟
             .space16
-            p Even startups and SMEs can monitor their entire business through a robust ERP system. As an official Odoo partner, we bring certified expertise to every project.
+            p(data-i18n-key="home.partner_text") حتى الشركات الناشئة والمتوسطة يمكنها مراقبة أعمالها بالكامل عبر نظام ERP قوي. وبصفتنا شريك أودو معتمد، نقدم خبرة موثقة لكل مشروع.
 
             .single-items(data-aos="fade-right" data-aos-duration="700")
               div
                 .icon
                   img(src="images/crm.png" alt="CRM solutions" width="24" height="24")
               div
-                h3 CRM to Manage Your Customer Relations
+                h3(data-i18n-key="home.partner_item_1_title") CRM لإدارة علاقات العملاء
                 .space10
-                p Capture every lead, automate follow-ups, and build lasting customer relationships with a CRM built around your sales process.
+                p(data-i18n-key="home.partner_item_1_text") التقط كل فرصة، وأتمت المتابعات، وابنِ علاقات دائمة عبر CRM مصمم حول دورة البيع لديك.
 
             .single-items(data-aos="fade-right" data-aos-duration="900")
               div
                 .icon
                   img(src="images/erp.png" alt="ERP systems" width="24" height="24")
               div
-                h3 Industry-Specific ERP Workflows
+                h3(data-i18n-key="home.partner_item_2_title") مسارات ERP خاصة بكل قطاع
                 .space10
-                p Pharma distribution, gold trading, healthcare operations — we configure Odoo modules to match your real-world processes.
+                p(data-i18n-key="home.partner_item_2_text") توزيع الأدوية وتجارة الذهب والرعاية الصحية — نهيئ وحدات Odoo لتناسب عملياتك الواقعية.
 
             .single-items(data-aos="fade-right" data-aos-duration="1100")
               div
                 .icon
                   img(src="images/business-intelligence.png" alt="Business intelligence" width="24" height="24")
               div
-                h3 Built-In Business Intelligence
+                h3(data-i18n-key="home.partner_item_3_title") ذكاء أعمال مدمج
                 .space10
-                p From real-time dashboards to scheduled reports, get visibility into every corner of your operation.
+                p(data-i18n-key="home.partner_item_3_text") من لوحات التحكم اللحظية إلى التقارير المجدولة، احصل على رؤية كاملة لكل جزء من نشاطك.
 
         .col-lg-6
           .image-anime
@@ -324,61 +335,80 @@ block content
   section.py-5(style="background:#f7f9ff")
     .container
       .text-center.mb-5(data-aos="fade-up")
-        span.badge.rounded-pill.mb-3(style="background:#EEF2FF;color:#0E38B1;font-weight:600;font-size:.8rem;padding:6px 16px") أحدث المقالات — Latest Articles
-        h2.fw-bold From Our Blog
-        p.text-muted Insights on Medical Insurance Technology &amp; Odoo Business Solutions
+        span.badge.rounded-pill.mb-3(style="background:#EEF2FF;color:#0E38B1;font-weight:600;font-size:.8rem;padding:6px 16px" data-i18n-key="home.blog_badge") أحدث المقالات — Latest Articles
+        h2.fw-bold(data-i18n-key="home.blog_title") من مدونتنا
+        p.text-muted(data-i18n-key="home.blog_subtitle") رؤى حول تقنيات التأمين الطبي وحلول أعمال Odoo
       .row.g-4
         .col-md-6.col-lg-4(data-aos="fade-up")
           .card.h-100.border-0.shadow-sm.rounded-4.overflow-hidden
             img.card-img-top(src="images/blog-crm-medical-dashboard.png" alt="Odoo CRM for Medical Supplies" loading="lazy" width="1879" height="686" style="height:200px;object-fit:cover")
             .card-body.p-4
               span.badge.rounded-pill.mb-2(style="background:#EEF2FF;color:#0E38B1;font-size:.72rem") تطبيقات أودو
-              h5.card-title.fw-bold(style="font-size:.95rem") Odoo CRM لشركات المستلزمات الطبية — مراقبة فرق المبيعات وزيادة الإيرادات
-              p.card-text.text-muted(style="font-size:.85rem") كيف يساعد Odoo CRM المخصص شركات المستلزمات الطبية في مراقبة فرق المبيعات الميدانية وتحسين التنبؤ بالمبيعات.
+              h5.card-title.fw-bold(style="font-size:.95rem" data-i18n-key="home.blog_card_1_title") Odoo CRM لشركات المستلزمات الطبية — مراقبة فرق المبيعات وزيادة الإيرادات
+              p.card-text.text-muted(style="font-size:.85rem" data-i18n-key="home.blog_card_1_text") كيف يساعد Odoo CRM المخصص شركات المستلزمات الطبية في مراقبة فرق المبيعات الميدانية وتحسين التنبؤ بالمبيعات.
             .card-footer.bg-white.border-0.p-4.pt-0
-              a.fw-semibold.text-decoration-none(href="blog/odoo-crm-medical-supplies.html" style="color:#0E38B1;font-size:.85rem") اقرأ المزيد &larr;
+              a.fw-semibold.text-decoration-none(href="blog/odoo-crm-medical-supplies.html" style="color:#0E38B1;font-size:.85rem")
+                span(data-i18n-key="home.blog_read_more") اقرأ المزيد &larr;
         .col-md-6.col-lg-4(data-aos="fade-up" data-aos-delay="100")
           .card.h-100.border-0.shadow-sm.rounded-4.overflow-hidden
             img.card-img-top(src="images/elite-dashboard.webp" alt="Unified Medical Insurance Portal" loading="lazy" width="860" height="789" style="height:200px;object-fit:cover")
             .card-body.p-4
               span.badge.rounded-pill.mb-2(style="background:#EEF2FF;color:#0E38B1;font-size:.72rem") التأمين الطبي
-              h5.card-title.fw-bold(style="font-size:.95rem") بوابة تأمين طبي موحدة — لماذا النظام الواحد أفضل من ثلاثة أنظمة منفصلة؟
-              p.card-text.text-muted(style="font-size:.85rem") أهمية وجود بوابة تأمين طبي واحدة تخدم شركة التأمين و TPA ومقدمي الخدمة الطبية.
+              h5.card-title.fw-bold(style="font-size:.95rem" data-i18n-key="home.blog_card_2_title") بوابة تأمين طبي موحدة — لماذا النظام الواحد أفضل من ثلاثة أنظمة منفصلة؟
+              p.card-text.text-muted(style="font-size:.85rem" data-i18n-key="home.blog_card_2_text") أهمية وجود بوابة تأمين طبي واحدة تخدم شركة التأمين و TPA ومقدمي الخدمة الطبية.
             .card-footer.bg-white.border-0.p-4.pt-0
-              a.fw-semibold.text-decoration-none(href="blog/unified-medical-insurance-portal.html" style="color:#0E38B1;font-size:.85rem") اقرأ المزيد &larr;
+              a.fw-semibold.text-decoration-none(href="blog/unified-medical-insurance-portal.html" style="color:#0E38B1;font-size:.85rem")
+                span(data-i18n-key="home.blog_read_more") اقرأ المزيد &larr;
         .col-md-6.col-lg-4(data-aos="fade-up" data-aos-delay="200")
           .card.h-100.border-0.shadow-sm.rounded-4.overflow-hidden
             img.card-img-top(src="images/blog-branch-dashboard.png" alt="Odoo CRM for Gold Trading" loading="lazy" width="1888" height="786" style="height:200px;object-fit:cover")
             .card-body.p-4
               span.badge.rounded-pill.mb-2(style="background:#EEF2FF;color:#0E38B1;font-size:.72rem") تطبيقات أودو
-              h5.card-title.fw-bold(style="font-size:.95rem") كيف يُحدث Odoo CRM ثورة في إدارة شركات تجارة الذهب؟
-              p.card-text.text-muted(style="font-size:.85rem") اكتشف كيف يساعد Odoo CRM شركات تجارة الذهب في ضبط سياسات البيع ومتابعة أداء الفروع لحظياً.
+              h5.card-title.fw-bold(style="font-size:.95rem" data-i18n-key="home.blog_card_3_title") كيف يُحدث Odoo CRM ثورة في إدارة شركات تجارة الذهب؟
+              p.card-text.text-muted(style="font-size:.85rem" data-i18n-key="home.blog_card_3_text") اكتشف كيف يساعد Odoo CRM شركات تجارة الذهب في ضبط سياسات البيع ومتابعة أداء الفروع لحظياً.
             .card-footer.bg-white.border-0.p-4.pt-0
-              a.fw-semibold.text-decoration-none(href="blog/odoo-crm-gold-trading.html" style="color:#0E38B1;font-size:.85rem") اقرأ المزيد &larr;
+              a.fw-semibold.text-decoration-none(href="blog/odoo-crm-gold-trading.html" style="color:#0E38B1;font-size:.85rem")
+                span(data-i18n-key="home.blog_read_more") اقرأ المزيد &larr;
       .text-center.mt-4(data-aos="fade-up")
         a.btn.btn-outline-primary.btn-lg.rounded-pill.px-4.fw-semibold(href="blog/index.html")
-          | تصفح جميع المقالات
+          span(data-i18n-key="home.blog_all") تصفح جميع المقالات
           i.fas.fa-arrow-left.ms-2
+
+      .mt-5(data-aos="fade-up")
+        .row.justify-content-center
+          .col-lg-10
+            .home-cta.text-center.text-white
+              h3.fw-bold.mb-3(data-i18n-key="home.faq_cta_title") قبل أن تبدأ مشروعك، تصفح الأسئلة الشائعة
+              p.lead.mb-4.opacity-75(data-i18n-key="home.faq_cta_text") إجابات مختصرة وعملية حول تراخيص أودو، الشريك المناسب، وخدمات GoCloud Elite المتقدمة.
+              .d-flex.justify-content-center.gap-3.flex-wrap
+                a.btn.btn-light.btn-lg.fw-semibold.px-4(href="faq.html#odoo")
+                  i.fas.fa-circle-question.me-2
+                  span(data-i18n-key="home.faq_cta_odoo") أسئلة أودو الشائعة
+                a.btn.btn-outline-light.btn-lg.fw-semibold.px-4(href="faq.html#elite")
+                  i.fas.fa-shield-halved.me-2
+                  span(data-i18n-key="home.faq_cta_elite") أسئلة GoCloud Elite
 
   //---------- CTA ----------
   section.py-5#CTA
     .container
       .home-cta.text-center.text-white(data-aos="fade-up")
-        h2.fw-bold.mb-3 Let's Build Something That Works for Your Industry
-        p.lead.mb-4.opacity-75 Schedule a free consultation — tell us about your operations and we'll show you what's possible.
+        h2.fw-bold.mb-3(data-i18n-key="home.cta_title") لنبنِ معاً ما يناسب قطاعك فعلاً
+        p.lead.mb-4.opacity-75(data-i18n-key="home.cta_text") احجز استشارة مجانية — أخبرنا عن طبيعة عملك وسنوضح لك ما يمكن تحقيقه.
         .d-flex.justify-content-center.gap-3.flex-wrap
           a.btn.btn-light.btn-lg.fw-semibold.px-4(href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer")
             i.fab.fa-whatsapp.me-2
-            | Start a Conversation
+            span(data-i18n-key="home.cta_primary") ابدأ المحادثة
           a.btn.btn-outline-light.btn-lg.fw-semibold.px-4(href="images/company profile.pdf" download)
             i.fas.fa-download.me-2
-            | Company Profile
+            span(data-i18n-key="home.cta_secondary") الملف التعريفي للشركة
 
   // Include footer
   include components/footer.pug
 
   // Include whatsapp button
   include components/whatsapp-button.pug
+
+block scripts
 
 
 

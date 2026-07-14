@@ -1,6 +1,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
+  "inLanguage": "ar",
   "headline": "إدارة المخزون متعدد الفروع مع Odoo: كيف توحّد البيانات وتسرّع التحويلات وتقلّل الفاقد؟",
   "description": "دليل عملي يوضح كيف يساعد Odoo شركات التجزئة متعددة الفروع على توحيد بيانات المخزون، تسريع التحويلات بين الفروع، وتطبيق أدوات Stock Control مثل الجرد الدوري والباركود لتقليل الأخطاء والفاقد.",
   "image": "https://www.gocloudeg.com/images/Multi_Inventory_blog_post.png",

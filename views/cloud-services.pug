@@ -1,11 +1,13 @@
 extends layout.pug
 
 block variables
-  - var pageTitle = "Cloud Services — Infrastructure, Hosting & Migration | GoCloud"
-  - var pageDescription = "Enterprise cloud services including infrastructure management, server hosting, cloud migration, and 24/7 monitoring. Secure and scalable solutions for Egyptian businesses."
-  - var pageKeywords = "cloud services Egypt, cloud hosting, server management, cloud migration, infrastructure, GoCloud"
+  - var pageTitle = "الخدمات السحابية — البنية التحتية والاستضافة والترحيل | GoCloud"
+  - var pageDescription = "خدمات سحابية للمؤسسات تشمل إدارة البنية التحتية واستضافة الخوادم والترحيل السحابي والمراقبة على مدار الساعة. حلول آمنة وقابلة للتوسع للأعمال في مصر."
+  - var pageKeywords = "خدمات سحابية مصر, استضافة سحابية, إدارة خوادم, ترحيل سحابي, بنية تحتية, GoCloud"
   - var canonicalUrl = "https://www.gocloudeg.com/cloud-services.html"
   - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+  - var pageLang = "ar"
+  - var pageDir = "rtl"
 
 block content
   // Include components
@@ -19,17 +21,17 @@ block content
       .row.align-items-center.text-center
         .col-lg-6.m-auto
           .main-heading
-            h1 Cloud Services
+            h1(data-i18n-key="cloud.hero_title") الخدمات السحابية
             .space16
             .span
               img(src="images/span1.webp" alt="" loading="lazy")
               |
-              a(href="service.html") Service
+              a(href="service.html" data-i18n-key="cloud.breadcrumb_service") الخدمات
               |
               span.arrow
                 i.fa-regular.fa-angle-right
               |
-              | Cloud Services
+              span(data-i18n-key="cloud.breadcrumb_current") الخدمات السحابية
 
   // Marquee Section
   include components/marquee-brands.pug
@@ -40,30 +42,30 @@ block content
       .col-lg-4.col-md-12.mx-2.m-2.col-12
         .servcie2-box
           .heading1
-            h4.text-center.text-white Hosting
+            h4.text-center.text-white(data-i18n-key="cloud.card_1_title") الاستضافة
             .space16
-            p.text-white Our hosting solutions provide reliable, secure, and scalable infrastructure for your applications and websites. We offer flexible hosting options including shared, dedicated, and cloud hosting, backed by 24/7 technical support and robust security measures to ensure maximum uptime and performance for your business.
+            p.text-white(data-i18n-key="cloud.card_1_text") توفر حلول الاستضافة لدينا بنية تحتية موثوقة وآمنة وقابلة للتوسع لتطبيقاتك ومواقعك. نقدم خيارات استضافة مرنة تشمل المشتركة والمخصصة والسحابية، مع دعم فني على مدار الساعة وإجراءات أمان قوية لضمان أعلى جاهزية وأداء لأعمالك.
 
       .col-lg-4.col-md-12.m-2.col-12
         div
           .servcie2-box
             .heading1
-              h4.text-center.text-white Containerization
+              h4.text-center.text-white(data-i18n-key="cloud.card_2_title") الحاويات
               .space16
-              p.text-white We specialize in implementing and managing containerization solutions using Docker and Kubernetes, enabling seamless application deployment and scaling. Our DevOps expertise helps organizations automate their development pipeline, implement CI/CD practices.
+              p.text-white(data-i18n-key="cloud.card_2_text") نتخصص في تنفيذ وإدارة حلول الحاويات باستخدام Docker وKubernetes، بما يضمن نشر التطبيقات وتوسيعها بسلاسة. كما تساعد خبراتنا في DevOps المؤسسات على أتمتة مسار التطوير وتطبيق ممارسات CI/CD.
 
       .col-lg-4.col-md-12.m-2.col-12
         div
           .servcie2-box
             .heading1
-              h4.text-center.text-white Linux Support
+              h4.text-center.text-white(data-i18n-key="cloud.card_3_title") دعم لينكس
               .space16
-              p.text-white Our Linux support services provide comprehensive system administration, security hardening, and performance optimization for your Linux environments. We offer expert assistance in server configuration, package management, user administration, and troubleshooting.
+              p.text-white(data-i18n-key="cloud.card_3_text") توفر خدمات دعم لينكس لدينا إدارة شاملة للأنظمة وتقوية الأمان وتحسين الأداء لبيئاتك. ونقدم مساعدة متخصصة في إعداد الخوادم وإدارة الحزم والمستخدمين ومعالجة المشكلات.
 
   // Partners Section
   .space40
   .space16
-    h1.text-center Our Technologies
+    h1.text-center(data-i18n-key="cloud.tech_title") تقنياتنا
 
   // Partners Logos Section
   .container.mt-5

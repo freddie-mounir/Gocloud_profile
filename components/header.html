@@ -1,5 +1,16 @@
 
 <!-- Header Component-->
+<style>
+  .mobile-sidebar .gc-mobile-contact-compact h3{margin-bottom:8px!important}
+  .mobile-sidebar .gc-mobile-contact-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+  .mobile-sidebar .gc-mobile-contact-compact .contact-box+.contact-box{margin-top:2px!important}
+  .mobile-sidebar .gc-mobile-contact-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+  .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera,.mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{line-height:1.2}
+  .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{display:inline-block;margin:0!important}
+  .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera p{margin:0}
+  .mobile-sidebar .gc-mobile-contact-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+  
+</style>
 <header role="banner">
   <div class="header-area header-area1 header-area-all d-none d-md-block d-lg-block" id="header">
     <div class="container">
@@ -10,23 +21,19 @@
             <nav role="navigation" aria-label="Main Navigation">
               <div class="main-menu-ex main-menu-ex1">
                 <ul role="menubar">
-                  <li class="dropdown-menu-parrent" role="none"><a href="about.html" role="menuitem">About</a></li>
-                  <li class="dropdown-menu-parrent" role="none"><a href="service.html" role="menuitem">Services</a></li>
-                  <li class="dropdown-menu-parrent" role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-1"></i>Odoo Services</a></li>
-                  <li class="dropdown-menu-parrent" role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">ELITE<span class="badge badge-warning ms-1" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
-                  <li class="dropdown-menu-parrent" role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-                  <li class="dropdown-menu-parrent" role="none"><a href="blog/index.html" role="menuitem"><i class="fas fa-blog me-1"></i>Blog</a></li>
+                  <li class="dropdown-menu-parrent" role="none"><a href="index.html" role="menuitem" data-i18n-key="nav.home">Home</a></li>
+                  <li class="dropdown-menu-parrent" role="none"><a href="about.html" role="menuitem" data-i18n-key="nav.about">About</a></li>
+                  <li class="dropdown-menu-parrent" role="none"><a href="service.html" role="menuitem" data-i18n-key="nav.services">Services</a></li>
+                  <li class="dropdown-menu-parrent" role="none"><a href="faq.html" role="menuitem" data-i18n-key="nav.faq">FAQ</a></li>
+                  <li class="dropdown-menu-parrent" role="none"><a href="blog/index.html" role="menuitem" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-blog me-1"></i><span data-i18n-key="nav.blog">Blog</span></a></li>
+                  <li class="dropdown-menu-parrent" role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-1"></i><span data-i18n-key="nav.odoo_services">Odoo Services</span></a></li>
+                  <li class="dropdown-menu-parrent" role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;"><span data-i18n-key="nav.elite">ELITE</span><span class="badge badge-warning ms-1" data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                  <li class="dropdown-menu-parrent" role="none"><a href="contact.html" role="menuitem" data-i18n-key="nav.contact">Contact</a></li>
                 </ul>
               </div>
             </nav>
             <div class="header1-buttons">
-              <div class="contact-btn">
-                <div class="icon"><img src="images/header1-icon.webp" alt="" width="22" height="22" loading="lazy"/></div>
-                <div class="headding">
-                  <p>Make a Call</p><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a>
-                </div>
-              </div>
-              <div class="button d-flex gap-2"><a class="theme-btn1" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i>Book a Free Demo</a><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+              <div class="button d-flex gap-2 flex-wrap justify-content-end"><a class="theme-btn1" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i><span data-i18n-key="nav.book_demo">Book a Free Demo</span></a><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp"><span data-i18n-key="nav.get_quote">Get A Quote</span><span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
             </div>
           </div>
         </div>
@@ -56,17 +63,18 @@
     <div class="mobile-nav">
       <nav role="navigation" aria-label="Mobile Navigation">
         <ul role="menubar">
-          <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-          <li role="none"><a href="about.html" role="menuitem">About Us</a></li>
-          <li role="none"><a href="service.html" role="menuitem">Services</a></li>
-          <li role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-2"></i>Odoo Services</a></li>
-          <li role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">ELITE<span class="badge badge-warning ms-2" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
-          <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-          <li role="none"><a href="blog/index.html" role="menuitem"><i class="fas fa-blog me-2"></i>Blog</a></li>
+          <li role="none"><a href="index.html" role="menuitem" data-i18n-key="nav.home">Home</a></li>
+          <li role="none"><a href="about.html" role="menuitem" data-i18n-key="nav.about_us">About Us</a></li>
+          <li role="none"><a href="service.html" role="menuitem" data-i18n-key="nav.services">Services</a></li>
+          <li role="none"><a href="faq.html" role="menuitem" data-i18n-key="nav.faq">FAQ</a></li>
+          <li role="none"><a href="blog/index.html" role="menuitem" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-blog me-2"></i><span data-i18n-key="nav.blog">Blog</span></a></li>
+          <li role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-2"></i><span data-i18n-key="nav.odoo_services">Odoo Services</span></a></li>
+          <li role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;"><span data-i18n-key="nav.elite">ELITE</span><span class="badge badge-warning ms-2" data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+          <li role="none"><a href="contact.html" role="menuitem" data-i18n-key="nav.contact">Contact</a></li>
         </ul>
       </nav>
-      <div class="mobile-button"><a class="menu-btn2 mb-2" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i>Book a Free Demo</a><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
-      <div class="single-footer-items">
+      <div class="mobile-button"><a class="menu-btn2 mb-2" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i><span data-i18n-key="nav.book_demo">Book a Free Demo</span></a><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp"><span data-i18n-key="nav.get_quote">Get A Quote</span><span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+      <div class="single-footer-items gc-mobile-contact-compact">
         <h3>Contact Us</h3>
         <div class="contact-box">
           <div class="icon"><img src="images/footer1-icon1.webp" alt="Phone Icon" width="24" height="24" loading="lazy"/></div>
@@ -74,7 +82,9 @@
         </div>
         <div class="contact-box">
           <div class="icon"><img src="images/footer1-icon2.webp" alt="Mobile Phone Icon" width="24" height="24" loading="lazy"/></div>
-          <div class="pera"><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a></div>
+          <div class="pera">
+            <div class="d-flex flex-column gap-1"><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a><a href="tel://+201222666635" aria-label="Call us at +201222666635">+201222666635</a></div>
+          </div>
         </div>
         <div class="contact-box">
           <div class="icon"><img src="images/footer1-icon3.webp" alt="Email Icon" width="24" height="24" loading="lazy"/></div>

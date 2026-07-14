@@ -1,6 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
+    <script>
+      (function () {
+        var storageKey = 'gocloud-site-language';
+        var savedLanguage = null;
+        try {
+          savedLanguage = localStorage.getItem(storageKey);
+        } catch (error) {
+          savedLanguage = null;
+        }
+        var initialLanguage = savedLanguage === 'ar' || savedLanguage === 'en' ? savedLanguage : 'en';
+        var root = document.documentElement;
+        root.lang = initialLanguage;
+        root.dir = initialLanguage === 'ar' ? 'rtl' : 'ltr';
+        root.dataset.siteLang = initialLanguage;
+        root.classList.add('site-lang-' + initialLanguage);
+      }());
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ELITE - نظام إدارة التأمين الطبي | GoCloud</title>
@@ -22,9 +39,7 @@
     <!-- Accessibility meta tags-->
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
-    <link rel="alternate" hreflang="en" href="https://www.gocloudeg.com/elite.html">
-    <link rel="alternate" hreflang="x-default" href="https://www.gocloudeg.com/elite.html">
-    <script type="application/ld+json" src="js/organization-schema.json"></script>
+    <script type="application/ld+json">include ../js/organization-schema.json</script>
     <meta name="gocloud-chat-token" content="">
     <!-- Favicon-->
     <link rel="icon" href="images/favicon.ico" sizes="32x32">
@@ -43,7 +58,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" integrity="sha384-MUdXdzn1OB/0zkr4yGLnCqZ/n9ut5N7Ifes9RP2d5xKsTtcPiuiwthWczWuiqFOn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" integrity="sha384-kcNNzf7wI8//ZkNUaDd5JwxLoFaBgkj9Z4O4NwtuX9Lkmsz0HoITOxJsGkYxDuyG" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" integrity="sha384-VtAbyHBFULcj75mXhsQnIQUrCiTcHosNqmBMhE2t5jRWaFO1DviOnG9pxHSeNF9k" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" crossorigin="anonymous">
     <noscript>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
@@ -62,6 +77,7 @@
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap">
     </noscript>
+    <script src="js/analytics.js" defer></script>
     <!-- Custom styles-->
   </head>
   <body class="body tg-heading-subheading animation-style3">
@@ -102,7 +118,7 @@
               <div class="preloader-bar">
                 <div class="preloader-bar-inner"></div>
               </div>
-              <div class="preloader-tagline">Smart Software Solutions</div>
+              <div class="preloader-tagline" data-i18n-key="preloader.tagline">Smart Software Solutions</div>
             </div>
             <div class="loader-section-left loader-section section-left"></div>
             <div class="loader-section-right loader-section section-right"></div>
@@ -117,30 +133,68 @@
         .top-bar-item i{color:#A1E934;font-size:.7rem}
         .top-bar-item a{color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
         .top-bar-item a:hover{color:#fff}
+        .top-bar-lang .dropdown-toggle{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:6px 12px;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.04em;line-height:1}
+        .top-bar-lang .dropdown-toggle::after{margin-inline-start:4px}
+        .top-bar-lang .dropdown-toggle:hover,.top-bar-lang .dropdown-toggle:focus{background:rgba(255,255,255,.18);color:#fff;box-shadow:none}
+        .top-bar-lang .dropdown-toggle:focus-visible{outline:2px solid #A1E934;outline-offset:2px}
+        .top-bar-lang .dropdown-menu{display:none;min-width:150px;border-radius:14px;border:1px solid #dfe6fb;box-shadow:0 18px 36px rgba(8,31,99,.12);padding:.35rem}
+        .top-bar-lang .dropdown-menu.show{display:block}
+        .top-bar-lang .dropdown-item{border-radius:10px;font-size:.88rem;font-weight:700;padding:.55rem .8rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+        .top-bar-lang .dropdown-item.active,.top-bar-lang .dropdown-item:active{background:#0E38B1;color:#fff}
+        .top-bar-calls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+        .top-bar-call{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 14px;color:#fff;text-decoration:none;transition:background .2s,border-color .2s}
+        .top-bar-call:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.28);color:#fff}
+        .top-bar-call i{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(161,233,52,.15);color:#A1E934;font-size:.8rem}
+        .top-bar-call span{display:flex;flex-direction:column;line-height:1.15}
+        .top-bar-call strong{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.72);text-transform:uppercase;letter-spacing:.05em}
+        .top-bar-call em{font-style:normal;font-size:.8rem;font-weight:700;color:#fff}
+        .gc-phone-ltr{display:inline-block;direction:ltr;unicode-bidi:isolate}
         .top-bar-right{display:flex;align-items:center;gap:12px}
         .top-bar-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:4px 14px 4px 4px;font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.02em}
         .top-bar-badge img{height:22px;border-radius:50%;background:#fff;padding:1px}
         .top-bar-social a{color:rgba(255,255,255,.5);font-size:.8rem;margin-left:8px;transition:color .2s}
         .top-bar-social a:hover{color:#A1E934}
-        @media(max-width:767px){.top-bar{position:fixed;top:0;left:0;width:100%;z-index:1001;padding:6px 0}.top-bar-right{display:none}.top-bar-left{gap:.75rem}.top-bar-item{font-size:.7rem}}
+        @media(max-width:767px){.top-bar{position:fixed;top:0;left:0;width:100%;z-index:1001;padding:6px 0}.top-bar-right{display:none}.top-bar-left{gap:.55rem}.top-bar-item{font-size:.7rem}.top-bar-calls{width:100%;gap:6px}.top-bar-call{padding:4px 10px}.top-bar-call strong{font-size:.62rem}.top-bar-call em{font-size:.72rem}.top-bar-lang .dropdown-toggle{padding:5px 10px;font-size:.68rem}}
         
       </style>
       <div class="top-bar">
         <div class="container">
           <div class="top-bar-inner">
             <div class="top-bar-left">
-              <div class="top-bar-item"><i class="fas fa-phone-alt"></i><a href="tel:+201017383815">+2 010 1738 3815</a></div>
+              <div class="top-bar-calls"><a class="top-bar-call" href="tel:+201017383815" aria-label="Call GoCloud at +2 010 1738 3815"><i class="fas fa-phone-alt"></i><span><strong data-i18n-key="topbar.call_label">Make a Call</strong><em class="gc-phone-ltr">+2 010 1738 3815</em></span></a><a class="top-bar-call" href="tel:+201222666635" aria-label="Call GoCloud at +20 122 266 6635"><i class="fas fa-phone-alt"></i><span><strong data-i18n-key="topbar.call_label">Make a Call</strong><em class="gc-phone-ltr">+20 122 266 6635</em></span></a></div>
+              <div class="dropdown top-bar-lang">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language switch" data-site-language-toggle><i class="fas fa-globe" aria-hidden="true"></i><span data-site-language-label>AR</span></button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <button class="dropdown-item" type="button" data-site-language="ar"><span>العربية</span><span class="small text-muted">AR</span></button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" type="button" data-site-language="en"><span>English</span><span class="small text-muted">EN</span></button>
+                  </li>
+                </ul>
+              </div>
               <div class="top-bar-item"><i class="fas fa-envelope"></i><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
               <div class="top-bar-item"><i class="fas fa-map-marker-alt"></i><span>Giza, Egypt</span></div>
             </div>
             <div class="top-bar-right">
-              <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22">Odoo Official Partner</div>
+              <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22"><span data-i18n-key="topbar.partner_badge">Odoo Official Partner</span></div>
               <div class="top-bar-social"><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
             </div>
           </div>
         </div>
       </div>
       <!-- Header Component-->
+      <style>
+        .mobile-sidebar .gc-mobile-contact-compact h3{margin-bottom:8px!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box+.contact-box{margin-top:2px!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera,.mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{line-height:1.2}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{display:inline-block;margin:0!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera p{margin:0}
+        .mobile-sidebar .gc-mobile-contact-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+        
+      </style>
       <header role="banner">
         <div class="header-area header-area1 header-area-all d-none d-md-block d-lg-block" id="header">
           <div class="container">
@@ -151,23 +205,19 @@
                   <nav role="navigation" aria-label="Main Navigation">
                     <div class="main-menu-ex main-menu-ex1">
                       <ul role="menubar">
-                        <li class="dropdown-menu-parrent" role="none"><a href="about.html" role="menuitem">About</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="service.html" role="menuitem">Services</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-1"></i>Odoo Services</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">ELITE<span class="badge badge-warning ms-1" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="blog/index.html" role="menuitem"><i class="fas fa-blog me-1"></i>Blog</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="index.html" role="menuitem" data-i18n-key="nav.home">Home</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="about.html" role="menuitem" data-i18n-key="nav.about">About</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="service.html" role="menuitem" data-i18n-key="nav.services">Services</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="faq.html" role="menuitem" data-i18n-key="nav.faq">FAQ</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="blog/index.html" role="menuitem" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-blog me-1"></i><span data-i18n-key="nav.blog">Blog</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-1"></i><span data-i18n-key="nav.odoo_services">Odoo Services</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;"><span data-i18n-key="nav.elite">ELITE</span><span class="badge badge-warning ms-1" data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="contact.html" role="menuitem" data-i18n-key="nav.contact">Contact</a></li>
                       </ul>
                     </div>
                   </nav>
                   <div class="header1-buttons">
-                    <div class="contact-btn">
-                      <div class="icon"><img src="images/header1-icon.webp" alt="" width="22" height="22" loading="lazy"></div>
-                      <div class="headding">
-                        <p>Make a Call</p><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a>
-                      </div>
-                    </div>
-                    <div class="button d-flex gap-2"><a class="theme-btn1" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i>Book a Free Demo</a><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+                    <div class="button d-flex gap-2 flex-wrap justify-content-end"><a class="theme-btn1" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i><span data-i18n-key="nav.book_demo">Book a Free Demo</span></a><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp"><span data-i18n-key="nav.get_quote">Get A Quote</span><span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
                   </div>
                 </div>
               </div>
@@ -197,17 +247,18 @@
           <div class="mobile-nav">
             <nav role="navigation" aria-label="Mobile Navigation">
               <ul role="menubar">
-                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-                <li role="none"><a href="about.html" role="menuitem">About Us</a></li>
-                <li role="none"><a href="service.html" role="menuitem">Services</a></li>
-                <li role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-2"></i>Odoo Services</a></li>
-                <li role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">ELITE<span class="badge badge-warning ms-2" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
-                <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-                <li role="none"><a href="blog/index.html" role="menuitem"><i class="fas fa-blog me-2"></i>Blog</a></li>
+                <li role="none"><a href="index.html" role="menuitem" data-i18n-key="nav.home">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem" data-i18n-key="nav.about_us">About Us</a></li>
+                <li role="none"><a href="service.html" role="menuitem" data-i18n-key="nav.services">Services</a></li>
+                <li role="none"><a href="faq.html" role="menuitem" data-i18n-key="nav.faq">FAQ</a></li>
+                <li role="none"><a href="blog/index.html" role="menuitem" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-blog me-2"></i><span data-i18n-key="nav.blog">Blog</span></a></li>
+                <li role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-2"></i><span data-i18n-key="nav.odoo_services">Odoo Services</span></a></li>
+                <li role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;"><span data-i18n-key="nav.elite">ELITE</span><span class="badge badge-warning ms-2" data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                <li role="none"><a href="contact.html" role="menuitem" data-i18n-key="nav.contact">Contact</a></li>
               </ul>
             </nav>
-            <div class="mobile-button"><a class="menu-btn2 mb-2" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i>Book a Free Demo</a><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
-            <div class="single-footer-items">
+            <div class="mobile-button"><a class="menu-btn2 mb-2" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i><span data-i18n-key="nav.book_demo">Book a Free Demo</span></a><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp"><span data-i18n-key="nav.get_quote">Get A Quote</span><span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+            <div class="single-footer-items gc-mobile-contact-compact">
               <h3>Contact Us</h3>
               <div class="contact-box">
                 <div class="icon"><img src="images/footer1-icon1.webp" alt="Phone Icon" width="24" height="24" loading="lazy"></div>
@@ -215,7 +266,9 @@
               </div>
               <div class="contact-box">
                 <div class="icon"><img src="images/footer1-icon2.webp" alt="Mobile Phone Icon" width="24" height="24" loading="lazy"></div>
-                <div class="pera"><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a></div>
+                <div class="pera">
+                  <div class="d-flex flex-column gap-1"><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a><a href="tel://+201222666635" aria-label="Call us at +201222666635">+201222666635</a></div>
+                </div>
               </div>
               <div class="contact-box">
                 <div class="icon"><img src="images/footer1-icon3.webp" alt="Email Icon" width="24" height="24" loading="lazy"></div>
@@ -242,31 +295,31 @@
           <div class="row align-items-center">
             <div class="col-lg-6">
               <div class="trust-badges mb-4">
-                <div class="badge badge-primary me-2"><i class="fas fa-award me-2"></i>Odoo Official Partner</div>
-                <div class="badge badge-success"><i class="fas fa-check-circle me-2"></i>ISO Certified</div>
+                <div class="badge badge-primary me-2"><i class="fas fa-award me-2"></i><span data-i18n-key="elite.badge_partner">شريك Odoo الرسمي</span></div>
+                <div class="badge badge-success"><i class="fas fa-check-circle me-2"></i><span data-i18n-key="elite.badge_iso">معتمد ISO</span></div>
               </div>
-              <h1 class="elite-title mb-4" dir="rtl" style="text-align: right;">نظام<span class="highlight">ELITE</span><br>لإدارة التأمين الطبي</h1>
-              <div class="elite-subtitle mb-4" dir="rtl" style="text-align: right;">الحل الوحيد في مصر الذي يربط نظام التأمين الطبي<br>بـ Odoo ERP تلقائياً - دورة مالية 100% بدون أخطاء</div>
+              <h1 class="elite-title mb-4" dir="rtl" style="text-align: right;" data-i18n-key="elite.hero_title">نظام ELITE لإدارة التأمين الطبي</h1>
+              <div class="elite-subtitle mb-4" dir="rtl" style="text-align: right;"><span data-i18n-key="elite.hero_subtitle_line1">الحل الوحيد في مصر الذي يربط نظام التأمين الطبي</span><br><span data-i18n-key="elite.hero_subtitle_line2">بـ Odoo ERP تلقائياً - دورة مالية 100% بدون أخطاء</span></div>
               <div class="key-benefits mb-4" dir="rtl">
-                <div class="benefit-item" style="flex-direction: row-reverse;"><span style="margin-left: 15px;">معالجة فورية للمطالبات (24 ساعة بدلاً من 5 أيام)</span><i class="fas fa-bolt text-warning"></i></div>
-                <div class="benefit-item" style="flex-direction: row-reverse;"><span style="margin-left: 15px;">كشف الاحتيال بالذكاء الاصطناعي</span><i class="fas fa-shield-alt text-success"></i></div>
-                <div class="benefit-item" style="flex-direction: row-reverse;"><span style="margin-left: 15px;">ربط تلقائي مع Odoo ERP</span><i class="fas fa-sync text-primary"></i></div>
+                <div class="benefit-item" style="flex-direction: row-reverse;"><span style="margin-left: 15px;" data-i18n-key="elite.benefit_1">معالجة فورية للمطالبات (24 ساعة بدلاً من 5 أيام)</span><i class="fas fa-bolt text-warning"></i></div>
+                <div class="benefit-item" style="flex-direction: row-reverse;"><span style="margin-left: 15px;" data-i18n-key="elite.benefit_2">كشف الاحتيال بالذكاء الاصطناعي</span><i class="fas fa-shield-alt text-success"></i></div>
+                <div class="benefit-item" style="flex-direction: row-reverse;"><span style="margin-left: 15px;" data-i18n-key="elite.benefit_3">ربط تلقائي مع Odoo ERP</span><i class="fas fa-sync text-primary"></i></div>
               </div>
-              <div class="cta-buttons" dir="rtl" style="text-align: right;"><a class="btn btn-outline-primary btn-lg" href="contact.html"><i class="fas fa-calendar-check ms-2"></i>احجز عرضاً تجريبياً مجانياً</a><a class="btn btn-primary btn-lg ms-3" href="https://www.youtube.com/watch?v=Z1u1bJNl_m4" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle ms-2"></i>شاهد الفيديو (2 دقيقة)</a></div>
+              <div class="cta-buttons" dir="rtl" style="text-align: right;"><a class="btn btn-outline-primary btn-lg" href="contact.html"><i class="fas fa-calendar-check ms-2"></i><span data-i18n-key="elite.cta_demo">احجز عرضاً تجريبياً مجانياً</span></a><a class="btn btn-primary btn-lg ms-3" href="https://www.youtube.com/watch?v=Z1u1bJNl_m4" target="_blank" rel="noopener noreferrer"><i class="fas fa-play-circle ms-2"></i><span data-i18n-key="elite.cta_video">شاهد الفيديو (2 دقيقة)</span></a></div>
             </div>
             <div class="col-lg-6">
               <div class="elite-dashboard-preview"><img class="img-fluid rounded shadow-lg" src="images/elite-dashboard.webp" alt="ELITE Dashboard">
                 <div class="floating-stat stat-1" dir="rtl">
                   <div class="stat-number">10,000+</div>
-                  <div class="stat-label">مطالبة شهرياً</div>
+                  <div class="stat-label" data-i18n-key="elite.stat_1">مطالبة شهرياً</div>
                 </div>
                 <div class="floating-stat stat-2" dir="rtl">
                   <div class="stat-number">100%</div>
-                  <div class="stat-label">دقة المعالجة</div>
+                  <div class="stat-label" data-i18n-key="elite.stat_2">دقة المعالجة</div>
                 </div>
                 <div class="floating-stat stat-3" dir="rtl">
                   <div class="stat-number">24h</div>
-                  <div class="stat-label">وقت الاستجابة</div>
+                  <div class="stat-label" data-i18n-key="elite.stat_3">وقت الاستجابة</div>
                 </div>
               </div>
             </div>
@@ -276,29 +329,29 @@
       <section class="problem-section py-5 bg-light">
         <div class="container">
           <div class="section-header text-center mb-5" dir="rtl">
-            <h2>المشاكل التي نحلها</h2>
-            <p class="lead">تحديات شركات TPA والتأمين الطبي في مصر</p>
+            <h2 data-i18n-key="elite.problems_title">المشاكل التي نحلها</h2>
+            <p class="lead" data-i18n-key="elite.problems_text">تحديات شركات TPA والتأمين الطبي في مصر</p>
           </div>
           <div class="row g-4">
             <div class="col-md-4">
               <div class="problem-card" dir="rtl">
                 <div class="problem-icon bg-danger"><i class="fas fa-clock"></i></div>
-                <h4>التأخير في المعالجة</h4>
-                <p>معالجة المطالبات تأخذ 3-7 أيام مما يسبب استياء المؤمن عليهم</p>
+                <h4 data-i18n-key="elite.problem_1_title">التأخير في المعالجة</h4>
+                <p data-i18n-key="elite.problem_1_text">معالجة المطالبات تأخذ 3-7 أيام مما يسبب استياء المؤمن عليهم</p>
               </div>
             </div>
             <div class="col-md-4">
               <div class="problem-card" dir="rtl">
                 <div class="problem-icon bg-warning"><i class="fas fa-exclamation-triangle"></i></div>
-                <h4>أخطاء الإدخال اليدوي</h4>
-                <p>إدخال يدوي للبيانات يؤدي لأخطاء محاسبية وتأخير المدفوعات</p>
+                <h4 data-i18n-key="elite.problem_2_title">أخطاء الإدخال اليدوي</h4>
+                <p data-i18n-key="elite.problem_2_text">إدخال يدوي للبيانات يؤدي لأخطاء محاسبية وتأخير المدفوعات</p>
               </div>
             </div>
             <div class="col-md-4">
               <div class="problem-card" dir="rtl">
                 <div class="problem-icon bg-info"><i class="fas fa-user-secret"></i></div>
-                <h4>الاحتيال الطبي</h4>
-                <p>صعوبة كشف المطالبات المزورة أو المبالغ فيها</p>
+                <h4 data-i18n-key="elite.problem_3_title">الاحتيال الطبي</h4>
+                <p data-i18n-key="elite.problem_3_text">صعوبة كشف المطالبات المزورة أو المبالغ فيها</p>
               </div>
             </div>
           </div>
@@ -307,20 +360,20 @@
       <section class="solution-section py-5">
         <div class="container">
           <div class="section-header text-center mb-5" dir="rtl">
-            <h2>كيف يحل ELITE هذه المشاكل</h2>
-            <p class="lead">حل شامل ومتكامل لإدارة التأمين الطبي</p>
+            <h2 data-i18n-key="elite.solution_title">كيف يحل ELITE هذه المشاكل</h2>
+            <p class="lead" data-i18n-key="elite.solution_text">حل شامل ومتكامل لإدارة التأمين الطبي</p>
           </div>
           <div class="row g-4">
             <div class="col-lg-6">
               <div class="feature-box" dir="rtl">
                 <div class="row">
                   <div class="col-md-8">
-                    <h3>معالجة فورية</h3>
-                    <p class="mb-3">تقليل وقت معالجة المطالبات من 5 أيام إلى 24 ساعة</p>
+                    <h3 data-i18n-key="elite.feature_1_title">معالجة فورية</h3>
+                    <p class="mb-3" data-i18n-key="elite.feature_1_text">تقليل وقت معالجة المطالبات من 5 أيام إلى 24 ساعة</p>
                     <ul class="feature-list" style="text-align: right;">
-                      <li>موافقة/رفض تلقائي حسب الشروط</li>
-                      <li>إشعارات فورية للمؤمن عليهم</li>
-                      <li>تتبع حالة المطالبة لحظياً</li>
+                      <li data-i18n-key="elite.feature_1_point_1">موافقة/رفض تلقائي حسب الشروط</li>
+                      <li data-i18n-key="elite.feature_1_point_2">إشعارات فورية للمؤمن عليهم</li>
+                      <li data-i18n-key="elite.feature_1_point_3">تتبع حالة المطالبة لحظياً</li>
                     </ul>
                   </div>
                   <div class="col-md-4">
@@ -333,12 +386,12 @@
               <div class="feature-box" dir="rtl">
                 <div class="row">
                   <div class="col-md-8">
-                    <h3>ربط تلقائي مع Odoo</h3>
-                    <p class="mb-3">كل مطالبة تتحول لقيد محاسبي تلقائياً</p>
+                    <h3 data-i18n-key="elite.feature_2_title">ربط تلقائي مع Odoo</h3>
+                    <p class="mb-3" data-i18n-key="elite.feature_2_text">كل مطالبة تتحول لقيد محاسبي تلقائياً</p>
                     <ul class="feature-list" style="text-align: right;">
-                      <li>مزامنة فورية مع نظام المحاسبة</li>
-                      <li>تسوية تلقائية مع المستشفيات</li>
-                      <li>تقارير مالية دقيقة 100%</li>
+                      <li data-i18n-key="elite.feature_2_point_1">مزامنة فورية مع نظام المحاسبة</li>
+                      <li data-i18n-key="elite.feature_2_point_2">تسوية تلقائية مع المستشفيات</li>
+                      <li data-i18n-key="elite.feature_2_point_3">تقارير مالية دقيقة 100%</li>
                     </ul>
                   </div>
                   <div class="col-md-4">
@@ -351,12 +404,12 @@
               <div class="feature-box" dir="rtl">
                 <div class="row">
                   <div class="col-md-8">
-                    <h3>كشف الاحتيال بالذكاء الاصطناعي</h3>
-                    <p class="mb-3">نظام AI يكتشف المطالبات المشبوهة تلقائياً</p>
+                    <h3 data-i18n-key="elite.feature_3_title">كشف الاحتيال بالذكاء الاصطناعي</h3>
+                    <p class="mb-3" data-i18n-key="elite.feature_3_text">نظام AI يكتشف المطالبات المشبوهة تلقائياً</p>
                     <ul class="feature-list" style="text-align: right;">
-                      <li>تحليل نمط المطالبات</li>
-                      <li>كشف التكرار والمبالغة</li>
-                      <li>تنبيهات فورية للمراجعة</li>
+                      <li data-i18n-key="elite.feature_3_point_1">تحليل نمط المطالبات</li>
+                      <li data-i18n-key="elite.feature_3_point_2">كشف التكرار والمبالغة</li>
+                      <li data-i18n-key="elite.feature_3_point_3">تنبيهات فورية للمراجعة</li>
                     </ul>
                   </div>
                   <div class="col-md-4">
@@ -369,12 +422,12 @@
               <div class="feature-box" dir="rtl">
                 <div class="row">
                   <div class="col-md-8">
-                    <h3>تطبيقات موبايل</h3>
-                    <p class="mb-3">تطبيقات للمؤمن عليهم والأطباء</p>
+                    <h3 data-i18n-key="elite.feature_4_title">تطبيقات موبايل</h3>
+                    <p class="mb-3" data-i18n-key="elite.feature_4_text">تطبيقات للمؤمن عليهم والأطباء</p>
                     <ul class="feature-list" style="text-align: right;">
-                      <li>تقديم المطالبات من الموبايل</li>
-                      <li>موافقات الأطباء إلكترونياً</li>
-                      <li>تتبع حالة المطالبة</li>
+                      <li data-i18n-key="elite.feature_4_point_1">تقديم المطالبات من الموبايل</li>
+                      <li data-i18n-key="elite.feature_4_point_2">موافقات الأطباء إلكترونياً</li>
+                      <li data-i18n-key="elite.feature_4_point_3">تتبع حالة المطالبة</li>
                     </ul>
                   </div>
                   <div class="col-md-4">
@@ -389,55 +442,55 @@
       <section class="features-grid py-5 bg-light">
         <div class="container">
           <div class="section-header text-center mb-5" dir="rtl">
-            <h2>المميزات الكاملة لنظام ELITE</h2>
+            <h2 data-i18n-key="elite.grid_title">المميزات الكاملة لنظام ELITE</h2>
           </div>
           <div class="row g-4">
             <div class="col-md-3">
               <div class="feature-card-mini" dir="rtl"><i class="fas fa-users text-primary"></i>
-                <h5>إدارة المؤمن عليهم</h5>
-                <p>قاعدة بيانات شاملة مع السجل الطبي</p>
+                <h5 data-i18n-key="elite.grid_1_title">إدارة المؤمن عليهم</h5>
+                <p data-i18n-key="elite.grid_1_text">قاعدة بيانات شاملة مع السجل الطبي</p>
               </div>
             </div>
             <div class="col-md-3">
               <div class="feature-card-mini" dir="rtl"><i class="fas fa-hospital text-success"></i>
-                <h5>شبكة مقدمي الخدمة</h5>
-                <p>ربط إلكتروني مع المستشفيات</p>
+                <h5 data-i18n-key="elite.grid_2_title">شبكة مقدمي الخدمة</h5>
+                <p data-i18n-key="elite.grid_2_text">ربط إلكتروني مع المستشفيات</p>
               </div>
             </div>
             <div class="col-md-3">
               <div class="feature-card-mini" dir="rtl"><i class="fas fa-file-medical text-info"></i>
-                <h5>إدارة الوثائق</h5>
-                <p>أرشفة إلكترونية للوثائق الطبية</p>
+                <h5 data-i18n-key="elite.grid_3_title">إدارة الوثائق</h5>
+                <p data-i18n-key="elite.grid_3_text">أرشفة إلكترونية للوثائق الطبية</p>
               </div>
             </div>
             <div class="col-md-3">
               <div class="feature-card-mini" dir="rtl"><i class="fas fa-chart-line text-warning"></i>
-                <h5>تقارير وإحصائيات</h5>
-                <p>لوحات تحكم تفاعلية ومؤشرات</p>
+                <h5 data-i18n-key="elite.grid_4_title">تقارير وإحصائيات</h5>
+                <p data-i18n-key="elite.grid_4_text">لوحات تحكم تفاعلية ومؤشرات</p>
               </div>
             </div>
             <div class="col-md-3">
               <div class="feature-card-mini" dir="rtl"><i class="fas fa-shield-virus text-danger"></i>
-                <h5>الأمان والخصوصية</h5>
-                <p>تشفير كامل للبيانات الطبية</p>
+                <h5 data-i18n-key="elite.grid_5_title">الأمان والخصوصية</h5>
+                <p data-i18n-key="elite.grid_5_text">تشفير كامل للبيانات الطبية</p>
               </div>
             </div>
             <div class="col-md-3">
               <div class="feature-card-mini" dir="rtl"><i class="fas fa-globe text-primary"></i>
-                <h5>متعدد اللغات</h5>
-                <p>واجهة عربي/إنجليزي</p>
+                <h5 data-i18n-key="elite.grid_6_title">متعدد اللغات</h5>
+                <p data-i18n-key="elite.grid_6_text">واجهة عربي/إنجليزي</p>
               </div>
             </div>
             <div class="col-md-3">
               <div class="feature-card-mini" dir="rtl"><i class="fas fa-cloud text-info"></i>
-                <h5>Cloud Native</h5>
-                <p>نشر سحابي آمن ومستقر</p>
+                <h5 data-i18n-key="elite.grid_7_title">Cloud Native</h5>
+                <p data-i18n-key="elite.grid_7_text">نشر سحابي آمن ومستقر</p>
               </div>
             </div>
             <div class="col-md-3">
               <div class="feature-card-mini" dir="rtl"><i class="fas fa-headset text-success"></i>
-                <h5>دعم فني 24/7</h5>
-                <p>فريق دعم متاح على مدار الساعة</p>
+                <h5 data-i18n-key="elite.grid_8_title">دعم فني 24/7</h5>
+                <p data-i18n-key="elite.grid_8_text">فريق دعم متاح على مدار الساعة</p>
               </div>
             </div>
           </div>
@@ -447,37 +500,34 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-6 order-2 order-lg-1" dir="rtl">
-              <div class="badge badge-success mb-3" dir="rtl" style="display: inline-flex; align-items: center;">قصة نجاح<i class="fas fa-star ms-2"></i></div>
-              <h2 class="mb-4" style="text-align: right;">كيف ساعدنا شركة TPA رائدة في تحويل عملياتها</h2>
+              <div class="badge badge-success mb-3" dir="rtl" style="display: inline-flex; align-items: center;"><span data-i18n-key="elite.case_badge">قصة نجاح</span><i class="fas fa-star ms-2"></i></div>
+              <h2 class="mb-4" style="text-align: right;" data-i18n-key="elite.case_title">كيف ساعدنا شركة TPA رائدة في تحويل عملياتها</h2>
               <div class="case-stats mb-4">
                 <div class="stat-item d-flex align-items-center mb-3" style="justify-content: flex-end;">
                   <div class="stat-content" style="text-align: right; margin-left: 20px;">
                     <h3 class="mb-0">80%</h3>
-                    <p class="mb-0">تقليل وقت معالجة المطالبات</p>
+                    <p class="mb-0" data-i18n-key="elite.case_stat_1">تقليل وقت معالجة المطالبات</p>
                   </div>
                   <div class="stat-icon"><i class="fas fa-arrow-down text-success" style="font-size: 2rem;"></i></div>
                 </div>
                 <div class="stat-item d-flex align-items-center mb-3" style="justify-content: flex-end;">
                   <div class="stat-content" style="text-align: right; margin-left: 20px;">
                     <h3 class="mb-0">95%</h3>
-                    <p class="mb-0">زيادة رضا المؤمن عليهم</p>
+                    <p class="mb-0" data-i18n-key="elite.case_stat_2">زيادة رضا المؤمن عليهم</p>
                   </div>
                   <div class="stat-icon"><i class="fas fa-arrow-up text-success" style="font-size: 2rem;"></i></div>
                 </div>
                 <div class="stat-item d-flex align-items-center mb-3" style="justify-content: flex-end;">
                   <div class="stat-content" style="text-align: right; margin-left: 20px;">
                     <h3 class="mb-0">100%</h3>
-                    <p class="mb-0">دقة البيانات المحاسبية</p>
+                    <p class="mb-0" data-i18n-key="elite.case_stat_3">دقة البيانات المحاسبية</p>
                   </div>
                   <div class="stat-icon"><i class="fas fa-check-circle text-success" style="font-size: 2rem;"></i></div>
                 </div>
               </div>
               <blockquote class="testimonial" style="text-align: right; border-right: 4px solid #10b981; border-left: none; padding-right: 20px; padding-left: 0;">
-                <p class="quote" style="font-style: italic; font-size: 1.1rem; line-height: 1.8;">
-                  "نظام ELITE غيّر طريقة عملنا بالكامل. دلوقتي بنعالج
-                  أكثر من 10,000 مطالبة شهرياً بدقة 100% وفي وقت قياسي."
-                </p>
-                <div class="author" style="margin-top: 15px;"><strong style="display: block;">م. أحمد محمود</strong><span style="color: #64748b; font-size: 0.9rem;">مدير تكنولوجيا المعلومات - شركة TPA رائدة</span></div>
+                <p class="quote" style="font-style: italic; font-size: 1.1rem; line-height: 1.8;" data-i18n-key="elite.case_quote">"نظام ELITE غيّر طريقة عملنا بالكامل. دلوقتي بنعالج أكثر من 10,000 مطالبة شهرياً بدقة 100% وفي وقت قياسي."</p>
+                <div class="author" style="margin-top: 15px;"><strong style="display: block;" data-i18n-key="elite.case_author">م. أحمد محمود</strong><span style="color: #64748b; font-size: 0.9rem;" data-i18n-key="elite.case_role">مدير تكنولوجيا المعلومات - شركة TPA رائدة</span></div>
               </blockquote>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 mb-4 mb-lg-0">
@@ -489,56 +539,56 @@
       <section class="pricing-section py-5 bg-light">
         <div class="container">
           <div class="section-header text-center mb-5" dir="rtl">
-            <h2>خطط الأسعار</h2>
-            <p class="lead">اختر الخطة المناسبة لحجم شركتك</p>
+            <h2 data-i18n-key="elite.pricing_title">خطط الأسعار</h2>
+            <p class="lead" data-i18n-key="elite.pricing_text">اختر الخطة المناسبة لحجم شركتك</p>
           </div>
           <div class="row g-4 justify-content-center">
             <div class="col-lg-4">
               <div class="pricing-card" dir="rtl">
                 <div class="plan-header">
-                  <h3>Starter</h3>
-                  <div class="plan-price"><span class="amount">20,000</span><span class="currency">EGP</span><span class="period">/شهرياً</span></div>
+                  <h3 data-i18n-key="elite.plan_starter">Starter</h3>
+                  <div class="plan-price"><span class="amount">20,000</span><span class="currency">EGP</span><span class="period" data-i18n-key="elite.plan_period">/شهرياً</span></div>
                 </div>
                 <ul class="plan-features" style="text-align: right;">
-                  <li>حتى 1,000 مطالبة شهرياً<i class="fas fa-check ms-2"></i></li>
-                  <li>دعم فني<i class="fas fa-check ms-2"></i></li>
-                  <li class="disabled">تطبيق موبايل<i class="fas fa-times ms-2"></i></li>
-                  <li class="disabled">ربط مع Odoo ERP<i class="fas fa-times ms-2"></i></li>
-                  <li class="disabled">AI Fraud Detection<i class="fas fa-times ms-2"></i></li>
-                </ul><a class="btn btn-outline-primary w-100" href="https://wa.me/201017383815?text=مرحباً، أريد الاشتراك في خطة Starter (20,000 EGP/شهرياً)" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp ms-2"></i>ابدأ الآن عبر WhatsApp</a>
+                  <li><span data-i18n-key="elite.starter_feature_1">حتى 1,000 مطالبة شهرياً</span><i class="fas fa-check ms-2"></i></li>
+                  <li><span data-i18n-key="elite.starter_feature_2">دعم فني</span><i class="fas fa-check ms-2"></i></li>
+                  <li class="disabled"><span data-i18n-key="elite.starter_feature_3">تطبيق موبايل</span><i class="fas fa-times ms-2"></i></li>
+                  <li class="disabled"><span data-i18n-key="elite.starter_feature_4">ربط مع Odoo ERP</span><i class="fas fa-times ms-2"></i></li>
+                  <li class="disabled"><span data-i18n-key="elite.starter_feature_5">AI Fraud Detection</span><i class="fas fa-times ms-2"></i></li>
+                </ul><a class="btn btn-outline-primary w-100" href="https://wa.me/201017383815?text=مرحباً، أريد الاشتراك في خطة Starter (20,000 EGP/شهرياً)" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp ms-2"></i><span data-i18n-key="elite.start_whatsapp">ابدأ الآن عبر WhatsApp</span></a>
               </div>
             </div>
             <div class="col-lg-4">
               <div class="pricing-card featured" dir="rtl">
-                <div class="popular-badge">الأكثر طلباً</div>
+                <div class="popular-badge" data-i18n-key="elite.popular_badge">الأكثر طلباً</div>
                 <div class="plan-header">
-                  <h3>Professional</h3>
-                  <div class="plan-price"><span class="amount">30,000</span><span class="currency">EGP</span><span class="period">/شهرياً</span></div>
+                  <h3 data-i18n-key="elite.plan_professional">Professional</h3>
+                  <div class="plan-price"><span class="amount">30,000</span><span class="currency">EGP</span><span class="period" data-i18n-key="elite.plan_period">/شهرياً</span></div>
                 </div>
                 <ul class="plan-features" style="text-align: right;">
-                  <li>حتى 5,000 مطالبة شهرياً<i class="fas fa-check ms-2"></i></li>
-                  <li>تطبيقات موبايل متقدمة<i class="fas fa-check ms-2"></i></li>
-                  <li>دعم فني 24/7<i class="fas fa-check ms-2"></i></li>
-                  <li class="disabled">ربط مع Odoo ERP<i class="fas fa-times ms-2"></i></li>
-                  <li class="disabled">AI Fraud Detection<i class="fas fa-times ms-2"></i></li>
-                </ul><a class="btn btn-primary w-100" href="https://wa.me/201017383815?text=مرحباً، أريد الاشتراك في خطة Professional (30,000 EGP/شهرياً)" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp ms-2"></i>ابدأ الآن عبر WhatsApp</a>
+                  <li><span data-i18n-key="elite.pro_feature_1">حتى 5,000 مطالبة شهرياً</span><i class="fas fa-check ms-2"></i></li>
+                  <li><span data-i18n-key="elite.pro_feature_2">تطبيقات موبايل متقدمة</span><i class="fas fa-check ms-2"></i></li>
+                  <li><span data-i18n-key="elite.pro_feature_3">دعم فني 24/7</span><i class="fas fa-check ms-2"></i></li>
+                  <li class="disabled"><span data-i18n-key="elite.pro_feature_4">ربط مع Odoo ERP</span><i class="fas fa-times ms-2"></i></li>
+                  <li class="disabled"><span data-i18n-key="elite.pro_feature_5">AI Fraud Detection</span><i class="fas fa-times ms-2"></i></li>
+                </ul><a class="btn btn-primary w-100" href="https://wa.me/201017383815?text=مرحباً، أريد الاشتراك في خطة Professional (30,000 EGP/شهرياً)" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp ms-2"></i><span data-i18n-key="elite.start_whatsapp">ابدأ الآن عبر WhatsApp</span></a>
               </div>
             </div>
             <div class="col-lg-4">
               <div class="pricing-card" dir="rtl">
                 <div class="plan-header">
-                  <h3>Enterprise</h3>
-                  <div class="plan-price"><span class="amount">مخصص</span></div>
+                  <h3 data-i18n-key="elite.plan_enterprise">Enterprise</h3>
+                  <div class="plan-price"><span class="amount" data-i18n-key="elite.enterprise_amount">مخصص</span></div>
                 </div>
                 <ul class="plan-features" style="text-align: right;">
-                  <li>مطالبات غير محدودة<i class="fas fa-check ms-2"></i></li>
-                  <li>ربط كامل مع Odoo ERP<i class="fas fa-check ms-2"></i></li>
-                  <li>AI Fraud Detection<i class="fas fa-check ms-2"></i></li>
-                  <li>تطبيقات موبايل متقدمة<i class="fas fa-check ms-2"></i></li>
-                  <li>فريق دعم مخصص<i class="fas fa-check ms-2"></i></li>
-                  <li>تخصيص كامل<i class="fas fa-check ms-2"></i></li>
-                  <li>تقارير متقدمة<i class="fas fa-check ms-2"></i></li>
-                </ul><a class="btn btn-outline-primary w-100" href="contact.html"><i class="fas fa-calendar-check ms-2"></i>احجز استشارة مجانية</a>
+                  <li><span data-i18n-key="elite.enterprise_feature_1">مطالبات غير محدودة</span><i class="fas fa-check ms-2"></i></li>
+                  <li><span data-i18n-key="elite.enterprise_feature_2">ربط كامل مع Odoo ERP</span><i class="fas fa-check ms-2"></i></li>
+                  <li><span data-i18n-key="elite.enterprise_feature_3">AI Fraud Detection</span><i class="fas fa-check ms-2"></i></li>
+                  <li><span data-i18n-key="elite.enterprise_feature_4">تطبيقات موبايل متقدمة</span><i class="fas fa-check ms-2"></i></li>
+                  <li><span data-i18n-key="elite.enterprise_feature_5">فريق دعم مخصص</span><i class="fas fa-check ms-2"></i></li>
+                  <li><span data-i18n-key="elite.enterprise_feature_6">تخصيص كامل</span><i class="fas fa-check ms-2"></i></li>
+                  <li><span data-i18n-key="elite.enterprise_feature_7">تقارير متقدمة</span><i class="fas fa-check ms-2"></i></li>
+                </ul><a class="btn btn-outline-primary w-100" href="contact.html"><i class="fas fa-calendar-check ms-2"></i><span data-i18n-key="elite.book_consultation">احجز استشارة مجانية</span></a>
               </div>
             </div>
           </div>
@@ -547,54 +597,42 @@
       <section class="faq-section py-5">
         <div class="container">
           <div class="section-header text-center mb-5" dir="rtl">
-            <h2>الأسئلة الشائعة</h2>
-            <p class="lead">إجابات على أكثر الأسئلة تكراراً</p>
+            <h2 data-i18n-key="elite.faq_title">الأسئلة الشائعة</h2>
+            <p class="lead" data-i18n-key="elite.faq_text">إجابات على أكثر الأسئلة تكراراً</p>
           </div>
           <div class="row justify-content-center">
             <div class="col-lg-8">
               <div class="accordion" id="eliteFAQ" dir="rtl">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="faq1">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" dir="rtl">كم يستغرق تطبيق نظام ELITE؟</button>
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" dir="rtl"><span data-i18n-key="elite.faq_q1">كم يستغرق تطبيق نظام ELITE؟</span></button>
                   </h2>
                   <div class="accordion-collapse collapse show" id="collapse1" data-bs-parent="#eliteFAQ">
-                    <div class="accordion-body" dir="rtl" style="text-align: right;">
-                      عادة من 4-8 أسابيع حسب حجم الشركة وتعقيد المتطلبات.
-                      نقدم خطة تطبيق تدريجية لضمان انتقال سلس.
-                    </div>
+                    <div class="accordion-body" dir="rtl" style="text-align: right;" data-i18n-key="elite.faq_a1">عادة من 4-8 أسابيع حسب حجم الشركة وتعقيد المتطلبات. نقدم خطة تطبيق تدريجية لضمان انتقال سلس.</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="faq2">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" dir="rtl">هل يدعم ELITE التكامل مع أنظمة أخرى؟</button>
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" dir="rtl"><span data-i18n-key="elite.faq_q2">هل يدعم ELITE التكامل مع أنظمة أخرى؟</span></button>
                   </h2>
                   <div class="accordion-collapse collapse" id="collapse2" data-bs-parent="#eliteFAQ">
-                    <div class="accordion-body" dir="rtl" style="text-align: right;">
-                      نعم، ELITE يدعم الربط مع Odoo ERP بشكل أساسي، كما يمكن
-                      الربط مع أنظمة المستشفيات والصيدليات عبر APIs.
-                    </div>
+                    <div class="accordion-body" dir="rtl" style="text-align: right;" data-i18n-key="elite.faq_a2">نعم، ELITE يدعم الربط مع Odoo ERP بشكل أساسي، كما يمكن الربط مع أنظمة المستشفيات والصيدليات عبر APIs.</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="faq3">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" dir="rtl">هل البيانات آمنة ومشفرة؟</button>
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" dir="rtl"><span data-i18n-key="elite.faq_q3">هل البيانات آمنة ومشفرة؟</span></button>
                   </h2>
                   <div class="accordion-collapse collapse" id="collapse3" data-bs-parent="#eliteFAQ">
-                    <div class="accordion-body" dir="rtl" style="text-align: right;">
-                      بالتأكيد. نستخدم تشفير AES-256 لجميع البيانات، مع استضافة
-                      سحابية آمنة ونسخ احتياطية يومية.
-                    </div>
+                    <div class="accordion-body" dir="rtl" style="text-align: right;" data-i18n-key="elite.faq_a3">بالتأكيد. نستخدم تشفير AES-256 لجميع البيانات، مع استضافة سحابية آمنة ونسخ احتياطية يومية.</div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="faq4">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" dir="rtl">هل يمكن تجربة النظام قبل الشراء؟</button>
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" dir="rtl"><span data-i18n-key="elite.faq_q4">هل يمكن تجربة النظام قبل الشراء؟</span></button>
                   </h2>
                   <div class="accordion-collapse collapse" id="collapse4" data-bs-parent="#eliteFAQ">
-                    <div class="accordion-body" dir="rtl" style="text-align: right;">
-                      نعم، نقدم عرضاً تجريبياً مجانياً لمدة 14 يوم مع بياناتك الفعلية
-                      لتتأكد من ملاءمة النظام لاحتياجاتك.
-                    </div>
+                    <div class="accordion-body" dir="rtl" style="text-align: right;" data-i18n-key="elite.faq_a4">نعم، نقدم عرضاً تجريبياً مجانياً لمدة 14 يوم مع بياناتك الفعلية لتتأكد من ملاءمة النظام لاحتياجاتك.</div>
                   </div>
                 </div>
               </div>
@@ -605,8 +643,8 @@
       <section class="video-gallery py-5 bg-light">
         <div class="container">
           <div class="section-header text-center mb-5" dir="rtl">
-            <h2>شاهد ELITE في العمل</h2>
-            <p class="lead">فيديوهات توضيحية شاملة عن جميع المميزات</p>
+            <h2 data-i18n-key="elite.video_title">شاهد ELITE في العمل</h2>
+            <p class="lead" data-i18n-key="elite.video_text">فيديوهات توضيحية شاملة عن جميع المميزات</p>
           </div>
           <div class="row justify-content-center">
             <div class="col-lg-10">
@@ -616,7 +654,7 @@
                 </div>
               </div>
               <div class="text-center mt-4">
-                <p class="text-muted" dir="rtl">أو شاهد مباشرة على YouTube</p><a class="btn btn-outline-primary btn-lg" href="https://www.youtube.com/playlist?list=PL4gLQMepBmISlPelJuRx09EtDa27O-mN0" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube me-2"></i>افتح Playlist على YouTube</a>
+                <p class="text-muted" dir="rtl" data-i18n-key="elite.video_watch_on">أو شاهد مباشرة على YouTube</p><a class="btn btn-outline-primary btn-lg" href="https://www.youtube.com/playlist?list=PL4gLQMepBmISlPelJuRx09EtDa27O-mN0" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube me-2"></i><span data-i18n-key="elite.video_open_playlist">افتح Playlist على YouTube</span></a>
               </div>
             </div>
           </div>
@@ -624,19 +662,16 @@
       </section>
       <section class="final-cta py-5">
         <div class="container text-center" dir="rtl">
-          <h2 class="mb-4">جاهز لتحويل عمليات التأمين الطبي؟</h2>
-          <p class="lead mb-4">
-            احجز عرضاً توضيحياً مجاناً واكتشف كيف يمكن لـ ELITE
-            أن يوفر عليك الوقت والمال
-          </p>
-          <div class="cta-buttons"><a class="btn btn-outline-light btn-lg" href="tel:+201017383815">اتصل بنا الآن<i class="fas fa-phone ms-2"></i></a><a class="btn btn-primary btn-lg ms-3" href="contact.html">احجز عرضاً تجريبياً مجانياً<i class="fas fa-calendar-check ms-2"></i></a></div>
+          <h2 class="mb-4" data-i18n-key="elite.final_cta_title">جاهز لتحويل عمليات التأمين الطبي؟</h2>
+          <p class="lead mb-4" data-i18n-key="elite.final_cta_text">احجز عرضاً توضيحياً مجاناً واكتشف كيف يمكن لـ ELITE أن يوفر عليك الوقت والمال</p>
+          <div class="cta-buttons"><a class="btn btn-outline-light btn-lg" href="tel:+201017383815"><span data-i18n-key="elite.call_now">اتصل بنا الآن</span><i class="fas fa-phone ms-2"></i></a><a class="btn btn-primary btn-lg ms-3" href="contact.html"><span data-i18n-key="elite.cta_demo">احجز عرضاً تجريبياً مجانياً</span><i class="fas fa-calendar-check ms-2"></i></a></div>
         </div>
       </section>
       <div class="modal fade" id="demo-video" tabindex="-1">
         <div class="modal-dialog modal-xl">
           <div class="modal-content">
             <div class="modal-header" dir="rtl">
-              <h5 class="modal-title">نظام ELITE - شرح مبسط</h5>
+              <h5 class="modal-title" data-i18n-key="elite.modal_title">نظام ELITE - شرح مبسط</h5>
               <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-0">
@@ -653,22 +688,36 @@
             <div class="col-lg-10">
               <div class="data-security-card">
                 <div class="data-security-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></div>
-                <h2 class="data-security-title">أمان البيانات</h2>
-                <p class="data-security-text">نحن نلتزم بأعلى معايير حماية البيانات والخصوصية، ويتم تشفير كافة البيانات والعمليات المالية والغير مالية وفقاً للمعايير الدولية.</p>
-                <div class="data-security-badges"><span class="data-security-badge"><i class="fa-solid fa-lock me-2"></i>تشفير البيانات</span><span class="data-security-badge"><i class="fa-solid fa-user-shield me-2"></i>حماية الخصوصية</span><span class="data-security-badge"><i class="fa-solid fa-globe me-2"></i>معايير دولية</span></div>
+                <h2 class="data-security-title" data-i18n-key="elite.security_title">أمان البيانات</h2>
+                <p class="data-security-text" data-i18n-key="elite.security_text">نحن نلتزم بأعلى معايير حماية البيانات والخصوصية، ويتم تشفير كافة البيانات والعمليات المالية والغير مالية وفقاً للمعايير الدولية.</p>
+                <div class="data-security-badges"><span class="data-security-badge"><i class="fa-solid fa-lock me-2"></i><span data-i18n-key="elite.security_badge_1">تشفير البيانات</span></span><span class="data-security-badge"><i class="fa-solid fa-user-shield me-2"></i><span data-i18n-key="elite.security_badge_2">حماية الخصوصية</span></span><span class="data-security-badge"><i class="fa-solid fa-globe me-2"></i><span data-i18n-key="elite.security_badge_3">معايير دولية</span></span></div>
               </div>
             </div>
           </div>
         </div>
       </section>
       <!-- Footer Component-->
+      <style>
+        .gc-footer-compact h3{margin-bottom:8px!important}
+        .gc-footer-compact .mb-3{margin-bottom:.6rem!important}
+        .gc-footer-compact .mb-2{margin-bottom:.35rem!important}
+        .gc-footer-compact [data-newsletter-feedback]{margin-top:.35rem!important}
+        .gc-footer-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+        .gc-footer-compact .contact-box+.contact-box{margin-top:2px!important}
+        .gc-footer-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+        .gc-footer-compact .contact-box .pera,.gc-footer-compact .contact-box .pera a{line-height:1.2}
+        .gc-footer-compact .contact-box .pera a{display:inline-block;margin:0!important}
+        .gc-footer-compact .contact-box .pera p{margin:0}
+        .gc-footer-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+        
+      </style>
       <footer>
         <div class="footer1 _relative">
           <div class="container">
             <div class="row gy-4">
               <div class="col-lg-3 col-md-6 col-12">
                 <div class="single-footer-items"><a class="footer-logo d-inline-block mb-3" href="index.html" aria-label="GoCloud Home"><img src="images/gocloud logo.webp" height="60" width="60" alt="GoCloud Logo" loading="lazy"></a>
-                  <p class="footer-desc">As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.</p>
+                  <p class="footer-desc" data-i18n-key="footer.about_text">As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.</p>
                   <ul class="social-icon d-flex gap-2 mt-3">
                     <li><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
                     <li><a href="https://www.google.com/search?q=gocloud+eg" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fa-brands fa-google"></i></a></li>
@@ -680,40 +729,53 @@
               </div>
               <div class="col-lg-3 col-md-6 col-12">
                 <div class="single-footer-items">
-                  <h3>Our Services</h3>
+                  <h3 data-i18n-key="footer.services_title">Our Services</h3>
                   <ul class="menu-list">
-                    <li><a href="cloud-services.html"><i class="fa-solid fa-chevron-right me-2"></i>Cloud Solutions</a></li>
-                    <li><a href="odoo-services.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Services</a></li>
-                    <li><a href="odoo-imp.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Implementation</a></li>
-                    <li><a href="odoo-dev.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Development</a></li>
-                    <li><a href="business.html"><i class="fa-solid fa-chevron-right me-2"></i>Business Intelligence</a></li>
-                    <li><a href="portfolio.html"><i class="fa-solid fa-chevron-right me-2"></i>Portfolio & E-commerce</a></li>
-                    <li><a href="elite.html"><i class="fa-solid fa-chevron-right me-2"></i>ELITE Medical Insurance</a></li>
+                    <li><a href="cloud-services.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.cloud_solutions">Cloud Solutions</span></a></li>
+                    <li><a href="odoo-services.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_services">Odoo Services</span></a></li>
+                    <li><a href="odoo-imp.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_implementation">Odoo Implementation</span></a></li>
+                    <li><a href="odoo-dev.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_development">Odoo Development</span></a></li>
+                    <li><a href="business.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.business_intelligence">Business Intelligence</span></a></li>
+                    <li><a href="portfolio.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.portfolio">Portfolio & E-commerce</span></a></li>
+                    <li><a href="elite.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.elite_medical">ELITE Medical Insurance</span></a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-lg-2 col-md-6 col-12">
                 <div class="single-footer-items">
-                  <h3>Useful Links</h3>
+                  <h3 data-i18n-key="footer.links_title">Useful Links</h3>
                   <ul class="menu-list">
-                    <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i>About Us</a></li>
-                    <li><a href="service.html"><i class="fa-solid fa-chevron-right me-2"></i>Services</a></li>
-                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-2"></i>Contact Us</a></li>
-                    <li><a href="conditions-terms.html"><i class="fa-solid fa-chevron-right me-2"></i>Terms & Conditions</a></li>
-                    <li><a href="privacy.html"><i class="fa-solid fa-chevron-right me-2"></i>Privacy Policy</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.about_us">About Us</span></a></li>
+                    <li><a href="service.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.services">Services</span></a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.contact_us">Contact Us</span></a></li>
+                    <li><a href="conditions-terms.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.terms">Terms & Conditions</span></a></li>
+                    <li><a href="privacy.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.privacy">Privacy Policy</span></a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-lg-4 col-md-6 col-12">
-                <div class="single-footer-items">
-                  <h3>Contact Us</h3>
+                <div class="single-footer-items gc-footer-compact">
+                  <h3 data-i18n-key="footer.contact_title">Contact Us</h3>
+                  <div class="mb-3">
+                    <p class="mb-2 fw-semibold" data-i18n-key="footer.newsletter_title">Stay updated with GoCloud insights</p>
+                    <form data-newsletter-form data-source="website-footer">
+                      <label class="visually-hidden" for="newsletterEmailFooter" data-i18n-key="footer.email_label">Email address</label>
+                      <div class="input-group input-group-sm">
+                        <input class="form-control" id="newsletterEmailFooter" type="email" name="email" placeholder="name@company.com" required autocomplete="email">
+                        <button class="btn btn-light text-dark" type="submit" data-i18n-key="footer.subscribe">Subscribe</button>
+                      </div>
+                    </form>
+                    <p class="small mt-2 mb-0" data-newsletter-feedback role="status" aria-live="polite"></p>
+                  </div>
                   <div class="contact-box">
                     <div class="icon"><i class="fa-solid fa-phone"></i></div>
-                    <div class="pera"><a href="tel:+20233762533">02 3376 2533</a></div>
+                    <div class="pera"><a class="gc-phone-ltr" href="tel:+20233762533">02 3376 2533</a></div>
                   </div>
                   <div class="contact-box">
                     <div class="icon"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <div class="pera"><a href="tel:+201017383815">+20 101 738 3815</a></div>
+                    <div class="pera">
+                      <div class="d-flex flex-column gap-1"><a class="gc-phone-ltr" href="tel:+201017383815">+20 101 738 3815</a><a class="gc-phone-ltr" href="tel:+201222666635">+20 122 266 6635</a></div>
+                    </div>
                   </div>
                   <div class="contact-box">
                     <div class="icon"><i class="fa-solid fa-envelope"></i></div>
@@ -723,7 +785,7 @@
                     <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div class="pera"><a href="https://www.google.com/maps/place/?q=place_id:ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer">Ahram Gardens, Gate 4, Giza, Egypt</a></div>
                   </div>
-                  <div class="d-flex gap-2 mt-3"><a class="btn btn-sm btn-outline-light" href="https://www.google.com/maps/dir/?api=1&amp;destination=GoCloud&amp;destination_place_id=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right me-1"></i>Directions</a><a class="btn btn-sm btn-outline-light" href="https://search.google.com/local/writereview?placeid=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-star me-1"></i>Review Us</a></div>
+                  <div class="d-flex gap-2 mt-3"><a class="btn btn-sm btn-outline-light" href="https://www.google.com/maps/dir/?api=1&amp;destination=GoCloud&amp;destination_place_id=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right me-1"></i><span data-i18n-key="footer.directions">Directions</span></a><a class="btn btn-sm btn-outline-light" href="https://search.google.com/local/writereview?placeid=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-star me-1"></i><span data-i18n-key="footer.review_us">Review Us</span></a></div>
                 </div>
               </div>
             </div>
@@ -732,9 +794,9 @@
             <div class="container">
               <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                  <p class="mb-0">&copy;<span id="gcCurrentYear"></span> GoCloud. All Rights Reserved.</p>
+                  <p class="mb-0">&copy;<span id="gcCurrentYear"></span><span data-i18n-key="footer.copyright"> GoCloud. All Rights Reserved.</span></p>
                 </div>
-                <div class="col-md-6 text-center text-md-end"><a href="conditions-terms.html">Terms & Conditions</a><span class="mx-2">|</span><a href="privacy.html">Privacy Policy</a></div>
+                <div class="col-md-6 text-center text-md-end"><a href="conditions-terms.html" data-i18n-key="footer.terms">Terms & Conditions</a><span class="mx-2">|</span><a href="privacy.html" data-i18n-key="footer.privacy">Privacy Policy</a></div>
               </div>
             </div>
           </div>
@@ -1349,10 +1411,12 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" integrity="sha384-YGnnOBKslPJVs35GG0TtAZ4uO7BHpHlqJhs0XK3k6cuVb6EBtl+8xcvIIOKV5wB+" crossorigin="anonymous" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha384-d+vyQ0dYcymoP8ndq2hW7FGC50nqGdXUEgoOUGxbbkAJwZqL7h+jKN0GGgn9hFDS" crossorigin="anonymous" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha384-poC0r6usQOX2Ayt/VGA+t81H6V3iN9L+Irz9iO8o+s0X20tLpzc9DOOtnKxhaQSE" crossorigin="anonymous" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" integrity="sha384-Hf6yat1C7ze92LpS287AKvB24pRLwa+YxYmOVZKCiBHybkfxZDYy7TuKW/KbcS3i" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" crossorigin="anonymous" defer></script>
     <script src="js/plugins-bundle.min.js" defer></script>
     <script src="js/security-init.js" defer></script>
+    <script src="js/site-language.js" defer></script>
     <script src="js/main.min.js" defer></script>
+    <script src="js/newsletter.js" defer></script>
     <!-- Page specific scripts-->
   </body>
 </html>

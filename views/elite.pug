@@ -9,6 +9,8 @@ block variables
   - var pageKeywords = "ELITE, التأمين الطبي, نظام TPA, Odoo, Healthcare, Medical Insurance"
   - var canonicalUrl = "https://www.gocloudeg.com/elite.html"
   - var ogImage = "https://www.gocloudeg.com/images/elite-dashboard.webp"
+  - var pageLang = "ar"
+  - var pageDir = "rtl"
 
 block content
   include components/preloader.pug
@@ -24,42 +26,38 @@ block content
           .trust-badges.mb-4
             .badge.badge-primary.me-2
               i.fas.fa-award.me-2
-              | Odoo Official Partner
+              span(data-i18n-key="elite.badge_partner") شريك Odoo الرسمي
             .badge.badge-success
               i.fas.fa-check-circle.me-2
-              | ISO Certified
+              span(data-i18n-key="elite.badge_iso") معتمد ISO
 
           //- Main Headline
-          h1.elite-title.mb-4(dir="rtl" style="text-align: right;")
-            | نظام
-            span.highlight ELITE
-            br
-            | لإدارة التأمين الطبي
+          h1.elite-title.mb-4(dir="rtl" style="text-align: right;" data-i18n-key="elite.hero_title") نظام ELITE لإدارة التأمين الطبي
 
           .elite-subtitle.mb-4(dir="rtl" style="text-align: right;")
-            | الحل الوحيد في مصر الذي يربط نظام التأمين الطبي
+            span(data-i18n-key="elite.hero_subtitle_line1") الحل الوحيد في مصر الذي يربط نظام التأمين الطبي
             br
-            | بـ Odoo ERP تلقائياً - دورة مالية 100% بدون أخطاء
+            span(data-i18n-key="elite.hero_subtitle_line2") بـ Odoo ERP تلقائياً - دورة مالية 100% بدون أخطاء
 
           //- Key Benefits
           .key-benefits.mb-4(dir="rtl")
             .benefit-item(style="flex-direction: row-reverse;")
-              span(style="margin-left: 15px;") معالجة فورية للمطالبات (24 ساعة بدلاً من 5 أيام)
+              span(style="margin-left: 15px;" data-i18n-key="elite.benefit_1") معالجة فورية للمطالبات (24 ساعة بدلاً من 5 أيام)
               i.fas.fa-bolt.text-warning
 
             .benefit-item(style="flex-direction: row-reverse;")
-              span(style="margin-left: 15px;") كشف الاحتيال بالذكاء الاصطناعي
+              span(style="margin-left: 15px;" data-i18n-key="elite.benefit_2") كشف الاحتيال بالذكاء الاصطناعي
               i.fas.fa-shield-alt.text-success
 
             .benefit-item(style="flex-direction: row-reverse;")
-              span(style="margin-left: 15px;") ربط تلقائي مع Odoo ERP
+              span(style="margin-left: 15px;" data-i18n-key="elite.benefit_3") ربط تلقائي مع Odoo ERP
               i.fas.fa-sync.text-primary
 
           //- CTA Buttons
           .cta-buttons(dir="rtl" style="text-align: right;")
             a.btn.btn-outline-primary.btn-lg(href="contact.html")
               i.fas.fa-calendar-check.ms-2
-              | احجز عرضاً تجريبياً مجانياً
+              span(data-i18n-key="elite.cta_demo") احجز عرضاً تجريبياً مجانياً
 
             a.btn.btn-primary.btn-lg.ms-3(
               href="https://www.youtube.com/watch?v=Z1u1bJNl_m4"
@@ -67,7 +65,7 @@ block content
               rel="noopener noreferrer"
             )
               i.fas.fa-play-circle.ms-2
-              | شاهد الفيديو (2 دقيقة)
+              span(data-i18n-key="elite.cta_video") شاهد الفيديو (2 دقيقة)
 
         .col-lg-6
           .elite-dashboard-preview
@@ -79,51 +77,51 @@ block content
             //- Floating Stats
             .floating-stat.stat-1(dir="rtl")
               .stat-number 10,000+
-              .stat-label مطالبة شهرياً
+              .stat-label(data-i18n-key="elite.stat_1") مطالبة شهرياً
 
             .floating-stat.stat-2(dir="rtl")
               .stat-number 100%
-              .stat-label دقة المعالجة
+              .stat-label(data-i18n-key="elite.stat_2") دقة المعالجة
 
             .floating-stat.stat-3(dir="rtl")
               .stat-number 24h
-              .stat-label وقت الاستجابة
+              .stat-label(data-i18n-key="elite.stat_3") وقت الاستجابة
 
   //- ===== Problem Statement =====
   section.problem-section.py-5.bg-light
     .container
       .section-header.text-center.mb-5(dir="rtl")
-        h2 المشاكل التي نحلها
-        p.lead تحديات شركات TPA والتأمين الطبي في مصر
+        h2(data-i18n-key="elite.problems_title") المشاكل التي نحلها
+        p.lead(data-i18n-key="elite.problems_text") تحديات شركات TPA والتأمين الطبي في مصر
 
       .row.g-4
         .col-md-4
           .problem-card(dir="rtl")
             .problem-icon.bg-danger
               i.fas.fa-clock
-            h4 التأخير في المعالجة
-            p معالجة المطالبات تأخذ 3-7 أيام مما يسبب استياء المؤمن عليهم
+            h4(data-i18n-key="elite.problem_1_title") التأخير في المعالجة
+            p(data-i18n-key="elite.problem_1_text") معالجة المطالبات تأخذ 3-7 أيام مما يسبب استياء المؤمن عليهم
 
         .col-md-4
           .problem-card(dir="rtl")
             .problem-icon.bg-warning
               i.fas.fa-exclamation-triangle
-            h4 أخطاء الإدخال اليدوي
-            p إدخال يدوي للبيانات يؤدي لأخطاء محاسبية وتأخير المدفوعات
+            h4(data-i18n-key="elite.problem_2_title") أخطاء الإدخال اليدوي
+            p(data-i18n-key="elite.problem_2_text") إدخال يدوي للبيانات يؤدي لأخطاء محاسبية وتأخير المدفوعات
 
         .col-md-4
           .problem-card(dir="rtl")
             .problem-icon.bg-info
               i.fas.fa-user-secret
-            h4 الاحتيال الطبي
-            p صعوبة كشف المطالبات المزورة أو المبالغ فيها
+            h4(data-i18n-key="elite.problem_3_title") الاحتيال الطبي
+            p(data-i18n-key="elite.problem_3_text") صعوبة كشف المطالبات المزورة أو المبالغ فيها
 
   //- ===== Solution: ELITE Features =====
   section.solution-section.py-5
     .container
       .section-header.text-center.mb-5(dir="rtl")
-        h2 كيف يحل ELITE هذه المشاكل
-        p.lead حل شامل ومتكامل لإدارة التأمين الطبي
+        h2(data-i18n-key="elite.solution_title") كيف يحل ELITE هذه المشاكل
+        p.lead(data-i18n-key="elite.solution_text") حل شامل ومتكامل لإدارة التأمين الطبي
 
       .row.g-4
         //- Feature 1: Fast Processing
@@ -131,12 +129,12 @@ block content
           .feature-box(dir="rtl")
             .row
               .col-md-8
-                h3 معالجة فورية
-                p.mb-3 تقليل وقت معالجة المطالبات من 5 أيام إلى 24 ساعة
+                h3(data-i18n-key="elite.feature_1_title") معالجة فورية
+                p.mb-3(data-i18n-key="elite.feature_1_text") تقليل وقت معالجة المطالبات من 5 أيام إلى 24 ساعة
                 ul.feature-list(style="text-align: right;")
-                  li موافقة/رفض تلقائي حسب الشروط
-                  li إشعارات فورية للمؤمن عليهم
-                  li تتبع حالة المطالبة لحظياً
+                  li(data-i18n-key="elite.feature_1_point_1") موافقة/رفض تلقائي حسب الشروط
+                  li(data-i18n-key="elite.feature_1_point_2") إشعارات فورية للمؤمن عليهم
+                  li(data-i18n-key="elite.feature_1_point_3") تتبع حالة المطالبة لحظياً
               .col-md-4
                 .feature-icon.bg-gradient-primary
                   i.fas.fa-rocket
@@ -146,12 +144,12 @@ block content
           .feature-box(dir="rtl")
             .row
               .col-md-8
-                h3 ربط تلقائي مع Odoo
-                p.mb-3 كل مطالبة تتحول لقيد محاسبي تلقائياً
+                h3(data-i18n-key="elite.feature_2_title") ربط تلقائي مع Odoo
+                p.mb-3(data-i18n-key="elite.feature_2_text") كل مطالبة تتحول لقيد محاسبي تلقائياً
                 ul.feature-list(style="text-align: right;")
-                  li مزامنة فورية مع نظام المحاسبة
-                  li تسوية تلقائية مع المستشفيات
-                  li تقارير مالية دقيقة 100%
+                  li(data-i18n-key="elite.feature_2_point_1") مزامنة فورية مع نظام المحاسبة
+                  li(data-i18n-key="elite.feature_2_point_2") تسوية تلقائية مع المستشفيات
+                  li(data-i18n-key="elite.feature_2_point_3") تقارير مالية دقيقة 100%
               .col-md-4
                 .feature-icon.bg-gradient-success
                   i.fas.fa-link
@@ -161,12 +159,12 @@ block content
           .feature-box(dir="rtl")
             .row
               .col-md-8
-                h3 كشف الاحتيال بالذكاء الاصطناعي
-                p.mb-3 نظام AI يكتشف المطالبات المشبوهة تلقائياً
+                h3(data-i18n-key="elite.feature_3_title") كشف الاحتيال بالذكاء الاصطناعي
+                p.mb-3(data-i18n-key="elite.feature_3_text") نظام AI يكتشف المطالبات المشبوهة تلقائياً
                 ul.feature-list(style="text-align: right;")
-                  li تحليل نمط المطالبات
-                  li كشف التكرار والمبالغة
-                  li تنبيهات فورية للمراجعة
+                  li(data-i18n-key="elite.feature_3_point_1") تحليل نمط المطالبات
+                  li(data-i18n-key="elite.feature_3_point_2") كشف التكرار والمبالغة
+                  li(data-i18n-key="elite.feature_3_point_3") تنبيهات فورية للمراجعة
               .col-md-4
                 .feature-icon.bg-gradient-warning
                   i.fas.fa-brain
@@ -176,12 +174,12 @@ block content
           .feature-box(dir="rtl")
             .row
               .col-md-8
-                h3 تطبيقات موبايل
-                p.mb-3 تطبيقات للمؤمن عليهم والأطباء
+                h3(data-i18n-key="elite.feature_4_title") تطبيقات موبايل
+                p.mb-3(data-i18n-key="elite.feature_4_text") تطبيقات للمؤمن عليهم والأطباء
                 ul.feature-list(style="text-align: right;")
-                  li تقديم المطالبات من الموبايل
-                  li موافقات الأطباء إلكترونياً
-                  li تتبع حالة المطالبة
+                  li(data-i18n-key="elite.feature_4_point_1") تقديم المطالبات من الموبايل
+                  li(data-i18n-key="elite.feature_4_point_2") موافقات الأطباء إلكترونياً
+                  li(data-i18n-key="elite.feature_4_point_3") تتبع حالة المطالبة
               .col-md-4
                 .feature-icon.bg-gradient-info
                   i.fas.fa-mobile-alt
@@ -190,56 +188,56 @@ block content
   section.features-grid.py-5.bg-light
     .container
       .section-header.text-center.mb-5(dir="rtl")
-        h2 المميزات الكاملة لنظام ELITE
+        h2(data-i18n-key="elite.grid_title") المميزات الكاملة لنظام ELITE
 
       .row.g-4
         .col-md-3
           .feature-card-mini(dir="rtl")
             i.fas.fa-users.text-primary
-            h5 إدارة المؤمن عليهم
-            p قاعدة بيانات شاملة مع السجل الطبي
+            h5(data-i18n-key="elite.grid_1_title") إدارة المؤمن عليهم
+            p(data-i18n-key="elite.grid_1_text") قاعدة بيانات شاملة مع السجل الطبي
 
         .col-md-3
           .feature-card-mini(dir="rtl")
             i.fas.fa-hospital.text-success
-            h5 شبكة مقدمي الخدمة
-            p ربط إلكتروني مع المستشفيات
+            h5(data-i18n-key="elite.grid_2_title") شبكة مقدمي الخدمة
+            p(data-i18n-key="elite.grid_2_text") ربط إلكتروني مع المستشفيات
 
         .col-md-3
           .feature-card-mini(dir="rtl")
             i.fas.fa-file-medical.text-info
-            h5 إدارة الوثائق
-            p أرشفة إلكترونية للوثائق الطبية
+            h5(data-i18n-key="elite.grid_3_title") إدارة الوثائق
+            p(data-i18n-key="elite.grid_3_text") أرشفة إلكترونية للوثائق الطبية
 
         .col-md-3
           .feature-card-mini(dir="rtl")
             i.fas.fa-chart-line.text-warning
-            h5 تقارير وإحصائيات
-            p لوحات تحكم تفاعلية ومؤشرات
+            h5(data-i18n-key="elite.grid_4_title") تقارير وإحصائيات
+            p(data-i18n-key="elite.grid_4_text") لوحات تحكم تفاعلية ومؤشرات
 
         .col-md-3
           .feature-card-mini(dir="rtl")
             i.fas.fa-shield-virus.text-danger
-            h5 الأمان والخصوصية
-            p تشفير كامل للبيانات الطبية
+            h5(data-i18n-key="elite.grid_5_title") الأمان والخصوصية
+            p(data-i18n-key="elite.grid_5_text") تشفير كامل للبيانات الطبية
 
         .col-md-3
           .feature-card-mini(dir="rtl")
             i.fas.fa-globe.text-primary
-            h5 متعدد اللغات
-            p واجهة عربي/إنجليزي
+            h5(data-i18n-key="elite.grid_6_title") متعدد اللغات
+            p(data-i18n-key="elite.grid_6_text") واجهة عربي/إنجليزي
 
         .col-md-3
           .feature-card-mini(dir="rtl")
             i.fas.fa-cloud.text-info
-            h5 Cloud Native
-            p نشر سحابي آمن ومستقر
+            h5(data-i18n-key="elite.grid_7_title") Cloud Native
+            p(data-i18n-key="elite.grid_7_text") نشر سحابي آمن ومستقر
 
         .col-md-3
           .feature-card-mini(dir="rtl")
             i.fas.fa-headset.text-success
-            h5 دعم فني 24/7
-            p فريق دعم متاح على مدار الساعة
+            h5(data-i18n-key="elite.grid_8_title") دعم فني 24/7
+            p(data-i18n-key="elite.grid_8_text") فريق دعم متاح على مدار الساعة
 
   //- ===== Success Story / Case Study =====
   section.case-study.py-5
@@ -248,40 +246,38 @@ block content
         //- النص على اليمين (في RTL)
         .col-lg-6.order-2.order-lg-1(dir="rtl")
           .badge.badge-success.mb-3(dir="rtl" style="display: inline-flex; align-items: center;")
-            | قصة نجاح
+            span(data-i18n-key="elite.case_badge") قصة نجاح
             i.fas.fa-star.ms-2
 
-          h2.mb-4(style="text-align: right;") كيف ساعدنا شركة TPA رائدة في تحويل عملياتها
+          h2.mb-4(style="text-align: right;" data-i18n-key="elite.case_title") كيف ساعدنا شركة TPA رائدة في تحويل عملياتها
 
           .case-stats.mb-4
             .stat-item.d-flex.align-items-center.mb-3(style="justify-content: flex-end;")
               .stat-content(style="text-align: right; margin-left: 20px;")
                 h3.mb-0 80%
-                p.mb-0 تقليل وقت معالجة المطالبات
+                p.mb-0(data-i18n-key="elite.case_stat_1") تقليل وقت معالجة المطالبات
               .stat-icon
                 i.fas.fa-arrow-down.text-success(style="font-size: 2rem;")
 
             .stat-item.d-flex.align-items-center.mb-3(style="justify-content: flex-end;")
               .stat-content(style="text-align: right; margin-left: 20px;")
                 h3.mb-0 95%
-                p.mb-0 زيادة رضا المؤمن عليهم
+                p.mb-0(data-i18n-key="elite.case_stat_2") زيادة رضا المؤمن عليهم
               .stat-icon
                 i.fas.fa-arrow-up.text-success(style="font-size: 2rem;")
 
             .stat-item.d-flex.align-items-center.mb-3(style="justify-content: flex-end;")
               .stat-content(style="text-align: right; margin-left: 20px;")
                 h3.mb-0 100%
-                p.mb-0 دقة البيانات المحاسبية
+                p.mb-0(data-i18n-key="elite.case_stat_3") دقة البيانات المحاسبية
               .stat-icon
                 i.fas.fa-check-circle.text-success(style="font-size: 2rem;")
 
           blockquote.testimonial(style="text-align: right; border-right: 4px solid #10b981; border-left: none; padding-right: 20px; padding-left: 0;")
-            p.quote(style="font-style: italic; font-size: 1.1rem; line-height: 1.8;")
-              | "نظام ELITE غيّر طريقة عملنا بالكامل. دلوقتي بنعالج
-              | أكثر من 10,000 مطالبة شهرياً بدقة 100% وفي وقت قياسي."
+            p.quote(style="font-style: italic; font-size: 1.1rem; line-height: 1.8;" data-i18n-key="elite.case_quote") "نظام ELITE غيّر طريقة عملنا بالكامل. دلوقتي بنعالج أكثر من 10,000 مطالبة شهرياً بدقة 100% وفي وقت قياسي."
             .author(style="margin-top: 15px;")
-              strong(style="display: block;") م. أحمد محمود
-              span(style="color: #64748b; font-size: 0.9rem;") مدير تكنولوجيا المعلومات - شركة TPA رائدة
+              strong(style="display: block;" data-i18n-key="elite.case_author") م. أحمد محمود
+              span(style="color: #64748b; font-size: 0.9rem;" data-i18n-key="elite.case_role") مدير تكنولوجيا المعلومات - شركة TPA رائدة
 
         //- الصورة على اليسار
         .col-lg-6.order-1.order-lg-2.mb-4.mb-lg-0
@@ -296,35 +292,35 @@ block content
   section.pricing-section.py-5.bg-light
     .container
       .section-header.text-center.mb-5(dir="rtl")
-        h2 خطط الأسعار
-        p.lead اختر الخطة المناسبة لحجم شركتك
+        h2(data-i18n-key="elite.pricing_title") خطط الأسعار
+        p.lead(data-i18n-key="elite.pricing_text") اختر الخطة المناسبة لحجم شركتك
 
       .row.g-4.justify-content-center
         //- Starter Plan
         .col-lg-4
           .pricing-card(dir="rtl")
             .plan-header
-              h3 Starter
+              h3(data-i18n-key="elite.plan_starter") Starter
               .plan-price
                 span.amount 20,000
                 span.currency EGP
-                span.period /شهرياً
+                span.period(data-i18n-key="elite.plan_period") /شهرياً
 
             ul.plan-features(style="text-align: right;")
               li
-                | حتى 1,000 مطالبة شهرياً
+                span(data-i18n-key="elite.starter_feature_1") حتى 1,000 مطالبة شهرياً
                 i.fas.fa-check.ms-2
               li
-                | دعم فني
+                span(data-i18n-key="elite.starter_feature_2") دعم فني
                 i.fas.fa-check.ms-2
               li.disabled
-                | تطبيق موبايل
+                span(data-i18n-key="elite.starter_feature_3") تطبيق موبايل
                 i.fas.fa-times.ms-2
               li.disabled
-                | ربط مع Odoo ERP
+                span(data-i18n-key="elite.starter_feature_4") ربط مع Odoo ERP
                 i.fas.fa-times.ms-2
               li.disabled
-                | AI Fraud Detection
+                span(data-i18n-key="elite.starter_feature_5") AI Fraud Detection
                 i.fas.fa-times.ms-2
 
             a.btn.btn-outline-primary.w-100(
@@ -333,34 +329,34 @@ block content
               rel="noopener noreferrer"
             )
               i.fab.fa-whatsapp.ms-2
-              | ابدأ الآن عبر WhatsApp
+              span(data-i18n-key="elite.start_whatsapp") ابدأ الآن عبر WhatsApp
 
         //- Professional Plan (Featured)
         .col-lg-4
           .pricing-card.featured(dir="rtl")
-            .popular-badge الأكثر طلباً
+            .popular-badge(data-i18n-key="elite.popular_badge") الأكثر طلباً
             .plan-header
-              h3 Professional
+              h3(data-i18n-key="elite.plan_professional") Professional
               .plan-price
                 span.amount 30,000
                 span.currency EGP
-                span.period /شهرياً
+                span.period(data-i18n-key="elite.plan_period") /شهرياً
 
             ul.plan-features(style="text-align: right;")
               li
-                | حتى 5,000 مطالبة شهرياً
+                span(data-i18n-key="elite.pro_feature_1") حتى 5,000 مطالبة شهرياً
                 i.fas.fa-check.ms-2
               li
-                | تطبيقات موبايل متقدمة
+                span(data-i18n-key="elite.pro_feature_2") تطبيقات موبايل متقدمة
                 i.fas.fa-check.ms-2
               li
-                | دعم فني 24/7
+                span(data-i18n-key="elite.pro_feature_3") دعم فني 24/7
                 i.fas.fa-check.ms-2
               li.disabled
-                | ربط مع Odoo ERP
+                span(data-i18n-key="elite.pro_feature_4") ربط مع Odoo ERP
                 i.fas.fa-times.ms-2
               li.disabled
-                | AI Fraud Detection
+                span(data-i18n-key="elite.pro_feature_5") AI Fraud Detection
                 i.fas.fa-times.ms-2
 
             a.btn.btn-primary.w-100(
@@ -369,49 +365,49 @@ block content
               rel="noopener noreferrer"
             )
               i.fab.fa-whatsapp.ms-2
-              | ابدأ الآن عبر WhatsApp
+              span(data-i18n-key="elite.start_whatsapp") ابدأ الآن عبر WhatsApp
 
         //- Enterprise Plan
         .col-lg-4
           .pricing-card(dir="rtl")
             .plan-header
-              h3 Enterprise
+              h3(data-i18n-key="elite.plan_enterprise") Enterprise
               .plan-price
-                span.amount مخصص
+                span.amount(data-i18n-key="elite.enterprise_amount") مخصص
 
             ul.plan-features(style="text-align: right;")
               li
-                | مطالبات غير محدودة
+                span(data-i18n-key="elite.enterprise_feature_1") مطالبات غير محدودة
                 i.fas.fa-check.ms-2
               li
-                | ربط كامل مع Odoo ERP
+                span(data-i18n-key="elite.enterprise_feature_2") ربط كامل مع Odoo ERP
                 i.fas.fa-check.ms-2
               li
-                | AI Fraud Detection
+                span(data-i18n-key="elite.enterprise_feature_3") AI Fraud Detection
                 i.fas.fa-check.ms-2
               li
-                | تطبيقات موبايل متقدمة
+                span(data-i18n-key="elite.enterprise_feature_4") تطبيقات موبايل متقدمة
                 i.fas.fa-check.ms-2
               li
-                | فريق دعم مخصص
+                span(data-i18n-key="elite.enterprise_feature_5") فريق دعم مخصص
                 i.fas.fa-check.ms-2
               li
-                | تخصيص كامل
+                span(data-i18n-key="elite.enterprise_feature_6") تخصيص كامل
                 i.fas.fa-check.ms-2
               li
-                | تقارير متقدمة
+                span(data-i18n-key="elite.enterprise_feature_7") تقارير متقدمة
                 i.fas.fa-check.ms-2
 
             a.btn.btn-outline-primary.w-100(href="contact.html")
               i.fas.fa-calendar-check.ms-2
-              | احجز استشارة مجانية
+              span(data-i18n-key="elite.book_consultation") احجز استشارة مجانية
 
   //- ===== FAQ Section =====
   section.faq-section.py-5
     .container
       .section-header.text-center.mb-5(dir="rtl")
-        h2 الأسئلة الشائعة
-        p.lead إجابات على أكثر الأسئلة تكراراً
+        h2(data-i18n-key="elite.faq_title") الأسئلة الشائعة
+        p.lead(data-i18n-key="elite.faq_text") إجابات على أكثر الأسئلة تكراراً
 
       .row.justify-content-center
         .col-lg-8
@@ -420,48 +416,40 @@ block content
             .accordion-item
               h2.accordion-header#faq1
                 button.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" dir="rtl")
-                  | كم يستغرق تطبيق نظام ELITE؟
+                  span(data-i18n-key="elite.faq_q1") كم يستغرق تطبيق نظام ELITE؟
               #collapse1.accordion-collapse.collapse.show(data-bs-parent="#eliteFAQ")
-                .accordion-body(dir="rtl" style="text-align: right;")
-                  | عادة من 4-8 أسابيع حسب حجم الشركة وتعقيد المتطلبات.
-                  | نقدم خطة تطبيق تدريجية لضمان انتقال سلس.
+                .accordion-body(dir="rtl" style="text-align: right;" data-i18n-key="elite.faq_a1") عادة من 4-8 أسابيع حسب حجم الشركة وتعقيد المتطلبات. نقدم خطة تطبيق تدريجية لضمان انتقال سلس.
 
             //- Q2
             .accordion-item
               h2.accordion-header#faq2
                 button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" dir="rtl")
-                  | هل يدعم ELITE التكامل مع أنظمة أخرى؟
+                  span(data-i18n-key="elite.faq_q2") هل يدعم ELITE التكامل مع أنظمة أخرى؟
               #collapse2.accordion-collapse.collapse(data-bs-parent="#eliteFAQ")
-                .accordion-body(dir="rtl" style="text-align: right;")
-                  | نعم، ELITE يدعم الربط مع Odoo ERP بشكل أساسي، كما يمكن
-                  | الربط مع أنظمة المستشفيات والصيدليات عبر APIs.
+                .accordion-body(dir="rtl" style="text-align: right;" data-i18n-key="elite.faq_a2") نعم، ELITE يدعم الربط مع Odoo ERP بشكل أساسي، كما يمكن الربط مع أنظمة المستشفيات والصيدليات عبر APIs.
 
             //- Q3
             .accordion-item
               h2.accordion-header#faq3
                 button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" dir="rtl")
-                  | هل البيانات آمنة ومشفرة؟
+                  span(data-i18n-key="elite.faq_q3") هل البيانات آمنة ومشفرة؟
               #collapse3.accordion-collapse.collapse(data-bs-parent="#eliteFAQ")
-                .accordion-body(dir="rtl" style="text-align: right;")
-                  | بالتأكيد. نستخدم تشفير AES-256 لجميع البيانات، مع استضافة
-                  | سحابية آمنة ونسخ احتياطية يومية.
+                .accordion-body(dir="rtl" style="text-align: right;" data-i18n-key="elite.faq_a3") بالتأكيد. نستخدم تشفير AES-256 لجميع البيانات، مع استضافة سحابية آمنة ونسخ احتياطية يومية.
 
             //- Q4
             .accordion-item
               h2.accordion-header#faq4
                 button.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" dir="rtl")
-                  | هل يمكن تجربة النظام قبل الشراء؟
+                  span(data-i18n-key="elite.faq_q4") هل يمكن تجربة النظام قبل الشراء؟
               #collapse4.accordion-collapse.collapse(data-bs-parent="#eliteFAQ")
-                .accordion-body(dir="rtl" style="text-align: right;")
-                  | نعم، نقدم عرضاً تجريبياً مجانياً لمدة 14 يوم مع بياناتك الفعلية
-                  | لتتأكد من ملاءمة النظام لاحتياجاتك.
+                .accordion-body(dir="rtl" style="text-align: right;" data-i18n-key="elite.faq_a4") نعم، نقدم عرضاً تجريبياً مجانياً لمدة 14 يوم مع بياناتك الفعلية لتتأكد من ملاءمة النظام لاحتياجاتك.
 
   //- ===== Video Gallery Section =====
   section.video-gallery.py-5.bg-light
     .container
       .section-header.text-center.mb-5(dir="rtl")
-        h2 شاهد ELITE في العمل
-        p.lead فيديوهات توضيحية شاملة عن جميع المميزات
+        h2(data-i18n-key="elite.video_title") شاهد ELITE في العمل
+        p.lead(data-i18n-key="elite.video_text") فيديوهات توضيحية شاملة عن جميع المميزات
 
       .row.justify-content-center
         .col-lg-10
@@ -478,30 +466,28 @@ block content
 
           //- Direct YouTube Link (Fallback)
           .text-center.mt-4
-            p.text-muted(dir="rtl") أو شاهد مباشرة على YouTube
+            p.text-muted(dir="rtl" data-i18n-key="elite.video_watch_on") أو شاهد مباشرة على YouTube
             a.btn.btn-outline-primary.btn-lg(
               href="https://www.youtube.com/playlist?list=PL4gLQMepBmISlPelJuRx09EtDa27O-mN0"
               target="_blank"
               rel="noopener noreferrer"
             )
               i.fab.fa-youtube.me-2
-              | افتح Playlist على YouTube
+              span(data-i18n-key="elite.video_open_playlist") افتح Playlist على YouTube
 
   //- ===== Final CTA Section =====
   section.final-cta.py-5
     .container.text-center(dir="rtl")
-      h2.mb-4 جاهز لتحويل عمليات التأمين الطبي؟
-      p.lead.mb-4
-        | احجز عرضاً توضيحياً مجاناً واكتشف كيف يمكن لـ ELITE
-        | أن يوفر عليك الوقت والمال
+      h2.mb-4(data-i18n-key="elite.final_cta_title") جاهز لتحويل عمليات التأمين الطبي؟
+      p.lead.mb-4(data-i18n-key="elite.final_cta_text") احجز عرضاً توضيحياً مجاناً واكتشف كيف يمكن لـ ELITE أن يوفر عليك الوقت والمال
 
       .cta-buttons
         a.btn.btn-outline-light.btn-lg(href="tel:+201017383815")
-          | اتصل بنا الآن
+          span(data-i18n-key="elite.call_now") اتصل بنا الآن
           i.fas.fa-phone.ms-2
 
         a.btn.btn-primary.btn-lg.ms-3(href="contact.html")
-          | احجز عرضاً تجريبياً مجانياً
+          span(data-i18n-key="elite.cta_demo") احجز عرضاً تجريبياً مجانياً
           i.fas.fa-calendar-check.ms-2
 
   //- ===== Demo Video Modal =====
@@ -509,7 +495,7 @@ block content
     .modal-dialog.modal-xl
       .modal-content
         .modal-header(dir="rtl")
-          h5.modal-title نظام ELITE - شرح مبسط
+          h5.modal-title(data-i18n-key="elite.modal_title") نظام ELITE - شرح مبسط
           button.btn-close(type="button" data-bs-dismiss="modal" aria-label="Close")
         .modal-body.p-0
           .ratio.ratio-16x9
@@ -529,18 +515,18 @@ block content
           .data-security-card
             .data-security-icon(aria-hidden="true")
               i.fa-solid.fa-shield-halved
-            h2.data-security-title أمان البيانات
-            p.data-security-text نحن نلتزم بأعلى معايير حماية البيانات والخصوصية، ويتم تشفير كافة البيانات والعمليات المالية والغير مالية وفقاً للمعايير الدولية.
+            h2.data-security-title(data-i18n-key="elite.security_title") أمان البيانات
+            p.data-security-text(data-i18n-key="elite.security_text") نحن نلتزم بأعلى معايير حماية البيانات والخصوصية، ويتم تشفير كافة البيانات والعمليات المالية والغير مالية وفقاً للمعايير الدولية.
             .data-security-badges
               span.data-security-badge
                 i.fa-solid.fa-lock.me-2
-                | تشفير البيانات
+                span(data-i18n-key="elite.security_badge_1") تشفير البيانات
               span.data-security-badge
                 i.fa-solid.fa-user-shield.me-2
-                | حماية الخصوصية
+                span(data-i18n-key="elite.security_badge_2") حماية الخصوصية
               span.data-security-badge
                 i.fa-solid.fa-globe.me-2
-                | معايير دولية
+                span(data-i18n-key="elite.security_badge_3") معايير دولية
 
   //- Footer
   include components/footer.pug

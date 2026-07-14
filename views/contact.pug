@@ -1,11 +1,13 @@
 extends layout.pug
 
 block variables
-  - var pageTitle = "Contact GoCloud — Get in Touch for ERP, Cloud & Insurance Solutions"
-  - var pageDescription = "Reach out to GoCloud for Odoo ERP implementation, cloud computing, ELITE medical-insurance platform, or any IT consultation. Office in Giza, Egypt."
-  - var pageKeywords = "contact GoCloud, Odoo ERP consultation, cloud services Egypt, ELITE insurance, IT solutions Giza"
+  - var pageTitle = "تواصل مع GoCloud — استشارات ERP والسحابة والتأمين"
+  - var pageDescription = "تواصل مع GoCloud لتنفيذ Odoo ERP أو خدمات الحوسبة السحابية أو منصة ELITE للتأمين الطبي أو أي استشارة تقنية. مكتبنا في الجيزة، مصر."
+  - var pageKeywords = "تواصل مع GoCloud, استشارة Odoo ERP, خدمات سحابية مصر, ELITE التأمين, حلول تقنية الجيزة"
   - var canonicalUrl = "https://www.gocloudeg.com/contact.html"
   - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+  - var pageLang = "ar"
+  - var pageDir = "rtl"
 
 block styles
   style.
@@ -32,6 +34,8 @@ block styles
     .info-card h5{font-size:1rem;font-weight:700;margin-bottom:.5rem;color:#0D0E10}
     .info-card p,.info-card a{font-size:.9rem;color:#4a4b5c;text-decoration:none;line-height:1.6}
     .info-card a:hover{color:#0E38B1}
+    .contact-phone-list{display:flex;flex-direction:column;gap:.2rem;align-items:center}
+    .gc-phone-ltr{display:inline-block;direction:ltr;unicode-bidi:isolate}
 
     /* ── Form area ── */
     .contact-form-section{padding:0 0 5rem}
@@ -67,15 +71,15 @@ block content
       .row.align-items-center
         .col-lg-7
           .mb-3
-            a.breadcrumb-link(href="index.html") Home
+            a.breadcrumb-link(href="index.html" data-i18n-key="contact.breadcrumb_home") الرئيسية
             span.breadcrumb-sep /
-            span.breadcrumb-current Contact Us
+            span.breadcrumb-current(data-i18n-key="contact.breadcrumb_current") تواصل معنا
           h1
-            | Let's Talk About
+            span(data-i18n-key="contact.hero_title_line1") لنتحدث عن
             br
-            | Your Next Project
+            span(data-i18n-key="contact.hero_title_line2") مشروعك القادم
           .space16
-          p Whether you need Odoo ERP consultation, cloud migration, or a custom insurance platform — we're here to help.
+          p(data-i18n-key="contact.hero_text") سواء كنت تحتاج إلى استشارة Odoo ERP أو ترحيل سحابي أو منصة تأمين مخصصة — نحن هنا للمساعدة.
 
   //---------- PARTNER MARQUEE ----------
   include components/marquee-brands.pug
@@ -87,29 +91,31 @@ block content
         .col-lg-8.mx-auto
           .section-tag
             img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
-            | Get in Touch
-          h2.section-heading Contact Information
-          p.text-muted We'd love to hear from you. Reach out through any of the channels below.
+            span(data-i18n-key="contact.info_kicker") تواصل معنا
+          h2.section-heading(data-i18n-key="contact.info_title") معلومات الاتصال
+          p.text-muted(data-i18n-key="contact.info_text") يسعدنا أن نسمع منك. تواصل عبر أي من القنوات التالية.
 
       .row.g-4.mb-5
         .col-md-4(data-aos="fade-up" data-aos-delay="100")
           .info-card
             .info-icon
               i.fas.fa-phone-alt
-            h5 Call Us
-            a(href="tel:+201017383815") +2 010 1738 3815
+            h5(data-i18n-key="contact.call_title") اتصل بنا
+            .contact-phone-list
+              a.gc-phone-ltr(href="tel:+201017383815") +2 010 1738 3815
+              a.gc-phone-ltr(href="tel:+201222666635") +20 122 266 6635
         .col-md-4(data-aos="fade-up" data-aos-delay="200")
           .info-card
             .info-icon
               i.fas.fa-envelope
-            h5 Email Us
+            h5(data-i18n-key="contact.email_title") راسلنا
             a(href="mailto:marketing@gocloudeg.com") marketing@gocloudeg.com
         .col-md-4(data-aos="fade-up" data-aos-delay="300")
           .info-card
             .info-icon
               i.fas.fa-map-marker-alt
-            h5 Visit Our Office
-            p Behind Royal Pyramids Language School, Ahram Gardens, Gate 4, Giza
+            h5(data-i18n-key="contact.office_title") زر مكتبنا
+            p(data-i18n-key="contact.office_text") خلف مدرسة رويال بيراميدز للغات، حدائق الأهرام، بوابة 4، الجيزة
 
   //---------- FORM + SIDE INFO ----------
   section.contact-form-section
@@ -117,61 +123,61 @@ block content
       .row.g-5.align-items-start
         .col-lg-7(data-aos="fade-right")
           .contact-form-wrap
-            h4.fw-bold.mb-1 Send Us a Message
-            p.text-muted.mb-4(style="font-size:.9rem") Fill in the form below and we'll get back to you within 24 hours.
+            h4.fw-bold.mb-1(data-i18n-key="contact.form_title") أرسل لنا رسالة
+            p.text-muted.mb-4(style="font-size:.9rem" data-i18n-key="contact.form_text") املأ النموذج أدناه وسنعود إليك خلال 24 ساعة.
             form#contactForm
               .row.g-3
                 .col-md-6
-                  label.form-label(for="firstName") First Name
-                  input.form-control(type="text" id="firstName" name="firstName" placeholder="John" required)
+                  label.form-label(for="firstName" data-i18n-key="contact.first_name") الاسم الأول
+                  input.form-control(type="text" id="firstName" name="firstName" placeholder="John" data-i18n-placeholder-key="contact.first_name_placeholder" required)
                 .col-md-6
-                  label.form-label(for="lastName") Last Name
-                  input.form-control(type="text" id="lastName" name="lastName" placeholder="Doe" required)
+                  label.form-label(for="lastName" data-i18n-key="contact.last_name") اسم العائلة
+                  input.form-control(type="text" id="lastName" name="lastName" placeholder="Doe" data-i18n-placeholder-key="contact.last_name_placeholder" required)
                 .col-md-6
-                  label.form-label(for="email") Email Address
-                  input.form-control(type="email" id="email" name="email" placeholder="john@company.com" required)
+                  label.form-label(for="email" data-i18n-key="contact.email_label") البريد الإلكتروني
+                  input.form-control(type="email" id="email" name="email" placeholder="john@company.com" data-i18n-placeholder-key="contact.email_placeholder" required)
                 .col-md-6
-                  label.form-label(for="phone") Phone Number
-                  input.form-control(type="tel" id="phone" name="phone" placeholder="+20 xxx xxx xxxx")
+                  label.form-label(for="phone" data-i18n-key="contact.phone_label") رقم الهاتف
+                  input.form-control(type="tel" id="phone" name="phone" placeholder="+20 xxx xxx xxxx" data-i18n-placeholder-key="contact.phone_placeholder")
                 .col-12
-                  label.form-label(for="subject") Subject
-                  input.form-control(type="text" id="subject" name="subject" placeholder="e.g. Odoo ERP implementation inquiry" required)
+                  label.form-label(for="subject" data-i18n-key="contact.subject_label") الموضوع
+                  input.form-control(type="text" id="subject" name="subject" placeholder="e.g. Odoo ERP implementation inquiry" data-i18n-placeholder-key="contact.subject_placeholder" required)
                 .col-12
-                  label.form-label(for="message") Message
-                  textarea.form-control(id="message" name="message" rows="5" placeholder="Tell us about your project or question..." required)
+                  label.form-label(for="message" data-i18n-key="contact.message_label") الرسالة
+                  textarea.form-control(id="message" name="message" rows="5" placeholder="Tell us about your project or question..." data-i18n-placeholder-key="contact.message_placeholder" required)
                 .col-12.mt-4
                   button.btn-submit(type="submit")
-                    | Send Message
+                    span(data-i18n-key="contact.submit_button") أرسل الرسالة
                     i.fa-solid.fa-paper-plane
 
         .col-lg-5(data-aos="fade-left")
           .mb-4
-            h5.fw-bold Why Contact GoCloud?
-            p.text-muted(style="font-size:.9rem;line-height:1.7") We don't just respond — we listen, analyze your requirements, and propose practical solutions tailored to your business. Here's what you can expect:
+            h5.fw-bold(data-i18n-key="contact.why_title") لماذا تتواصل مع GoCloud؟
+            p.text-muted(style="font-size:.9rem;line-height:1.7" data-i18n-key="contact.why_text") نحن لا نرد فقط — بل نستمع ونحلل متطلباتك ونقترح حلولاً عملية مصممة لعملك. هذا ما يمكنك توقعه:
           .d-flex.align-items-start.gap-3.mb-3
             .info-icon.flex-shrink-0(style="width:42px;height:42px;font-size:1rem")
               i.fas.fa-clock
             div
-              h6.fw-bold.mb-1(style="font-size:.9rem") Fast Response
-              p.text-muted.mb-0(style="font-size:.825rem") We respond within 24 hours on business days.
+              h6.fw-bold.mb-1(style="font-size:.9rem" data-i18n-key="contact.fast_title") استجابة سريعة
+              p.text-muted.mb-0(style="font-size:.825rem" data-i18n-key="contact.fast_text") نرد خلال 24 ساعة في أيام العمل.
           .d-flex.align-items-start.gap-3.mb-3
             .info-icon.flex-shrink-0(style="width:42px;height:42px;font-size:1rem")
               i.fas.fa-comments
             div
-              h6.fw-bold.mb-1(style="font-size:.9rem") Free Consultation
-              p.text-muted.mb-0(style="font-size:.825rem") Initial project discussion is always on us.
+              h6.fw-bold.mb-1(style="font-size:.9rem" data-i18n-key="contact.consult_title") استشارة مجانية
+              p.text-muted.mb-0(style="font-size:.825rem" data-i18n-key="contact.consult_text") النقاش الأولي حول المشروع علينا دائماً.
           .d-flex.align-items-start.gap-3.mb-3
             .info-icon.flex-shrink-0(style="width:42px;height:42px;font-size:1rem")
               i.fas.fa-file-alt
             div
-              h6.fw-bold.mb-1(style="font-size:.9rem") Detailed Proposal
-              p.text-muted.mb-0(style="font-size:.825rem") You'll receive a clear scope, timeline, and quote.
+              h6.fw-bold.mb-1(style="font-size:.9rem" data-i18n-key="contact.proposal_title") عرض تفصيلي
+              p.text-muted.mb-0(style="font-size:.825rem" data-i18n-key="contact.proposal_text") ستحصل على نطاق عمل واضح، وجدول زمني، وعرض سعر.
           .d-flex.align-items-start.gap-3
             .info-icon.flex-shrink-0(style="width:42px;height:42px;font-size:1rem")
               i.fas.fa-shield-alt
             div
-              h6.fw-bold.mb-1(style="font-size:.9rem") NDA Available
-              p.text-muted.mb-0(style="font-size:.825rem") We're happy to sign an NDA before discussing details.
+              h6.fw-bold.mb-1(style="font-size:.9rem" data-i18n-key="contact.nda_title") اتفاقية عدم إفشاء متاحة
+              p.text-muted.mb-0(style="font-size:.825rem" data-i18n-key="contact.nda_text") يسعدنا توقيع اتفاقية عدم إفشاء قبل مناقشة التفاصيل.
 
   //---------- MAP ----------
   section.map-section
@@ -180,8 +186,8 @@ block content
         .col-lg-8.mx-auto
           .section-tag
             img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
-            | Our Location
-          h2.section-heading Find Us on the Map
+            span(data-i18n-key="contact.location_kicker") موقعنا
+          h2.section-heading(data-i18n-key="contact.location_title") اعثر علينا على الخريطة
       .map-wrap(data-aos="fade-up")
         iframe(
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3456.7555468388896!2d31.092484099999993!3d29.9577093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584fb4638aaa63%3A0x74386c45582e348d!2sGo%20Cloud!5e0!3m2!1sen!2seg!4v1751108580597!5m2!1sen!2seg"
@@ -195,12 +201,12 @@ block content
   section.py-0
     .container
       .contact-cta.text-center(data-aos="fade-up")
-        h3 Prefer a Quick Chat?
-        p.mx-auto(style="max-width:500px") Skip the form — message us directly on WhatsApp and get an instant response from our team.
+        h3(data-i18n-key="contact.quick_title") تفضل محادثة سريعة؟
+        p.mx-auto(style="max-width:500px" data-i18n-key="contact.quick_text") تجاوز النموذج — راسلنا مباشرة على واتساب واحصل على رد فوري من فريقنا.
         .space16
         a.btn-cta-wa(href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer")
           i.fab.fa-whatsapp(style="font-size:1.2rem")
-          | Chat on WhatsApp
+          span(data-i18n-key="contact.quick_button") تحدث معنا على واتساب
 
   //- Footer & WhatsApp
   include components/footer.pug

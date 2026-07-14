@@ -1,20 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
   <head>
+    <script>
+      (function () {
+        var storageKey = 'gocloud-site-language';
+        var savedLanguage = null;
+        try {
+          savedLanguage = localStorage.getItem(storageKey);
+        } catch (error) {
+          savedLanguage = null;
+        }
+        var initialLanguage = savedLanguage === 'ar' || savedLanguage === 'en' ? savedLanguage : 'en';
+        var root = document.documentElement;
+        root.lang = initialLanguage;
+        root.dir = initialLanguage === 'ar' ? 'rtl' : 'ltr';
+        root.dataset.siteLang = initialLanguage;
+        root.classList.add('site-lang-' + initialLanguage);
+      }());
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact GoCloud — Get in Touch for ERP, Cloud &amp; Insurance Solutions</title>
-    <meta name="description" content="Reach out to GoCloud for Odoo ERP implementation, cloud computing, ELITE medical-insurance platform, or any IT consultation. Office in Giza, Egypt.">
-    <meta name="keywords" content="contact GoCloud, Odoo ERP consultation, cloud services Egypt, ELITE insurance, IT solutions Giza">
+    <title>تواصل مع GoCloud — استشارات ERP والسحابة والتأمين</title>
+    <meta name="description" content="تواصل مع GoCloud لتنفيذ Odoo ERP أو خدمات الحوسبة السحابية أو منصة ELITE للتأمين الطبي أو أي استشارة تقنية. مكتبنا في الجيزة، مصر.">
+    <meta name="keywords" content="تواصل مع GoCloud, استشارة Odoo ERP, خدمات سحابية مصر, ELITE التأمين, حلول تقنية الجيزة">
     <link rel="canonical" href="https://www.gocloudeg.com/contact.html">
-    <meta property="og:title" content="Contact GoCloud — Get in Touch for ERP, Cloud &amp; Insurance Solutions">
-    <meta property="og:description" content="Reach out to GoCloud for Odoo ERP implementation, cloud computing, ELITE medical-insurance platform, or any IT consultation. Office in Giza, Egypt.">
+    <meta property="og:title" content="تواصل مع GoCloud — استشارات ERP والسحابة والتأمين">
+    <meta property="og:description" content="تواصل مع GoCloud لتنفيذ Odoo ERP أو خدمات الحوسبة السحابية أو منصة ELITE للتأمين الطبي أو أي استشارة تقنية. مكتبنا في الجيزة، مصر.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.gocloudeg.com/contact.html">
     <meta property="og:image" content="https://www.gocloudeg.com/images/gocloud-logo.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Contact GoCloud — Get in Touch for ERP, Cloud &amp; Insurance Solutions">
-    <meta name="twitter:description" content="Reach out to GoCloud for Odoo ERP implementation, cloud computing, ELITE medical-insurance platform, or any IT consultation. Office in Giza, Egypt.">
+    <meta name="twitter:title" content="تواصل مع GoCloud — استشارات ERP والسحابة والتأمين">
+    <meta name="twitter:description" content="تواصل مع GoCloud لتنفيذ Odoo ERP أو خدمات الحوسبة السحابية أو منصة ELITE للتأمين الطبي أو أي استشارة تقنية. مكتبنا في الجيزة، مصر.">
     <meta name="twitter:image" content="https://www.gocloudeg.com/images/gocloud-logo.png">
     <!-- Accessibility improvements-->
     <meta name="theme-color" content="#ffffff">
@@ -22,9 +39,7 @@
     <!-- Accessibility meta tags-->
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
-    <link rel="alternate" hreflang="en" href="https://www.gocloudeg.com/contact.html">
-    <link rel="alternate" hreflang="x-default" href="https://www.gocloudeg.com/contact.html">
-    <script type="application/ld+json" src="js/organization-schema.json"></script>
+    <script type="application/ld+json">include ../js/organization-schema.json</script>
     <meta name="gocloud-chat-token" content="">
     <!-- Favicon-->
     <link rel="icon" href="images/favicon.ico" sizes="32x32">
@@ -43,7 +58,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" integrity="sha384-MUdXdzn1OB/0zkr4yGLnCqZ/n9ut5N7Ifes9RP2d5xKsTtcPiuiwthWczWuiqFOn" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" integrity="sha384-kcNNzf7wI8//ZkNUaDd5JwxLoFaBgkj9Z4O4NwtuX9Lkmsz0HoITOxJsGkYxDuyG" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" integrity="sha384-VtAbyHBFULcj75mXhsQnIQUrCiTcHosNqmBMhE2t5jRWaFO1DviOnG9pxHSeNF9k" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" crossorigin="anonymous">
     <noscript>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
@@ -62,6 +77,7 @@
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap">
     </noscript>
+    <script src="js/analytics.js" defer></script>
     <!-- Custom styles-->
     <style>
       /* ── Hero ── */
@@ -87,6 +103,8 @@
       .info-card h5{font-size:1rem;font-weight:700;margin-bottom:.5rem;color:#0D0E10}
       .info-card p,.info-card a{font-size:.9rem;color:#4a4b5c;text-decoration:none;line-height:1.6}
       .info-card a:hover{color:#0E38B1}
+      .contact-phone-list{display:flex;flex-direction:column;gap:.2rem;align-items:center}
+      .gc-phone-ltr{display:inline-block;direction:ltr;unicode-bidi:isolate}
       
       /* ── Form area ── */
       .contact-form-section{padding:0 0 5rem}
@@ -150,7 +168,7 @@
               <div class="preloader-bar">
                 <div class="preloader-bar-inner"></div>
               </div>
-              <div class="preloader-tagline">Smart Software Solutions</div>
+              <div class="preloader-tagline" data-i18n-key="preloader.tagline">Smart Software Solutions</div>
             </div>
             <div class="loader-section-left loader-section section-left"></div>
             <div class="loader-section-right loader-section section-right"></div>
@@ -165,30 +183,68 @@
         .top-bar-item i{color:#A1E934;font-size:.7rem}
         .top-bar-item a{color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
         .top-bar-item a:hover{color:#fff}
+        .top-bar-lang .dropdown-toggle{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:6px 12px;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.04em;line-height:1}
+        .top-bar-lang .dropdown-toggle::after{margin-inline-start:4px}
+        .top-bar-lang .dropdown-toggle:hover,.top-bar-lang .dropdown-toggle:focus{background:rgba(255,255,255,.18);color:#fff;box-shadow:none}
+        .top-bar-lang .dropdown-toggle:focus-visible{outline:2px solid #A1E934;outline-offset:2px}
+        .top-bar-lang .dropdown-menu{display:none;min-width:150px;border-radius:14px;border:1px solid #dfe6fb;box-shadow:0 18px 36px rgba(8,31,99,.12);padding:.35rem}
+        .top-bar-lang .dropdown-menu.show{display:block}
+        .top-bar-lang .dropdown-item{border-radius:10px;font-size:.88rem;font-weight:700;padding:.55rem .8rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+        .top-bar-lang .dropdown-item.active,.top-bar-lang .dropdown-item:active{background:#0E38B1;color:#fff}
+        .top-bar-calls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+        .top-bar-call{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 14px;color:#fff;text-decoration:none;transition:background .2s,border-color .2s}
+        .top-bar-call:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.28);color:#fff}
+        .top-bar-call i{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(161,233,52,.15);color:#A1E934;font-size:.8rem}
+        .top-bar-call span{display:flex;flex-direction:column;line-height:1.15}
+        .top-bar-call strong{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.72);text-transform:uppercase;letter-spacing:.05em}
+        .top-bar-call em{font-style:normal;font-size:.8rem;font-weight:700;color:#fff}
+        .gc-phone-ltr{display:inline-block;direction:ltr;unicode-bidi:isolate}
         .top-bar-right{display:flex;align-items:center;gap:12px}
         .top-bar-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:4px 14px 4px 4px;font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.02em}
         .top-bar-badge img{height:22px;border-radius:50%;background:#fff;padding:1px}
         .top-bar-social a{color:rgba(255,255,255,.5);font-size:.8rem;margin-left:8px;transition:color .2s}
         .top-bar-social a:hover{color:#A1E934}
-        @media(max-width:767px){.top-bar{position:fixed;top:0;left:0;width:100%;z-index:1001;padding:6px 0}.top-bar-right{display:none}.top-bar-left{gap:.75rem}.top-bar-item{font-size:.7rem}}
+        @media(max-width:767px){.top-bar{position:fixed;top:0;left:0;width:100%;z-index:1001;padding:6px 0}.top-bar-right{display:none}.top-bar-left{gap:.55rem}.top-bar-item{font-size:.7rem}.top-bar-calls{width:100%;gap:6px}.top-bar-call{padding:4px 10px}.top-bar-call strong{font-size:.62rem}.top-bar-call em{font-size:.72rem}.top-bar-lang .dropdown-toggle{padding:5px 10px;font-size:.68rem}}
         
       </style>
       <div class="top-bar">
         <div class="container">
           <div class="top-bar-inner">
             <div class="top-bar-left">
-              <div class="top-bar-item"><i class="fas fa-phone-alt"></i><a href="tel:+201017383815">+2 010 1738 3815</a></div>
+              <div class="top-bar-calls"><a class="top-bar-call" href="tel:+201017383815" aria-label="Call GoCloud at +2 010 1738 3815"><i class="fas fa-phone-alt"></i><span><strong data-i18n-key="topbar.call_label">Make a Call</strong><em class="gc-phone-ltr">+2 010 1738 3815</em></span></a><a class="top-bar-call" href="tel:+201222666635" aria-label="Call GoCloud at +20 122 266 6635"><i class="fas fa-phone-alt"></i><span><strong data-i18n-key="topbar.call_label">Make a Call</strong><em class="gc-phone-ltr">+20 122 266 6635</em></span></a></div>
+              <div class="dropdown top-bar-lang">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language switch" data-site-language-toggle><i class="fas fa-globe" aria-hidden="true"></i><span data-site-language-label>AR</span></button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <button class="dropdown-item" type="button" data-site-language="ar"><span>العربية</span><span class="small text-muted">AR</span></button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" type="button" data-site-language="en"><span>English</span><span class="small text-muted">EN</span></button>
+                  </li>
+                </ul>
+              </div>
               <div class="top-bar-item"><i class="fas fa-envelope"></i><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
               <div class="top-bar-item"><i class="fas fa-map-marker-alt"></i><span>Giza, Egypt</span></div>
             </div>
             <div class="top-bar-right">
-              <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22">Odoo Official Partner</div>
+              <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22"><span data-i18n-key="topbar.partner_badge">Odoo Official Partner</span></div>
               <div class="top-bar-social"><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
             </div>
           </div>
         </div>
       </div>
       <!-- Header Component-->
+      <style>
+        .mobile-sidebar .gc-mobile-contact-compact h3{margin-bottom:8px!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box+.contact-box{margin-top:2px!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera,.mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{line-height:1.2}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{display:inline-block;margin:0!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera p{margin:0}
+        .mobile-sidebar .gc-mobile-contact-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+        
+      </style>
       <header role="banner">
         <div class="header-area header-area1 header-area-all d-none d-md-block d-lg-block" id="header">
           <div class="container">
@@ -199,23 +255,19 @@
                   <nav role="navigation" aria-label="Main Navigation">
                     <div class="main-menu-ex main-menu-ex1">
                       <ul role="menubar">
-                        <li class="dropdown-menu-parrent" role="none"><a href="about.html" role="menuitem">About</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="service.html" role="menuitem">Services</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-1"></i>Odoo Services</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">ELITE<span class="badge badge-warning ms-1" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-                        <li class="dropdown-menu-parrent" role="none"><a href="blog/index.html" role="menuitem"><i class="fas fa-blog me-1"></i>Blog</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="index.html" role="menuitem" data-i18n-key="nav.home">Home</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="about.html" role="menuitem" data-i18n-key="nav.about">About</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="service.html" role="menuitem" data-i18n-key="nav.services">Services</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="faq.html" role="menuitem" data-i18n-key="nav.faq">FAQ</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="blog/index.html" role="menuitem" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-blog me-1"></i><span data-i18n-key="nav.blog">Blog</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-1"></i><span data-i18n-key="nav.odoo_services">Odoo Services</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;"><span data-i18n-key="nav.elite">ELITE</span><span class="badge badge-warning ms-1" data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="contact.html" role="menuitem" data-i18n-key="nav.contact">Contact</a></li>
                       </ul>
                     </div>
                   </nav>
                   <div class="header1-buttons">
-                    <div class="contact-btn">
-                      <div class="icon"><img src="images/header1-icon.webp" alt="" width="22" height="22" loading="lazy"></div>
-                      <div class="headding">
-                        <p>Make a Call</p><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a>
-                      </div>
-                    </div>
-                    <div class="button d-flex gap-2"><a class="theme-btn1" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i>Book a Free Demo</a><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+                    <div class="button d-flex gap-2 flex-wrap justify-content-end"><a class="theme-btn1" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i><span data-i18n-key="nav.book_demo">Book a Free Demo</span></a><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp"><span data-i18n-key="nav.get_quote">Get A Quote</span><span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
                   </div>
                 </div>
               </div>
@@ -245,17 +297,18 @@
           <div class="mobile-nav">
             <nav role="navigation" aria-label="Mobile Navigation">
               <ul role="menubar">
-                <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-                <li role="none"><a href="about.html" role="menuitem">About Us</a></li>
-                <li role="none"><a href="service.html" role="menuitem">Services</a></li>
-                <li role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-2"></i>Odoo Services</a></li>
-                <li role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600;">ELITE<span class="badge badge-warning ms-2" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
-                <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-                <li role="none"><a href="blog/index.html" role="menuitem"><i class="fas fa-blog me-2"></i>Blog</a></li>
+                <li role="none"><a href="index.html" role="menuitem" data-i18n-key="nav.home">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem" data-i18n-key="nav.about_us">About Us</a></li>
+                <li role="none"><a href="service.html" role="menuitem" data-i18n-key="nav.services">Services</a></li>
+                <li role="none"><a href="faq.html" role="menuitem" data-i18n-key="nav.faq">FAQ</a></li>
+                <li role="none"><a href="blog/index.html" role="menuitem" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-blog me-2"></i><span data-i18n-key="nav.blog">Blog</span></a></li>
+                <li role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-2"></i><span data-i18n-key="nav.odoo_services">Odoo Services</span></a></li>
+                <li role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;"><span data-i18n-key="nav.elite">ELITE</span><span class="badge badge-warning ms-2" data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                <li role="none"><a href="contact.html" role="menuitem" data-i18n-key="nav.contact">Contact</a></li>
               </ul>
             </nav>
-            <div class="mobile-button"><a class="menu-btn2 mb-2" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i>Book a Free Demo</a><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp">Get A Quote<span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
-            <div class="single-footer-items">
+            <div class="mobile-button"><a class="menu-btn2 mb-2" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i><span data-i18n-key="nav.book_demo">Book a Free Demo</span></a><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp"><span data-i18n-key="nav.get_quote">Get A Quote</span><span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+            <div class="single-footer-items gc-mobile-contact-compact">
               <h3>Contact Us</h3>
               <div class="contact-box">
                 <div class="icon"><img src="images/footer1-icon1.webp" alt="Phone Icon" width="24" height="24" loading="lazy"></div>
@@ -263,7 +316,9 @@
               </div>
               <div class="contact-box">
                 <div class="icon"><img src="images/footer1-icon2.webp" alt="Mobile Phone Icon" width="24" height="24" loading="lazy"></div>
-                <div class="pera"><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a></div>
+                <div class="pera">
+                  <div class="d-flex flex-column gap-1"><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a><a href="tel://+201222666635" aria-label="Call us at +201222666635">+201222666635</a></div>
+                </div>
               </div>
               <div class="contact-box">
                 <div class="icon"><img src="images/footer1-icon3.webp" alt="Email Icon" width="24" height="24" loading="lazy"></div>
@@ -289,17 +344,17 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-7">
-              <div class="mb-3"><a class="breadcrumb-link" href="index.html">Home</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">Contact Us</span></div>
-              <h1>Let's Talk About<br>Your Next Project</h1>
+              <div class="mb-3"><a class="breadcrumb-link" href="index.html" data-i18n-key="contact.breadcrumb_home">الرئيسية</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current" data-i18n-key="contact.breadcrumb_current">تواصل معنا</span></div>
+              <h1><span data-i18n-key="contact.hero_title_line1">لنتحدث عن</span><br><span data-i18n-key="contact.hero_title_line2">مشروعك القادم</span></h1>
               <div class="space16"></div>
-              <p>Whether you need Odoo ERP consultation, cloud migration, or a custom insurance platform — we're here to help.</p>
+              <p data-i18n-key="contact.hero_text">سواء كنت تحتاج إلى استشارة Odoo ERP أو ترحيل سحابي أو منصة تأمين مخصصة — نحن هنا للمساعدة.</p>
             </div>
           </div>
         </div>
       </div>
       <section class="partners-section">
         <div class="container">
-          <p class="partners-label">Trusted by leading organizations</p>
+          <p class="partners-label" data-i18n-key="shared.partners_label">Trusted by leading organizations</p>
         </div>
         <div class="partners-marquee" aria-label="Our partners">
           <div class="partners-track">
@@ -330,29 +385,30 @@
         <div class="container">
           <div class="row text-center mb-5">
             <div class="col-lg-8 mx-auto">
-              <div class="section-tag"><img src="images/gocloud%20logo.webp" alt="" loading="lazy">Get in Touch</div>
-              <h2 class="section-heading">Contact Information</h2>
-              <p class="text-muted">We'd love to hear from you. Reach out through any of the channels below.</p>
+              <div class="section-tag"><img src="images/gocloud%20logo.webp" alt="" loading="lazy"><span data-i18n-key="contact.info_kicker">تواصل معنا</span></div>
+              <h2 class="section-heading" data-i18n-key="contact.info_title">معلومات الاتصال</h2>
+              <p class="text-muted" data-i18n-key="contact.info_text">يسعدنا أن نسمع منك. تواصل عبر أي من القنوات التالية.</p>
             </div>
           </div>
           <div class="row g-4 mb-5">
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
               <div class="info-card">
                 <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
-                <h5>Call Us</h5><a href="tel:+201017383815">+2 010 1738 3815</a>
+                <h5 data-i18n-key="contact.call_title">اتصل بنا</h5>
+                <div class="contact-phone-list"><a class="gc-phone-ltr" href="tel:+201017383815">+2 010 1738 3815</a><a class="gc-phone-ltr" href="tel:+201222666635">+20 122 266 6635</a></div>
               </div>
             </div>
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
               <div class="info-card">
                 <div class="info-icon"><i class="fas fa-envelope"></i></div>
-                <h5>Email Us</h5><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a>
+                <h5 data-i18n-key="contact.email_title">راسلنا</h5><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a>
               </div>
             </div>
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
               <div class="info-card">
                 <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <h5>Visit Our Office</h5>
-                <p>Behind Royal Pyramids Language School, Ahram Gardens, Gate 4, Giza</p>
+                <h5 data-i18n-key="contact.office_title">زر مكتبنا</h5>
+                <p data-i18n-key="contact.office_text">خلف مدرسة رويال بيراميدز للغات، حدائق الأهرام، بوابة 4، الجيزة</p>
               </div>
             </div>
           </div>
@@ -363,36 +419,36 @@
           <div class="row g-5 align-items-start">
             <div class="col-lg-7" data-aos="fade-right">
               <div class="contact-form-wrap">
-                <h4 class="fw-bold mb-1">Send Us a Message</h4>
-                <p class="text-muted mb-4" style="font-size:.9rem">Fill in the form below and we'll get back to you within 24 hours.</p>
+                <h4 class="fw-bold mb-1" data-i18n-key="contact.form_title">أرسل لنا رسالة</h4>
+                <p class="text-muted mb-4" style="font-size:.9rem" data-i18n-key="contact.form_text">املأ النموذج أدناه وسنعود إليك خلال 24 ساعة.</p>
                 <form id="contactForm">
                   <div class="row g-3">
                     <div class="col-md-6">
-                      <label class="form-label" for="firstName">First Name</label>
-                      <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" required>
+                      <label class="form-label" for="firstName" data-i18n-key="contact.first_name">الاسم الأول</label>
+                      <input class="form-control" type="text" id="firstName" name="firstName" placeholder="John" data-i18n-placeholder-key="contact.first_name_placeholder" required>
                     </div>
                     <div class="col-md-6">
-                      <label class="form-label" for="lastName">Last Name</label>
-                      <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                      <label class="form-label" for="lastName" data-i18n-key="contact.last_name">اسم العائلة</label>
+                      <input class="form-control" type="text" id="lastName" name="lastName" placeholder="Doe" data-i18n-placeholder-key="contact.last_name_placeholder" required>
                     </div>
                     <div class="col-md-6">
-                      <label class="form-label" for="email">Email Address</label>
-                      <input class="form-control" type="email" id="email" name="email" placeholder="john@company.com" required>
+                      <label class="form-label" for="email" data-i18n-key="contact.email_label">البريد الإلكتروني</label>
+                      <input class="form-control" type="email" id="email" name="email" placeholder="john@company.com" data-i18n-placeholder-key="contact.email_placeholder" required>
                     </div>
                     <div class="col-md-6">
-                      <label class="form-label" for="phone">Phone Number</label>
-                      <input class="form-control" type="tel" id="phone" name="phone" placeholder="+20 xxx xxx xxxx">
+                      <label class="form-label" for="phone" data-i18n-key="contact.phone_label">رقم الهاتف</label>
+                      <input class="form-control" type="tel" id="phone" name="phone" placeholder="+20 xxx xxx xxxx" data-i18n-placeholder-key="contact.phone_placeholder">
                     </div>
                     <div class="col-12">
-                      <label class="form-label" for="subject">Subject</label>
-                      <input class="form-control" type="text" id="subject" name="subject" placeholder="e.g. Odoo ERP implementation inquiry" required>
+                      <label class="form-label" for="subject" data-i18n-key="contact.subject_label">الموضوع</label>
+                      <input class="form-control" type="text" id="subject" name="subject" placeholder="e.g. Odoo ERP implementation inquiry" data-i18n-placeholder-key="contact.subject_placeholder" required>
                     </div>
                     <div class="col-12">
-                      <label class="form-label" for="message">Message</label>
-                      <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your project or question..." required></textarea>
+                      <label class="form-label" for="message" data-i18n-key="contact.message_label">الرسالة</label>
+                      <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us about your project or question..." data-i18n-placeholder-key="contact.message_placeholder" required></textarea>
                     </div>
                     <div class="col-12 mt-4">
-                      <button class="btn-submit" type="submit">Send Message<i class="fa-solid fa-paper-plane"></i></button>
+                      <button class="btn-submit" type="submit"><span data-i18n-key="contact.submit_button">أرسل الرسالة</span><i class="fa-solid fa-paper-plane"></i></button>
                     </div>
                   </div>
                 </form>
@@ -400,35 +456,35 @@
             </div>
             <div class="col-lg-5" data-aos="fade-left">
               <div class="mb-4">
-                <h5 class="fw-bold">Why Contact GoCloud?</h5>
-                <p class="text-muted" style="font-size:.9rem;line-height:1.7">We don't just respond — we listen, analyze your requirements, and propose practical solutions tailored to your business. Here's what you can expect:</p>
+                <h5 class="fw-bold" data-i18n-key="contact.why_title">لماذا تتواصل مع GoCloud؟</h5>
+                <p class="text-muted" style="font-size:.9rem;line-height:1.7" data-i18n-key="contact.why_text">نحن لا نرد فقط — بل نستمع ونحلل متطلباتك ونقترح حلولاً عملية مصممة لعملك. هذا ما يمكنك توقعه:</p>
               </div>
               <div class="d-flex align-items-start gap-3 mb-3">
                 <div class="info-icon flex-shrink-0" style="width:42px;height:42px;font-size:1rem"><i class="fas fa-clock"></i></div>
                 <div>
-                  <h6 class="fw-bold mb-1" style="font-size:.9rem">Fast Response</h6>
-                  <p class="text-muted mb-0" style="font-size:.825rem">We respond within 24 hours on business days.</p>
+                  <h6 class="fw-bold mb-1" style="font-size:.9rem" data-i18n-key="contact.fast_title">استجابة سريعة</h6>
+                  <p class="text-muted mb-0" style="font-size:.825rem" data-i18n-key="contact.fast_text">نرد خلال 24 ساعة في أيام العمل.</p>
                 </div>
               </div>
               <div class="d-flex align-items-start gap-3 mb-3">
                 <div class="info-icon flex-shrink-0" style="width:42px;height:42px;font-size:1rem"><i class="fas fa-comments"></i></div>
                 <div>
-                  <h6 class="fw-bold mb-1" style="font-size:.9rem">Free Consultation</h6>
-                  <p class="text-muted mb-0" style="font-size:.825rem">Initial project discussion is always on us.</p>
+                  <h6 class="fw-bold mb-1" style="font-size:.9rem" data-i18n-key="contact.consult_title">استشارة مجانية</h6>
+                  <p class="text-muted mb-0" style="font-size:.825rem" data-i18n-key="contact.consult_text">النقاش الأولي حول المشروع علينا دائماً.</p>
                 </div>
               </div>
               <div class="d-flex align-items-start gap-3 mb-3">
                 <div class="info-icon flex-shrink-0" style="width:42px;height:42px;font-size:1rem"><i class="fas fa-file-alt"></i></div>
                 <div>
-                  <h6 class="fw-bold mb-1" style="font-size:.9rem">Detailed Proposal</h6>
-                  <p class="text-muted mb-0" style="font-size:.825rem">You'll receive a clear scope, timeline, and quote.</p>
+                  <h6 class="fw-bold mb-1" style="font-size:.9rem" data-i18n-key="contact.proposal_title">عرض تفصيلي</h6>
+                  <p class="text-muted mb-0" style="font-size:.825rem" data-i18n-key="contact.proposal_text">ستحصل على نطاق عمل واضح، وجدول زمني، وعرض سعر.</p>
                 </div>
               </div>
               <div class="d-flex align-items-start gap-3">
                 <div class="info-icon flex-shrink-0" style="width:42px;height:42px;font-size:1rem"><i class="fas fa-shield-alt"></i></div>
                 <div>
-                  <h6 class="fw-bold mb-1" style="font-size:.9rem">NDA Available</h6>
-                  <p class="text-muted mb-0" style="font-size:.825rem">We're happy to sign an NDA before discussing details.</p>
+                  <h6 class="fw-bold mb-1" style="font-size:.9rem" data-i18n-key="contact.nda_title">اتفاقية عدم إفشاء متاحة</h6>
+                  <p class="text-muted mb-0" style="font-size:.825rem" data-i18n-key="contact.nda_text">يسعدنا توقيع اتفاقية عدم إفشاء قبل مناقشة التفاصيل.</p>
                 </div>
               </div>
             </div>
@@ -439,8 +495,8 @@
         <div class="container">
           <div class="row text-center mb-4">
             <div class="col-lg-8 mx-auto">
-              <div class="section-tag"><img src="images/gocloud%20logo.webp" alt="" loading="lazy">Our Location</div>
-              <h2 class="section-heading">Find Us on the Map</h2>
+              <div class="section-tag"><img src="images/gocloud%20logo.webp" alt="" loading="lazy"><span data-i18n-key="contact.location_kicker">موقعنا</span></div>
+              <h2 class="section-heading" data-i18n-key="contact.location_title">اعثر علينا على الخريطة</h2>
             </div>
           </div>
           <div class="map-wrap" data-aos="fade-up">
@@ -451,20 +507,34 @@
       <section class="py-0">
         <div class="container">
           <div class="contact-cta text-center" data-aos="fade-up">
-            <h3>Prefer a Quick Chat?</h3>
-            <p class="mx-auto" style="max-width:500px">Skip the form — message us directly on WhatsApp and get an instant response from our team.</p>
-            <div class="space16"></div><a class="btn-cta-wa" href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="font-size:1.2rem"></i>Chat on WhatsApp</a>
+            <h3 data-i18n-key="contact.quick_title">تفضل محادثة سريعة؟</h3>
+            <p class="mx-auto" style="max-width:500px" data-i18n-key="contact.quick_text">تجاوز النموذج — راسلنا مباشرة على واتساب واحصل على رد فوري من فريقنا.</p>
+            <div class="space16"></div><a class="btn-cta-wa" href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="font-size:1.2rem"></i><span data-i18n-key="contact.quick_button">تحدث معنا على واتساب</span></a>
           </div>
         </div>
       </section>
       <!-- Footer Component-->
+      <style>
+        .gc-footer-compact h3{margin-bottom:8px!important}
+        .gc-footer-compact .mb-3{margin-bottom:.6rem!important}
+        .gc-footer-compact .mb-2{margin-bottom:.35rem!important}
+        .gc-footer-compact [data-newsletter-feedback]{margin-top:.35rem!important}
+        .gc-footer-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+        .gc-footer-compact .contact-box+.contact-box{margin-top:2px!important}
+        .gc-footer-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+        .gc-footer-compact .contact-box .pera,.gc-footer-compact .contact-box .pera a{line-height:1.2}
+        .gc-footer-compact .contact-box .pera a{display:inline-block;margin:0!important}
+        .gc-footer-compact .contact-box .pera p{margin:0}
+        .gc-footer-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+        
+      </style>
       <footer>
         <div class="footer1 _relative">
           <div class="container">
             <div class="row gy-4">
               <div class="col-lg-3 col-md-6 col-12">
                 <div class="single-footer-items"><a class="footer-logo d-inline-block mb-3" href="index.html" aria-label="GoCloud Home"><img src="images/gocloud logo.webp" height="60" width="60" alt="GoCloud Logo" loading="lazy"></a>
-                  <p class="footer-desc">As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.</p>
+                  <p class="footer-desc" data-i18n-key="footer.about_text">As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.</p>
                   <ul class="social-icon d-flex gap-2 mt-3">
                     <li><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
                     <li><a href="https://www.google.com/search?q=gocloud+eg" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fa-brands fa-google"></i></a></li>
@@ -476,40 +546,53 @@
               </div>
               <div class="col-lg-3 col-md-6 col-12">
                 <div class="single-footer-items">
-                  <h3>Our Services</h3>
+                  <h3 data-i18n-key="footer.services_title">Our Services</h3>
                   <ul class="menu-list">
-                    <li><a href="cloud-services.html"><i class="fa-solid fa-chevron-right me-2"></i>Cloud Solutions</a></li>
-                    <li><a href="odoo-services.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Services</a></li>
-                    <li><a href="odoo-imp.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Implementation</a></li>
-                    <li><a href="odoo-dev.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Development</a></li>
-                    <li><a href="business.html"><i class="fa-solid fa-chevron-right me-2"></i>Business Intelligence</a></li>
-                    <li><a href="portfolio.html"><i class="fa-solid fa-chevron-right me-2"></i>Portfolio & E-commerce</a></li>
-                    <li><a href="elite.html"><i class="fa-solid fa-chevron-right me-2"></i>ELITE Medical Insurance</a></li>
+                    <li><a href="cloud-services.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.cloud_solutions">Cloud Solutions</span></a></li>
+                    <li><a href="odoo-services.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_services">Odoo Services</span></a></li>
+                    <li><a href="odoo-imp.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_implementation">Odoo Implementation</span></a></li>
+                    <li><a href="odoo-dev.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_development">Odoo Development</span></a></li>
+                    <li><a href="business.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.business_intelligence">Business Intelligence</span></a></li>
+                    <li><a href="portfolio.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.portfolio">Portfolio & E-commerce</span></a></li>
+                    <li><a href="elite.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.elite_medical">ELITE Medical Insurance</span></a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-lg-2 col-md-6 col-12">
                 <div class="single-footer-items">
-                  <h3>Useful Links</h3>
+                  <h3 data-i18n-key="footer.links_title">Useful Links</h3>
                   <ul class="menu-list">
-                    <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i>About Us</a></li>
-                    <li><a href="service.html"><i class="fa-solid fa-chevron-right me-2"></i>Services</a></li>
-                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-2"></i>Contact Us</a></li>
-                    <li><a href="conditions-terms.html"><i class="fa-solid fa-chevron-right me-2"></i>Terms & Conditions</a></li>
-                    <li><a href="privacy.html"><i class="fa-solid fa-chevron-right me-2"></i>Privacy Policy</a></li>
+                    <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.about_us">About Us</span></a></li>
+                    <li><a href="service.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.services">Services</span></a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.contact_us">Contact Us</span></a></li>
+                    <li><a href="conditions-terms.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.terms">Terms & Conditions</span></a></li>
+                    <li><a href="privacy.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.privacy">Privacy Policy</span></a></li>
                   </ul>
                 </div>
               </div>
               <div class="col-lg-4 col-md-6 col-12">
-                <div class="single-footer-items">
-                  <h3>Contact Us</h3>
+                <div class="single-footer-items gc-footer-compact">
+                  <h3 data-i18n-key="footer.contact_title">Contact Us</h3>
+                  <div class="mb-3">
+                    <p class="mb-2 fw-semibold" data-i18n-key="footer.newsletter_title">Stay updated with GoCloud insights</p>
+                    <form data-newsletter-form data-source="website-footer">
+                      <label class="visually-hidden" for="newsletterEmailFooter" data-i18n-key="footer.email_label">Email address</label>
+                      <div class="input-group input-group-sm">
+                        <input class="form-control" id="newsletterEmailFooter" type="email" name="email" placeholder="name@company.com" required autocomplete="email">
+                        <button class="btn btn-light text-dark" type="submit" data-i18n-key="footer.subscribe">Subscribe</button>
+                      </div>
+                    </form>
+                    <p class="small mt-2 mb-0" data-newsletter-feedback role="status" aria-live="polite"></p>
+                  </div>
                   <div class="contact-box">
                     <div class="icon"><i class="fa-solid fa-phone"></i></div>
-                    <div class="pera"><a href="tel:+20233762533">02 3376 2533</a></div>
+                    <div class="pera"><a class="gc-phone-ltr" href="tel:+20233762533">02 3376 2533</a></div>
                   </div>
                   <div class="contact-box">
                     <div class="icon"><i class="fa-solid fa-mobile-screen"></i></div>
-                    <div class="pera"><a href="tel:+201017383815">+20 101 738 3815</a></div>
+                    <div class="pera">
+                      <div class="d-flex flex-column gap-1"><a class="gc-phone-ltr" href="tel:+201017383815">+20 101 738 3815</a><a class="gc-phone-ltr" href="tel:+201222666635">+20 122 266 6635</a></div>
+                    </div>
                   </div>
                   <div class="contact-box">
                     <div class="icon"><i class="fa-solid fa-envelope"></i></div>
@@ -519,7 +602,7 @@
                     <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div class="pera"><a href="https://www.google.com/maps/place/?q=place_id:ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer">Ahram Gardens, Gate 4, Giza, Egypt</a></div>
                   </div>
-                  <div class="d-flex gap-2 mt-3"><a class="btn btn-sm btn-outline-light" href="https://www.google.com/maps/dir/?api=1&amp;destination=GoCloud&amp;destination_place_id=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right me-1"></i>Directions</a><a class="btn btn-sm btn-outline-light" href="https://search.google.com/local/writereview?placeid=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-star me-1"></i>Review Us</a></div>
+                  <div class="d-flex gap-2 mt-3"><a class="btn btn-sm btn-outline-light" href="https://www.google.com/maps/dir/?api=1&amp;destination=GoCloud&amp;destination_place_id=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right me-1"></i><span data-i18n-key="footer.directions">Directions</span></a><a class="btn btn-sm btn-outline-light" href="https://search.google.com/local/writereview?placeid=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-star me-1"></i><span data-i18n-key="footer.review_us">Review Us</span></a></div>
                 </div>
               </div>
             </div>
@@ -528,9 +611,9 @@
             <div class="container">
               <div class="row align-items-center">
                 <div class="col-md-6 text-center text-md-start">
-                  <p class="mb-0">&copy;<span id="gcCurrentYear"></span> GoCloud. All Rights Reserved.</p>
+                  <p class="mb-0">&copy;<span id="gcCurrentYear"></span><span data-i18n-key="footer.copyright"> GoCloud. All Rights Reserved.</span></p>
                 </div>
-                <div class="col-md-6 text-center text-md-end"><a href="conditions-terms.html">Terms & Conditions</a><span class="mx-2">|</span><a href="privacy.html">Privacy Policy</a></div>
+                <div class="col-md-6 text-center text-md-end"><a href="conditions-terms.html" data-i18n-key="footer.terms">Terms & Conditions</a><span class="mx-2">|</span><a href="privacy.html" data-i18n-key="footer.privacy">Privacy Policy</a></div>
               </div>
             </div>
           </div>
@@ -711,10 +794,12 @@
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" integrity="sha384-YGnnOBKslPJVs35GG0TtAZ4uO7BHpHlqJhs0XK3k6cuVb6EBtl+8xcvIIOKV5wB+" crossorigin="anonymous" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha384-d+vyQ0dYcymoP8ndq2hW7FGC50nqGdXUEgoOUGxbbkAJwZqL7h+jKN0GGgn9hFDS" crossorigin="anonymous" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha384-poC0r6usQOX2Ayt/VGA+t81H6V3iN9L+Irz9iO8o+s0X20tLpzc9DOOtnKxhaQSE" crossorigin="anonymous" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" integrity="sha384-Hf6yat1C7ze92LpS287AKvB24pRLwa+YxYmOVZKCiBHybkfxZDYy7TuKW/KbcS3i" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" crossorigin="anonymous" defer></script>
     <script src="js/plugins-bundle.min.js" defer></script>
     <script src="js/security-init.js" defer></script>
+    <script src="js/site-language.js" defer></script>
     <script src="js/main.min.js" defer></script>
+    <script src="js/newsletter.js" defer></script>
     <!-- Page specific scripts-->
   </body>
 </html>

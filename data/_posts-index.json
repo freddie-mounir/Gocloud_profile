@@ -18,7 +18,53 @@
       "الباركود",
       "التجزئة"
     ],
-    "featured": true
+    "featured": true,
+    "title_i18n": {
+      "ar": "إدارة المخزون متعدد الفروع مع Odoo: كيف توحّد البيانات وتسرّع التحويلات وتقلّل الفاقد؟",
+      "en": "Multi-Branch Inventory Management with Odoo: How to Unify Data, Speed Up Transfers, and Reduce Loss"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "دليل عملي يوضح كيف يساعد Odoo شركات التجزئة متعددة الفروع على توحيد بيانات المخزون، تسريع التحويلات بين الفروع، وتطبيق أدوات Stock Control مثل الجرد الدوري والباركود لتقليل الأخطاء والفاقد.",
+      "en": "A practical guide showing how Odoo helps multi-branch retail companies unify inventory data, speed up inter-branch transfers, and apply stock-control tools such as cycle counting and barcodes to reduce errors and loss."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "Odoo",
+        "en": "Odoo"
+      },
+      {
+        "ar": "إدارة المخزون",
+        "en": "Inventory Management"
+      },
+      {
+        "ar": "تعدد الفروع",
+        "en": "Multi-Branch Operations"
+      },
+      {
+        "ar": "Stock Control",
+        "en": "Stock Control"
+      },
+      {
+        "ar": "الجرد الدوري",
+        "en": "Cycle Counting"
+      },
+      {
+        "ar": "الباركود",
+        "en": "Barcode"
+      },
+      {
+        "ar": "التجزئة",
+        "en": "Retail"
+      }
+    ]
   },
   {
     "id": "world-cup-2026-ai-ref-cctv-odoo",
@@ -41,7 +87,61 @@
       "تقارير ذكية",
       "GoCloud"
     ],
-    "featured": true
+    "featured": true,
+    "title_i18n": {
+      "ar": "تقنيات كأس العالم 2026 في أمريكا وكندا والمكسيك: الذكاء الاصطناعي وكاميرات الحكام وما الذي تتعلمه الشركات منها؟",
+      "en": "World Cup 2026 Technology in the USA, Canada, and Mexico: AI, Referee Cameras, and What Businesses Can Learn"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "تحليل عملي لتقنيات كأس العالم 2026 مثل الذكاء الاصطناعي وكاميرات الحكام، وكيف يمكن للشركات الاستفادة من نفس المنهج عبر لوحات تحكم وتقارير ذكية مخصصة على Odoo لتحسين إدارة فرق المبيعات.",
+      "en": "A practical analysis of World Cup 2026 technologies such as AI and referee cameras, and how companies can apply the same thinking through custom Odoo dashboards and smart reports to improve sales team management."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "كأس العالم 2026",
+        "en": "World Cup 2026"
+      },
+      {
+        "ar": "تقنيات كأس العالم",
+        "en": "World Cup Technology"
+      },
+      {
+        "ar": "الذكاء الاصطناعي",
+        "en": "Artificial Intelligence"
+      },
+      {
+        "ar": "كاميرا الحكم",
+        "en": "Referee Camera"
+      },
+      {
+        "ar": "CCTV",
+        "en": "CCTV"
+      },
+      {
+        "ar": "Odoo",
+        "en": "Odoo"
+      },
+      {
+        "ar": "لوحات تحكم",
+        "en": "Dashboards"
+      },
+      {
+        "ar": "تقارير ذكية",
+        "en": "Smart Reports"
+      },
+      {
+        "ar": "GoCloud",
+        "en": "GoCloud"
+      }
+    ]
   },
   {
     "id": "crm-gold-investment-egypt-middle-east",
@@ -62,7 +162,53 @@
       "Odoo CRM",
       "إدارة العملاء"
     ],
-    "featured": true
+    "featured": true,
+    "title_i18n": {
+      "ar": "أهمية CRM لشركات تجارة واستثمار الذهب في مصر والشرق الأوسط: من متابعة العملاء إلى زيادة الأرباح",
+      "en": "Why CRM Matters for Gold Trading and Investment Companies in Egypt and the Middle East"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "دليل عملي يوضح لماذا تحتاج شركات تجارة الذهب والسبائك والاستثمار في مصر والشرق الأوسط إلى CRM احترافي لإدارة العملاء والمستثمرين والفروع والتسعير ومتابعة فرص البيع بدقة أعلى ونمو أسرع.",
+      "en": "A practical guide explaining why gold trading, bullion, and gold investment companies in Egypt and the Middle East need a professional CRM to manage customers, investors, branches, pricing, and sales opportunities with greater precision and faster growth."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "CRM",
+        "en": "CRM"
+      },
+      {
+        "ar": "شركات الذهب",
+        "en": "Gold Companies"
+      },
+      {
+        "ar": "استثمار الذهب",
+        "en": "Gold Investment"
+      },
+      {
+        "ar": "مصر",
+        "en": "Egypt"
+      },
+      {
+        "ar": "الشرق الأوسط",
+        "en": "Middle East"
+      },
+      {
+        "ar": "Odoo CRM",
+        "en": "Odoo CRM"
+      },
+      {
+        "ar": "إدارة العملاء",
+        "en": "Customer Management"
+      }
+    ]
   },
   {
     "id": "odoo-sales-inventory-trade-distribution",
@@ -83,7 +229,53 @@
       "ERP",
       "Workflow"
     ],
-    "featured": true
+    "featured": true,
+    "title_i18n": {
+      "ar": "لماذا تختلف أرقام المبيعات عن المخزون في شركات التجارة والتوزيع؟ وكيف يعالج Odoo السبب الحقيقي",
+      "en": "Why Sales and Inventory Numbers Diverge in Trade and Distribution Companies — And How Odoo Solves the Real Cause"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "مقال عملي يشرح السبب الحقيقي وراء اختلاف أرقام المبيعات عن المخزون في شركات التجارة والتوزيع، وكيف يساعد Odoo على توحيد الإجراءات ورفع دقة التقارير وتسريع التسليم.",
+      "en": "A practical article explaining the real reasons sales and inventory numbers diverge in trade and distribution companies, and how Odoo helps unify workflows, improve reporting accuracy, and speed up fulfillment."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "Odoo",
+        "en": "Odoo"
+      },
+      {
+        "ar": "التجارة والتوزيع",
+        "en": "Trade and Distribution"
+      },
+      {
+        "ar": "إدارة المخزون",
+        "en": "Inventory Management"
+      },
+      {
+        "ar": "المبيعات والمخزون",
+        "en": "Sales and Inventory"
+      },
+      {
+        "ar": "سلسلة التوريد",
+        "en": "Supply Chain"
+      },
+      {
+        "ar": "ERP",
+        "en": "ERP"
+      },
+      {
+        "ar": "Workflow",
+        "en": "Workflow"
+      }
+    ]
   },
   {
     "id": "enterprises-switching-to-odoo-2026",
@@ -103,7 +295,49 @@
       "تحول رقمي",
       "Odoo 2026"
     ],
-    "featured": true
+    "featured": true,
+    "title_i18n": {
+      "ar": "لماذا تتحول الشركات الكبرى إلى Odoo في 2026؟ مقارنة مع SAP وOracle وMicrosoft",
+      "en": "Why Large Enterprises Are Moving to Odoo in 2026 — Compared with SAP, Oracle, and Microsoft"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "مقارنة شاملة بين Odoo وأنظمة ERP العملاقة — SAP وOracle وMicrosoft Dynamics — ولماذا تختار المؤسسات الكبرى الانتقال إلى Odoo في 2026.",
+      "en": "A practical comparison between Odoo and major ERP platforms such as SAP, Oracle, and Microsoft Dynamics, and why large enterprises are moving to Odoo in 2026."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "Odoo",
+        "en": "Odoo"
+      },
+      {
+        "ar": "SAP",
+        "en": "SAP"
+      },
+      {
+        "ar": "Oracle",
+        "en": "Oracle"
+      },
+      {
+        "ar": "مقارنة ERP",
+        "en": "ERP Comparison"
+      },
+      {
+        "ar": "تحول رقمي",
+        "en": "Digital Transformation"
+      },
+      {
+        "ar": "Odoo 2026",
+        "en": "Odoo 2026"
+      }
+    ]
   },
   {
     "id": "odoo-construction-companies",
@@ -123,7 +357,49 @@
       "Odoo 20",
       "إدارة مشاريع"
     ],
-    "featured": false
+    "featured": false,
+    "title_i18n": {
+      "ar": "هل Odoo 20 مناسب لشركات المقاولات؟ نظرة على المميزات الجديدة والتحديات الحقيقية",
+      "en": "Is Odoo 20 Ready for Construction Companies? A Look at the New Features and Real Challenges"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "مع تحديثات Odoo 20 الجديدة لقطاع الإنشاءات، هل أصبح النظام جاهزاً فعلاً لإدارة مشاريع المقاولات؟ نستعرض المميزات والتحديات الحقيقية.",
+      "en": "With the new Odoo 20 updates for the construction sector, is the system truly ready to manage contracting projects? We review the new features and the real implementation challenges."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "Odoo",
+        "en": "Odoo"
+      },
+      {
+        "ar": "مقاولات",
+        "en": "Contracting"
+      },
+      {
+        "ar": "إنشاءات",
+        "en": "Construction"
+      },
+      {
+        "ar": "ERP",
+        "en": "ERP"
+      },
+      {
+        "ar": "Odoo 20",
+        "en": "Odoo 20"
+      },
+      {
+        "ar": "إدارة مشاريع",
+        "en": "Project Management"
+      }
+    ]
   },
   {
     "id": "odoo-pricing-explained",
@@ -142,7 +418,45 @@
       "تنفيذ أودو",
       "استثمار تقني"
     ],
-    "featured": true
+    "featured": true,
+    "title_i18n": {
+      "ar": "تكلفة مشروع Odoo: لماذا يختلف السعر من شركة لأخرى؟ دليلك الشامل",
+      "en": "The Cost of an Odoo Project: Why Pricing Differs from One Company to Another"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "تعرّف على المكونات الثلاثة الأساسية لتكلفة مشروع Odoo ERP — من التراخيص إلى التنفيذ والدعم — ولماذا أرخص عرض ليس دائماً الأذكى.",
+      "en": "Understand the three core components of Odoo ERP project cost, from licensing to implementation and support, and why the cheapest offer is not always the smartest."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "Odoo",
+        "en": "Odoo"
+      },
+      {
+        "ar": "تسعير Odoo",
+        "en": "Odoo Pricing"
+      },
+      {
+        "ar": "تكلفة ERP",
+        "en": "ERP Cost"
+      },
+      {
+        "ar": "تنفيذ أودو",
+        "en": "Odoo Implementation"
+      },
+      {
+        "ar": "استثمار تقني",
+        "en": "Technology Investment"
+      }
+    ]
   },
   {
     "id": "odoo-crm-medical-supplies",
@@ -161,7 +475,45 @@
       "تنبؤ بالمبيعات",
       "تحليل السوق"
     ],
-    "featured": true
+    "featured": true,
+    "title_i18n": {
+      "ar": "Odoo CRM لشركات المستلزمات الطبية — مراقبة فرق المبيعات وزيادة الإيرادات",
+      "en": "Odoo CRM for Medical Supplies Companies — Monitoring Sales Teams and Growing Revenue"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "كيف يساعد Odoo CRM المخصص شركات المستلزمات الطبية في مراقبة فرق المبيعات الميدانية وتحسين التنبؤ بالمبيعات وتحليل السوق لزيادة الإيرادات.",
+      "en": "See how a customized Odoo CRM helps medical supplies companies monitor field sales teams, improve forecasting, and analyze the market to increase revenue."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "Odoo CRM",
+        "en": "Odoo CRM"
+      },
+      {
+        "ar": "مستلزمات طبية",
+        "en": "Medical Supplies"
+      },
+      {
+        "ar": "مراقبة المبيعات",
+        "en": "Sales Monitoring"
+      },
+      {
+        "ar": "تنبؤ بالمبيعات",
+        "en": "Sales Forecasting"
+      },
+      {
+        "ar": "تحليل السوق",
+        "en": "Market Analysis"
+      }
+    ]
   },
   {
     "id": "unified-medical-insurance-portal",
@@ -181,7 +533,49 @@
       "ELITE",
       "تكامل الأنظمة"
     ],
-    "featured": true
+    "featured": true,
+    "title_i18n": {
+      "ar": "بوابة تأمين طبي موحدة — لماذا النظام الواحد أفضل من ثلاثة أنظمة منفصلة؟",
+      "en": "A Unified Medical Insurance Portal — Why One System Is Better Than Three Separate Platforms"
+    },
+    "categoryLabel_i18n": {
+      "ar": "التأمين الطبي",
+      "en": "Medical Insurance"
+    },
+    "excerpt_i18n": {
+      "ar": "تعرّف على أهمية وجود بوابة تأمين طبي واحدة تخدم شركة التأمين و TPA ومقدمي الخدمة الطبية، وعيوب استخدام أنظمة منفصلة لكل طرف.",
+      "en": "Learn why a single medical insurance portal serving insurers, TPAs, and medical providers is more effective than running separate systems for each party."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "بوابة موحدة",
+        "en": "Unified Portal"
+      },
+      {
+        "ar": "تأمين طبي",
+        "en": "Medical Insurance"
+      },
+      {
+        "ar": "TPA",
+        "en": "TPA"
+      },
+      {
+        "ar": "مقدمو الخدمة",
+        "en": "Medical Providers"
+      },
+      {
+        "ar": "ELITE",
+        "en": "ELITE"
+      },
+      {
+        "ar": "تكامل الأنظمة",
+        "en": "Systems Integration"
+      }
+    ]
   },
   {
     "id": "document-management-medical-insurance",
@@ -200,7 +594,45 @@
       "رقمنة",
       "كفاءة العمليات"
     ],
-    "featured": false
+    "featured": false,
+    "title_i18n": {
+      "ar": "أهمية نظام إدارة الوثائق المتكامل مع نظام التأمين الطبي",
+      "en": "Why an Integrated Document Management System Matters in Medical Insurance"
+    },
+    "categoryLabel_i18n": {
+      "ar": "التأمين الطبي",
+      "en": "Medical Insurance"
+    },
+    "excerpt_i18n": {
+      "ar": "كيف يؤثر نظام إدارة وثائق متكامل تماماً مع عمليات التأمين الطبي على كفاءة العمليات وتقليل الأخطاء وتسريع تسوية المطالبات.",
+      "en": "See how a document management system fully integrated with medical insurance operations improves efficiency, reduces errors, and accelerates claims settlement."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "إدارة الوثائق",
+        "en": "Document Management"
+      },
+      {
+        "ar": "تأمين طبي",
+        "en": "Medical Insurance"
+      },
+      {
+        "ar": "ELITE",
+        "en": "ELITE"
+      },
+      {
+        "ar": "رقمنة",
+        "en": "Digitization"
+      },
+      {
+        "ar": "كفاءة العمليات",
+        "en": "Operational Efficiency"
+      }
+    ]
   },
   {
     "id": "odoo-crm-gold-trading",
@@ -219,7 +651,45 @@
       "مستهدفات المبيعات",
       "سياسات البيع"
     ],
-    "featured": true
+    "featured": true,
+    "title_i18n": {
+      "ar": "كيف يُحدث Odoo CRM ثورة في إدارة شركات تجارة الذهب؟",
+      "en": "How Odoo CRM Is Transforming Gold Trading Companies"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "اكتشف كيف يساعد Odoo CRM شركات تجارة الذهب في ضبط سياسات البيع وتحقيق المستهدفات ومتابعة أداء الفروع لحظياً من خلال لوحة تحكم متكاملة.",
+      "en": "Discover how Odoo CRM helps gold trading companies enforce sales controls, track targets, and monitor branch performance in real time through an integrated dashboard."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "Odoo CRM",
+        "en": "Odoo CRM"
+      },
+      {
+        "ar": "تجارة الذهب",
+        "en": "Gold Trading"
+      },
+      {
+        "ar": "لوحة تحكم الفروع",
+        "en": "Branch Dashboard"
+      },
+      {
+        "ar": "مستهدفات المبيعات",
+        "en": "Sales Targets"
+      },
+      {
+        "ar": "سياسات البيع",
+        "en": "Sales Policies"
+      }
+    ]
   },
   {
     "id": "odoo-distribution-supply-chain",
@@ -238,7 +708,45 @@
       "مخزون",
       "ERP"
     ],
-    "featured": false
+    "featured": false,
+    "title_i18n": {
+      "ar": "كيف يساعد Odoo شركات التوزيع في تحسين سلسلة التوريد",
+      "en": "How Odoo Helps Distribution Companies Improve the Supply Chain"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "تعرّف على كيفية استخدام نظام Odoo ERP في تحسين عمليات التوزيع وإدارة سلسلة التوريد — من المستودعات حتى التوصيل النهائي.",
+      "en": "Learn how Odoo ERP helps improve distribution operations and supply chain management, from warehouse control to final delivery."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "Odoo",
+        "en": "Odoo"
+      },
+      {
+        "ar": "سلسلة التوريد",
+        "en": "Supply Chain"
+      },
+      {
+        "ar": "توزيع",
+        "en": "Distribution"
+      },
+      {
+        "ar": "مخزون",
+        "en": "Inventory"
+      },
+      {
+        "ar": "ERP",
+        "en": "ERP"
+      }
+    ]
   },
   {
     "id": "why-odoo-erp",
@@ -257,7 +765,45 @@
       "إدارة أعمال",
       "تحول رقمي"
     ],
-    "featured": true
+    "featured": true,
+    "title_i18n": {
+      "ar": "لماذا تختار Odoo ERP لإدارة أعمالك؟ 7 أسباب مقنعة",
+      "en": "Why Choose Odoo ERP for Your Business? 7 Compelling Reasons"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "اكتشف لماذا يُعد Odoo ERP الخيار الأمثل للشركات المتوسطة والكبيرة التي تبحث عن نظام متكامل لإدارة الموارد بكفاءة وفعالية.",
+      "en": "Discover why Odoo ERP is an ideal choice for medium and large businesses looking for an integrated system to manage resources efficiently and effectively."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "Odoo",
+        "en": "Odoo"
+      },
+      {
+        "ar": "ERP",
+        "en": "ERP"
+      },
+      {
+        "ar": "تخطيط موارد",
+        "en": "Resource Planning"
+      },
+      {
+        "ar": "إدارة أعمال",
+        "en": "Business Management"
+      },
+      {
+        "ar": "تحول رقمي",
+        "en": "Digital Transformation"
+      }
+    ]
   },
   {
     "id": "insurance-challenges-technology",
@@ -276,7 +822,45 @@
       "احتيال",
       "تكنولوجيا"
     ],
-    "featured": false
+    "featured": false,
+    "title_i18n": {
+      "ar": "5 تحديات تواجه شركات التأمين الطبي وكيف تحلها التكنولوجيا",
+      "en": "5 Challenges Facing Medical Insurance Companies and How Technology Solves Them"
+    },
+    "categoryLabel_i18n": {
+      "ar": "التأمين الطبي",
+      "en": "Medical Insurance"
+    },
+    "excerpt_i18n": {
+      "ar": "اكتشف أبرز التحديات التي تواجه قطاع التأمين الطبي في المنطقة العربية وكيف يمكن للحلول التقنية الحديثة أن تتغلب عليها.",
+      "en": "Discover the most important challenges facing the medical insurance sector in the Arab region and how modern technology solutions can overcome them."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "تأمين طبي",
+        "en": "Medical Insurance"
+      },
+      {
+        "ar": "تحول رقمي",
+        "en": "Digital Transformation"
+      },
+      {
+        "ar": "مطالبات",
+        "en": "Claims"
+      },
+      {
+        "ar": "احتيال",
+        "en": "Fraud"
+      },
+      {
+        "ar": "تكنولوجيا",
+        "en": "Technology"
+      }
+    ]
   },
   {
     "id": "elite-insurance-system",
@@ -294,6 +878,40 @@
       "إدارة مطالبات",
       "تكنولوجيا التأمين"
     ],
-    "featured": true
+    "featured": true,
+    "title_i18n": {
+      "ar": "ما هو نظام إدارة التأمين الطبي ELITE؟ دليل شامل",
+      "en": "What Is the ELITE Medical Insurance Management System? A Complete Guide"
+    },
+    "categoryLabel_i18n": {
+      "ar": "التأمين الطبي",
+      "en": "Medical Insurance"
+    },
+    "excerpt_i18n": {
+      "ar": "تعرّف على نظام ELITE لإدارة التأمين الطبي — المنصة المتكاملة التي تُبسّط دورة حياة التأمين بالكامل من إصدار الوثائق حتى تسوية المطالبات.",
+      "en": "Discover ELITE, the integrated medical insurance platform that streamlines the entire insurance lifecycle from policy issuance to claims settlement."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "ELITE",
+        "en": "ELITE"
+      },
+      {
+        "ar": "تأمين طبي",
+        "en": "Medical Insurance"
+      },
+      {
+        "ar": "إدارة مطالبات",
+        "en": "Claims Management"
+      },
+      {
+        "ar": "تكنولوجيا التأمين",
+        "en": "Insurance Technology"
+      }
+    ]
   }
 ]

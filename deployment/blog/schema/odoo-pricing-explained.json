@@ -1,6 +1,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
+  "inLanguage": "ar",
   "headline": "تكلفة مشروع Odoo: لماذا يختلف السعر من شركة لأخرى؟ دليلك الشامل",
   "description": "تعرّف على المكونات الثلاثة الأساسية لتكلفة مشروع Odoo ERP — من التراخيص إلى التنفيذ والدعم — ولماذا أرخص عرض ليس دائماً الأذكى.",
   "image": "https://www.gocloudeg.com/images/blog-odoo-pricing.png",

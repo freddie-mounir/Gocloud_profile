@@ -22,39 +22,42 @@
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
     <link rel="alternate" hreflang="ar" href="https://www.gocloudeg.com/blog/odoo-pricing-explained.html">
-    <link rel="alternate" hreflang="en" href="https://www.gocloudeg.com/">
-    <link rel="alternate" hreflang="x-default" href="https://www.gocloudeg.com/">
+    <link rel="alternate" hreflang="en" href="https://www.gocloudeg.com/blog/en/odoo-pricing-explained.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.gocloudeg.com/blog/odoo-pricing-explained.html">
     <script type="application/ld+json" src="schema/odoo-pricing-explained.json"></script>
     <link rel="icon" href="../images/favicon.ico" sizes="32x32">
     <link rel="icon" href="../images/gocloud logo.webp" type="image/webp">
     <link rel="manifest" href="../manifest.json">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-nU14brUcp6StFntEOOEBvcJm4huWjB0OcIeQ3fltAfSmuZFrkAif0T+UtNGlKKQv" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha384-blOohCVdhjmtROpu8+CfTnUWham9nkX7P7OZQMst+RUnhtoY/9qemFAkIKOYxDI3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.min.css">
+    <link rel="stylesheet" href="../css/plugins-bundle.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;display=swap">
-    <style>
-      *{font-family:'IBM Plex Sans Arabic','Figtree',sans-serif}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&amp;display=swap">
+    <script src="../js/analytics.js" defer></script>
+    <style>*{font-family:'IBM Plex Sans Arabic','Figtree',sans-serif}
       body{background:#fff;color:#0D0E10;line-height:1.7}
+      body[data-site-lang='en'], html[lang='en'] body{text-align:left}
       img{max-width:100%;height:auto}
       a{transition:color .2s}
       .section-tag{display:inline-flex;align-items:center;gap:8px;background:#EEF2FF;border-radius:50px;padding:6px 16px;font-size:.8rem;font-weight:600;color:#0E38B1;margin-bottom:1rem}
       .section-tag img{height:24px;width:24px}
       .section-heading{font-size:2rem;font-weight:800;color:#0D0E10;margin-bottom:1rem}
+      .header-area .header-elements>div>a img{height:78px!important;width:auto!important}
+      .mobile-header,.mobile-header.mobile-header-main{padding:10px 0}
+      .mobile-header .mobile-logo img,.mobile-sidebar .logo-m img{height:58px!important;width:auto!important}
+      .mobile-nav-icon{width:52px;height:52px;font-size:28px}
+      html[lang='en'] .header-area .header-elements nav .main-menu-ex ul{direction:ltr}
+      html[lang='en'] .header-area .header-elements nav .main-menu-ex ul li a{text-align:left}
+      html[lang='en'] .header1-buttons .button{justify-content:flex-end}
+      @media (max-width:767px){
+        .mobile-header,.mobile-header.mobile-header-main{top:44px}
+      }
       
     </style>
     <style>
-      /* ── Blog nav ── */
-      .blog-nav{background:#fff;border-bottom:1px solid #e9ecef;padding:.75rem 0;position:sticky;top:0;z-index:100}
-      .blog-nav .logo-link{display:flex;align-items:center;gap:8px;text-decoration:none;color:#0D0E10;font-weight:700;font-size:1rem}
-      .blog-nav .logo-link img{height:32px;width:32px}
-      .blog-nav .nav-links{display:flex;align-items:center;gap:1.5rem}
-      .blog-nav .nav-links a{color:#4a4b5c;text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
-      .blog-nav .nav-links a:hover,.blog-nav .nav-links a.active{color:#0E38B1}
-      .blog-nav .back-link{display:inline-flex;align-items:center;gap:6px;color:#0E38B1;text-decoration:none;font-size:.85rem;font-weight:600}
-      .blog-nav .back-link:hover{text-decoration:underline}
-      
       /* ── Post hero ── */
       .post-hero{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 60%,#0E38B1 100%);padding:4rem 0 3rem;position:relative;overflow:hidden}
       .post-hero::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:60px;background:#fff;clip-path:polygon(0 60%,100% 0,100% 100%,0 100%)}
@@ -66,6 +69,8 @@
       .post-hero h1{font-size:2rem;font-weight:800;color:#fff;line-height:1.5;max-width:700px}
       .post-hero-meta{color:rgba(255,255,255,.65);font-size:.85rem;margin-top:.75rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
       .post-hero-meta i{margin-left:4px}
+      html[lang='en'] .post-hero .container{text-align:left}
+      html[lang='en'] .post-hero-meta i{margin-right:4px;margin-left:0}
       
       /* ── Article body ── */
       .article-section{padding:3rem 0 4rem}
@@ -79,10 +84,24 @@
       .article-content a{color:#0E38B1;text-decoration:underline}
       .article-content a:hover{color:#113ADC}
       .article-content strong{color:#0D0E10}
+      html[lang='en'] .article-content{text-align:left}
+      html[lang='en'] .article-content ul,html[lang='en'] .article-content ol{padding-left:1.5rem;padding-right:0}
+      html[lang='en'] .article-content h2,html[lang='en'] .article-content h3{text-align:left}
+      
+      /* ── Expert backlinks ── */
+      .expert-backlinks{margin:1.5rem 0;background:#f7f9ff;border:1px solid #e2e8ff;border-radius:14px;padding:1.25rem}
+      .expert-backlinks h5{font-size:1rem;font-weight:800;color:#0D0E10;margin:0 0 .35rem}
+      .expert-backlinks p{font-size:.85rem;color:#5b607a;margin:0 0 .8rem}
+      .expert-link-item{display:block;background:#fff;border:1px solid #e9ecef;border-radius:10px;padding:.8rem .9rem;text-decoration:none;margin-bottom:.55rem;transition:all .2s}
+      .expert-link-item:last-child{margin-bottom:0}
+      .expert-link-item:hover{border-color:#0E38B1;box-shadow:0 6px 18px rgba(14,56,177,.08)}
+      .expert-link-title{display:block;color:#0D0E10;font-size:.88rem;font-weight:700;line-height:1.55}
+      .expert-link-reason{display:block;color:#6c728f;font-size:.76rem;margin-top:3px}
       
       /* ── Tags ── */
       .post-tags{margin-top:2rem;padding-top:1.5rem;border-top:1px solid #e9ecef;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
       .post-tag{background:#EEF2FF;color:#0E38B1;font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:50px}
+      html[lang='en'] .post-tags i{margin-right:.5rem;margin-left:0!important}
       
       /* ── Share bar ── */
       .share-bar{background:#f7f9ff;border-radius:12px;padding:1.25rem;margin-top:2rem}
@@ -93,6 +112,7 @@
       .share-btn.li:hover{background:#0077B5;border-color:#0077B5}
       .share-btn.fb:hover{background:#1877F2;border-color:#1877F2}
       .share-btn.copy:hover{background:#0E38B1;border-color:#0E38B1}
+      html[lang='en'] .share-bar{text-align:left}
       
       /* ── Sidebar ── */
       .sidebar-card{background:#fff;border:1px solid #e9ecef;border-radius:16px;padding:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,.04);margin-bottom:1.5rem}
@@ -107,6 +127,21 @@
       .cat-link:last-child{border-bottom:none}
       .cat-link:hover{color:#0E38B1}
       .cat-count{background:#EEF2FF;color:#0E38B1;font-size:.72rem;font-weight:700;padding:2px 10px;border-radius:50px}
+      html[lang='en'] .sidebar-card,html[lang='en'] .newsletter-card{text-align:left}
+      
+      /* ── Newsletter ── */
+      .newsletter-card{background:#f4f8ff;border:1px solid #dbe6ff;border-radius:16px;padding:1.35rem;margin-bottom:1.5rem}
+      .newsletter-card h5{font-size:1rem;font-weight:800;color:#0D0E10;margin-bottom:.35rem}
+      .newsletter-card p{font-size:.82rem;color:#5b607a;margin-bottom:.8rem}
+      .newsletter-form{display:flex;flex-direction:column;gap:.55rem}
+      .newsletter-input{border:1px solid #ced7ee;border-radius:10px;padding:.65rem .75rem;font-size:.85rem}
+      .newsletter-input:focus{outline:none;border-color:#0E38B1;box-shadow:0 0 0 3px rgba(14,56,177,.12)}
+      .newsletter-btn{background:#0E38B1;color:#fff;border:none;border-radius:10px;padding:.65rem .85rem;font-size:.82rem;font-weight:700;transition:all .2s}
+      .newsletter-btn:hover{background:#113ADC}
+      .newsletter-feedback{min-height:1.1rem;font-size:.75rem;font-weight:600}
+      .newsletter-feedback.success{color:#0f7b37}
+      .newsletter-feedback.error{color:#b42318}
+      .newsletter-note{font-size:.7rem;color:#6c728f;margin:0}
       
       /* ── CTA ── */
       .blog-cta{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 100%);border-radius:16px;padding:2.5rem;text-align:center;margin-top:2rem}
@@ -114,18 +149,177 @@
       .blog-cta p{color:rgba(255,255,255,.75);font-size:.9rem;max-width:400px;margin:0 auto .75rem}
       .btn-cta-blog{background:#A1E934;color:#0D0E10;border:none;border-radius:50px;padding:10px 28px;font-weight:700;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .3s}
       .btn-cta-blog:hover{background:#8dd22a;transform:translateY(-2px);box-shadow:0 8px 20px rgba(161,233,52,.3);color:#0D0E10}
+      html[lang='en'] .btn-cta-blog i{transform:scaleX(-1)}
       
     </style>
   </head>
   <body>
     <div id="main-content" role="main">
-      <nav class="blog-nav">
+      <style>
+        .top-bar{background:linear-gradient(90deg,#0a1e5e 0%,#0E38B1 50%,#0a1e5e 100%);padding:8px 0;position:relative;z-index:1000}
+        .top-bar-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+        .top-bar-left{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+        .top-bar-item{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.8);font-size:.78rem;font-weight:500}
+        .top-bar-item i{color:#A1E934;font-size:.7rem}
+        .top-bar-item a{color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
+        .top-bar-item a:hover{color:#fff}
+        .top-bar-lang .dropdown-toggle{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:6px 12px;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.04em;line-height:1}
+        .top-bar-lang .dropdown-toggle::after{margin-inline-start:4px}
+        .top-bar-lang .dropdown-toggle:hover,.top-bar-lang .dropdown-toggle:focus{background:rgba(255,255,255,.18);color:#fff;box-shadow:none}
+        .top-bar-lang .dropdown-toggle:focus-visible{outline:2px solid #A1E934;outline-offset:2px}
+        .top-bar-lang .dropdown-menu{display:none;min-width:150px;border-radius:14px;border:1px solid #dfe6fb;box-shadow:0 18px 36px rgba(8,31,99,.12);padding:.35rem}
+        .top-bar-lang .dropdown-menu.show{display:block}
+        .top-bar-lang .dropdown-item{border-radius:10px;font-size:.88rem;font-weight:700;padding:.55rem .8rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+        .top-bar-lang .dropdown-item.active,.top-bar-lang .dropdown-item:active{background:#0E38B1;color:#fff}
+        .top-bar-calls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+        .top-bar-call{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 14px;color:#fff;text-decoration:none;transition:background .2s,border-color .2s}
+        .top-bar-call:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.28);color:#fff}
+        .top-bar-call i{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(161,233,52,.15);color:#A1E934;font-size:.8rem}
+        .top-bar-call span{display:flex;flex-direction:column;line-height:1.15}
+        .top-bar-call strong{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.72);text-transform:uppercase;letter-spacing:.05em}
+        .top-bar-call em{font-style:normal;font-size:.8rem;font-weight:700;color:#fff}
+        .gc-phone-ltr{display:inline-block;direction:ltr;unicode-bidi:isolate}
+        .top-bar-right{display:flex;align-items:center;gap:12px}
+        .top-bar-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:4px 14px 4px 4px;font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.02em}
+        .top-bar-badge img{height:22px;border-radius:50%;background:#fff;padding:1px}
+        .top-bar-social a{color:rgba(255,255,255,.5);font-size:.8rem;margin-left:8px;transition:color .2s}
+        .top-bar-social a:hover{color:#A1E934}
+        @media(max-width:767px){.top-bar{position:fixed;top:0;left:0;width:100%;z-index:1001;padding:6px 0}.top-bar-right{display:none}.top-bar-left{gap:.55rem}.top-bar-item{font-size:.7rem}.top-bar-calls{width:100%;gap:6px}.top-bar-call{padding:4px 10px}.top-bar-call strong{font-size:.62rem}.top-bar-call em{font-size:.72rem}.top-bar-lang .dropdown-toggle{padding:5px 10px;font-size:.68rem}}
+        
+      </style>
+      <div class="top-bar">
         <div class="container">
-          <div class="d-flex align-items-center justify-content-between"><a class="logo-link" href="../index.html"><img src="../images/gocloud%20logo.webp" alt="GoCloud" width="32" height="32"><span>GoCloud</span></a>
-            <div class="nav-links d-none d-md-flex"><a href="../index.html">الرئيسية</a><a href="../service.html">الخدمات</a><a href="../contact.html">تواصل معنا</a><a class="active" href="index.html">المدونة</a></div><a class="back-link d-md-none" href="index.html"><i class="fas fa-arrow-right"></i>المدونة</a>
+          <div class="top-bar-inner">
+            <div class="top-bar-left">
+              <div class="top-bar-calls"><a class="top-bar-call" href="tel:+201017383815" aria-label="Call GoCloud at +2 010 1738 3815"><i class="fas fa-phone-alt"></i><span><strong data-i18n-key="topbar.call_label">Make a Call</strong><em class="gc-phone-ltr">+2 010 1738 3815</em></span></a><a class="top-bar-call" href="tel:+201222666635" aria-label="Call GoCloud at +20 122 266 6635"><i class="fas fa-phone-alt"></i><span><strong data-i18n-key="topbar.call_label">Make a Call</strong><em class="gc-phone-ltr">+20 122 266 6635</em></span></a></div>
+              <div class="dropdown top-bar-lang">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language switch" data-site-language-toggle><i class="fas fa-globe" aria-hidden="true"></i><span data-site-language-label>AR</span></button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <button class="dropdown-item" type="button" data-site-language="ar"><span>العربية</span><span class="small text-muted">AR</span></button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" type="button" data-site-language="en"><span>English</span><span class="small text-muted">EN</span></button>
+                  </li>
+                </ul>
+              </div>
+              <div class="top-bar-item"><i class="fas fa-envelope"></i><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
+              <div class="top-bar-item"><i class="fas fa-map-marker-alt"></i><span>Giza, Egypt</span></div>
+            </div>
+            <div class="top-bar-right">
+              <div class="top-bar-badge"><img src="../images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22"><span data-i18n-key="topbar.partner_badge">Odoo Official Partner</span></div>
+              <div class="top-bar-social"><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
+            </div>
           </div>
         </div>
-      </nav>
+      </div>
+      <!-- Header Component-->
+      <style>
+        .mobile-sidebar .gc-mobile-contact-compact h3{margin-bottom:8px!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box+.contact-box{margin-top:2px!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera,.mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{line-height:1.2}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{display:inline-block;margin:0!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera p{margin:0}
+        .mobile-sidebar .gc-mobile-contact-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+        
+      </style>
+      <header role="banner">
+        <div class="header-area header-area1 header-area-all d-none d-md-block d-lg-block" id="header">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="header-elements">
+                  <div><a href="../index.html" aria-label="GoCloud Home"><img src="../images/gocloud%20logo.webp" alt="GoCloud Logo" height="100px" width="100px" loading="lazy"></a></div>
+                  <nav role="navigation" aria-label="Main Navigation">
+                    <div class="main-menu-ex main-menu-ex1">
+                      <ul role="menubar">
+                        <li class="dropdown-menu-parrent" role="none"><a href="../index.html" role="menuitem" data-i18n-key="nav.home">Home</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="../about.html" role="menuitem" data-i18n-key="nav.about">About</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="../service.html" role="menuitem" data-i18n-key="nav.services">Services</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="../faq.html" role="menuitem" data-i18n-key="nav.faq">FAQ</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="../blog/index.html" role="menuitem" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-blog me-1"></i><span data-i18n-key="nav.blog">Blog</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="../odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-1"></i><span data-i18n-key="nav.odoo_services">Odoo Services</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="../elite.html" role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;"><span data-i18n-key="nav.elite">ELITE</span><span class="badge badge-warning ms-1" data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="../contact.html" role="menuitem" data-i18n-key="nav.contact">Contact</a></li>
+                      </ul>
+                    </div>
+                  </nav>
+                  <div class="header1-buttons">
+                    <div class="button d-flex gap-2 flex-wrap justify-content-end"><a class="theme-btn1" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i><span data-i18n-key="nav.book_demo">Book a Free Demo</span></a><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp"><span data-i18n-key="nav.get_quote">Get A Quote</span><span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Mobile Header-->
+      <header role="banner">
+        <div class="mobile-header d-block d-md-none d-lg-none">
+          <div class="container-fluid">
+            <div class="col-12">
+              <div class="mobile-header-elements">
+                <div class="mobile-logo"><a href="../index.html" aria-label="GoCloud Home"><img src="../images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy"></a></div>
+                <div class="mobile-nav-icon">
+                  <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-sidebar d-block d-md-none d-lg-none" role="dialog" aria-label="Mobile navigation menu">
+          <div class="logo-m"><a href="../index.html" aria-label="GoCloud Home"><img src="../images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy"></a></div>
+          <div class="menu-close">
+            <button class="mobile-menu-close-btn" type="button" aria-label="Close navigation menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+          </div>
+          <div class="mobile-nav">
+            <nav role="navigation" aria-label="Mobile Navigation">
+              <ul role="menubar">
+                <li role="none"><a href="../index.html" role="menuitem" data-i18n-key="nav.home">Home</a></li>
+                <li role="none"><a href="../about.html" role="menuitem" data-i18n-key="nav.about_us">About Us</a></li>
+                <li role="none"><a href="../service.html" role="menuitem" data-i18n-key="nav.services">Services</a></li>
+                <li role="none"><a href="../faq.html" role="menuitem" data-i18n-key="nav.faq">FAQ</a></li>
+                <li role="none"><a href="../blog/index.html" role="menuitem" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-blog me-2"></i><span data-i18n-key="nav.blog">Blog</span></a></li>
+                <li role="none"><a href="../odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-2"></i><span data-i18n-key="nav.odoo_services">Odoo Services</span></a></li>
+                <li role="none"><a href="../elite.html" role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;"><span data-i18n-key="nav.elite">ELITE</span><span class="badge badge-warning ms-2" data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                <li role="none"><a href="../contact.html" role="menuitem" data-i18n-key="nav.contact">Contact</a></li>
+              </ul>
+            </nav>
+            <div class="mobile-button"><a class="menu-btn2 mb-2" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i><span data-i18n-key="nav.book_demo">Book a Free Demo</span></a><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp"><span data-i18n-key="nav.get_quote">Get A Quote</span><span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+            <div class="single-footer-items gc-mobile-contact-compact">
+              <h3>Contact Us</h3>
+              <div class="contact-box">
+                <div class="icon"><img src="../images/footer1-icon1.webp" alt="Phone Icon" width="24" height="24" loading="lazy"></div>
+                <div class="pera"><a href="tel://0233762533" aria-label="Call us at 0233762533">0233762533</a></div>
+              </div>
+              <div class="contact-box">
+                <div class="icon"><img src="../images/footer1-icon2.webp" alt="Mobile Phone Icon" width="24" height="24" loading="lazy"></div>
+                <div class="pera">
+                  <div class="d-flex flex-column gap-1"><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a><a href="tel://+201222666635" aria-label="Call us at +201222666635">+201222666635</a></div>
+                </div>
+              </div>
+              <div class="contact-box">
+                <div class="icon"><img src="../images/footer1-icon3.webp" alt="Email Icon" width="24" height="24" loading="lazy"></div>
+                <div class="pera"><a href="mailto:marketing@gocloudeg.com" aria-label="Send email to marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
+              </div>
+              <div class="contact-box">
+                <div class="icon"><img src="../images/footer1-icon4.webp" alt="Website Icon" width="24" height="24" loading="lazy"></div>
+                <div class="pera"><a href="https://gocloudeg.com" aria-label="Visit GoCloud website">www.gocloudeg.com</a></div>
+              </div>
+            </div>
+            <div class="contact-infos">
+              <h3>Our Location</h3>
+              <ul class="social-icon">
+                <li><a href="https://www.linkedin.com/company/gocloud-co"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.google.com/search?q=gocloud+eg&amp;sca_esv=1b465dddb89ef670&amp;sxsrf=AE3TifPO8dDI2un8QLeuyTZoAmiw1QCmhA%3A1750690736441&amp;ei=sGtZaLfRGoaNkdUP4_DKyAI&amp;ved=0ahUKEwi36dOb54eOAxWGRqQEHWO4EikQ4dUDCBA&amp;uact=5&amp;oq=gocloud+&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiCGdvY2xvdWQgMgoQIxjwBRgnGMkCMgQQIxgnMgUQABiABDIKEAAYgAQYQxiKBTILEC4YgAQYxwEYrwEyChAAGIAEGEMYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigVInw5Q3AFY3AFwAXgBkAEAmAHXCaAB1wmqAQM3LTG4AQPIAQD4AQGYAgKgAvcJwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYKkgcFMS43LTGgB9YKsgcDNy0xuAfpCcIHAzMtMsgHGg&amp;sclient=gws-wiz-serp"><i class="fa-brands fa-google"></i></a></li>
+                <li><a href="https://www.youtube.com/@GoCloudeg"><i class="fa-brands fa-youtube"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
       <div class="post-hero">
         <div class="container">
           <div class="mb-3"><a class="breadcrumb-link" href="../index.html">الرئيسية</a><span class="breadcrumb-sep">/</span><a class="breadcrumb-link" href="index.html">المدونة</a><span class="breadcrumb-sep">/</span><span class="breadcrumb-current">تطبيقات أودو</span></div>
@@ -139,7 +333,11 @@
           <div class="row g-5">
             <div class="col-lg-8"><img class="article-featured-img" src="../images/blog-odoo-pricing.png" alt="تكلفة مشروع Odoo: لماذا يختلف السعر من شركة لأخرى؟ دليلك الشامل" loading="lazy">
               <div class="article-content"><p>من أكثر الأسئلة التي نتلقاها في GoCloud: <strong>"كام تكلفة تطبيق Odoo؟"</strong> — والإجابة الصادقة هي: <em>يعتمد على طبيعة شركتك واحتياجاتها.</em> في هذا المقال نوضح لك بالتفصيل كيف يتم تسعير مشاريع Odoo ولماذا لا يجب أن يكون السعر هو معيارك الوحيد.</p><h2>المكون الأول: تراخيص الاشتراك (Licenses)</h2><p>هذا هو المبلغ الذي تدفعه مباشرة لمنصة Odoo، ويعتمد على:</p><ul><li><strong>عدد المستخدمين</strong> — كل مستخدم يحتاج ترخيصاً فعالاً</li><li><strong>التطبيقات المطلوبة</strong> — المحاسبة، المبيعات، المخزون، الموارد البشرية وغيرها</li><li><strong>نوع الاستضافة</strong> — Odoo Online أم Odoo.sh أم استضافة خاصة (On-Premise)</li></ul><p>النقطة المهمة هنا أنك تدفع فقط مقابل ما تستخدمه — وهذا ما يجعل Odoo أقل تكلفة بكثير من SAP أو Oracle.</p><h2>المكون الثاني: التنفيذ (Implementation)</h2><p>هنا يكمن الاستثمار الحقيقي، وهو ما يحدد نجاح أو فشل المشروع. يشمل التنفيذ:</p><ul><li><strong>تحليل المتطلبات</strong> — فهم عمليات شركتك الحالية والمستهدفة</li><li><strong>تصميم الدورة المستندية</strong> — بناء خريطة تدفق العمل داخل النظام</li><li><strong>إعداد وتهيئة النظام</strong> — تفعيل الوحدات وضبط الإعدادات والصلاحيات</li><li><strong>ترحيل البيانات</strong> — نقل بياناتك الحالية بدقة وأمان</li><li><strong>تدريب الفريق</strong> — جلسات عملية لكل إدارة حسب دورها في النظام</li></ul><p>الفرق بين شريك تنفيذ محترف وآخر يقدم سعراً رخيصاً قد يظهر بعد أشهر — عندما تكتشف أن النظام لا يعكس واقع عملك.</p><h2>المكون الثالث: الدعم والتخصيص (Support & Customization)</h2><p>بعد الإطلاق، تحتاج شركتك إلى:</p><ul><li><strong>تعديلات وتخصيصات</strong> — تطوير ميزات خاصة تناسب قطاعك</li><li><strong>دعم فني مستمر</strong> — حل المشكلات الطارئة وضمان استمرارية العمل</li><li><strong>تحديثات وتطوير</strong> — مواكبة نمو الشركة بإضافات جديدة</li></ul><h2>لماذا أرخص عرض ليس الأفضل؟</h2><p>الخطأ في اختيار شريك التنفيذ أو التقليل من ميزانية التحليل والتدريب قد يكلفك أضعاف المبلغ لاحقاً:</p><ul><li>إعادة تنفيذ المشروع من الصفر</li><li>توقف العمليات أثناء الإصلاح</li><li>فقدان بيانات أو عدم دقتها</li><li>مقاومة الفريق لنظام لا يفهم عملهم</li></ul><h2>السؤال الصحيح قبل اتخاذ القرار</h2><p>بدلاً من سؤال <strong>"كام السعر؟"</strong> — اسأل: <strong>"ما القيمة التي سأحصل عليها مقابل هذا الاستثمار؟"</strong></p><p>عندما تنظر لمشروع Odoo كاستثمار في كفاءة شركتك التشغيلية وليس كتكلفة برنامج، ستتخذ القرار الصحيح.</p><p>في GoCloud — كشريك رسمي لـ Odoo في مصر — نقدم لك <strong>استشارة مجانية</strong> نحلل فيها احتياجاتك ونقدم عرضاً شفافاً يوضح بالتفصيل كل بند. <a href='../contact.html'>تواصل معنا الآن</a>.</p></div>
-              <div class="post-tags"><i class="fas fa-tags ms-2" style="color:#0E38B1"></i><span class="post-tag">Odoo</span><span class="post-tag">تسعير Odoo</span><span class="post-tag">تكلفة ERP</span><span class="post-tag">تنفيذ أودو</span><span class="post-tag">استثمار تقني</span>
+              <div class="expert-backlinks">
+                <h5>روابط موصى بها من خبراء GoCloud</h5>
+                <p>ربط المقال بمحتوى مرتبط يعزز تجربة القراءة ويساعد محركات البحث على فهم عمق الموضوع.</p><a class="expert-link-item" href="odoo-multi-branch-inventory-control.html"><span class="expert-link-title">إدارة المخزون متعدد الفروع مع Odoo: كيف توحّد البيانات وتسرّع التحويلات وتقلّل الفاقد؟</span><span class="expert-link-reason">مقال مرتبط يكمّل نفس الموضوع</span></a><a class="expert-link-item" href="world-cup-2026-ai-ref-cctv-odoo.html"><span class="expert-link-title">تقنيات كأس العالم 2026 في أمريكا وكندا والمكسيك: الذكاء الاصطناعي وكاميرات الحكام وما الذي تتعلمه الشركات منها؟</span><span class="expert-link-reason">مقال مرتبط يكمّل نفس الموضوع</span></a><a class="expert-link-item" href="../odoo-services.html"><span class="expert-link-title">خدمات Odoo من GoCloud</span><span class="expert-link-reason">تعرف على باقات التطبيق والدعم الفني</span></a><a class="expert-link-item" href="../odoo-imp.html"><span class="expert-link-title">منهجية تطبيق Odoo خطوة بخطوة</span><span class="expert-link-reason">دليل عملي لتقليل مخاطر التطبيق وتسريع الإطلاق</span></a>
+              </div>
+              <div class="post-tags"><i class="fas fa-tags" style="color:#0E38B1"></i><span class="post-tag">Odoo</span><span class="post-tag">تسعير Odoo</span><span class="post-tag">تكلفة ERP</span><span class="post-tag">تنفيذ أودو</span><span class="post-tag">استثمار تقني</span>
               </div>
               <div class="share-bar">
                 <h6>شارك المقال</h6>
@@ -149,6 +347,17 @@
               </div>
             </div>
             <div class="col-lg-4">
+              <div class="newsletter-card">
+                <h5>اشترك في النشرة البريدية</h5>
+                <p>احصل على أحدث مقالات GoCloud ونصائح عملية في Odoo والتأمين الطبي.</p>
+                <form class="newsletter-form" data-newsletter-form data-source="blog-post">
+                  <label class="visually-hidden" for="newsletterEmailPost">البريد الإلكتروني</label>
+                  <input class="newsletter-input" id="newsletterEmailPost" type="email" name="email" placeholder="example@company.com" required autocomplete="email">
+                  <button class="newsletter-btn" type="submit">اشترك الآن</button>
+                  <p class="newsletter-feedback" data-newsletter-feedback role="status" aria-live="polite"></p>
+                  <p class="newsletter-note">بالاشتراك، أنت توافق على استلام رسائل دورية ويمكنك إلغاء الاشتراك في أي وقت.</p>
+                </form>
+              </div>
               <div class="sidebar-card">
                 <h5>مقالات ذات صلة</h5><a class="related-item" href="odoo-multi-branch-inventory-control.html"><img src="../images/Multi_Inventory_blog_post.png" alt="إدارة المخزون متعدد الفروع مع Odoo: كيف توحّد البيانات وتسرّع التحويلات وتقلّل الفاقد؟" loading="lazy">
                   <div>
@@ -178,6 +387,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" defer></script>
+    <script src="../js/site-language.js" defer></script>
     <script src="../js/blog-runtime.js" defer></script>
   </body>
 </html>

@@ -1,14 +1,34 @@
 {
   "id": "elite-insurance-system",
   "slug": "elite-insurance-system",
-  "title": "ما هو نظام إدارة التأمين الطبي ELITE؟ دليل شامل",
+  "title": {
+    "ar": "ما هو نظام إدارة التأمين الطبي ELITE؟ دليل شامل",
+    "en": "What Is the ELITE Medical Insurance Management System? A Complete Guide"
+  },
   "category": "insurance",
-  "categoryLabel": "التأمين الطبي",
-  "excerpt": "تعرّف على نظام ELITE لإدارة التأمين الطبي — المنصة المتكاملة التي تُبسّط دورة حياة التأمين بالكامل من إصدار الوثائق حتى تسوية المطالبات.",
-  "content": "<p>في عالم التأمين الطبي المتسارع، تواجه الشركات تحديات متزايدة في إدارة العمليات اليومية — من إصدار وثائق التأمين إلى معالجة المطالبات وإدارة شبكات مقدمي الخدمة. هنا يأتي دور <strong>نظام ELITE</strong>.</p><h2>ما هو نظام ELITE؟</h2><p>ELITE هو نظام إدارة تأمين طبي متكامل طوّرته شركة GoCloud خصيصاً لقطاع التأمين الصحي. يغطي النظام دورة حياة التأمين بالكامل:</p><ul><li><strong>إصدار وإدارة وثائق التأمين</strong> — إنشاء الوثائق وتجديدها وإلغائها بسهولة مع تتبع كامل للتاريخ.</li><li><strong>معالجة المطالبات</strong> — نظام ذكي لاستلام ومراجعة وتسوية المطالبات الطبية مع قواعد آلية لمنع الاحتيال.</li><li><strong>إدارة شبكة مقدمي الخدمة</strong> — قاعدة بيانات شاملة للمستشفيات والعيادات والصيدليات المتعاقد معها.</li><li><strong>الامتثال التنظيمي</strong> — تقارير ونماذج تتوافق مع متطلبات هيئة الرقابة المالية والجهات التنظيمية.</li></ul><h2>لماذا تختار ELITE؟</h2><p>على عكس الأنظمة العامة، صُمم ELITE من الألف إلى الياء لقطاع التأمين الطبي في منطقة الشرق الأوسط وشمال أفريقيا. يتميز النظام بـ:</p><ul><li>واجهة عربية بالكامل مع دعم RTL</li><li>تكامل مع بوابات الدفع المحلية</li><li>تقارير مالية وإحصائية مفصلة</li><li>لوحة تحكم ذكية للإدارة العليا</li><li>دعم فني محلي على مدار الساعة</li></ul><h2>النتائج التي يحققها العملاء</h2><p>عملاؤنا الذين اعتمدوا ELITE حققوا تحسينات ملموسة:</p><ul><li>تقليل وقت معالجة المطالبات بنسبة <strong>60%</strong></li><li>خفض الأخطاء البشرية في إدخال البيانات بنسبة <strong>85%</strong></li><li>زيادة رضا العملاء بنسبة <strong>40%</strong></li></ul><p>إذا كنت تبحث عن حل متكامل لإدارة عمليات التأمين الطبي في شركتك، <a href='../contact.html'>تواصل معنا</a> للحصول على عرض تجريبي مجاني.</p>",
-  "author": "فريق GoCloud",
+  "categoryLabel": {
+    "ar": "التأمين الطبي",
+    "en": "Medical Insurance"
+  },
+  "excerpt": {
+    "ar": "تعرّف على نظام ELITE لإدارة التأمين الطبي — المنصة المتكاملة التي تُبسّط دورة حياة التأمين بالكامل من إصدار الوثائق حتى تسوية المطالبات.",
+    "en": "Discover ELITE, the integrated medical insurance platform that streamlines the entire insurance lifecycle from policy issuance to claims settlement."
+  },
+  "content": {
+    "ar": "<p>في عالم التأمين الطبي المتسارع، تواجه الشركات تحديات متزايدة في إدارة العمليات اليومية — من إصدار وثائق التأمين إلى معالجة المطالبات وإدارة شبكات مقدمي الخدمة. هنا يأتي دور <strong>نظام ELITE</strong>.</p><h2>ما هو نظام ELITE؟</h2><p>ELITE هو نظام إدارة تأمين طبي متكامل طوّرته شركة GoCloud خصيصاً لقطاع التأمين الصحي. يغطي النظام دورة حياة التأمين بالكامل:</p><ul><li><strong>إصدار وإدارة وثائق التأمين</strong> — إنشاء الوثائق وتجديدها وإلغائها بسهولة مع تتبع كامل للتاريخ.</li><li><strong>معالجة المطالبات</strong> — نظام ذكي لاستلام ومراجعة وتسوية المطالبات الطبية مع قواعد آلية لمنع الاحتيال.</li><li><strong>إدارة شبكة مقدمي الخدمة</strong> — قاعدة بيانات شاملة للمستشفيات والعيادات والصيدليات المتعاقد معها.</li><li><strong>الامتثال التنظيمي</strong> — تقارير ونماذج تتوافق مع متطلبات هيئة الرقابة المالية والجهات التنظيمية.</li></ul><h2>لماذا تختار ELITE؟</h2><p>على عكس الأنظمة العامة، صُمم ELITE من الألف إلى الياء لقطاع التأمين الطبي في منطقة الشرق الأوسط وشمال أفريقيا. يتميز النظام بـ:</p><ul><li>واجهة عربية بالكامل مع دعم RTL</li><li>تكامل مع بوابات الدفع المحلية</li><li>تقارير مالية وإحصائية مفصلة</li><li>لوحة تحكم ذكية للإدارة العليا</li><li>دعم فني محلي على مدار الساعة</li></ul><h2>النتائج التي يحققها العملاء</h2><p>عملاؤنا الذين اعتمدوا ELITE حققوا تحسينات ملموسة:</p><ul><li>تقليل وقت معالجة المطالبات بنسبة <strong>60%</strong></li><li>خفض الأخطاء البشرية في إدخال البيانات بنسبة <strong>85%</strong></li><li>زيادة رضا العملاء بنسبة <strong>40%</strong></li></ul><p>إذا كنت تبحث عن حل متكامل لإدارة عمليات التأمين الطبي في شركتك، <a href='../contact.html'>تواصل معنا</a> للحصول على عرض تجريبي مجاني.</p>",
+    "en": "<p>In the fast-moving world of medical insurance, companies face growing operational pressure every day, from issuing policies to processing claims and managing provider networks. This is where <strong>ELITE</strong> comes in.</p><h2>What Is ELITE?</h2><p>ELITE is a fully integrated medical insurance management system developed by GoCloud specifically for the health insurance sector. It covers the entire insurance lifecycle:</p><ul><li><strong>Policy issuance and administration</strong> — create, renew, and cancel policies with complete historical tracking.</li><li><strong>Claims processing</strong> — an intelligent workflow for receiving, reviewing, and settling medical claims with automated anti-fraud rules.</li><li><strong>Provider network management</strong> — a centralized database for contracted hospitals, clinics, and pharmacies.</li><li><strong>Regulatory compliance</strong> — reports and forms aligned with financial regulatory and supervisory requirements.</li></ul><h2>Why Choose ELITE?</h2><p>Unlike generic systems, ELITE was built from the ground up for the medical insurance sector across the Middle East and North Africa. The platform stands out with:</p><ul><li>A full Arabic-ready interface with RTL support</li><li>Integration with local payment gateways</li><li>Detailed financial and statistical reporting</li><li>Executive dashboards for leadership teams</li><li>24/7 local technical support</li></ul><h2>Results Our Clients Achieve</h2><p>Clients who adopted ELITE reported measurable improvements:</p><ul><li>A <strong>60%</strong> reduction in claims processing time</li><li>An <strong>85%</strong> reduction in manual data-entry errors</li><li>A <strong>40%</strong> increase in customer satisfaction</li></ul><p>If you are looking for a complete solution to manage medical insurance operations in your company, <a href='../contact.html'>contact us</a> for a free demo.</p>"
+  },
+  "author": {
+    "ar": "فريق GoCloud",
+    "en": "GoCloud Team"
+  },
   "date": "2026-03-01",
   "image": "images/m-cloud-logo.jpg",
-  "tags": ["ELITE", "تأمين طبي", "إدارة مطالبات", "تكنولوجيا التأمين"],
+  "tags": [
+    { "ar": "ELITE", "en": "ELITE" },
+    { "ar": "تأمين طبي", "en": "Medical Insurance" },
+    { "ar": "إدارة مطالبات", "en": "Claims Management" },
+    { "ar": "تكنولوجيا التأمين", "en": "Insurance Technology" }
+  ],
   "featured": true
 }

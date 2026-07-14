@@ -11,6 +11,11 @@
   "image": "https://www.gocloudeg.com/images/gocloud-logo.png",
   "description": "Professional Odoo ERP implementation, cloud solutions, and business intelligence services in Egypt.",
   "telephone": "+201017383815",
+  "areaServed": [
+    "EG",
+    "AF",
+    "Middle East"
+  ],
   "email": "marketing@gocloudeg.com",
   "address": {
     "@type": "PostalAddress",
@@ -48,7 +53,30 @@
     {
       "@type": "ContactPoint",
       "telephone": "+201017383815",
-      "contactType": "Customer Service"
+      "contactType": "Customer Service",
+      "availableLanguage": [
+        "Arabic",
+        "English"
+      ],
+      "areaServed": [
+        "EG",
+        "AF",
+        "Middle East"
+      ]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+201222666635",
+      "contactType": "Customer Service",
+      "availableLanguage": [
+        "Arabic",
+        "English"
+      ],
+      "areaServed": [
+        "EG",
+        "AF",
+        "Middle East"
+      ]
     }
   ]
 }

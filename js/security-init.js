@@ -152,27 +152,6 @@
     });
   }
 
-  function initAnalytics() {
-    window.addEventListener('load', function () {
-      var analyticsScript = document.createElement('script');
-      analyticsScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-60G03RQLPB';
-      analyticsScript.async = true;
-      document.head.appendChild(analyticsScript);
-
-      analyticsScript.onload = function () {
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-          window.dataLayer.push(arguments);
-        }
-
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-60G03RQLPB');
-      };
-    });
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
     initPreloader();
     initFooterYear();
@@ -180,6 +159,5 @@
     initEliteVideoModal();
     initPortfolioHoverEffects();
     initWhatsAppButton();
-    initAnalytics();
   });
 })();

@@ -7,39 +7,39 @@ mixin social-proof-section
       //- Clients Logo Section
       .clients-section.mb-5
         .section-header.text-center.mb-4
-          h2.section-title يثق بنا
+          h2.section-title(data-i18n-key="social.title") يثق بنا
 
         .clients-grid
           //- Official Odoo Partner Badge
           .client-logo.featured
             .partner-badge
               img(src="images/partners/odoo-gold-partner.svg" alt="Odoo Official Partner")
-              .badge-label Odoo Official Partner
+              .badge-label(data-i18n-key="social.partner_badge") Odoo Official Partner
 
           //- Real Clients (بعد الموافقة)
           .client-logo
             img(src="images/clients/tpa-company.png" alt="TPA Company")
             .hover-info
-              span.client-name شركة TPA
-              span.client-industry التأمين الطبي
+              span.client-name(data-i18n-key="social.client1_name") شركة TPA
+              span.client-industry(data-i18n-key="social.client1_industry") التأمين الطبي
 
           .client-logo
             img(src="images/clients/distribution-company.png" alt="Distribution")
             .hover-info
-              span.client-name شركة توزيع رائدة
-              span.client-industry التجارة
+              span.client-name(data-i18n-key="social.client2_name") شركة توزيع رائدة
+              span.client-industry(data-i18n-key="social.client2_industry") التجارة
 
           .client-logo
             img(src="images/clients/manufacturing-company.png" alt="Manufacturing")
             .hover-info
-              span.client-name مصنع كبير
-              span.client-industry التصنيع
+              span.client-name(data-i18n-key="social.client3_name") مصنع كبير
+              span.client-industry(data-i18n-key="social.client3_industry") التصنيع
 
           .client-logo
             img(src="images/clients/hospital.png" alt="Hospital")
             .hover-info
-              span.client-name مستشفى خاص
-              span.client-industry الرعاية الصحية
+              span.client-name(data-i18n-key="social.client4_name") مستشفى خاص
+              span.client-industry(data-i18n-key="social.client4_industry") الرعاية الصحية
 
       //- Statistics Section
       .statistics-section.mb-5
@@ -51,7 +51,7 @@ mixin social-proof-section
               h3.stat-number
                 span(data-count="50") 0
                 | +
-              p.stat-label عميل راضٍ
+              p.stat-label(data-i18n-key="social.stat1") عميل راضٍ
 
           .col-md-3
             .stat-box
@@ -60,7 +60,7 @@ mixin social-proof-section
               h3.stat-number
                 span(data-count="100") 0
                 | +
-              p.stat-label مشروع ناجح
+              p.stat-label(data-i18n-key="social.stat2") مشروع ناجح
 
           .col-md-3
             .stat-box
@@ -69,7 +69,7 @@ mixin social-proof-section
               h3.stat-number
                 span(data-count="10000") 0
                 | +
-              p.stat-label ساعة عمل
+              p.stat-label(data-i18n-key="social.stat3") ساعة عمل
 
           .col-md-3
             .stat-box
@@ -78,52 +78,46 @@ mixin social-proof-section
               h3.stat-number
                 span(data-count="8") 0
                 | +
-              p.stat-label سنوات خبرة
+              p.stat-label(data-i18n-key="social.stat4") سنوات خبرة
 
       //- Testimonials
       .testimonials-section.mb-5
         .section-header.text-center.mb-4
-          h2.section-title ماذا يقول عملاؤنا
+          h2.section-title(data-i18n-key="social.testimonials_title") ماذا يقول عملاؤنا
 
         .row.g-4
           .col-lg-4
             .testimonial-card
               .quote-icon
                 i.fas.fa-quote-right
-              p.testimonial-text
-                | "نظام ELITE حل مشكلة التأخير في معالجة المطالبات.
-                | دلوقتي بنعالج 10,000 مطالبة شهرياً بدقة 100%"
+              p.testimonial-text(data-i18n-key="social.testimonial1_text") "نظام ELITE حل مشكلة التأخير في معالجة المطالبات. دلوقتي بنعالج 10,000 مطالبة شهرياً بدقة 100%"
               .testimonial-author
                 .author-info
-                  h5 م. أحمد محمود
-                  p مدير تكنولوجيا المعلومات
-                  span.company شركة TPA رائدة
+                  h5(data-i18n-key="social.testimonial1_author") م. أحمد محمود
+                  p(data-i18n-key="social.testimonial1_role") مدير تكنولوجيا المعلومات
+                  span.company(data-i18n-key="social.testimonial1_company") شركة TPA رائدة
 
           .col-lg-4
             .testimonial-card
               .quote-icon
                 i.fas.fa-quote-right
-              p.testimonial-text
-                | "الربط بين ELITE و Odoo وفر علينا 80% من الوقت
-                | اللي كنا بنضيعه في الإدخال اليدوي"
+              p.testimonial-text(data-i18n-key="social.testimonial2_text") "الربط بين ELITE و Odoo وفر علينا 80% من الوقت اللي كنا بنضيعه في الإدخال اليدوي"
               .testimonial-author
                 .author-info
-                  h5 أ. سارة حسن
-                  p المدير المالي
-                  span.company شركة تأمين طبي
+                  h5(data-i18n-key="social.testimonial2_author") أ. سارة حسن
+                  p(data-i18n-key="social.testimonial2_role") المدير المالي
+                  span.company(data-i18n-key="social.testimonial2_company") شركة تأمين طبي
 
           .col-lg-4
             .testimonial-card
               .quote-icon
                 i.fas.fa-quote-right
-              p.testimonial-text
-                | "فريق GoCloud محترف جداً. الدعم الفني متوفر 24/7
-                | والتدريب كان شامل لكل الموظفين"
+              p.testimonial-text(data-i18n-key="social.testimonial3_text") "فريق GoCloud محترف جداً. الدعم الفني متوفر 24/7 والتدريب كان شامل لكل الموظفين"
               .testimonial-author
                 .author-info
-                  h5 د. محمد علي
-                  p مدير عام
-                  span.company مستشفى خاص
+                  h5(data-i18n-key="social.testimonial3_author") د. محمد علي
+                  p(data-i18n-key="social.testimonial3_role") مدير عام
+                  span.company(data-i18n-key="social.testimonial3_company") مستشفى خاص
 
       //- Case Study Highlight
       .case-study-banner
@@ -131,31 +125,31 @@ mixin social-proof-section
           .col-lg-8
             .badge.badge-success.mb-3
               i.fas.fa-star.me-2
-              | قصة نجاح
-            h3 كيف ساعدنا شركة TPA في تقليل وقت معالجة المطالبات من 5 أيام لـ 24 ساعة
-            p.lead
+              span(data-i18n-key="social.case_badge") قصة نجاح
+            h3(data-i18n-key="social.case_title") كيف ساعدنا شركة TPA في تقليل وقت معالجة المطالبات من 5 أيام لـ 24 ساعة
+            p.lead(data-i18n-key="social.case_text")
               | دراسة حالة شاملة عن تحول رقمي ناجح في قطاع التأمين الطبي
 
             .case-results
               .result-item
                 i.fas.fa-arrow-down.text-success
                 strong 80%
-                span تقليل الوقت
+                span(data-i18n-key="social.result1") تقليل الوقت
 
               .result-item
                 i.fas.fa-arrow-up.text-success
                 strong 95%
-                span رضا العملاء
+                span(data-i18n-key="social.result2") رضا العملاء
 
               .result-item
                 i.fas.fa-check-circle.text-success
                 strong 100%
-                span دقة البيانات
+                span(data-i18n-key="social.result3") دقة البيانات
 
           .col-lg-4
             a.btn.btn-light.btn-lg.w-100(href="/case-studies/tpa-success.html")
               i.fas.fa-file-alt.me-2
-              | اقرأ دراسة الحالة الكاملة
+              span(data-i18n-key="social.case_button") اقرأ دراسة الحالة الكاملة
 
 //- CSS
 style.

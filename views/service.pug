@@ -1,11 +1,13 @@
 extends layout.pug
 
 block variables
-  - var pageTitle = "Our Services | GoCloud"
-  - var pageDescription = "Explore GoCloud's full range of IT services: cloud solutions, Odoo ERP development & implementation, business intelligence, eCommerce, and ELITE medical insurance systems."
-  - var pageKeywords = "IT services, cloud solutions, Odoo ERP, business intelligence, eCommerce, portfolio websites, medical insurance, GoCloud"
+  - var pageTitle = "خدمات GoCloud | حلول تقنية متكاملة"
+  - var pageDescription = "استكشف مجموعة GoCloud الكاملة من الخدمات التقنية: الحلول السحابية وتطوير وتنفيذ Odoo وذكاء الأعمال والتجارة الإلكترونية ونظام ELITE للتأمين الطبي."
+  - var pageKeywords = "خدمات تقنية, حلول سحابية, Odoo ERP, ذكاء الأعمال, التجارة الإلكترونية, مواقع الأعمال, التأمين الطبي, GoCloud"
   - var canonicalUrl = "https://www.gocloudeg.com/service.html"
   - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+  - var pageLang = "ar"
+  - var pageDir = "rtl"
 
 block styles
   style.
@@ -92,16 +94,17 @@ block content
       .row.align-items-center.text-center
         .col-lg-6.m-auto
           .main-heading
-            h1 Our Services
+            h1(data-i18n-key="services.hero_title") خدماتنا
             .space16
             span.span
               img(src="images/span1.webp" alt="decorative divider" loading="lazy" width="18" height="16")
               |
-              a(href="index.html") Home
+              a(href="index.html" data-i18n-key="services.breadcrumb_home") الرئيسية
               |
               span.arrow
                 i.fa-regular.fa-angle-right
-              |  Our Services
+              |
+              span(data-i18n-key="services.breadcrumb") خدماتنا
 
   // Marquee
   include components/marquee-brands.pug
@@ -112,8 +115,8 @@ block content
   section.py-5
     .container
       .text-center.mb-5(data-aos="fade-up")
-        h2.fw-bold What We Do
-        p.lead.text-muted.services-intro End-to-end technology solutions that help businesses digitize, automate, and grow.
+        h2.fw-bold(data-i18n-key="services.section_title") ما الذي نقدمه
+        p.lead.text-muted.services-intro(data-i18n-key="services.section_subtitle") حلول تقنية متكاملة تساعد الشركات على التحول الرقمي والأتمتة والنمو.
 
       .row.g-4
         //- Cloud Services
@@ -122,10 +125,10 @@ block content
             .card-icon(style="background: #0E38B1;")
               i.fas.fa-cloud
             h4
-              a(href="cloud-services.html") Cloud Solutions
-            p Harness the power of the cloud with scalable hosting, containerization, and Linux server management. We help you migrate, optimize, and secure your infrastructure.
+              a(href="cloud-services.html" data-i18n-key="services.cloud_title") الحلول السحابية
+            p(data-i18n-key="services.cloud_text") استفد من قوة السحابة عبر استضافة قابلة للتوسع، وحاويات، وإدارة خوادم لينكس. نساعدك على الترحيل والتحسين وتأمين بنيتك التحتية.
             a.card-link(href="cloud-services.html")
-              | Learn more
+              span(data-i18n-key="services.learn_more") اعرف المزيد
               i.fas.fa-arrow-right
 
         //- Odoo Development
@@ -134,10 +137,10 @@ block content
             .card-icon(style="background: #6E18EF;")
               i.fas.fa-code
             h4
-              a(href="odoo-dev.html") Odoo ERP &amp; CRM Development
-            p Custom module development, third-party integrations, and performance optimization. We build tailored Odoo solutions that fit your industry's unique workflow.
+              a(href="odoo-dev.html" data-i18n-key="services.odoo_dev_title") تطوير Odoo ERP و CRM
+            p(data-i18n-key="services.odoo_dev_text") تطوير وحدات مخصصة وتكاملات مع الأطراف الخارجية وتحسين الأداء. نبني حلول Odoo مصممة وفقاً لتدفق العمل الخاص بقطاعك.
             a.card-link(href="odoo-dev.html")
-              | Learn more
+              span(data-i18n-key="services.learn_more") اعرف المزيد
               i.fas.fa-arrow-right
 
         //- Odoo Implementation
@@ -146,10 +149,10 @@ block content
             .card-icon(style="background: #198754;")
               i.fas.fa-cogs
             h4
-              a(href="odoo-imp.html") Odoo ERP &amp; CRM Implementation
-            p From requirements analysis to go-live, we implement industry-specific Odoo workflows — including Pharma CRM, gold investment management, and more.
+              a(href="odoo-imp.html" data-i18n-key="services.odoo_imp_title") تنفيذ Odoo ERP و CRM
+            p(data-i18n-key="services.odoo_imp_text") من تحليل المتطلبات إلى الإطلاق، ننفذ مسارات عمل Odoo الخاصة بكل قطاع — بما في ذلك Pharma CRM وإدارة استثمارات الذهب والمزيد.
             a.card-link(href="odoo-imp.html")
-              | Learn more
+              span(data-i18n-key="services.learn_more") اعرف المزيد
               i.fas.fa-arrow-right
 
         //- Portfolio & E-commerce
@@ -158,10 +161,10 @@ block content
             .card-icon(style="background: #fd7e14;")
               i.fas.fa-shopping-cart
             h4
-              a(href="portfolio.html") Portfolio &amp; E-commerce
-            p Stunning portfolio websites and powerful e-commerce platforms that elevate your brand and drive conversions through modern design and seamless user experience.
+              a(href="portfolio.html" data-i18n-key="services.portfolio_title") الأعمال التجارية والتجارة الإلكترونية
+            p(data-i18n-key="services.portfolio_text") مواقع أعمال جذابة ومنصات تجارة إلكترونية قوية تعزز علامتك التجارية وتزيد التحويلات عبر تصميم حديث وتجربة مستخدم سلسة.
             a.card-link(href="portfolio.html")
-              | Learn more
+              span(data-i18n-key="services.learn_more") اعرف المزيد
               i.fas.fa-arrow-right
 
         //- Business Intelligence
@@ -170,10 +173,10 @@ block content
             .card-icon(style="background: #ffc107;")
               i.fas.fa-chart-bar
             h4
-              a(href="business.html") Business Intelligence
-            p Transform raw data into actionable insights with advanced analytics, interactive dashboards, and automated reporting powered by Power BI and Metabase.
+              a(href="business.html" data-i18n-key="services.bi_title") ذكاء الأعمال
+            p(data-i18n-key="services.bi_text") حوّل البيانات الخام إلى رؤى قابلة للتنفيذ عبر تحليلات متقدمة ولوحات تحكم تفاعلية وتقارير مؤتمتة مدعومة بـ Power BI وMetabase.
             a.card-link(href="business.html")
-              | Learn more
+              span(data-i18n-key="services.learn_more") اعرف المزيد
               i.fas.fa-arrow-right
 
         //- ELITE Medical Insurance
@@ -182,10 +185,10 @@ block content
             .card-icon(style="background: #dc3545;")
               i.fas.fa-heartbeat
             h4
-              a(href="elite.html") ELITE Medical Insurance
-            p A comprehensive medical insurance management system featuring provider networks, claims processing, policy administration, and real-time member portals.
+              a(href="elite.html" data-i18n-key="services.elite_title") التأمين الطبي ELITE
+            p(data-i18n-key="services.elite_text") نظام شامل لإدارة التأمين الطبي يضم شبكات مقدمي الخدمة ومعالجة المطالبات وإدارة السياسات وبوابات الأعضاء في الوقت الفعلي.
             a.card-link(href="elite.html")
-              | Learn more
+              span(data-i18n-key="services.learn_more") اعرف المزيد
               i.fas.fa-arrow-right
 
   .space40
@@ -194,11 +197,11 @@ block content
   section.pb-5
     .container
       .services-cta.text-center.text-white(data-aos="fade-up")
-        h2.fw-bold.mb-3 Ready to Transform Your Business?
-        p.lead.mb-4.opacity-75 Let's discuss how our solutions can accelerate your growth.
+        h2.fw-bold.mb-3(data-i18n-key="services.cta_title") هل أنت مستعد لتحويل أعمالك؟
+        p.lead.mb-4.opacity-75(data-i18n-key="services.cta_text") لنتحدث عن كيفية تسريع نموك عبر حلولنا.
         a.btn.btn-light.btn-lg.fw-semibold.px-4(href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer")
           i.fab.fa-whatsapp.me-2
-          | Get in Touch
+          span(data-i18n-key="services.cta_button") تواصل معنا
 
   include components/footer.pug
   include components/whatsapp-button.pug

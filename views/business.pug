@@ -1,11 +1,13 @@
 extends layout.pug
 
 block variables
-  - var pageTitle = "Business Intelligence Solutions | GoCloud"
-  - var pageDescription = "Transform raw data into actionable insights with GoCloud's business intelligence solutions. Advanced analytics, interactive dashboards, and real-time reporting powered by Power BI & Metabase."
-  - var pageKeywords = "business intelligence, data analytics, Power BI, Metabase, dashboards, reporting, data warehousing, GoCloud"
+  - var pageTitle = "حلول ذكاء الأعمال | GoCloud"
+  - var pageDescription = "حوّل البيانات الخام إلى رؤى قابلة للتنفيذ مع حلول GoCloud لذكاء الأعمال. تحليلات متقدمة ولوحات تفاعلية وتقارير لحظية عبر Power BI وMetabase."
+  - var pageKeywords = "ذكاء الأعمال, تحليلات البيانات, Power BI, Metabase, لوحات تحكم, تقارير, مستودع بيانات, GoCloud"
   - var canonicalUrl = "https://www.gocloudeg.com/business.html"
   - var ogImage = "https://www.gocloudeg.com/images/Data-Science.webp"
+  - var pageLang = "ar"
+  - var pageDir = "rtl"
 
 block styles
   style.
@@ -68,17 +70,17 @@ block content
       .row.align-items-center.text-center
         .col-lg-6.m-auto
           .main-heading
-            h1 Business Intelligence
+            h1(data-i18n-key="business.hero_title") ذكاء الأعمال
             .space16
             .span
               img(src="images/span1.webp" alt="decorative divider" loading="lazy")
               |
-              a(href="service.html") Service
+              a(href="service.html" data-i18n-key="business.breadcrumb_service") الخدمات
               |
               span.arrow
                 i.fa-regular.fa-angle-right
               |
-              | Business Intelligence
+              span(data-i18n-key="business.breadcrumb_current") ذكاء الأعمال
 
   // Marquee Section
   include components/marquee-brands.pug
@@ -89,21 +91,21 @@ block content
   .container.my-5
     .row.align-items-center
       .col-lg-6(data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000")
-        h2.fw-bold.mb-4 Data-Driven Decisions Start Here
-        p.lead.mb-4 Transform your raw data into actionable insights with our comprehensive business intelligence solutions. We help organizations make confident, data-driven decisions through advanced analytics, interactive dashboards, and real-time reporting.
+        h2.fw-bold.mb-4(data-i18n-key="business.overview_title") ابدأ قراراتك المدفوعة بالبيانات من هنا
+        p.lead.mb-4(data-i18n-key="business.overview_text") حوّل بياناتك الخام إلى رؤى عملية عبر حلول ذكاء أعمال شاملة. نساعد المؤسسات على اتخاذ قرارات واثقة بالاعتماد على التحليلات المتقدمة ولوحات التحكم التفاعلية والتقارير اللحظية.
         ul.list-unstyled
           li.mb-3
             i.fas.fa-check-circle.text-primary.me-2
-            | Real-time KPI monitoring &amp; alerting
+            span(data-i18n-key="business.overview_point_1") متابعة وتنبيهات مؤشرات الأداء لحظياً
           li.mb-3
             i.fas.fa-check-circle.text-primary.me-2
-            | Custom dashboards tailored to your business
+            span(data-i18n-key="business.overview_point_2") لوحات تحكم مخصصة حسب احتياجات عملك
           li.mb-3
             i.fas.fa-check-circle.text-primary.me-2
-            | Automated report generation &amp; delivery
+            span(data-i18n-key="business.overview_point_3") إنشاء وتسليم التقارير تلقائياً
           li.mb-3
             i.fas.fa-check-circle.text-primary.me-2
-            | Data consolidation from multiple sources
+            span(data-i18n-key="business.overview_point_4") دمج البيانات من مصادر متعددة
       .col-lg-6(data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000")
         .position-relative.image-anime
           img.bi-hero-img.img-fluid(src="images/Data-Science.webp" alt="Business intelligence data analytics dashboard" loading="lazy")
@@ -114,45 +116,45 @@ block content
   section.py-5(style="background: #f8f9fa;")
     .container
       .text-center.mb-5(data-aos="fade-up")
-        h2.fw-bold What We Offer
-        p.lead.text-muted Comprehensive BI services to unlock the full value of your data
+        h2.fw-bold(data-i18n-key="business.offer_title") ماذا نقدم
+        p.lead.text-muted(data-i18n-key="business.offer_text") خدمات ذكاء أعمال متكاملة لاستخراج القيمة الكاملة من بياناتك
       .row.g-4
         .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="100")
           .bi-feature-card
             .bi-feature-icon(style="background: rgba(13,110,253,.1); color: #0d6efd;")
               i.fas.fa-chart-line
-            h5.fw-bold Advanced Analytics
-            p.text-muted.mb-0 Uncover hidden patterns and trends with statistical analysis, predictive modeling, and machine learning capabilities.
+            h5.fw-bold(data-i18n-key="business.feature_1_title") تحليلات متقدمة
+            p.text-muted.mb-0(data-i18n-key="business.feature_1_text") اكتشف الأنماط والاتجاهات المخفية عبر التحليل الإحصائي والنمذجة التنبؤية وقدرات تعلم الآلة.
         .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="200")
           .bi-feature-card
             .bi-feature-icon(style="background: rgba(25,135,84,.1); color: #198754;")
               i.fas.fa-tachometer-alt
-            h5.fw-bold Interactive Dashboards
-            p.text-muted.mb-0 Visualize complex datasets through intuitive, interactive dashboards that update in real time for faster decision-making.
+            h5.fw-bold(data-i18n-key="business.feature_2_title") لوحات تحكم تفاعلية
+            p.text-muted.mb-0(data-i18n-key="business.feature_2_text") اعرض البيانات المعقدة عبر لوحات بديهية وتفاعلية تتحدث في الوقت الفعلي لاتخاذ قرار أسرع.
         .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="300")
           .bi-feature-card
             .bi-feature-icon(style="background: rgba(255,193,7,.1); color: #ffc107;")
               i.fas.fa-database
-            h5.fw-bold Data Warehousing
-            p.text-muted.mb-0 Centralize and structure your data from disparate sources into a single, reliable warehouse for consistent reporting.
+            h5.fw-bold(data-i18n-key="business.feature_3_title") مستودعات البيانات
+            p.text-muted.mb-0(data-i18n-key="business.feature_3_text") وحّد ونظّم بياناتك من مصادر متفرقة في مستودع واحد موثوق لتقارير متسقة.
         .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="400")
           .bi-feature-card
             .bi-feature-icon(style="background: rgba(220,53,69,.1); color: #dc3545;")
               i.fas.fa-file-alt
-            h5.fw-bold Automated Reporting
-            p.text-muted.mb-0 Schedule and automate report generation, reducing manual effort and ensuring stakeholders always have up-to-date information.
+            h5.fw-bold(data-i18n-key="business.feature_4_title") تقارير مؤتمتة
+            p.text-muted.mb-0(data-i18n-key="business.feature_4_text") جدولة وأتمتة إنشاء التقارير لتقليل الجهد اليدوي وضمان وصول أحدث المعلومات لأصحاب القرار.
         .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="500")
           .bi-feature-card
             .bi-feature-icon(style="background: rgba(111,66,193,.1); color: #6f42c1;")
               i.fas.fa-plug
-            h5.fw-bold Data Integration
-            p.text-muted.mb-0 Seamlessly connect ERP systems, CRMs, spreadsheets, and third-party APIs into a unified analytics pipeline.
+            h5.fw-bold(data-i18n-key="business.feature_5_title") تكامل البيانات
+            p.text-muted.mb-0(data-i18n-key="business.feature_5_text") اربط بسلاسة أنظمة ERP وCRM وجداول البيانات وواجهات API الخارجية ضمن مسار تحليلي موحد.
         .col-lg-4.col-md-6(data-aos="fade-up" data-aos-delay="600")
           .bi-feature-card
             .bi-feature-icon(style="background: rgba(13,202,240,.1); color: #0dcaf0;")
               i.fas.fa-shield-alt
-            h5.fw-bold Data Governance
-            p.text-muted.mb-0 Implement access controls, data quality rules, and compliance standards to keep your analytics trustworthy and secure.
+            h5.fw-bold(data-i18n-key="business.feature_6_title") حوكمة البيانات
+            p.text-muted.mb-0(data-i18n-key="business.feature_6_text") طبّق ضوابط الوصول وقواعد جودة البيانات ومعايير الامتثال للحفاظ على تحليلات موثوقة وآمنة.
 
   .space40
 
@@ -160,29 +162,29 @@ block content
   section.py-5
     .container
       .text-center.mb-5(data-aos="fade-up")
-        h2.fw-bold Our Approach
-        p.lead.text-muted A proven process from raw data to business value
+        h2.fw-bold(data-i18n-key="business.approach_title") منهجيتنا
+        p.lead.text-muted(data-i18n-key="business.approach_text") مسار مجرب لتحويل البيانات الخام إلى قيمة أعمال
       .row.g-4
         .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="100")
           .bi-process-step
             .step-number 1
-            h5.fw-bold Discover
-            p.text-muted.mb-0 We assess your data landscape, business objectives, and current pain points.
+            h5.fw-bold(data-i18n-key="business.step_1_title") الاكتشاف
+            p.text-muted.mb-0(data-i18n-key="business.step_1_text") نقيّم مشهد بياناتك وأهدافك التجارية والتحديات الحالية.
         .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="200")
           .bi-process-step
             .step-number 2
-            h5.fw-bold Design
-            p.text-muted.mb-0 We architect the data model, choose the right tools, and plan your dashboards.
+            h5.fw-bold(data-i18n-key="business.step_2_title") التصميم
+            p.text-muted.mb-0(data-i18n-key="business.step_2_text") نصمم نموذج البيانات ونختار الأدوات المناسبة ونخطط لوحات التحكم.
         .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="300")
           .bi-process-step
             .step-number 3
-            h5.fw-bold Deliver
-            p.text-muted.mb-0 We build, test, and deploy your BI solution with full stakeholder training.
+            h5.fw-bold(data-i18n-key="business.step_3_title") التنفيذ
+            p.text-muted.mb-0(data-i18n-key="business.step_3_text") نبني ونختبر ونطلق حل ذكاء الأعمال مع تدريب كامل للأطراف المعنية.
         .col-lg-3.col-md-6(data-aos="fade-up" data-aos-delay="400")
           .bi-process-step
             .step-number 4
-            h5.fw-bold Optimize
-            p.text-muted.mb-0 Ongoing monitoring, refinement, and support to maximize your ROI.
+            h5.fw-bold(data-i18n-key="business.step_4_title") التحسين
+            p.text-muted.mb-0(data-i18n-key="business.step_4_text") مراقبة وتحسين ودعم مستمر لتعظيم العائد على الاستثمار.
 
   // Include footer
   include components/footer.pug

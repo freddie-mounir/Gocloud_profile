@@ -7,24 +7,51 @@
   .top-bar-item i{color:#A1E934;font-size:.7rem}
   .top-bar-item a{color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
   .top-bar-item a:hover{color:#fff}
+  .top-bar-lang .dropdown-toggle{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:6px 12px;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.04em;line-height:1}
+  .top-bar-lang .dropdown-toggle::after{margin-inline-start:4px}
+  .top-bar-lang .dropdown-toggle:hover,.top-bar-lang .dropdown-toggle:focus{background:rgba(255,255,255,.18);color:#fff;box-shadow:none}
+  .top-bar-lang .dropdown-toggle:focus-visible{outline:2px solid #A1E934;outline-offset:2px}
+  .top-bar-lang .dropdown-menu{display:none;min-width:150px;border-radius:14px;border:1px solid #dfe6fb;box-shadow:0 18px 36px rgba(8,31,99,.12);padding:.35rem}
+  .top-bar-lang .dropdown-menu.show{display:block}
+  .top-bar-lang .dropdown-item{border-radius:10px;font-size:.88rem;font-weight:700;padding:.55rem .8rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+  .top-bar-lang .dropdown-item.active,.top-bar-lang .dropdown-item:active{background:#0E38B1;color:#fff}
+  .top-bar-calls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .top-bar-call{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 14px;color:#fff;text-decoration:none;transition:background .2s,border-color .2s}
+  .top-bar-call:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.28);color:#fff}
+  .top-bar-call i{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(161,233,52,.15);color:#A1E934;font-size:.8rem}
+  .top-bar-call span{display:flex;flex-direction:column;line-height:1.15}
+  .top-bar-call strong{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.72);text-transform:uppercase;letter-spacing:.05em}
+  .top-bar-call em{font-style:normal;font-size:.8rem;font-weight:700;color:#fff}
+  .gc-phone-ltr{display:inline-block;direction:ltr;unicode-bidi:isolate}
   .top-bar-right{display:flex;align-items:center;gap:12px}
   .top-bar-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:4px 14px 4px 4px;font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.02em}
   .top-bar-badge img{height:22px;border-radius:50%;background:#fff;padding:1px}
   .top-bar-social a{color:rgba(255,255,255,.5);font-size:.8rem;margin-left:8px;transition:color .2s}
   .top-bar-social a:hover{color:#A1E934}
-  @media(max-width:767px){.top-bar{position:fixed;top:0;left:0;width:100%;z-index:1001;padding:6px 0}.top-bar-right{display:none}.top-bar-left{gap:.75rem}.top-bar-item{font-size:.7rem}}
+  @media(max-width:767px){.top-bar{position:fixed;top:0;left:0;width:100%;z-index:1001;padding:6px 0}.top-bar-right{display:none}.top-bar-left{gap:.55rem}.top-bar-item{font-size:.7rem}.top-bar-calls{width:100%;gap:6px}.top-bar-call{padding:4px 10px}.top-bar-call strong{font-size:.62rem}.top-bar-call em{font-size:.72rem}.top-bar-lang .dropdown-toggle{padding:5px 10px;font-size:.68rem}}
   
 </style>
 <div class="top-bar">
   <div class="container">
     <div class="top-bar-inner">
       <div class="top-bar-left">
-        <div class="top-bar-item"><i class="fas fa-phone-alt"></i><a href="tel:+201017383815">+2 010 1738 3815</a></div>
+        <div class="top-bar-calls"><a class="top-bar-call" href="tel:+201017383815" aria-label="Call GoCloud at +2 010 1738 3815"><i class="fas fa-phone-alt"></i><span><strong data-i18n-key="topbar.call_label">Make a Call</strong><em class="gc-phone-ltr">+2 010 1738 3815</em></span></a><a class="top-bar-call" href="tel:+201222666635" aria-label="Call GoCloud at +20 122 266 6635"><i class="fas fa-phone-alt"></i><span><strong data-i18n-key="topbar.call_label">Make a Call</strong><em class="gc-phone-ltr">+20 122 266 6635</em></span></a></div>
+        <div class="dropdown top-bar-lang">
+          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language switch" data-site-language-toggle="data-site-language-toggle"><i class="fas fa-globe" aria-hidden="true"></i><span data-site-language-label="data-site-language-label">AR</span></button>
+          <ul class="dropdown-menu">
+            <li>
+              <button class="dropdown-item" type="button" data-site-language="ar"><span>العربية</span><span class="small text-muted">AR</span></button>
+            </li>
+            <li>
+              <button class="dropdown-item" type="button" data-site-language="en"><span>English</span><span class="small text-muted">EN</span></button>
+            </li>
+          </ul>
+        </div>
         <div class="top-bar-item"><i class="fas fa-envelope"></i><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
         <div class="top-bar-item"><i class="fas fa-map-marker-alt"></i><span>Giza, Egypt</span></div>
       </div>
       <div class="top-bar-right">
-        <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22"/>Odoo Official Partner</div>
+        <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22"/><span data-i18n-key="topbar.partner_badge">Odoo Official Partner</span></div>
         <div class="top-bar-social"><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
       </div>
     </div>

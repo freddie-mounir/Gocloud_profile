@@ -1,6 +1,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
+  "inLanguage": "ar",
   "headline": "كيف يُحدث Odoo CRM ثورة في إدارة شركات تجارة الذهب؟",
   "description": "اكتشف كيف يساعد Odoo CRM شركات تجارة الذهب في ضبط سياسات البيع وتحقيق المستهدفات ومتابعة أداء الفروع لحظياً من خلال لوحة تحكم متكاملة.",
   "image": "https://www.gocloudeg.com/images/blog-branch-dashboard.png",

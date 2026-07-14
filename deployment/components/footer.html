@@ -1,12 +1,26 @@
 
 <!-- Footer Component-->
+<style>
+  .gc-footer-compact h3{margin-bottom:8px!important}
+  .gc-footer-compact .mb-3{margin-bottom:.6rem!important}
+  .gc-footer-compact .mb-2{margin-bottom:.35rem!important}
+  .gc-footer-compact [data-newsletter-feedback]{margin-top:.35rem!important}
+  .gc-footer-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+  .gc-footer-compact .contact-box+.contact-box{margin-top:2px!important}
+  .gc-footer-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+  .gc-footer-compact .contact-box .pera,.gc-footer-compact .contact-box .pera a{line-height:1.2}
+  .gc-footer-compact .contact-box .pera a{display:inline-block;margin:0!important}
+  .gc-footer-compact .contact-box .pera p{margin:0}
+  .gc-footer-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+  
+</style>
 <footer>
   <div class="footer1 _relative">
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-3 col-md-6 col-12">
           <div class="single-footer-items"><a class="footer-logo d-inline-block mb-3" href="index.html" aria-label="GoCloud Home"><img src="images/gocloud logo.webp" height="60" width="60" alt="GoCloud Logo" loading="lazy"/></a>
-            <p class="footer-desc">As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.</p>
+            <p class="footer-desc" data-i18n-key="footer.about_text">As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.</p>
             <ul class="social-icon d-flex gap-2 mt-3">
               <li><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
               <li><a href="https://www.google.com/search?q=gocloud+eg" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fa-brands fa-google"></i></a></li>
@@ -18,40 +32,53 @@
         </div>
         <div class="col-lg-3 col-md-6 col-12">
           <div class="single-footer-items">
-            <h3>Our Services</h3>
+            <h3 data-i18n-key="footer.services_title">Our Services</h3>
             <ul class="menu-list">
-              <li><a href="cloud-services.html"><i class="fa-solid fa-chevron-right me-2"></i>Cloud Solutions</a></li>
-              <li><a href="odoo-services.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Services</a></li>
-              <li><a href="odoo-imp.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Implementation</a></li>
-              <li><a href="odoo-dev.html"><i class="fa-solid fa-chevron-right me-2"></i>Odoo Development</a></li>
-              <li><a href="business.html"><i class="fa-solid fa-chevron-right me-2"></i>Business Intelligence</a></li>
-              <li><a href="portfolio.html"><i class="fa-solid fa-chevron-right me-2"></i>Portfolio & E-commerce</a></li>
-              <li><a href="elite.html"><i class="fa-solid fa-chevron-right me-2"></i>ELITE Medical Insurance</a></li>
+              <li><a href="cloud-services.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.cloud_solutions">Cloud Solutions</span></a></li>
+              <li><a href="odoo-services.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_services">Odoo Services</span></a></li>
+              <li><a href="odoo-imp.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_implementation">Odoo Implementation</span></a></li>
+              <li><a href="odoo-dev.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_development">Odoo Development</span></a></li>
+              <li><a href="business.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.business_intelligence">Business Intelligence</span></a></li>
+              <li><a href="portfolio.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.portfolio">Portfolio & E-commerce</span></a></li>
+              <li><a href="elite.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.elite_medical">ELITE Medical Insurance</span></a></li>
             </ul>
           </div>
         </div>
         <div class="col-lg-2 col-md-6 col-12">
           <div class="single-footer-items">
-            <h3>Useful Links</h3>
+            <h3 data-i18n-key="footer.links_title">Useful Links</h3>
             <ul class="menu-list">
-              <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i>About Us</a></li>
-              <li><a href="service.html"><i class="fa-solid fa-chevron-right me-2"></i>Services</a></li>
-              <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-2"></i>Contact Us</a></li>
-              <li><a href="conditions-terms.html"><i class="fa-solid fa-chevron-right me-2"></i>Terms & Conditions</a></li>
-              <li><a href="privacy.html"><i class="fa-solid fa-chevron-right me-2"></i>Privacy Policy</a></li>
+              <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.about_us">About Us</span></a></li>
+              <li><a href="service.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.services">Services</span></a></li>
+              <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.contact_us">Contact Us</span></a></li>
+              <li><a href="conditions-terms.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.terms">Terms & Conditions</span></a></li>
+              <li><a href="privacy.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.privacy">Privacy Policy</span></a></li>
             </ul>
           </div>
         </div>
         <div class="col-lg-4 col-md-6 col-12">
-          <div class="single-footer-items">
-            <h3>Contact Us</h3>
+          <div class="single-footer-items gc-footer-compact">
+            <h3 data-i18n-key="footer.contact_title">Contact Us</h3>
+            <div class="mb-3">
+              <p class="mb-2 fw-semibold" data-i18n-key="footer.newsletter_title">Stay updated with GoCloud insights</p>
+              <form data-newsletter-form="data-newsletter-form" data-source="website-footer">
+                <label class="visually-hidden" for="newsletterEmailFooter" data-i18n-key="footer.email_label">Email address</label>
+                <div class="input-group input-group-sm">
+                  <input class="form-control" id="newsletterEmailFooter" type="email" name="email" placeholder="name@company.com" required="required" autocomplete="email"/>
+                  <button class="btn btn-light text-dark" type="submit" data-i18n-key="footer.subscribe">Subscribe</button>
+                </div>
+              </form>
+              <p class="small mt-2 mb-0" data-newsletter-feedback="data-newsletter-feedback" role="status" aria-live="polite"></p>
+            </div>
             <div class="contact-box">
               <div class="icon"><i class="fa-solid fa-phone"></i></div>
-              <div class="pera"><a href="tel:+20233762533">02 3376 2533</a></div>
+              <div class="pera"><a class="gc-phone-ltr" href="tel:+20233762533">02 3376 2533</a></div>
             </div>
             <div class="contact-box">
               <div class="icon"><i class="fa-solid fa-mobile-screen"></i></div>
-              <div class="pera"><a href="tel:+201017383815">+20 101 738 3815</a></div>
+              <div class="pera">
+                <div class="d-flex flex-column gap-1"><a class="gc-phone-ltr" href="tel:+201017383815">+20 101 738 3815</a><a class="gc-phone-ltr" href="tel:+201222666635">+20 122 266 6635</a></div>
+              </div>
             </div>
             <div class="contact-box">
               <div class="icon"><i class="fa-solid fa-envelope"></i></div>
@@ -61,7 +88,7 @@
               <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
               <div class="pera"><a href="https://www.google.com/maps/place/?q=place_id:ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer">Ahram Gardens, Gate 4, Giza, Egypt</a></div>
             </div>
-            <div class="d-flex gap-2 mt-3"><a class="btn btn-sm btn-outline-light" href="https://www.google.com/maps/dir/?api=1&amp;destination=GoCloud&amp;destination_place_id=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right me-1"></i>Directions</a><a class="btn btn-sm btn-outline-light" href="https://search.google.com/local/writereview?placeid=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-star me-1"></i>Review Us</a></div>
+            <div class="d-flex gap-2 mt-3"><a class="btn btn-sm btn-outline-light" href="https://www.google.com/maps/dir/?api=1&amp;destination=GoCloud&amp;destination_place_id=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right me-1"></i><span data-i18n-key="footer.directions">Directions</span></a><a class="btn btn-sm btn-outline-light" href="https://search.google.com/local/writereview?placeid=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-star me-1"></i><span data-i18n-key="footer.review_us">Review Us</span></a></div>
           </div>
         </div>
       </div>
@@ -70,9 +97,9 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-6 text-center text-md-start">
-            <p class="mb-0">&copy;<span id="gcCurrentYear"></span> GoCloud. All Rights Reserved.</p>
+            <p class="mb-0">&copy;<span id="gcCurrentYear"></span><span data-i18n-key="footer.copyright"> GoCloud. All Rights Reserved.</span></p>
           </div>
-          <div class="col-md-6 text-center text-md-end"><a href="conditions-terms.html">Terms & Conditions</a><span class="mx-2">|</span><a href="privacy.html">Privacy Policy</a></div>
+          <div class="col-md-6 text-center text-md-end"><a href="conditions-terms.html" data-i18n-key="footer.terms">Terms & Conditions</a><span class="mx-2">|</span><a href="privacy.html" data-i18n-key="footer.privacy">Privacy Policy</a></div>
         </div>
       </div>
     </div>

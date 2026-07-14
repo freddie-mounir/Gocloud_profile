@@ -1,6 +1,7 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
+  "inLanguage": "ar",
   "headline": "لماذا تتحول الشركات الكبرى إلى Odoo في 2026؟ مقارنة مع SAP وOracle وMicrosoft",
   "description": "مقارنة شاملة بين Odoo وأنظمة ERP العملاقة — SAP وOracle وMicrosoft Dynamics — ولماذا تختار المؤسسات الكبرى الانتقال إلى Odoo في 2026.",
   "image": "https://www.gocloudeg.com/images/blog-odoo-vs-sap-oracle.png",
