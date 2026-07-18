@@ -1,0 +1,140 @@
+{
+  "categories": [
+    {
+      "id": "odoo",
+      "label": {
+        "ar": "أودو",
+        "en": "Odoo"
+      },
+      "intro": {
+        "ar": "أسئلة عملية حول التراخيص، التسعير، ودور الشريك في نجاح التطبيق.",
+        "en": "Practical answers about licensing, pricing, and the partner role in a successful implementation."
+      },
+      "items": [
+        {
+          "id": "faq-odoo-community-vs-enterprise",
+          "question": {
+            "ar": "ما الفرق بين نسخة أودو المجانية (Community) والمدفوعة (Enterprise)؟",
+            "en": "What is the difference between Odoo Community (Free) and Enterprise (Paid)?"
+          },
+          "answer": {
+            "ar": "نسخة Community مفتوحة المصدر وتغطي الأساسيات مثل المبيعات والمخزون والمحاسبة، لكنها لا تشمل الميزات المتقدمة أو الدعم الرسمي. أما نسخة Enterprise فتضم جميع مزايا Community مع تطبيقات متقدمة، تطبيق الهاتف، التحديثات التلقائية، والدعم الرسمي.",
+            "en": "Odoo Community is the open-source core with basic features like accounting, sales, and inventory, but without advanced tools or official support. Odoo Enterprise includes everything in Community plus advanced modules, mobile apps, automatic upgrades, and official support."
+          }
+        },
+        {
+          "id": "faq-odoo-when-community",
+          "question": {
+            "ar": "متى يمكن الاعتماد على النسخة المجانية من أودو؟",
+            "en": "When should a company rely on the free Odoo Community version?"
+          },
+          "answer": {
+            "ar": "نوصي بالنسخة المجانية للشركات الناشئة أو الفرق التقنية التي تعمل بدورات عمل قياسية، وتمتلك فريقاً داخلياً لإدارة الخوادم، ولا تحتاج إلى توطين مالي متقدم أو تطبيقات الهاتف أو دعم رسمي.",
+            "en": "The free version is ideal for startups or technical teams that need only standard workflows, have internal IT resources to manage servers, and do not need full localization, mobile apps, or official vendor support."
+          }
+        },
+        {
+          "id": "faq-odoo-enterprise-pricing",
+          "question": {
+            "ar": "كيف يتم حساب تسعير Odoo Enterprise؟",
+            "en": "How is Odoo Enterprise pricing calculated?"
+          },
+          "answer": {
+            "ar": "تسعير Odoo Enterprise يعتمد على اشتراك لكل مستخدم. إجمالي التكلفة عادة يكون: رسوم التراخيص + تكلفة التطبيق والتخصيص (تُدفع للشريك) + تكلفة الاستضافة.",
+            "en": "Odoo Enterprise follows a per-user subscription model. Total cost is typically License Fee + Implementation and Customization (paid to the partner) + Hosting."
+          }
+        },
+        {
+          "id": "faq-odoo-cost-10-50-100",
+          "question": {
+            "ar": "ما الفرق في تكلفة التطبيق لشركات بحجم 10، 50، و100 مستخدم؟",
+            "en": "How much does a project cost for 10 vs. 50 vs. 100 users?"
+          },
+          "answer": {
+            "ar": "10 مستخدمين غالباً تعني انطلاقة سريعة بتطبيقات قياسية. 50 مستخدماً تتطلب عادة دورات عمل بين الإدارات، نقل بيانات، وتقارير مخصصة. 100 مستخدم فأكثر تعني مشروعاً مؤسسياً متكاملاً بإعدادات متعددة الشركات وتطوير تطبيقات خاصة.",
+            "en": "10 users usually means a fast setup with standard modules. 50 users often requires cross-department workflows, data migration, and tailored reporting. 100+ users is typically an enterprise-scale rollout with multi-company architecture and custom module development."
+          }
+        },
+        {
+          "id": "faq-odoo-why-partner",
+          "question": {
+            "ar": "لماذا أحتاج إلى شريك أودو إذا كان بإمكاني الشراء مباشرة من أودو؟",
+            "en": "Why do I need an Odoo Partner if I can buy directly from Odoo?"
+          },
+          "answer": {
+            "ar": "أودو تقدم المنصة، بينما الشريك يترجم عملياتك الفعلية إلى نظام يعمل بكفاءة، مع ضبط التوطين المحاسبي وتنفيذ التكاملات اللازمة. وجود الشريك يصبح حاسماً عندما لا تكفي الإعدادات الافتراضية لطبيعة نشاطك.",
+            "en": "Odoo provides the software, while a partner maps your business workflows to the system, handles localization, and builds required integrations. A partner becomes critical when default settings do not match your real operations."
+          }
+        },
+        {
+          "id": "faq-odoo-change-partner",
+          "question": {
+            "ar": "كيف يمكن تغيير شريك أودو إذا لم يعد مناسباً؟",
+            "en": "How can we change our Odoo partner if they are no longer suitable?"
+          },
+          "answer": {
+            "ar": "تغيير الشريك إجراء مدعوم بالكامل من أودو. يتم إخطار الشريك الحالي وأودو، ثم نقل رمز الاشتراك إلى الشريك الجديد ليبدأ بمراجعة فنية شاملة للنظام وخطة استلام واضحة.",
+            "en": "Partner change is fully supported. You notify your current partner and Odoo, then transfer your subscription key to the new partner who starts with a full system audit."
+          }
+        }
+      ]
+    },
+    {
+      "id": "elite",
+      "label": {
+        "ar": "GoCloud Elite",
+        "en": "GoCloud Elite"
+      },
+      "intro": {
+        "ar": "أسئلة حول الاستضافة المتقدمة، البيئات المعزولة، واستلام المشاريع المتعثرة.",
+        "en": "Answers about advanced hosting, isolated environments, and taking over troubled implementations."
+      },
+      "items": [
+        {
+          "id": "faq-elite-difference",
+          "question": {
+            "ar": "ما الذي يميز خدمات GoCloud Elite؟",
+            "en": "What makes the GoCloud Elite service different?"
+          },
+          "answer": {
+            "ar": "GoCloud Elite موجهة للشركات التي تحتاج بنية تحتية معزولة عالية الأداء وحلول ERP مصممة على مقاس العمليات الفعلية، مع تطوير Modules خاصة للقطاعات المتخصصة.",
+            "en": "GoCloud Elite is built for organizations that need high-performance isolated infrastructure and deeply customized ERP workflows, including pure custom modules for specialized industries."
+          }
+        },
+        {
+          "id": "faq-elite-hosting-location",
+          "question": {
+            "ar": "أين يتم استضافة بيانات عملاء GoCloud Elite؟",
+            "en": "Where is GoCloud Elite data hosted?"
+          },
+          "answer": {
+            "ar": "لضمان أعلى مستويات الأمان والاستقرار والسرعة، تتم استضافة بيئات Elite على خوادم VPS خاصة عالية الأداء داخل ألمانيا.",
+            "en": "Elite environments are hosted on dedicated high-performance VPS infrastructure located in Germany to maximize speed, stability, and security."
+          }
+        },
+        {
+          "id": "faq-elite-dev-staging",
+          "question": {
+            "ar": "هل تدعمون بيئات التطوير والاختبار المعزولة؟",
+            "en": "Do you support isolated development and testing environments?"
+          },
+          "answer": {
+            "ar": "نعم. في GoCloud نعتمد على Git وممارسات CI/CD متقدمة لضمان فصل صارم بين بيئة الإنتاج الحية وبيئات التطوير والاختبار.",
+            "en": "Yes. We use Git-based workflows and CI/CD best practices to keep strict separation between production systems and staging environments."
+          }
+        },
+        {
+          "id": "faq-elite-rescue-project",
+          "question": {
+            "ar": "هل يمكنكم تولي مشروع أودو متعثر من مزود آخر؟",
+            "en": "Can you take over a failing Odoo implementation from another provider?"
+          },
+          "answer": {
+            "ar": "بالتأكيد. نحن متخصصون في إنقاذ مشاريع أودو المتعثرة واستلام أعمال الصيانة، ونبدأ دائماً بتدقيق فني عميق لقاعدة البيانات والكود الحالي قبل تنفيذ خطة التصحيح.",
+            "en": "Yes. We specialize in rescuing and maintaining troubled implementations, starting with a deep technical audit of your existing database and code."
+          }
+        }
+      ]
+    }
+  ]
+}

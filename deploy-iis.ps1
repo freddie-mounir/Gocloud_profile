@@ -123,6 +123,19 @@ if (Test-Path "blog") {
     Copy-Item -Path "blog" -Destination $DeploymentFolder -Recurse -Force
 }
 
+Write-Host "  → Copying FAQ/blog data files..." -ForegroundColor Gray
+$dataDest = Join-Path $DeploymentFolder "data"
+New-Item -ItemType Directory -Path $dataDest -Force | Out-Null
+if (Test-Path "data\faq-content.json") {
+    Copy-Item -Path "data\faq-content.json" -Destination $dataDest -Force
+}
+if (Test-Path "data\_posts-index.json") {
+    Copy-Item -Path "data\_posts-index.json" -Destination $dataDest -Force
+}
+if (Test-Path "data\posts") {
+    Copy-Item -Path "data\posts" -Destination $dataDest -Recurse -Force
+}
+
 Write-Host "  → Copying components directory..." -ForegroundColor Gray
 if (Test-Path "components") {
     Copy-Item -Path "components" -Destination $DeploymentFolder -Recurse -Force
