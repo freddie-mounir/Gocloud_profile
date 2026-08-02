@@ -17,7 +17,10 @@ style.
   .ctn-preloader .animation-preloader .txt-loading .letters-loading:before{color:rgba(255,255,255,.85)}
   .preloader-bar{width:160px;height:3px;background:rgba(255,255,255,.12);border-radius:4px;margin:1.5rem auto 0;overflow:hidden}
   .preloader-bar-inner{height:100%;width:40%;background:linear-gradient(90deg,#A1E934,#fff);border-radius:4px;animation:preloaderSlide 1.2s ease-in-out infinite}
-  .preloader-tagline{color:rgba(255,255,255,.45);font-size:.75rem;font-weight:500;letter-spacing:.15em;margin-top:1rem;text-transform:uppercase}
+  .preloader-tagline{color:rgba(255,255,255,.45);font-size:.75rem;font-weight:500;letter-spacing:.08em;margin-top:1rem;text-transform:none;text-align:center;display:block;width:100%}
+  html[lang='ar'] .preloader-tagline{direction:rtl;text-align:center}
+  @media (max-width: 767px){.preloader-tagline{text-align:center;letter-spacing:.05em}}
+  @media (max-width: 767px){.progress-wrap{right:12px!important;bottom:18px!important}}
   @keyframes preloaderPulse{0%,100%{transform:scale(1);box-shadow:0 16px 48px rgba(0,0,0,.25)}50%{transform:scale(1.06);box-shadow:0 20px 56px rgba(14,56,177,.35)}}
   @keyframes preloaderSlide{0%{transform:translateX(-100%)}50%{transform:translateX(200%)}100%{transform:translateX(400%)}}
 
@@ -38,6 +41,6 @@ section
           span.letters-loading(data-text-preloader="D") D
         .preloader-bar
           .preloader-bar-inner
-        .preloader-tagline(data-i18n-key="preloader.tagline") Smart Software Solutions
+        .preloader-tagline حلول برمجية ذكية
       .loader-section-left.loader-section.section-left
       .loader-section-right.loader-section.section-right

@@ -105,7 +105,7 @@ block content
         each post in posts
           .col-lg-4.col-md-6.blog-item.blog-col(data-category=post.category data-aos="fade-up")
             .blog-card
-              img.blog-card-img(src=`${pathPrefix}${post.image}` alt=post.title loading="lazy")
+              img.blog-card-img(src=`${pathPrefix}${post.displayImage || post.image}` alt=post.title loading="lazy")
               .blog-card-body
                 .blog-card-cat= post.categoryLabel
                 h3.blog-card-title
@@ -136,6 +136,9 @@ block content
               input#newsletterEmailIndex.newsletter-input(type="email" name="email" placeholder="name@company.com" required autocomplete="email")
               button.newsletter-btn(type="submit" data-blog-newsletter-button)= t.newsletterButton
             p.newsletter-feedback(data-newsletter-feedback role="status" aria-live="polite")
+
+  include ../../views/components/footer.pug
+  include ../../views/components/whatsapp-button.pug
 
 block scripts
   script.

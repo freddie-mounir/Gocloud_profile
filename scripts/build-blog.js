@@ -197,6 +197,26 @@ function pickLocalized(localized, locale = DEFAULT_LOCALE, fallbackLocale = FALL
   return '';
 }
 
+function getOptimizedImagePath(imagePath) {
+  if (!hasText(imagePath)) {
+    return imagePath;
+  }
+
+  const ext = path.extname(imagePath).toLowerCase();
+  if (ext !== '.png') {
+    return imagePath;
+  }
+
+  const webpCandidate = imagePath.replace(/\.png$/i, '.webp');
+  const candidateAbsPath = path.join(ROOT, webpCandidate);
+
+  if (fs.existsSync(candidateAbsPath)) {
+    return webpCandidate;
+  }
+
+  return imagePath;
+}
+
 function normalizePost(rawPost) {
   const localized = {};
 
@@ -238,7 +258,8 @@ function localizePost(post, locale = DEFAULT_LOCALE) {
     excerpt: pickLocalized(post.excerpt_i18n, locale),
     content: pickLocalized(post.content_i18n, locale),
     author: pickLocalized(post.author_i18n, locale),
-    tags: (post.tags_i18n || []).map(tag => pickLocalized(tag, locale))
+    tags: (post.tags_i18n || []).map(tag => pickLocalized(tag, locale)),
+    displayImage: getOptimizedImagePath(post.image)
   };
 }
 

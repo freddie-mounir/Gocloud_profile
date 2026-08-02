@@ -26,7 +26,7 @@
 ✅ images/elite-dashboard.webp
 ✅ images/odoo.webp
 ✅ images/odoo about.webp
-✅ images/odoo_partner.webp
+✅ images/Odoo_GoCloud_partnership.jpg
 ✅ images/odoo_learning_partner_rgb (1).webp
 ```
 

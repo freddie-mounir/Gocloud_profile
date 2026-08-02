@@ -73,6 +73,12 @@ block styles
     .timeline-card h4{font-size:1.1rem;font-weight:700;margin-bottom:.5rem;color:#0D0E10}
     .timeline-card p{font-size:.9rem;color:#4a4b5c;line-height:1.65;margin:0}
     .timeline-card .milestone-img{border-radius:12px;margin-top:1rem;width:100%;max-height:200px;object-fit:cover}
+    html[dir='rtl'] .timeline-card{text-align:right}
+    html[dir='rtl'] .timeline-item:nth-child(odd){left:50%;text-align:left;padding-left:3rem;padding-right:0}
+    html[dir='rtl'] .timeline-item:nth-child(even){left:0;text-align:right;padding-right:3rem;padding-left:0}
+    html[dir='rtl'] .timeline-item:nth-child(odd) .timeline-dot{left:-8px;right:auto}
+    html[dir='rtl'] .timeline-item:nth-child(even) .timeline-dot{right:-8px;left:auto}
+    @media(max-width:768px){html[dir='rtl'] .timeline::before{right:20px;left:auto}html[dir='rtl'] .timeline-item,html[dir='rtl'] .timeline-item:nth-child(even),html[dir='rtl'] .timeline-item:nth-child(odd){left:0;width:100%;padding-right:3.5rem;padding-left:0;text-align:right}html[dir='rtl'] .timeline-dot,html[dir='rtl'] .timeline-item:nth-child(odd) .timeline-dot,html[dir='rtl'] .timeline-item:nth-child(even) .timeline-dot{right:12px!important;left:auto!important}}
     @media(max-width:768px){.timeline::before{left:20px}.timeline-item,.timeline-item:nth-child(even){left:0;width:100%;padding-left:3.5rem;padding-right:0;text-align:left}.timeline-item:nth-child(odd){text-align:left;padding-left:3.5rem;padding-right:0}.timeline-dot,.timeline-item:nth-child(odd) .timeline-dot,.timeline-item:nth-child(even) .timeline-dot{left:12px!important;right:auto!important}}
 
     /* ── Org chart (card layout) ── */

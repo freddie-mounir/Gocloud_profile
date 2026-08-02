@@ -21,6 +21,11 @@ block styles
     .hero-img-wrapper{position:relative;display:inline-block}
     .hero-img-wrapper img{border-radius:20px;box-shadow:0 24px 64px rgba(14,56,177,.18);transition:transform .5s ease}
     .hero-img-wrapper:hover img{transform:scale(1.03)}
+    .hero-image-cta{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:2}
+    .hero-image-cta .hero-image-cta-btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;background:linear-gradient(180deg,#4da7a2 0%,#3f8f8b 100%);color:#fff;padding:10px 24px;min-width:240px;font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;box-shadow:0 10px 24px rgba(49,119,115,.42);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+    .hero-image-cta .hero-image-cta-btn:hover{color:#fff;transform:translateY(-1px);box-shadow:0 14px 28px rgba(49,119,115,.5);filter:brightness(1.04)}
+    .hero-image-cta .hero-image-cta-btn:focus-visible{outline:3px solid rgba(161,233,52,.95);outline-offset:3px}
+    @media (max-width: 767px){.hero-image-cta{bottom:12px}.hero-image-cta .hero-image-cta-btn{min-width:210px;padding:9px 18px;font-size:.7rem;letter-spacing:.04em}}
     .hero-img-wrapper::before{content:"";position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:3px solid #0E38B1;border-radius:24px;z-index:-1;opacity:.3}
     .hero-img-wrapper::after{content:"";position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;background:linear-gradient(135deg,rgba(14,56,177,.08),rgba(161,233,52,.08));border-radius:24px;z-index:-1}
     .hero-img-glow{position:absolute;width:200px;height:200px;border-radius:50%;filter:blur(80px);opacity:.4;z-index:-2}
@@ -71,21 +76,16 @@ block content
               span.text-accent(data-i18n-key="home.hero_title_line3") مصممة حسب احتياج قطاعك
             .space16
             p.hero-sub(data-i18n-key="home.hero_sub") ننفذ ونخصص وندمج Odoo ERP لقطاعات الرعاية الصحية والتجارة والتوزيع، ونشغّل عمليات التأمين الطبي عبر منصة ELITE.
-            .space30
-            .hero-actions
-              a.theme-btn1(href="#CTA")
-                span(data-i18n-key="home.hero_primary_cta") ابدأ الآن
-                span
-                  i.fa-solid.fa-arrow-right
-              a.btn.btn-hero-outline(href="service.html")
-                span(data-i18n-key="home.hero_secondary_cta") عرض الخدمات
 
         .col-lg-7
           .hero1-all-images
             .hero-img-wrapper
               .hero-img-glow.hero-img-glow--blue
               .hero-img-glow.hero-img-glow--green
-              img(src="images/odoo_partner.webp" alt="GoCloud and Odoo official partnership" width="500" height="500" fetchpriority="high")
+              img(src="images/odoo_partner.png" alt="GoCloud and Odoo official partnership" width="500" height="500" fetchpriority="high")
+              .hero-image-cta
+                a.hero-image-cta-btn(href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer")
+                  span(data-i18n-key="home.hero_image_cta_button") اطلب استشارة
             .d-flex.counter-box.shape-animaiton2.counter-box-width.shadow-lg-3(style="background-color: #1a237e; border-radius: 15px; padding: 15px;")
               p.fs-3.text-white#yearsCounter
                 | +
@@ -409,6 +409,7 @@ block content
   include components/whatsapp-button.pug
 
 block scripts
+
 
 
 

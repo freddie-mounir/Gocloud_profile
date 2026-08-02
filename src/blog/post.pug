@@ -138,7 +138,7 @@ block content
       .row.g-5
         //- Main content
         .col-lg-8
-          img.article-featured-img(src=`${pathPrefix}${post.image}` alt=post.title loading="lazy")
+          img.article-featured-img(src=`${pathPrefix}${post.displayImage || post.image}` alt=post.title loading="lazy")
           .article-content!= post.content
 
           if expertBacklinks && expertBacklinks.length
@@ -188,7 +188,7 @@ block content
               h5= t.related
               each r in related
                 a.related-item(href=`${r.slug}.html`)
-                  img(src=`${pathPrefix}${r.image}` alt=r.title loading="lazy")
+                  img(src=`${pathPrefix}${r.displayImage || r.image}` alt=r.title loading="lazy")
                   div
                     .ri-title= r.title
                     .ri-date= r.date
@@ -210,3 +210,6 @@ block content
             a.btn-cta-blog(href=`${pathPrefix}contact.html`)
               = t.ctaButton
               i.fas.fa-arrow-left
+
+  include ../../views/components/footer.pug
+  include ../../views/components/whatsapp-button.pug

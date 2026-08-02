@@ -41,6 +41,8 @@
     <meta name="googlebot" content="index, follow">
     <script type="application/ld+json">include ../js/organization-schema.json</script>
     <meta name="gocloud-chat-token" content="">
+    <!-- Set your Meta Pixel ID once available (numbers only)-->
+    <meta name="gocloud-meta-pixel-id" content="">
     <!-- Favicon-->
     <link rel="icon" href="images/favicon.ico" sizes="32x32">
     <link rel="icon" href="images/gocloud logo.webp" type="image/webp">
@@ -188,7 +190,10 @@
         .ctn-preloader .animation-preloader .txt-loading .letters-loading:before{color:rgba(255,255,255,.85)}
         .preloader-bar{width:160px;height:3px;background:rgba(255,255,255,.12);border-radius:4px;margin:1.5rem auto 0;overflow:hidden}
         .preloader-bar-inner{height:100%;width:40%;background:linear-gradient(90deg,#A1E934,#fff);border-radius:4px;animation:preloaderSlide 1.2s ease-in-out infinite}
-        .preloader-tagline{color:rgba(255,255,255,.45);font-size:.75rem;font-weight:500;letter-spacing:.15em;margin-top:1rem;text-transform:uppercase}
+        .preloader-tagline{color:rgba(255,255,255,.45);font-size:.75rem;font-weight:500;letter-spacing:.08em;margin-top:1rem;text-transform:none;text-align:center;display:block;width:100%}
+        html[lang='ar'] .preloader-tagline{direction:rtl;text-align:center}
+        @media (max-width: 767px){.preloader-tagline{text-align:center;letter-spacing:.05em}}
+        @media (max-width: 767px){.progress-wrap{right:12px!important;bottom:18px!important}}
         @keyframes preloaderPulse{0%,100%{transform:scale(1);box-shadow:0 16px 48px rgba(0,0,0,.25)}50%{transform:scale(1.06);box-shadow:0 20px 56px rgba(14,56,177,.35)}}
         @keyframes preloaderSlide{0%{transform:translateX(-100%)}50%{transform:translateX(200%)}100%{transform:translateX(400%)}}
         
@@ -204,7 +209,7 @@
               <div class="preloader-bar">
                 <div class="preloader-bar-inner"></div>
               </div>
-              <div class="preloader-tagline" data-i18n-key="preloader.tagline">Smart Software Solutions</div>
+              <div class="preloader-tagline">حلول برمجية ذكية</div>
             </div>
             <div class="loader-section-left loader-section section-left"></div>
             <div class="loader-section-right loader-section section-right"></div>
@@ -264,7 +269,7 @@
             </div>
             <div class="top-bar-right">
               <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22"><span data-i18n-key="topbar.partner_badge">Odoo Official Partner</span></div>
-              <div class="top-bar-social"><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></div>
+              <div class="top-bar-social"><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.google.com/search?q=gocloud+eg" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fab fa-google"></i></a><a href="https://www.youtube.com/@GoCloudeg" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/gocloud_eg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
             </div>
           </div>
         </div>
@@ -279,6 +284,13 @@
         .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{display:inline-block;margin:0!important}
         .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera p{margin:0}
         .mobile-sidebar .gc-mobile-contact-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+        .mobile-sidebar .menu-close{position:fixed;top:18px;right:14px;z-index:10020}
+        .mobile-sidebar .mobile-menu-close-btn{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:24px;line-height:1;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+        .mobile-sidebar .mobile-menu-close-btn:hover{background:rgba(255,255,255,.26)}
+        @media (max-width: 767px){
+          .mobile-header,.mobile-header.mobile-header-main{top:108px!important;z-index:1000}
+          .mobile-header .container-fluid{padding-inline:14px}
+        }
         
       </style>
       <header role="banner">
@@ -328,7 +340,7 @@
         <div class="mobile-sidebar d-block d-md-none d-lg-none" role="dialog" aria-label="Mobile navigation menu">
           <div class="logo-m"><a href="index.html" aria-label="GoCloud Home"><img src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy"></a></div>
           <div class="menu-close">
-            <button class="mobile-menu-close-btn" type="button" aria-label="Close navigation menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+            <button class="mobile-menu-close-btn" type="button" aria-label="Close navigation menu"><i class="fa-solid fa-times" aria-hidden="true"></i></button>
           </div>
           <div class="mobile-nav">
             <nav role="navigation" aria-label="Mobile Navigation">
@@ -443,6 +455,113 @@
           </div>
         </div>
       </section>
+      <!-- Footer Component-->
+      <style>
+        .gc-footer-compact h3{margin-bottom:8px!important}
+        .gc-footer-compact .mb-3{margin-bottom:.6rem!important}
+        .gc-footer-compact .mb-2{margin-bottom:.35rem!important}
+        .gc-footer-compact [data-newsletter-feedback]{margin-top:.35rem!important}
+        .gc-footer-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+        .gc-footer-compact .contact-box+.contact-box{margin-top:2px!important}
+        .gc-footer-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+        .gc-footer-compact .contact-box .pera,.gc-footer-compact .contact-box .pera a{line-height:1.2}
+        .gc-footer-compact .contact-box .pera a{display:inline-block;margin:0!important}
+        .gc-footer-compact .contact-box .pera p{margin:0}
+        .gc-footer-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+        
+      </style>
+      <footer>
+        <div class="footer1 _relative">
+          <div class="container">
+            <div class="row gy-4">
+              <div class="col-lg-3 col-md-6 col-12">
+                <div class="single-footer-items"><a class="footer-logo d-inline-block mb-3" href="index.html" aria-label="GoCloud Home"><img src="images/gocloud logo.webp" height="60" width="60" alt="GoCloud Logo" loading="lazy"></a>
+                  <p class="footer-desc" data-i18n-key="footer.about_text">As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.</p>
+                  <ul class="social-icon d-flex gap-2 mt-3">
+                    <li><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.google.com/search?q=gocloud+eg" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fa-brands fa-google"></i></a></li>
+                    <li><a href="https://www.youtube.com/@GoCloudeg" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/gocloud_eg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-12">
+                <div class="single-footer-items">
+                  <h3 data-i18n-key="footer.services_title">Our Services</h3>
+                  <ul class="menu-list">
+                    <li><a href="cloud-services.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.cloud_solutions">Cloud Solutions</span></a></li>
+                    <li><a href="odoo-services.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_services">Odoo Services</span></a></li>
+                    <li><a href="odoo-imp.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_implementation">Odoo Implementation</span></a></li>
+                    <li><a href="odoo-dev.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_development">Odoo Development</span></a></li>
+                    <li><a href="business.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.business_intelligence">Business Intelligence</span></a></li>
+                    <li><a href="portfolio.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.portfolio">Portfolio & E-commerce</span></a></li>
+                    <li><a href="elite.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.elite_medical">ELITE Medical Insurance</span></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-6 col-12">
+                <div class="single-footer-items">
+                  <h3 data-i18n-key="footer.links_title">Useful Links</h3>
+                  <ul class="menu-list">
+                    <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.about_us">About Us</span></a></li>
+                    <li><a href="service.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.services">Services</span></a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.contact_us">Contact Us</span></a></li>
+                    <li><a href="conditions-terms.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.terms">Terms & Conditions</span></a></li>
+                    <li><a href="privacy.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.privacy">Privacy Policy</span></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-12">
+                <div class="single-footer-items gc-footer-compact">
+                  <h3 data-i18n-key="footer.contact_title">Contact Us</h3>
+                  <div class="mb-3">
+                    <p class="mb-2 fw-semibold" data-i18n-key="footer.newsletter_title">Stay updated with GoCloud insights</p>
+                    <form data-newsletter-form data-source="website-footer">
+                      <label class="visually-hidden" for="newsletterEmailFooter" data-i18n-key="footer.email_label">Email address</label>
+                      <div class="input-group input-group-sm">
+                        <input class="form-control" id="newsletterEmailFooter" type="email" name="email" placeholder="name@company.com" required autocomplete="email">
+                        <button class="btn btn-light text-dark" type="submit" data-i18n-key="footer.subscribe">Subscribe</button>
+                      </div>
+                    </form>
+                    <p class="small mt-2 mb-0" data-newsletter-feedback role="status" aria-live="polite"></p>
+                  </div>
+                  <div class="contact-box">
+                    <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="pera"><a class="gc-phone-ltr" href="tel:+20233762533">02 3376 2533</a></div>
+                  </div>
+                  <div class="contact-box">
+                    <div class="icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div class="pera">
+                      <div class="d-flex flex-column gap-1"><a class="gc-phone-ltr" href="tel:+201017383815">+20 101 738 3815</a><a class="gc-phone-ltr" href="tel:+201222666635">+20 122 266 6635</a></div>
+                    </div>
+                  </div>
+                  <div class="contact-box">
+                    <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="pera"><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
+                  </div>
+                  <div class="contact-box">
+                    <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="pera"><a href="https://www.google.com/maps/place/?q=place_id:ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer">Ahram Gardens, Gate 4, Giza, Egypt</a></div>
+                  </div>
+                  <div class="d-flex gap-2 mt-3"><a class="btn btn-sm btn-outline-light" href="https://www.google.com/maps/dir/?api=1&amp;destination=GoCloud&amp;destination_place_id=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right me-1"></i><span data-i18n-key="footer.directions">Directions</span></a><a class="btn btn-sm btn-outline-light" href="https://search.google.com/local/writereview?placeid=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-star me-1"></i><span data-i18n-key="footer.review_us">Review Us</span></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                  <p class="mb-0">&copy;<span id="gcCurrentYear"></span><span data-i18n-key="footer.copyright"> GoCloud. All Rights Reserved.</span></p>
+                </div>
+                <div class="col-md-6 text-center text-md-end"><a href="conditions-terms.html" data-i18n-key="footer.terms">Terms & Conditions</a><span class="mx-2">|</span><a href="privacy.html" data-i18n-key="footer.privacy">Privacy Policy</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
       <!-- WhatsApp Floating Button Component-->
       <style>
         .whatsapp-float {
@@ -462,6 +581,16 @@
         
         .my-float {
           margin-top: 16px;
+        }
+        
+        @media (max-width: 767px) {
+          .whatsapp-float {
+            right: 12px;
+            bottom: 88px;
+            width: 58px;
+            height: 58px;
+            z-index: 1099;
+          }
         }
       </style>
     </main>
@@ -588,7 +717,8 @@
       .gc-chat-input button:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(14,56,177,.3)}
       .gc-chat-input button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
       .gc-chat-powered{text-align:center;padding:6px;font-size:.65rem;color:#999;background:#fff;border-top:1px solid #f0f1f5;flex-shrink:0}
-      @media(max-width:576px){.gc-chat-panel{width:100%;height:100%;bottom:0;right:0;border-radius:0}.gc-chat-btn{bottom:160px;right:20px}}
+      @media (max-width: 767px){.gc-chat-btn{right:12px;bottom:158px;z-index:1100}}
+      @media(max-width:576px){.gc-chat-panel{width:100%;height:100%;bottom:0;right:0;border-radius:0}.gc-chat-btn{bottom:158px;right:12px}}
       
     </style>
     <button class="gc-chat-btn" id="gcChatBtn" type="button" aria-label="Open AI Chat Assistant" title="Chat with GoCloud AI"><i class="fa-solid fa-robot" aria-hidden="true"></i><span class="gc-badge" aria-hidden="true"></span></button>
@@ -622,6 +752,7 @@
     <script src="js/plugins-bundle.min.js" defer></script>
     <script src="js/security-init.js" defer></script>
     <script src="js/site-language.js" defer></script>
+    <script src="js/meta-pixel.js" defer></script>
     <script src="js/main.min.js" defer></script>
     <script src="js/newsletter.js" defer></script>
     <!-- Page specific scripts-->
