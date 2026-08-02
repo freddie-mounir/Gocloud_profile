@@ -34,7 +34,8 @@
   .gc-chat-input button:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(14,56,177,.3)}
   .gc-chat-input button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
   .gc-chat-powered{text-align:center;padding:6px;font-size:.65rem;color:#999;background:#fff;border-top:1px solid #f0f1f5;flex-shrink:0}
-  @media(max-width:576px){.gc-chat-panel{width:100%;height:100%;bottom:0;right:0;border-radius:0}.gc-chat-btn{bottom:160px;right:20px}}
+  @media (max-width: 767px){.gc-chat-btn{right:12px;bottom:158px;z-index:1100}}
+  @media(max-width:576px){.gc-chat-panel{width:100%;height:100%;bottom:0;right:0;border-radius:0}.gc-chat-btn{bottom:158px;right:12px}}
   
 </style>
 <button class="gc-chat-btn" id="gcChatBtn" type="button" aria-label="Open AI Chat Assistant" title="Chat with GoCloud AI"><i class="fa-solid fa-robot" aria-hidden="true"></i><span class="gc-badge" aria-hidden="true"></span></button>
