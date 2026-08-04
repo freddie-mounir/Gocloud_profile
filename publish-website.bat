@@ -135,6 +135,16 @@ REM Copy extra files that deploy-iis.ps1 might miss
 if exist "google8ec4a2e3b3ab7585.html" (
     copy /y "google8ec4a2e3b3ab7585.html" "%DEPLOYMENT_DIR%\" >nul 2>&1
 )
+
+REM Ensure runtime API supervisor/monitor scripts are always included
+if not exist "%DEPLOYMENT_DIR%\api" mkdir "%DEPLOYMENT_DIR%\api"
+if exist "api\run-api-supervisor.ps1" (
+    copy /y "api\run-api-supervisor.ps1" "%DEPLOYMENT_DIR%\api\" >nul 2>&1
+)
+if exist "api\monitor-api-health.ps1" (
+    copy /y "api\monitor-api-health.ps1" "%DEPLOYMENT_DIR%\api\" >nul 2>&1
+)
+
 if "%WITH_IMAGES%"=="1" (
     if exist "images\icons" (
         if not exist "%DEPLOYMENT_DIR%\images\icons" mkdir "%DEPLOYMENT_DIR%\images\icons"
@@ -152,7 +162,7 @@ echo  [OK] Deployment package ready: %FILE_COUNT% files (%SIZE_MB% MB)
 echo.
 
 REM --- Backup current site on VPS ---
-echo  [5/6] Backing up current site on VPS...
+echo  [5/8] Backing up current site on VPS...
 
 for /f %%A in ('powershell -Command "Get-Date -Format yyyyMMdd-HHmmss"') do set TIMESTAMP=%%A
 
@@ -162,7 +172,7 @@ echo  [OK] Backup done
 echo.
 
 REM --- Upload to VPS ---
-echo  [6/6] Uploading to VPS...
+echo  [6/8] Uploading to VPS...
 echo  This may take a few minutes depending on connection speed...
 echo  ------------------------------------------------
 
@@ -181,13 +191,23 @@ echo  [OK] Upload completed
 echo.
 
 REM --- Install API dependencies on VPS ---
-echo  [7/7] Installing API dependencies on VPS...
+echo  [7/8] Installing API dependencies on VPS...
 ssh -p %SSH_PORT% %VPS_USER%@%VPS_HOST% "cd C:\inetpub\wwwroot\GoCloud_website_project\api && npm install --omit=dev 2>&1"
 
 if %errorlevel% neq 0 (
     echo  [WARN] API dependency install failed - may need manual setup
 ) else (
     echo  [OK] API dependencies installed
+)
+
+REM --- Restart API and verify monitor/supervisor stack ---
+echo  [8/8] Restarting API and running diagnostics on VPS...
+ssh -p %SSH_PORT% %VPS_USER%@%VPS_HOST% "Set-Location C:\inetpub\wwwroot\GoCloud_website_project; $env:RESTART_NO_PAUSE='1'; $env:DIAG_NO_PAUSE='1'; cmd /c restart-and-verify-newsletter.bat"
+
+if %errorlevel% neq 0 (
+    echo  [WARN] Restart/verify reported issues. Check VPS logs in C:\inetpub\wwwroot\GoCloud_website_project\logs
+) else (
+    echo  [OK] Restart/verify completed successfully
 )
 
 echo.

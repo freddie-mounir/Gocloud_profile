@@ -147,6 +147,15 @@ if (Test-Path "api") {
     New-Item -ItemType Directory -Path $apiDest -Force | Out-Null
     Copy-Item -Path "api\server.js" -Destination $apiDest -Force
     Copy-Item -Path "api\system-prompt.js" -Destination $apiDest -Force
+    if (Test-Path "api\ensure-port-free.js") {
+        Copy-Item -Path "api\ensure-port-free.js" -Destination $apiDest -Force
+    }
+    if (Test-Path "api\run-api-supervisor.ps1") {
+        Copy-Item -Path "api\run-api-supervisor.ps1" -Destination $apiDest -Force
+    }
+    if (Test-Path "api\monitor-api-health.ps1") {
+        Copy-Item -Path "api\monitor-api-health.ps1" -Destination $apiDest -Force
+    }
     Copy-Item -Path "api\package.json" -Destination $apiDest -Force
     if (Test-Path "api\package-lock.json") {
         Copy-Item -Path "api\package-lock.json" -Destination $apiDest -Force
@@ -165,7 +174,10 @@ $rootFiles = @(
     "robots.txt",
     "sitemap.xml",
     ".htaccess",
-    "google8ec4a2e3b3ab7585.html"
+    "google8ec4a2e3b3ab7585.html",
+    "newsletter-diagnostic.bat",
+    "restart-and-verify-newsletter.bat",
+    "run-newsletter-checks.bat"
 )
 
 foreach ($file in $rootFiles) {
@@ -195,6 +207,7 @@ Files Included:
 - JavaScript directory
 - Images directory
 - Fonts directory
+- API supervisor and monitor scripts
 - Configuration files
 
 Deployment Instructions:

@@ -24,7 +24,7 @@
       newsletterButton: 'اشترك الآن',
       newsletterInvalidEmail: 'برجاء إدخال بريد إلكتروني صحيح.',
       newsletterLoading: 'جارٍ الاشتراك...',
-      newsletterSuccess: 'تم الاشتراك بنجاح. شكراً لك!',
+      newsletterSuccess: 'شكراً لاشتراكك! يُرجى التحقق من بريدك لتأكيد البريد الإلكتروني.',
       newsletterFallbackSuccess: 'فتحنا بريدك لإرسال طلب الاشتراك. يرجى تأكيد الإرسال من تطبيق البريد.'
     },
     en: {
@@ -49,10 +49,19 @@
       newsletterButton: 'Subscribe Now',
       newsletterInvalidEmail: 'Please enter a valid email address.',
       newsletterLoading: 'Subscribing...',
-      newsletterSuccess: 'Subscription successful. Thank you!',
+      newsletterSuccess: 'Thank you for subscribing! Please check your inbox to confirm your email.',
       newsletterFallbackSuccess: 'Your mail app is open to send the subscription request. Please confirm sending from your mail app.'
     }
   };
+
+  var TURNSTILE_SITE_KEY =
+    window.GOCLOUD_TURNSTILE_SITE_KEY ||
+    (document.querySelector('meta[name="gocloud-turnstile-site-key"]') || {}).content ||
+    '';
+  var REQUIRE_TURNSTILE = true;
+  var TURNSTILE_ACTION = 'newsletter_subscribe';
+  var runtimeSecurityConfigPromise = null;
+  var turnstileScriptPromise = null;
 
   function getCurrentLanguage() {
     return document.documentElement.lang === 'en' ? 'en' : 'ar';
@@ -281,6 +290,145 @@
     );
   }
 
+  function loadRuntimeSecurityConfig() {
+    if (runtimeSecurityConfigPromise) {
+      return runtimeSecurityConfigPromise;
+    }
+
+    runtimeSecurityConfigPromise = fetch('/api/public-config', {
+      method: 'GET',
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      cache: 'no-store'
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          return null;
+        }
+        return response.json();
+      })
+      .then(function (config) {
+        if (config && typeof config.requireTurnstile === 'boolean') {
+          REQUIRE_TURNSTILE = config.requireTurnstile;
+        }
+
+        if (!TURNSTILE_SITE_KEY && config && typeof config.turnstileSiteKey === 'string') {
+          TURNSTILE_SITE_KEY = config.turnstileSiteKey.trim();
+        }
+
+        if (config && typeof config.turnstileAction === 'string' && config.turnstileAction.trim()) {
+          TURNSTILE_ACTION = config.turnstileAction.trim();
+        }
+
+        return config;
+      })
+      .catch(function () {
+        return null;
+      });
+
+    return runtimeSecurityConfigPromise;
+  }
+
+  function loadTurnstileScript() {
+    if (!TURNSTILE_SITE_KEY) {
+      return Promise.resolve(false);
+    }
+
+    if (window.turnstile) {
+      return Promise.resolve(true);
+    }
+
+    if (turnstileScriptPromise) {
+      return turnstileScriptPromise;
+    }
+
+    turnstileScriptPromise = new Promise(function (resolve) {
+      var script = document.createElement('script');
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+      script.async = true;
+      script.defer = true;
+      script.onload = function () {
+        resolve(Boolean(window.turnstile));
+      };
+      script.onerror = function () {
+        resolve(false);
+      };
+      document.head.appendChild(script);
+    });
+
+    return turnstileScriptPromise;
+  }
+
+  function attachTurnstileWidget(form) {
+    if (!TURNSTILE_SITE_KEY) {
+      return;
+    }
+
+    if (form.querySelector('.cf-turnstile')) {
+      return;
+    }
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'mt-2 cf-turnstile';
+    wrapper.setAttribute('data-sitekey', TURNSTILE_SITE_KEY);
+    wrapper.setAttribute('data-action', TURNSTILE_ACTION);
+    wrapper.setAttribute('data-execution', 'execute');
+    wrapper.setAttribute('data-appearance', 'always');
+    form.appendChild(wrapper);
+
+    if (!form.querySelector('[data-turnstile-verify-btn]')) {
+      var verifyBtn = document.createElement('button');
+      verifyBtn.type = 'button';
+      verifyBtn.className = 'btn btn-sm btn-light mt-2';
+      verifyBtn.setAttribute('data-turnstile-verify-btn', '1');
+      verifyBtn.textContent = 'Verify security';
+      verifyBtn.addEventListener('click', function () {
+        var feedbackEl = (form.parentElement || form).querySelector('[data-newsletter-feedback]');
+        form.setAttribute('data-turnstile-manual', '1');
+        if (executeTurnstileChallenge(form)) {
+          setFeedback(
+            feedbackEl,
+            'error',
+            'Security challenge started. Complete verification, then click subscribe.'
+          );
+        } else {
+          form.setAttribute('data-turnstile-manual', '0');
+          setFeedback(feedbackEl, 'error', 'Security challenge is still loading. Please try again.');
+        }
+      });
+      form.appendChild(verifyBtn);
+    }
+  }
+
+  function executeTurnstileChallenge(form) {
+    var widget = form.querySelector('.cf-turnstile');
+    if (!widget || !window.turnstile) {
+      return false;
+    }
+
+    try {
+      window.turnstile.reset(widget);
+      window.turnstile.execute(widget);
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function getTurnstileToken(form) {
+    if (!TURNSTILE_SITE_KEY) {
+      return '';
+    }
+
+    var tokenInput = form.querySelector('input[name="cf-turnstile-response"]');
+    if (!tokenInput) {
+      return '';
+    }
+
+    return (tokenInput.value || '').trim();
+  }
+
   function initNewsletterForms() {
     var forms = document.querySelectorAll('[data-newsletter-form]');
     if (!forms.length) {
@@ -288,6 +436,14 @@
     }
 
     forms.forEach(function (form) {
+      loadRuntimeSecurityConfig().then(function () {
+        return loadTurnstileScript();
+      }).then(function (loaded) {
+        if (loaded) {
+          attachTurnstileWidget(form);
+        }
+      });
+
       form.addEventListener('submit', function (event) {
         event.preventDefault();
 
@@ -301,6 +457,44 @@
 
         if (!isValidEmail(emailValue)) {
           setFeedback(feedbackEl, 'error', copy.newsletterInvalidEmail);
+          return;
+        }
+
+        var captchaToken = getTurnstileToken(form);
+        if (REQUIRE_TURNSTILE && !TURNSTILE_SITE_KEY) {
+          setFeedback(feedbackEl, 'error', 'Security configuration is not ready. Please try again shortly.');
+          return;
+        }
+
+        if (REQUIRE_TURNSTILE && form.getAttribute('data-turnstile-manual') !== '1') {
+          setFeedback(feedbackEl, 'error', 'Please click "Verify security" first.');
+          return;
+        }
+
+        if (REQUIRE_TURNSTILE && form.getAttribute('data-turnstile-armed') !== '1') {
+          if (executeTurnstileChallenge(form)) {
+            form.setAttribute('data-turnstile-armed', '1');
+            setFeedback(
+              feedbackEl,
+              'error',
+              'Please complete the security verification challenge, then submit again.'
+            );
+          } else {
+            setFeedback(feedbackEl, 'error', 'Please complete the security check.');
+          }
+          return;
+        }
+
+        if (REQUIRE_TURNSTILE && !captchaToken) {
+          if (executeTurnstileChallenge(form)) {
+            setFeedback(
+              feedbackEl,
+              'error',
+              'Please complete the security verification challenge, then submit again.'
+            );
+          } else {
+            setFeedback(feedbackEl, 'error', 'Please complete the security check.');
+          }
           return;
         }
 
@@ -319,24 +513,40 @@
             email: emailValue,
             source: source,
             pageUrl: window.location.href,
-            language: document.documentElement.lang || 'ar'
+            language: document.documentElement.lang || 'ar',
+            captchaToken: captchaToken
           })
         })
           .then(function (response) {
             if (!response.ok) {
-              throw new Error('Subscription failed');
+              return response
+                .json()
+                .catch(function () {
+                  return {};
+                })
+                .then(function (payload) {
+                  var message = payload && payload.error ? payload.error : 'Subscription failed';
+                  throw new Error(message);
+                });
             }
             return response.json();
           })
-          .then(function () {
+          .then(function (payload) {
             if (emailInput) {
               emailInput.value = '';
             }
-            setFeedback(feedbackEl, 'success', copy.newsletterSuccess);
+            form.setAttribute('data-turnstile-armed', '0');
+            form.setAttribute('data-turnstile-manual', '0');
+            setFeedback(feedbackEl, 'success', (payload && payload.message) || copy.newsletterSuccess);
           })
-          .catch(function () {
+          .catch(function (err) {
+            if (err && err.message) {
+              setFeedback(feedbackEl, 'error', err.message);
+              return;
+            }
+
             window.location.href = buildMailtoFallback(emailValue, source);
-            setFeedback(feedbackEl, 'success', copy.newsletterFallbackSuccess);
+            setFeedback(feedbackEl, 'error', copy.newsletterFallbackSuccess);
           })
           .finally(function () {
             if (submitBtn) {

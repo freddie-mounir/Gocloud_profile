@@ -29,7 +29,7 @@ echo.
 REM ============================================================
 REM  1. Install IIS Features
 REM ============================================================
-echo  [1/6] Installing IIS features...
+echo  [1/8] Installing IIS features...
 echo  ------------------------------------------------
 
 echo    - Static Content Compression...
@@ -47,7 +47,7 @@ echo.
 REM ============================================================
 REM  2. Install OpenSSH Server
 REM ============================================================
-echo  [2/6] Installing OpenSSH Server...
+echo  [2/8] Installing OpenSSH Server...
 echo  ------------------------------------------------
 
 powershell -Command "Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH.Server*' | Select-Object -ExpandProperty State" > %TEMP%\ssh_state.txt 2>&1
@@ -70,7 +70,7 @@ echo.
 REM ============================================================
 REM  3. Configure & Start SSH Service
 REM ============================================================
-echo  [3/6] Configuring OpenSSH service...
+echo  [3/8] Configuring OpenSSH service...
 echo  ------------------------------------------------
 
 echo    - Setting sshd to auto-start...
@@ -91,7 +91,7 @@ echo.
 REM ============================================================
 REM  4. Configure Firewall for SSH
 REM ============================================================
-echo  [4/6] Configuring firewall rules...
+echo  [4/8] Configuring firewall rules...
 echo  ------------------------------------------------
 
 echo    - Adding SSH (port 22) firewall rule...
@@ -103,7 +103,7 @@ echo.
 REM ============================================================
 REM  5. Prepare SSH Key Authentication Directory
 REM ============================================================
-echo  [5/6] Preparing SSH key authentication...
+echo  [5/8] Preparing SSH key authentication...
 echo  ------------------------------------------------
 
 set SSH_DIR=C:\ProgramData\ssh
@@ -128,7 +128,7 @@ echo.
 REM ============================================================
 REM  6. Create Website Directory & Verify
 REM ============================================================
-echo  [6/6] Verifying website directory...
+echo  [6/8] Verifying website directory...
 echo  ------------------------------------------------
 
 set WEB_ROOT=C:\inetpub\wwwroot\GoCloud_website_project
@@ -151,6 +151,138 @@ echo  [OK] Directories ready
 echo.
 
 REM ============================================================
+REM  7. Configure API Environment (.env) for Newsletter Workflow
+REM ============================================================
+echo  [7/8] Configuring API environment for newsletter workflow...
+echo  ------------------------------------------------
+
+set API_DIR=%WEB_ROOT%\api
+set API_ENV=%API_DIR%\.env
+set API_ENV_EXAMPLE=%API_DIR%\.env.example
+
+if "%ODOO_URL%"=="" set "ODOO_URL=https://erp.gocloudeg.com/"
+if "%ODOO_DB%"=="" set "ODOO_DB=GoCloud"
+if "%ODOO_USERNAME%"=="" set "ODOO_USERNAME=marketing@gocloudeg.com"
+if "%ODOO_CRM_MODEL%"=="" set "ODOO_CRM_MODEL=crm.lead"
+if "%ODOO_MAILING_LIST_ID%"=="" set "ODOO_MAILING_LIST_ID=0"
+
+if "%SMTP_PORT%"=="" set "SMTP_PORT=587"
+if "%SMTP_SECURE%"=="" set "SMTP_SECURE=false"
+if "%SMTP_USER%"=="" set "SMTP_USER=marketing@gocloudeg.com"
+if "%SMTP_FROM%"=="" set "SMTP_FROM=marketing@gocloudeg.com"
+
+if "%TURNSTILE_ACTION%"=="" set "TURNSTILE_ACTION=newsletter_subscribe"
+if "%NEWSLETTER_CONFIRMATION_URL%"=="" set "NEWSLETTER_CONFIRMATION_URL=https://www.gocloudeg.com/api/newsletter/confirm"
+if "%NEWSLETTER_SOURCE_LABEL%"=="" set "NEWSLETTER_SOURCE_LABEL=Website Newsletter (Subscribe for Practical Updates)"
+if "%NEWSLETTER_TOKEN_TTL_HOURS%"=="" set "NEWSLETTER_TOKEN_TTL_HOURS=48"
+
+if "%TURNSTILE_SITE_KEY%"=="" (
+    echo    - TURNSTILE_SITE_KEY is not set in environment.
+    set /p TURNSTILE_SITE_KEY=    Enter TURNSTILE_SITE_KEY for API .env:
+)
+
+if "%ODOO_PASSWORD%"=="" (
+    echo    - ODOO_PASSWORD is not set in environment.
+    set /p ODOO_PASSWORD=    Enter ODOO_PASSWORD for API .env:
+)
+
+if "%GEMINI_API_KEY%"=="" (
+    echo    - GEMINI_API_KEY is not set in environment.
+    set /p GEMINI_API_KEY=    Enter GEMINI_API_KEY for API .env:
+)
+
+if "%TURNSTILE_SECRET_KEY%"=="" (
+    echo    - TURNSTILE_SECRET_KEY is not set in environment.
+    set /p TURNSTILE_SECRET_KEY=    Enter TURNSTILE_SECRET_KEY for API .env:
+)
+
+if "%SMTP_HOST%"=="" (
+    echo    - SMTP_HOST is not set in environment.
+    set /p SMTP_HOST=    Enter SMTP_HOST for API .env:
+)
+
+if "%SMTP_PASS%"=="" (
+    echo    - SMTP_PASS is not set in environment.
+    set /p SMTP_PASS=    Enter SMTP_PASS for API .env:
+)
+
+if not exist "%API_DIR%" (
+    echo    - API directory not found at %API_DIR%
+    echo    - Deploy website files first, then re-run this script to configure API .env
+) else (
+    if not exist "%API_ENV%" (
+        if exist "%API_ENV_EXAMPLE%" (
+            echo    - Creating API .env from .env.example
+            copy /Y "%API_ENV_EXAMPLE%" "%API_ENV%" >nul
+        ) else (
+            echo    - Creating new API .env file
+            type nul > "%API_ENV%"
+        )
+    ) else (
+        echo    - API .env already exists, updating newsletter workflow values
+    )
+
+    powershell -Command "$envPath = '%API_ENV%'; function Set-Or-Add([string]$k,[string]$v){ $lines = @(); if (Test-Path $envPath) { $lines = Get-Content $envPath }; $escaped = [regex]::Escape($k); $idx = -1; for ($i = 0; $i -lt $lines.Count; $i++) { if ($lines[$i] -match ('^\s*' + $escaped + '=')) { $idx = $i; break } }; if ($idx -ge 0) { $lines[$idx] = ($k + '=' + $v) } else { $lines += ($k + '=' + $v) }; Set-Content -Path $envPath -Value $lines -Encoding ascii }; Set-Or-Add 'GEMINI_API_KEY' '%GEMINI_API_KEY%'; Set-Or-Add 'ODOO_URL' '%ODOO_URL%'; Set-Or-Add 'ODOO_DB' '%ODOO_DB%'; Set-Or-Add 'ODOO_USERNAME' '%ODOO_USERNAME%'; Set-Or-Add 'ODOO_PASSWORD' '%ODOO_PASSWORD%'; Set-Or-Add 'ODOO_CRM_MODEL' '%ODOO_CRM_MODEL%'; Set-Or-Add 'ODOO_MAILING_LIST_ID' '%ODOO_MAILING_LIST_ID%'; Set-Or-Add 'TURNSTILE_SITE_KEY' '%TURNSTILE_SITE_KEY%'; Set-Or-Add 'TURNSTILE_SECRET_KEY' '%TURNSTILE_SECRET_KEY%'; Set-Or-Add 'TURNSTILE_ACTION' '%TURNSTILE_ACTION%'; Set-Or-Add 'NEWSLETTER_CONFIRMATION_URL' '%NEWSLETTER_CONFIRMATION_URL%'; Set-Or-Add 'NEWSLETTER_SOURCE_LABEL' '%NEWSLETTER_SOURCE_LABEL%'; Set-Or-Add 'NEWSLETTER_TOKEN_TTL_HOURS' '%NEWSLETTER_TOKEN_TTL_HOURS%'; Set-Or-Add 'SMTP_HOST' '%SMTP_HOST%'; Set-Or-Add 'SMTP_PORT' '%SMTP_PORT%'; Set-Or-Add 'SMTP_SECURE' '%SMTP_SECURE%'; Set-Or-Add 'SMTP_USER' '%SMTP_USER%'; Set-Or-Add 'SMTP_PASS' '%SMTP_PASS%'; Set-Or-Add 'SMTP_FROM' '%SMTP_FROM%'"
+
+    echo    - Newsletter API environment configured:
+    echo      GEMINI_API_KEY=[set]
+    echo      ODOO_URL=%ODOO_URL%
+    echo      ODOO_DB=%ODOO_DB%
+    echo      ODOO_USERNAME=%ODOO_USERNAME%
+    echo      TURNSTILE_SITE_KEY=%TURNSTILE_SITE_KEY%
+    echo      TURNSTILE_ACTION=%TURNSTILE_ACTION%
+    echo      NEWSLETTER_CONFIRMATION_URL=%NEWSLETTER_CONFIRMATION_URL%
+    echo      SMTP_HOST=%SMTP_HOST%
+    echo      SMTP_USER=%SMTP_USER%
+)
+
+echo  [OK] API environment configuration completed
+echo.
+
+REM ============================================================
+REM  8. Configure API Supervisor and Health Monitor Tasks
+REM ============================================================
+echo  [8/8] Configuring API supervisor and health monitor tasks...
+echo  ------------------------------------------------
+
+set SUPERVISOR_SCRIPT=%API_DIR%\run-api-supervisor.ps1
+set MONITOR_SCRIPT=%API_DIR%\monitor-api-health.ps1
+set SUPERVISOR_TASK=GoCloudApiSupervisor
+set MONITOR_TASK=GoCloudApiHealthMonitor
+
+if not exist "%API_DIR%\package.json" (
+    echo    - API package.json not found at %API_DIR%
+    echo    - Deploy website files first, then run restart-and-verify-newsletter.bat to provision tasks.
+) else (
+    if exist "%SUPERVISOR_SCRIPT%" (
+        echo    - Creating/updating supervisor task: %SUPERVISOR_TASK%
+        schtasks /Create /F /TN "%SUPERVISOR_TASK%" /SC ONSTART /RU SYSTEM /RL HIGHEST /TR "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"%SUPERVISOR_SCRIPT%\"" >nul 2>&1
+        if %errorlevel% neq 0 (
+            echo    - [WARN] Failed to create supervisor task
+        ) else (
+            echo    - [OK] Supervisor task ready
+        )
+    ) else (
+        echo    - Supervisor script missing: %SUPERVISOR_SCRIPT%
+    )
+
+    if exist "%MONITOR_SCRIPT%" (
+        echo    - Creating/updating monitor task: %MONITOR_TASK%
+        schtasks /Create /F /TN "%MONITOR_TASK%" /SC MINUTE /MO 5 /RU SYSTEM /RL HIGHEST /TR "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"%MONITOR_SCRIPT%\"" >nul 2>&1
+        if %errorlevel% neq 0 (
+            echo    - [WARN] Failed to create monitor task
+        ) else (
+            echo    - [OK] Monitor task ready
+        )
+    ) else (
+        echo    - Monitor script missing: %MONITOR_SCRIPT%
+    )
+)
+
+echo  [OK] API task configuration completed
+echo.
+
+REM ============================================================
 REM  Summary & Next Steps
 REM ============================================================
 echo  =========================================
@@ -165,6 +297,8 @@ echo    [x] Firewall rule for SSH
 echo    [x] SSH key auth directory
 echo    [x] PowerShell as default SSH shell
 echo    [x] Website + backup directories
+echo    [x] API .env newsletter workflow configuration
+echo    [x] API supervisor + health monitor task setup (when API files exist)
 echo.
 echo  ------------------------------------------------
 echo   NEXT STEP (from your Dev PC):

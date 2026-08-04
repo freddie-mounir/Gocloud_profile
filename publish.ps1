@@ -129,9 +129,10 @@ Write-Host "  OK - Backup created: gocloud-$timestamp" -ForegroundColor Green
 
 Write-Host "[5/5] Uploading to VPS..." -ForegroundColor Yellow
 $startTime = Get-Date
+$remoteScpPath = ($RemotePath -replace '\\', '/')
 
 # Use scp to upload the deployment folder
-scp -r -P $SshPort "$DeploymentFolder\*" "${User}@${VpsHost}:`"$RemotePath`""
+scp -r -P $SshPort "$DeploymentFolder\*" "${User}@${VpsHost}:$remoteScpPath/"
 
 if ($LASTEXITCODE -ne 0) {
     Write-Host "  ERROR: Upload failed!" -ForegroundColor Red

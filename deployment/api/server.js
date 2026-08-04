@@ -1,22 +1,60 @@
 'use strict';
 
-require('dotenv').config();
+require('dotenv').config({ path: require('path').join(__dirname, '.env') });
 
+const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
+const nodemailer = require('nodemailer');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const SYSTEM_PROMPT = require('./system-prompt');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+function normalizeClientIp(rawIp) {
+  if (typeof rawIp !== 'string') {
+    return 'unknown';
+  }
+
+  let ip = rawIp.trim();
+  if (!ip) {
+    return 'unknown';
+  }
+
+  if (ip.includes(',')) {
+    ip = ip.split(',')[0].trim();
+  }
+
+  const bracketMatch = ip.match(/^\[([^\]]+)\](?::\d+)?$/);
+  if (bracketMatch) {
+    ip = bracketMatch[1];
+  }
+
+  if (ip.startsWith('::ffff:')) {
+    ip = ip.slice(7);
+  }
+
+  if (/^\d+\.\d+\.\d+\.\d+:\d+$/.test(ip)) {
+    ip = ip.replace(/:\d+$/, '');
+  }
+
+  return ip || 'unknown';
+}
+
+function rateLimitKey(req) {
+  const forwarded = req.get('x-forwarded-for') || '';
+  const candidate = forwarded || req.ip || req.socket?.remoteAddress || '';
+  return normalizeClientIp(candidate);
+}
+
 app.set('trust proxy', 1);
 
-const ALLOWED_ORIGINS = (process.env.CORS_ORIGIN || 'https://www.gocloudeg.com')
+const ALLOWED_ORIGINS = (process.env.CORS_ORIGIN || 'https://www.gocloudeg.com,https://gocloudeg.com')
   .split(',')
   .map(v => v.trim())
   .filter(Boolean);
@@ -25,15 +63,46 @@ const REQUIRED_CHAT_TOKEN = process.env.CHATBOT_API_TOKEN || '';
 const CHAT_MINUTE_LIMIT = Number(process.env.CHAT_RATE_LIMIT_PER_MIN || 10);
 const CHAT_DAILY_LIMIT = Number(process.env.CHAT_RATE_LIMIT_PER_DAY || 250);
 const NEWSLETTER_FILE = path.join(__dirname, 'newsletter-subscribers.json');
+const NEWSLETTER_SOURCE = process.env.NEWSLETTER_SOURCE_LABEL || 'Website Newsletter (Subscribe for Practical Updates)';
+const NEWSLETTER_STATUS_PENDING = 'Unconfirmed / Pending Opt-In';
+const NEWSLETTER_STATUS_CONFIRMED = 'Confirmed / Active';
+const NEWSLETTER_TAGS = ['Newsletter', 'Inbound Lead'];
+const NEWSLETTER_CONFIRMATION_BASE_URL =
+  process.env.NEWSLETTER_CONFIRMATION_URL || 'https://www.gocloudeg.com/api/newsletter/confirm';
+const NEWSLETTER_TOKEN_TTL_HOURS = Number(process.env.NEWSLETTER_TOKEN_TTL_HOURS || 48);
+const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY || '';
+const TURNSTILE_SITE_KEY = process.env.TURNSTILE_SITE_KEY || '';
+const TURNSTILE_EXPECTED_ACTION = process.env.TURNSTILE_ACTION || 'newsletter_subscribe';
 
-// --- Middleware ---
+const SMTP_HOST = process.env.SMTP_HOST || '';
+const SMTP_PORT = Number(process.env.SMTP_PORT || 587);
+const SMTP_SECURE = String(process.env.SMTP_SECURE || 'false').toLowerCase() === 'true';
+const SMTP_USER = process.env.SMTP_USER || '';
+const SMTP_PASS = process.env.SMTP_PASS || '';
+const SMTP_FROM = process.env.SMTP_FROM || 'marketing@gocloudeg.com';
+const SMTP_FROM_NAME = process.env.SMTP_FROM_NAME || 'GoCloud Team';
+const NEWSLETTER_EMAIL_SUBJECT =
+  process.env.NEWSLETTER_EMAIL_SUBJECT ||
+  'Action Required: Confirm your GoCloud newsletter subscription';
+
+const ODOO_URL = (process.env.ODOO_URL || '').replace(/\/$/, '');
+const ODOO_DB = process.env.ODOO_DB || '';
+const ODOO_USERNAME = process.env.ODOO_USERNAME || '';
+const ODOO_PASSWORD = process.env.ODOO_PASSWORD || '';
+const ODOO_CRM_MODEL = process.env.ODOO_CRM_MODEL || 'crm.lead';
+const ODOO_MAILING_LIST_ID = Number(process.env.ODOO_MAILING_LIST_ID || 0);
+
+const ODOO_ENABLED = Boolean(ODOO_URL && ODOO_DB && ODOO_USERNAME && ODOO_PASSWORD);
+const SMTP_ENABLED = Boolean(SMTP_HOST && SMTP_USER && SMTP_PASS);
+
+let cachedOdooUid = null;
 
 app.use(helmet({ contentSecurityPolicy: false }));
 
 app.use(
   cors({
     origin: ALLOWED_ORIGINS,
-    methods: ['POST'],
+    methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'X-GoCloud-Chat-Token', 'X-Requested-With']
   })
 );
@@ -43,6 +112,7 @@ app.use(express.json({ limit: '16kb' }));
 const chatLimiter = rateLimit({
   windowMs: 60 * 1000,
   max: CHAT_MINUTE_LIMIT,
+  keyGenerator: req => rateLimitKey(req),
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: 'Too many requests. Please try again in a moment.' }
@@ -51,6 +121,7 @@ const chatLimiter = rateLimit({
 const chatDailyLimiter = rateLimit({
   windowMs: 24 * 60 * 60 * 1000,
   max: CHAT_DAILY_LIMIT,
+  keyGenerator: req => rateLimitKey(req),
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: 'Daily request limit reached. Please try again later.' }
@@ -59,12 +130,11 @@ const chatDailyLimiter = rateLimit({
 const newsletterLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: Number(process.env.NEWSLETTER_RATE_LIMIT_PER_15_MIN || 8),
+  keyGenerator: req => rateLimitKey(req),
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: 'Too many subscription attempts. Please try again later.' }
 });
-
-// --- Gemini Client ---
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
@@ -72,22 +142,30 @@ const model = genAI.getGenerativeModel({
   systemInstruction: SYSTEM_PROMPT
 });
 
-// --- Helpers ---
-
 function sanitizeInput(str) {
   if (typeof str !== 'string') {
     return '';
   }
+
   return str
     .replace(/<[^>]*>/g, '')
     .trim()
     .slice(0, 500);
 }
 
+function sanitizeCaptchaToken(str) {
+  if (typeof str !== 'string') {
+    return '';
+  }
+
+  return str.trim().slice(0, 2048);
+}
+
 function buildHistory(rawHistory) {
   if (!Array.isArray(rawHistory)) {
     return [];
   }
+
   const mapped = rawHistory
     .slice(-20)
     .filter(msg => msg && msg.role && msg.text)
@@ -95,10 +173,11 @@ function buildHistory(rawHistory) {
       role: msg.role === 'user' ? 'user' : 'model',
       parts: [{ text: sanitizeInput(msg.text) }]
     }));
-  // Gemini requires history to start with a 'user' message
+
   while (mapped.length > 0 && mapped[0].role !== 'user') {
     mapped.shift();
   }
+
   return mapped;
 }
 
@@ -182,7 +261,365 @@ function writeNewsletterSubscribers(subscribers) {
   fs.writeFileSync(NEWSLETTER_FILE, JSON.stringify(subscribers, null, 2), 'utf8');
 }
 
-// --- Routes ---
+function createConfirmationToken() {
+  const rawToken = crypto.randomBytes(32).toString('hex');
+  const tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex');
+  const expiresAt = new Date(Date.now() + NEWSLETTER_TOKEN_TTL_HOURS * 60 * 60 * 1000).toISOString();
+
+  return { rawToken, tokenHash, expiresAt };
+}
+
+function buildConfirmationLink(rawToken) {
+  const url = new URL(NEWSLETTER_CONFIRMATION_BASE_URL);
+  url.searchParams.set('token', rawToken);
+  return url.toString();
+}
+
+function renderStatusPage(title, message) {
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>${title}</title>
+  <style>
+    body{font-family:Segoe UI,Arial,sans-serif;background:#f5f7fc;color:#111827;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;padding:24px}
+    .card{background:#fff;max-width:560px;width:100%;border-radius:16px;padding:28px;box-shadow:0 14px 40px rgba(2,6,23,.08)}
+    h1{margin:0 0 10px;font-size:1.5rem;color:#0e38b1}
+    p{margin:0;line-height:1.6;color:#374151}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>${title}</h1>
+    <p>${message}</p>
+  </main>
+</body>
+</html>`;
+}
+
+async function verifyTurnstileToken(token, remoteIp) {
+  if (!TURNSTILE_SECRET_KEY) {
+    return true;
+  }
+
+  if (!token) {
+    return false;
+  }
+
+  try {
+    const body = new URLSearchParams();
+    body.set('secret', TURNSTILE_SECRET_KEY);
+    body.set('response', token);
+    if (remoteIp) {
+      body.set('remoteip', remoteIp);
+    }
+
+    const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString()
+    });
+
+    if (!response.ok) {
+      return false;
+    }
+
+    const payload = await response.json();
+    if (!payload.success) {
+      console.warn(
+        'Turnstile verification failed:',
+        JSON.stringify({
+          errorCodes: payload['error-codes'] || [],
+          action: payload.action || '',
+          hostname: payload.hostname || ''
+        })
+      );
+      return false;
+    }
+
+    if (payload.action && payload.action !== TURNSTILE_EXPECTED_ACTION) {
+      console.warn(
+        'Turnstile action mismatch:',
+        JSON.stringify({
+          expectedAction: TURNSTILE_EXPECTED_ACTION,
+          actualAction: payload.action,
+          hostname: payload.hostname || ''
+        })
+      );
+      return false;
+    }
+
+    return true;
+  } catch (err) {
+    console.error('Turnstile verification error:', err.message);
+    return false;
+  }
+}
+
+function getEmailTransport() {
+  if (!SMTP_ENABLED) {
+    return null;
+  }
+
+  return nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: SMTP_SECURE,
+    auth: {
+      user: SMTP_USER,
+      pass: SMTP_PASS
+    }
+  });
+}
+
+function buildFromHeader() {
+  if (!SMTP_FROM) {
+    return '';
+  }
+
+  if (SMTP_FROM.includes('<') && SMTP_FROM.includes('>')) {
+    return SMTP_FROM;
+  }
+
+  return `${SMTP_FROM_NAME} <${SMTP_FROM}>`;
+}
+
+async function sendDoubleOptInEmail(email, confirmationLink) {
+  const transport = getEmailTransport();
+
+  if (!transport) {
+    throw new Error('SMTP is not configured.');
+  }
+
+  await transport.sendMail({
+    from: buildFromHeader(),
+    to: email,
+    subject: NEWSLETTER_EMAIL_SUBJECT,
+    text: [
+      'Thank you for subscribing to GoCloud practical updates.',
+      '',
+      'Please confirm your subscription using this secure link:',
+      confirmationLink,
+      '',
+      'If you did not request this, you can ignore this email.'
+    ].join('\n'),
+    html: [
+      '<p>Thank you for subscribing to GoCloud practical updates.</p>',
+      '<p>Please confirm your subscription by clicking the secure link below:</p>',
+      `<p><a href="${confirmationLink}">Confirm my subscription</a></p>`,
+      '<p>If you did not request this, you can ignore this email.</p>'
+    ].join('')
+  });
+}
+
+async function odooRpc(service, method, args) {
+  const response = await fetch(`${ODOO_URL}/jsonrpc`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      jsonrpc: '2.0',
+      method: 'call',
+      params: {
+        service,
+        method,
+        args
+      },
+      id: Date.now()
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error(`Odoo request failed with ${response.status}`);
+  }
+
+  const payload = await response.json();
+  if (payload.error) {
+    const msg = payload.error.data && payload.error.data.message ? payload.error.data.message : 'Odoo RPC error';
+    throw new Error(msg);
+  }
+
+  return payload.result;
+}
+
+async function getOdooUid() {
+  if (cachedOdooUid) {
+    return cachedOdooUid;
+  }
+
+  const uid = await odooRpc('common', 'login', [ODOO_DB, ODOO_USERNAME, ODOO_PASSWORD]);
+  if (!uid) {
+    throw new Error('Failed to authenticate with Odoo.');
+  }
+
+  cachedOdooUid = uid;
+  return uid;
+}
+
+async function odooExecuteKw(modelName, methodName, methodArgs, kwargs) {
+  const uid = await getOdooUid();
+  return odooRpc('object', 'execute_kw', [
+    ODOO_DB,
+    uid,
+    ODOO_PASSWORD,
+    modelName,
+    methodName,
+    methodArgs,
+    kwargs || {}
+  ]);
+}
+
+async function ensureOdooSourceId() {
+  const ids = await odooExecuteKw('utm.source', 'search', [[['name', '=', NEWSLETTER_SOURCE]]], {
+    limit: 1
+  });
+
+  if (Array.isArray(ids) && ids.length > 0) {
+    return ids[0];
+  }
+
+  return odooExecuteKw('utm.source', 'create', [{ name: NEWSLETTER_SOURCE }]);
+}
+
+async function ensureOdooTagIds(modelName) {
+  if (modelName === 'crm.lead') {
+    const tagIds = [];
+
+    for (const tagName of NEWSLETTER_TAGS) {
+      const ids = await odooExecuteKw('crm.tag', 'search', [[['name', '=', tagName]]], { limit: 1 });
+      if (Array.isArray(ids) && ids.length > 0) {
+        tagIds.push(ids[0]);
+      } else {
+        const created = await odooExecuteKw('crm.tag', 'create', [{ name: tagName }]);
+        tagIds.push(created);
+      }
+    }
+
+    return tagIds;
+  }
+
+  if (modelName === 'res.partner') {
+    const categoryIds = [];
+
+    for (const tagName of NEWSLETTER_TAGS) {
+      const ids = await odooExecuteKw('res.partner.category', 'search', [[['name', '=', tagName]]], {
+        limit: 1
+      });
+      if (Array.isArray(ids) && ids.length > 0) {
+        categoryIds.push(ids[0]);
+      } else {
+        const created = await odooExecuteKw('res.partner.category', 'create', [{ name: tagName }]);
+        categoryIds.push(created);
+      }
+    }
+
+    return categoryIds;
+  }
+
+  return [];
+}
+
+async function upsertCrmSubscriber(email, status) {
+  if (!ODOO_ENABLED) {
+    return null;
+  }
+
+  const modelName = ODOO_CRM_MODEL;
+  const statusNote = `Newsletter status: ${status}`;
+
+  if (modelName === 'crm.lead') {
+    const sourceId = await ensureOdooSourceId();
+    const tagIds = await ensureOdooTagIds(modelName);
+    const ids = await odooExecuteKw('crm.lead', 'search', [[['email_from', '=', email]]], { limit: 1 });
+
+    const values = {
+      name: `Newsletter subscriber - ${email}`,
+      email_from: email,
+      source_id: sourceId,
+      type: 'lead',
+      description: `${NEWSLETTER_SOURCE}\n${statusNote}`,
+      tag_ids: [[6, 0, tagIds]]
+    };
+
+    if (Array.isArray(ids) && ids.length > 0) {
+      await odooExecuteKw('crm.lead', 'write', [[ids[0]], values]);
+      return { model: 'crm.lead', id: ids[0] };
+    }
+
+    const created = await odooExecuteKw('crm.lead', 'create', [values]);
+    return { model: 'crm.lead', id: created };
+  }
+
+  if (modelName === 'res.partner') {
+    const categoryIds = await ensureOdooTagIds(modelName);
+    const ids = await odooExecuteKw('res.partner', 'search', [[['email', '=', email]]], { limit: 1 });
+
+    const values = {
+      name: `Newsletter subscriber - ${email}`,
+      email,
+      comment: `${NEWSLETTER_SOURCE}\n${statusNote}`,
+      category_id: [[6, 0, categoryIds]]
+    };
+
+    if (Array.isArray(ids) && ids.length > 0) {
+      await odooExecuteKw('res.partner', 'write', [[ids[0]], values]);
+      return { model: 'res.partner', id: ids[0] };
+    }
+
+    const created = await odooExecuteKw('res.partner', 'create', [values]);
+    return { model: 'res.partner', id: created };
+  }
+
+  return null;
+}
+
+async function syncConfirmedToMailingList(email) {
+  if (!ODOO_ENABLED) {
+    return null;
+  }
+
+  const contactIds = await odooExecuteKw('mailing.contact', 'search', [[['email', '=', email]]], {
+    limit: 1
+  });
+
+  const values = {
+    name: email,
+    email,
+    opt_out: false
+  };
+
+  let mailingContactId = null;
+
+  if (Array.isArray(contactIds) && contactIds.length > 0) {
+    mailingContactId = contactIds[0];
+    await odooExecuteKw('mailing.contact', 'write', [[mailingContactId], values]);
+  } else {
+    mailingContactId = await odooExecuteKw('mailing.contact', 'create', [values]);
+  }
+
+  if (ODOO_MAILING_LIST_ID > 0 && mailingContactId) {
+    const subscriptionIds = await odooExecuteKw(
+      'mailing.contact.subscription',
+      'search',
+      [[['list_id', '=', ODOO_MAILING_LIST_ID], ['contact_id', '=', mailingContactId]]],
+      { limit: 1 }
+    );
+
+    if (Array.isArray(subscriptionIds) && subscriptionIds.length > 0) {
+      await odooExecuteKw('mailing.contact.subscription', 'write', [[subscriptionIds[0]], { opt_out: false }]);
+    } else {
+      await odooExecuteKw('mailing.contact.subscription', 'create', [
+        {
+          list_id: ODOO_MAILING_LIST_ID,
+          contact_id: mailingContactId,
+          opt_out: false
+        }
+      ]);
+    }
+  }
+
+  return mailingContactId;
+}
 
 app.post('/api/chat', chatLimiter, chatDailyLimiter, requireChatAuth, async (req, res) => {
   try {
@@ -213,45 +650,171 @@ app.post('/api/chat', chatLimiter, chatDailyLimiter, requireChatAuth, async (req
   }
 });
 
-app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, (req, res) => {
+app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req, res) => {
   const email = sanitizeEmail(req.body && req.body.email);
   const source = sanitizeInput(req.body && req.body.source).slice(0, 120);
   const pageUrl = sanitizeInput(req.body && req.body.pageUrl).slice(0, 300);
   const language = sanitizeInput(req.body && req.body.language).slice(0, 20);
+  const captchaToken = sanitizeCaptchaToken(req.body && req.body.captchaToken);
 
   if (!isValidEmail(email)) {
     return res.status(400).json({ error: 'Valid email is required.' });
   }
 
-  const subscribers = readNewsletterSubscribers();
-  const existing = subscribers.find(item => item && item.email === email);
-
-  if (existing) {
-    existing.source = source || existing.source || 'website';
-    existing.pageUrl = pageUrl || existing.pageUrl || '';
-    existing.language = language || existing.language || 'en';
-    existing.updatedAt = new Date().toISOString();
-    writeNewsletterSubscribers(subscribers);
-    return res.json({ ok: true, status: 'updated' });
+  const isCaptchaValid = await verifyTurnstileToken(captchaToken, req.ip);
+  if (!isCaptchaValid) {
+    return res.status(400).json({ error: 'Security verification failed. Please try again.' });
   }
 
-  subscribers.push({
-    email,
-    source: source || 'website',
-    pageUrl: pageUrl || '',
-    language: language || 'en',
-    createdAt: new Date().toISOString()
-  });
+  const subscribers = readNewsletterSubscribers();
+  const now = new Date().toISOString();
+  const token = createConfirmationToken();
+
+  let subscriber = subscribers.find(item => item && item.email === email);
+
+  if (!subscriber) {
+    subscriber = {
+      email,
+      source: source || NEWSLETTER_SOURCE,
+      pageUrl: pageUrl || '',
+      language: language || 'en',
+      tags: NEWSLETTER_TAGS,
+      status: NEWSLETTER_STATUS_PENDING,
+      mailingListStatus: 'pending',
+      createdAt: now,
+      updatedAt: now
+    };
+    subscribers.push(subscriber);
+  }
+
+  subscriber.source = source || NEWSLETTER_SOURCE;
+  subscriber.pageUrl = pageUrl || subscriber.pageUrl || '';
+  subscriber.language = language || subscriber.language || 'en';
+  subscriber.tags = NEWSLETTER_TAGS;
+  subscriber.status = NEWSLETTER_STATUS_PENDING;
+  subscriber.confirmationTokenHash = token.tokenHash;
+  subscriber.confirmationTokenExpiresAt = token.expiresAt;
+  subscriber.updatedAt = now;
+
+  try {
+    const crmRecord = await upsertCrmSubscriber(email, NEWSLETTER_STATUS_PENDING);
+    if (crmRecord) {
+      subscriber.crmModel = crmRecord.model;
+      subscriber.crmRecordId = crmRecord.id;
+    }
+  } catch (err) {
+    console.error('CRM sync (pending) failed:', err.message);
+  }
+
+  try {
+    const confirmationLink = buildConfirmationLink(token.rawToken);
+    await sendDoubleOptInEmail(email, confirmationLink);
+  } catch (err) {
+    console.error('Failed to send confirmation email:', err.message);
+    return res.status(500).json({
+      error:
+        'Subscription received, but email delivery is unavailable right now. Please try again later.'
+    });
+  }
 
   writeNewsletterSubscribers(subscribers);
-  return res.status(201).json({ ok: true, status: 'created' });
+
+  return res.status(202).json({
+    ok: true,
+    status: 'pending_confirmation',
+    message: 'Thank you for subscribing! Please check your inbox to confirm your email.'
+  });
+});
+
+app.get('/api/public-config', (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  res.json({
+    requireTurnstile: Boolean(TURNSTILE_SECRET_KEY),
+    turnstileSiteKey: TURNSTILE_SITE_KEY,
+    turnstileAction: TURNSTILE_EXPECTED_ACTION
+  });
+});
+
+app.get('/api/newsletter/confirm', async (req, res) => {
+  const rawToken = sanitizeInput(req.query && req.query.token).slice(0, 128);
+
+  if (!rawToken) {
+    return res
+      .status(400)
+      .send(
+        renderStatusPage('Confirmation Failed', 'This confirmation link is invalid or incomplete.')
+      );
+  }
+
+  const tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex');
+  const subscribers = readNewsletterSubscribers();
+  const subscriber = subscribers.find(
+    item => item && item.confirmationTokenHash === tokenHash
+  );
+
+  if (!subscriber) {
+    return res
+      .status(400)
+      .send(
+        renderStatusPage(
+          'Confirmation Failed',
+          'This confirmation link is invalid or expired. Please subscribe again.'
+        )
+      );
+  }
+
+  const expiresAt = Date.parse(subscriber.confirmationTokenExpiresAt || '');
+  if (!Number.isFinite(expiresAt) || Date.now() > expiresAt) {
+    return res
+      .status(400)
+      .send(
+        renderStatusPage(
+          'Confirmation Expired',
+          'This confirmation link has expired. Please subscribe again to receive a new link.'
+        )
+      );
+  }
+
+  subscriber.status = NEWSLETTER_STATUS_CONFIRMED;
+  subscriber.confirmedAt = new Date().toISOString();
+  subscriber.confirmationTokenHash = null;
+  subscriber.confirmationTokenExpiresAt = null;
+  subscriber.mailingListStatus = 'active';
+  subscriber.updatedAt = new Date().toISOString();
+
+  try {
+    const crmRecord = await upsertCrmSubscriber(subscriber.email, NEWSLETTER_STATUS_CONFIRMED);
+    if (crmRecord) {
+      subscriber.crmModel = crmRecord.model;
+      subscriber.crmRecordId = crmRecord.id;
+    }
+  } catch (err) {
+    console.error('CRM sync (confirmed) failed:', err.message);
+  }
+
+  try {
+    const mailingContactId = await syncConfirmedToMailingList(subscriber.email);
+    if (mailingContactId) {
+      subscriber.mailingContactId = mailingContactId;
+    }
+  } catch (err) {
+    console.error('Mailing list sync failed:', err.message);
+    subscriber.mailingListStatus = 'sync_failed';
+  }
+
+  writeNewsletterSubscribers(subscribers);
+
+  return res.send(
+    renderStatusPage(
+      'Subscription Confirmed',
+      'Your email is confirmed and now active for GoCloud practical updates.'
+    )
+  );
 });
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
-
-// --- Start ---
 
 app.listen(PORT, () => {
   console.error(`GoCloud Chatbot API running on port ${PORT}`);
