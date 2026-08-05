@@ -1,6 +1,17 @@
 
 <!-- Header Component-->
 <style>
+  .header-area.header-area1.header-area-all{padding:10px 0 8px!important}
+  .header-area .header-elements{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px}
+  .header-area .header-elements > div:first-child img{width:78px;height:auto!important}
+  .header-area .main-menu-ex.main-menu-ex1{min-width:0}
+  .header-area .main-menu-ex.main-menu-ex1 ul{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+  .header-area .main-menu-ex.main-menu-ex1 ul::-webkit-scrollbar{display:none}
+  .header-area .main-menu-ex.main-menu-ex1 ul li{flex:0 0 auto}
+  .header-area .main-menu-ex.main-menu-ex1 ul li a{font-size:.92rem}
+  .header-area .header1-buttons .button{flex-wrap:nowrap!important;gap:8px!important}
+  .header-area .header1-buttons .theme-btn1{padding:11px 14px;font-size:.82rem;white-space:nowrap}
+  .header-area .header1-buttons .theme-btn1 i{font-size:.85rem}
   .mobile-sidebar .gc-mobile-contact-compact h3{margin-bottom:8px!important}
   .mobile-sidebar .gc-mobile-contact-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
   .mobile-sidebar .gc-mobile-contact-compact .contact-box+.contact-box{margin-top:2px!important}
@@ -12,9 +23,16 @@
   .mobile-sidebar .menu-close{position:fixed;top:18px;right:14px;z-index:10020}
   .mobile-sidebar .mobile-menu-close-btn{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:24px;line-height:1;box-shadow:0 8px 20px rgba(0,0,0,.25)}
   .mobile-sidebar .mobile-menu-close-btn:hover{background:rgba(255,255,255,.26)}
+  .mobile-header{padding:12px 0 10px!important;background:#fff;position:relative;top:auto;left:auto;right:auto}
+  .mobile-header .mobile-header-elements{display:flex;align-items:center;justify-content:space-between}
+  .mobile-header .mobile-logo img{width:82px;height:auto!important}
+  .mobile-header .mobile-menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;border:1px solid rgba(13,14,16,.16);background:#fff;color:#0D0E10;font-size:30px;box-shadow:0 10px 24px rgba(8,31,99,.08)}
   @media (max-width: 767px){
-    .mobile-header,.mobile-header.mobile-header-main{top:108px!important;z-index:1000}
+    .header-area.header-area1.header-area-all{padding:10px 0 7px!important}
+    .mobile-header,.mobile-header.mobile-header-main{position:relative;top:auto!important;z-index:1000}
     .mobile-header .container-fluid{padding-inline:14px}
+    .mobile-header .mobile-logo img{width:76px}
+    .mobile-header .mobile-menu-toggle{width:50px;height:50px;font-size:28px}
   }
   
 </style>

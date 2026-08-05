@@ -25,7 +25,22 @@
       newsletterInvalidEmail: 'برجاء إدخال بريد إلكتروني صحيح.',
       newsletterLoading: 'جارٍ الاشتراك...',
       newsletterSuccess: 'شكراً لاشتراكك! يُرجى التحقق من بريدك لتأكيد البريد الإلكتروني.',
-      newsletterFallbackSuccess: 'فتحنا بريدك لإرسال طلب الاشتراك. يرجى تأكيد الإرسال من تطبيق البريد.'
+      newsletterFallbackSuccess: 'فتحنا بريدك لإرسال طلب الاشتراك. يرجى تأكيد الإرسال من تطبيق البريد.',
+      turnstile: {
+        title: 'التحقق الأمني',
+        description: 'يرجى إكمال التحقق الأمني للمتابعة في الاشتراك.',
+        cancel: 'إلغاء',
+        closeAria: 'إغلاق',
+        cancelled: 'تم إلغاء التحقق الأمني.',
+        loadingUnavailable: 'يتم تجهيز التحقق الأمني. يرجى المحاولة مرة أخرى.',
+        popupUnavailable: 'تعذر فتح نافذة التحقق الأمني. يرجى تحديث الصفحة.',
+        waiting: 'بانتظار إكمال التحقق...',
+        expired: 'انتهت صلاحية التحقق. يرجى المحاولة مرة أخرى.',
+        failed: 'فشل التحقق الأمني. يرجى المحاولة مرة أخرى.',
+        startFailed: 'تعذر بدء التحقق الأمني.',
+        complete: 'أكمل التحدي للمتابعة.',
+        launchFailed: 'تعذر تشغيل التحقق الأمني. يرجى إعادة المحاولة.'
+      }
     },
     en: {
       title: 'GoCloud Blog — Medical Insurance and Odoo Insights',
@@ -50,7 +65,22 @@
       newsletterInvalidEmail: 'Please enter a valid email address.',
       newsletterLoading: 'Subscribing...',
       newsletterSuccess: 'Thank you for subscribing! Please check your inbox to confirm your email.',
-      newsletterFallbackSuccess: 'Your mail app is open to send the subscription request. Please confirm sending from your mail app.'
+      newsletterFallbackSuccess: 'Your mail app is open to send the subscription request. Please confirm sending from your mail app.',
+      turnstile: {
+        title: 'Security Verification',
+        description: 'Please complete verification to continue your subscription.',
+        cancel: 'Cancel',
+        closeAria: 'Close',
+        cancelled: 'Security verification was cancelled.',
+        loadingUnavailable: 'Security challenge is still loading. Please try again.',
+        popupUnavailable: 'Security popup is unavailable. Please refresh and try again.',
+        waiting: 'Waiting for verification...',
+        expired: 'Verification expired. Please try again.',
+        failed: 'Verification failed. Please try again.',
+        startFailed: 'Unable to start security verification.',
+        complete: 'Complete the challenge to continue.',
+        launchFailed: 'Unable to launch verification. Please retry.'
+      }
     }
   };
 
@@ -62,6 +92,8 @@
   var TURNSTILE_ACTION = 'newsletter_subscribe';
   var runtimeSecurityConfigPromise = null;
   var turnstileScriptPromise = null;
+  var turnstileModalState = null;
+  var turnstilePendingReject = null;
 
   function getCurrentLanguage() {
     return document.documentElement.lang === 'en' ? 'en' : 'ar';
@@ -360,74 +392,176 @@
     return turnstileScriptPromise;
   }
 
-  function attachTurnstileWidget(form) {
-    if (!TURNSTILE_SITE_KEY) {
+  function setTurnstileModalStatus(message, isError) {
+    if (!turnstileModalState || !turnstileModalState.status) {
       return;
     }
 
-    if (form.querySelector('.cf-turnstile')) {
+    turnstileModalState.status.classList.remove('text-danger', 'text-muted');
+    turnstileModalState.status.classList.add(isError ? 'text-danger' : 'text-muted');
+    turnstileModalState.status.textContent = message || '';
+  }
+
+  function applyTurnstileModalCopy(copy) {
+    if (!turnstileModalState) {
       return;
     }
 
-    var wrapper = document.createElement('div');
-    wrapper.className = 'mt-2 cf-turnstile';
-    wrapper.setAttribute('data-sitekey', TURNSTILE_SITE_KEY);
-    wrapper.setAttribute('data-action', TURNSTILE_ACTION);
-    wrapper.setAttribute('data-execution', 'execute');
-    wrapper.setAttribute('data-appearance', 'always');
-    form.appendChild(wrapper);
+    if (turnstileModalState.title) {
+      turnstileModalState.title.textContent = copy.turnstile.title;
+    }
+    if (turnstileModalState.description) {
+      turnstileModalState.description.textContent = copy.turnstile.description;
+    }
+    if (turnstileModalState.cancelBtn) {
+      turnstileModalState.cancelBtn.textContent = copy.turnstile.cancel;
+    }
+    if (turnstileModalState.closeBtn) {
+      turnstileModalState.closeBtn.setAttribute('aria-label', copy.turnstile.closeAria);
+    }
+  }
 
-    if (!form.querySelector('[data-turnstile-verify-btn]')) {
-      var verifyBtn = document.createElement('button');
-      verifyBtn.type = 'button';
-      verifyBtn.className = 'btn btn-sm btn-light mt-2';
-      verifyBtn.setAttribute('data-turnstile-verify-btn', '1');
-      verifyBtn.textContent = 'Verify security';
-      verifyBtn.addEventListener('click', function () {
-        var feedbackEl = (form.parentElement || form).querySelector('[data-newsletter-feedback]');
-        form.setAttribute('data-turnstile-manual', '1');
-        if (executeTurnstileChallenge(form)) {
-          setFeedback(
-            feedbackEl,
-            'error',
-            'Security challenge started. Complete verification, then click subscribe.'
-          );
-        } else {
-          form.setAttribute('data-turnstile-manual', '0');
-          setFeedback(feedbackEl, 'error', 'Security challenge is still loading. Please try again.');
-        }
+  function ensureTurnstileModal() {
+    if (turnstileModalState) {
+      return turnstileModalState;
+    }
+
+    var modalWrap = document.createElement('div');
+    modalWrap.innerHTML =
+      '<div class="modal fade" id="gcTurnstileModal" tabindex="-1" aria-hidden="true">' +
+      '  <div class="modal-dialog modal-dialog-centered">' +
+      '    <div class="modal-content">' +
+      '      <div class="modal-header">' +
+      '        <h5 class="modal-title" data-turnstile-modal-title></h5>' +
+      '        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>' +
+      '      </div>' +
+      '      <div class="modal-body">' +
+      '        <p class="mb-3" data-turnstile-modal-description></p>' +
+      '        <div data-turnstile-modal-slot class="d-flex justify-content-center"></div>' +
+      '        <p data-turnstile-modal-status class="small mt-3 mb-0 text-muted"></p>' +
+      '      </div>' +
+      '      <div class="modal-footer">' +
+      '        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" data-turnstile-modal-cancel></button>' +
+      '      </div>' +
+      '    </div>' +
+      '  </div>' +
+      '</div>';
+
+    var modalEl = modalWrap.firstChild;
+    document.body.appendChild(modalEl);
+
+    var modalInstance = null;
+    if (window.bootstrap && window.bootstrap.Modal) {
+      modalInstance = new window.bootstrap.Modal(modalEl, {
+        backdrop: 'static',
+        keyboard: false
       });
-      form.appendChild(verifyBtn);
     }
+
+    turnstileModalState = {
+      element: modalEl,
+      instance: modalInstance,
+      title: modalEl.querySelector('[data-turnstile-modal-title]'),
+      description: modalEl.querySelector('[data-turnstile-modal-description]'),
+      closeBtn: modalEl.querySelector('.btn-close'),
+      cancelBtn: modalEl.querySelector('[data-turnstile-modal-cancel]'),
+      slot: modalEl.querySelector('[data-turnstile-modal-slot]'),
+      status: modalEl.querySelector('[data-turnstile-modal-status]'),
+      widgetId: null,
+      settled: false
+    };
+
+    applyTurnstileModalCopy(getCopy());
+
+    modalEl.addEventListener('hidden.bs.modal', function () {
+      if (window.turnstile && turnstileModalState.widgetId !== null) {
+        try {
+          window.turnstile.remove(turnstileModalState.widgetId);
+        } catch (err) {
+          // noop
+        }
+      }
+
+      turnstileModalState.widgetId = null;
+      turnstileModalState.slot.innerHTML = '';
+      setTurnstileModalStatus('', false);
+
+      if (!turnstileModalState.settled && typeof turnstilePendingReject === 'function') {
+        turnstilePendingReject(getCopy().turnstile.cancelled);
+      }
+
+      turnstileModalState.settled = false;
+      turnstilePendingReject = null;
+    });
+
+    return turnstileModalState;
   }
 
-  function executeTurnstileChallenge(form) {
-    var widget = form.querySelector('.cf-turnstile');
-    if (!widget || !window.turnstile) {
-      return false;
-    }
+  function requestTurnstileToken() {
+    return loadTurnstileScript().then(function (loaded) {
+      var copy = getCopy();
+      if (!loaded || !window.turnstile) {
+        throw new Error(copy.turnstile.loadingUnavailable);
+      }
 
-    try {
-      window.turnstile.reset(widget);
-      window.turnstile.execute(widget);
-      return true;
-    } catch (err) {
-      return false;
-    }
+      var modal = ensureTurnstileModal();
+      if (!modal.instance) {
+        throw new Error(copy.turnstile.popupUnavailable);
+      }
+
+      applyTurnstileModalCopy(copy);
+      modal.settled = false;
+      modal.slot.innerHTML = '';
+      setTurnstileModalStatus(copy.turnstile.waiting, false);
+
+      return new Promise(function (resolve, reject) {
+        turnstilePendingReject = reject;
+
+        try {
+          modal.widgetId = window.turnstile.render(modal.slot, {
+            sitekey: TURNSTILE_SITE_KEY,
+            action: TURNSTILE_ACTION,
+            appearance: 'always',
+            execution: 'execute',
+            callback: function (token) {
+              if (!token || modal.settled) {
+                return;
+              }
+              modal.settled = true;
+              resolve(token);
+              modal.instance.hide();
+            },
+            'expired-callback': function () {
+              setTurnstileModalStatus(copy.turnstile.expired, true);
+            },
+            'error-callback': function () {
+              setTurnstileModalStatus(copy.turnstile.failed, true);
+            }
+          });
+        } catch (err) {
+          reject(new Error(copy.turnstile.startFailed));
+          return;
+        }
+
+        modal.instance.show();
+
+        setTimeout(function () {
+          if (!window.turnstile || modal.widgetId === null) {
+            return;
+          }
+          try {
+            window.turnstile.reset(modal.widgetId);
+            window.turnstile.execute(modal.widgetId);
+            setTurnstileModalStatus(copy.turnstile.complete, false);
+          } catch (err) {
+            setTurnstileModalStatus(copy.turnstile.launchFailed, true);
+          }
+        }, 120);
+      });
+    });
   }
 
-  function getTurnstileToken(form) {
-    if (!TURNSTILE_SITE_KEY) {
-      return '';
-    }
-
-    var tokenInput = form.querySelector('input[name="cf-turnstile-response"]');
-    if (!tokenInput) {
-      return '';
-    }
-
-    return (tokenInput.value || '').trim();
-  }
+  window.GoCloudRequestTurnstileToken = requestTurnstileToken;
 
   function initNewsletterForms() {
     var forms = document.querySelectorAll('[data-newsletter-form]');
@@ -436,74 +570,17 @@
     }
 
     forms.forEach(function (form) {
-      loadRuntimeSecurityConfig().then(function () {
-        return loadTurnstileScript();
-      }).then(function (loaded) {
-        if (loaded) {
-          attachTurnstileWidget(form);
-        }
-      });
+      loadRuntimeSecurityConfig();
 
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
+      var copy = getCopy();
+      var emailInput = form.querySelector('input[name="email"]');
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var feedbackEl = form.parentElement.querySelector('[data-newsletter-feedback]');
 
-        var copy = getCopy();
-
-        var emailInput = form.querySelector('input[name="email"]');
-        var submitBtn = form.querySelector('button[type="submit"]');
-        var feedbackEl = form.parentElement.querySelector('[data-newsletter-feedback]');
-        var source = form.getAttribute('data-source') || 'blog';
-        var emailValue = emailInput ? emailInput.value.trim().toLowerCase() : '';
-
-        if (!isValidEmail(emailValue)) {
-          setFeedback(feedbackEl, 'error', copy.newsletterInvalidEmail);
-          return;
-        }
-
-        var captchaToken = getTurnstileToken(form);
-        if (REQUIRE_TURNSTILE && !TURNSTILE_SITE_KEY) {
-          setFeedback(feedbackEl, 'error', 'Security configuration is not ready. Please try again shortly.');
-          return;
-        }
-
-        if (REQUIRE_TURNSTILE && form.getAttribute('data-turnstile-manual') !== '1') {
-          setFeedback(feedbackEl, 'error', 'Please click "Verify security" first.');
-          return;
-        }
-
-        if (REQUIRE_TURNSTILE && form.getAttribute('data-turnstile-armed') !== '1') {
-          if (executeTurnstileChallenge(form)) {
-            form.setAttribute('data-turnstile-armed', '1');
-            setFeedback(
-              feedbackEl,
-              'error',
-              'Please complete the security verification challenge, then submit again.'
-            );
-          } else {
-            setFeedback(feedbackEl, 'error', 'Please complete the security check.');
-          }
-          return;
-        }
-
-        if (REQUIRE_TURNSTILE && !captchaToken) {
-          if (executeTurnstileChallenge(form)) {
-            setFeedback(
-              feedbackEl,
-              'error',
-              'Please complete the security verification challenge, then submit again.'
-            );
-          } else {
-            setFeedback(feedbackEl, 'error', 'Please complete the security check.');
-          }
-          return;
-        }
-
-        if (submitBtn) {
-          submitBtn.disabled = true;
-        }
+      function submitNewsletter(emailValue, source, captchaToken) {
         setFeedback(feedbackEl, '', copy.newsletterLoading);
 
-        fetch('/api/newsletter', {
+        return fetch('/api/newsletter', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -535,8 +612,6 @@
             if (emailInput) {
               emailInput.value = '';
             }
-            form.setAttribute('data-turnstile-armed', '0');
-            form.setAttribute('data-turnstile-manual', '0');
             setFeedback(feedbackEl, 'success', (payload && payload.message) || copy.newsletterSuccess);
           })
           .catch(function (err) {
@@ -547,12 +622,45 @@
 
             window.location.href = buildMailtoFallback(emailValue, source);
             setFeedback(feedbackEl, 'error', copy.newsletterFallbackSuccess);
-          })
-          .finally(function () {
-            if (submitBtn) {
-              submitBtn.disabled = false;
-            }
           });
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var source = form.getAttribute('data-source') || 'blog';
+        var emailValue = emailInput ? emailInput.value.trim().toLowerCase() : '';
+
+        if (!isValidEmail(emailValue)) {
+          setFeedback(feedbackEl, 'error', copy.newsletterInvalidEmail);
+          return;
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+        }
+
+        if (REQUIRE_TURNSTILE && !TURNSTILE_SITE_KEY) {
+          setFeedback(feedbackEl, 'error', 'Security configuration is not ready. Please try again shortly.');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+          }
+          return;
+        }
+
+        var request;
+        if (REQUIRE_TURNSTILE) {
+          request = requestTurnstileToken().then(function (token) {
+            return submitNewsletter(emailValue, source, token);
+          });
+        } else {
+          request = submitNewsletter(emailValue, source, '');
+        }
+
+        request.finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+          }
+        });
       });
     });
   }

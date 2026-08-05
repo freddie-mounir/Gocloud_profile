@@ -30,7 +30,9 @@
     var submitBtn = document.getElementById('demoSubmitBtn');
     var form = document.getElementById('demoBookingForm');
     var modal = document.getElementById('demoModal');
+    var modalFooter = modal ? modal.querySelector('.modal-footer') : null;
     var dateInput = document.getElementById('demoDate');
+    var statusEl = null;
 
     if (dateInput) {
       var today = new Date().toISOString().split('T')[0];
@@ -41,9 +43,33 @@
       return;
     }
 
+    if (modalFooter) {
+      statusEl = document.createElement('p');
+      statusEl.className = 'small mb-0 mt-3';
+      statusEl.style.minHeight = '1.25rem';
+      modalFooter.parentNode.insertBefore(statusEl, modalFooter);
+    }
+
+    function setStatus(message, isError) {
+      if (!statusEl) {
+        return;
+      }
+
+      statusEl.classList.remove('text-success', 'text-danger', 'text-muted');
+      statusEl.classList.add(isError ? 'text-danger' : 'text-success');
+      statusEl.textContent = message || '';
+    }
+
+    function setBusy(isBusy) {
+      if (submitBtn) {
+        submitBtn.disabled = isBusy;
+      }
+    }
+
     submitBtn.addEventListener('click', function () {
       if (!form.checkValidity()) {
         form.classList.add('was-validated');
+        setStatus('Please complete all required fields.', true);
         return;
       }
 
@@ -56,44 +82,70 @@
       var date = document.getElementById('demoDate').value;
       var time = document.getElementById('demoTime').value;
       var notes = document.getElementById('demoNotes').value.trim();
+      var submitUrl = '/api/demo-request';
+      var requestToken = window.GoCloudRequestTurnstileToken;
 
-      var subject = 'Demo Request from ' + firstName + ' ' + lastName;
-      var body =
-        'Name: ' +
-        firstName +
-        ' ' +
-        lastName +
-        '\n' +
-        'Email: ' +
-        email +
-        '\n' +
-        'Mobile: ' +
-        phone +
-        '\n' +
-        (company ? 'Company: ' + company + '\n' : '') +
-        (service ? 'Service Interest: ' + service + '\n' : '') +
-        'Preferred Date: ' +
-        date +
-        '\n' +
-        'Preferred Time: ' +
-        time +
-        '\n' +
-        (notes ? 'Notes: ' + notes + '\n' : '');
-
-      window.location.href =
-        'mailto:marketing@gocloudeg.com' +
-        '?subject=' +
-        encodeURIComponent(subject) +
-        '&body=' +
-        encodeURIComponent(body);
-
-      var bsModal = window.bootstrap ? window.bootstrap.Modal.getInstance(modal) : null;
-      if (bsModal) {
-        bsModal.hide();
+      if (typeof requestToken !== 'function') {
+        setStatus('Security verification is not ready yet. Please try again shortly.', true);
+        return;
       }
 
-      form.reset();
-      form.classList.remove('was-validated');
+      setBusy(true);
+      setStatus('Submitting your demo request...', false);
+
+      requestToken()
+        .then(function (captchaToken) {
+          return fetch(submitUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({
+              email: email,
+              source: 'Book a Free Demo',
+              pageUrl: window.location.href,
+              language: document.documentElement.lang || 'en',
+              crmType: 'opportunity',
+              captchaToken: captchaToken,
+              firstName: firstName,
+              lastName: lastName,
+              phone: phone,
+              company: company,
+              service: service,
+              preferredDate: date,
+              preferredTime: time,
+              notes: notes
+            })
+          });
+        })
+        .then(function (response) {
+          if (!response.ok) {
+            return response.json().catch(function () {
+              return {};
+            }).then(function (payload) {
+              var message = payload && payload.error ? payload.error : 'Demo request failed. Please try again.';
+              throw new Error(message);
+            });
+          }
+
+          return response.json();
+        })
+        .then(function (payload) {
+          setStatus(
+            (payload && payload.message) ||
+              'Thanks. Your demo request was received and will be handled as a sales opportunity.',
+            false
+          );
+          form.reset();
+          form.classList.remove('was-validated');
+        })
+        .catch(function (err) {
+          setStatus(err && err.message ? err.message : 'Demo request failed. Please try again.', true);
+        })
+        .finally(function () {
+          setBusy(false);
+        });
     });
   }
 

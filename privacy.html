@@ -162,7 +162,7 @@
               <div class="preloader-bar">
                 <div class="preloader-bar-inner"></div>
               </div>
-              <div class="preloader-tagline">حلول برمجية ذكية</div>
+              <div class="preloader-tagline">Smart Software Solutions</div>
             </div>
             <div class="loader-section-left loader-section section-left"></div>
             <div class="loader-section-right loader-section section-right"></div>
@@ -170,9 +170,9 @@
         </div>
       </section>
       <style>
-        .top-bar{background:linear-gradient(90deg,#0a1e5e 0%,#0E38B1 50%,#0a1e5e 100%);padding:8px 0;position:relative;z-index:1000}
+        .top-bar{background:linear-gradient(90deg,#0a1e5e 0%,#0E38B1 50%,#0a1e5e 100%);padding:6px 0;position:relative;z-index:1000}
         .top-bar-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-        .top-bar-left{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+        .top-bar-left{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
         .top-bar-item{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.8);font-size:.78rem;font-weight:500}
         .top-bar-item i{color:#A1E934;font-size:.7rem}
         .top-bar-item a{color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
@@ -186,7 +186,7 @@
         .top-bar-lang .dropdown-item{border-radius:10px;font-size:.88rem;font-weight:700;padding:.55rem .8rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
         .top-bar-lang .dropdown-item.active,.top-bar-lang .dropdown-item:active{background:#0E38B1;color:#fff}
         .top-bar-calls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-        .top-bar-call{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 14px;color:#fff;text-decoration:none;transition:background .2s,border-color .2s}
+        .top-bar-call{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 12px;color:#fff;text-decoration:none;transition:background .2s,border-color .2s}
         .top-bar-call:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.28);color:#fff}
         .top-bar-call i{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(161,233,52,.15);color:#A1E934;font-size:.8rem}
         .top-bar-call span{display:flex;flex-direction:column;line-height:1.15}
@@ -194,11 +194,11 @@
         .top-bar-call em{font-style:normal;font-size:.8rem;font-weight:700;color:#fff}
         .gc-phone-ltr{display:inline-block;direction:ltr;unicode-bidi:isolate}
         .top-bar-right{display:flex;align-items:center;gap:12px}
-        .top-bar-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:4px 14px 4px 4px;font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.02em}
+        .top-bar-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:4px 12px 4px 4px;font-size:.7rem;font-weight:600;color:#fff;letter-spacing:.02em}
         .top-bar-badge img{height:22px;border-radius:50%;background:#fff;padding:1px}
         .top-bar-social a{color:rgba(255,255,255,.5);font-size:.8rem;margin-left:8px;transition:color .2s}
         .top-bar-social a:hover{color:#A1E934}
-        @media(max-width:767px){.top-bar{position:fixed;top:0;left:0;width:100%;z-index:1001;padding:6px 0}.top-bar-right{display:none}.top-bar-left{gap:.55rem}.top-bar-item{font-size:.7rem}.top-bar-calls{width:100%;gap:6px}.top-bar-call{padding:4px 10px}.top-bar-call strong{font-size:.62rem}.top-bar-call em{font-size:.72rem}.top-bar-lang .dropdown-toggle{padding:5px 10px;font-size:.68rem}}
+        @media(max-width:767px){.top-bar{position:relative;top:auto;left:auto;width:100%;z-index:1001;padding:5px 0}.top-bar-right{display:none}.top-bar-inner{gap:4px}.top-bar-left{width:100%;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:nowrap}.top-bar-item{display:none}.top-bar-calls{width:auto;gap:0}.top-bar-call{padding:4px 10px}.top-bar-call:nth-child(2){display:none}.top-bar-call i{width:24px;height:24px;font-size:.72rem}.top-bar-call strong{display:none}.top-bar-call em{font-size:.78rem}.top-bar-lang{margin-inline-start:auto}.top-bar-lang .dropdown-toggle{padding:6px 10px;font-size:.68rem}}
         
       </style>
       <div class="top-bar">
@@ -229,6 +229,17 @@
       </div>
       <!-- Header Component-->
       <style>
+        .header-area.header-area1.header-area-all{padding:10px 0 8px!important}
+        .header-area .header-elements{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px}
+        .header-area .header-elements > div:first-child img{width:78px;height:auto!important}
+        .header-area .main-menu-ex.main-menu-ex1{min-width:0}
+        .header-area .main-menu-ex.main-menu-ex1 ul{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+        .header-area .main-menu-ex.main-menu-ex1 ul::-webkit-scrollbar{display:none}
+        .header-area .main-menu-ex.main-menu-ex1 ul li{flex:0 0 auto}
+        .header-area .main-menu-ex.main-menu-ex1 ul li a{font-size:.92rem}
+        .header-area .header1-buttons .button{flex-wrap:nowrap!important;gap:8px!important}
+        .header-area .header1-buttons .theme-btn1{padding:11px 14px;font-size:.82rem;white-space:nowrap}
+        .header-area .header1-buttons .theme-btn1 i{font-size:.85rem}
         .mobile-sidebar .gc-mobile-contact-compact h3{margin-bottom:8px!important}
         .mobile-sidebar .gc-mobile-contact-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
         .mobile-sidebar .gc-mobile-contact-compact .contact-box+.contact-box{margin-top:2px!important}
@@ -240,9 +251,16 @@
         .mobile-sidebar .menu-close{position:fixed;top:18px;right:14px;z-index:10020}
         .mobile-sidebar .mobile-menu-close-btn{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:24px;line-height:1;box-shadow:0 8px 20px rgba(0,0,0,.25)}
         .mobile-sidebar .mobile-menu-close-btn:hover{background:rgba(255,255,255,.26)}
+        .mobile-header{padding:12px 0 10px!important;background:#fff;position:relative;top:auto;left:auto;right:auto}
+        .mobile-header .mobile-header-elements{display:flex;align-items:center;justify-content:space-between}
+        .mobile-header .mobile-logo img{width:82px;height:auto!important}
+        .mobile-header .mobile-menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;border:1px solid rgba(13,14,16,.16);background:#fff;color:#0D0E10;font-size:30px;box-shadow:0 10px 24px rgba(8,31,99,.08)}
         @media (max-width: 767px){
-          .mobile-header,.mobile-header.mobile-header-main{top:108px!important;z-index:1000}
+          .header-area.header-area1.header-area-all{padding:10px 0 7px!important}
+          .mobile-header,.mobile-header.mobile-header-main{position:relative;top:auto!important;z-index:1000}
           .mobile-header .container-fluid{padding-inline:14px}
+          .mobile-header .mobile-logo img{width:76px}
+          .mobile-header .mobile-menu-toggle{width:50px;height:50px;font-size:28px}
         }
         
       </style>
@@ -555,9 +573,10 @@
         @media (max-width: 767px) {
           .whatsapp-float {
             right: 12px;
-            bottom: 88px;
-            width: 58px;
-            height: 58px;
+            bottom: 18px;
+            width: 54px;
+            height: 54px;
+            font-size: 27px;
             z-index: 1099;
           }
         }
@@ -686,8 +705,8 @@
       .gc-chat-input button:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(14,56,177,.3)}
       .gc-chat-input button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
       .gc-chat-powered{text-align:center;padding:6px;font-size:.65rem;color:#999;background:#fff;border-top:1px solid #f0f1f5;flex-shrink:0}
-      @media (max-width: 767px){.gc-chat-btn{right:12px;bottom:158px;z-index:1100}}
-      @media(max-width:576px){.gc-chat-panel{width:100%;height:100%;bottom:0;right:0;border-radius:0}.gc-chat-btn{bottom:158px;right:12px}}
+      @media (max-width: 767px){.gc-chat-btn{display:none}.gc-chat-panel{display:none!important}}
+      @media(max-width:576px){.gc-chat-panel{width:100%;height:100%;bottom:0;right:0;border-radius:0}.gc-chat-btn{bottom:18px;left:12px;right:auto}}
       
     </style>
     <button class="gc-chat-btn" id="gcChatBtn" type="button" aria-label="Open AI Chat Assistant" title="Chat with GoCloud AI"><i class="fa-solid fa-robot" aria-hidden="true"></i><span class="gc-badge" aria-hidden="true"></span></button>

@@ -1,4 +1,5 @@
 $ErrorActionPreference = 'Continue'
+$PSNativeCommandUseErrorActionPreference = $false
 
 $apiDir = $PSScriptRoot
 $projectDir = Split-Path -Parent $apiDir

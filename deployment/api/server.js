@@ -84,6 +84,10 @@ const SMTP_FROM_NAME = process.env.SMTP_FROM_NAME || 'GoCloud Team';
 const NEWSLETTER_EMAIL_SUBJECT =
   process.env.NEWSLETTER_EMAIL_SUBJECT ||
   'Action Required: Confirm your GoCloud newsletter subscription';
+const ODOO_OPPORTUNITY_SOURCES = (process.env.ODOO_OPPORTUNITY_SOURCES || 'demo,request-demo,book-demo,demo-form,contact-sales,sales-contact')
+  .split(',')
+  .map(v => v.trim().toLowerCase())
+  .filter(Boolean);
 
 const ODOO_URL = (process.env.ODOO_URL || '').replace(/\/$/, '');
 const ODOO_DB = process.env.ODOO_DB || '';
@@ -108,6 +112,15 @@ app.use(
 );
 
 app.use(express.json({ limit: '16kb' }));
+
+app.use((err, req, res, next) => {
+  if (err && err.type === 'entity.parse.failed') {
+    console.error('Invalid JSON payload:', err.message);
+    return res.status(400).json({ error: 'Invalid JSON payload.' });
+  }
+
+  return next(err);
+});
 
 const chatLimiter = rateLimit({
   windowMs: 60 * 1000,
@@ -241,6 +254,70 @@ function sanitizeEmail(email) {
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function normalizeClassificationText(value) {
+  if (typeof value !== 'string') {
+    return '';
+  }
+
+  return value.toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function determineCrmType(source, pageUrl, explicitCrmType) {
+  const normalizedExplicit = normalizeClassificationText(explicitCrmType);
+  if (normalizedExplicit === 'opportunity' || normalizedExplicit === 'lead') {
+    return normalizedExplicit;
+  }
+
+  const sourceText = normalizeClassificationText(source);
+  const pageText = normalizeClassificationText(pageUrl);
+  const haystack = `${sourceText} ${pageText}`;
+
+  for (const token of ODOO_OPPORTUNITY_SOURCES) {
+    if (token && haystack.includes(token)) {
+      return 'opportunity';
+    }
+  }
+
+  return 'lead';
+}
+
+function createNewsletterTraceId() {
+  return crypto.randomBytes(6).toString('hex');
+}
+
+function maskEmailForLog(email) {
+  if (!email || typeof email !== 'string' || !email.includes('@')) {
+    return 'unknown';
+  }
+
+  const parts = email.split('@');
+  const local = parts[0] || '';
+  const domain = parts[1] || '';
+
+  if (!local || !domain) {
+    return 'unknown';
+  }
+
+  if (local.length <= 2) {
+    return `**@${domain}`;
+  }
+
+  return `${local.slice(0, 2)}***@${domain}`;
+}
+
+function logNewsletterTrace(traceId, stage, email, details) {
+  const payload = Object.assign(
+    {
+      traceId,
+      stage,
+      email: maskEmailForLog(email)
+    },
+    details || {}
+  );
+
+  console.error('[newsletter-trace]', JSON.stringify(payload));
 }
 
 function readNewsletterSubscribers() {
@@ -519,13 +596,14 @@ async function ensureOdooTagIds(modelName) {
   return [];
 }
 
-async function upsertCrmSubscriber(email, status) {
+async function upsertCrmSubscriber(email, status, crmType) {
   if (!ODOO_ENABLED) {
     return null;
   }
 
   const modelName = ODOO_CRM_MODEL;
   const statusNote = `Newsletter status: ${status}`;
+  const leadType = crmType === 'opportunity' ? 'opportunity' : 'lead';
 
   if (modelName === 'crm.lead') {
     const sourceId = await ensureOdooSourceId();
@@ -533,10 +611,13 @@ async function upsertCrmSubscriber(email, status) {
     const ids = await odooExecuteKw('crm.lead', 'search', [[['email_from', '=', email]]], { limit: 1 });
 
     const values = {
-      name: `Newsletter subscriber - ${email}`,
+      name:
+        leadType === 'opportunity'
+          ? `Opportunity - ${email}`
+          : `Newsletter subscriber - ${email}`,
       email_from: email,
       source_id: sourceId,
-      type: 'lead',
+      type: leadType,
       description: `${NEWSLETTER_SOURCE}\n${statusNote}`,
       tag_ids: [[6, 0, tagIds]]
     };
@@ -558,6 +639,99 @@ async function upsertCrmSubscriber(email, status) {
       name: `Newsletter subscriber - ${email}`,
       email,
       comment: `${NEWSLETTER_SOURCE}\n${statusNote}`,
+      category_id: [[6, 0, categoryIds]]
+    };
+
+    if (Array.isArray(ids) && ids.length > 0) {
+      await odooExecuteKw('res.partner', 'write', [[ids[0]], values]);
+      return { model: 'res.partner', id: ids[0] };
+    }
+
+    const created = await odooExecuteKw('res.partner', 'create', [values]);
+    return { model: 'res.partner', id: created };
+  }
+
+  return null;
+}
+
+async function upsertDemoOpportunity(details) {
+  if (!ODOO_ENABLED) {
+    return null;
+  }
+
+  const modelName = ODOO_CRM_MODEL;
+  const email = sanitizeEmail(details && details.email);
+  const firstName = sanitizeInput(details && details.firstName).slice(0, 80);
+  const lastName = sanitizeInput(details && details.lastName).slice(0, 80);
+  const phone = sanitizeInput(details && details.phone).slice(0, 40);
+  const company = sanitizeInput(details && details.company).slice(0, 120);
+  const service = sanitizeInput(details && details.service).slice(0, 120);
+  const preferredDate = sanitizeInput(details && details.preferredDate).slice(0, 40);
+  const preferredTime = sanitizeInput(details && details.preferredTime).slice(0, 40);
+  const notes = sanitizeInput(details && details.notes).slice(0, 1000);
+  const source = sanitizeInput(details && details.source).slice(0, 120) || 'Book a Free Demo';
+  const pageUrl = sanitizeInput(details && details.pageUrl).slice(0, 300);
+
+  const leadNameParts = [firstName, lastName].filter(Boolean);
+  const leadName = leadNameParts.length > 0 ? leadNameParts.join(' ') : `Demo request - ${email}`;
+
+  if (modelName === 'crm.lead') {
+    const sourceId = await ensureOdooSourceId();
+    const tagIds = await ensureOdooTagIds(modelName);
+    const ids = await odooExecuteKw('crm.lead', 'search', [[['email_from', '=', email]]], { limit: 1 });
+
+    const descriptionLines = [
+      `Demo request source: ${source}`,
+      pageUrl ? `Page: ${pageUrl}` : '',
+      company ? `Company: ${company}` : '',
+      phone ? `Phone: ${phone}` : '',
+      service ? `Service: ${service}` : '',
+      preferredDate ? `Preferred date: ${preferredDate}` : '',
+      preferredTime ? `Preferred time: ${preferredTime}` : '',
+      notes ? `Notes: ${notes}` : ''
+    ].filter(Boolean);
+
+    const values = {
+      name: leadName,
+      email_from: email,
+      phone: phone,
+      contact_name: `${firstName} ${lastName}`.trim(),
+      partner_name: company,
+      source_id: sourceId,
+      type: 'opportunity',
+      description: descriptionLines.join('\n'),
+      tag_ids: [[6, 0, tagIds]]
+    };
+
+    if (Array.isArray(ids) && ids.length > 0) {
+      await odooExecuteKw('crm.lead', 'write', [[ids[0]], values]);
+      return { model: 'crm.lead', id: ids[0] };
+    }
+
+    const created = await odooExecuteKw('crm.lead', 'create', [values]);
+    return { model: 'crm.lead', id: created };
+  }
+
+  if (modelName === 'res.partner') {
+    const categoryIds = await ensureOdooTagIds(modelName);
+    const ids = await odooExecuteKw('res.partner', 'search', [[['email', '=', email]]], { limit: 1 });
+
+    const commentLines = [
+      `Demo request source: ${source}`,
+      pageUrl ? `Page: ${pageUrl}` : '',
+      company ? `Company: ${company}` : '',
+      phone ? `Phone: ${phone}` : '',
+      service ? `Service: ${service}` : '',
+      preferredDate ? `Preferred date: ${preferredDate}` : '',
+      preferredTime ? `Preferred time: ${preferredTime}` : '',
+      notes ? `Notes: ${notes}` : ''
+    ].filter(Boolean);
+
+    const values = {
+      name: leadName,
+      email,
+      phone,
+      comment: commentLines.join('\n'),
       category_id: [[6, 0, categoryIds]]
     };
 
@@ -651,20 +825,36 @@ app.post('/api/chat', chatLimiter, chatDailyLimiter, requireChatAuth, async (req
 });
 
 app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req, res) => {
+  const traceId = createNewsletterTraceId();
   const email = sanitizeEmail(req.body && req.body.email);
   const source = sanitizeInput(req.body && req.body.source).slice(0, 120);
   const pageUrl = sanitizeInput(req.body && req.body.pageUrl).slice(0, 300);
   const language = sanitizeInput(req.body && req.body.language).slice(0, 20);
+  const crmTypeOverride = sanitizeInput(req.body && req.body.crmType).slice(0, 30);
   const captchaToken = sanitizeCaptchaToken(req.body && req.body.captchaToken);
+  const crmType = determineCrmType(source, pageUrl, crmTypeOverride);
+
+  logNewsletterTrace(traceId, 'subscribe_request_received', email, {
+    source: source || NEWSLETTER_SOURCE,
+    language: language || 'en',
+    hasCaptchaToken: Boolean(captchaToken),
+    ip: rateLimitKey(req),
+    pageUrl: pageUrl || '',
+    crmType
+  });
 
   if (!isValidEmail(email)) {
+    logNewsletterTrace(traceId, 'subscribe_invalid_email', email);
     return res.status(400).json({ error: 'Valid email is required.' });
   }
 
   const isCaptchaValid = await verifyTurnstileToken(captchaToken, req.ip);
   if (!isCaptchaValid) {
+    logNewsletterTrace(traceId, 'subscribe_turnstile_rejected', email);
     return res.status(400).json({ error: 'Security verification failed. Please try again.' });
   }
+
+  logNewsletterTrace(traceId, 'subscribe_turnstile_passed', email);
 
   const subscribers = readNewsletterSubscribers();
   const now = new Date().toISOString();
@@ -678,6 +868,7 @@ app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req,
       source: source || NEWSLETTER_SOURCE,
       pageUrl: pageUrl || '',
       language: language || 'en',
+      crmType,
       tags: NEWSLETTER_TAGS,
       status: NEWSLETTER_STATUS_PENDING,
       mailingListStatus: 'pending',
@@ -690,6 +881,7 @@ app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req,
   subscriber.source = source || NEWSLETTER_SOURCE;
   subscriber.pageUrl = pageUrl || subscriber.pageUrl || '';
   subscriber.language = language || subscriber.language || 'en';
+  subscriber.crmType = crmType;
   subscriber.tags = NEWSLETTER_TAGS;
   subscriber.status = NEWSLETTER_STATUS_PENDING;
   subscriber.confirmationTokenHash = token.tokenHash;
@@ -697,20 +889,35 @@ app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req,
   subscriber.updatedAt = now;
 
   try {
-    const crmRecord = await upsertCrmSubscriber(email, NEWSLETTER_STATUS_PENDING);
+    const crmRecord = await upsertCrmSubscriber(email, NEWSLETTER_STATUS_PENDING, crmType);
     if (crmRecord) {
       subscriber.crmModel = crmRecord.model;
       subscriber.crmRecordId = crmRecord.id;
+      logNewsletterTrace(traceId, 'subscribe_crm_pending_synced', email, {
+        crmModel: crmRecord.model,
+        crmRecordId: crmRecord.id
+      });
+    } else {
+      logNewsletterTrace(traceId, 'subscribe_crm_pending_skipped', email, {
+        odooEnabled: ODOO_ENABLED
+      });
     }
   } catch (err) {
     console.error('CRM sync (pending) failed:', err.message);
+    logNewsletterTrace(traceId, 'subscribe_crm_pending_failed', email, {
+      error: err.message
+    });
   }
 
   try {
     const confirmationLink = buildConfirmationLink(token.rawToken);
     await sendDoubleOptInEmail(email, confirmationLink);
+    logNewsletterTrace(traceId, 'subscribe_confirmation_email_sent', email);
   } catch (err) {
     console.error('Failed to send confirmation email:', err.message);
+    logNewsletterTrace(traceId, 'subscribe_confirmation_email_failed', email, {
+      error: err.message
+    });
     return res.status(500).json({
       error:
         'Subscription received, but email delivery is unavailable right now. Please try again later.'
@@ -718,11 +925,92 @@ app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req,
   }
 
   writeNewsletterSubscribers(subscribers);
+  logNewsletterTrace(traceId, 'subscribe_saved_pending', email, {
+    subscriberCount: subscribers.length
+  });
 
   return res.status(202).json({
     ok: true,
     status: 'pending_confirmation',
     message: 'Thank you for subscribing! Please check your inbox to confirm your email.'
+  });
+});
+
+app.post('/api/demo-request', newsletterLimiter, requireAllowedOrigin, async (req, res) => {
+  const traceId = createNewsletterTraceId();
+  const email = sanitizeEmail(req.body && req.body.email);
+  const firstName = sanitizeInput(req.body && req.body.firstName).slice(0, 80);
+  const lastName = sanitizeInput(req.body && req.body.lastName).slice(0, 80);
+  const phone = sanitizeInput(req.body && req.body.phone).slice(0, 40);
+  const company = sanitizeInput(req.body && req.body.company).slice(0, 120);
+  const service = sanitizeInput(req.body && req.body.service).slice(0, 120);
+  const preferredDate = sanitizeInput(req.body && req.body.preferredDate).slice(0, 40);
+  const preferredTime = sanitizeInput(req.body && req.body.preferredTime).slice(0, 40);
+  const notes = sanitizeInput(req.body && req.body.notes).slice(0, 1000);
+  const source = sanitizeInput(req.body && req.body.source).slice(0, 120) || 'Book a Free Demo';
+  const pageUrl = sanitizeInput(req.body && req.body.pageUrl).slice(0, 300);
+  const language = sanitizeInput(req.body && req.body.language).slice(0, 20);
+  const captchaToken = sanitizeCaptchaToken(req.body && req.body.captchaToken);
+
+  logNewsletterTrace(traceId, 'demo_request_received', email, {
+    source,
+    language: language || 'en',
+    hasCaptchaToken: Boolean(captchaToken),
+    ip: rateLimitKey(req),
+    pageUrl,
+    crmType: 'opportunity'
+  });
+
+  if (!isValidEmail(email)) {
+    logNewsletterTrace(traceId, 'demo_request_invalid_email', email);
+    return res.status(400).json({ error: 'Valid email is required.' });
+  }
+
+  const isCaptchaValid = await verifyTurnstileToken(captchaToken, req.ip);
+  if (!isCaptchaValid) {
+    logNewsletterTrace(traceId, 'demo_request_turnstile_rejected', email);
+    return res.status(400).json({ error: 'Security verification failed. Please try again.' });
+  }
+
+  logNewsletterTrace(traceId, 'demo_request_turnstile_passed', email);
+
+  try {
+    const crmRecord = await upsertDemoOpportunity({
+      email,
+      firstName,
+      lastName,
+      phone,
+      company,
+      service,
+      preferredDate,
+      preferredTime,
+      notes,
+      source,
+      pageUrl
+    });
+
+    if (crmRecord) {
+      logNewsletterTrace(traceId, 'demo_request_crm_synced', email, {
+        crmModel: crmRecord.model,
+        crmRecordId: crmRecord.id
+      });
+    } else {
+      logNewsletterTrace(traceId, 'demo_request_crm_skipped', email, {
+        odooEnabled: ODOO_ENABLED
+      });
+    }
+  } catch (err) {
+    console.error('CRM sync (demo request) failed:', err.message);
+    logNewsletterTrace(traceId, 'demo_request_crm_failed', email, {
+      error: err.message
+    });
+    return res.status(500).json({ error: 'Could not save the demo request right now. Please try again.' });
+  }
+
+  return res.status(202).json({
+    ok: true,
+    status: 'received',
+    message: 'Thanks. Your demo request was received and will be handled as a sales opportunity.'
   });
 });
 
@@ -736,9 +1024,16 @@ app.get('/api/public-config', (req, res) => {
 });
 
 app.get('/api/newsletter/confirm', async (req, res) => {
+  const traceId = createNewsletterTraceId();
   const rawToken = sanitizeInput(req.query && req.query.token).slice(0, 128);
 
+  logNewsletterTrace(traceId, 'confirm_request_received', 'unknown', {
+    hasToken: Boolean(rawToken),
+    ip: rateLimitKey(req)
+  });
+
   if (!rawToken) {
+    logNewsletterTrace(traceId, 'confirm_missing_token', 'unknown');
     return res
       .status(400)
       .send(
@@ -753,6 +1048,7 @@ app.get('/api/newsletter/confirm', async (req, res) => {
   );
 
   if (!subscriber) {
+    logNewsletterTrace(traceId, 'confirm_token_not_found', 'unknown');
     return res
       .status(400)
       .send(
@@ -765,6 +1061,7 @@ app.get('/api/newsletter/confirm', async (req, res) => {
 
   const expiresAt = Date.parse(subscriber.confirmationTokenExpiresAt || '');
   if (!Number.isFinite(expiresAt) || Date.now() > expiresAt) {
+    logNewsletterTrace(traceId, 'confirm_token_expired', subscriber.email);
     return res
       .status(400)
       .send(
@@ -781,28 +1078,55 @@ app.get('/api/newsletter/confirm', async (req, res) => {
   subscriber.confirmationTokenExpiresAt = null;
   subscriber.mailingListStatus = 'active';
   subscriber.updatedAt = new Date().toISOString();
+  const crmType = determineCrmType(subscriber.source, subscriber.pageUrl, subscriber.crmType);
+  subscriber.crmType = crmType;
+  logNewsletterTrace(traceId, 'confirm_marked_active', subscriber.email);
 
   try {
-    const crmRecord = await upsertCrmSubscriber(subscriber.email, NEWSLETTER_STATUS_CONFIRMED);
+    const crmRecord = await upsertCrmSubscriber(subscriber.email, NEWSLETTER_STATUS_CONFIRMED, crmType);
     if (crmRecord) {
       subscriber.crmModel = crmRecord.model;
       subscriber.crmRecordId = crmRecord.id;
+      logNewsletterTrace(traceId, 'confirm_crm_synced', subscriber.email, {
+        crmModel: crmRecord.model,
+        crmRecordId: crmRecord.id
+      });
+    } else {
+      logNewsletterTrace(traceId, 'confirm_crm_skipped', subscriber.email, {
+        odooEnabled: ODOO_ENABLED
+      });
     }
   } catch (err) {
     console.error('CRM sync (confirmed) failed:', err.message);
+    logNewsletterTrace(traceId, 'confirm_crm_failed', subscriber.email, {
+      error: err.message
+    });
   }
 
   try {
     const mailingContactId = await syncConfirmedToMailingList(subscriber.email);
     if (mailingContactId) {
       subscriber.mailingContactId = mailingContactId;
+      logNewsletterTrace(traceId, 'confirm_mailing_synced', subscriber.email, {
+        mailingContactId
+      });
+    } else {
+      logNewsletterTrace(traceId, 'confirm_mailing_skipped', subscriber.email, {
+        odooEnabled: ODOO_ENABLED
+      });
     }
   } catch (err) {
     console.error('Mailing list sync failed:', err.message);
     subscriber.mailingListStatus = 'sync_failed';
+    logNewsletterTrace(traceId, 'confirm_mailing_failed', subscriber.email, {
+      error: err.message
+    });
   }
 
   writeNewsletterSubscribers(subscribers);
+  logNewsletterTrace(traceId, 'confirm_saved_active', subscriber.email, {
+    subscriberCount: subscribers.length
+  });
 
   return res.send(
     renderStatusPage(
@@ -817,5 +1141,5 @@ app.get('/api/health', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.error(`GoCloud Chatbot API running on port ${PORT}`);
+  console.log(`GoCloud Chatbot API running on port ${PORT}`);
 });
