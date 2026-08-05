@@ -1,0 +1,215 @@
+extends layout-rtl.pug
+
+block variables
+  - var locale = typeof pageLang !== 'undefined' ? pageLang : 'ar'
+  - var t = locale === 'en' ? { home: 'Home', pageSuffix: ' — GoCloud Blog', blogLabel: 'Blog', expertTitle: 'Recommended by GoCloud Experts', expertText: 'Internal links to relevant content improve reading depth and help search engines understand topical authority.', share: 'Share this article', newsletterTitle: 'Subscribe to the Newsletter', newsletterText: 'Get the latest GoCloud articles and practical insights on Odoo and medical insurance.', newsletterEmail: 'Email address', newsletterButton: 'Subscribe Now', newsletterNote: 'By subscribing, you agree to receive periodic emails and can unsubscribe at any time.', related: 'Related Articles', categories: 'Categories', all: 'All', insurance: 'Medical Insurance', odoo: 'Odoo Applications', ctaTitle: 'Need a consultation?', ctaText: 'Contact us for a free consultation about medical insurance solutions or Odoo applications.', ctaButton: 'Contact Us', copyLinkAria: 'Copy link' } : { home: 'الرئيسية', pageSuffix: ' — مدونة GoCloud', blogLabel: 'المدونة', expertTitle: 'روابط موصى بها من خبراء GoCloud', expertText: 'ربط المقال بمحتوى مرتبط يعزز تجربة القراءة ويساعد محركات البحث على فهم عمق الموضوع.', share: 'شارك المقال', newsletterTitle: 'اشترك في النشرة البريدية', newsletterText: 'احصل على أحدث مقالات GoCloud ونصائح عملية في Odoo والتأمين الطبي.', newsletterEmail: 'البريد الإلكتروني', newsletterButton: 'اشترك الآن', newsletterNote: 'بالاشتراك، أنت توافق على استلام رسائل دورية ويمكنك إلغاء الاشتراك في أي وقت.', related: 'مقالات ذات صلة', categories: 'التصنيفات', all: 'الكل', insurance: 'التأمين الطبي', odoo: 'تطبيقات أودو', ctaTitle: 'هل تحتاج استشارة؟', ctaText: 'تواصل معنا للحصول على استشارة مجانية حول حلول التأمين الطبي أو تطبيقات Odoo', ctaButton: 'تواصل معنا', copyLinkAria: 'نسخ الرابط' }
+  - var pageTitle = post.title + t.pageSuffix
+  - var pageDescription = post.excerpt
+  - var pageKeywords = post.tags.join(', ')
+  - var canonicalUrl = typeof canonicalUrl !== 'undefined' ? canonicalUrl : "https://www.gocloudeg.com/blog/" + post.slug + ".html"
+  - var ogImage = "https://www.gocloudeg.com/" + post.image
+
+block structuredData
+  script(type="application/ld+json", src=`schema/${post.slug}.json`)
+
+block styles
+  style.
+    /* ── Post hero ── */
+    .post-hero{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 60%,#0E38B1 100%);padding:4rem 0 3rem;position:relative;overflow:hidden}
+    .post-hero::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:60px;background:#fff;clip-path:polygon(0 60%,100% 0,100% 100%,0 100%)}
+    .post-hero .breadcrumb-link{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem}
+    .post-hero .breadcrumb-link:hover{color:#fff}
+    .post-hero .breadcrumb-sep{color:rgba(255,255,255,.3);margin:0 8px}
+    .post-hero .breadcrumb-current{color:#A1E934;font-weight:600;font-size:.85rem}
+    .post-cat-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:50px;padding:4px 14px;font-size:.75rem;font-weight:600;color:#fff;margin-bottom:.75rem}
+    .post-hero h1{font-size:2rem;font-weight:800;color:#fff;line-height:1.5;max-width:700px}
+    .post-hero-meta{color:rgba(255,255,255,.65);font-size:.85rem;margin-top:.75rem;display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+    .post-hero-meta i{margin-left:4px}
+    html[lang='en'] .post-hero .container{text-align:left}
+    html[lang='en'] .post-hero-meta i{margin-right:4px;margin-left:0}
+
+    /* ── Article body ── */
+    .article-section{padding:3rem 0 4rem}
+    .article-featured-img{width:100%;max-height:420px;object-fit:cover;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.08);margin-bottom:2rem}
+    .article-content{font-size:1.05rem;line-height:1.9;color:#2d2e3a}
+    .article-content h2{font-size:1.4rem;font-weight:700;color:#0D0E10;margin:2rem 0 .75rem;padding-bottom:.5rem;border-bottom:2px solid #EEF2FF}
+    .article-content h3{font-size:1.15rem;font-weight:700;color:#0D0E10;margin:1.5rem 0 .5rem}
+    .article-content p{margin-bottom:1rem}
+    .article-content ul,.article-content ol{padding-right:1.5rem;margin-bottom:1rem}
+    .article-content li{margin-bottom:.4rem}
+    .article-content a{color:#0E38B1;text-decoration:underline}
+    .article-content a:hover{color:#113ADC}
+    .article-content strong{color:#0D0E10}
+    html[lang='en'] .article-content{text-align:left}
+    html[lang='en'] .article-content ul,html[lang='en'] .article-content ol{padding-left:1.5rem;padding-right:0}
+    html[lang='en'] .article-content h2,html[lang='en'] .article-content h3{text-align:left}
+
+    /* ── Expert backlinks ── */
+    .expert-backlinks{margin:1.5rem 0;background:#f7f9ff;border:1px solid #e2e8ff;border-radius:14px;padding:1.25rem}
+    .expert-backlinks h5{font-size:1rem;font-weight:800;color:#0D0E10;margin:0 0 .35rem}
+    .expert-backlinks p{font-size:.85rem;color:#5b607a;margin:0 0 .8rem}
+    .expert-link-item{display:block;background:#fff;border:1px solid #e9ecef;border-radius:10px;padding:.8rem .9rem;text-decoration:none;margin-bottom:.55rem;transition:all .2s}
+    .expert-link-item:last-child{margin-bottom:0}
+    .expert-link-item:hover{border-color:#0E38B1;box-shadow:0 6px 18px rgba(14,56,177,.08)}
+    .expert-link-title{display:block;color:#0D0E10;font-size:.88rem;font-weight:700;line-height:1.55}
+    .expert-link-reason{display:block;color:#6c728f;font-size:.76rem;margin-top:3px}
+
+    /* ── Tags ── */
+    .post-tags{margin-top:2rem;padding-top:1.5rem;border-top:1px solid #e9ecef;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    .post-tag{background:#EEF2FF;color:#0E38B1;font-size:.75rem;font-weight:600;padding:4px 12px;border-radius:50px}
+    html[lang='en'] .post-tags i{margin-right:.5rem;margin-left:0!important}
+
+    /* ── Share bar ── */
+    .share-bar{background:#f7f9ff;border-radius:12px;padding:1.25rem;margin-top:2rem}
+    .share-bar h6{font-size:.85rem;font-weight:700;margin-bottom:.75rem;color:#0D0E10}
+    .share-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid #dee2e6;background:#fff;color:#4a4b5c;font-size:1rem;text-decoration:none;transition:all .25s;cursor:pointer}
+    .share-btn:hover{color:#fff}
+    .share-btn.wa:hover{background:#25D366;border-color:#25D366}
+    .share-btn.li:hover{background:#0077B5;border-color:#0077B5}
+    .share-btn.fb:hover{background:#1877F2;border-color:#1877F2}
+    .share-btn.copy:hover{background:#0E38B1;border-color:#0E38B1}
+    html[lang='en'] .share-bar{text-align:left}
+
+    /* ── Sidebar ── */
+    .sidebar-card{background:#fff;border:1px solid #e9ecef;border-radius:16px;padding:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,.04);margin-bottom:1.5rem}
+    .sidebar-card h5{font-size:1rem;font-weight:700;margin-bottom:1rem;color:#0D0E10}
+    .related-item{display:flex;gap:12px;padding:.75rem 0;border-bottom:1px solid #f0f1f5;text-decoration:none;color:inherit;transition:background .2s}
+    .related-item:last-child{border-bottom:none}
+    .related-item:hover{background:#f7f9ff;border-radius:8px}
+    .related-item img{width:64px;height:64px;object-fit:cover;border-radius:10px;flex-shrink:0}
+    .related-item .ri-title{font-size:.85rem;font-weight:600;color:#0D0E10;line-height:1.4;margin-bottom:4px}
+    .related-item .ri-date{font-size:.72rem;color:#999}
+    .cat-link{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0;border-bottom:1px solid #f0f1f5;color:#4a4b5c;text-decoration:none;font-size:.875rem;font-weight:500}
+    .cat-link:last-child{border-bottom:none}
+    .cat-link:hover{color:#0E38B1}
+    .cat-count{background:#EEF2FF;color:#0E38B1;font-size:.72rem;font-weight:700;padding:2px 10px;border-radius:50px}
+    html[lang='en'] .sidebar-card,html[lang='en'] .newsletter-card{text-align:left}
+
+    /* ── Newsletter ── */
+    .newsletter-card{background:#f4f8ff;border:1px solid #dbe6ff;border-radius:16px;padding:1.35rem;margin-bottom:1.5rem}
+    .newsletter-card h5{font-size:1rem;font-weight:800;color:#0D0E10;margin-bottom:.35rem}
+    .newsletter-card p{font-size:.82rem;color:#5b607a;margin-bottom:.8rem}
+    .newsletter-form{display:flex;flex-direction:column;gap:.55rem}
+    .newsletter-input{border:1px solid #ced7ee;border-radius:10px;padding:.65rem .75rem;font-size:.85rem}
+    .newsletter-input:focus{outline:none;border-color:#0E38B1;box-shadow:0 0 0 3px rgba(14,56,177,.12)}
+    .newsletter-btn{background:#0E38B1;color:#fff;border:none;border-radius:10px;padding:.65rem .85rem;font-size:.82rem;font-weight:700;transition:all .2s}
+    .newsletter-btn:hover{background:#113ADC}
+    .newsletter-feedback{min-height:1.1rem;font-size:.75rem;font-weight:600}
+    .newsletter-feedback.success{color:#0f7b37}
+    .newsletter-feedback.error{color:#b42318}
+    .newsletter-note{font-size:.7rem;color:#6c728f;margin:0}
+
+    /* ── CTA ── */
+    .blog-cta{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 100%);border-radius:16px;padding:2.5rem;text-align:center;margin-top:2rem}
+    .blog-cta h4{color:#fff;font-weight:800;font-size:1.25rem;margin-bottom:.5rem}
+    .blog-cta p{color:rgba(255,255,255,.75);font-size:.9rem;max-width:400px;margin:0 auto .75rem}
+    .btn-cta-blog{background:#A1E934;color:#0D0E10;border:none;border-radius:50px;padding:10px 28px;font-weight:700;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .3s}
+    .btn-cta-blog:hover{background:#8dd22a;transform:translateY(-2px);box-shadow:0 8px 20px rgba(161,233,52,.3);color:#0D0E10}
+    html[lang='en'] .btn-cta-blog i{transform:scaleX(-1)}
+
+block content
+  - var pathPrefix = typeof pathPrefix !== 'undefined' ? pathPrefix : '../'
+  - var blogIndexHref = locale === 'en' ? '../index.html' : 'index.html'
+  include ../../views/components/top-banner.pug
+  include ../../views/components/header.pug
+
+  //---------- POST HERO ----------
+  .post-hero
+    .container
+      .mb-3
+        a.breadcrumb-link(href=`${pathPrefix}index.html`)= t.home
+        span.breadcrumb-sep /
+        a.breadcrumb-link(href=blogIndexHref)= t.blogLabel
+        span.breadcrumb-sep /
+        span.breadcrumb-current= post.categoryLabel
+      .post-cat-badge= post.categoryLabel
+      h1= post.title
+      .post-hero-meta
+        span
+          i.far.fa-calendar-alt
+          = ' ' + post.date
+        span
+          i.far.fa-user
+          = ' ' + post.author
+
+  //---------- ARTICLE ----------
+  section.article-section
+    .container
+      .row.g-5
+        //- Main content
+        .col-lg-8
+          img.article-featured-img(src=`${pathPrefix}${post.displayImage || post.image}` alt=post.title loading="lazy")
+          .article-content!= post.content
+
+          if expertBacklinks && expertBacklinks.length
+            .expert-backlinks
+              h5= t.expertTitle
+              p= t.expertText
+              each link in expertBacklinks
+                a.expert-link-item(href=link.href)
+                  span.expert-link-title= link.title
+                  span.expert-link-reason= link.reason
+
+          //- Tags
+          if post.tags && post.tags.length
+            .post-tags
+              i.fas.fa-tags(style="color:#0E38B1")
+              each tag in post.tags
+                span.post-tag= tag
+
+          //- Share
+          .share-bar
+            h6= t.share
+            .d-flex.gap-2
+              a.share-btn.wa(href=`https://wa.me/?text=${encodeURIComponent(post.title + ' — ' + 'https://www.gocloudeg.com/blog/' + post.slug + '.html')}` target="_blank" rel="noopener noreferrer" aria-label="WhatsApp")
+                i.fab.fa-whatsapp
+              a.share-btn.li(href=`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent('https://www.gocloudeg.com/blog/' + post.slug + '.html')}` target="_blank" rel="noopener noreferrer" aria-label="LinkedIn")
+                i.fab.fa-linkedin-in
+              a.share-btn.fb(href=`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://www.gocloudeg.com/blog/' + post.slug + '.html')}` target="_blank" rel="noopener noreferrer" aria-label="Facebook")
+                i.fab.fa-facebook-f
+              button.share-btn.copy(type="button" data-copy-url=`https://www.gocloudeg.com/blog/${post.slug}.html` aria-label=t.copyLinkAria)
+                i.fas.fa-link
+
+        //- Sidebar
+        .col-lg-4
+          .newsletter-card
+            h5= t.newsletterTitle
+            p= t.newsletterText
+            form.newsletter-form(data-newsletter-form data-source="blog-post")
+              label.visually-hidden(for="newsletterEmailPost")= t.newsletterEmail
+              input#newsletterEmailPost.newsletter-input(type="email" name="email" placeholder="example@company.com" required autocomplete="email")
+              button.newsletter-btn(type="submit")= t.newsletterButton
+              p.newsletter-feedback(data-newsletter-feedback role="status" aria-live="polite")
+              p.newsletter-note= t.newsletterNote
+
+          //- Related posts
+          if related && related.length
+            .sidebar-card
+              h5= t.related
+              each r in related
+                a.related-item(href=`${r.slug}.html`)
+                  img(src=`${pathPrefix}${r.displayImage || r.image}` alt=r.title loading="lazy")
+                  div
+                    .ri-title= r.title
+                    .ri-date= r.date
+
+          //- Categories
+          .sidebar-card
+            h5= t.categories
+            a.cat-link(href="index.html")
+              span= t.all
+            a.cat-link(href="index.html")
+              span= t.insurance
+            a.cat-link(href="index.html")
+              span= t.odoo
+
+          //- CTA
+          .blog-cta
+            h4= t.ctaTitle
+            p= t.ctaText
+            a.btn-cta-blog(href=`${pathPrefix}contact.html`)
+              = t.ctaButton
+              i.fas.fa-arrow-left
+
+  include ../../views/components/footer.pug
+  include ../../views/components/whatsapp-button.pug

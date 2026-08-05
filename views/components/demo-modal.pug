@@ -1,0 +1,94 @@
+//- Book a Free Demo Modal
+#demoModal.modal.fade(tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true")
+  .modal-dialog.modal-dialog-centered.modal-lg
+    .modal-content(style="border: none; border-radius: 20px; overflow: hidden;")
+      .modal-header(style="background: linear-gradient(135deg, #0E38B1 0%, #113ADC 100%); border: none; padding: 1.75rem 2rem;")
+        .d-flex.align-items-center.gap-3
+          .d-flex.align-items-center.justify-content-center(style="width: 48px; height: 48px; background: rgba(161, 233, 52, 0.2); border-radius: 12px;")
+            i.fa-solid.fa-calendar-check(style="font-size: 1.25rem; color: #A1E934;" aria-hidden="true")
+          div
+            h5#demoModalLabel.mb-0(style="color: #fff; font-weight: 700; font-size: 1.25rem;") Book a Free Demo
+            p.mb-0(style="color: rgba(255,255,255,0.7); font-size: 0.85rem;") See how GoCloud solutions can transform your business
+        button.btn-close.btn-close-white(type="button" data-bs-dismiss="modal" aria-label="Close")
+      .modal-body(style="padding: 2rem;")
+        form#demoBookingForm(novalidate)
+          .row.g-3
+            .col-md-6
+              label.form-label(for="demoFirstName" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;")
+                i.fa-solid.fa-user.me-1(style="color: #0E38B1;" aria-hidden="true")
+                | First Name
+                span.text-danger *
+              input#demoFirstName.form-control(type="text" name="firstName" placeholder="e.g. Ahmed" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;")
+              .invalid-feedback Please enter your first name.
+            .col-md-6
+              label.form-label(for="demoLastName" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;")
+                i.fa-solid.fa-user.me-1(style="color: #0E38B1;" aria-hidden="true")
+                | Last Name
+                span.text-danger *
+              input#demoLastName.form-control(type="text" name="lastName" placeholder="e.g. Hassan" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;")
+              .invalid-feedback Please enter your last name.
+            .col-md-6
+              label.form-label(for="demoEmail" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;")
+                i.fa-solid.fa-envelope.me-1(style="color: #0E38B1;" aria-hidden="true")
+                | Email Address
+                span.text-danger *
+              input#demoEmail.form-control(type="email" name="email" placeholder="e.g. ahmed@company.com" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;")
+              .invalid-feedback Please enter a valid email address.
+            .col-md-6
+              label.form-label(for="demoPhone" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;")
+                i.fa-solid.fa-mobile-screen.me-1(style="color: #0E38B1;" aria-hidden="true")
+                | Mobile Number
+                span.text-danger *
+              input#demoPhone.form-control(type="tel" name="phone" placeholder="e.g. +20 10X XXX XXXX" required pattern="[\\+]?[0-9\\s\\-]{8,20}" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;")
+              .invalid-feedback Please enter a valid mobile number.
+            .col-md-6
+              label.form-label(for="demoCompany" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;")
+                i.fa-solid.fa-building.me-1(style="color: #0E38B1;" aria-hidden="true")
+                | Company Name
+              input#demoCompany.form-control(type="text" name="company" placeholder="e.g. ABC Corp" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;")
+            .col-md-6
+              label.form-label(for="demoService" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;")
+                i.fa-solid.fa-cogs.me-1(style="color: #0E38B1;" aria-hidden="true")
+                | Interested In
+              select#demoService.form-select(name="service" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;")
+                option(value="" selected) Select a service...
+                option(value="Odoo ERP") Odoo ERP Implementation
+                option(value="Cloud Solutions") Cloud Solutions
+                option(value="ELITE Insurance") ELITE Medical Insurance Platform
+                option(value="Business Intelligence") Business Intelligence
+                option(value="Custom Development") Custom Software Development
+                option(value="Other") Other
+            .col-md-6
+              label.form-label(for="demoDate" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;")
+                i.fa-solid.fa-calendar.me-1(style="color: #0E38B1;" aria-hidden="true")
+                | Preferred Date
+                span.text-danger *
+              input#demoDate.form-control(type="date" name="preferredDate" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;")
+              .invalid-feedback Please select a preferred date.
+            .col-md-6
+              label.form-label(for="demoTime" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;")
+                i.fa-solid.fa-clock.me-1(style="color: #0E38B1;" aria-hidden="true")
+                | Preferred Time
+                span.text-danger *
+              select#demoTime.form-select(name="preferredTime" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;")
+                option(value="" selected) Select a time slot...
+                option(value="09:00 - 10:00 AM") 09:00 — 10:00 AM
+                option(value="10:00 - 11:00 AM") 10:00 — 11:00 AM
+                option(value="11:00 - 12:00 PM") 11:00 — 12:00 PM
+                option(value="12:00 - 01:00 PM") 12:00 — 01:00 PM
+                option(value="01:00 - 02:00 PM") 01:00 — 02:00 PM
+                option(value="02:00 - 03:00 PM") 02:00 — 03:00 PM
+                option(value="03:00 - 04:00 PM") 03:00 — 04:00 PM
+                option(value="04:00 - 05:00 PM") 04:00 — 05:00 PM
+              .invalid-feedback Please select a preferred time.
+            .col-12
+              label.form-label(for="demoNotes" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;")
+                i.fa-solid.fa-comment.me-1(style="color: #0E38B1;" aria-hidden="true")
+                | Additional Notes
+              textarea#demoNotes.form-control(name="notes" rows="3" placeholder="Tell us about your requirements or questions..." style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6; resize: vertical;")
+      .modal-footer(style="border-top: 1px solid #e9ecef; padding: 1.25rem 2rem;")
+        button.btn.btn-light(type="button" data-bs-dismiss="modal" style="border-radius: 50px; padding: 10px 24px; font-weight: 600;") Cancel
+        button#demoSubmitBtn.btn(type="button" style="background: linear-gradient(135deg, #0E38B1, #113ADC); color: #fff; border: none; border-radius: 50px; padding: 10px 28px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;")
+          i.fa-solid.fa-paper-plane(aria-hidden="true")
+          | Submit Request
+

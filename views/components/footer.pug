@@ -1,87 +1,165 @@
 // Footer Component
+- var p = typeof pathPrefix !== 'undefined' ? pathPrefix : ''
+style.
+  .gc-footer-compact h3{margin-bottom:8px!important}
+  .gc-footer-compact .mb-3{margin-bottom:.6rem!important}
+  .gc-footer-compact .mb-2{margin-bottom:.35rem!important}
+  .gc-footer-compact [data-newsletter-feedback]{margin-top:.35rem!important}
+  .gc-footer-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+  .gc-footer-compact .contact-box+.contact-box{margin-top:2px!important}
+  .gc-footer-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+  .gc-footer-compact .contact-box .pera,.gc-footer-compact .contact-box .pera a{line-height:1.2}
+  .gc-footer-compact .contact-box .pera a{display:inline-block;margin:0!important}
+  .gc-footer-compact .contact-box .pera p{margin:0}
+  .gc-footer-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+
 footer
-  .footer1._relative.text-center
+  .footer1._relative
     .container
-      .row
+      .row.gy-4
+        //- About Column
         .col-lg-3.col-md-6.col-12
           .single-footer-items
-            p At 
-              span
-                img(src="images/gocloud logo.webp" height="70" width="70" alt="GoCloud Logo" loading="lazy")
-              | we're dedicated to deliver innovative technology solutions tailored to meet the unique needs of businesses like yours.
-            ul.social-icon.text-center
+            a.footer-logo.d-inline-block.mb-3(href=`${p}index.html` aria-label="GoCloud Home")
+              img(src=`${p}images/gocloud logo.webp` height="60" width="60" alt="GoCloud Logo" loading="lazy")
+            p.footer-desc(data-i18n-key="footer.about_text") As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.
+            ul.social-icon.d-flex.gap-2.mt-3
               li
-                a(href="https://www.linkedin.com/company/gocloud-co/posts/?feedView=all")
+                a(href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn")
                   i.fa-brands.fa-linkedin-in
               li
-                a(href="https://www.google.com/search?q=gocloud+eg&sca_esv=1b465dddb89ef670&sxsrf=AE3TifPO8dDI2un8QLeuyTZoAmiw1QCmhA%3A1750690736441&ei=sGtZaLfRGoaNkdUP4_DKyAI&ved=0ahUKEwi36dOb54eOAxWGRqQEHWO4EikQ4dUDCBA&uact=5&oq=gocloud+&gs_lp=Egxnd3Mtd2l6LXNlcnAiCGdvY2xvdWQgMgoQIxjwBRgnGMkCMgQQIxgnMgUQABiABDIKEAAYgAQYQxiKBTILEC4YgAQYxwEYrwEyChAAGIAEGEMYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigVInw5Q3AFY3AFwAXgBkAEAmAHXCaAB1wmqAQM3LTG4AQPIAQD4AQGYAgKgAvcJwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYKkgcFMS43LTGgB9YKsgcDNy0xuAfpCcIHAzMtMsgHGg&sclient=gws-wiz-serp")
+                a(href="https://www.google.com/search?q=gocloud+eg" target="_blank" rel="noopener noreferrer" aria-label="Google")
                   i.fa-brands.fa-google
               li
-                a(href="https://www.youtube.com/@GoCloudeg")
+                a(href="https://www.youtube.com/@GoCloudeg" target="_blank" rel="noopener noreferrer" aria-label="YouTube")
                   i.fa-brands.fa-youtube
+              li
+                a(href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook")
+                  i.fa-brands.fa-facebook-f
+              li
+                a(href="https://www.instagram.com/gocloud_eg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram")
+                  i.fa-brands.fa-instagram
+              li
+                a(href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp")
+                  i.fa-brands.fa-whatsapp
 
+        //- Services Column
         .col-lg-3.col-md-6.col-12
           .single-footer-items
-            h3 Our Services
-              .contact-box.justify-content-center
+            h3(data-i18n-key="footer.services_title") Our Services
+            ul.menu-list
+              li
+                a(href=`${p}cloud-services.html`)
+                  i.fa-solid.fa-chevron-right.me-2
+                  span(data-i18n-key="footer.cloud_solutions") Cloud Solutions
+              li
+                a(href=`${p}odoo-services.html`)
+                  i.fa-solid.fa-chevron-right.me-2
+                  span(data-i18n-key="footer.odoo_services") Odoo Services
+              li
+                a(href=`${p}odoo-imp.html`)
+                  i.fa-solid.fa-chevron-right.me-2
+                  span(data-i18n-key="footer.odoo_implementation") Odoo Implementation
+              li
+                a(href=`${p}odoo-dev.html`)
+                  i.fa-solid.fa-chevron-right.me-2
+                  span(data-i18n-key="footer.odoo_development") Odoo Development
+              li
+                a(href=`${p}business.html`)
+                  i.fa-solid.fa-chevron-right.me-2
+                  span(data-i18n-key="footer.business_intelligence") Business Intelligence
+              li
+                a(href=`${p}portfolio.html`)
+                  i.fa-solid.fa-chevron-right.me-2
+                  span(data-i18n-key="footer.portfolio") Portfolio & E-commerce
+              li
+                a(href=`${p}elite.html`)
+                  i.fa-solid.fa-chevron-right.me-2
+                  span(data-i18n-key="footer.elite_medical") ELITE Medical Insurance
 
-                ul.menu-list
-                  li
-                    a(href="cloud-services.html") Cloud Solutions
-                  li
-                    a(href="odoo-dev.html") Odoo development 
-                  li
-                    a(href="odoo-imp.html") Odoo Implementation
-                  li
-                    a(href="business.html") Business intelligence
+        //- Useful Links Column
         .col-lg-2.col-md-6.col-12
           .single-footer-items
-            h3 Useful Links
-              .contact-box.justify-content-center
-                ul.menu-list
-                  li
-                    a(href="about.html") About Us 
-                  li
-                    a(href="service.html") Services
-                  li
-                    a(href="contact.html") Contact Us
-        .col-lg-4.col-md-6.col-12.text-center
-          .single-footer-items
-            h3 Contact Us
-            .contact-box.justify-content-center
-              .icon
-                img(src="images/footer1-icon1.webp" alt="" loading="lazy")
-              .pera
-                a(href="tel:+20233762533") 0233762533
+            h3(data-i18n-key="footer.links_title") Useful Links
+            ul.menu-list
+              li
+                a(href=`${p}about.html`)
+                  i.fa-solid.fa-chevron-right.me-2
+                  span(data-i18n-key="footer.about_us") About Us
+              li
+                a(href=`${p}service.html`)
+                  i.fa-solid.fa-chevron-right.me-2
+                  span(data-i18n-key="footer.services") Services
+              li
+                a(href=`${p}contact.html`)
+                  i.fa-solid.fa-chevron-right.me-2
+                  span(data-i18n-key="footer.contact_us") Contact Us
+              li
+                a(href=`${p}conditions-terms.html`)
+                  i.fa-solid.fa-chevron-right.me-2
+                  span(data-i18n-key="footer.terms") Terms & Conditions
+              li
+                a(href=`${p}privacy.html`)
+                  i.fa-solid.fa-chevron-right.me-2
+                  span(data-i18n-key="footer.privacy") Privacy Policy
 
-            .contact-box.justify-content-center
-              .icon
-                img(src="images/footer1-icon2.webp" alt="" loading="lazy")
-              .pera
-                a(href="tel://+201017383815") +201017383815
+        //- Contact Column
+        .col-lg-4.col-md-6.col-12
+          .single-footer-items.gc-footer-compact
+            h3(data-i18n-key="footer.contact_title") Contact Us
+            .mb-3
+              p.mb-2.fw-semibold(data-i18n-key="footer.newsletter_title") Stay updated with GoCloud insights
+              form(data-newsletter-form data-source="website-footer")
+                label.visually-hidden(for="newsletterEmailFooter" data-i18n-key="footer.email_label") Email address
+                .input-group.input-group-sm
+                  input#newsletterEmailFooter.form-control(type="email" name="email" placeholder="name@company.com" required autocomplete="email")
+                  button.btn.btn-light.text-dark(type="submit" data-i18n-key="footer.subscribe") Subscribe
+              p.small.mt-2.mb-0(data-newsletter-feedback role="status" aria-live="polite")
 
-            .contact-box.justify-content-center
+            .contact-box
               .icon
-                img(src="images/footer1-icon3.webp" alt="" loading="lazy")
-              .text-wrap.pera
+                i.fa-solid.fa-phone
+              .pera
+                a.gc-phone-ltr(href="tel:+20233762533") 02 3376 2533
+
+            .contact-box
+              .icon
+                i.fa-solid.fa-mobile-screen
+              .pera
+                .d-flex.flex-column.gap-1
+                  a.gc-phone-ltr(href="tel:+201017383815") +20 101 738 3815
+                  a.gc-phone-ltr(href="tel:+201222666635") +20 122 266 6635
+
+            .contact-box
+              .icon
+                i.fa-solid.fa-envelope
+              .pera
                 a(href="mailto:marketing@gocloudeg.com") marketing@gocloudeg.com
 
-            .contact-box.justify-content-center
+            .contact-box
               .icon
-                img(src="images/footer1-icon4.webp" alt="" loading="lazy")
+                i.fa-solid.fa-location-dot
               .pera
-                a(href="https://gocloudeg.com") www.gocloudeg.com
+                a(href="https://www.google.com/maps/place/?q=place_id:ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer") Ahram Gardens, Gate 4, Giza, Egypt
 
-      .space40
+            .d-flex.gap-2.mt-3
+              a.btn.btn-sm.btn-outline-light(href="https://www.google.com/maps/dir/?api=1&destination=GoCloud&destination_place_id=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer")
+                i.fa-solid.fa-diamond-turn-right.me-1
+                span(data-i18n-key="footer.directions") Directions
+              a.btn.btn-sm.btn-outline-light(href="https://search.google.com/local/writereview?placeid=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer")
+                i.fa-solid.fa-star.me-1
+                span(data-i18n-key="footer.review_us") Review Us
 
-    .container.row.d-flex.text-center.mb-5.mx-auto
-      .col-5
-        div
-          p
-            | Copyright @ 
-            script.
-              document.write(new Date().getFullYear())
-            |  Gocloud-eg. All Rights Reserved
-      .col-5
-        a(href="conditions-terms.html") Terms & Conditions |
-        a(href="privacy.html") Privacy Policy
+    //- Footer Bottom
+    .footer-bottom
+      .container
+        .row.align-items-center
+          .col-md-6.text-center.text-md-start
+            p.mb-0
+              | &copy;
+              span#gcCurrentYear
+              span(data-i18n-key="footer.copyright")  GoCloud. All Rights Reserved.
+          .col-md-6.text-center.text-md-end
+            a(href=`${p}conditions-terms.html` data-i18n-key="footer.terms") Terms & Conditions
+            span.mx-2 |
+            a(href=`${p}privacy.html` data-i18n-key="footer.privacy") Privacy Policy

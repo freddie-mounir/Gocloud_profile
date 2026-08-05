@@ -1,0 +1,35 @@
+{
+  "id": "odoo-distribution-supply-chain",
+  "slug": "odoo-distribution-supply-chain",
+  "title": {
+    "ar": "كيف يساعد Odoo شركات التوزيع في تحسين سلسلة التوريد",
+    "en": "How Odoo Helps Distribution Companies Improve the Supply Chain"
+  },
+  "category": "odoo",
+  "categoryLabel": {
+    "ar": "تطبيقات أودو",
+    "en": "Odoo Applications"
+  },
+  "excerpt": {
+    "ar": "تعرّف على كيفية استخدام نظام Odoo ERP في تحسين عمليات التوزيع وإدارة سلسلة التوريد — من المستودعات حتى التوصيل النهائي.",
+    "en": "Learn how Odoo ERP helps improve distribution operations and supply chain management, from warehouse control to final delivery."
+  },
+  "content": {
+    "ar": "<p>تواجه شركات التوزيع والتجارة في المنطقة العربية تحديات فريدة — من إدارة مستودعات متعددة إلى تتبع الشحنات والتعامل مع تقلبات الأسعار. نظام Odoo ERP يقدم حلولاً متكاملة لكل هذه التحديات.</p><h2>إدارة المخزون الذكية</h2><p>وحدة المخزون في Odoo تمنحك تحكماً كاملاً:</p><ul><li><strong>تتبع الدُفعات وأرقام التسلسل</strong> — تعرف بالضبط أين كل منتج ومتى وصل</li><li><strong>نقاط إعادة الطلب الآلية</strong> — النظام يطلب تلقائياً عند وصول المخزون للحد الأدنى</li><li><strong>مستودعات متعددة</strong> — إدارة مركزية لعدة مستودعات مع خاصية النقل بينها</li><li><strong>تقارير تقادم المخزون</strong> — تجنب الخسائر الناتجة عن المنتجات منتهية الصلاحية</li></ul><h2>أتمتة دورة الشراء</h2><p>من طلب عرض السعر إلى استلام البضاعة، Odoo يؤتمت العملية بالكامل:</p><ul><li>إنشاء أوامر الشراء تلقائياً بناءً على نقاط إعادة الطلب</li><li>مقارنة عروض الأسعار من موردين متعددين</li><li>تتبع حالة الطلبات والشحنات</li><li>مطابقة آلية بين الفواتير وأوامر الشراء والاستلام</li></ul><h2>إدارة المبيعات والتوزيع</h2><p>Odoo يربط فريق المبيعات بالمستودعات بالمحاسبة في نظام واحد:</p><ul><li>عروض أسعار احترافية بلمسة واحدة</li><li>قوائم أسعار مخصصة لكل عميل أو منطقة</li><li>تتبع أوامر التسليم في الوقت الحقيقي</li><li>فوترة آلية عند التأكيد</li></ul><h2>التقارير والتحليلات</h2><p>لوحات تحكم ذكية تمنحك رؤية شاملة:</p><ul><li>تحليل حركة المبيعات حسب المنتج والعميل والمنطقة</li><li>تقارير الربحية لكل صفقة</li><li>مؤشرات أداء سلسلة التوريد (أوقات التسليم، معدل الدوران)</li><li>تنبؤ بالطلب المستقبلي</li></ul><h2>قصة نجاح: شركة توزيع في مصر</h2><p>إحدى شركات التوزيع التي نفّذنا لها Odoo حققت:</p><ul><li>تقليل وقت تجهيز الطلبات بنسبة <strong>45%</strong></li><li>خفض أخطاء الشحن بنسبة <strong>70%</strong></li><li>تحسين دوران المخزون بنسبة <strong>30%</strong></li></ul><p>هل تريد تحقيق نتائج مماثلة؟ <a href='../contact.html'>تواصل مع خبراء Odoo في GoCloud</a> وسنصمم لك حلاً يناسب حجم وطبيعة أعمالك.</p>",
+    "en": "<p>Distribution and trading companies across the region face unique operational challenges, from running multiple warehouses to tracking shipments and dealing with price fluctuations. Odoo ERP provides an integrated answer to these challenges.</p><h2>Smart Inventory Management</h2><p>Odoo inventory gives you full operational control:</p><ul><li><strong>Lot and serial tracking</strong> — know exactly where each product is and when it arrived</li><li><strong>Automatic reorder rules</strong> — the system creates replenishment flows when stock reaches the minimum threshold</li><li><strong>Multi-warehouse operations</strong> — centrally manage multiple warehouses and transfers between them</li><li><strong>Inventory aging reports</strong> — reduce losses from obsolete or expiring stock</li></ul><h2>Automating the Purchasing Cycle</h2><p>From quotation requests to goods receipt, Odoo automates the full purchasing process:</p><ul><li>Create purchase orders automatically from reorder rules</li><li>Compare quotations from multiple vendors</li><li>Track order and shipment status</li><li>Match invoices, purchase orders, and receipts automatically</li></ul><h2>Sales and Distribution Management</h2><p>Odoo connects the sales team, warehouses, and accounting in one system:</p><ul><li>Professional quotations in one click</li><li>Custom pricing lists by customer or region</li><li>Real-time delivery order tracking</li><li>Automatic invoicing on confirmation</li></ul><h2>Reports and Analytics</h2><p>Intelligent dashboards give you complete visibility:</p><ul><li>Sales movement analysis by product, customer, and region</li><li>Profitability reporting for each transaction</li><li>Supply chain KPIs such as delivery time and turnover ratio</li><li>Forecasting for future demand</li></ul><h2>Success Story: A Distribution Company in Egypt</h2><p>One of the distribution companies where we implemented Odoo achieved:</p><ul><li>A <strong>45%</strong> reduction in order preparation time</li><li>A <strong>70%</strong> reduction in shipping errors</li><li>A <strong>30%</strong> improvement in inventory turnover</li></ul><p>Would you like similar results? <a href='../contact.html'>Contact GoCloud’s Odoo experts</a>, and we will design a solution that fits the size and nature of your business.</p>"
+  },
+  "author": {
+    "ar": "فريق GoCloud",
+    "en": "GoCloud Team"
+  },
+  "date": "2026-03-25",
+  "image": "images/technology%20services.webp",
+  "tags": [
+    { "ar": "Odoo", "en": "Odoo" },
+    { "ar": "سلسلة التوريد", "en": "Supply Chain" },
+    { "ar": "توزيع", "en": "Distribution" },
+    { "ar": "مخزون", "en": "Inventory" },
+    { "ar": "ERP", "en": "ERP" }
+  ],
+  "featured": false
+}

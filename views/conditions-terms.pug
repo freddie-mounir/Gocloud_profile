@@ -1,90 +1,172 @@
 extends layout.pug
 
+block variables
+  - var pageTitle = "الشروط والأحكام — GoCloud"
+  - var pageDescription = "الشروط والأحكام الخاصة بـ GoCloud لتنظيم استخدام الموقع والخدمات بما يشمل Odoo ERP والحلول السحابية ومنصة ELITE للتأمين الطبي."
+  - var pageKeywords = "شروط GoCloud, أحكام, قانوني, اتفاقية خدمات"
+  - var canonicalUrl = "https://www.gocloudeg.com/conditions-terms.html"
+  - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+  - var pageLang = "ar"
+  - var pageDir = "rtl"
+
 block styles
+  style.
+    /* ── Hero ── */
+    .terms-hero{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 60%,#0E38B1 100%);padding:6rem 0 4rem;position:relative;overflow:hidden}
+    .terms-hero::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:80px;background:#fff;clip-path:polygon(0 60%,100% 0,100% 100%,0 100%)}
+    .terms-hero h1{font-size:2.75rem;font-weight:800;color:#fff}
+    .terms-hero p{color:rgba(255,255,255,.8);max-width:540px}
+    .terms-hero .breadcrumb-link{color:rgba(255,255,255,.6);text-decoration:none;font-size:.9rem}
+    .terms-hero .breadcrumb-link:hover{color:#fff}
+    .terms-hero .breadcrumb-sep{color:rgba(255,255,255,.35);margin:0 8px}
+    .terms-hero .breadcrumb-current{color:#A1E934;font-weight:600;font-size:.9rem}
+
+    /* ── Section helpers ── */
+    .section-tag{display:inline-flex;align-items:center;gap:8px;background:#EEF2FF;border-radius:50px;padding:6px 16px;font-size:.8rem;font-weight:600;color:#0E38B1;margin-bottom:1rem}
+    .section-tag img{height:24px;width:24px}
+    .section-heading{font-size:2rem;font-weight:800;color:#0D0E10;margin-bottom:1rem}
+    .section-lead{color:#4a4b5c;font-size:1.05rem;line-height:1.7;max-width:620px}
+
+    /* ── Terms content ── */
+    .terms-section{padding:5rem 0}
+    .terms-content h3{font-size:1.25rem;font-weight:700;color:#0D0E10;margin-top:2.5rem;margin-bottom:.75rem;padding-left:14px;border-left:3px solid #0E38B1}
+    .terms-content p{color:#4a4b5c;font-size:.95rem;line-height:1.75}
+    .terms-content ul{color:#4a4b5c;font-size:.95rem;line-height:1.75;padding-left:1.25rem}
+    .terms-content ul li{margin-bottom:.5rem}
+    .terms-content .intro-text{font-size:1.05rem;line-height:1.8;color:#4a4b5c;margin-bottom:2rem}
+
+    /* ── Highlight cards ── */
+    .terms-highlight{background:#f7f9ff;border:1px solid #e9ecef;border-radius:16px;padding:2rem;margin:2rem 0;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+    .terms-highlight h4{font-size:1.1rem;font-weight:700;color:#0E38B1;margin-bottom:1rem}
+    .terms-highlight ul{margin-bottom:0}
+
+    /* ── Contact box ── */
+    .contact-info-box{background:#fff;border:1px solid #e9ecef;border-left:4px solid #0E38B1;border-radius:12px;padding:1.5rem 2rem;box-shadow:0 2px 16px rgba(0,0,0,.04)}
+    .contact-info-box a{color:#0E38B1;text-decoration:none;transition:color .3s}
+    .contact-info-box a:hover{color:#113ADC}
+    @media(max-width:767px){.terms-hero h1{font-size:2rem}}
 
 block content
-  // Include components
   include components/preloader.pug
   include components/top-banner.pug
   include components/header.pug
 
-  // Hero Section
-  .hero-terms
+  //---------- HERO ----------
+  .terms-hero
     .container
-      h1.title Terms and Conditions
-      p Last Updated: January 1, 2025
+      .row.align-items-center
+        .col-lg-7
+          .mb-3
+            a.breadcrumb-link(href="index.html" data-i18n-key="terms.breadcrumb_home") الرئيسية
+            span.breadcrumb-sep /
+            span.breadcrumb-current(data-i18n-key="terms.breadcrumb_current") الشروط والأحكام
+          h1(data-i18n-key="terms.hero_title") الشروط والأحكام
+          .space16
+          p(data-i18n-key="terms.hero_text") يرجى قراءة هذه الشروط بعناية قبل استخدام موقع GoCloud وخدماتها.
+          .mt-3
+            span.badge.rounded-pill.bg-light.text-dark.px-3.py-2
+              i.fa-solid.fa-calendar-alt.me-2
+              span(data-i18n-key="terms.last_updated") آخر تحديث: أبريل 2026
 
-  // Terms Content Section
-  .terms-section
+  //---------- TERMS CONTENT ----------
+  section.terms-section
     .container
+      .row.text-center.mb-5
+        .col-lg-8.mx-auto
+          .section-tag
+            img(src="images/gocloud%20logo.webp" alt="" loading="lazy")
+            span(data-i18n-key="terms.tag_legal") قانوني
+          h2.section-heading(data-i18n-key="terms.section_title") شروط الخدمة
+          p.text-muted(data-i18n-key="terms.section_intro") الشروط التالية تنظّم استخدامك لموقع GoCloud ومنتجاتها وخدماتها.
+
       .row
         .col-lg-10.m-auto.terms-content
-          p Welcome to GoCloud. These Terms and Conditions ("Terms", "Terms and Conditions") govern your relationship with GoCloud website ("Website", "Service") operated by GoCloud ("us", "we", or "our").
-          p Please read these Terms and Conditions carefully before using our website and services. By accessing or using the Website, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service.
+          p.intro-text(data-i18n-key="terms.intro") مرحباً بك في GoCloud. تنظّم هذه الشروط والأحكام ("الشروط") وصولك إلى موقع GoCloud واستخدامك له ولكافة الخدمات المرتبطة به، بما في ذلك استشارات Odoo ERP والحلول السحابية ومنصة ELITE للتأمين الطبي. باستخدامك للموقع فإنك توافق على الالتزام بهذه الشروط. إذا كنت لا توافق، يُرجى عدم استخدام خدماتنا.
 
-          h2.mt-5.mb-3 1. Website Terms
-          p.mb-3 By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority and have given us your consent to allow any of your minor dependents to use this site.
-          p.mb-3 You may not use our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).
+          h3(data-i18n-key="terms.s1_title") 1. قبول الشروط
+          p(data-i18n-key="terms.s1_text") بدخولك أو تصفحك أو استخدامك لهذا الموقع، فإنك تقر بأنك قرأت هذه الشروط وفهمتها وتوافق على الالتزام بها وبجميع القوانين واللوائح المعمول بها. تحتفظ GoCloud بحق تعديل أو تحديث هذه الشروط في أي وقت، ويُعد استمرارك في استخدام الموقع موافقة على تلك التعديلات.
 
-          h2.mt-5.mb-3 2. General Conditions
-          p.mb-3 We reserve the right to refuse service to anyone for any reason at any time.
-          p.mb-3 You understand that your content (not including credit card information), may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices.
-          p.mb-3 You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service without the express written permission by us.
-          p.mb-3 The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.
+          h3(data-i18n-key="terms.s2_title") 2. نظرة عامة على الخدمات
+          p(data-i18n-key="terms.s2_intro") تقدم GoCloud خدمات استشارية وتنفيذية تقنية تشمل، على سبيل المثال لا الحصر:
+          ul
+            li(data-i18n-key="terms.s2_li1") تنفيذ Odoo ERP وتخصيصه ودعمه.
+            li(data-i18n-key="terms.s2_li2") البنية التحتية السحابية وخدمات الترحيل.
+            li(data-i18n-key="terms.s2_li3") منصة ELITE لإدارة التأمين الطبي.
+            li(data-i18n-key="terms.s2_li4") تطوير برمجيات مخصصة واستشارات تقنية المعلومات.
+          p(data-i18n-key="terms.s2_text") يتم تحديد نطاق العمل والمخرجات والجداول الزمنية لكل مشروع ضمن اتفاقيات خدمة منفصلة أو وثائق نطاق عمل موقعة بين GoCloud والعميل.
 
-          h2.mt-5.mb-3 3. Software and Services
-          p.mb-3 Certain products or services may be available exclusively online through the website. These products or services may have limited quantities and are subject to return or exchange only according to our Return Policy.
-          p.mb-3 We have made every effort to display as accurately as possible the colors, features, specifications, and details of the products available on the website. However, we do not guarantee that the colors, features, specifications, and details of the products will be accurate, complete, reliable, current, or free of other errors, and your electronic display may not accurately reflect the actual colors and details of the products.
-          p.mb-3 We reserve the right, but are not obligated, to limit the sales of our products or Services to any person, geographic region or jurisdiction. We may exercise this right on a case-by-case basis.
+          h3(data-i18n-key="terms.s3_title") 3. استخدام الموقع
+          p(data-i18n-key="terms.s3_intro") توافق على استخدام هذا الموقع لأغراض مشروعة فقط وبطريقة لا تنتهك حقوق الآخرين ولا تعيق استخدامهم للموقع. وعلى وجه الخصوص، لا يجوز لك:
+          ul
+            li(data-i18n-key="terms.s3_li1") استخدام الموقع لأي غرض احتيالي أو غير قانوني أو غير مصرح به.
+            li(data-i18n-key="terms.s3_li2") محاولة الوصول غير المصرح به إلى أي جزء من الموقع أو خوادمه أو الأنظمة المرتبطة به.
+            li(data-i18n-key="terms.s3_li3") نسخ أو إعادة إنتاج أو بيع أو استغلال أي جزء من الموقع دون إذن كتابي صريح من GoCloud.
+            li(data-i18n-key="terms.s3_li4") إدخال أي فيروسات أو برمجيات خبيثة أو شيفرات ضارة إلى الموقع.
 
-          h2.mt-5.mb-3 4. User Accounts
-          p.mb-3 When you create an account with us, you must provide information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Service.
-          p.mb-3 You are responsible for safeguarding the password that you use to access the Service and for any activities or actions under your password, whether your password is with our Service or a third-party service.
-          p.mb-3 You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.
+          h3(data-i18n-key="terms.s4_title") 4. الملكية الفكرية
+          p(data-i18n-key="terms.s4_text1") جميع المحتويات الموجودة على هذا الموقع، بما في ذلك النصوص والرسومات والشعارات والصور والبرمجيات وعناصر التصميم، هي ملك حصري لـ GoCloud أو الجهات المرخصة لها، ومحمية بموجب قوانين حقوق الملكية الفكرية والعلامات التجارية في مصر والاتفاقيات الدولية.
+          p(data-i18n-key="terms.s4_text2") لا يجوز لك استخدام أو إعادة إنتاج أو توزيع أي محتوى من هذا الموقع دون موافقة كتابية مسبقة من GoCloud. كما لا يجوز استخدام اسم GoCloud أو شعارها أو علاماتها المرتبطة بها مع أي منتج أو خدمة غير تابعة لها.
 
-          h2.mt-5.mb-3 5. Intellectual Property Rights
-          p.mb-3 The Service and its original content, features and functionality are and will remain the exclusive property of GoCloud and its licensors. The Service is protected by copyright, trademark, and other laws of both Egypt and foreign countries.
-          p.mb-3 Our trademarks and trade dress may not be used in connection with any product or service without the prior written consent of GoCloud.
+          h3(data-i18n-key="terms.s5_title") 5. حسابات المستخدمين
+          p(data-i18n-key="terms.s5_intro") قد تتطلب بعض الخدمات إنشاء حساب مستخدم. وفي هذه الحالة، فإنك توافق على:
+          ul
+            li(data-i18n-key="terms.s5_li1") تقديم معلومات صحيحة وحديثة وكاملة أثناء التسجيل.
+            li(data-i18n-key="terms.s5_li2") الحفاظ على سرية وأمان بيانات الدخول الخاصة بحسابك.
+            li(data-i18n-key="terms.s5_li3") تحمّل المسؤولية عن جميع الأنشطة التي تتم عبر حسابك.
+            li(data-i18n-key="terms.s5_li4") إخطار GoCloud فوراً عند الاشتباه بأي استخدام غير مصرح به لحسابك.
+          p(data-i18n-key="terms.s5_text") تحتفظ GoCloud بالحق في تعليق أو إنهاء الحسابات التي تنتهك هذه الشروط أو التي تظل غير نشطة لفترة ممتدة.
 
-          h2.mt-5.mb-3 6. Software Licenses
-          p.mb-3 If you access or use any software provided by GoCloud, whether as part of the Service or separately, you agree to be bound by the terms of the end-user license agreement or other terms of service that accompany such software.
-          p.mb-3 You may not reverse engineer, decompile, or disassemble any software provided by GoCloud, except to the extent that such restriction is expressly prohibited by applicable law.
+          h3(data-i18n-key="terms.s6_title") 6. اتفاقيات الخدمة والترخيص
+          p(data-i18n-key="terms.s6_text1") يخضع الوصول إلى منتجات GoCloud البرمجية ومنصاتها، بما في ذلك منصة ELITE وتنفيذات Odoo، لاتفاقيات ترخيص مستخدم نهائي (EULA) أو شروط اشتراك منفصلة يتم تقديمها وقت الشراء أو الاشتراك.
+          p(data-i18n-key="terms.s6_text2") لا يجوز لك إجراء هندسة عكسية أو فك تجميع أو تفكيك أو محاولة استخراج الشيفرة المصدرية لأي برنامج تابع لـ GoCloud، إلا إذا كان هذا القيد محظوراً صراحةً بموجب القانون المعمول به.
 
-          h2.mt-5.mb-3 7. Service Level Agreement (SLA)
-          p.mb-3 GoCloud strives to provide high-quality services with minimal downtime. Our Service Level Agreement (SLA) outlines our commitment to service availability and performance metrics.
+          .terms-highlight
+            h4
+              i.fa-solid.fa-file-contract.me-2
+              span(data-i18n-key="terms.highlight_title") أهم بنود الخدمة
+            ul
+              li(data-i18n-key="terms.highlight_li1") جميع مخرجات المشاريع تخضع للبنود المحددة في وثيقة نطاق العمل المعتمدة.
+              li(data-i18n-key="terms.highlight_li2") تراخيص البرمجيات غير قابلة للتحويل ما لم يُنص على خلاف ذلك صراحةً.
+              li(data-i18n-key="terms.highlight_li3") يتم تحديد شروط الدعم والصيانة في اتفاقية مستوى الخدمة (SLA) ذات الصلة.
+              li(data-i18n-key="terms.highlight_li4") تسعى GoCloud إلى تحقيق توفر عالٍ للخدمات، وتُحدد التزامات وقت التشغيل في اتفاقيات SLA الخاصة بكل خدمة.
 
-          h2.mt-5.mb-3 8. Termination
-          p.mb-3 We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
-          p.mb-3 Upon termination, your right to use the Service will immediately cease. If you wish to terminate your account, you may simply discontinue using the Service.
+          h3(data-i18n-key="terms.s7_title") 7. شروط الدفع
+          p(data-i18n-key="terms.s7_intro") عند الاقتضاء، تُحدَّد رسوم خدمات GoCloud في اتفاقية الخدمة ذات الصلة. وما لم يُنص على خلاف ذلك:
+          ul
+            li(data-i18n-key="terms.s7_li1") تكون المدفوعات مستحقة ضمن المدة الموضحة في الفاتورة.
+            li(data-i18n-key="terms.s7_li2") جميع الرسوم تُعرض بالعملة المحددة ولا تشمل الضرائب المطبقة.
+            li(data-i18n-key="terms.s7_li3") قد يترتب على التأخر في الدفع تعليق الخدمات أو فرض رسوم إضافية وفقاً لاتفاقية الخدمة.
 
-          h2.mt-5.mb-3 9. Governing Law
-          p.mb-3 These Terms shall be interpreted and governed by the laws of Egypt, without regard to its conflict of law provisions.
-          p.mb-3 Any dispute relating in any way to your visit to or use of the Service shall be adjudicated in the courts of Egypt.
+          h3(data-i18n-key="terms.s8_title") 8. تحديد المسؤولية
+          p(data-i18n-key="terms.s8_text1") إلى أقصى حد يسمح به القانون، لا تتحمل GoCloud أو مديريها أو موظفوها أو شركاؤها أو الجهات التابعة لها مسؤولية أي أضرار غير مباشرة أو عرضية أو خاصة أو تبعية أو عقابية، بما في ذلك خسارة الأرباح أو البيانات أو الاستخدام أو السمعة، الناتجة عن استخدامك للموقع أو الخدمات.
+          p(data-i18n-key="terms.s8_text2") لا تتجاوز المسؤولية الإجمالية لـ GoCloud عن أي مطالبة مرتبطة بالخدمات المبلغ الذي دفعته أنت لـ GoCloud مقابل الخدمة محل المطالبة.
 
-          h2.mt-5.mb-3 10. Changes to Terms and Conditions
-          p.mb-3 We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days notice prior to any new terms taking effect.
-          p.mb-3 What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.
+          h3(data-i18n-key="terms.s9_title") 9. السرية
+          p(data-i18n-key="terms.s9_text") يوافق الطرفان على الحفاظ على سرية أي معلومات ملكية أو حساسة يتم تبادلها خلال تنفيذ الخدمة. ويستمر هذا الالتزام حتى بعد إنهاء أي اتفاقية خدمة.
 
-          h2.mt-5.mb-3 11. Limitation of Liability
-          p.mb-3 In no event shall GoCloud, its directors, employees, partners, agents, suppliers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of the Service.
+          h3(data-i18n-key="terms.s10_title") 10. الإنهاء
+          p(data-i18n-key="terms.s10_text1") يجوز لـ GoCloud تعليق أو إنهاء وصولك إلى الموقع أو الخدمات في أي وقت ودون إشعار مسبق إذا كان سلوكك ينتهك هذه الشروط أو يسبب ضرراً لـ GoCloud أو للمستخدمين الآخرين.
+          p(data-i18n-key="terms.s10_text2") عند الإنهاء، ينتهي حقك في استخدام الموقع والخدمات فوراً. وتظل أي بنود من هذه الشروط بطبيعتها واجبة الاستمرار نافذة المفعول.
 
-          h2.mt-5.mb-3 12. Governing Law
-          p.mb-3 These Terms shall be interpreted and governed by the laws of Egypt, without regard to its conflict of law provisions.
-          p.mb-3 Any dispute relating in any way to your visit to or use of the Service shall be adjudicated in the courts of Egypt.
+          h3(data-i18n-key="terms.s11_title") 11. القانون الحاكم والاختصاص القضائي
+          p(data-i18n-key="terms.s11_text") تخضع هذه الشروط وتفسر وفقاً لقوانين جمهورية مصر العربية. وتخضع أي نزاعات تنشأ عن هذه الشروط أو ترتبط باستخدامك للموقع للاختصاص القضائي الحصري لمحاكم مصر.
 
-          h2.mt-5.mb-3 13. Changes to Terms and Conditions
-          p.mb-3 We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days notice prior to any new terms taking effect.
-          p.mb-3 What constitutes a material change will be determined at our sole discretion. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.
+          h3(data-i18n-key="terms.s12_title") 12. التعديلات على هذه الشروط
+          p(data-i18n-key="terms.s12_text") تحتفظ GoCloud بحق تعديل هذه الشروط في أي وقت. وسيتم الإبلاغ عن التعديلات الجوهرية عبر نشر النسخة المحدثة في هذه الصفحة مع تاريخ نفاذ جديد. ويُعد استمرارك في استخدام الموقع بعد التعديل موافقة على النسخة المحدثة.
 
-          h2.mt-5.mb-3 14. Contact Information
-          p.mb-3 Questions about the Terms and Conditions should be sent to us at 
-            a(href="mailto:marketing@gocloudeg.com") marketing@gocloudeg.com
-            | .
+          h3(data-i18n-key="terms.s13_title") 13. تواصل معنا
+          p(data-i18n-key="terms.s13_text") إذا كانت لديك أي استفسارات بشأن هذه الشروط والأحكام، يرجى التواصل معنا:
+          .contact-info-box.mt-3
+            p.mb-2
+              strong
+                i.fa-solid.fa-building.me-2
+                | GoCloud
+            p.mb-2
+              i.fa-solid.fa-envelope.me-2
+              a(href="mailto:marketing@gocloudeg.com") marketing@gocloudeg.com
+            p.mb-0
+              i.fa-solid.fa-phone.me-2
+              a(href="tel:+201017383815") +20 101 738 3815
 
-          p.mt-5 Last updated: January 1, 2025
-
-  // Include footer
   include components/footer.pug
-
-  // Include whatsapp button
   include components/whatsapp-button.pug

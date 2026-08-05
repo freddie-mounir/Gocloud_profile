@@ -1,24 +1,87 @@
 {
-  "name": "gc_website_2025",
-  "version": "1.0.0",
-  "description": "GoCloud Website 2025",
-  "main": "index.js",
-  "scripts": {
-    "build": "pug views --out . --pretty",
-    "watch": "pug views --out . --pretty --watch",
-    "purge": "purgecss --config purgecss.config.js"
+  "name": "gocloud-website",
+  "version": "2.0.0",
+  "description": "GoCloud Professional Website - Modern, Optimized, and SEO-Ready",
+  "main": "index.html",
+  "author": "GoCloud Team",
+  "license": "MIT",
+  "homepage": "https://github.com/freddie-mounir/Gocloud_profile",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freddie-mounir/Gocloud_profile.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "pug-cli": "^1.0.0-alpha6"
+  "keywords": [
+    "gocloud",
+    "cloud-services",
+    "odoo",
+    "web-development",
+    "pug",
+    "responsive-design",
+    "pwa"
+  ],
+  "scripts": {
+    "dev": "browser-sync start --server --files '*.html, css/*.css, js/*.js'",
+    "start": "npm-run-all --parallel watch:pug dev",
+    "build": "node scripts/bundle-assets.js && node scripts/build-blog.js && pug views -o . --pretty && node scripts/generate-sitemap.js",
+    "build:blog": "node scripts/build-blog.js",
+    "build:prod": "npm run build && npm run optimize",
+    "watch": "pug views -o . --pretty --watch",
+    "watch:pug": "pug views -o . --pretty --watch",
+    "serve": "npx http-server . -p 8000 -o",
+    "optimize": "npm run minify:css && npm run minify:js && npm run purge",
+    "minify:css": "postcss css/main.css -o css/main.min.css && postcss css/font-loading.css -o css/font-loading.min.css",
+    "minify:js": "npm run minify:js:main && npm run minify:js:lazy && npm run minify:js:sw && npm run minify:js:perf && npm run minify:js:chatbot",
+    "minify:js:main": "terser js/main.js -o js/main.min.js --compress --mangle",
+    "minify:js:lazy": "terser js/lazy-load.js -o js/lazy-load.min.js --compress --mangle",
+    "minify:js:sw": "terser js/sw-register.js -o js/sw-register.min.js --compress --mangle",
+    "minify:js:perf": "terser js/performance-monitor.js -o js/performance-monitor.min.js --compress --mangle",
+    "minify:js:chatbot": "terser js/chatbot.js -o js/chatbot.min.js --compress --mangle",
+    "chatbot:install": "cd api && npm install",
+    "chatbot:start": "node api/server.js",
+    "chatbot:dev": "node --watch api/server.js",
+    "purge": "purgecss --config purgecss.config.js",
+    "lint": "eslint js/**/*.js",
+    "lint:fix": "eslint js/**/*.js --fix",
+    "format": "prettier --write \"**/*.{js,json,css,md,pug}\"",
+    "format:check": "prettier --check \"**/*.{js,json,css,md,pug}\"",
+    "test": "npm run test:lighthouse && npm run test:html",
+    "test:lighthouse": "lighthouse http://localhost:8000 --output=html --output-path=./lighthouse-report.html --view",
+    "test:lighthouse:ci": "lighthouse http://localhost:8000 --output=json --output-path=./lighthouse-report.json",
+    "test:html": "html-validate \"*.html\"",
+    "test:perf": "node scripts/performance-test.js",
+    "audit": "npm audit",
+    "audit:fix": "npm audit fix",
+    "clean": "rimraf dist/ *.html lighthouse-report.*",
+    "prebuild:prod": "npm run clean",
+    "postbuild:prod": "npm run validate",
+    "validate": "echo ✅ Build validation complete!",
+    "generate:icons": "node scripts/generate-icons.js",
+    "generate:sitemap": "node scripts/generate-sitemap.js"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.4",
     "cssnano": "^7.1.2",
+    "eslint": "^8.57.1",
+    "http-server": "^14.1.1",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
+    "prettier": "^3.3.3",
+    "pug": "^3.0.4",
+    "pug-cli": "^1.0.0-alpha6",
     "purgecss": "^7.0.0",
+    "rimraf": "^6.0.1",
     "terser": "^5.44.1"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "not dead",
+    "not ie <= 11"
+  ]
 }

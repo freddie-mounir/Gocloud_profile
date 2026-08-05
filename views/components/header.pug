@@ -1,4 +1,40 @@
 // Header Component
+- var p = typeof pathPrefix !== 'undefined' ? pathPrefix : ''
+style.
+  .header-area.header-area1.header-area-all{padding:10px 0 8px!important}
+  .header-area .header-elements{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px}
+  .header-area .header-elements > div:first-child img{width:78px;height:auto!important}
+  .header-area .main-menu-ex.main-menu-ex1{min-width:0}
+  .header-area .main-menu-ex.main-menu-ex1 ul{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+  .header-area .main-menu-ex.main-menu-ex1 ul::-webkit-scrollbar{display:none}
+  .header-area .main-menu-ex.main-menu-ex1 ul li{flex:0 0 auto}
+  .header-area .main-menu-ex.main-menu-ex1 ul li a{font-size:.92rem}
+  .header-area .header1-buttons .button{flex-wrap:nowrap!important;gap:8px!important}
+  .header-area .header1-buttons .theme-btn1{padding:11px 14px;font-size:.82rem;white-space:nowrap}
+  .header-area .header1-buttons .theme-btn1 i{font-size:.85rem}
+  .mobile-sidebar .gc-mobile-contact-compact h3{margin-bottom:8px!important}
+  .mobile-sidebar .gc-mobile-contact-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+  .mobile-sidebar .gc-mobile-contact-compact .contact-box+.contact-box{margin-top:2px!important}
+  .mobile-sidebar .gc-mobile-contact-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+  .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera,.mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{line-height:1.2}
+  .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{display:inline-block;margin:0!important}
+  .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera p{margin:0}
+  .mobile-sidebar .gc-mobile-contact-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+  .mobile-sidebar .menu-close{position:fixed;top:18px;right:14px;z-index:10020}
+  .mobile-sidebar .mobile-menu-close-btn{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:24px;line-height:1;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+  .mobile-sidebar .mobile-menu-close-btn:hover{background:rgba(255,255,255,.26)}
+  .mobile-header{padding:12px 0 10px!important;background:#fff;position:relative;top:auto;left:auto;right:auto}
+  .mobile-header .mobile-header-elements{display:flex;align-items:center;justify-content:space-between}
+  .mobile-header .mobile-logo img{width:82px;height:auto!important}
+  .mobile-header .mobile-menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;border:1px solid rgba(13,14,16,.16);background:#fff;color:#0D0E10;font-size:30px;box-shadow:0 10px 24px rgba(8,31,99,.08)}
+  @media (max-width: 767px){
+    .header-area.header-area1.header-area-all{padding:10px 0 7px!important}
+    .mobile-header,.mobile-header.mobile-header-main{position:relative;top:auto!important;z-index:1000}
+    .mobile-header .container-fluid{padding-inline:14px}
+    .mobile-header .mobile-logo img{width:76px}
+    .mobile-header .mobile-menu-toggle{width:50px;height:50px;font-size:28px}
+  }
+
 header(role="banner")
   .header-area.header-area1.header-area-all.d-none.d-md-block.d-lg-block#header
     .container
@@ -6,33 +42,42 @@ header(role="banner")
         .col-12
           .header-elements
             div
-              a(href="index.html" aria-label="GoCloud Home")
-                img(src="images/gocloud%20logo.webp" alt="GoCloud Logo" height="100px" width="100px" loading="lazy")
+              a(href=`${p}index.html` aria-label="GoCloud Home")
+                img(src=`${p}images/gocloud%20logo.webp` alt="GoCloud Logo" height="100px" width="100px" loading="lazy")
 
             nav(role="navigation" aria-label="Main Navigation")
               .main-menu-ex.main-menu-ex1
                 ul(role="menubar")
                   li.dropdown-menu-parrent(role="none")
-                    a(href="index.html" role="menuitem") Home
+                    a(href=`${p}index.html` role="menuitem" data-i18n-key="nav.home") Home
                   li.dropdown-menu-parrent(role="none")
-                    a(href="About.html" role="menuitem") About
+                    a(href=`${p}about.html` role="menuitem" data-i18n-key="nav.about") About
                   li.dropdown-menu-parrent(role="none")
-                    a(href="service.html" role="menuitem") Services
+                    a(href=`${p}service.html` role="menuitem" data-i18n-key="nav.services") Services
                   li.dropdown-menu-parrent(role="none")
-                    a(href="contact.html" role="menuitem") Contact
+                    a(href=`${p}faq.html` role="menuitem" data-i18n-key="nav.faq") FAQ
                   li.dropdown-menu-parrent(role="none")
-                    a(href="https://erp.gocloudeg.com/web/login" target="_blank" rel="noopener noreferrer" role="menuitem")
-                    button.btn.bg-primary(type="button") Login
+                    a(href=`${p}blog/index.html` role="menuitem" style="display:inline-flex; align-items:center; gap:6px;")
+                      i.fas.fa-blog.me-1
+                      span(data-i18n-key="nav.blog") Blog
+                  li.dropdown-menu-parrent(role="none")
+                    a(href=`${p}odoo-services.html` role="menuitem" style="color: #7c3aed; font-weight: 600;")
+                      i.fab.fa-odoo.me-1
+                      span(data-i18n-key="nav.odoo_services") Odoo Services
+                  li.dropdown-menu-parrent(role="none")
+                    a(href=`${p}elite.html` role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;")
+                      span(data-i18n-key="nav.elite") ELITE
+                      span.badge.badge-warning.ms-1(data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;") NEW
+                  li.dropdown-menu-parrent(role="none")
+                    a(href=`${p}contact.html` role="menuitem" data-i18n-key="nav.contact") Contact
 
             .header1-buttons
-              .contact-btn
-                .icon
-                  img(src="images/header1-icon.webp" alt="" loading="lazy")
-                .headding
-                  p Make a Call
-                  a(href="tel://+201017383815" aria-label="Call us at +201017383815") +201017383815
-              .button
-                a.theme-btn1(href="https://gocloudeg.com/survey/start/e6323978-a3c5-430f-a14b-88d2ce1169da" aria-label="Get a Quote") Get A Quote 
+              .button.d-flex.gap-2.flex-wrap.justify-content-end
+                a.theme-btn1(href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo")
+                  i.fa-solid.fa-calendar-check.me-1(aria-hidden="true")
+                  span(data-i18n-key="nav.book_demo") Book a Free Demo
+                a.theme-btn1(href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp")
+                  span(data-i18n-key="nav.get_quote") Get A Quote
                   span
                     i.fa-solid.fa-arrow-right(aria-hidden="true")
 
@@ -43,60 +88,80 @@ header(role="banner")
       .col-12
         .mobile-header-elements
           .mobile-logo
-            a(href="index.html" aria-label="GoCloud Home")
-              img(src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy")
+            a(href=`${p}index.html` aria-label="GoCloud Home")
+              img(src=`${p}images/gocloud%20logo.webp` height="100" width="100" alt="GoCloud Logo" loading="lazy")
           .mobile-nav-icon
             button.mobile-menu-toggle(type="button" aria-label="Open navigation menu" aria-expanded="false")
-              i.fa-duotone.fa-bars-staggered(aria-hidden="true")
+              i.fa-solid.fa-bars(aria-hidden="true")
 
   .mobile-sidebar.d-block.d-md-none.d-lg-none(role="dialog" aria-label="Mobile navigation menu")
     .logo-m
-      a(href="index.html" aria-label="GoCloud Home")
-        img(src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy")
+      a(href=`${p}index.html` aria-label="GoCloud Home")
+        img(src=`${p}images/gocloud%20logo.webp` height="100" width="100" alt="GoCloud Logo" loading="lazy")
     .menu-close
-      button(type="button" aria-label="Close navigation menu")
-        i.fa-solid.fa-xmark(aria-hidden="true")
+      button.mobile-menu-close-btn(type="button" aria-label="Close navigation menu")
+        i.fa-solid.fa-times(aria-hidden="true")
     .mobile-nav
       nav(role="navigation" aria-label="Mobile Navigation")
         ul(role="menubar")
           li(role="none")
-            a(href="index.html" role="menuitem") Home
+            a(href=`${p}index.html` role="menuitem" data-i18n-key="nav.home") Home
           li(role="none")
-            a(href="about.html" role="menuitem") About Us
+            a(href=`${p}about.html` role="menuitem" data-i18n-key="nav.about_us") About Us
           li(role="none")
-            a(href="service.html" role="menuitem") Services
+            a(href=`${p}service.html` role="menuitem" data-i18n-key="nav.services") Services
           li(role="none")
-            a(href="contact.html" role="menuitem") Contact
+            a(href=`${p}faq.html` role="menuitem" data-i18n-key="nav.faq") FAQ
+          li(role="none")
+            a(href=`${p}blog/index.html` role="menuitem" style="display:inline-flex; align-items:center; gap:6px;")
+              i.fas.fa-blog.me-2
+              span(data-i18n-key="nav.blog") Blog
+          li(role="none")
+            a(href=`${p}odoo-services.html` role="menuitem" style="color: #7c3aed; font-weight: 600;")
+              i.fab.fa-odoo.me-2
+              span(data-i18n-key="nav.odoo_services") Odoo Services
+          li(role="none")
+            a(href=`${p}elite.html` role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;")
+              span(data-i18n-key="nav.elite") ELITE
+              span.badge.badge-warning.ms-2(data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;") NEW
+          li(role="none")
+            a(href=`${p}contact.html` role="menuitem" data-i18n-key="nav.contact") Contact
 
       .mobile-button
-        a.menu-btn2(href="https://erp.gocloudeg.com/web/login" aria-label="Login to ERP system") Login
+        a.menu-btn2.mb-2(href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo")
+          i.fa-solid.fa-calendar-check.me-1(aria-hidden="true")
+          span(data-i18n-key="nav.book_demo") Book a Free Demo
+        a.menu-btn2(href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp")
+          span(data-i18n-key="nav.get_quote") Get A Quote
           span
             i.fa-solid.fa-arrow-right(aria-hidden="true")
 
-      .single-footer-items
+      .single-footer-items.gc-mobile-contact-compact
         h3 Contact Us
 
         .contact-box
           .icon
-            img(src="images/footer1-icon1.webp" alt="Phone Icon" loading="lazy")
+            img(src=`${p}images/footer1-icon1.webp` alt="Phone Icon" width="24" height="24" loading="lazy")
           .pera
             a(href="tel://0233762533" aria-label="Call us at 0233762533") 0233762533
 
         .contact-box
           .icon
-            img(src="images/footer1-icon2.webp" alt="Mobile Phone Icon" loading="lazy")
+            img(src=`${p}images/footer1-icon2.webp` alt="Mobile Phone Icon" width="24" height="24" loading="lazy")
           .pera
-            a(href="tel://+201017383815" aria-label="Call us at +201017383815") +201017383815
+            .d-flex.flex-column.gap-1
+              a(href="tel://+201017383815" aria-label="Call us at +201017383815") +201017383815
+              a(href="tel://+201222666635" aria-label="Call us at +201222666635") +201222666635
 
         .contact-box
           .icon
-            img(src="images/footer1-icon3.webp" alt="Email Icon" loading="lazy")
+            img(src=`${p}images/footer1-icon3.webp` alt="Email Icon" width="24" height="24" loading="lazy")
           .pera
             a(href="mailto:marketing@gocloudeg.com" aria-label="Send email to marketing@gocloudeg.com") marketing@gocloudeg.com
 
         .contact-box
           .icon
-            img(src="images/footer1-icon4.webp" alt="Website Icon" loading="lazy")
+            img(src=`${p}images/footer1-icon4.webp` alt="Website Icon" width="24" height="24" loading="lazy")
           .pera
             a(href="https://gocloudeg.com" aria-label="Visit GoCloud website") www.gocloudeg.com
 
@@ -104,7 +169,7 @@ header(role="banner")
         h3 Our Location
         ul.social-icon
           li
-            a(href="https://www.linkedin.com/company/gocloud-co/posts/?feedView=all")
+            a(href="https://www.linkedin.com/company/gocloud-co")
               i.fa-brands.fa-linkedin-in
           li
             a(href="https://www.google.com/search?q=gocloud+eg&sca_esv=1b465dddb89ef670&sxsrf=AE3TifPO8dDI2un8QLeuyTZoAmiw1QCmhA%3A1750690736441&ei=sGtZaLfRGoaNkdUP4_DKyAI&ved=0ahUKEwi36dOb54eOAxWGRqQEHWO4EikQ4dUDCBA&uact=5&oq=gocloud+&gs_lp=Egxnd3Mtd2l6LXNlcnAiCGdvY2xvdWQgMgoQIxjwBRgnGMkCMgQQIxgnMgUQABiABDIKEAAYgAQYQxiKBTILEC4YgAQYxwEYrwEyChAAGIAEGEMYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigVInw5Q3AFY3AFwAXgBkAEAmAHXCaAB1wmqAQM3LTG4AQPIAQD4AQGYAgKgAvcJwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYKkgcFMS43LTGgB9YKsgcDNy0xuAfpCcIHAzMtMsgHGg&sclient=gws-wiz-serp")

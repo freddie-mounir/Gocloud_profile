@@ -1,0 +1,330 @@
+//- Sectoral Solutions - Industry-Specific Approach
+//- بدلاً من Services عامة، نعرض حلول حسب القطاع
+
+mixin sectoral-solutions
+  section#sectoral-solutions.py-5
+    .container
+      .section-header.text-center.mb-5
+        h2.section-title(data-i18n-key="sectoral.title") حلول متخصصة لكل قطاع
+        p.section-subtitle(data-i18n-key="sectoral.subtitle")
+          | نفهم تحديات قطاعك ونقدم لك حلول جاهزة تناسب احتياجاتك
+
+      //- Main Sectors
+      .row.g-4
+        //- Healthcare Sector
+        .col-lg-4
+          .sector-card.healthcare
+            .sector-icon
+              i.fas.fa-heartbeat
+            h3.sector-title(data-i18n-key="sectoral.healthcare_title") قطاع الرعاية الصحية
+            p.sector-description(data-i18n-key="sectoral.healthcare_desc")
+              | حلول متكاملة للمستشفيات، شركات التأمين الطبي، و TPA
+
+            .sector-features
+              ul
+                li
+                  i.fas.fa-check-circle
+                  span(data-i18n-key="sectoral.healthcare_feature1") نظام ELITE للتأمين الطبي
+                li
+                  i.fas.fa-check-circle
+                  span(data-i18n-key="sectoral.healthcare_feature2") إدارة المستشفيات والعيادات
+                li
+                  i.fas.fa-check-circle
+                  span(data-i18n-key="sectoral.healthcare_feature3") ربط مع أنظمة الصيدليات
+                li
+                  i.fas.fa-check-circle
+                  span(data-i18n-key="sectoral.healthcare_feature4") تكامل مع وزارة الصحة
+
+            .sector-clients
+              .client-count
+                strong 5+
+                span(data-i18n-key="sectoral.clients_label") عميل في القطاع
+
+            a.btn.btn-primary.w-100.mt-3(href="/healthcare-solutions.html")
+              span(data-i18n-key="sectoral.discover") اكتشف الحلول
+              i.fas.fa-arrow-left.ms-2
+
+        //- Trade & Distribution
+        .col-lg-4
+          .sector-card.trade
+            .sector-icon
+              i.fas.fa-boxes
+            h3.sector-title(data-i18n-key="sectoral.trade_title") التجارة والتوزيع
+            p.sector-description(data-i18n-key="sectoral.trade_desc")
+              | إدارة متكاملة للمخزون، المبيعات، والتوزيع باستخدام Odoo
+
+            .sector-features
+              ul
+                li
+                  i.fas.fa-check-circle
+                  span(data-i18n-key="sectoral.trade_feature1") إدارة المخازن المتعددة
+                li
+                  i.fas.fa-check-circle
+                  span(data-i18n-key="sectoral.trade_feature2") نظام POS متكامل
+                li
+                  i.fas.fa-check-circle
+                  span(data-i18n-key="sectoral.trade_feature3") تتبع الشحنات GPS
+                li
+                  i.fas.fa-check-circle
+                  span(data-i18n-key="sectoral.trade_feature4") تكامل مع منصات التجارة الإلكترونية
+
+            .sector-clients
+              .client-count
+                strong 15+
+                span(data-i18n-key="sectoral.clients_label") عميل في القطاع
+
+            a.btn.btn-primary.w-100.mt-3(href="/trade-solutions.html")
+              span(data-i18n-key="sectoral.discover") اكتشف الحلول
+              i.fas.fa-arrow-left.ms-2
+
+        //- Manufacturing
+        .col-lg-4
+          .sector-card.manufacturing
+            .sector-icon
+              i.fas.fa-industry
+            h3.sector-title(data-i18n-key="sectoral.manufacturing_title") التصنيع والإنتاج
+            p.sector-description(data-i18n-key="sectoral.manufacturing_desc")
+              | حلول ERP شاملة لإدارة الإنتاج والجودة والصيانة
+
+            .sector-features
+              ul
+                li
+                  i.fas.fa-check-circle
+                  span(data-i18n-key="sectoral.manufacturing_feature1") تخطيط الإنتاج (MRP)
+                li
+                  i.fas.fa-check-circle
+                  span(data-i18n-key="sectoral.manufacturing_feature2") إدارة الجودة (QMS)
+                li
+                  i.fas.fa-check-circle
+                  span(data-i18n-key="sectoral.manufacturing_feature3") صيانة الآلات (Maintenance)
+                li
+                  i.fas.fa-check-circle
+                  span(data-i18n-key="sectoral.manufacturing_feature4") تكاليف الإنتاج
+
+            .sector-clients
+              .client-count
+                strong 10+
+                span(data-i18n-key="sectoral.clients_label") عميل في القطاع
+
+            a.btn.btn-primary.w-100.mt-3(href="/manufacturing-solutions.html")
+              span(data-i18n-key="sectoral.discover") اكتشف الحلول
+              i.fas.fa-arrow-left.ms-2
+
+      //- Additional Sectors Row
+      .row.g-4.mt-4
+        .col-lg-3
+          .mini-sector-card
+            .mini-icon.bg-info
+              i.fas.fa-graduation-cap
+            h5(data-i18n-key="sectoral.mini_education") التعليم
+            a(href="/education-solutions.html" data-i18n-key="sectoral.learn_more") تعرف أكثر →
+
+        .col-lg-3
+          .mini-sector-card
+            .mini-icon.bg-success
+              i.fas.fa-hotel
+            h5(data-i18n-key="sectoral.mini_hospitality") الضيافة والسياحة
+            a(href="/hospitality-solutions.html" data-i18n-key="sectoral.learn_more") تعرف أكثر →
+
+        .col-lg-3
+          .mini-sector-card
+            .mini-icon.bg-warning
+              i.fas.fa-hard-hat
+            h5(data-i18n-key="sectoral.mini_construction") المقاولات والإنشاءات
+            a(href="/construction-solutions.html" data-i18n-key="sectoral.learn_more") تعرف أكثر →
+
+        .col-lg-3
+          .mini-sector-card
+            .mini-icon.bg-danger
+              i.fas.fa-store
+            h5(data-i18n-key="sectoral.mini_retail") التجزئة (Retail)
+            a(href="/retail-solutions.html" data-i18n-key="sectoral.learn_more") تعرف أكثر →
+
+      //- CTA Banner
+      .sector-cta.mt-5
+        .row.align-items-center
+          .col-lg-8
+            h3(data-i18n-key="sectoral.cta_title") قطاعك مش موجود؟
+            p.lead(data-i18n-key="sectoral.cta_text") نقدر نصمم لك حل خاص يناسب احتياجات شركتك تماماً
+          .col-lg-4.text-end
+            a.btn.btn-light.btn-lg(href="#custom-consultation")
+              i.fas.fa-comments.me-2
+              span(data-i18n-key="sectoral.cta_button") تحدث مع خبير
+
+//- CSS
+style.
+  #sectoral-solutions {
+    background: white;
+  }
+
+  .sector-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+    height: 100%;
+    border: 2px solid #e2e8f0;
+  }
+
+  .sector-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  }
+
+  .sector-card.healthcare {
+    border-color: #ef4444;
+  }
+
+  .sector-card.healthcare:hover {
+    border-color: #dc2626;
+    background: linear-gradient(to bottom, #fef2f2, white);
+  }
+
+  .sector-card.trade {
+    border-color: #3b82f6;
+  }
+
+  .sector-card.trade:hover {
+    border-color: #2563eb;
+    background: linear-gradient(to bottom, #eff6ff, white);
+  }
+
+  .sector-card.manufacturing {
+    border-color: #f59e0b;
+  }
+
+  .sector-card.manufacturing:hover {
+    border-color: #d97706;
+    background: linear-gradient(to bottom, #fffbeb, white);
+  }
+
+  .sector-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .sector-icon i {
+    font-size: 2.5rem;
+    color: white;
+  }
+
+  .sector-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 15px;
+  }
+
+  .sector-description {
+    color: #64748b;
+    margin-bottom: 25px;
+    line-height: 1.6;
+  }
+
+  .sector-features ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sector-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #334155;
+  }
+
+  .sector-features i {
+    color: #10b981;
+    font-size: 1.1rem;
+  }
+
+  .sector-clients {
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .client-count strong {
+    font-size: 2rem;
+    color: #2563eb;
+    display: block;
+  }
+
+  .client-count span {
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+
+  .mini-sector-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+  }
+
+  .mini-sector-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+
+  .mini-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+  }
+
+  .mini-icon i {
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .mini-sector-card h5 {
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 10px;
+  }
+
+  .mini-sector-card a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+
+  .mini-sector-card a:hover {
+    color: #1d4ed8;
+    transform: translateX(5px);
+  }
+
+  .sector-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 50px;
+    border-radius: 20px;
+    color: white;
+  }
+
+  .sector-cta h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .sector-cta .lead {
+    opacity: 0.95;
+  }

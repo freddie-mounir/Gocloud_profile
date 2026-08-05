@@ -1,0 +1,156 @@
+extends layout-rtl.pug
+
+block variables
+  - var locale = typeof pageLang !== 'undefined' ? pageLang : 'ar'
+  - var t = locale === 'en' ? { home: 'Home', pageTitle: 'GoCloud Blog — Medical Insurance and Odoo Insights', pageDescription: 'Specialized articles on medical insurance management, ELITE, and Odoo ERP applications.', pageKeywords: 'GoCloud Blog, Medical Insurance, Odoo ERP, ELITE, Digital Transformation, Business Management', breadcrumbCurrent: 'Blog', heroTitle: 'GoCloud Blog', heroText: 'Specialized articles in medical insurance and Odoo ERP applications — practical tips and solutions to improve your business.', filterAll: 'All', filterInsurance: 'Medical Insurance', filterOdoo: 'Odoo Applications', readMore: 'Read More', noPosts: 'No posts found in this category right now.', newsletterTitle: 'Subscribe to GoCloud Updates', newsletterText: 'Get the latest articles and practical insights on Odoo and medical insurance directly in your inbox.', newsletterEmail: 'Email address', newsletterButton: 'Subscribe Now' } : { home: 'الرئيسية', pageTitle: 'مدونة GoCloud — مقالات في التأمين الطبي وتطبيقات أودو', pageDescription: 'مقالات متخصصة في إدارة التأمين الطبي ونظام ELITE وتطبيقات Odoo ERP — نصائح وحلول لتحسين أعمالك.', pageKeywords: 'مدونة GoCloud, تأمين طبي, Odoo ERP, ELITE, تحول رقمي, إدارة أعمال', breadcrumbCurrent: 'المدونة', heroTitle: 'مدونة GoCloud', heroText: 'مقالات متخصصة في التأمين الطبي وتطبيقات Odoo ERP — نصائح عملية وحلول لتحسين أعمالك', filterAll: 'الكل', filterInsurance: 'التأمين الطبي', filterOdoo: 'تطبيقات أودو', readMore: 'اقرأ المزيد', noPosts: 'لا توجد مقالات في هذا التصنيف حالياً', newsletterTitle: 'اشترك في نشرات GoCloud', newsletterText: 'استقبل أحدث المقالات والرؤى العملية حول Odoo والتأمين الطبي مباشرة في بريدك.', newsletterEmail: 'البريد الإلكتروني', newsletterButton: 'اشترك الآن' }
+  - var pageTitle = t.pageTitle
+  - var pageDescription = t.pageDescription
+  - var pageKeywords = t.pageKeywords
+  - var canonicalUrl = typeof canonicalUrl !== 'undefined' ? canonicalUrl : 'https://www.gocloudeg.com/blog/'
+  - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+
+block structuredData
+  script(type="application/ld+json", src="schema/index.json")
+
+block styles
+  style.
+    /* ── Blog hero ── */
+    .blog-hero{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 60%,#0E38B1 100%);padding:5rem 0 3.5rem;position:relative;overflow:hidden}
+    .blog-hero::after{content:"";position:absolute;bottom:-2px;left:0;right:0;height:80px;background:#f7f9ff;clip-path:polygon(0 60%,100% 0,100% 100%,0 100%)}
+    .blog-hero h1{font-size:2.5rem;font-weight:800;color:#fff}
+    .blog-hero p{color:rgba(255,255,255,.75);font-size:1rem;max-width:560px}
+    .blog-hero .breadcrumb-link{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem}
+    .blog-hero .breadcrumb-link:hover{color:#fff}
+    .blog-hero .breadcrumb-sep{color:rgba(255,255,255,.3);margin:0 8px}
+    .blog-hero .breadcrumb-current{color:#A1E934;font-weight:600;font-size:.85rem}
+    html[lang='en'] .blog-hero .container{text-align:left!important}
+    html[lang='en'] .blog-hero p{margin-left:0;margin-right:auto}
+
+    /* ── Filters ── */
+    .blog-filters{background:#f7f9ff;padding:2rem 0 1rem}
+    .filter-btn{background:#fff;border:1px solid #dee2e6;border-radius:50px;padding:8px 20px;font-size:.85rem;font-weight:600;color:#4a4b5c;cursor:pointer;transition:all .25s}
+    .filter-btn:hover,.filter-btn.active{background:#0E38B1;color:#fff;border-color:#0E38B1}
+
+    /* ── Post cards ── */
+    .blog-grid{background:#f7f9ff;padding:0 0 4rem}
+    .blog-card{background:#fff;border:1px solid #e9ecef;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .35s;height:100%;display:flex;flex-direction:column}
+    .blog-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(14,56,177,.1);border-color:#0E38B1}
+    .blog-card-img{width:100%;height:200px;object-fit:cover}
+    .blog-card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+    .blog-card-cat{display:inline-block;background:#EEF2FF;color:#0E38B1;font-size:.7rem;font-weight:700;padding:3px 12px;border-radius:50px;margin-bottom:.75rem;width:fit-content}
+    .blog-card-title{font-size:1.1rem;font-weight:700;color:#0D0E10;margin-bottom:.5rem;line-height:1.5}
+    .blog-card-title a{color:inherit;text-decoration:none}
+    .blog-card-title a:hover{color:#0E38B1}
+    .blog-card-excerpt{font-size:.875rem;color:#4a4b5c;line-height:1.65;flex:1}
+    .blog-card-meta{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;padding-top:.75rem;border-top:1px solid #f0f1f5;font-size:.78rem;color:#999}
+    .blog-card-read{color:#0E38B1;font-weight:600;font-size:.85rem;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+    .blog-card-read:hover{text-decoration:underline}
+    html[lang='en'] .blog-card-meta{flex-direction:row}
+    html[lang='en'] .blog-card-meta span i{margin-right:.25rem;margin-left:0!important}
+    html[lang='en'] .blog-card-read{flex-direction:row}
+    html[lang='en'] .blog-card-read i{transform:scaleX(-1);margin-left:.25rem!important;margin-right:0!important}
+
+    /* ── Empty state ── */
+    .no-posts{text-align:center;padding:4rem 0;color:#999;font-size:1rem}
+
+    /* ── Newsletter ── */
+    .blog-newsletter{background:#fff;padding:0 0 4rem}
+    .newsletter-panel{background:linear-gradient(135deg,#0E38B1 0%,#1038c4 100%);border-radius:18px;padding:2rem;box-shadow:0 20px 38px rgba(14,56,177,.15)}
+    .newsletter-panel h2{color:#fff;font-size:1.55rem;font-weight:800;margin-bottom:.5rem}
+    .newsletter-panel p{color:rgba(255,255,255,.82);font-size:.95rem;margin-bottom:0}
+    .newsletter-panel .newsletter-form{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}
+    .newsletter-panel .newsletter-input{flex:1;min-width:230px;border:none;border-radius:12px;padding:.8rem .95rem;font-size:.9rem}
+    .newsletter-panel .newsletter-input:focus{outline:none;box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+    .newsletter-panel .newsletter-btn{background:#A1E934;color:#0D0E10;border:none;border-radius:12px;padding:.8rem 1rem;font-size:.85rem;font-weight:800;white-space:nowrap}
+    .newsletter-panel .newsletter-btn:hover{background:#8dd22a}
+    .newsletter-panel .newsletter-feedback{min-height:1.1rem;font-size:.8rem;font-weight:600;color:#fff;margin-top:.5rem}
+    .newsletter-panel .newsletter-feedback.error{color:#ffd1d1}
+    .newsletter-panel .newsletter-feedback.success{color:#dbffd2}
+    html[lang='en'] .newsletter-panel .row{text-align:left}
+
+    @media (max-width: 575.98px){
+      .newsletter-panel{padding:1.3rem}
+      .newsletter-panel h2{font-size:1.25rem}
+      .newsletter-panel .newsletter-form{flex-direction:column;align-items:stretch}
+      .newsletter-panel .newsletter-btn{width:100%}
+    }
+
+block content
+  - var pathPrefix = typeof pathPrefix !== 'undefined' ? pathPrefix : '../'
+  include ../../views/components/top-banner.pug
+  include ../../views/components/header.pug
+
+  //---------- HERO ----------
+  .blog-hero
+    .container.text-center
+      .mb-3
+        a.breadcrumb-link(href=`${pathPrefix}index.html`)= t.home
+        span.breadcrumb-sep /
+        span.breadcrumb-current(data-blog-breadcrumb-current)= t.breadcrumbCurrent
+      h1(data-blog-hero-title)= t.heroTitle
+      p.mx-auto(data-blog-hero-text)= t.heroText
+
+  //---------- FILTERS ----------
+  section.blog-filters
+    .container.text-center
+      .d-flex.gap-2.justify-content-center.flex-wrap
+        button.filter-btn.active(data-filter="all")= t.filterAll
+        button.filter-btn(data-filter="insurance")= t.filterInsurance
+        button.filter-btn(data-filter="odoo")= t.filterOdoo
+
+  //---------- POST GRID ----------
+  section.blog-grid
+    .container
+      .row.g-4.blog-grid-row#blogGrid
+        each post in posts
+          .col-lg-4.col-md-6.blog-item.blog-col(data-category=post.category data-aos="fade-up")
+            .blog-card
+              img.blog-card-img(src=`${pathPrefix}${post.displayImage || post.image}` alt=post.title loading="lazy")
+              .blog-card-body
+                .blog-card-cat= post.categoryLabel
+                h3.blog-card-title
+                  a(href=`${post.slug}.html`)= post.title
+                p.blog-card-excerpt= post.excerpt
+                .blog-card-meta
+                  span
+                    i.far.fa-calendar-alt.ms-1
+                    |  #{post.date}
+                  a.blog-card-read(href=`${post.slug}.html`)
+                    span.blog-read-label(data-blog-read-label)= t.readMore
+                    i.fas.fa-arrow-left.me-1
+
+      .no-posts.d-none#noPosts
+        i.far.fa-folder-open.d-block.mb-3(style="font-size:2.5rem;color:#ccc")
+        span(data-blog-no-posts)= t.noPosts
+
+  section.blog-newsletter
+    .container
+      .newsletter-panel
+        .row.align-items-center.g-3
+          .col-lg-6
+            h2(data-blog-newsletter-title)= t.newsletterTitle
+            p(data-blog-newsletter-text)= t.newsletterText
+          .col-lg-6
+            form.newsletter-form(data-newsletter-form data-source="blog-index")
+              label.visually-hidden(for="newsletterEmailIndex" data-blog-newsletter-label)= t.newsletterEmail
+              input#newsletterEmailIndex.newsletter-input(type="email" name="email" placeholder="name@company.com" required autocomplete="email")
+              button.newsletter-btn(type="submit" data-blog-newsletter-button)= t.newsletterButton
+            p.newsletter-feedback(data-newsletter-feedback role="status" aria-live="polite")
+
+  include ../../views/components/footer.pug
+  include ../../views/components/whatsapp-button.pug
+
+block scripts
+  script.
+    (function(){
+      // Fallback layout if Bootstrap grid CSS is unavailable on this page.
+      var fallbackStyle = document.createElement('style');
+      fallbackStyle.textContent = [
+        '.blog-grid-row{display:flex;flex-wrap:wrap;margin-left:-12px;margin-right:-12px}',
+        '.blog-col{box-sizing:border-box;width:100%;padding-left:12px;padding-right:12px}',
+        '@media (min-width:768px){.blog-col{width:50%}}',
+        '@media (min-width:992px){.blog-col{width:33.3333%}}'
+      ].join('');
+      document.head.appendChild(fallbackStyle);
+    })();
+

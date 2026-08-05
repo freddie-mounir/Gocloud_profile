@@ -1,12 +1,99 @@
 extends layout.pug
 
 block variables
-  - var pageTitle = "GoCloud - Home"
-  - var pageDescription = "Transform Your Business With Next Generation IT Solutions"
-  - var pageKeywords = "GoCloud, IT Solutions, Cloud, ERP, Odoo"
-  - var canonicalUrl = "https://www.gocloud.com/"
-  - var ogImage = "https://www.gocloud.com/images/gocloud-logo.png"
+  - var pageTitle = "GoCloud — خبراء أودو والتقنية"
+  - var pageDescription = "تقدم GoCloud حلول Odoo ERP المتخصصة وأنظمة التأمين الطبي والبنية التحتية السحابية للشركات في مجالات الرعاية الصحية والتجارة والتوزيع في مصر والشرق الأوسط."
+  - var pageKeywords = "Odoo ERP, نظام تأمين طبي, تقنية الرعاية الصحية, نظام تجارة, تنفيذ أودو, تخصيص أودو, ذكاء الأعمال, استضافة سحابية, GoCloud Egypt"
+  - var canonicalUrl = "https://www.gocloudeg.com/"
+  - var ogImage = "https://www.gocloudeg.com/images/gocloud-logo.png"
+  - var pageLang = "ar"
+  - var pageDir = "rtl"
 
+block styles
+  style.
+    .hero1{position:relative;padding:4.5rem 0 4.5rem}
+    .hero1::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top left,rgba(161,233,52,.18),transparent 26%),radial-gradient(circle at bottom right,rgba(14,56,177,.12),transparent 30%);pointer-events:none}
+    .hero-copy-col{order:1}
+    .hero-visual-col{order:2}
+    .hero-copy-shell{position:relative;max-width:600px;padding:.5rem 0 0}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:#0E38B1;border-radius:50px;padding:8px 18px;font-size:.8rem;font-weight:700;color:#fff;box-shadow:0 4px 14px rgba(14,56,177,.3)}
+    .hero-badge i{color:#A1E934;margin-right:2px}
+    .hero-copy-stack{display:flex;flex-direction:column;gap:1rem}
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+    .hero-title-wrap{position:relative;padding-inline-start:18px}
+    .hero-title-wrap::before{content:"";position:absolute;inset-inline-start:0;top:.45rem;bottom:.45rem;width:4px;border-radius:999px;background:linear-gradient(180deg,#0E38B1 0%,#A1E934 100%)}
+    .hero1 .main-headding h1{font-size:2.55rem;line-height:1.12;font-weight:800;color:#0D0E10;letter-spacing:-.02em;margin:0}
+    .hero1 .main-headding h1 .text-accent{color:#0E38B1}
+    .hero1 .main-headding .hero-sub{font-size:.98rem;line-height:1.85;color:#4a4b5c;max-width:560px;margin:0}
+    .hero-eyebrow{font-size:.92rem;line-height:1.75;color:#445079;font-weight:600;max-width:550px;margin:0}
+    .hero-proof-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:4rem;position:relative;z-index:2}
+    .hero-proof-item{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.94);border:1px solid rgba(14,56,177,.09);border-radius:18px;padding:16px 18px;box-shadow:0 12px 30px rgba(14,56,177,.07);backdrop-filter:blur(10px);min-height:100%}
+    .hero-proof-item--wide{grid-column:auto}
+    .hero-proof-item i{color:#0E38B1;font-size:1rem;margin-top:3px}
+    .hero-proof-item span{font-size:.92rem;line-height:1.6;color:#1f2940;font-weight:600}
+    .hero-visual-grid{display:grid;grid-template-columns:1fr;gap:14px;max-width:490px;margin-inline-start:auto}
+    .hero-info-stack{display:grid;grid-template-columns:minmax(0,1fr) 156px;gap:12px;align-items:start}
+    .hero-img-wrapper{position:relative;display:block}
+    .hero-img-wrapper img{display:block;width:100%;height:auto;border-radius:28px;box-shadow:0 24px 64px rgba(14,56,177,.18);transition:transform .5s ease}
+    .hero-img-wrapper:hover img{transform:scale(1.03)}
+    .hero-image-cta{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2;width:min(100%,320px)}
+    .hero-image-cta .hero-image-cta-btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:999px;background:linear-gradient(180deg,#4da7a2 0%,#3f8f8b 100%);color:#fff;padding:10px 24px;min-width:240px;font-size:.78rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;box-shadow:0 10px 24px rgba(49,119,115,.42);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+    .hero-image-cta .hero-image-cta-btn:hover{color:#fff;transform:translateY(-1px);box-shadow:0 14px 28px rgba(49,119,115,.5);filter:brightness(1.04)}
+    .hero-image-cta .hero-image-cta-btn:focus-visible{outline:3px solid rgba(161,233,52,.95);outline-offset:3px}
+    @media (max-width: 767px){.hero-image-cta{left:14px;right:14px;bottom:14px}.hero-image-cta .hero-image-cta-btn{width:100%;min-width:0;padding:9px 18px;font-size:.7rem;letter-spacing:.04em}}
+    .hero-img-wrapper::before{content:"";position:absolute;top:-12px;left:-12px;right:12px;bottom:12px;border:3px solid #0E38B1;border-radius:24px;z-index:-1;opacity:.3}
+    .hero-img-wrapper::after{content:"";position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;background:linear-gradient(135deg,rgba(14,56,177,.08),rgba(161,233,52,.08));border-radius:24px;z-index:-1}
+    .hero-img-glow{position:absolute;width:200px;height:200px;border-radius:50%;filter:blur(80px);opacity:.4;z-index:-2}
+    .hero-img-glow--blue{background:#0E38B1;top:-40px;right:-40px}
+    .hero-img-glow--green{background:#A1E934;bottom:-40px;left:-40px}
+    .hero-method-card{position:relative;max-width:none;min-height:292px;background:rgba(10,24,78,.96);color:#fff;border-radius:24px;padding:.95rem 1rem .9rem;box-shadow:0 24px 60px rgba(7,23,70,.28);border:1px solid rgba(255,255,255,.08)}
+    .hero-method-card .method-label{display:inline-flex;align-items:center;gap:8px;border-radius:999px;background:rgba(255,255,255,.08);padding:6px 11px;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#A1E934;margin-bottom:.7rem;max-width:100%}
+    .hero-method-card h3{font-size:.86rem;line-height:1.42;margin-bottom:.65rem;color:#fff}
+    .hero-method-card ul{list-style:none;padding:0;margin:0}
+    .hero-method-card li{display:flex;align-items:flex-start;gap:9px;font-size:.73rem;line-height:1.48;color:rgba(255,255,255,.84)}
+    .hero-method-card li+li{margin-top:.5rem}
+    .hero-method-card li i{color:#A1E934;margin-top:4px}
+    .hero-years-card{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;background:#fff;border:1px solid rgba(14,56,177,.1);border-radius:22px;padding:.84rem .9rem;min-height:292px;box-shadow:0 18px 34px rgba(14,56,177,.09)}
+    .hero-years-card .years-value{font-size:1.55rem;line-height:1;font-weight:800;color:#0E38B1}
+    .hero-years-card .years-copy{font-size:.78rem;line-height:1.38;color:#35405f;font-weight:700}
+    html[dir='rtl'] .hero-method-card{text-align:right}
+    html[dir='rtl'] .hero-method-card .method-label{flex-direction:row-reverse}
+    html[dir='rtl'] .hero-method-card li{flex-direction:row-reverse}
+    html[dir='rtl'] .hero-years-card{align-items:flex-end;text-align:right}
+    html[dir='ltr'] .hero-method-card{text-align:left}
+    html[dir='ltr'] .hero-method-card .method-label{flex-direction:row}
+    html[dir='ltr'] .hero-method-card li{flex-direction:row}
+    html[dir='ltr'] .hero-years-card{align-items:flex-start;text-align:left}
+    .btn-hero-outline{border:2px solid #0E38B1;color:#0E38B1;background:transparent;border-radius:50px;padding:10px 24px;font-weight:600;transition:all .3s}
+    .btn-hero-outline:hover{background:#0E38B1;color:#fff}
+    .stat-strip{background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.06);padding:2rem 1rem;margin-top:-3rem;position:relative;z-index:10}
+    .stat-item{text-align:center;padding:.5rem}
+    .stat-item .stat-num{font-size:2rem;font-weight:800;color:#0E38B1}
+    .stat-item .stat-label{font-size:.825rem;color:#676879;margin-top:2px}
+    .intro-methods{position:relative;overflow:hidden;background:linear-gradient(180deg,#f6f9ff 0%,#fff 100%)}
+    .intro-methods::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;top:-140px;left:-120px;background:rgba(14,56,177,.08);filter:blur(6px)}
+    .intro-methods::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;bottom:-110px;right:-80px;background:rgba(161,233,52,.15);filter:blur(6px)}
+    .intro-method-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:#EEF2FF;color:#0E38B1;font-size:.82rem;font-weight:700;margin-bottom:1rem}
+    .intro-method-card{position:relative;background:rgba(255,255,255,.9);border:1px solid rgba(14,56,177,.08);border-radius:22px;padding:2rem 1.5rem;box-shadow:0 20px 40px rgba(14,56,177,.08);height:100%}
+    .intro-method-card .method-number{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#0E38B1 0%,#123fe0 100%);color:#fff;font-size:1rem;font-weight:800;margin-bottom:1rem}
+    .intro-method-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.7rem}
+    .intro-method-card p{font-size:.93rem;line-height:1.8;color:#5a6278;margin:0}
+    .sector-card{background:#fff;border-radius:16px;padding:2.5rem 2rem;box-shadow:0 2px 20px rgba(0,0,0,.05);border:1px solid #e9ecef;transition:all .35s ease;height:100%}
+    .sector-card:hover{transform:translateY(-6px);box-shadow:0 12px 36px rgba(14,56,177,.1);border-color:#0E38B1}
+    .sector-card .sector-icon{width:56px;height:56px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;margin-bottom:1.25rem}
+    .sector-card h3{font-size:1.15rem;font-weight:700;margin-bottom:.75rem}
+    .sector-card p{color:#676879;font-size:.925rem;line-height:1.65}
+    .sector-card .sector-features{list-style:none;padding:0;margin:1rem 0 0}
+    .sector-card .sector-features li{padding:4px 0;font-size:.875rem;color:#676879}
+    .sector-card .sector-features li i{color:#0E38B1;margin-right:8px;font-size:.75rem}
+    .about-highlight{border-left:3px solid #0E38B1;padding-left:1rem;margin-bottom:1rem}
+    .about-highlight h5{font-size:1rem;font-weight:700;margin-bottom:.25rem}
+    .about-highlight p{font-size:.875rem;color:#676879;margin:0}
+    .home-cta{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 100%);border-radius:16px;padding:3.5rem 2rem}
+    @media (max-width: 1399px){.hero1 .main-headding h1{font-size:2.35rem}.hero-visual-grid{max-width:460px}.hero-info-stack{grid-template-columns:minmax(0,1fr) 148px}.hero-method-card,.hero-years-card{min-height:284px}}
+    @media (max-width: 1199px){.hero1{padding-top:3.5rem}.hero-proof-grid{grid-template-columns:1fr 1fr;gap:18px;margin-top:3rem}.hero-visual-grid{max-width:none}.hero-info-stack{grid-template-columns:minmax(0,1fr) 148px;align-items:start}.hero-years-card{height:100%}}
+    @media (max-width: 991px){.hero1{padding:3rem 0 4.5rem}.hero-copy-col,.hero-visual-col{order:initial}.hero1 .main-headding h1{font-size:2rem}.hero-copy-shell{max-width:none}.hero-proof-grid{grid-template-columns:1fr;gap:14px;margin-top:3rem}.hero-proof-item--wide{grid-column:auto}.hero-visual-grid{margin-inline-start:0}.hero-info-stack{grid-template-columns:1fr}.stat-strip{margin-top:2rem}}
+    @media (max-width: 767px){.hero1{padding:1.8rem 0 3rem}.hero-copy-shell{padding-top:.85rem}.hero-copy-stack{gap:.8rem}.hero-badge{display:none}.hero-title-wrap{padding-inline-start:12px}.hero-title-wrap::before{top:.3rem;bottom:.3rem;width:3px}.hero1 .main-headding h1{font-size:1.42rem;line-height:1.16}.hero-eyebrow{font-size:.82rem;line-height:1.65}.hero1 .main-headding .hero-sub{font-size:.88rem;line-height:1.68}.hero-actions{gap:.7rem}.hero-actions a{width:100%;justify-content:center}.hero-proof-grid{margin-top:1.35rem;gap:12px}.hero-proof-item{padding:11px 13px}.hero-proof-item span{font-size:.84rem;line-height:1.5}.hero-brand-row{padding:6px 10px;border-radius:14px;box-shadow:0 8px 20px rgba(14,56,177,.06)}.hero-brand-row img{width:28px;height:28px}.hero-brand-row span{font-size:1rem}.hero-image-cta .hero-image-cta-btn{font-size:.68rem}.hero-years-card{padding:.9rem 1rem}.intro-method-card{padding:1.5rem}}
 
 block content
   // Include components
@@ -14,299 +101,411 @@ block content
   include components/top-banner.pug
   include components/header.pug
 
-  // Hero Section
+  //---------- HERO ----------
   .hero1(style="background-image: url(images/hero1-bg.png); background-position: center; background-repeat: no-repeat; background-size: cover;")
     .container
-      .row
-        .col-lg-5
+      .row.align-items-center.gy-5
+        .col-lg-6.hero-copy-col
           .main-headding
-            .span(style="color:blue" data-aos="zoom-in-left" data-aos-duration="700")
-              img(src="images/gocloud%20logo.webp" height="40" width="40" alt="")
-              | Gocloud Technology & It Solution
-            h1.title.tg-element-title
-              | Transform Your Business With Next Generation 
-              span.after(style="color:green;") IT Solutions
-            .space16
-            p Welcome to Gocloud — your partner in tailored technology and IT solutions, designed to streamline operations and drive your business forward.
+            .hero-copy-shell
+              .hero-copy-stack
+                .hero-badge
+                  i.fas.fa-award
+                  span(data-i18n-key="home.hero_badge") حلول مؤسسية بخبرة أودو معتمدة
+                p.hero-eyebrow(data-i18n-key="home.hero_eyebrow") نبني منصات تشغيل مؤسسية تربط فرقك وبياناتك وعملياتك في تجربة واحدة قابلة للتوسع.
+                .hero-title-wrap
+                  h1.title
+                    span(data-i18n-key="home.hero_title_line1") نبني أنظمة ERP وحلول تشغيل
+                    br
+                    span(data-i18n-key="home.hero_title_line2") مؤسسية عالية الأداء
+                    br
+                    span.text-accent(data-i18n-key="home.hero_title_line3") أسرع وأكثر دقة بذكاء هندسي
+                p.hero-sub(data-i18n-key="home.hero_sub") نصمم وننفذ حلول Odoo ERP وتقنيات التأمين الطبي والتطبيقات التشغيلية للقطاعات المعقدة، مع منهج تطوير مدعوم بالذكاء الاصطناعي يسرّع التسليم ويحافظ على الصرامة الهندسية.
+                .hero-actions
+                  a.theme-btn1(href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer")
+                    span(data-i18n-key="home.hero_primary_cta") احجز استشارة استراتيجية
+                    span
+                      i.fa-solid.fa-arrow-right
+                  a.btn-hero-outline.d-inline-flex.align-items-center.justify-content-center(href="service.html")
+                    span(data-i18n-key="home.hero_secondary_cta") استكشف حلولنا
 
-            .space30
-            .buttons
-              a.theme-btn1(href="#CTA") Get Started Now 
-                span
-                  i.fa-solid.fa-arrow-right
-
-        .col-lg-7
+        .col-lg-6.hero-visual-col
           .hero1-all-images
-            .image2
-              img(src="images/laptop.webp" alt="Laptop showing cloud solutions" width="500px" height="500px")
+            .hero-visual-grid
+              .hero-img-wrapper
+                .hero-img-glow.hero-img-glow--blue
+                .hero-img-glow.hero-img-glow--green
+                img(src="images/odoo_partner.png" alt="GoCloud and Odoo official partnership" width="500" height="500" fetchpriority="high")
+                .hero-image-cta
+                  a.hero-image-cta-btn(href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer")
+                    span(data-i18n-key="home.hero_image_cta_button") اطلب استشارة
+              .hero-info-stack
+                .hero-method-card(data-aos="fade-left")
+                  .method-label
+                    i.fas.fa-sparkles
+                    span(data-i18n-key="home.hero_panel_badge") AI-Augmented Delivery
+                  h3(data-i18n-key="home.hero_panel_title") كيف نسرّع التسليم دون التضحية بجودة البنية أو دقة التنفيذ؟
+                  ul
+                    li
+                      i.fas.fa-check-circle
+                      span(data-i18n-key="home.hero_panel_item_1") أتمتة الأعمال المتكررة مثل الهياكل الأولية والتكاملات القياسية.
+                    li
+                      i.fas.fa-check-circle
+                      span(data-i18n-key="home.hero_panel_item_2") مراجعة أسرع للسيناريوهات الحرجة والحالات الطرفية قبل وصولها للإنتاج.
+                    li
+                      i.fas.fa-check-circle
+                      span(data-i18n-key="home.hero_panel_item_3") تركيز أكبر من الفريق على تجربة المستخدم ومنطق العمل الخاص بقطاعك.
+                .hero-years-card(data-aos="fade-left" data-aos-delay="100")
+                  .years-value
+                    span +10
+                  .years-copy
+                    span(data-i18n-key="home.years_of") سنوات من
+                    br
+                    span(data-i18n-key="home.experience") الخبرة
 
-            .d-flex.counter-box.shape-animaiton2.counter-box-width.shadow-lg-3(style="background-color: #1a237e; border-radius: 15px; padding: 15px;")
-              p.fs-3.text-white#yearsCounter
-                | + 
-                span 10
-              p.text-warning.fw-bold.w-auto
-                | Years Of 
-                br
-                | Experience
+      .hero-proof-grid
+        .hero-proof-item.hero-proof-item--wide(data-aos="fade-up" data-aos-delay="100")
+          i.fas.fa-shield-halved
+          span(data-i18n-key="home.hero_proof_1") شريك Odoo معتمد لتنفيذ وتخصيص الأنظمة الحرجة.
+        .hero-proof-item(data-aos="fade-up" data-aos-delay="200")
+          i.fas.fa-heart-pulse
+          span(data-i18n-key="home.hero_proof_2") منصة ELITE تدير عمليات التأمين الطبي على نطاق فعلي.
+        .hero-proof-item(data-aos="fade-up" data-aos-delay="300")
+          i.fas.fa-brain
+          span(data-i18n-key="home.hero_proof_3") بيئة تطوير مدعومة بالذكاء الاصطناعي لتقليل الوقت ورفع الجودة.
 
-            .shape1
-              img(src="images/header1-shape1.png" alt="")
-
-  // Numbers Section
+  //---------- STATS STRIP ----------
   .container
-    .row.hero-bottom-area
-      .col-lg-3
-        .single-box
-          .icon
-            img(src="images/hero-bottom-icon1.png" alt="")
-          .headding
-            h5.text-danger.text-center(style="margin-left: 2rem;") Users
-            p(style="margin-left: 2rem;") Ready to support
-            p(style="color: black; margin-left: 2rem;") +80k
+    .stat-strip(data-aos="fade-up")
+      .row.align-items-center
+        .col-6.col-md-3
+          .stat-item
+            .stat-num +80K
+            .stat-label(data-i18n-key="home.stats.users") مستخدم مدعوم
+        .col-6.col-md-3
+          .stat-item
+            .stat-num +20
+            .stat-label(data-i18n-key="home.stats.clients") عميل مؤسسي
+        .col-6.col-md-3
+          .stat-item
+            .stat-num +10
+            .stat-label(data-i18n-key="home.stats.solutions") حلول تم تنفيذها
+        .col-6.col-md-3
+          .stat-item
+            .stat-num +50
+            .stat-label(data-i18n-key="home.stats.projects") مشروع منجز
 
-      .col-lg-3
-        .single-box
-          .icon
-            img(src="images/hero-bottom-icon2.png" alt="")
-          .headding
-            .headding
-              h5.text-danger.text-center(style="margin-left: 2rem;") Corporates
-              p(style="margin-left: 2rem;") Our loyal Clients
-              p(style="color: black; margin-left: 2rem;") +20
+  .space40
 
-      .col-lg-3
-        .single-box
-          .icon
-            img(src="images/hero-bottom-icon3.png" alt="")
-          .headding
-            .headding
-              h5.text-danger.text-center(style=" margin-left: 2rem;") Solutions
-              p(style="margin-left: 2rem;") Service we deliver
-              p(style="color: black; margin-left: 2rem;") +10
+  //---------- INTRO METHOD ----------
+  section.intro-methods.py-5
+    .container.position-relative
+      .text-center.mb-5(data-aos="fade-up")
+        .intro-method-badge
+          i.fas.fa-microchip
+          span(data-i18n-key="home.method_badge") كيف نعمل
+        h2.fw-bold(data-i18n-key="home.method_title") هندسة مؤسسية يقودها الفهم التشغيلي وتسرّعها أدوات AI المتقدمة
+        p.lead.text-muted.mx-auto(style="max-width:760px" data-i18n-key="home.method_subtitle") ندمج الخبرة القطاعية مع بيئة تطوير ذكية حتى ننتقل من تحليل العمليات إلى الإطلاق الفعلي بسرعة أكبر وقرارات تصميم أدق.
+      .row.g-4
+        .col-lg-4(data-aos="fade-up" data-aos-delay="100")
+          .intro-method-card
+            .method-number 01
+            h3(data-i18n-key="home.method_card_1_title") تحليل تشغيلي قبل أي كود
+            p(data-i18n-key="home.method_card_1_text") نبدأ بفهم مسارات العمل والاعتمادات ونقاط الاختناق حتى يكون الحل انعكاساً لواقع التشغيل وليس مجرد قالب برمجي جاهز.
+        .col-lg-4(data-aos="fade-up" data-aos-delay="200")
+          .intro-method-card
+            .method-number 02
+            h3(data-i18n-key="home.method_card_2_title") تطوير مدعوم بالذكاء الاصطناعي
+            p(data-i18n-key="home.method_card_2_text") يستخدم فريقنا وكلاء برمجيين وأتمتة موجهة لتسريع التكاملات ومراجعة السيناريوهات الحساسة وتقليل الوقت الضائع في الأعمال الروتينية.
+        .col-lg-4(data-aos="fade-up" data-aos-delay="300")
+          .intro-method-card
+            .method-number 03
+            h3(data-i18n-key="home.method_card_3_title") إطلاق واعتماد بثقة
+            p(data-i18n-key="home.method_card_3_text") نربط بين التسليم والتدريب والقياس التشغيلي حتى يدخل النظام إلى العمل بسرعة ويبدأ بإظهار أثر واضح على الأداء والقرارات.
 
-      .col-lg-3
-        .single-box
-          .icon
-            img(src="images/hero-bottom-icon4.png" alt="")
-          .headding
-            .headding
-              h5.text-danger.text-center(style="margin-left: 2rem;") Projects
-              p(style="margin-left: 2rem;") Agile Products
-              p(style="color: black; margin-left: 2rem;") +50
+  .space20
 
-  // About Section
+  // Marquee
+  include components/marquee-brands.pug
+
+  .space40
+
+  //---------- SECTOR-SPECIFIC SOLUTIONS ----------
+  section.py-5
+    .container
+      .text-center.mb-5(data-aos="fade-up")
+        h2.fw-bold(data-i18n-key="home.solutions_title") حلول متخصصة، لا خدمات عامة
+        p.lead.text-muted(data-i18n-key="home.solutions_subtitle") نحن لا نبيع برمجيات جاهزة — بل نبني حلولاً حول طريقة عمل قطاعك فعلياً.
+
+      .row.g-4
+        //- Healthcare
+        .col-lg-6(data-aos="fade-up" data-aos-delay="100")
+          .sector-card
+            .sector-icon(style="background:#dc3545;")
+              i.fas.fa-heartbeat
+            h3(data-i18n-key="home.healthcare_title") الرعاية الصحية والتأمين الطبي
+            p(data-i18n-key="home.healthcare_text") من إدارة شبكة مقدمي الخدمة إلى معالجة المطالبات وبوابات المشتركين — نوفر بنية رقمية متكاملة لشركات التأمين ومؤسسات الرعاية الصحية.
+            ul.sector-features
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.healthcare_feature_1") منصة ELITE للتأمين الطبي
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.healthcare_feature_2") إدارة المطالبات والسياسات
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.healthcare_feature_3") شبكة مقدمي الخدمة ومسار الموافقات
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.healthcare_feature_4") بوابات الأعضاء والشركات في الوقت الفعلي
+            .mt-3
+              a.fw-semibold.text-primary(href="elite.html")
+                span(data-i18n-key="home.healthcare_link") استكشف حلول الرعاية الصحية →
+
+        //- Trade & Distribution
+        .col-lg-6(data-aos="fade-up" data-aos-delay="200")
+          .sector-card
+            .sector-icon(style="background:#fd7e14;")
+              i.fas.fa-boxes
+            h3(data-i18n-key="home.trade_title") التجارة والتوزيع
+            p(data-i18n-key="home.trade_text") مسارات عمل Odoo مخصصة للمخزون والمشتريات والمبيعات واللوجستيات — مصممة لتجارة الذهب وتوزيع الأدوية والعمليات الجملة.
+            ul.sector-features
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.trade_feature_1") نظام إدارة استثمارات الذهب
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.trade_feature_2") CRM وسلسلة الإمداد للدواء
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.trade_feature_3") أتمتة المخزون والمستودعات
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.trade_feature_4") دعم الفروع المتعددة والعملات المتعددة
+            .mt-3
+              a.fw-semibold.text-primary(href="odoo-services.html")
+                span(data-i18n-key="home.trade_link") استكشف حلول التجارة →
+
+      .row.g-4.mt-2
+        //- Cloud & Infrastructure
+        .col-lg-4(data-aos="fade-up" data-aos-delay="300")
+          .sector-card
+            .sector-icon(style="background:#0E38B1;")
+              i.fas.fa-cloud
+            h3(data-i18n-key="home.cloud_title") السحابة والبنية التحتية
+            p(data-i18n-key="home.cloud_text") استضافة موثوقة، وحاويات، وإدارة خوادم لينكس مع دعم على مدار الساعة.
+            ul.sector-features
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.cloud_feature_1") Docker و Kubernetes
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.cloud_feature_2") تقوية أمان الخوادم
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.cloud_feature_3") الترحيل والتحسين
+            .mt-3
+              a.fw-semibold.text-primary(href="cloud-services.html")
+                span(data-i18n-key="home.cloud_link") اعرف المزيد →
+
+        //- Odoo ERP
+        .col-lg-4(data-aos="fade-up" data-aos-delay="400")
+          .sector-card
+            .sector-icon(style="background:#6E18EF;")
+              i.fas.fa-cogs
+            h3(data-i18n-key="home.odoo_title") Odoo ERP و CRM
+            p(data-i18n-key="home.odoo_text") خدمات Odoo الكاملة — من تطوير الوحدات والتخصيص إلى النشر وتدريب الموظفين.
+            ul.sector-features
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.odoo_feature_1") تطوير وحدات مخصصة
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.odoo_feature_2") تكاملات مع الأطراف الخارجية
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.odoo_feature_3") تنفيذ شامل من البداية للنهاية
+            .mt-3
+              a.fw-semibold.text-primary(href="odoo-dev.html")
+                span(data-i18n-key="home.odoo_link") اعرف المزيد →
+
+        //- Business Intelligence
+        .col-lg-4(data-aos="fade-up" data-aos-delay="500")
+          .sector-card
+            .sector-icon(style="background:#ffc107;")
+              i.fas.fa-chart-bar
+            h3(data-i18n-key="home.bi_title") ذكاء الأعمال
+            p(data-i18n-key="home.bi_text") لوحات تحكم تفاعلية وتقارير مؤتمتة وتوحيد للبيانات مدعوم عبر Power BI وMetabase.
+            ul.sector-features
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.bi_feature_1") لوحات KPI لحظية
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.bi_feature_2") تسليم التقارير تلقائياً
+              li
+                i.fas.fa-check-circle
+                span(data-i18n-key="home.bi_feature_3") تكامل بيانات من مصادر متعددة
+            .mt-3
+              a.fw-semibold.text-primary(href="business.html")
+                span(data-i18n-key="home.bi_link") اعرف المزيد →
+
+  //---------- ABOUT ----------
   .about1.sp
     .container
       .row.align-items-center
         .col-lg-6
           .about-image
             .image1
-              img(src="images/about1-img1.webp" alt="")
+              img(src="images/about1-img1.webp" alt="GoCloud team working on ERP solutions" width="100" height="321" loading="lazy")
             .image2.image-anime
-              img(src="images/about1-img2.webp" alt="")
+              img(src="images/about1-img2.webp" alt="GoCloud office workspace" width="440" height="582" loading="lazy")
             .icon-box
-              img(src="images/gocloud%20logo.webp" height="50px" width="50px" alt="")
+              img(src="images/gocloud%20logo.webp" height="50" width="50" alt="GoCloud logo")
               h4 24/7 Support
-              p Gocloud Technology & It Solution
+              p GoCloud Technology
 
         .col-lg-6
-          .heading1.text-center
+          .heading1
             .span(style="color: green;" data-aos="zoom-in-left" data-aos-duration="700")
-              img(src="images/gocloud%20logo.webp" height="50px" width="50px" alt="")
-              | About Our Company
-            h2.title.tg-element-title Discover Our Story Empowering Business Through Innovation
+              img(src="images/gocloud%20logo.webp" height="50" width="50" alt="GoCloud logo")
+              span(data-i18n-key="home.about_kicker") من نحن في GoCloud
+            h2.title(data-i18n-key="home.about_title") عقد من تحويل العمليات المعقدة إلى أنظمة سلسة
             .space16
-            p(data-aos="fade-left" data-aos-duration="800") Gocloud is a pioneering force in the world of technology and IT solutions, committed to transforming how businesses succeed in the digital age. Our approach is built on collaboration, transparency, and an unwavering commitment to excellence. By staying ahead of the curve and embracing innovation, we empower our clients to outperform the competition.
+            p(data-aos="fade-left" data-aos-duration="800" data-i18n-key="home.about_text") منذ تأسيسنا ركزنا على أمرين: إتقان Odoo ERP وبناء تقنية تحل مشكلات تشغيلية حقيقية. من مسارات التأمين إلى عمليات التجارة متعددة الفروع، يقدم فريقنا أنظمة يستخدمها العملاء فعلياً كل يوم.
 
-            ul.list(data-aos="fade-left" data-aos-duration="1100")
-              li
-                span
-                  i.fa-solid.fa-check
-                | Dramatically re-engineer value added IT systems.
-              li
-                span
-                  i.fa-solid.fa-check
-                | Revisualize your work cycle with value added systems
-              li
-                span
-                  i.fa-solid.fa-check
-                | Tailor your ERP as per your imagination.
+            .space16
+            .about-highlight(data-aos="fade-left" data-aos-duration="900")
+              h5(data-i18n-key="home.about_point_1_title") شريك أودو المعتمد
+              p(data-i18n-key="home.about_point_1_text") خبرة معتمدة في التخصيص والتنفيذ والتكامل
+            .about-highlight(data-aos="fade-left" data-aos-duration="1000")
+              h5(data-i18n-key="home.about_point_2_title") رائد في تقنيات التأمين
+              p(data-i18n-key="home.about_point_2_text") بنينا ELITE — منصة متكاملة لإدارة التأمين الطبي
+            .about-highlight(data-aos="fade-left" data-aos-duration="1100")
+              h5(data-i18n-key="home.about_point_3_title") تسليم أسرع بمنهج هندسي حديث
+              p(data-i18n-key="home.about_point_3_text") نستخدم أدوات تطوير ذكية لتقليل التكرار وتسريع الجودة دون المساس بالهندسة أو الاعتمادية
 
-            .space30
+            .space20
             div(data-aos="fade-left" data-aos-duration="900")
-              a.theme-btn1(href="service.html") Discover More 
+              a.theme-btn1(href="about.html")
+                span(data-i18n-key="home.about_link") اعرف المزيد عنا
                 span
                   i.fa-solid.fa-arrow-right
 
-  // Services Section
-  .service.sp
-    .container
-      .row
-        .col-lg-8.m-auto.text-center
-          .heading1
-            .span(data-aos="zoom-in-left" data-aos-duration="700")
-              img(src="images/gocloud%20logo.webp" height="50px" width="50px" alt="")
-              | Our Services
-            h2.title.tg-element-title Empower Your Business With Our Comprehensive Technology & IT Solutions
-
-      .space20
-
-      .row.flex-wrap.service-cards
-        .col-lg-4(data-aos="zoom-in-up" data-aos-duration="700")
-          .single-box.text-center
-            div(style="margin-bottom: 3rem;")
-              a
-                .icon.m-auto
-                  svg(xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24")
-                    path(fill="#888888" d="M12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5l1.53.11A2.98 2.98 0 0 1 22 15c0 1.65-1.35 3-3 3H6c-2.21 0-4-1.79-4-4c0-2.05 1.53-3.76 3.56-3.97l1.07-.11l.5-.95A5.47 5.47 0 0 1 12 6m0-2C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 14c0 3.31 2.69 6 6h13c2.76 0 5-2.24 5-5c0-2.64-2.05-4.78-4.65-4.96A7.49 7.49 0 0 0 12 4")
-
-            .heading1
-              h4
-                a(href="cloud-services.html") Cloud Solutions
-              .space16
-              p Harness the power of cloud with our robust cloud solutions. Whether you're looking to migrate to the cloud, optimize your existing infrastructure, or build scalable cloud-native Apps.
-
-              .mt-5(data-aos="fade-left" data-aos-duration="900")
-                a.theme-btn2(href="cloud-services.html") Discover More 
-                  span
-                    i.fa-solid.fa-arrow-right
-
-              .space16
-
-        .col-lg-4(data-aos="zoom-in-up" data-aos-duration="1100")
-          .single-box.text-center
-            div(style="margin-bottom: 3rem;")
-              .icon.m-auto
-                svg(xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24")
-                  path(fill="#888888" d="M21.1 15.796a2.9 2.9 0 1 1 0-5.8a2.9 2.9 0 0 1 0 5.8m0-1.2a1.7 1.7 0 1 0 .002-3.4H21.1a1.7 1.7 0 0 0 3.4m-6.065 1.2a2.9 2.9 0 1 1 0-5.8a2.9 2.9 0 0 1 0 5.8m0-1.2a1.7 1.7 0 1 0 .002-3.4h-.002a1.7 1.7 0 0 0 0 3.4m-3.17-1.738c0 1.62-1.298 2.938-2.898 2.938s-2.9-1.314-2.9-2.936S7.248 10 8.968 10c.636 0 1.224.134 1.7.484v-1.68a.6.6 0 0 1 1.2 0v4.054zm-2.898 1.74a1.7 1.7 0 0 0 .002-3.4h-.002a1.7 1.7 0 0 0 0 3.4M2.9 15.796a2.9 2.9 0 1 1 0-5.8a2.9 2.9 0 0 1 0 5.8m0-1.2a1.7 1.7 0 1 0 .002-3.4H2.9a1.7 1.7 0 0 0 0 3.4")
-
-            .heading1.mt-5
-              h4
-                a(href="odoo-dev.html") Odoo ERP development
-              .space16
-              p ERP systems are crucial for streamlining business processes by integrating various functions into a single platform, enhancing efficiency and collaboration. They provide real-time data and analytics, enabling informed decision-making and improved resource management
-
-              .mt-5(data-aos="fade-left" data-aos-duration="900")
-                a.theme-btn2(href="odoo-dev.html") Discover More 
-                  span
-                    i.fa-solid.fa-arrow-right
-
-        .col-lg-4(data-aos="zoom-in-up" data-aos-duration="800")
-          .single-box.text-center
-            div(style="margin-bottom: 3rem;")
-              .icon.m-auto
-                svg(xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24")
-                  path(fill="#888888" d="M21.1 15.796a2.9 2.9 0 1 1 0-5.8a2.9 2.9 0 0 1 0 5.8m0-1.2a1.7 1.7 0 1 0 .002-3.4H21.1a1.7 1.7 0 0 0 0 3.4m-6.065 1.2a2.9 2.9 0 1 1 0-5.8a2.9 2.9 0 0 1 0 5.8m0-1.2a1.7 1.7 0 1 0 .002-3.4h-.002a1.7 1.7 0 0 0 0 3.4m-3.17-1.738c0 1.62-1.298 2.938-2.898 2.938s-2.9-1.314-2.9-2.936S7.248 10 8.968 10c.636 0 1.224.134 1.7.484v-1.68a.6.6 0 0 1 1.2 0v4.054zm-2.898 1.74a1.7 1.7 0 0 0 .002-3.4h-.002a1.7 1.7 0 0 0 0 3.4M2.9 15.796a2.9 2.9 0 1 1 0-5.8a2.9 2.9 0 0 1 0 5.8m0-1.2a1.7 1.7 0 1 0 .002-3.4H2.9a1.7 1.7 0 0 0 0 3.4")
-
-            .heading1
-              h4
-                a(href="odoo-imp.html") Odoo ERP implementation
-              .space16
-              p Implement your business industry and imagine your workflow, see all your ideas going on screen
-
-              .mt-5(data-aos="fade-left" data-aos-duration="900")
-                a.theme-btn2(href="odoo-imp.html") Discover More 
-                  span
-                    i.fa-solid.fa-arrow-right
-
-        .col-lg-4(data-aos="zoom-in-up" data-aos-duration="1200")
-          .single-box.text-center
-            div(style="margin-bottom: 3rem;")
-              .icon.m-auto
-                svg(xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24")
-                  path(fill="#888888" d="M7 22q-.825 0-1.412-.587T5 20t.588-1.412T7 18t1.413.588T9 20t-.587 1.413T7 22m10 0q-.825 0-1.412-.587T15 20t.588-1.412T17 18t1.413.588T19 20t-.587 1.413T17 22M5.2 4h14.75q.575 0 .875.513t.025 1.037l-3.55 6.4q-.275.5-.737.775T15.55 13H8.1L7 15h12v2H7q-1.125 0-1.7-.987t-.05-1.963L6.6 11.6L3 4H1V2h3.25z")
-
-            .heading1
-              h4
-                a(href="portfolio.html") Portofolio & Ecommerce
-              .space16
-              p We craft stunning portfolio websites and powerful eCommerce platforms that elevate your brand and drive results
-
-              .mt-5(data-aos="fade-left" data-aos-duration="900")
-                a.theme-btn2(href="portfolio.html") Discover More 
-                  span
-                    i.fa-solid.fa-arrow-right
-
-        .col-lg-4(data-aos="zoom-in-up" data-aos-duration="900")
-          .single-box.text-center
-            div(style="margin-bottom: 3rem;")
-              .icon.m-auto
-                svg(xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24")
-                  path(fill="#888888" d="M15.21 2H8.75A6.76 6.76 0 0 0 2 8.75v6.5A6.76 6.76 0 0 0 8.75 22h6.5A6.76 6.76 0 0 0 22 15.25v-6.5A6.76 6.76 0 0 0 15.21 2m1.89 10.69h-.14a.76.76 0 0 1-.74-.62l-.18-1l-1.31 2a1.71 1.71 0 0 1-2.32.5l-2.27-1.44a.18.18 0 0 0-.13 0a.2.2 0 0-.13.08L7.56 15.3a.77.77 0 0 1-.6.3a.74.74 0 0 1-.45-.15a.75.75 0 0 1-.15-1l2.32-3.09a1.71 1.71 0 0 1 2.25-.43l2.28 1.44a.23.23 0 0 0 .28-.06l1.34-2l-1.08.15a.753.753 0 0 1-.28-1.48l2.76-.51h.36a.12.12 0 0 1 .08 0l.15.08l.15.12q.054.065.09.14a.5.5 0 0 1 .06.15l.52 2.8a.75.75 0 0 1-.54.93")
-
-            .heading1.mt-5
-              h4
-                a(href="business.html") Business intelligence
-              .space16
-              p Transform your data into actionable insights with our Business Intelligence solutions. We help organizations harness their data through intuitive dashboards, real-time analytics, and custom reporting tools that drive informed decision-making and business growth.
-
-              .mt-5(data-aos="fade-left" data-aos-duration="900")
-                a.theme-btn2(href="business.html" style="transition: all 0.3s ease;") Discover More 
-                  span
-                    i.fa-solid.fa-arrow-right
-
-  // Work Section
-  .work.sp
+  //---------- ODOO PARTNERSHIP ----------
+  section.py-5(style="background:#f8f9fa;")
     .container
       .row.align-items-center
-        .col-lg-6
-          .heading1.text-center
+        .col-lg-6(data-aos="fade-right")
+          .heading1
             .span(data-aos="zoom-in-left" data-aos-duration="700")
-              img(src="images/gocloud%20logo.webp" height="50px" width="50px" alt="GoCloud Logo")
-              | Solutions
-            h2.title.tg-element-title Imagine your startup has ERP system
+              img(src="images/gocloud%20logo.webp" height="50" width="50" alt="GoCloud logo")
+              span(data-i18n-key="home.partner_kicker") شراكة أودو
+            h2.title(data-i18n-key="home.partner_title") لماذا تختار الشركات Odoo ERP من GoCloud؟
             .space16
-            p(data-aos="fade-right" data-aos-duration="700") At Gocloud, we understand that every business is unique, even startups and SMEs have the ability to monitor their business through robust ERP system.
+            p(data-i18n-key="home.partner_text") حتى الشركات الناشئة والمتوسطة يمكنها مراقبة أعمالها بالكامل عبر نظام ERP قوي. وبصفتنا شريك أودو معتمد، نقدم خبرة موثقة لكل مشروع.
 
             .single-items(data-aos="fade-right" data-aos-duration="700")
               div
                 .icon
-                  img(src="images/crm.png" alt="CRM Solutions Icon")
+                  img(src="images/crm.png" alt="CRM solutions" width="24" height="24")
               div
-                h4
-                  a(href="service-details.html") CRM to manager your customers relations
+                h3(data-i18n-key="home.partner_item_1_title") CRM لإدارة علاقات العملاء
                 .space10
-                p If you want to make a comprehensive relations with your customers and don't miss any Lead, Then Our CRM is All you need
+                p(data-i18n-key="home.partner_item_1_text") التقط كل فرصة، وأتمت المتابعات، وابنِ علاقات دائمة عبر CRM مصمم حول دورة البيع لديك.
 
             .single-items(data-aos="fade-right" data-aos-duration="900")
               div
                 .icon
-                  img(src="images/erp.png" alt="ERP Systems Icon")
+                  img(src="images/erp.png" alt="ERP systems" width="24" height="24")
               div
-                h4
-                  a(href="service-details.html") Odoo ERP solutions for all your business
+                h3(data-i18n-key="home.partner_item_2_title") مسارات ERP خاصة بكل قطاع
                 .space10
-                p Focus on your core business activities in one Hub.
+                p(data-i18n-key="home.partner_item_2_text") توزيع الأدوية وتجارة الذهب والرعاية الصحية — نهيئ وحدات Odoo لتناسب عملياتك الواقعية.
 
             .single-items(data-aos="fade-right" data-aos-duration="1100")
               div
                 .icon
-                  img(src="images/business-intelligence.png" alt="Business Intelligence Icon")
+                  img(src="images/business-intelligence.png" alt="Business intelligence" width="24" height="24")
               div
-                h4
-                  a(href="service-details.html") Business intelligence
+                h3(data-i18n-key="home.partner_item_3_title") ذكاء أعمال مدمج
                 .space10
-                p Transform your data into actionable insights with our Business Intelligence solutions.
+                p(data-i18n-key="home.partner_item_3_text") من لوحات التحكم اللحظية إلى التقارير المجدولة، احصل على رؤية كاملة لكل جزء من نشاطك.
 
         .col-lg-6
           .image-anime
-            img(src="images/work-bg.png" alt="" class="bg-image shape-animaiton4")
+            img(src="images/work-bg.png" alt="Odoo ERP workflow illustration" width="536" height="494" loading="lazy" class="bg-image shape-animaiton4")
 
-  // CTA Section
-  .cta(id="CTA" style="background-color: green;")
+  //---------- LATEST ARTICLES ----------
+  section.py-5(style="background:#f7f9ff")
     .container
-      .row.align-items-center.m-3
-        .col-lg-7
-          .heading1-w.text-center
-            h2.title At GoCloud, We're Committed To Businesses
-            .space16
-            p(data-aos="fade-right" data-aos-duration="700") Take the first step towards achieving your business goals by contacting us today. Schedule a consultation with one of our IT specialists to discuss your objectives and explore how our innovative solutions can propel.
+      .text-center.mb-5(data-aos="fade-up")
+        span.badge.rounded-pill.mb-3(style="background:#EEF2FF;color:#0E38B1;font-weight:600;font-size:.8rem;padding:6px 16px" data-i18n-key="home.blog_badge") أحدث المقالات — Latest Articles
+        h2.fw-bold(data-i18n-key="home.blog_title") من مدونتنا
+        p.text-muted(data-i18n-key="home.blog_subtitle") رؤى حول تقنيات التأمين الطبي وحلول أعمال Odoo
+      .row.g-4
+        .col-md-6.col-lg-4(data-aos="fade-up")
+          .card.h-100.border-0.shadow-sm.rounded-4.overflow-hidden
+            img.card-img-top(src="images/blog-crm-medical-dashboard.png" alt="Odoo CRM for Medical Supplies" loading="lazy" width="1879" height="686" style="height:200px;object-fit:cover")
+            .card-body.p-4
+              span.badge.rounded-pill.mb-2(style="background:#EEF2FF;color:#0E38B1;font-size:.72rem") تطبيقات أودو
+              h5.card-title.fw-bold(style="font-size:.95rem" data-i18n-key="home.blog_card_1_title") Odoo CRM لشركات المستلزمات الطبية — مراقبة فرق المبيعات وزيادة الإيرادات
+              p.card-text.text-muted(style="font-size:.85rem" data-i18n-key="home.blog_card_1_text") كيف يساعد Odoo CRM المخصص شركات المستلزمات الطبية في مراقبة فرق المبيعات الميدانية وتحسين التنبؤ بالمبيعات.
+            .card-footer.bg-white.border-0.p-4.pt-0
+              a.fw-semibold.text-decoration-none(href="blog/odoo-crm-medical-supplies.html" style="color:#0E38B1;font-size:.85rem")
+                span(data-i18n-key="home.blog_read_more") اقرأ المزيد &larr;
+        .col-md-6.col-lg-4(data-aos="fade-up" data-aos-delay="100")
+          .card.h-100.border-0.shadow-sm.rounded-4.overflow-hidden
+            img.card-img-top(src="images/elite-dashboard.webp" alt="Unified Medical Insurance Portal" loading="lazy" width="860" height="789" style="height:200px;object-fit:cover")
+            .card-body.p-4
+              span.badge.rounded-pill.mb-2(style="background:#EEF2FF;color:#0E38B1;font-size:.72rem") التأمين الطبي
+              h5.card-title.fw-bold(style="font-size:.95rem" data-i18n-key="home.blog_card_2_title") بوابة تأمين طبي موحدة — لماذا النظام الواحد أفضل من ثلاثة أنظمة منفصلة؟
+              p.card-text.text-muted(style="font-size:.85rem" data-i18n-key="home.blog_card_2_text") أهمية وجود بوابة تأمين طبي واحدة تخدم شركة التأمين و TPA ومقدمي الخدمة الطبية.
+            .card-footer.bg-white.border-0.p-4.pt-0
+              a.fw-semibold.text-decoration-none(href="blog/unified-medical-insurance-portal.html" style="color:#0E38B1;font-size:.85rem")
+                span(data-i18n-key="home.blog_read_more") اقرأ المزيد &larr;
+        .col-md-6.col-lg-4(data-aos="fade-up" data-aos-delay="200")
+          .card.h-100.border-0.shadow-sm.rounded-4.overflow-hidden
+            img.card-img-top(src="images/blog-branch-dashboard.png" alt="Odoo CRM for Gold Trading" loading="lazy" width="1888" height="786" style="height:200px;object-fit:cover")
+            .card-body.p-4
+              span.badge.rounded-pill.mb-2(style="background:#EEF2FF;color:#0E38B1;font-size:.72rem") تطبيقات أودو
+              h5.card-title.fw-bold(style="font-size:.95rem" data-i18n-key="home.blog_card_3_title") كيف يُحدث Odoo CRM ثورة في إدارة شركات تجارة الذهب؟
+              p.card-text.text-muted(style="font-size:.85rem" data-i18n-key="home.blog_card_3_text") اكتشف كيف يساعد Odoo CRM شركات تجارة الذهب في ضبط سياسات البيع ومتابعة أداء الفروع لحظياً.
+            .card-footer.bg-white.border-0.p-4.pt-0
+              a.fw-semibold.text-decoration-none(href="blog/odoo-crm-gold-trading.html" style="color:#0E38B1;font-size:.85rem")
+                span(data-i18n-key="home.blog_read_more") اقرأ المزيد &larr;
+      .text-center.mt-4(data-aos="fade-up")
+        a.btn.btn-outline-primary.btn-lg.rounded-pill.px-4.fw-semibold(href="blog/index.html")
+          span(data-i18n-key="home.blog_all") تصفح جميع المقالات
+          i.fas.fa-arrow-left.ms-2
 
-        .col-lg-5
-          .buttons.text-center
-            a.cta-btn1(href="images/company profile.pdf" download) Download Our Company Profile 
-              span
-                i.fa-solid.fa-arrow-right
+      .mt-5(data-aos="fade-up")
+        .row.justify-content-center
+          .col-lg-10
+            .home-cta.text-center.text-white
+              h3.fw-bold.mb-3(data-i18n-key="home.faq_cta_title") قبل أن تبدأ مشروعك، تصفح الأسئلة الشائعة
+              p.lead.mb-4.opacity-75(data-i18n-key="home.faq_cta_text") إجابات مختصرة وعملية حول تراخيص أودو، الشريك المناسب، وخدمات GoCloud Elite المتقدمة.
+              .d-flex.justify-content-center.gap-3.flex-wrap
+                a.btn.btn-light.btn-lg.fw-semibold.px-4(href="faq.html#odoo")
+                  i.fas.fa-circle-question.me-2
+                  span(data-i18n-key="home.faq_cta_odoo") أسئلة أودو الشائعة
+                a.btn.btn-outline-light.btn-lg.fw-semibold.px-4(href="faq.html#elite")
+                  i.fas.fa-shield-halved.me-2
+                  span(data-i18n-key="home.faq_cta_elite") أسئلة GoCloud Elite
+
+  //---------- CTA ----------
+  section.py-5#CTA
+    .container
+      .home-cta.text-center.text-white(data-aos="fade-up")
+        h2.fw-bold.mb-3(data-i18n-key="home.cta_title") لنبنِ معاً ما يناسب قطاعك فعلاً
+        p.lead.mb-4.opacity-75(data-i18n-key="home.cta_text") احجز استشارة مجانية — أخبرنا عن طبيعة عملك وسنوضح لك ما يمكن تحقيقه.
+        .d-flex.justify-content-center.gap-3.flex-wrap
+          a.btn.btn-light.btn-lg.fw-semibold.px-4(href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer")
+            i.fab.fa-whatsapp.me-2
+            span(data-i18n-key="home.cta_primary") ابدأ المحادثة
+          a.btn.btn-outline-light.btn-lg.fw-semibold.px-4(href="images/company profile.pdf" download)
+            i.fas.fa-download.me-2
+            span(data-i18n-key="home.cta_secondary") الملف التعريفي للشركة
 
   // Include footer
   include components/footer.pug
@@ -314,53 +513,9 @@ block content
   // Include whatsapp button
   include components/whatsapp-button.pug
 
-  // Odoo Partnership Modal
-  #odooPartnershipModal.modal.fade(tabindex='-1' aria-labelledby='odooPartnershipModalLabel' aria-hidden='true')
-    .modal-dialog.modal-lg.modal-dialog-centered
-      .modal-content
-        .modal-body
-          .row.align-items-center
-            .col-md-6.mb-3.mb-md-0
-              img.img-fluid.rounded.shadow-lg(src='images/odoo_partner.jpg' alt='Odoo Partnership')
-            .col-md-6
-              h4.fw-bold.mb-3
-                | Strategic 
-                span(style='color:rgba(198, 17, 198, 0.893)') Odoo
-                |  Partnership
-              p
-                | We're Official Odoo partners, the world's most popular all-in-one ERP business software!
-              p
-                | This collaboration allows us to provide enhanced ERP and CRM solutions tailored specifically for
-                | your business needs.
-              ul.list-unstyled
-                li.mb-2
-                  i.fa-solid.fa-check.text-primary.me-2
-                  |  Comprehensive business management
-                li.mb-2
-                  i.fa-solid.fa-check.text-primary.me-2
-                  |  Seamless integration
-                li.mb-2
-                  i.fa-solid.fa-check.text-primary.me-2
-                  |  Customized solutions
-                li.mb-2
-                  i.fa-solid.fa-check.text-primary.me-2
-                  |  Expert implementation
-
 block scripts
-  script.
-    document.addEventListener("DOMContentLoaded", function() {
-      setTimeout(function() {
-        var modalEl = document.getElementById('odooPartnershipModal');
-        if (modalEl && typeof bootstrap !== 'undefined') {
-          // Clean up any manual class manipulation from other scripts
-          if (modalEl.classList.contains('show') && modalEl.style.display === 'block' && !document.querySelector('.modal-backdrop')) {
-            modalEl.classList.remove('show');
-            modalEl.style.display = '';
-          }
 
-          var modalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
-          modalInstance.show();
-        }
-      }, 2500);
-    });
+
+
+
 

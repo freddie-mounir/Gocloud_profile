@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <script>
+      (function () {
+        var storageKey = 'gocloud-site-language';
+        var savedLanguage = null;
+        try {
+          savedLanguage = localStorage.getItem(storageKey);
+        } catch (error) {
+          savedLanguage = null;
+        }
+        var initialLanguage = savedLanguage === 'ar' || savedLanguage === 'en' ? savedLanguage : 'en';
+        var root = document.documentElement;
+        root.lang = initialLanguage;
+        root.dir = initialLanguage === 'ar' ? 'rtl' : 'ltr';
+        root.dataset.siteLang = initialLanguage;
+        root.classList.add('site-lang-' + initialLanguage);
+      }());
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حلول ذكاء الأعمال | GoCloud</title>
+    <meta name="description" content="حوّل البيانات الخام إلى رؤى قابلة للتنفيذ مع حلول GoCloud لذكاء الأعمال. تحليلات متقدمة ولوحات تفاعلية وتقارير لحظية عبر Power BI وMetabase.">
+    <meta name="keywords" content="ذكاء الأعمال, تحليلات البيانات, Power BI, Metabase, لوحات تحكم, تقارير, مستودع بيانات, GoCloud">
+    <link rel="canonical" href="https://www.gocloudeg.com/business.html">
+    <meta property="og:title" content="حلول ذكاء الأعمال | GoCloud">
+    <meta property="og:description" content="حوّل البيانات الخام إلى رؤى قابلة للتنفيذ مع حلول GoCloud لذكاء الأعمال. تحليلات متقدمة ولوحات تفاعلية وتقارير لحظية عبر Power BI وMetabase.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.gocloudeg.com/business.html">
+    <meta property="og:image" content="https://www.gocloudeg.com/images/Data-Science.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="حلول ذكاء الأعمال | GoCloud">
+    <meta name="twitter:description" content="حوّل البيانات الخام إلى رؤى قابلة للتنفيذ مع حلول GoCloud لذكاء الأعمال. تحليلات متقدمة ولوحات تفاعلية وتقارير لحظية عبر Power BI وMetabase.">
+    <meta name="twitter:image" content="https://www.gocloudeg.com/images/Data-Science.webp">
+    <!-- Accessibility improvements-->
+    <meta name="theme-color" content="#ffffff">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Accessibility meta tags-->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <script type="application/ld+json">include ../js/organization-schema.json</script>
+    <meta name="gocloud-chat-token" content="">
+    <meta name="gocloud-turnstile-site-key" content="">
+    <!-- Set your Meta Pixel ID once available (numbers only)-->
+    <meta name="gocloud-meta-pixel-id" content="542314300011689">
+    <!-- Favicon-->
+    <link rel="icon" href="images/favicon.ico" sizes="32x32">
+    <link rel="icon" href="images/gocloud logo.webp" type="image/webp">
+    <!-- Apple Touch Icon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/icon-192x192.png">
+    <!-- PWA Manifest-->
+    <link rel="manifest" href="manifest.json">
+    <!-- Critical CSS (render-blocking — needed for above-the-fold)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha384-blOohCVdhjmtROpu8+CfTnUWham9nkX7P7OZQMst+RUnhtoY/9qemFAkIKOYxDI3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/plugins-bundle.min.css">
+    <!-- Non-critical CSS (deferred — for below-fold components)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css" integrity="sha384-BzI6huNjli1y/9x1UdWL6qKDFkPsARwL5jA52HvMQscsUrvEx/0sxAoQw8Lr+Dgw" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" integrity="sha384-MUdXdzn1OB/0zkr4yGLnCqZ/n9ut5N7Ifes9RP2d5xKsTtcPiuiwthWczWuiqFOn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css" integrity="sha384-kcNNzf7wI8//ZkNUaDd5JwxLoFaBgkj9Z4O4NwtuX9Lkmsz0HoITOxJsGkYxDuyG" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" crossorigin="anonymous">
+    <noscript>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/magnific-popup.min.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/assets/owl.carousel.min.css">
+      <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    </noscript>
+    <!-- Preconnect & DNS prefetch for CDNs and third-party origins-->
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font preload with font-display: swap for better performance-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap">
+    </noscript>
+    <script src="js/analytics.js" defer></script>
+    <!-- Custom styles-->
+    <style>
+      .bi-hero-img {
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0,0,0,.15);
+      }
+      .bi-feature-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        box-shadow: 0 4px 24px rgba(0,0,0,.06);
+        transition: transform .3s ease, box-shadow .3s ease;
+        height: 100%;
+      }
+      .bi-feature-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 32px rgba(0,0,0,.12);
+      }
+      .bi-feature-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+      .bi-process-step {
+        position: relative;
+        padding: 2rem 1.5rem;
+        background: #f8f9fa;
+        border-radius: 12px;
+        text-align: center;
+        height: 100%;
+      }
+      .bi-process-step .step-number {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #0d6efd;
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body class="body tg-heading-subheading animation-style3">
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=542314300011689&amp;ev=PageView&amp;noscript=1" alt=""></noscript>
+    <!-- Main content wrapper-->
+    <main id="main-content">
+      <!-- Include components-->
+      <div class="paginacontainer">
+        <div class="progress-wrap">
+          <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+          </svg>
+        </div>
+      </div>
+      <style>
+        /* Preloader overrides */
+        .ctn-preloader.ctn-preloader1 .loader-section-left{background:linear-gradient(135deg,#0E38B1 0%,#0a2a8a 100%)}
+        .ctn-preloader.ctn-preloader1 .loader-section-right{background:linear-gradient(135deg,#0a2a8a 0%,#0E38B1 100%)}
+        .ctn-preloader .animation-preloader .spinner{border:none!important;animation:none!important;height:auto!important;width:auto!important;margin:0 auto 1.5rem!important;display:flex;flex-direction:column;align-items:center}
+        .preloader-logo{width:90px;height:90px;border-radius:20px;box-shadow:0 16px 48px rgba(0,0,0,.25);animation:preloaderPulse 1.8s ease-in-out infinite;background:#fff;padding:8px}
+        .preloader-logo img{width:100%;height:100%;object-fit:contain;border-radius:12px}
+        .ctn-preloader .animation-preloader .txt-loading{font:700 1.6rem 'Figtree',sans-serif!important;letter-spacing:.35em;margin-top:.5rem}
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading{color:rgba(255,255,255,.15)}
+        .ctn-preloader .animation-preloader .txt-loading .letters-loading:before{color:rgba(255,255,255,.85)}
+        .preloader-bar{width:160px;height:3px;background:rgba(255,255,255,.12);border-radius:4px;margin:1.5rem auto 0;overflow:hidden}
+        .preloader-bar-inner{height:100%;width:40%;background:linear-gradient(90deg,#A1E934,#fff);border-radius:4px;animation:preloaderSlide 1.2s ease-in-out infinite}
+        .preloader-tagline{color:rgba(255,255,255,.45);font-size:.75rem;font-weight:500;letter-spacing:.08em;margin-top:1rem;text-transform:none;text-align:center;display:block;width:100%}
+        html[lang='ar'] .preloader-tagline{direction:rtl;text-align:center}
+        @media (max-width: 767px){.preloader-tagline{text-align:center;letter-spacing:.05em}}
+        @media (max-width: 767px){.progress-wrap{right:12px!important;bottom:18px!important}}
+        @keyframes preloaderPulse{0%,100%{transform:scale(1);box-shadow:0 16px 48px rgba(0,0,0,.25)}50%{transform:scale(1.06);box-shadow:0 20px 56px rgba(14,56,177,.35)}}
+        @keyframes preloaderSlide{0%{transform:translateX(-100%)}50%{transform:translateX(200%)}100%{transform:translateX(400%)}}
+        
+      </style>
+      <section>
+        <div id="preloader">
+          <div class="ctn-preloader ctn-preloader1" id="ctn-preloader">
+            <div class="animation-preloader">
+              <div class="spinner">
+                <div class="preloader-logo"><img src="images/gocloud%20logo.webp" alt="GoCloud" width="90" height="90"></div>
+              </div>
+              <div class="txt-loading"><span class="letters-loading" data-text-preloader="G">G</span><span class="letters-loading" data-text-preloader="O">O</span><span class="letters-loading" data-text-preloader="C">C</span><span class="letters-loading" data-text-preloader="L">L</span><span class="letters-loading" data-text-preloader="O">O</span><span class="letters-loading" data-text-preloader="U">U</span><span class="letters-loading" data-text-preloader="D">D</span></div>
+              <div class="preloader-bar">
+                <div class="preloader-bar-inner"></div>
+              </div>
+              <div class="preloader-tagline">Smart Software Solutions</div>
+            </div>
+            <div class="loader-section-left loader-section section-left"></div>
+            <div class="loader-section-right loader-section section-right"></div>
+          </div>
+        </div>
+      </section>
+      <style>
+        .top-bar{background:linear-gradient(90deg,#0a1e5e 0%,#0E38B1 50%,#0a1e5e 100%);padding:6px 0;position:relative;z-index:1000}
+        .top-bar-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+        .top-bar-left{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+        .top-bar-item{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.8);font-size:.78rem;font-weight:500}
+        .top-bar-item i{color:#A1E934;font-size:.7rem}
+        .top-bar-item a{color:rgba(255,255,255,.8);text-decoration:none;transition:color .2s}
+        .top-bar-item a:hover{color:#fff}
+        .top-bar-lang .dropdown-toggle{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:6px 12px;color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.04em;line-height:1}
+        .top-bar-lang .dropdown-toggle::after{margin-inline-start:4px}
+        .top-bar-lang .dropdown-toggle:hover,.top-bar-lang .dropdown-toggle:focus{background:rgba(255,255,255,.18);color:#fff;box-shadow:none}
+        .top-bar-lang .dropdown-toggle:focus-visible{outline:2px solid #A1E934;outline-offset:2px}
+        .top-bar-lang .dropdown-menu{display:none;min-width:150px;border-radius:14px;border:1px solid #dfe6fb;box-shadow:0 18px 36px rgba(8,31,99,.12);padding:.35rem}
+        .top-bar-lang .dropdown-menu.show{display:block}
+        .top-bar-lang .dropdown-item{border-radius:10px;font-size:.88rem;font-weight:700;padding:.55rem .8rem;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+        .top-bar-lang .dropdown-item.active,.top-bar-lang .dropdown-item:active{background:#0E38B1;color:#fff}
+        .top-bar-calls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+        .top-bar-call{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 12px;color:#fff;text-decoration:none;transition:background .2s,border-color .2s}
+        .top-bar-call:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.28);color:#fff}
+        .top-bar-call i{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:rgba(161,233,52,.15);color:#A1E934;font-size:.8rem}
+        .top-bar-call span{display:flex;flex-direction:column;line-height:1.15}
+        .top-bar-call strong{font-size:.7rem;font-weight:700;color:rgba(255,255,255,.72);text-transform:uppercase;letter-spacing:.05em}
+        .top-bar-call em{font-style:normal;font-size:.8rem;font-weight:700;color:#fff}
+        .gc-phone-ltr{display:inline-block;direction:ltr;unicode-bidi:isolate}
+        .top-bar-right{display:flex;align-items:center;gap:12px}
+        .top-bar-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:50px;padding:4px 12px 4px 4px;font-size:.7rem;font-weight:600;color:#fff;letter-spacing:.02em}
+        .top-bar-badge img{height:22px;border-radius:50%;background:#fff;padding:1px}
+        .top-bar-social a{color:rgba(255,255,255,.5);font-size:.8rem;margin-left:8px;transition:color .2s}
+        .top-bar-social a:hover{color:#A1E934}
+        @media(max-width:767px){.top-bar{position:relative;top:auto;left:auto;width:100%;z-index:1001;padding:5px 0}.top-bar-right{display:none}.top-bar-inner{gap:4px}.top-bar-left{width:100%;justify-content:space-between;align-items:center;gap:.5rem;flex-wrap:nowrap}.top-bar-item{display:none}.top-bar-calls{width:auto;gap:0}.top-bar-call{padding:4px 10px}.top-bar-call:nth-child(2){display:none}.top-bar-call i{width:24px;height:24px;font-size:.72rem}.top-bar-call strong{display:none}.top-bar-call em{font-size:.78rem}.top-bar-lang{margin-inline-start:auto}.top-bar-lang .dropdown-toggle{padding:6px 10px;font-size:.68rem}}
+        
+      </style>
+      <div class="top-bar">
+        <div class="container">
+          <div class="top-bar-inner">
+            <div class="top-bar-left">
+              <div class="top-bar-calls"><a class="top-bar-call" href="tel:+201017383815" aria-label="Call GoCloud at +2 010 1738 3815"><i class="fas fa-phone-alt"></i><span><strong data-i18n-key="topbar.call_label">Make a Call</strong><em class="gc-phone-ltr">+2 010 1738 3815</em></span></a><a class="top-bar-call" href="tel:+201222666635" aria-label="Call GoCloud at +20 122 266 6635"><i class="fas fa-phone-alt"></i><span><strong data-i18n-key="topbar.call_label">Make a Call</strong><em class="gc-phone-ltr">+20 122 266 6635</em></span></a></div>
+              <div class="dropdown top-bar-lang">
+                <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Language switch" data-site-language-toggle><i class="fas fa-globe" aria-hidden="true"></i><span data-site-language-label>AR</span></button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <button class="dropdown-item" type="button" data-site-language="ar"><span>العربية</span><span class="small text-muted">AR</span></button>
+                  </li>
+                  <li>
+                    <button class="dropdown-item" type="button" data-site-language="en"><span>English</span><span class="small text-muted">EN</span></button>
+                  </li>
+                </ul>
+              </div>
+              <div class="top-bar-item"><i class="fas fa-envelope"></i><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
+              <div class="top-bar-item"><i class="fas fa-map-marker-alt"></i><span>Giza, Egypt</span></div>
+            </div>
+            <div class="top-bar-right">
+              <div class="top-bar-badge"><img src="images/odoo_learning_partner_rgb%20(1).webp" alt="Odoo Official Partner" width="22" height="22"><span data-i18n-key="topbar.partner_badge">Odoo Official Partner</span></div>
+              <div class="top-bar-social"><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="https://www.google.com/search?q=gocloud+eg" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fab fa-google"></i></a><a href="https://www.youtube.com/@GoCloudeg" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="https://www.instagram.com/gocloud_eg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a><a href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Header Component-->
+      <style>
+        .header-area.header-area1.header-area-all{padding:10px 0 8px!important}
+        .header-area .header-elements{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:14px}
+        .header-area .header-elements > div:first-child img{width:78px;height:auto!important}
+        .header-area .main-menu-ex.main-menu-ex1{min-width:0}
+        .header-area .main-menu-ex.main-menu-ex1 ul{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+        .header-area .main-menu-ex.main-menu-ex1 ul::-webkit-scrollbar{display:none}
+        .header-area .main-menu-ex.main-menu-ex1 ul li{flex:0 0 auto}
+        .header-area .main-menu-ex.main-menu-ex1 ul li a{font-size:.92rem}
+        .header-area .header1-buttons .button{flex-wrap:nowrap!important;gap:8px!important}
+        .header-area .header1-buttons .theme-btn1{padding:11px 14px;font-size:.82rem;white-space:nowrap}
+        .header-area .header1-buttons .theme-btn1 i{font-size:.85rem}
+        .mobile-sidebar .gc-mobile-contact-compact h3{margin-bottom:8px!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box+.contact-box{margin-top:2px!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera,.mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{line-height:1.2}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera a{display:inline-block;margin:0!important}
+        .mobile-sidebar .gc-mobile-contact-compact .contact-box .pera p{margin:0}
+        .mobile-sidebar .gc-mobile-contact-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+        .mobile-sidebar .menu-close{position:fixed;top:18px;right:14px;z-index:10020}
+        .mobile-sidebar .mobile-menu-close-btn{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:24px;line-height:1;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+        .mobile-sidebar .mobile-menu-close-btn:hover{background:rgba(255,255,255,.26)}
+        .mobile-header{padding:12px 0 10px!important;background:#fff;position:relative;top:auto;left:auto;right:auto}
+        .mobile-header .mobile-header-elements{display:flex;align-items:center;justify-content:space-between}
+        .mobile-header .mobile-logo img{width:82px;height:auto!important}
+        .mobile-header .mobile-menu-toggle{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;border:1px solid rgba(13,14,16,.16);background:#fff;color:#0D0E10;font-size:30px;box-shadow:0 10px 24px rgba(8,31,99,.08)}
+        @media (max-width: 767px){
+          .header-area.header-area1.header-area-all{padding:10px 0 7px!important}
+          .mobile-header,.mobile-header.mobile-header-main{position:relative;top:auto!important;z-index:1000}
+          .mobile-header .container-fluid{padding-inline:14px}
+          .mobile-header .mobile-logo img{width:76px}
+          .mobile-header .mobile-menu-toggle{width:50px;height:50px;font-size:28px}
+        }
+        
+      </style>
+      <header role="banner">
+        <div class="header-area header-area1 header-area-all d-none d-md-block d-lg-block" id="header">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="header-elements">
+                  <div><a href="index.html" aria-label="GoCloud Home"><img src="images/gocloud%20logo.webp" alt="GoCloud Logo" height="100px" width="100px" loading="lazy"></a></div>
+                  <nav role="navigation" aria-label="Main Navigation">
+                    <div class="main-menu-ex main-menu-ex1">
+                      <ul role="menubar">
+                        <li class="dropdown-menu-parrent" role="none"><a href="index.html" role="menuitem" data-i18n-key="nav.home">Home</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="about.html" role="menuitem" data-i18n-key="nav.about">About</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="service.html" role="menuitem" data-i18n-key="nav.services">Services</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="faq.html" role="menuitem" data-i18n-key="nav.faq">FAQ</a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="blog/index.html" role="menuitem" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-blog me-1"></i><span data-i18n-key="nav.blog">Blog</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-1"></i><span data-i18n-key="nav.odoo_services">Odoo Services</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;"><span data-i18n-key="nav.elite">ELITE</span><span class="badge badge-warning ms-1" data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                        <li class="dropdown-menu-parrent" role="none"><a href="contact.html" role="menuitem" data-i18n-key="nav.contact">Contact</a></li>
+                      </ul>
+                    </div>
+                  </nav>
+                  <div class="header1-buttons">
+                    <div class="button d-flex gap-2 flex-wrap justify-content-end"><a class="theme-btn1" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i><span data-i18n-key="nav.book_demo">Book a Free Demo</span></a><a class="theme-btn1" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp"><span data-i18n-key="nav.get_quote">Get A Quote</span><span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Mobile Header-->
+      <header role="banner">
+        <div class="mobile-header d-block d-md-none d-lg-none">
+          <div class="container-fluid">
+            <div class="col-12">
+              <div class="mobile-header-elements">
+                <div class="mobile-logo"><a href="index.html" aria-label="GoCloud Home"><img src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy"></a></div>
+                <div class="mobile-nav-icon">
+                  <button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mobile-sidebar d-block d-md-none d-lg-none" role="dialog" aria-label="Mobile navigation menu">
+          <div class="logo-m"><a href="index.html" aria-label="GoCloud Home"><img src="images/gocloud%20logo.webp" height="100" width="100" alt="GoCloud Logo" loading="lazy"></a></div>
+          <div class="menu-close">
+            <button class="mobile-menu-close-btn" type="button" aria-label="Close navigation menu"><i class="fa-solid fa-times" aria-hidden="true"></i></button>
+          </div>
+          <div class="mobile-nav">
+            <nav role="navigation" aria-label="Mobile Navigation">
+              <ul role="menubar">
+                <li role="none"><a href="index.html" role="menuitem" data-i18n-key="nav.home">Home</a></li>
+                <li role="none"><a href="about.html" role="menuitem" data-i18n-key="nav.about_us">About Us</a></li>
+                <li role="none"><a href="service.html" role="menuitem" data-i18n-key="nav.services">Services</a></li>
+                <li role="none"><a href="faq.html" role="menuitem" data-i18n-key="nav.faq">FAQ</a></li>
+                <li role="none"><a href="blog/index.html" role="menuitem" style="display:inline-flex; align-items:center; gap:6px;"><i class="fas fa-blog me-2"></i><span data-i18n-key="nav.blog">Blog</span></a></li>
+                <li role="none"><a href="odoo-services.html" role="menuitem" style="color: #7c3aed; font-weight: 600;"><i class="fab fa-odoo me-2"></i><span data-i18n-key="nav.odoo_services">Odoo Services</span></a></li>
+                <li role="none"><a href="elite.html" role="menuitem" style="color: #ffd700; font-weight: 600; display:inline-flex; align-items:center; gap:6px;"><span data-i18n-key="nav.elite">ELITE</span><span class="badge badge-warning ms-2" data-i18n-key="nav.new_badge" style="font-size: 0.7rem; padding: 2px 6px; background: #ffd700; color: #1a237e;">NEW</span></a></li>
+                <li role="none"><a href="contact.html" role="menuitem" data-i18n-key="nav.contact">Contact</a></li>
+              </ul>
+            </nav>
+            <div class="mobile-button"><a class="menu-btn2 mb-2" href="#" data-bs-toggle="modal" data-bs-target="#demoModal" aria-label="Book a Free Demo"><i class="fa-solid fa-calendar-check me-1" aria-hidden="true"></i><span data-i18n-key="nav.book_demo">Book a Free Demo</span></a><a class="menu-btn2" href="https://wa.me/201017383815?text=Hello%2C%20I%20would%20like%20to%20get%20a%20quote" target="_blank" rel="noopener noreferrer" aria-label="Get a Quote via WhatsApp"><span data-i18n-key="nav.get_quote">Get A Quote</span><span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a></div>
+            <div class="single-footer-items gc-mobile-contact-compact">
+              <h3>Contact Us</h3>
+              <div class="contact-box">
+                <div class="icon"><img src="images/footer1-icon1.webp" alt="Phone Icon" width="24" height="24" loading="lazy"></div>
+                <div class="pera"><a href="tel://0233762533" aria-label="Call us at 0233762533">0233762533</a></div>
+              </div>
+              <div class="contact-box">
+                <div class="icon"><img src="images/footer1-icon2.webp" alt="Mobile Phone Icon" width="24" height="24" loading="lazy"></div>
+                <div class="pera">
+                  <div class="d-flex flex-column gap-1"><a href="tel://+201017383815" aria-label="Call us at +201017383815">+201017383815</a><a href="tel://+201222666635" aria-label="Call us at +201222666635">+201222666635</a></div>
+                </div>
+              </div>
+              <div class="contact-box">
+                <div class="icon"><img src="images/footer1-icon3.webp" alt="Email Icon" width="24" height="24" loading="lazy"></div>
+                <div class="pera"><a href="mailto:marketing@gocloudeg.com" aria-label="Send email to marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
+              </div>
+              <div class="contact-box">
+                <div class="icon"><img src="images/footer1-icon4.webp" alt="Website Icon" width="24" height="24" loading="lazy"></div>
+                <div class="pera"><a href="https://gocloudeg.com" aria-label="Visit GoCloud website">www.gocloudeg.com</a></div>
+              </div>
+            </div>
+            <div class="contact-infos">
+              <h3>Our Location</h3>
+              <ul class="social-icon">
+                <li><a href="https://www.linkedin.com/company/gocloud-co"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.google.com/search?q=gocloud+eg&amp;sca_esv=1b465dddb89ef670&amp;sxsrf=AE3TifPO8dDI2un8QLeuyTZoAmiw1QCmhA%3A1750690736441&amp;ei=sGtZaLfRGoaNkdUP4_DKyAI&amp;ved=0ahUKEwi36dOb54eOAxWGRqQEHWO4EikQ4dUDCBA&amp;uact=5&amp;oq=gocloud+&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiCGdvY2xvdWQgMgoQIxjwBRgnGMkCMgQQIxgnMgUQABiABDIKEAAYgAQYQxiKBTILEC4YgAQYxwEYrwEyChAAGIAEGEMYigUyBRAAGIAEMgUQABiABDIFEAAYgAQyChAAGIAEGEMYigVInw5Q3AFY3AFwAXgBkAEAmAHXCaAB1wmqAQM3LTG4AQPIAQD4AQGYAgKgAvcJwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFmAMAiAYBkAYKkgcFMS43LTGgB9YKsgcDNy0xuAfpCcIHAzMtMsgHGg&amp;sclient=gws-wiz-serp"><i class="fa-brands fa-google"></i></a></li>
+                <li><a href="https://www.youtube.com/@GoCloudeg"><i class="fa-brands fa-youtube"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- Hero Section-->
+      <div class="common-hero">
+        <div class="container">
+          <div class="row align-items-center text-center">
+            <div class="col-lg-6 m-auto">
+              <div class="main-heading">
+                <h1 data-i18n-key="business.hero_title">ذكاء الأعمال</h1>
+                <div class="space16"></div>
+                <div class="span"><img src="images/span1.webp" alt="decorative divider" loading="lazy"><a href="service.html" data-i18n-key="business.breadcrumb_service">الخدمات</a><span class="arrow"><i class="fa-regular fa-angle-right"></i></span><span data-i18n-key="business.breadcrumb_current">ذكاء الأعمال</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Marquee Section-->
+      <section class="partners-section">
+        <div class="container">
+          <p class="partners-label" data-i18n-key="shared.partners_label">Trusted by leading organizations</p>
+        </div>
+        <div class="partners-marquee" aria-label="Our partners">
+          <div class="partners-track">
+                  <div class="partners-track-item"><img src="images/wellcare-removebg-preview.webp" alt="Wellcare" loading="lazy" width="122" height="53"></div>
+                  <div class="partners-track-item"><img src="images/Goldera-removebg-preview.webp" alt="Gold Era" loading="lazy" width="103" height="56"></div>
+                  <div class="partners-track-item"><img src="images/unicare-removebg-preview (1).webp" alt="Unicare" loading="lazy" width="133" height="100"></div>
+                  <div class="partners-track-item"><img src="images/professional-removebg-preview.webp" alt="Professional" loading="lazy" width="243" height="176"></div>
+                  <div class="partners-track-item"><img src="images/Mashreq-removebg-preview.webp" alt="Al-Mashreq" loading="lazy" width="235" height="216"></div>
+                  <div class="partners-track-item"><img src="images/omega-removebg-preview.webp" alt="Omega" loading="lazy" width="295" height="176"></div>
+                  <div class="partners-track-item"><img src="images/bahgat-removebg-preview.webp" alt="Bahgat Group" loading="lazy" width="104" height="104"></div>
+                  <div class="partners-track-item"><img src="images/onecare-removebg-preview.webp" alt="OneCare" loading="lazy" width="281" height="199"></div>
+                  <div class="partners-track-item"><img src="images/egmed-removebg-preview.webp" alt="EgMed" loading="lazy" width="200" height="200"></div>
+                  <div class="partners-track-item"><img src="images/empire_of_gold-removebg-preview.webp" alt="Empire of Gold" loading="lazy" width="200" height="200"></div>
+                  <div class="partners-track-item"><img src="images/wellcare-removebg-preview.webp" alt="Wellcare" loading="lazy" width="122" height="53"></div>
+                  <div class="partners-track-item"><img src="images/Goldera-removebg-preview.webp" alt="Gold Era" loading="lazy" width="103" height="56"></div>
+                  <div class="partners-track-item"><img src="images/unicare-removebg-preview (1).webp" alt="Unicare" loading="lazy" width="133" height="100"></div>
+                  <div class="partners-track-item"><img src="images/professional-removebg-preview.webp" alt="Professional" loading="lazy" width="243" height="176"></div>
+                  <div class="partners-track-item"><img src="images/Mashreq-removebg-preview.webp" alt="Al-Mashreq" loading="lazy" width="235" height="216"></div>
+                  <div class="partners-track-item"><img src="images/omega-removebg-preview.webp" alt="Omega" loading="lazy" width="295" height="176"></div>
+                  <div class="partners-track-item"><img src="images/bahgat-removebg-preview.webp" alt="Bahgat Group" loading="lazy" width="104" height="104"></div>
+                  <div class="partners-track-item"><img src="images/onecare-removebg-preview.webp" alt="OneCare" loading="lazy" width="281" height="199"></div>
+                  <div class="partners-track-item"><img src="images/egmed-removebg-preview.webp" alt="EgMed" loading="lazy" width="200" height="200"></div>
+                  <div class="partners-track-item"><img src="images/empire_of_gold-removebg-preview.webp" alt="Empire of Gold" loading="lazy" width="200" height="200"></div>
+          </div>
+        </div>
+      </section>
+      <div class="space40"></div>
+      <!-- Overview Section — Text + Image-->
+      <div class="container my-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000">
+            <h2 class="fw-bold mb-4" data-i18n-key="business.overview_title">ابدأ قراراتك المدفوعة بالبيانات من هنا</h2>
+            <p class="lead mb-4" data-i18n-key="business.overview_text">حوّل بياناتك الخام إلى رؤى عملية عبر حلول ذكاء أعمال شاملة. نساعد المؤسسات على اتخاذ قرارات واثقة بالاعتماد على التحليلات المتقدمة ولوحات التحكم التفاعلية والتقارير اللحظية.</p>
+            <ul class="list-unstyled">
+              <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><span data-i18n-key="business.overview_point_1">متابعة وتنبيهات مؤشرات الأداء لحظياً</span></li>
+              <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><span data-i18n-key="business.overview_point_2">لوحات تحكم مخصصة حسب احتياجات عملك</span></li>
+              <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><span data-i18n-key="business.overview_point_3">إنشاء وتسليم التقارير تلقائياً</span></li>
+              <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i><span data-i18n-key="business.overview_point_4">دمج البيانات من مصادر متعددة</span></li>
+            </ul>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300" data-aos-duration="1000">
+            <div class="position-relative image-anime"><img class="bi-hero-img img-fluid" src="images/Data-Science.webp" alt="Business intelligence data analytics dashboard" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+      <div class="space40"></div>
+      <!-- Services Feature Cards-->
+      <section class="py-5" style="background: #f8f9fa;">
+        <div class="container">
+          <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="fw-bold" data-i18n-key="business.offer_title">ماذا نقدم</h2>
+            <p class="lead text-muted" data-i18n-key="business.offer_text">خدمات ذكاء أعمال متكاملة لاستخراج القيمة الكاملة من بياناتك</p>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="bi-feature-card">
+                <div class="bi-feature-icon" style="background: rgba(13,110,253,.1); color: #0d6efd;"><i class="fas fa-chart-line"></i></div>
+                <h5 class="fw-bold" data-i18n-key="business.feature_1_title">تحليلات متقدمة</h5>
+                <p class="text-muted mb-0" data-i18n-key="business.feature_1_text">اكتشف الأنماط والاتجاهات المخفية عبر التحليل الإحصائي والنمذجة التنبؤية وقدرات تعلم الآلة.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="bi-feature-card">
+                <div class="bi-feature-icon" style="background: rgba(25,135,84,.1); color: #198754;"><i class="fas fa-tachometer-alt"></i></div>
+                <h5 class="fw-bold" data-i18n-key="business.feature_2_title">لوحات تحكم تفاعلية</h5>
+                <p class="text-muted mb-0" data-i18n-key="business.feature_2_text">اعرض البيانات المعقدة عبر لوحات بديهية وتفاعلية تتحدث في الوقت الفعلي لاتخاذ قرار أسرع.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="bi-feature-card">
+                <div class="bi-feature-icon" style="background: rgba(255,193,7,.1); color: #ffc107;"><i class="fas fa-database"></i></div>
+                <h5 class="fw-bold" data-i18n-key="business.feature_3_title">مستودعات البيانات</h5>
+                <p class="text-muted mb-0" data-i18n-key="business.feature_3_text">وحّد ونظّم بياناتك من مصادر متفرقة في مستودع واحد موثوق لتقارير متسقة.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+              <div class="bi-feature-card">
+                <div class="bi-feature-icon" style="background: rgba(220,53,69,.1); color: #dc3545;"><i class="fas fa-file-alt"></i></div>
+                <h5 class="fw-bold" data-i18n-key="business.feature_4_title">تقارير مؤتمتة</h5>
+                <p class="text-muted mb-0" data-i18n-key="business.feature_4_text">جدولة وأتمتة إنشاء التقارير لتقليل الجهد اليدوي وضمان وصول أحدث المعلومات لأصحاب القرار.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+              <div class="bi-feature-card">
+                <div class="bi-feature-icon" style="background: rgba(111,66,193,.1); color: #6f42c1;"><i class="fas fa-plug"></i></div>
+                <h5 class="fw-bold" data-i18n-key="business.feature_5_title">تكامل البيانات</h5>
+                <p class="text-muted mb-0" data-i18n-key="business.feature_5_text">اربط بسلاسة أنظمة ERP وCRM وجداول البيانات وواجهات API الخارجية ضمن مسار تحليلي موحد.</p>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+              <div class="bi-feature-card">
+                <div class="bi-feature-icon" style="background: rgba(13,202,240,.1); color: #0dcaf0;"><i class="fas fa-shield-alt"></i></div>
+                <h5 class="fw-bold" data-i18n-key="business.feature_6_title">حوكمة البيانات</h5>
+                <p class="text-muted mb-0" data-i18n-key="business.feature_6_text">طبّق ضوابط الوصول وقواعد جودة البيانات ومعايير الامتثال للحفاظ على تحليلات موثوقة وآمنة.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="space40"></div>
+      <!-- Our Process Section-->
+      <section class="py-5">
+        <div class="container">
+          <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="fw-bold" data-i18n-key="business.approach_title">منهجيتنا</h2>
+            <p class="lead text-muted" data-i18n-key="business.approach_text">مسار مجرب لتحويل البيانات الخام إلى قيمة أعمال</p>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="bi-process-step">
+                <div class="step-number">1</div>
+                <h5 class="fw-bold" data-i18n-key="business.step_1_title">الاكتشاف</h5>
+                <p class="text-muted mb-0" data-i18n-key="business.step_1_text">نقيّم مشهد بياناتك وأهدافك التجارية والتحديات الحالية.</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="bi-process-step">
+                <div class="step-number">2</div>
+                <h5 class="fw-bold" data-i18n-key="business.step_2_title">التصميم</h5>
+                <p class="text-muted mb-0" data-i18n-key="business.step_2_text">نصمم نموذج البيانات ونختار الأدوات المناسبة ونخطط لوحات التحكم.</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="bi-process-step">
+                <div class="step-number">3</div>
+                <h5 class="fw-bold" data-i18n-key="business.step_3_title">التنفيذ</h5>
+                <p class="text-muted mb-0" data-i18n-key="business.step_3_text">نبني ونختبر ونطلق حل ذكاء الأعمال مع تدريب كامل للأطراف المعنية.</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+              <div class="bi-process-step">
+                <div class="step-number">4</div>
+                <h5 class="fw-bold" data-i18n-key="business.step_4_title">التحسين</h5>
+                <p class="text-muted mb-0" data-i18n-key="business.step_4_text">مراقبة وتحسين ودعم مستمر لتعظيم العائد على الاستثمار.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Include footer-->
+      <!-- Footer Component-->
+      <style>
+        .gc-footer-compact h3{margin-bottom:8px!important}
+        .gc-footer-compact .mb-3{margin-bottom:.6rem!important}
+        .gc-footer-compact .mb-2{margin-bottom:.35rem!important}
+        .gc-footer-compact [data-newsletter-feedback]{margin-top:.35rem!important}
+        .gc-footer-compact .contact-box{padding:3px 0!important;margin:0!important;border:0!important;align-items:flex-start}
+        .gc-footer-compact .contact-box+.contact-box{margin-top:2px!important}
+        .gc-footer-compact .contact-box .icon{margin-inline-end:10px!important;line-height:1}
+        .gc-footer-compact .contact-box .pera,.gc-footer-compact .contact-box .pera a{line-height:1.2}
+        .gc-footer-compact .contact-box .pera a{display:inline-block;margin:0!important}
+        .gc-footer-compact .contact-box .pera p{margin:0}
+        .gc-footer-compact .d-flex.flex-column.gap-1{gap:.2rem!important}
+        
+      </style>
+      <footer>
+        <div class="footer1 _relative">
+          <div class="container">
+            <div class="row gy-4">
+              <div class="col-lg-3 col-md-6 col-12">
+                <div class="single-footer-items"><a class="footer-logo d-inline-block mb-3" href="index.html" aria-label="GoCloud Home"><img src="images/gocloud logo.webp" height="60" width="60" alt="GoCloud Logo" loading="lazy"></a>
+                  <p class="footer-desc" data-i18n-key="footer.about_text">As an official Odoo partner, we specialize in ERP implementation, cloud infrastructure, and seamless system integration — connecting Odoo with medical platforms, insurance systems, and enterprise applications to drive digital transformation across industries.</p>
+                  <ul class="social-icon d-flex gap-2 mt-3">
+                    <li><a href="https://www.linkedin.com/company/gocloud-co" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                    <li><a href="https://www.google.com/search?q=gocloud+eg" target="_blank" rel="noopener noreferrer" aria-label="Google"><i class="fa-brands fa-google"></i></a></li>
+                    <li><a href="https://www.youtube.com/@GoCloudeg" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="https://www.facebook.com/GoCloudEg/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/gocloud_eg/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://wa.me/201017383815" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-12">
+                <div class="single-footer-items">
+                  <h3 data-i18n-key="footer.services_title">Our Services</h3>
+                  <ul class="menu-list">
+                    <li><a href="cloud-services.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.cloud_solutions">Cloud Solutions</span></a></li>
+                    <li><a href="odoo-services.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_services">Odoo Services</span></a></li>
+                    <li><a href="odoo-imp.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_implementation">Odoo Implementation</span></a></li>
+                    <li><a href="odoo-dev.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.odoo_development">Odoo Development</span></a></li>
+                    <li><a href="business.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.business_intelligence">Business Intelligence</span></a></li>
+                    <li><a href="portfolio.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.portfolio">Portfolio & E-commerce</span></a></li>
+                    <li><a href="elite.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.elite_medical">ELITE Medical Insurance</span></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-6 col-12">
+                <div class="single-footer-items">
+                  <h3 data-i18n-key="footer.links_title">Useful Links</h3>
+                  <ul class="menu-list">
+                    <li><a href="about.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.about_us">About Us</span></a></li>
+                    <li><a href="service.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.services">Services</span></a></li>
+                    <li><a href="contact.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.contact_us">Contact Us</span></a></li>
+                    <li><a href="conditions-terms.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.terms">Terms & Conditions</span></a></li>
+                    <li><a href="privacy.html"><i class="fa-solid fa-chevron-right me-2"></i><span data-i18n-key="footer.privacy">Privacy Policy</span></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-12">
+                <div class="single-footer-items gc-footer-compact">
+                  <h3 data-i18n-key="footer.contact_title">Contact Us</h3>
+                  <div class="mb-3">
+                    <p class="mb-2 fw-semibold" data-i18n-key="footer.newsletter_title">Stay updated with GoCloud insights</p>
+                    <form data-newsletter-form data-source="website-footer">
+                      <label class="visually-hidden" for="newsletterEmailFooter" data-i18n-key="footer.email_label">Email address</label>
+                      <div class="input-group input-group-sm">
+                        <input class="form-control" id="newsletterEmailFooter" type="email" name="email" placeholder="name@company.com" required autocomplete="email">
+                        <button class="btn btn-light text-dark" type="submit" data-i18n-key="footer.subscribe">Subscribe</button>
+                      </div>
+                    </form>
+                    <p class="small mt-2 mb-0" data-newsletter-feedback role="status" aria-live="polite"></p>
+                  </div>
+                  <div class="contact-box">
+                    <div class="icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="pera"><a class="gc-phone-ltr" href="tel:+20233762533">02 3376 2533</a></div>
+                  </div>
+                  <div class="contact-box">
+                    <div class="icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div class="pera">
+                      <div class="d-flex flex-column gap-1"><a class="gc-phone-ltr" href="tel:+201017383815">+20 101 738 3815</a><a class="gc-phone-ltr" href="tel:+201222666635">+20 122 266 6635</a></div>
+                    </div>
+                  </div>
+                  <div class="contact-box">
+                    <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="pera"><a href="mailto:marketing@gocloudeg.com">marketing@gocloudeg.com</a></div>
+                  </div>
+                  <div class="contact-box">
+                    <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="pera"><a href="https://www.google.com/maps/place/?q=place_id:ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer">Ahram Gardens, Gate 4, Giza, Egypt</a></div>
+                  </div>
+                  <div class="d-flex gap-2 mt-3"><a class="btn btn-sm btn-outline-light" href="https://www.google.com/maps/dir/?api=1&amp;destination=GoCloud&amp;destination_place_id=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right me-1"></i><span data-i18n-key="footer.directions">Directions</span></a><a class="btn btn-sm btn-outline-light" href="https://search.google.com/local/writereview?placeid=ChIJY6qKY7RPWBQRjTQuWEVsOHQ" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-star me-1"></i><span data-i18n-key="footer.review_us">Review Us</span></a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                  <p class="mb-0">&copy;<span id="gcCurrentYear"></span><span data-i18n-key="footer.copyright"> GoCloud. All Rights Reserved.</span></p>
+                </div>
+                <div class="col-md-6 text-center text-md-end"><a href="conditions-terms.html" data-i18n-key="footer.terms">Terms & Conditions</a><span class="mx-2">|</span><a href="privacy.html" data-i18n-key="footer.privacy">Privacy Policy</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- Include whatsapp button-->
+      <!-- WhatsApp Floating Button Component-->
+      <style>
+        .whatsapp-float {
+          position: fixed;
+          width: 60px;
+          height: 60px;
+          bottom: 100px;
+          right: 30px;
+          background-color: #25d366;
+          color: #FFF;
+          border-radius: 40px;
+          text-align: center;
+          font-size: 30px;
+          z-index: 100;
+          cursor: pointer;
+        }
+        
+        .my-float {
+          margin-top: 16px;
+        }
+        
+        @media (max-width: 767px) {
+          .whatsapp-float {
+            right: 12px;
+            bottom: 18px;
+            width: 54px;
+            height: 54px;
+            font-size: 27px;
+            z-index: 1099;
+          }
+        }
+      </style>
+    </main>
+    <!-- Demo Booking Modal (global)-->
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content" style="border: none; border-radius: 20px; overflow: hidden;">
+          <div class="modal-header" style="background: linear-gradient(135deg, #0E38B1 0%, #113ADC 100%); border: none; padding: 1.75rem 2rem;">
+            <div class="d-flex align-items-center gap-3">
+              <div class="d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(161, 233, 52, 0.2); border-radius: 12px;"><i class="fa-solid fa-calendar-check" style="font-size: 1.25rem; color: #A1E934;" aria-hidden="true"></i></div>
+              <div>
+                <h5 class="mb-0" id="demoModalLabel" style="color: #fff; font-weight: 700; font-size: 1.25rem;">Book a Free Demo</h5>
+                <p class="mb-0" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">See how GoCloud solutions can transform your business</p>
+              </div>
+            </div>
+            <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" style="padding: 2rem;">
+            <form id="demoBookingForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="demoFirstName" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-user me-1" style="color: #0E38B1;" aria-hidden="true"></i>First Name<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoFirstName" type="text" name="firstName" placeholder="e.g. Ahmed" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please enter your first name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoLastName" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-user me-1" style="color: #0E38B1;" aria-hidden="true"></i>Last Name<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoLastName" type="text" name="lastName" placeholder="e.g. Hassan" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please enter your last name.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoEmail" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-envelope me-1" style="color: #0E38B1;" aria-hidden="true"></i>Email Address<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoEmail" type="email" name="email" placeholder="e.g. ahmed@company.com" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoPhone" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-mobile-screen me-1" style="color: #0E38B1;" aria-hidden="true"></i>Mobile Number<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoPhone" type="tel" name="phone" placeholder="e.g. +20 10X XXX XXXX" required pattern="[\+]?[0-9\s\-]{8,20}" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please enter a valid mobile number.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoCompany" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-building me-1" style="color: #0E38B1;" aria-hidden="true"></i>Company Name</label>
+                  <input class="form-control" id="demoCompany" type="text" name="company" placeholder="e.g. ABC Corp" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoService" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-cogs me-1" style="color: #0E38B1;" aria-hidden="true"></i>Interested In</label>
+                  <select class="form-select" id="demoService" name="service" style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                    <option value="" selected>Select a service...</option>
+                    <option value="Odoo ERP">Odoo ERP Implementation</option>
+                    <option value="Cloud Solutions">Cloud Solutions</option>
+                    <option value="ELITE Insurance">ELITE Medical Insurance Platform</option>
+                    <option value="Business Intelligence">Business Intelligence</option>
+                    <option value="Custom Development">Custom Software Development</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoDate" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-calendar me-1" style="color: #0E38B1;" aria-hidden="true"></i>Preferred Date<span class="text-danger">*</span></label>
+                  <input class="form-control" id="demoDate" type="date" name="preferredDate" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                  <div class="invalid-feedback">Please select a preferred date.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="demoTime" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-clock me-1" style="color: #0E38B1;" aria-hidden="true"></i>Preferred Time<span class="text-danger">*</span></label>
+                  <select class="form-select" id="demoTime" name="preferredTime" required style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6;">
+                    <option value="" selected>Select a time slot...</option>
+                    <option value="09:00 - 10:00 AM">09:00 — 10:00 AM</option>
+                    <option value="10:00 - 11:00 AM">10:00 — 11:00 AM</option>
+                    <option value="11:00 - 12:00 PM">11:00 — 12:00 PM</option>
+                    <option value="12:00 - 01:00 PM">12:00 — 01:00 PM</option>
+                    <option value="01:00 - 02:00 PM">01:00 — 02:00 PM</option>
+                    <option value="02:00 - 03:00 PM">02:00 — 03:00 PM</option>
+                    <option value="03:00 - 04:00 PM">03:00 — 04:00 PM</option>
+                    <option value="04:00 - 05:00 PM">04:00 — 05:00 PM</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a preferred time.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="demoNotes" style="font-weight: 600; font-size: 0.85rem; color: #0D0E10;"><i class="fa-solid fa-comment me-1" style="color: #0E38B1;" aria-hidden="true"></i>Additional Notes</label>
+                  <textarea class="form-control" id="demoNotes" name="notes" rows="3" placeholder="Tell us about your requirements or questions..." style="border-radius: 12px; padding: 0.7rem 1rem; border: 1px solid #dee2e6; resize: vertical;"></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer" style="border-top: 1px solid #e9ecef; padding: 1.25rem 2rem;">
+            <button class="btn btn-light" type="button" data-bs-dismiss="modal" style="border-radius: 50px; padding: 10px 24px; font-weight: 600;">Cancel</button>
+            <button class="btn" id="demoSubmitBtn" type="button" style="background: linear-gradient(135deg, #0E38B1, #113ADC); color: #fff; border: none; border-radius: 50px; padding: 10px 28px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i>Submit Request</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- AI Chatbot Widget (global)-->
+    <style>
+      .gc-chat-btn{position:fixed;bottom:170px;right:30px;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;border:none;cursor:pointer;z-index:1100;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(14,56,177,.35);transition:all .3s}
+      .gc-chat-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(14,56,177,.45)}
+      .gc-chat-btn .gc-badge{position:absolute;top:-2px;right:-2px;width:18px;height:18px;background:#A1E934;border-radius:50%;border:2px solid #fff;animation:gc-pulse 2s infinite}
+      @keyframes gc-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+      .gc-chat-btn i{font-size:1.4rem}
+      .gc-chat-panel{position:fixed;bottom:170px;right:30px;width:380px;height:520px;background:#fff;border-radius:20px;box-shadow:0 12px 48px rgba(0,0,0,.15);z-index:1100;display:none;flex-direction:column;overflow:hidden;border:1px solid #e9ecef}
+      .gc-chat-panel.gc-open{display:flex}
+      .gc-chat-header{background:linear-gradient(135deg,#0E38B1 0%,#113ADC 100%);padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+      .gc-chat-header img{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.15);padding:4px}
+      .gc-chat-header-info{flex:1}
+      .gc-chat-header-info h6{color:#fff;font-size:.9rem;font-weight:700;margin:0}
+      .gc-chat-header-info span{color:rgba(255,255,255,.7);font-size:.72rem}
+      .gc-chat-close{background:none;border:none;color:rgba(255,255,255,.7);font-size:1.1rem;cursor:pointer;padding:4px 8px;border-radius:8px;transition:all .2s}
+      .gc-chat-close:hover{color:#fff;background:rgba(255,255,255,.15)}
+      .gc-chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#f8f9fb}
+      .gc-chat-messages::-webkit-scrollbar{width:4px}
+      .gc-chat-messages::-webkit-scrollbar-thumb{background:#c7d2fe;border-radius:4px}
+      .gc-msg{max-width:85%;padding:10px 14px;border-radius:16px;font-size:.875rem;line-height:1.6;word-wrap:break-word}
+      .gc-msg a{color:inherit;text-decoration:underline}
+      .gc-msg-bot{background:#fff;color:#333;align-self:flex-start;border:1px solid #e9ecef;border-bottom-left-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+      .gc-msg-user{background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+      .gc-typing{align-self:flex-start;background:#fff;border:1px solid #e9ecef;border-radius:16px;padding:10px 18px;display:none;gap:4px;align-items:center;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+      .gc-typing.gc-show{display:flex}
+      .gc-typing span{width:6px;height:6px;background:#0E38B1;border-radius:50%;animation:gc-bounce .6s infinite alternate}
+      .gc-typing span:nth-child(2){animation-delay:.2s}
+      .gc-typing span:nth-child(3){animation-delay:.4s}
+      @keyframes gc-bounce{to{transform:translateY(-6px);opacity:.4}}
+      .gc-chat-input{display:flex;align-items:flex-end;gap:8px;padding:12px 16px;border-top:1px solid #e9ecef;background:#fff;flex-shrink:0}
+      .gc-chat-input textarea{flex:1;border:1px solid #dee2e6;border-radius:20px;padding:10px 16px;font-size:.875rem;outline:none;transition:border-color .2s;resize:none;max-height:120px;min-height:40px;height:40px;line-height:1.4;font-family:inherit;overflow-y:auto}
+      .gc-chat-input textarea:focus{border-color:#0E38B1;box-shadow:0 0 0 3px rgba(14,56,177,.1)}
+      .gc-chat-input button{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0E38B1,#113ADC);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+      .gc-chat-input button:hover{transform:scale(1.05);box-shadow:0 4px 12px rgba(14,56,177,.3)}
+      .gc-chat-input button:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+      .gc-chat-powered{text-align:center;padding:6px;font-size:.65rem;color:#999;background:#fff;border-top:1px solid #f0f1f5;flex-shrink:0}
+      @media (max-width: 767px){.gc-chat-btn{display:none}.gc-chat-panel{display:none!important}}
+      @media(max-width:576px){.gc-chat-panel{width:100%;height:100%;bottom:0;right:0;border-radius:0}.gc-chat-btn{bottom:18px;left:12px;right:auto}}
+      
+    </style>
+    <button class="gc-chat-btn" id="gcChatBtn" type="button" aria-label="Open AI Chat Assistant" title="Chat with GoCloud AI"><i class="fa-solid fa-robot" aria-hidden="true"></i><span class="gc-badge" aria-hidden="true"></span></button>
+    <div class="gc-chat-panel" id="gcChatPanel" role="dialog" aria-label="GoCloud AI Chat Assistant">
+      <div class="gc-chat-header"><img src="images/gocloud%20logo.webp" alt="GoCloud" loading="lazy">
+        <div class="gc-chat-header-info">
+          <h6>GoCloud AI Assistant</h6><span><i class="fa-solid fa-circle me-1" style="font-size:6px;color:#A1E934;"></i>Online</span>
+        </div>
+        <button class="gc-chat-close" type="button" aria-label="Close chat"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+      </div>
+      <div class="gc-chat-messages" id="gcChatMessages" aria-live="polite" aria-label="Chat messages">
+        <div class="gc-typing" id="gcTyping" aria-label="Assistant is typing"><span></span><span></span><span></span></div>
+      </div>
+      <div class="gc-chat-input">
+        <textarea id="gcChatInput" placeholder="Ask about Odoo, ELITE, or our services..." aria-label="Type your message" autocomplete="off" maxlength="500" rows="1"></textarea>
+        <button id="gcChatSend" type="button" aria-label="Send message"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i></button>
+      </div>
+      <div class="gc-chat-powered">Powered by GoCloud AI</div>
+    </div>
+    <script src="js/chatbot.min.js" defer></script>
+    <!-- Scripts (CDN)-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/magnific-popup@1.1.0/dist/jquery.magnific-popup.min.js" integrity="sha384-fexNtx3nPE3sjIQuGk8G2X8X/aSEBVMC58R839hkgsY/Xjhvkm7m2otGhwrdESWj" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/owl.carousel@2.3.4/dist/owl.carousel.min.js" integrity="sha384-l/y5WJTphApmSlx76Ev6k4G3zxu/+19CVvn9OTKI7gs4Yu5Hm8mjpdtdr5oyhnNo" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" integrity="sha384-YGnnOBKslPJVs35GG0TtAZ4uO7BHpHlqJhs0XK3k6cuVb6EBtl+8xcvIIOKV5wB+" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha384-d+vyQ0dYcymoP8ndq2hW7FGC50nqGdXUEgoOUGxbbkAJwZqL7h+jKN0GGgn9hFDS" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha384-poC0r6usQOX2Ayt/VGA+t81H6V3iN9L+Irz9iO8o+s0X20tLpzc9DOOtnKxhaQSE" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" crossorigin="anonymous" defer></script>
+    <script src="js/plugins-bundle.min.js" defer></script>
+    <script src="js/security-init.js" defer></script>
+    <script src="js/site-language.js" defer></script>
+    <script src="js/meta-pixel.js" defer></script>
+    <script src="js/main.min.js" defer></script>
+    <script src="js/newsletter.js" defer></script>
+    <!-- Page specific scripts-->
+  </body>
+</html>

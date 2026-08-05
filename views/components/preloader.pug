@@ -1,15 +1,36 @@
-// Preloader Component
+//- Scroll-to-top progress ring
 .paginacontainer
   .progress-wrap
     svg.progress-circle.svg-content(width="100%" height="100%" viewBox="-1 -1 102 102")
       path(d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98")
+
+//- Site preloader
+style.
+  /* Preloader overrides */
+  .ctn-preloader.ctn-preloader1 .loader-section-left{background:linear-gradient(135deg,#0E38B1 0%,#0a2a8a 100%)}
+  .ctn-preloader.ctn-preloader1 .loader-section-right{background:linear-gradient(135deg,#0a2a8a 0%,#0E38B1 100%)}
+  .ctn-preloader .animation-preloader .spinner{border:none!important;animation:none!important;height:auto!important;width:auto!important;margin:0 auto 1.5rem!important;display:flex;flex-direction:column;align-items:center}
+  .preloader-logo{width:90px;height:90px;border-radius:20px;box-shadow:0 16px 48px rgba(0,0,0,.25);animation:preloaderPulse 1.8s ease-in-out infinite;background:#fff;padding:8px}
+  .preloader-logo img{width:100%;height:100%;object-fit:contain;border-radius:12px}
+  .ctn-preloader .animation-preloader .txt-loading{font:700 1.6rem 'Figtree',sans-serif!important;letter-spacing:.35em;margin-top:.5rem}
+  .ctn-preloader .animation-preloader .txt-loading .letters-loading{color:rgba(255,255,255,.15)}
+  .ctn-preloader .animation-preloader .txt-loading .letters-loading:before{color:rgba(255,255,255,.85)}
+  .preloader-bar{width:160px;height:3px;background:rgba(255,255,255,.12);border-radius:4px;margin:1.5rem auto 0;overflow:hidden}
+  .preloader-bar-inner{height:100%;width:40%;background:linear-gradient(90deg,#A1E934,#fff);border-radius:4px;animation:preloaderSlide 1.2s ease-in-out infinite}
+  .preloader-tagline{color:rgba(255,255,255,.45);font-size:.75rem;font-weight:500;letter-spacing:.08em;margin-top:1rem;text-transform:none;text-align:center;display:block;width:100%}
+  html[lang='ar'] .preloader-tagline{direction:rtl;text-align:center}
+  @media (max-width: 767px){.preloader-tagline{text-align:center;letter-spacing:.05em}}
+  @media (max-width: 767px){.progress-wrap{right:12px!important;bottom:18px!important}}
+  @keyframes preloaderPulse{0%,100%{transform:scale(1);box-shadow:0 16px 48px rgba(0,0,0,.25)}50%{transform:scale(1.06);box-shadow:0 20px 56px rgba(14,56,177,.35)}}
+  @keyframes preloaderSlide{0%{transform:translateX(-100%)}50%{transform:translateX(200%)}100%{transform:translateX(400%)}}
 
 section
   #preloader
     .ctn-preloader.ctn-preloader1#ctn-preloader
       .animation-preloader
         .spinner
-          img(src="images/gocloud%20logo.webp" alt="GoCloud Logo" height="200px" width="200px" loading="lazy" style="border-radius: 50%;")
+          .preloader-logo
+            img(src="images/gocloud%20logo.webp" alt="GoCloud" width="90" height="90")
         .txt-loading
           span.letters-loading(data-text-preloader="G") G
           span.letters-loading(data-text-preloader="O") O
@@ -18,5 +39,8 @@ section
           span.letters-loading(data-text-preloader="O") O
           span.letters-loading(data-text-preloader="U") U
           span.letters-loading(data-text-preloader="D") D
+        .preloader-bar
+          .preloader-bar-inner
+        .preloader-tagline Smart Software Solutions
       .loader-section-left.loader-section.section-left
       .loader-section-right.loader-section.section-right

@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "inLanguage": "ar",
+  "headline": "كيف يساعد Odoo شركات التوزيع في تحسين سلسلة التوريد",
+  "description": "تعرّف على كيفية استخدام نظام Odoo ERP في تحسين عمليات التوزيع وإدارة سلسلة التوريد — من المستودعات حتى التوصيل النهائي.",
+  "image": "https://www.gocloudeg.com/images/technology%20services.webp",
+  "datePublished": "2026-03-25",
+  "author": {
+    "@type": "Person",
+    "name": "فريق GoCloud"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GoCloud",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gocloudeg.com/images/gocloud-logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.gocloudeg.com/blog/odoo-distribution-supply-chain.html"
+  }
+}
