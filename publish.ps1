@@ -22,6 +22,102 @@ $ErrorActionPreference = "Stop"
 $ProjectRoot = $PSScriptRoot
 $DeploymentFolder = Join-Path $ProjectRoot "deployment"
 
+function Convert-ToPosixRelativePath {
+    param(
+        [string]$BasePath,
+        [string]$FullPath
+    )
+
+    return $FullPath.Substring($BasePath.Length).TrimStart('\\').Replace('\\', '/')
+}
+
+function New-RemoteCleanupCommand {
+    param(
+        [string]$RemoteRoot,
+        [bool]$IncludeImages
+    )
+
+    $preservePrefixes = @('api/node_modules/')
+    if (-not $IncludeImages) {
+        $preservePrefixes += 'images/'
+    }
+
+    $preserveList = if ($preservePrefixes.Count -gt 0) {
+        ($preservePrefixes | ForEach-Object { "'{0}'" -f $_ }) -join ', '
+    } else {
+        ''
+    }
+
+    $remoteRootLiteral = $RemoteRoot.Replace("'", "''")
+
+    $script = @"
+$remoteRoot = '$remoteRootLiteral'
+$manifestPath = Join-Path $remoteRoot '.deploy-manifest.txt'
+$preservePrefixes = @($preserveList)
+$manifest = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
+if (Test-Path $manifestPath) {
+    Get-Content $manifestPath | ForEach-Object {
+        $entry = $_.Trim()
+        if ($entry) {
+            [void]$manifest.Add($entry)
+        }
+    }
+}
+
+$removedFiles = 0
+$removedDirectories = 0
+$remoteFiles = Get-ChildItem $remoteRoot -Recurse -File
+foreach ($file in $remoteFiles) {
+    $relativePath = $file.FullName.Substring($remoteRoot.Length).TrimStart('\\').Replace('\\', '/')
+    if ($relativePath -eq '.deploy-manifest.txt') {
+        continue
+    }
+
+    $preserveFile = $false
+    foreach ($prefix in $preservePrefixes) {
+        if ($relativePath.StartsWith($prefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+            $preserveFile = $true
+            break
+        }
+    }
+
+    if (-not $preserveFile -and -not $manifest.Contains($relativePath)) {
+        Remove-Item $file.FullName -Force
+        $removedFiles++
+    }
+}
+
+$remoteDirectories = Get-ChildItem $remoteRoot -Recurse -Directory | Sort-Object FullName -Descending
+foreach ($directory in $remoteDirectories) {
+    $relativePath = $directory.FullName.Substring($remoteRoot.Length).TrimStart('\\').Replace('\\', '/') + '/'
+    $preserveDirectory = $false
+    foreach ($prefix in $preservePrefixes) {
+        if ($relativePath.StartsWith($prefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+            $preserveDirectory = $true
+            break
+        }
+    }
+
+    if ($preserveDirectory) {
+        continue
+    }
+
+    if (-not (Get-ChildItem $directory.FullName -Force | Select-Object -First 1)) {
+        Remove-Item $directory.FullName -Force
+        $removedDirectories++
+    }
+}
+
+if (Test-Path $manifestPath) {
+    Remove-Item $manifestPath -Force
+}
+
+Write-Output ("REMOVED_FILES={0};REMOVED_DIRECTORIES={1}" -f $removedFiles, $removedDirectories)
+"@
+
+    return [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($script))
+}
+
 Write-Host ""
 Write-Host "  GoCloud - Publish to VPS" -ForegroundColor Cyan
 Write-Host "  ========================" -ForegroundColor Cyan
@@ -35,7 +131,7 @@ if ($WithImages) {
 Write-Host ""
 
 # ── Step 1: Check SSH availability ──
-Write-Host "[1/5] Checking SSH connectivity..." -ForegroundColor Yellow
+Write-Host "[1/7] Checking SSH connectivity..." -ForegroundColor Yellow
 $sshCmd = Get-Command ssh -ErrorAction SilentlyContinue
 if (-not $sshCmd) {
     Write-Host "  ERROR: ssh.exe not found. Install OpenSSH client." -ForegroundColor Red
@@ -66,7 +162,7 @@ Write-Host "  OK - Connected to VPS" -ForegroundColor Green
 
 # ── Step 2: Build ──
 if (-not $SkipBuild) {
-    Write-Host "[2/5] Building project..." -ForegroundColor Yellow
+    Write-Host "[2/7] Building project..." -ForegroundColor Yellow
     Push-Location $ProjectRoot
     try {
         npm run build 2>&1 | Out-Null
@@ -79,11 +175,11 @@ if (-not $SkipBuild) {
         Pop-Location
     }
 } else {
-    Write-Host "[2/5] Skipping build (--SkipBuild)" -ForegroundColor DarkGray
+    Write-Host "[2/7] Skipping build (--SkipBuild)" -ForegroundColor DarkGray
 }
 
 # ── Step 3: Stage deployment folder ──
-Write-Host "[3/5] Staging deployment package..." -ForegroundColor Yellow
+Write-Host "[3/7] Staging deployment package..." -ForegroundColor Yellow
 Push-Location $ProjectRoot
 try {
     $deployArgs = @('-ExecutionPolicy', 'Bypass', '-File', "$ProjectRoot\deploy-iis.ps1", '-BuildOnly')
@@ -98,9 +194,12 @@ try {
     if (Test-Path "google8ec4a2e3b3ab7585.html") {
         Copy-Item "google8ec4a2e3b3ab7585.html" "$DeploymentFolder\" -Force
     }
-    if ($WithImages -and (Test-Path "images\icons")) {
-        New-Item -ItemType Directory -Path "$DeploymentFolder\images\icons" -Force | Out-Null
-        Copy-Item "images\icons\*" "$DeploymentFolder\images\icons\" -Force
+    if ($WithImages -and (Test-Path "images")) {
+        $deploymentImages = Join-Path $DeploymentFolder "images"
+        if (Test-Path $deploymentImages) {
+            Remove-Item $deploymentImages -Recurse -Force
+        }
+        Copy-Item "images" $DeploymentFolder -Recurse -Force
     }
 
     $fileCount = (Get-ChildItem $DeploymentFolder -Recurse -File).Count
@@ -110,24 +209,31 @@ try {
     Pop-Location
 }
 
+$manifestPath = Join-Path ([System.IO.Path]::GetTempPath()) ("gocloud-deploy-manifest-{0}.txt" -f [Guid]::NewGuid().ToString('N'))
+Get-ChildItem $DeploymentFolder -Recurse -File |
+    ForEach-Object { Convert-ToPosixRelativePath -BasePath $DeploymentFolder -FullPath $_.FullName } |
+    Sort-Object |
+    Set-Content -Path $manifestPath -Encoding UTF8
+
 # ── Step 4: Dry run check ──
 if ($DryRun) {
-    Write-Host "[4/5] DRY RUN - Would deploy these files:" -ForegroundColor Yellow
+    Write-Host "[4/7] DRY RUN - Would deploy these files:" -ForegroundColor Yellow
     Get-ChildItem $DeploymentFolder -Recurse -File |
         ForEach-Object { Write-Host "  $($_.FullName.Replace($DeploymentFolder, ''))" -ForegroundColor Gray }
     Write-Host ""
     Write-Host "  No files were uploaded." -ForegroundColor Yellow
+    Remove-Item $manifestPath -Force -ErrorAction SilentlyContinue
     exit 0
 }
 
 # ── Step 5: Upload via SCP ──
-Write-Host "[4/5] Backing up current site on VPS..." -ForegroundColor Yellow
+Write-Host "[4/7] Backing up current site on VPS..." -ForegroundColor Yellow
 $timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
 $backupCmd = "if (Test-Path '$RemotePath') { Copy-Item '$RemotePath' 'C:\inetpub\backups\gocloud-$timestamp' -Recurse -Force }"
 ssh -p $SshPort "$User@$VpsHost" "powershell -Command `"New-Item -ItemType Directory -Path 'C:\inetpub\backups' -Force | Out-Null; $backupCmd`"" 2>&1 | Out-Null
 Write-Host "  OK - Backup created: gocloud-$timestamp" -ForegroundColor Green
 
-Write-Host "[5/5] Uploading to VPS..." -ForegroundColor Yellow
+Write-Host "[5/7] Uploading to VPS..." -ForegroundColor Yellow
 $startTime = Get-Date
 $remoteScpPath = ($RemotePath -replace '\\', '/')
 
@@ -142,8 +248,31 @@ if ($LASTEXITCODE -ne 0) {
 $elapsed = [math]::Round(((Get-Date) - $startTime).TotalSeconds, 1)
 Write-Host "  OK - Upload completed in ${elapsed}s" -ForegroundColor Green
 
-# ── Step 6: Install API dependencies on VPS ──
-Write-Host "[6/6] Installing API dependencies on VPS..." -ForegroundColor Yellow
+# Upload cleanup manifest and remove stale remote files.
+scp -P $SshPort $manifestPath "${User}@${VpsHost}:$remoteScpPath/.deploy-manifest.txt" 2>&1 | Out-Null
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "  ERROR: Failed to upload cleanup manifest!" -ForegroundColor Red
+    Remove-Item $manifestPath -Force -ErrorAction SilentlyContinue
+    exit 1
+}
+
+Write-Host "[6/7] Removing stale remote files..." -ForegroundColor Yellow
+$cleanupCommand = New-RemoteCleanupCommand -RemoteRoot $RemotePath -IncludeImages $WithImages.IsPresent
+$cleanupResult = ssh -p $SshPort "$User@$VpsHost" "powershell -NoProfile -EncodedCommand $cleanupCommand" 2>&1
+Remove-Item $manifestPath -Force -ErrorAction SilentlyContinue
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "  WARN - Remote cleanup failed. Stale files may remain on the VPS." -ForegroundColor Yellow
+} else {
+    $cleanupSummary = ($cleanupResult | Select-Object -Last 1)
+    if ($cleanupSummary) {
+        Write-Host "  OK - $cleanupSummary" -ForegroundColor Green
+    } else {
+        Write-Host "  OK - Remote cleanup completed" -ForegroundColor Green
+    }
+}
+
+# ── Step 7: Install API dependencies on VPS ──
+Write-Host "[7/7] Installing API dependencies on VPS..." -ForegroundColor Yellow
 $apiInstall = ssh -p $SshPort "$User@$VpsHost" "cd C:\inetpub\wwwroot\GoCloud_website_project\api; npm install --omit=dev 2>&1" 2>&1
 if ($LASTEXITCODE -ne 0) {
     Write-Host "  WARN - API dependency install failed. May need manual setup." -ForegroundColor Yellow

@@ -194,34 +194,6 @@ ELITE Success Story:
   - Processing 10,000+ claims monthly with 100% accuracy
 
 =====================================================
-CLOUD SERVICES (/cloud-services.html)
-=====================================================
-
-Three Cloud Service Categories:
-
-1. Hosting:
-   - Reliable, secure, scalable infrastructure
-   - Shared, dedicated, and cloud hosting options
-   - 24/7 technical support
-   - Robust security measures
-   - Maximum uptime and performance
-
-2. Containerization:
-   - Docker and Kubernetes implementation
-   - Seamless application deployment and scaling
-   - DevOps expertise
-   - CI/CD pipeline automation
-
-3. Linux Support:
-   - Comprehensive system administration
-   - Security hardening
-   - Performance optimization
-   - Server configuration and package management
-   - User administration and troubleshooting
-
-Technology Partners: Linux, Microsoft .NET, Contabo, Oracle, Docker
-
-=====================================================
 BUSINESS INTELLIGENCE (/business.html)
 =====================================================
 

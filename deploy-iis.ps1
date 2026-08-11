@@ -79,7 +79,6 @@ $htmlFiles = @(
     "portfolio.html",
     "contact.html",
     "business.html",
-    "cloud-services.html",
     "elite.html",
     "odoo-dev.html",
     "odoo-imp.html",

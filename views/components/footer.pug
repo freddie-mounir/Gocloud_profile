@@ -49,10 +49,6 @@ footer
             h3(data-i18n-key="footer.services_title") Our Services
             ul.menu-list
               li
-                a(href=`${p}cloud-services.html`)
-                  i.fa-solid.fa-chevron-right.me-2
-                  span(data-i18n-key="footer.cloud_solutions") Cloud Solutions
-              li
                 a(href=`${p}odoo-services.html`)
                   i.fa-solid.fa-chevron-right.me-2
                   span(data-i18n-key="footer.odoo_services") Odoo Services
@@ -113,7 +109,7 @@ footer
                 label.visually-hidden(for="newsletterEmailFooter" data-i18n-key="footer.email_label") Email address
                 .input-group.input-group-sm
                   input#newsletterEmailFooter.form-control(type="email" name="email" placeholder="name@company.com" required autocomplete="email")
-                  button.btn.btn-light.text-dark(type="submit" data-i18n-key="footer.subscribe") Subscribe
+                  button.btn.btn-primary.text-white(type="submit" data-i18n-key="footer.subscribe") Subscribe
               p.small.mt-2.mb-0(data-newsletter-feedback role="status" aria-live="polite")
 
             .contact-box

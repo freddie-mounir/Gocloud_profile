@@ -85,6 +85,12 @@ const NEWSLETTER_TAGS = ['Newsletter', 'Inbound Lead'];
 const NEWSLETTER_CONFIRMATION_BASE_URL =
   process.env.NEWSLETTER_CONFIRMATION_URL || 'https://www.gocloudeg.com/api/newsletter/confirm';
 const NEWSLETTER_TOKEN_TTL_HOURS = Number(process.env.NEWSLETTER_TOKEN_TTL_HOURS || 48);
+const NEWSLETTER_CONFIRMATION_SECRET =
+  process.env.NEWSLETTER_CONFIRMATION_SECRET
+  || process.env.NEWSLETTER_PREFERENCES_SECRET
+  || process.env.SMTP_PASS
+  || process.env.ZOHO_APP_PASSWORD
+  || 'newsletter-confirmation-secret';
 const NEWSLETTER_PREFERENCES_URL =
   process.env.NEWSLETTER_PREFERENCES_URL || 'https://www.gocloudeg.com/api/newsletter/preferences';
 const NEWSLETTER_UNSUBSCRIBE_URL =
@@ -398,12 +404,25 @@ function writeNewsletterSubscribers(subscribers) {
   fs.writeFileSync(NEWSLETTER_FILE, JSON.stringify(subscribers, null, 2), 'utf8');
 }
 
-function createConfirmationToken() {
-  const rawToken = crypto.randomBytes(32).toString('hex');
+function createConfirmationToken(email) {
+  const rawToken = PREF_TOKEN.createPreferencesToken(email, NEWSLETTER_CONFIRMATION_SECRET, Date.now());
   const tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex');
   const expiresAt = new Date(Date.now() + NEWSLETTER_TOKEN_TTL_HOURS * 60 * 60 * 1000).toISOString();
 
   return { rawToken, tokenHash, expiresAt };
+}
+
+function hasReusablePendingConfirmationToken(subscriber) {
+  if (!subscriber || subscriber.status !== NEWSLETTER_STATUS_PENDING) {
+    return false;
+  }
+
+  if (!subscriber.confirmationTokenRaw || !subscriber.confirmationTokenHash) {
+    return false;
+  }
+
+  const expiresAt = Date.parse(subscriber.confirmationTokenExpiresAt || '');
+  return Number.isFinite(expiresAt) && Date.now() <= expiresAt;
 }
 
 function buildConfirmationLink(rawToken) {
@@ -1145,7 +1164,6 @@ app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req,
 
   const subscribers = readNewsletterSubscribers();
   const now = new Date().toISOString();
-  const token = createConfirmationToken();
 
   let subscriber = subscribers.find(item => item && item.email === email);
 
@@ -1167,6 +1185,14 @@ app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req,
     subscribers.push(subscriber);
   }
 
+  const token = hasReusablePendingConfirmationToken(subscriber)
+    ? {
+      rawToken: subscriber.confirmationTokenRaw,
+      tokenHash: subscriber.confirmationTokenHash,
+      expiresAt: subscriber.confirmationTokenExpiresAt
+    }
+    : createConfirmationToken(email);
+
   subscriber.source = source || NEWSLETTER_SOURCE;
   subscriber.pageUrl = pageUrl || subscriber.pageUrl || '';
   subscriber.preferredLanguage = preferredLanguage;
@@ -1175,6 +1201,10 @@ app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req,
   subscriber.crmType = crmType;
   subscriber.tags = NEWSLETTER_TAGS;
   subscriber.status = NEWSLETTER_STATUS_PENDING;
+  subscriber.mailingListStatus = 'pending';
+  subscriber.unsubscribedAt = null;
+  subscriber.confirmedAt = subscriber.confirmedAt || null;
+  subscriber.confirmationTokenRaw = token.rawToken;
   subscriber.confirmationTokenHash = token.tokenHash;
   subscriber.confirmationTokenExpiresAt = token.expiresAt;
   subscriber.updatedAt = now;
@@ -1316,7 +1346,7 @@ app.get('/api/public-config', (req, res) => {
 
 app.get('/api/newsletter/confirm', async (req, res) => {
   const traceId = createNewsletterTraceId();
-  const rawToken = sanitizeInput(req.query && req.query.token).slice(0, 128);
+  const rawToken = sanitizeInput(req.query && req.query.token).slice(0, 2048);
 
   logNewsletterTrace(traceId, 'confirm_request_received', 'unknown', {
     hasToken: Boolean(rawToken),
@@ -1332,11 +1362,24 @@ app.get('/api/newsletter/confirm', async (req, res) => {
       );
   }
 
-  const tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex');
   const subscribers = readNewsletterSubscribers();
-  const subscriber = subscribers.find(
-    item => item && item.confirmationTokenHash === tokenHash
+  const signedPayload = PREF_TOKEN.verifyPreferencesToken(
+    rawToken,
+    NEWSLETTER_CONFIRMATION_SECRET,
+    NEWSLETTER_TOKEN_TTL_HOURS / 24
   );
+
+  let subscriber = null;
+  if (signedPayload && signedPayload.email) {
+    subscriber = subscribers.find(item => item && item.email === signedPayload.email);
+  }
+
+  if (!subscriber) {
+    const tokenHash = crypto.createHash('sha256').update(rawToken).digest('hex');
+    subscriber = subscribers.find(
+      item => item && item.confirmationTokenHash === tokenHash
+    );
+  }
 
   if (!subscriber) {
     logNewsletterTrace(traceId, 'confirm_token_not_found', 'unknown');
@@ -1351,7 +1394,7 @@ app.get('/api/newsletter/confirm', async (req, res) => {
   }
 
   const expiresAt = Date.parse(subscriber.confirmationTokenExpiresAt || '');
-  if (!Number.isFinite(expiresAt) || Date.now() > expiresAt) {
+  if (!signedPayload && (!Number.isFinite(expiresAt) || Date.now() > expiresAt)) {
     logNewsletterTrace(traceId, 'confirm_token_expired', subscriber.email);
     return res
       .status(400)
@@ -1367,6 +1410,7 @@ app.get('/api/newsletter/confirm', async (req, res) => {
   subscriber.confirmedAt = new Date().toISOString();
   subscriber.preferredLanguage = normalizeNewsletterLanguage(subscriber.preferredLanguage);
   subscriber.frequency = normalizeNewsletterFrequency(subscriber.frequency);
+  subscriber.confirmationTokenRaw = null;
   subscriber.confirmationTokenHash = null;
   subscriber.confirmationTokenExpiresAt = null;
   subscriber.mailingListStatus = 'active';

@@ -104,7 +104,6 @@ const staticEntries = [
   makeUrlEntry(`${BASE_URL}/`, { lastmod: today, changefreq: 'weekly', priority: '1.0' }),
   makeUrlEntry(`${BASE_URL}/about.html`, { lastmod: today, priority: '0.9' }),
   makeUrlEntry(`${BASE_URL}/business.html`, { lastmod: today, priority: '0.8' }),
-  makeUrlEntry(`${BASE_URL}/cloud-services.html`, { lastmod: today, priority: '0.8' }),
   makeUrlEntry(`${BASE_URL}/contact.html`, { lastmod: today, priority: '0.9' }),
   makeUrlEntry(`${BASE_URL}/service.html`, { lastmod: today, priority: '0.9' }),
   makeUrlEntry(`${BASE_URL}/odoo-services.html`, { lastmod: today, priority: '0.9' }),
