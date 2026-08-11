@@ -1,0 +1,114 @@
+{
+  "campaignName": "GoCloud Bi-Weekly Newsletter",
+  "fromEmail": "marketing@gocloudeg.com",
+  "cadence": "bi-weekly",
+  "timezone": "Africa/Cairo",
+  "defaultCta": "Read the full article",
+  "entries": [
+    {
+      "id": "welcome-gocloud",
+      "sendDate": "2099-01-01",
+      "theme": "Welcome to GoCloud",
+      "title": "Welcome to GoCloud: your practical digital transformation updates start now",
+      "objective": "Welcome new subscribers and set clear expectations for content value and cadence.",
+      "postSlug": "why-odoo-erp",
+      "subjectOptions": [
+        "Welcome to GoCloud: practical insights for smarter growth",
+        "You are in: welcome to GoCloud practical updates"
+      ],
+      "previewText": "Thanks for confirming. Here is what you will get from GoCloud and where to start.",
+      "ctaLabel": "Start with this practical guide",
+      "ctaUrl": "https://www.gocloudeg.com/blog/why-odoo-erp.html"
+    },
+    {
+      "id": "m1-1",
+      "sendDate": "2026-08-18",
+      "theme": "Enterprise System Health & Modernization",
+      "title": "The true cost of legacy ERP maintenance",
+      "objective": "Establish expertise and surface modernization opportunities.",
+      "postSlug": "why-odoo-erp",
+      "subjectOptions": [
+        "Is your legacy ERP silently draining your IT budget?",
+        "Practical steps to modernize enterprise systems without downtime"
+      ],
+      "previewText": "See why legacy platforms quietly increase cost and slow internal teams down.",
+      "ctaLabel": "Read the full article",
+      "ctaUrl": "https://www.gocloudeg.com/blog/why-odoo-erp.html"
+    },
+    {
+      "id": "m1-2",
+      "sendDate": "2026-09-01",
+      "theme": "Unifying Siloed Departments",
+      "title": "How end-to-end integration removes manual data entry",
+      "objective": "Show how connected operations reduce errors and speed up fulfillment.",
+      "postSlug": "odoo-sales-inventory-trade-distribution",
+      "subjectOptions": [
+        "Stop managing sales and inventory in separate tools",
+        "How connected workflows eliminate manual handoffs"
+      ],
+      "previewText": "Connecting sales, stock, and operations reduces costly errors and speeds order flow.",
+      "ctaLabel": "Explore the integration story",
+      "ctaUrl": "https://www.gocloudeg.com/blog/odoo-sales-inventory-trade-distribution.html"
+    },
+    {
+      "id": "m2-1",
+      "sendDate": "2026-09-15",
+      "theme": "Workflow Efficiency & Customization",
+      "title": "When a custom ERP module is worth building",
+      "objective": "Explain why tailored workflows often outperform fully generic software.",
+      "postSlug": "enterprises-switching-to-odoo-2026",
+      "subjectOptions": [
+        "Out-of-the-box software vs. custom workflows: what do you actually need?",
+        "When your team needs a custom ERP module"
+      ],
+      "previewText": "A modular approach lets teams keep the core system stable while customizing only what matters.",
+      "ctaLabel": "Read the practical guide",
+      "ctaUrl": "https://www.gocloudeg.com/blog/enterprises-switching-to-odoo-2026.html"
+    },
+    {
+      "id": "m2-2",
+      "sendDate": "2026-09-29",
+      "theme": "Eliminating Time-Tracking & Billing Bottlenecks",
+      "title": "How to structure transparent project time auditing",
+      "objective": "Connect workflow discipline to profitability and leadership visibility.",
+      "postSlug": "odoo-crm-medical-supplies",
+      "subjectOptions": [
+        "Are non-billable hours slipping through your operations?",
+        "A better model for project time auditing"
+      ],
+      "previewText": "Clear time tracking and billing routines reduce admin overhead and improve accountability.",
+      "ctaLabel": "See the workflow example",
+      "ctaUrl": "https://www.gocloudeg.com/blog/odoo-crm-medical-supplies.html"
+    },
+    {
+      "id": "m3-1",
+      "sendDate": "2026-10-13",
+      "theme": "Migration, Scalability & Long-Term Performance",
+      "title": "The engineer's guide to zero-downtime data migration",
+      "objective": "Build confidence in large-scale transitions and operational continuity.",
+      "postSlug": "unified-medical-insurance-portal",
+      "subjectOptions": [
+        "How to avoid data corruption during software migration",
+        "A practical checklist for enterprise data migration"
+      ],
+      "previewText": "Careful migration planning protects continuity and reduces risk during change.",
+      "ctaLabel": "Download the migration checklist",
+      "ctaUrl": "https://www.gocloudeg.com/blog/unified-medical-insurance-portal.html"
+    },
+    {
+      "id": "m3-2",
+      "sendDate": "2026-10-27",
+      "theme": "AI & Automation in Business Software",
+      "title": "Beyond the hype: practical AI use cases for enterprise applications",
+      "objective": "Position GoCloud as a practical partner for intelligent automation.",
+      "postSlug": "world-cup-2026-ai-ref-cctv-odoo",
+      "subjectOptions": [
+        "Leveraging AI APIs directly inside your daily workflows",
+        "Practical AI integrations for operational efficiency"
+      ],
+      "previewText": "The strongest AI use cases are the ones that simplify daily operations and reduce manual effort.",
+      "ctaLabel": "Read the AI integration guide",
+      "ctaUrl": "https://www.gocloudeg.com/blog/world-cup-2026-ai-ref-cctv-odoo.html"
+    }
+  ]
+}

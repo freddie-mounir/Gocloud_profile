@@ -1,0 +1,110 @@
+[
+  {
+    "sentAt": "2026-08-11T16:59:26.557Z",
+    "entryId": "m1-1",
+    "recipientCount": 1,
+    "results": [
+      {
+        "email": "walid.azhary@gocloudeg.com",
+        "languageMode": "bilingual",
+        "messageId": "<42904874-513a-8ab8-0e9c-2d599c7fc9b7@gocloudeg.com>"
+      }
+    ]
+  },
+  {
+    "sentAt": "2026-08-11T17:12:08.991Z",
+    "entryId": "m1-1",
+    "recipientCount": 1,
+    "results": [
+      {
+        "email": "walid.azhary@gocloudeg.com",
+        "languageMode": "bilingual",
+        "messageId": "<0f2dfd86-4c14-2a32-a3f9-3fa6f2c41626@gocloudeg.com>"
+      }
+    ]
+  },
+  {
+    "sentAt": "2026-08-11T17:12:30.648Z",
+    "entryId": "m1-1",
+    "recipientCount": 1,
+    "results": [
+      {
+        "email": "walid.azhary@gocloudeg.com",
+        "languageMode": "bilingual",
+        "messageId": "<65e6d482-6463-3a59-585f-184742fc4286@gocloudeg.com>"
+      }
+    ]
+  },
+  {
+    "sentAt": "2026-08-11T17:25:04.918Z",
+    "entryId": "m1-1",
+    "recipientCount": 1,
+    "results": [
+      {
+        "email": "walid.azhary@gocloudeg.com",
+        "languageMode": "bilingual",
+        "messageId": "<8218fbda-ff90-8025-fd84-b8ab8d9e6c58@gocloudeg.com>"
+      }
+    ]
+  },
+  {
+    "sentAt": "2026-08-11T17:25:32.115Z",
+    "entryId": "m1-1",
+    "recipientCount": 1,
+    "results": [
+      {
+        "email": "walid.azhary@gocloudeg.com",
+        "languageMode": "bilingual",
+        "messageId": "<5e4c445c-3e20-cb49-d26f-d4c47b3d43db@gocloudeg.com>"
+      }
+    ]
+  },
+  {
+    "sentAt": "2026-08-11T17:26:05.393Z",
+    "entryId": "m1-1",
+    "recipientCount": 1,
+    "results": [
+      {
+        "email": "walid.azhary@gocloudeg.com",
+        "languageMode": "bilingual",
+        "messageId": "<21414cc5-f7fc-739f-1a17-1812b4b09527@gocloudeg.com>"
+      }
+    ]
+  },
+  {
+    "sentAt": "2026-08-11T17:38:12.902Z",
+    "entryId": "m1-1",
+    "recipientCount": 1,
+    "results": [
+      {
+        "email": "walid.azhary@gocloudeg.com",
+        "languageMode": "bilingual",
+        "messageId": "<c0c4c3d7-d914-9666-93d6-1af50278a3e5@gocloudeg.com>"
+      }
+    ]
+  },
+  {
+    "sentAt": "2026-08-11T17:39:52.590Z",
+    "entryId": "m1-1",
+    "recipientCount": 1,
+    "results": [
+      {
+        "email": "walid.azhary@gocloudeg.com",
+        "languageMode": "bilingual",
+        "messageId": "<368d775d-5b69-6b7a-2e8c-58ddfefde44a@gocloudeg.com>"
+      }
+    ]
+  },
+  {
+    "sentAt": "2026-08-11T17:52:06.849Z",
+    "entryId": "m1-1",
+    "recipientCount": 1,
+    "results": [
+      {
+        "email": "walid.azhary@gocloudeg.com",
+        "languageMode": "bilingual",
+        "messageId": "<6898e16b-70c1-d4c6-9b32-368a076f79cd@gocloudeg.com>"
+      }
+    ]
+  }
+]

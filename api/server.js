@@ -5,6 +5,8 @@ require('dotenv').config({ path: require('path').join(__dirname, '.env') });
 const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
+const { execFile } = require('child_process');
+const { promisify } = require('util');
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
@@ -12,9 +14,21 @@ const rateLimit = require('express-rate-limit');
 const nodemailer = require('nodemailer');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const SYSTEM_PROMPT = require('./system-prompt');
+let PREF_TOKEN = null;
+
+try {
+  PREF_TOKEN = require(path.join(__dirname, 'newsletter-preferences-token'));
+} catch (error) {
+  try {
+    PREF_TOKEN = require(path.join(__dirname, '..', 'scripts', 'newsletter-preferences-token'));
+  } catch (nestedError) {
+    PREF_TOKEN = require(path.join(__dirname, '..', '..', 'scripts', 'newsletter-preferences-token'));
+  }
+}
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const execFileAsync = promisify(execFile);
 
 function normalizeClientIp(rawIp) {
   if (typeof rawIp !== 'string') {
@@ -66,10 +80,21 @@ const NEWSLETTER_FILE = path.join(__dirname, 'newsletter-subscribers.json');
 const NEWSLETTER_SOURCE = process.env.NEWSLETTER_SOURCE_LABEL || 'Website Newsletter (Subscribe for Practical Updates)';
 const NEWSLETTER_STATUS_PENDING = 'Unconfirmed / Pending Opt-In';
 const NEWSLETTER_STATUS_CONFIRMED = 'Confirmed / Active';
+const NEWSLETTER_STATUS_UNSUBSCRIBED = 'Unsubscribed / Opt-Out';
 const NEWSLETTER_TAGS = ['Newsletter', 'Inbound Lead'];
 const NEWSLETTER_CONFIRMATION_BASE_URL =
   process.env.NEWSLETTER_CONFIRMATION_URL || 'https://www.gocloudeg.com/api/newsletter/confirm';
 const NEWSLETTER_TOKEN_TTL_HOURS = Number(process.env.NEWSLETTER_TOKEN_TTL_HOURS || 48);
+const NEWSLETTER_PREFERENCES_URL =
+  process.env.NEWSLETTER_PREFERENCES_URL || 'https://www.gocloudeg.com/api/newsletter/preferences';
+const NEWSLETTER_UNSUBSCRIBE_URL =
+  process.env.NEWSLETTER_UNSUBSCRIBE_URL || 'https://www.gocloudeg.com/api/newsletter/unsubscribe';
+const NEWSLETTER_PREFERENCES_SECRET =
+  process.env.NEWSLETTER_PREFERENCES_SECRET || process.env.SMTP_PASS || process.env.ZOHO_APP_PASSWORD || 'newsletter-secret';
+const NEWSLETTER_PREFERENCES_TOKEN_MAX_DAYS = Number(process.env.NEWSLETTER_PREFERENCES_TOKEN_MAX_DAYS || 3650);
+const NEWSLETTER_WELCOME_ENABLED = String(process.env.NEWSLETTER_WELCOME_ENABLED || 'true').toLowerCase() !== 'false';
+const NEWSLETTER_WELCOME_ENTRY_ID = process.env.NEWSLETTER_WELCOME_ENTRY_ID || 'welcome-gocloud';
+const NEWSLETTER_WELCOME_SEND_TIMEOUT_MS = Number(process.env.NEWSLETTER_WELCOME_SEND_TIMEOUT_MS || 60000);
 const TURNSTILE_SECRET_KEY = process.env.TURNSTILE_SECRET_KEY || '';
 const TURNSTILE_SITE_KEY = process.env.TURNSTILE_SITE_KEY || '';
 const TURNSTILE_EXPECTED_ACTION = process.env.TURNSTILE_ACTION || 'newsletter_subscribe';
@@ -78,7 +103,7 @@ const SMTP_HOST = process.env.SMTP_HOST || '';
 const SMTP_PORT = Number(process.env.SMTP_PORT || 587);
 const SMTP_SECURE = String(process.env.SMTP_SECURE || 'false').toLowerCase() === 'true';
 const SMTP_USER = process.env.SMTP_USER || '';
-const SMTP_PASS = process.env.SMTP_PASS || '';
+const SMTP_PASS = process.env.SMTP_PASS || process.env.ZOHO_APP_PASSWORD || process.env.ZOHO_PASSWORD || '';
 const SMTP_FROM = process.env.SMTP_FROM || 'marketing@gocloudeg.com';
 const SMTP_FROM_NAME = process.env.SMTP_FROM_NAME || 'GoCloud Team';
 const NEWSLETTER_EMAIL_SUBJECT =
@@ -112,6 +137,7 @@ app.use(
 );
 
 app.use(express.json({ limit: '16kb' }));
+app.use(express.urlencoded({ extended: false }));
 
 app.use((err, req, res, next) => {
   if (err && err.type === 'entity.parse.failed') {
@@ -172,6 +198,40 @@ function sanitizeCaptchaToken(str) {
   }
 
   return str.trim().slice(0, 2048);
+}
+
+function normalizeNewsletterLanguage(value) {
+  if (typeof value !== 'string') {
+    return 'bilingual';
+  }
+
+  const normalized = value.trim().toLowerCase();
+  if (!normalized) {
+    return 'bilingual';
+  }
+
+  if (['ar', 'arabic', 'العربية', 'العربي', 'ara'].includes(normalized)) {
+    return 'ar';
+  }
+
+  if (['en', 'english', 'eng', 'us'].includes(normalized)) {
+    return 'en';
+  }
+
+  return 'bilingual';
+}
+
+function normalizeNewsletterFrequency(value) {
+  if (typeof value !== 'string') {
+    return 'bi-weekly';
+  }
+
+  const normalized = value.trim().toLowerCase();
+  if (normalized === 'weekly' || normalized === 'bi-weekly' || normalized === 'monthly' || normalized === 'paused') {
+    return normalized;
+  }
+
+  return 'bi-weekly';
 }
 
 function buildHistory(rawHistory) {
@@ -352,6 +412,98 @@ function buildConfirmationLink(rawToken) {
   return url.toString();
 }
 
+function buildPreferencesToken(email) {
+  return PREF_TOKEN.createPreferencesToken(email, NEWSLETTER_PREFERENCES_SECRET);
+}
+
+function parsePreferencesToken(rawToken) {
+  return PREF_TOKEN.verifyPreferencesToken(
+    rawToken,
+    NEWSLETTER_PREFERENCES_SECRET,
+    NEWSLETTER_PREFERENCES_TOKEN_MAX_DAYS
+  );
+}
+
+function buildPreferencesLink(email) {
+  const token = buildPreferencesToken(email);
+  const url = new URL(NEWSLETTER_PREFERENCES_URL);
+  url.searchParams.set('token', token);
+  return url.toString();
+}
+
+function buildUnsubscribeLink(email) {
+  const token = buildPreferencesToken(email);
+  const url = new URL(NEWSLETTER_UNSUBSCRIBE_URL);
+  url.searchParams.set('token', token);
+  return url.toString();
+}
+
+function renderPreferencesPage(subscriber, token, savedMessage) {
+  const selectedLanguage = normalizeNewsletterLanguage(subscriber?.preferredLanguage);
+  const selectedFrequency = normalizeNewsletterFrequency(subscriber?.frequency);
+  const isUnsubscribed = String(subscriber?.status || '') === NEWSLETTER_STATUS_UNSUBSCRIBED;
+  const messageHtml = savedMessage
+    ? `<p class="status-message">${savedMessage}</p>`
+    : '';
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Manage Newsletter Preferences</title>
+  <style>
+    body{font-family:Segoe UI,Arial,sans-serif;background:#f5f7fc;color:#111827;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;padding:24px}
+    .card{background:#fff;max-width:680px;width:100%;border-radius:16px;padding:28px;box-shadow:0 14px 40px rgba(2,6,23,.08)}
+    h1{margin:0 0 10px;font-size:1.6rem;color:#0e38b1}
+    p{line-height:1.6;color:#374151}
+    .row{margin:18px 0}
+    label{display:block;font-weight:600;margin:0 0 8px}
+    select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:10px;font-size:14px}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+    button{border:0;border-radius:999px;padding:11px 18px;font-weight:700;cursor:pointer}
+    .primary{background:#0e38b1;color:#fff}
+    .danger{background:#fee2e2;color:#991b1b}
+    .muted{font-size:12px;color:#64748b;margin-top:14px}
+    .status-message{background:#ecfeff;border:1px solid #a5f3fc;color:#0f766e;padding:10px 12px;border-radius:10px}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Manage your newsletter preferences</h1>
+    <p>Email: <strong>${subscriber.email}</strong></p>
+    ${messageHtml}
+    <form method="post" action="/api/newsletter/preferences">
+      <input type="hidden" name="token" value="${token}" />
+      <div class="row">
+        <label for="preferredLanguage">Preferred language</label>
+        <select id="preferredLanguage" name="preferredLanguage">
+          <option value="bilingual"${selectedLanguage === 'bilingual' ? ' selected' : ''}>Bilingual (English + Arabic)</option>
+          <option value="en"${selectedLanguage === 'en' ? ' selected' : ''}>English only</option>
+          <option value="ar"${selectedLanguage === 'ar' ? ' selected' : ''}>Arabic only</option>
+        </select>
+      </div>
+      <div class="row">
+        <label for="frequency">Email frequency</label>
+        <select id="frequency" name="frequency">
+          <option value="weekly"${selectedFrequency === 'weekly' ? ' selected' : ''}>Weekly</option>
+          <option value="bi-weekly"${selectedFrequency === 'bi-weekly' ? ' selected' : ''}>Bi-weekly</option>
+          <option value="monthly"${selectedFrequency === 'monthly' ? ' selected' : ''}>Monthly</option>
+          <option value="paused"${selectedFrequency === 'paused' ? ' selected' : ''}>Pause emails</option>
+        </select>
+      </div>
+      <div class="actions">
+        <button class="primary" type="submit" name="action" value="save">Save preferences</button>
+        <button class="danger" type="submit" name="action" value="unsubscribe">Unsubscribe</button>
+      </div>
+      <p class="muted">If unsubscribed, you can re-enable delivery anytime by choosing a frequency and saving again.</p>
+      <p class="muted">Status: ${isUnsubscribed ? 'Unsubscribed' : 'Active'}</p>
+    </form>
+  </main>
+</body>
+</html>`;
+}
+
 function renderStatusPage(title, message) {
   return `<!doctype html>
 <html lang="en">
@@ -464,6 +616,8 @@ function buildFromHeader() {
 
 async function sendDoubleOptInEmail(email, confirmationLink) {
   const transport = getEmailTransport();
+  const preferencesLink = buildPreferencesLink(email);
+  const unsubscribeLink = buildUnsubscribeLink(email);
 
   if (!transport) {
     throw new Error('SMTP is not configured.');
@@ -479,12 +633,19 @@ async function sendDoubleOptInEmail(email, confirmationLink) {
       'Please confirm your subscription using this secure link:',
       confirmationLink,
       '',
+      'Manage your preferences:',
+      preferencesLink,
+      '',
+      'Unsubscribe:',
+      unsubscribeLink,
+      '',
       'If you did not request this, you can ignore this email.'
     ].join('\n'),
     html: [
       '<p>Thank you for subscribing to GoCloud practical updates.</p>',
       '<p>Please confirm your subscription by clicking the secure link below:</p>',
       `<p><a href="${confirmationLink}">Confirm my subscription</a></p>`,
+      `<p><a href="${preferencesLink}">Manage preferences</a> • <a href="${unsubscribeLink}">Unsubscribe</a></p>`,
       '<p>If you did not request this, you can ignore this email.</p>'
     ].join('')
   });
@@ -795,6 +956,129 @@ async function syncConfirmedToMailingList(email) {
   return mailingContactId;
 }
 
+function resolveSubscriberFromPreferencesToken(rawToken) {
+  const tokenPayload = parsePreferencesToken(rawToken);
+  if (!tokenPayload || !tokenPayload.email) {
+    return null;
+  }
+
+  const subscribers = readNewsletterSubscribers();
+  const subscriber = subscribers.find(item => item && item.email === tokenPayload.email);
+  if (!subscriber) {
+    return null;
+  }
+
+  return {
+    subscriber,
+    subscribers,
+    tokenPayload
+  };
+}
+
+function resolveProjectRootFromApiDir() {
+  if (path.basename(__dirname).toLowerCase() === 'api') {
+    return path.dirname(__dirname);
+  }
+  return path.resolve(__dirname, '..');
+}
+
+function updateSubscriberByEmail(email, updater) {
+  const subscribers = readNewsletterSubscribers();
+  const normalizedEmail = String(email || '').trim().toLowerCase();
+  const index = subscribers.findIndex(item => item && item.email === normalizedEmail);
+  if (index < 0) {
+    return false;
+  }
+
+  updater(subscribers[index]);
+  writeNewsletterSubscribers(subscribers);
+  return true;
+}
+
+async function triggerWelcomeNewsletterSend(subscriber, traceId) {
+  if (!NEWSLETTER_WELCOME_ENABLED) {
+    logNewsletterTrace(traceId, 'confirm_welcome_send_skipped_disabled', subscriber.email);
+    return;
+  }
+
+  const projectRoot = resolveProjectRootFromApiDir();
+  const scriptPath = path.join(projectRoot, 'scripts', 'newsletter-automation.js');
+
+  if (!fs.existsSync(scriptPath)) {
+    logNewsletterTrace(traceId, 'confirm_welcome_send_skipped_missing_script', subscriber.email, {
+      scriptPath
+    });
+    return;
+  }
+
+  const args = [
+    scriptPath,
+    '--send',
+    `--entry=${NEWSLETTER_WELCOME_ENTRY_ID}`,
+    `--test-email=${subscriber.email}`
+  ];
+
+  if (SMTP_FROM_NAME) {
+    args.push(`--from-name=${SMTP_FROM_NAME}`);
+  }
+
+  if (SMTP_FROM) {
+    args.push(`--from-email=${SMTP_FROM}`);
+  }
+
+  logNewsletterTrace(traceId, 'confirm_welcome_send_started', subscriber.email, {
+    entryId: NEWSLETTER_WELCOME_ENTRY_ID
+  });
+
+  try {
+    const { stdout, stderr } = await execFileAsync(process.execPath, args, {
+      cwd: projectRoot,
+      timeout: NEWSLETTER_WELCOME_SEND_TIMEOUT_MS,
+      env: process.env,
+      maxBuffer: 1024 * 1024
+    });
+
+    if (stderr && stderr.trim()) {
+      logNewsletterTrace(traceId, 'confirm_welcome_send_stderr', subscriber.email, {
+        stderr: stderr.trim().slice(0, 500)
+      });
+    }
+
+    let parsed = null;
+    if (stdout && stdout.trim()) {
+      try {
+        parsed = JSON.parse(stdout.trim());
+      } catch (error) {
+        parsed = null;
+      }
+    }
+
+    const status = parsed && parsed.status ? parsed.status : 'unknown';
+    if (status === 'sent') {
+      updateSubscriberByEmail(subscriber.email, record => {
+        record.welcomeNewsletterSentAt = new Date().toISOString();
+        record.updatedAt = new Date().toISOString();
+      });
+    }
+
+    logNewsletterTrace(traceId, 'confirm_welcome_send_completed', subscriber.email, {
+      status,
+      recipients: parsed && typeof parsed.recipients === 'number' ? parsed.recipients : null,
+      message: parsed && parsed.message ? parsed.message : null
+    });
+  } catch (error) {
+    updateSubscriberByEmail(subscriber.email, record => {
+      record.welcomeNewsletterSendError = error.message;
+      record.welcomeNewsletterLastAttemptAt = new Date().toISOString();
+      record.updatedAt = new Date().toISOString();
+    });
+
+    logNewsletterTrace(traceId, 'confirm_welcome_send_failed', subscriber.email, {
+      error: error.message
+    });
+  }
+}
+
 app.post('/api/chat', chatLimiter, chatDailyLimiter, requireChatAuth, async (req, res) => {
   try {
     const { message, history } = req.body;
@@ -830,13 +1114,16 @@ app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req,
   const source = sanitizeInput(req.body && req.body.source).slice(0, 120);
   const pageUrl = sanitizeInput(req.body && req.body.pageUrl).slice(0, 300);
   const language = sanitizeInput(req.body && req.body.language).slice(0, 20);
+  const preferredLanguage = normalizeNewsletterLanguage(language);
+  const frequencyValue = sanitizeInput(req.body && req.body.frequency).slice(0, 20);
+  const frequency = normalizeNewsletterFrequency(frequencyValue);
   const crmTypeOverride = sanitizeInput(req.body && req.body.crmType).slice(0, 30);
   const captchaToken = sanitizeCaptchaToken(req.body && req.body.captchaToken);
   const crmType = determineCrmType(source, pageUrl, crmTypeOverride);
 
   logNewsletterTrace(traceId, 'subscribe_request_received', email, {
     source: source || NEWSLETTER_SOURCE,
-    language: language || 'en',
+    language: preferredLanguage,
     hasCaptchaToken: Boolean(captchaToken),
     ip: rateLimitKey(req),
     pageUrl: pageUrl || '',
@@ -867,7 +1154,9 @@ app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req,
       email,
       source: source || NEWSLETTER_SOURCE,
       pageUrl: pageUrl || '',
-      language: language || 'en',
+      preferredLanguage,
+      frequency,
+      language: preferredLanguage,
       crmType,
       tags: NEWSLETTER_TAGS,
       status: NEWSLETTER_STATUS_PENDING,
@@ -880,7 +1169,9 @@ app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req,
 
   subscriber.source = source || NEWSLETTER_SOURCE;
   subscriber.pageUrl = pageUrl || subscriber.pageUrl || '';
-  subscriber.language = language || subscriber.language || 'en';
+  subscriber.preferredLanguage = preferredLanguage;
+  subscriber.frequency = frequency;
+  subscriber.language = preferredLanguage || subscriber.language || 'en';
   subscriber.crmType = crmType;
   subscriber.tags = NEWSLETTER_TAGS;
   subscriber.status = NEWSLETTER_STATUS_PENDING;
@@ -1074,6 +1365,8 @@ app.get('/api/newsletter/confirm', async (req, res) => {
 
   subscriber.status = NEWSLETTER_STATUS_CONFIRMED;
   subscriber.confirmedAt = new Date().toISOString();
+  subscriber.preferredLanguage = normalizeNewsletterLanguage(subscriber.preferredLanguage);
+  subscriber.frequency = normalizeNewsletterFrequency(subscriber.frequency);
   subscriber.confirmationTokenHash = null;
   subscriber.confirmationTokenExpiresAt = null;
   subscriber.mailingListStatus = 'active';
@@ -1128,10 +1421,113 @@ app.get('/api/newsletter/confirm', async (req, res) => {
     subscriberCount: subscribers.length
   });
 
+  setImmediate(() => {
+    triggerWelcomeNewsletterSend({
+      email: subscriber.email
+    }, traceId).catch(err => {
+      logNewsletterTrace(traceId, 'confirm_welcome_send_unhandled', subscriber.email, {
+        error: err.message
+      });
+    });
+  });
+
   return res.send(
     renderStatusPage(
       'Subscription Confirmed',
       'Your email is confirmed and now active for GoCloud practical updates.'
+    )
+  );
+});
+
+app.get('/api/newsletter/preferences', (req, res) => {
+  const rawToken = sanitizeInput(req.query && req.query.token).slice(0, 1024);
+  const resolved = resolveSubscriberFromPreferencesToken(rawToken);
+
+  if (!resolved) {
+    return res
+      .status(400)
+      .send(
+        renderStatusPage(
+          'Invalid preferences link',
+          'This preferences link is invalid or expired. Please subscribe again to receive a new link.'
+        )
+      );
+  }
+
+  return res.send(renderPreferencesPage(resolved.subscriber, rawToken, ''));
+});
+
+app.post('/api/newsletter/preferences', (req, res) => {
+  const rawToken = sanitizeInput(req.body && req.body.token).slice(0, 1024);
+  const action = sanitizeInput(req.body && req.body.action).slice(0, 40).toLowerCase();
+  const preferredLanguage = normalizeNewsletterLanguage(req.body && req.body.preferredLanguage);
+  const frequency = normalizeNewsletterFrequency(req.body && req.body.frequency);
+  const resolved = resolveSubscriberFromPreferencesToken(rawToken);
+
+  if (!resolved) {
+    return res
+      .status(400)
+      .send(
+        renderStatusPage(
+          'Update failed',
+          'This preferences link is invalid or expired. Please subscribe again to receive a new link.'
+        )
+      );
+  }
+
+  const now = new Date().toISOString();
+  const subscriber = resolved.subscriber;
+  subscriber.preferredLanguage = preferredLanguage;
+  subscriber.frequency = frequency;
+  subscriber.updatedAt = now;
+
+  if (action === 'unsubscribe' || frequency === 'paused') {
+    subscriber.status = NEWSLETTER_STATUS_UNSUBSCRIBED;
+    subscriber.unsubscribedAt = now;
+    subscriber.mailingListStatus = 'opt_out';
+  } else {
+    subscriber.status = NEWSLETTER_STATUS_CONFIRMED;
+    subscriber.confirmedAt = subscriber.confirmedAt || now;
+    subscriber.unsubscribedAt = null;
+    subscriber.mailingListStatus = 'active';
+  }
+
+  writeNewsletterSubscribers(resolved.subscribers);
+
+  const savedMessage = action === 'unsubscribe' || frequency === 'paused'
+    ? 'Your subscription is now paused/unsubscribed. You will not receive new newsletters unless you reactivate it.'
+    : 'Your newsletter preferences were saved successfully.';
+
+  return res.send(renderPreferencesPage(subscriber, rawToken, savedMessage));
+});
+
+app.get('/api/newsletter/unsubscribe', (req, res) => {
+  const rawToken = sanitizeInput(req.query && req.query.token).slice(0, 1024);
+  const resolved = resolveSubscriberFromPreferencesToken(rawToken);
+
+  if (!resolved) {
+    return res
+      .status(400)
+      .send(
+        renderStatusPage(
+          'Unsubscribe failed',
+          'This unsubscribe link is invalid or expired. Please try again from a newer newsletter email.'
+        )
+      );
+  }
+
+  const now = new Date().toISOString();
+  resolved.subscriber.status = NEWSLETTER_STATUS_UNSUBSCRIBED;
+  resolved.subscriber.frequency = 'paused';
+  resolved.subscriber.mailingListStatus = 'opt_out';
+  resolved.subscriber.unsubscribedAt = now;
+  resolved.subscriber.updatedAt = now;
+  writeNewsletterSubscribers(resolved.subscribers);
+
+  return res.send(
+    renderStatusPage(
+      'You are unsubscribed',
+      'Your email has been removed from active newsletter sends. You can re-enable it anytime from the Manage preferences link.'
     )
   );
 });

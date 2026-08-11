@@ -53,7 +53,13 @@ Write-Host "📁 Step 2: Preparing deployment folder..." -ForegroundColor Yellow
 
 if (Test-Path $DeploymentFolder) {
     Write-Host "  → Cleaning existing deployment folder..." -ForegroundColor Gray
-    Remove-Item -Path $DeploymentFolder -Recurse -Force
+    try {
+        Remove-Item -Path $DeploymentFolder -Recurse -Force -ErrorAction Stop
+    } catch {
+        Write-Host "  ✗ Failed to clean deployment folder (possibly locked by a running process)." -ForegroundColor Red
+        Write-Host "  ℹ Stop any process using $DeploymentFolder and run deploy again." -ForegroundColor Yellow
+        exit 1
+    }
 }
 
 New-Item -ItemType Directory -Path $DeploymentFolder -Force | Out-Null
@@ -135,6 +141,25 @@ if (Test-Path "data\_posts-index.json") {
 if (Test-Path "data\posts") {
     Copy-Item -Path "data\posts" -Destination $dataDest -Recurse -Force
 }
+if (Test-Path "data\newsletter") {
+    Copy-Item -Path "data\newsletter" -Destination $dataDest -Recurse -Force
+}
+
+Write-Host "  → Copying newsletter automation scripts..." -ForegroundColor Gray
+$scriptsDest = Join-Path $DeploymentFolder "scripts"
+New-Item -ItemType Directory -Path $scriptsDest -Force | Out-Null
+$newsletterScripts = @(
+    "scripts\newsletter-automation.js",
+    "scripts\newsletter-smtp.js",
+    "scripts\newsletter-preferences-token.js"
+)
+foreach ($scriptFile in $newsletterScripts) {
+    if (Test-Path $scriptFile) {
+        Copy-Item -Path $scriptFile -Destination $scriptsDest -Force
+    } else {
+        Write-Host "  ⚠ Warning: $scriptFile not found" -ForegroundColor Yellow
+    }
+}
 
 Write-Host "  → Copying components directory..." -ForegroundColor Gray
 if (Test-Path "components") {
@@ -147,6 +172,9 @@ if (Test-Path "api") {
     New-Item -ItemType Directory -Path $apiDest -Force | Out-Null
     Copy-Item -Path "api\server.js" -Destination $apiDest -Force
     Copy-Item -Path "api\system-prompt.js" -Destination $apiDest -Force
+    if (Test-Path "scripts\newsletter-preferences-token.js") {
+        Copy-Item -Path "scripts\newsletter-preferences-token.js" -Destination (Join-Path $apiDest "newsletter-preferences-token.js") -Force
+    }
     if (Test-Path "api\ensure-port-free.js") {
         Copy-Item -Path "api\ensure-port-free.js" -Destination $apiDest -Force
     }
@@ -159,6 +187,12 @@ if (Test-Path "api") {
     Copy-Item -Path "api\package.json" -Destination $apiDest -Force
     if (Test-Path "api\package-lock.json") {
         Copy-Item -Path "api\package-lock.json" -Destination $apiDest -Force
+    }
+    if (Test-Path "api\newsletter-subscribers.json") {
+        Copy-Item -Path "api\newsletter-subscribers.json" -Destination $apiDest -Force
+    }
+    if (Test-Path "api\.env") {
+        Copy-Item -Path "api\.env" -Destination $apiDest -Force
     }
     if (Test-Path "api\.env.example") {
         Copy-Item -Path "api\.env.example" -Destination $apiDest -Force

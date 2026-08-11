@@ -56,7 +56,12 @@
     "postbuild:prod": "npm run validate",
     "validate": "echo ✅ Build validation complete!",
     "generate:icons": "node scripts/generate-icons.js",
-    "generate:sitemap": "node scripts/generate-sitemap.js"
+    "generate:sitemap": "node scripts/generate-sitemap.js",
+    "generate:newsletter": "node scripts/generate-newsletter-campaign.js",
+    "newsletter:plan": "node scripts/newsletter-automation.js --plan",
+    "newsletter:send": "node scripts/newsletter-automation.js --send",
+    "newsletter:dry-run": "node scripts/newsletter-automation.js --send --dry-run",
+    "newsletter:test": "node scripts/newsletter-automation.js --send --test-email=walid.azhary@gocloudeg.com"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
