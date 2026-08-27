@@ -34,6 +34,10 @@ try {
 } catch (error) {
   nodemailer = null;
 }
+
+// Must run before any top-level const below reads process.env (e.g. SMTP_PASS-derived secrets).
+loadEnvironmentFiles();
+
 const DATA_DIR = path.join(ROOT, 'data');
 const POSTS_DIR = path.join(DATA_DIR, 'posts');
 const NEWSLETTER_DIR = path.join(ROOT, 'docs', 'newsletter-campaign');
@@ -217,8 +221,6 @@ function loadEnvironmentFiles() {
   }
 }
 
-loadEnvironmentFiles();
-
 function ensureDirectory(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
 }
@@ -232,13 +234,35 @@ function writeJson(filePath, payload) {
 }
 
 function getPostFilePath(slug) {
+  if (!slug) {
+    return undefined;
+  }
+
   const candidates = [
     path.join(POSTS_DIR, `${slug}.json`),
     path.join(POSTS_DIR, `${slug}.md`),
     path.join(POSTS_DIR, `${slug}.html`)
   ];
 
-  return candidates.find(candidate => fs.existsSync(candidate));
+  const exactMatch = candidates.find(candidate => fs.existsSync(candidate));
+  if (exactMatch) {
+    return exactMatch;
+  }
+
+  // Post files are usually date-prefixed (e.g. 2026-03-15-why-odoo-erp.json).
+  if (!fs.existsSync(POSTS_DIR)) {
+    return undefined;
+  }
+
+  const suffixMatch = fs.readdirSync(POSTS_DIR).find(fileName => {
+    const ext = path.extname(fileName);
+    if (!['.json', '.md', '.html'].includes(ext)) {
+      return false;
+    }
+    return fileName === `${slug}${ext}` || fileName.endsWith(`-${slug}${ext}`);
+  });
+
+  return suffixMatch ? path.join(POSTS_DIR, suffixMatch) : undefined;
 }
 
 function escapeHtml(value) {
@@ -531,6 +555,10 @@ function buildSingleLanguageEmail(entry, post, locale) {
     ? 'نساعدك في اختيار الخطوة التالية بثقة ومنطق عملي.'
     : 'We can help you identify the right next step with clarity and practical guidance.';
   const ctaLink = isArabic ? 'اطلب استشارة' : 'Book a consultation';
+  const consultationMessage = isArabic
+    ? `مرحباً، قرأت نشرة GoCloud عن "${title}" وأرغب في استشارة سريعة.`
+    : `Hi, I read the GoCloud newsletter about "${title}" and would like a quick consultation.`;
+  const consultationUrl = `https://wa.me/201017383815?text=${encodeURIComponent(consultationMessage)}`;
   const preferencesUrl = PREF_URL_PLACEHOLDER;
   const unsubscribeUrl = UNSUB_URL_PLACEHOLDER;
   const preferencesLabel = isArabic ? 'إدارة تفضيلاتك' : 'Manage preferences';
@@ -599,7 +627,7 @@ function buildSingleLanguageEmail(entry, post, locale) {
                 <div style="background:linear-gradient(135deg,#eef4ff 0%,#f8fbff 100%);border:1px solid #dbe7ff;border-radius:14px;padding:16px 18px;margin:0 0 18px;">
                   <p style="margin:0 0 6px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#0E38B1;font-weight:700;">${escapeHtml(ctaTitle)}</p>
                   <p style="margin:0 0 10px;font-size:15px;line-height:1.7;color:#334155;">${escapeHtml(ctaBody)}</p>
-                  <p style="margin:0;"><a href="${preferencesUrl}" style="display:inline-block;background:#0E38B1;color:#ffffff;text-decoration:none;padding:11px 16px;border-radius:999px;font-weight:700;font-size:14px;">${escapeHtml(ctaLink)}</a></p>
+                  <p style="margin:0;"><a href="${consultationUrl}" style="display:inline-block;background:#0E38B1;color:#ffffff;text-decoration:none;padding:11px 16px;border-radius:999px;font-weight:700;font-size:14px;">${escapeHtml(ctaLink)}</a></p>
                 </div>
                 <p style="margin:0 0 18px;"><a href="${articleUrl}" style="display:inline-block;background:#0E38B1;color:#ffffff;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:700;font-size:14px;">${escapeHtml(ctaLabel)}</a></p>
                 <p style="margin:0 0 14px;font-size:15px;line-height:1.7;color:#475569;">${escapeHtml(supportText)}</p>
@@ -883,7 +911,7 @@ function getPreferredLanguage(subscriber) {
 }
 
 function getNextDueEntry(plan, logEntries) {
-  const sentIds = new Set((logEntries || []).map(item => item.entryId));
+  const sentIds = new Set((logEntries || []).filter(item => !item.isTest).map(item => item.entryId));
   const today = new Date();
   today.setHours(12, 0, 0, 0);
 
@@ -1025,6 +1053,7 @@ async function sendCampaign(entryId, options = {}) {
     {
       sentAt: new Date().toISOString(),
       entryId: entry.id,
+      isTest: Boolean(options.testEmail),
       recipientCount: results.length,
       results
     }
@@ -1108,6 +1137,7 @@ module.exports = {
   getNextDueEntry,
   buildBilingualEmail,
   buildSingleLanguageEmail,
+  buildRecipientLinks,
   parseCliArgs,
   runCli
 };

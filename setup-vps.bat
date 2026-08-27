@@ -277,6 +277,34 @@ if not exist "%API_DIR%\package.json" (
     ) else (
         echo    - Monitor script missing: %MONITOR_SCRIPT%
     )
+
+    set NEWSLETTER_SEND_SCRIPT=%API_DIR%\newsletter-send-task.ps1
+    set NEWSLETTER_SEND_TASK=GoCloudNewsletterSend
+    if exist "%NEWSLETTER_SEND_SCRIPT%" (
+        echo    - Creating/updating newsletter send task: %NEWSLETTER_SEND_TASK%
+        schtasks /Create /F /TN "%NEWSLETTER_SEND_TASK%" /SC DAILY /ST 08:00 /RU SYSTEM /RL HIGHEST /TR "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"%NEWSLETTER_SEND_SCRIPT%\"" >nul 2>&1
+        if %errorlevel% neq 0 (
+            echo    - [WARN] Failed to create newsletter send task
+        ) else (
+            echo    - [OK] Newsletter send task ready
+        )
+    ) else (
+        echo    - Newsletter send script missing: %NEWSLETTER_SEND_SCRIPT%
+    )
+
+    set SERVICE_WATCHDOG_SCRIPT=%API_DIR%\service-watchdog.ps1
+    set SERVICE_WATCHDOG_TASK=GoCloudServiceWatchdog
+    if exist "%SERVICE_WATCHDOG_SCRIPT%" (
+        echo    - Creating/updating service watchdog task: %SERVICE_WATCHDOG_TASK%
+        schtasks /Create /F /TN "%SERVICE_WATCHDOG_TASK%" /SC MINUTE /MO 15 /RU SYSTEM /RL HIGHEST /TR "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"%SERVICE_WATCHDOG_SCRIPT%\"" >nul 2>&1
+        if %errorlevel% neq 0 (
+            echo    - [WARN] Failed to create service watchdog task
+        ) else (
+            echo    - [OK] Service watchdog task ready
+        )
+    ) else (
+        echo    - Service watchdog script missing: %SERVICE_WATCHDOG_SCRIPT%
+    )
 )
 
 echo  [OK] API task configuration completed

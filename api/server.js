@@ -1475,10 +1475,12 @@ app.get('/api/newsletter/confirm', async (req, res) => {
     });
   });
 
+  const preferencesToken = buildPreferencesToken(subscriber.email);
   return res.send(
-    renderStatusPage(
-      'Subscription Confirmed',
-      'Your email is confirmed and now active for GoCloud practical updates.'
+    renderPreferencesPage(
+      subscriber,
+      preferencesToken,
+      'Your subscription is confirmed! Set your language and frequency preferences below.'
     )
   );
 });

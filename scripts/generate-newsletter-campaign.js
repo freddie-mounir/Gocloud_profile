@@ -15,13 +15,35 @@ function readJson(filePath) {
 }
 
 function slugToPostPath(slug) {
+  if (!slug) {
+    return undefined;
+  }
+
   const candidates = [
     path.join(POSTS_DIR, `${slug}.json`),
     path.join(POSTS_DIR, `${slug}.md`),
     path.join(POSTS_DIR, `${slug}.html`)
   ];
 
-  return candidates.find(candidate => fs.existsSync(candidate));
+  const exactMatch = candidates.find(candidate => fs.existsSync(candidate));
+  if (exactMatch) {
+    return exactMatch;
+  }
+
+  // Post files are usually date-prefixed (e.g. 2026-03-15-why-odoo-erp.json).
+  if (!fs.existsSync(POSTS_DIR)) {
+    return undefined;
+  }
+
+  const suffixMatch = fs.readdirSync(POSTS_DIR).find(fileName => {
+    const ext = path.extname(fileName);
+    if (!['.json', '.md', '.html'].includes(ext)) {
+      return false;
+    }
+    return fileName === `${slug}${ext}` || fileName.endsWith(`-${slug}${ext}`);
+  });
+
+  return suffixMatch ? path.join(POSTS_DIR, suffixMatch) : undefined;
 }
 
 function buildEntry(entry, post) {

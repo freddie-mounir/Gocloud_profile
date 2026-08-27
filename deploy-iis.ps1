@@ -183,6 +183,18 @@ if (Test-Path "api") {
     if (Test-Path "api\monitor-api-health.ps1") {
         Copy-Item -Path "api\monitor-api-health.ps1" -Destination $apiDest -Force
     }
+    if (Test-Path "api\service-watchdog.ps1") {
+        Copy-Item -Path "api\service-watchdog.ps1" -Destination $apiDest -Force
+    }
+    if (Test-Path "api\newsletter-send-task.ps1") {
+        Copy-Item -Path "api\newsletter-send-task.ps1" -Destination $apiDest -Force
+    }
+    if (Test-Path "api\register-service-tasks.ps1") {
+        Copy-Item -Path "api\register-service-tasks.ps1" -Destination $apiDest -Force
+    }
+    if (Test-Path "api\send-admin-alert.js") {
+        Copy-Item -Path "api\send-admin-alert.js" -Destination $apiDest -Force
+    }
     Copy-Item -Path "api\package.json" -Destination $apiDest -Force
     if (Test-Path "api\package-lock.json") {
         Copy-Item -Path "api\package-lock.json" -Destination $apiDest -Force
