@@ -149,6 +149,7 @@ $scriptsDest = Join-Path $DeploymentFolder "scripts"
 New-Item -ItemType Directory -Path $scriptsDest -Force | Out-Null
 $newsletterScripts = @(
     "scripts\newsletter-automation.js",
+    "scripts\audit-newsletter-links.js",
     "scripts\newsletter-smtp.js",
     "scripts\newsletter-preferences-token.js"
 )

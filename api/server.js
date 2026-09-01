@@ -457,7 +457,7 @@ function buildUnsubscribeLink(email) {
   return url.toString();
 }
 
-function renderPreferencesPage(subscriber, token, savedMessage) {
+function renderPreferencesPage(subscriber, token, savedMessage, completeAfterSave = false) {
   const selectedLanguage = normalizeNewsletterLanguage(subscriber?.preferredLanguage);
   const selectedFrequency = normalizeNewsletterFrequency(subscriber?.frequency);
   const isUnsubscribed = String(subscriber?.status || '') === NEWSLETTER_STATUS_UNSUBSCRIBED;
@@ -494,6 +494,7 @@ function renderPreferencesPage(subscriber, token, savedMessage) {
     ${messageHtml}
     <form method="post" action="/api/newsletter/preferences">
       <input type="hidden" name="token" value="${token}" />
+      <input type="hidden" name="afterSave" value="${completeAfterSave ? 'complete' : 'manage'}" />
       <div class="row">
         <label for="preferredLanguage">Preferred language</label>
         <select id="preferredLanguage" name="preferredLanguage">
@@ -518,6 +519,39 @@ function renderPreferencesPage(subscriber, token, savedMessage) {
       <p class="muted">If unsubscribed, you can re-enable delivery anytime by choosing a frequency and saving again.</p>
       <p class="muted">Status: ${isUnsubscribed ? 'Unsubscribed' : 'Active'}</p>
     </form>
+  </main>
+</body>
+</html>`;
+}
+
+function renderPreferencesCompletePage(isUnsubscribed) {
+  const title = isUnsubscribed ? 'Subscription paused' : 'Preferences saved';
+  const message = isUnsubscribed
+    ? 'You will not receive new newsletters unless you reactivate your subscription.'
+    : 'Your newsletter preferences are active. You can update them anytime from a future email.';
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="refresh" content="4;url=https://www.gocloudeg.com/" />
+  <title>${title}</title>
+  <style>
+    body{font-family:Segoe UI,Arial,sans-serif;background:#f4f7fb;color:#172033;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;padding:24px}
+    .card{background:#fff;max-width:520px;width:100%;border:1px solid #dde4f0;border-top:5px solid #a1e934;border-radius:8px;padding:32px;box-shadow:0 12px 30px rgba(14,56,177,.08);text-align:center}
+    h1{margin:0 0 10px;font-size:1.6rem;color:#082a86}
+    p{margin:0 0 18px;line-height:1.65;color:#667085}
+    a{display:inline-block;background:#0e38b1;color:#fff;text-decoration:none;padding:11px 18px;border-radius:6px;font-weight:700}
+    .muted{margin-top:16px;font-size:12px}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>${title}</h1>
+    <p>${message}</p>
+    <a href="https://www.gocloudeg.com/">Return to GoCloud</a>
+    <p class="muted">Returning to the website automatically. You may also close this tab.</p>
   </main>
 </body>
 </html>`;
@@ -642,7 +676,7 @@ async function sendDoubleOptInEmail(email, confirmationLink) {
     throw new Error('SMTP is not configured.');
   }
 
-  await transport.sendMail({
+  return transport.sendMail({
     from: buildFromHeader(),
     to: email,
     subject: NEWSLETTER_EMAIL_SUBJECT,
@@ -1232,8 +1266,16 @@ app.post('/api/newsletter', newsletterLimiter, requireAllowedOrigin, async (req,
 
   try {
     const confirmationLink = buildConfirmationLink(token.rawToken);
-    await sendDoubleOptInEmail(email, confirmationLink);
-    logNewsletterTrace(traceId, 'subscribe_confirmation_email_sent', email);
+    const delivery = await sendDoubleOptInEmail(email, confirmationLink);
+    subscriber.confirmationEmailMessageId = delivery.messageId || null;
+    subscriber.confirmationEmailAcceptedAt = new Date().toISOString();
+    subscriber.confirmationEmailResponse = delivery.response || null;
+    logNewsletterTrace(traceId, 'subscribe_confirmation_email_sent', email, {
+      messageId: delivery.messageId || null,
+      response: delivery.response || null,
+      acceptedCount: Array.isArray(delivery.accepted) ? delivery.accepted.length : null,
+      rejectedCount: Array.isArray(delivery.rejected) ? delivery.rejected.length : null
+    });
   } catch (err) {
     console.error('Failed to send confirmation email:', err.message);
     logNewsletterTrace(traceId, 'subscribe_confirmation_email_failed', email, {
@@ -1480,7 +1522,8 @@ app.get('/api/newsletter/confirm', async (req, res) => {
     renderPreferencesPage(
       subscriber,
       preferencesToken,
-      'Your subscription is confirmed! Set your language and frequency preferences below.'
+      'Your subscription is confirmed! Set your language and frequency preferences below.',
+      true
     )
   );
 });
@@ -1506,6 +1549,7 @@ app.get('/api/newsletter/preferences', (req, res) => {
 app.post('/api/newsletter/preferences', (req, res) => {
   const rawToken = sanitizeInput(req.body && req.body.token).slice(0, 1024);
   const action = sanitizeInput(req.body && req.body.action).slice(0, 40).toLowerCase();
+  const afterSave = sanitizeInput(req.body && req.body.afterSave).slice(0, 20).toLowerCase();
   const preferredLanguage = normalizeNewsletterLanguage(req.body && req.body.preferredLanguage);
   const frequency = normalizeNewsletterFrequency(req.body && req.body.frequency);
   const resolved = resolveSubscriberFromPreferencesToken(rawToken);
@@ -1543,6 +1587,10 @@ app.post('/api/newsletter/preferences', (req, res) => {
   const savedMessage = action === 'unsubscribe' || frequency === 'paused'
     ? 'Your subscription is now paused/unsubscribed. You will not receive new newsletters unless you reactivate it.'
     : 'Your newsletter preferences were saved successfully.';
+
+  if (afterSave === 'complete') {
+    return res.send(renderPreferencesCompletePage(action === 'unsubscribe' || frequency === 'paused'));
+  }
 
   return res.send(renderPreferencesPage(subscriber, rawToken, savedMessage));
 });

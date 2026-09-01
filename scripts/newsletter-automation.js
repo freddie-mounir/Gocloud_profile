@@ -298,12 +298,6 @@ function hasArabicText(value) {
   return /[\u0600-\u06FF]/.test(String(value || ''));
 }
 
-function extractBodyInnerHtml(html) {
-  const source = String(html || '');
-  const match = source.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-  return match ? match[1] : source;
-}
-
 function resolveArabicText(value, fallback) {
   const normalized = String(value || '').trim();
   if (normalized && hasArabicText(normalized)) {
@@ -314,6 +308,78 @@ function resolveArabicText(value, fallback) {
 
 function isWelcomeEntry(entry) {
   return String(entry?.id || '').trim().toLowerCase() === 'welcome-gocloud';
+}
+
+const EMAIL_LOGO_URL = 'https://www.gocloudeg.com/images/gocloud-email-logo.png';
+const EMAIL_COLORS = {
+  blue: '#0E38B1',
+  blueDark: '#082A86',
+  blueSoft: '#EEF3FF',
+  green: '#A1E934',
+  ink: '#172033',
+  muted: '#667085',
+  border: '#DDE4F0',
+  canvas: '#F4F7FB',
+  white: '#FFFFFF'
+};
+
+function renderEmailButton(url, label, secondary = false) {
+  const background = secondary ? EMAIL_COLORS.white : EMAIL_COLORS.blue;
+  const color = secondary ? EMAIL_COLORS.blue : EMAIL_COLORS.white;
+  const border = secondary ? EMAIL_COLORS.blue : EMAIL_COLORS.blue;
+  return `<a href="${url}" style="display:inline-block;background:${background};color:${color};border:1px solid ${border};border-radius:6px;padding:11px 18px;font-size:14px;font-weight:700;line-height:1.2;text-decoration:none;">${escapeHtml(label)}</a>`;
+}
+
+function renderEmailShell({ lang, dir, subject, preview, eyebrow, title, content, preferencesUrl, unsubscribeUrl }) {
+  const isArabic = dir === 'rtl';
+  const preferencesLabel = isArabic ? 'إدارة التفضيلات' : 'Manage preferences';
+  const unsubscribeLabel = isArabic ? 'إلغاء الاشتراك' : 'Unsubscribe';
+
+  return `<!doctype html>
+<html lang="${lang}" dir="${dir}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${escapeHtml(subject)}</title>
+  </head>
+  <body style="margin:0;padding:0;background:${EMAIL_COLORS.canvas};font-family:Arial,Helvetica,sans-serif;color:${EMAIL_COLORS.ink};">
+    <div style="display:none;max-height:0;overflow:hidden;opacity:0;font-size:1px;line-height:1px;color:${EMAIL_COLORS.canvas};">${escapeHtml(preview)}</div>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;background:${EMAIL_COLORS.canvas};">
+      <tr>
+        <td align="center" style="padding:24px 12px;">
+          <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:640px;border-collapse:separate;border-spacing:0;background:${EMAIL_COLORS.white};border:1px solid ${EMAIL_COLORS.border};border-radius:8px;overflow:hidden;">
+            <tr>
+              <td style="padding:22px 28px;border-top:5px solid ${EMAIL_COLORS.green};border-bottom:1px solid ${EMAIL_COLORS.border};background:${EMAIL_COLORS.white};">
+                <a href="https://www.gocloudeg.com" style="text-decoration:none;"><img src="${EMAIL_LOGO_URL}" width="168" alt="GoCloud" style="display:block;width:168px;max-width:55%;height:auto;border:0;"></a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:30px 28px 16px;background:${EMAIL_COLORS.white};text-align:${isArabic ? 'right' : 'left'};">
+                <p style="margin:0 0 8px;color:${EMAIL_COLORS.blue};font-size:12px;font-weight:700;line-height:1.4;text-transform:uppercase;">${escapeHtml(eyebrow)}</p>
+                <h1 style="margin:0;color:${EMAIL_COLORS.blueDark};font-size:26px;line-height:1.3;font-weight:700;overflow-wrap:anywhere;word-break:break-word;">${escapeHtml(title)}</h1>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 28px 30px;background:${EMAIL_COLORS.white};text-align:${isArabic ? 'right' : 'left'};"><!-- GC_CONTENT_START -->${content}<!-- GC_CONTENT_END --></td>
+            </tr>
+            <tr>
+              <td style="padding:20px 28px;background:${EMAIL_COLORS.blueSoft};border-top:1px solid ${EMAIL_COLORS.border};text-align:${isArabic ? 'right' : 'left'};">
+                <p style="margin:0 0 7px;color:${EMAIL_COLORS.ink};font-size:13px;font-weight:700;">GoCloud · ERP · Cloud · Automation</p>
+                <p style="margin:0 0 7px;font-size:12px;line-height:1.6;"><a href="https://www.gocloudeg.com" style="color:${EMAIL_COLORS.blue};text-decoration:none;">www.gocloudeg.com</a> · <a href="mailto:marketing@gocloudeg.com" style="color:${EMAIL_COLORS.blue};text-decoration:none;">marketing@gocloudeg.com</a></p>
+                <p style="margin:0;font-size:12px;line-height:1.6;"><a href="${preferencesUrl}" style="color:${EMAIL_COLORS.blue};text-decoration:underline;">${preferencesLabel}</a> · <a href="${unsubscribeUrl}" style="color:${EMAIL_COLORS.muted};text-decoration:underline;">${unsubscribeLabel}</a></p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+}
+
+function extractEmailContent(html) {
+  const match = String(html || '').match(/<!-- GC_CONTENT_START -->([\s\S]*?)<!-- GC_CONTENT_END -->/);
+  return match ? match[1] : '';
 }
 
 function buildWelcomeSingleLanguageEmail(entry, locale) {
@@ -332,12 +398,10 @@ function buildWelcomeSingleLanguageEmail(entry, locale) {
     utm_campaign: utmCampaign,
     utm_content: `welcome-services-${utmContent}`
   });
-  const contactUrl = withUtmParams('https://www.gocloudeg.com/contact.html', {
-    utm_source: 'newsletter',
-    utm_medium: 'email',
-    utm_campaign: utmCampaign,
-    utm_content: `welcome-contact-${utmContent}`
-  });
+  const consultationMessage = isArabic
+    ? 'مرحباً، اشتركت حديثاً في نشرة GoCloud وأرغب في استشارة سريعة.'
+    : 'Hi, I recently joined the GoCloud newsletter and would like a quick consultation.';
+  const contactUrl = `https://wa.me/201017383815?text=${encodeURIComponent(consultationMessage)}`;
 
   const subject = isArabic
     ? 'مرحبًا بك في GoCloud | بداية عملية للتحول الرقمي'
@@ -362,8 +426,6 @@ function buildWelcomeSingleLanguageEmail(entry, locale) {
   const tertiaryCtaLabel = isArabic ? 'احجز استشارة سريعة' : 'Book a quick consultation';
   const preferencesUrl = PREF_URL_PLACEHOLDER;
   const unsubscribeUrl = UNSUB_URL_PLACEHOLDER;
-  const preferencesLabel = isArabic ? 'إدارة التفضيلات' : 'Manage preferences';
-  const unsubscribeLabel = isArabic ? 'إلغاء الاشتراك' : 'Unsubscribe';
   const closing = isArabic ? 'مع أطيب التحيات,' : 'Best regards,';
   const signature = isArabic ? 'فريق GoCloud' : 'GoCloud Team';
 
@@ -398,61 +460,34 @@ function buildWelcomeSingleLanguageEmail(entry, locale) {
     'marketing@gocloudeg.com'
   ];
 
-  const html = `<!doctype html>
-<html lang="${locale}" dir="${isArabic ? 'rtl' : 'ltr'}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${escapeHtml(subject)}</title>
-  </head>
-  <body style="margin:0;padding:24px;background:#f5f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
-    <div style="display:none;max-height:0;overflow:hidden;opacity:0;font-size:1px;line-height:1px;color:#f5f7fb;">${escapeHtml(preview)}</div>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;background:#f5f7fb;padding:0;margin:0;">
+  const welcomeContent = `
+    <p style="margin:0 0 12px;font-size:15px;line-height:1.7;color:${EMAIL_COLORS.ink};">${escapeHtml(greeting)}</p>
+    <p style="margin:0 0 22px;font-size:15px;line-height:1.7;color:${EMAIL_COLORS.muted};">${escapeHtml(intro)}</p>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:separate;border-spacing:0;background:${EMAIL_COLORS.blueSoft};border-left:4px solid ${EMAIL_COLORS.green};">
       <tr>
-        <td align="center" style="padding:0;">
-          <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:700px;border-collapse:separate;border-spacing:0;">
-            <tr>
-              <td style="background:linear-gradient(135deg,#0E38B1 0%,#113ADC 100%);padding:30px 34px;border-radius:18px 18px 0 0;color:#ffffff;">
-                <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;opacity:0.92;">GoCloud Newsletter</p>
-                <h1 style="margin:0;font-size:26px;line-height:1.25;font-weight:700;">${escapeHtml(isArabic ? 'مرحبًا بك في GoCloud' : 'Welcome to GoCloud')}</h1>
-                <p style="margin:10px 0 0;font-size:14px;opacity:0.92;">${escapeHtml(isArabic ? 'بداية عملية لمحتوى مفيد وقابل للتنفيذ' : 'A practical start to useful, actionable content')}</p>
-              </td>
-            </tr>
-            <tr>
-              <td style="background:#ffffff;padding:28px 34px 24px;border-left:1px solid #e8edf7;border-right:1px solid #e8edf7;">
-                <p style="margin:0 0 12px;font-size:15px;">${escapeHtml(greeting)}</p>
-                <p style="margin:0 0 18px;font-size:15px;line-height:1.7;">${escapeHtml(intro)}</p>
-                <div style="background:#f8fbff;border:1px solid #e2e8f0;border-radius:14px;padding:18px 20px;margin:0 0 18px;">
-                  <p style="margin:0 0 10px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#64748b;">${escapeHtml(blockTitle)}</p>
-                  <ul style="margin:0;padding-${isArabic ? 'right' : 'left'}:20px;color:#334155;line-height:1.8;">
-                    <li>${escapeHtml(bulletOne)}</li>
-                    <li>${escapeHtml(bulletTwo)}</li>
-                    <li>${escapeHtml(bulletThree)}</li>
-                  </ul>
-                </div>
-                <div style="background:linear-gradient(135deg,#eef4ff 0%,#f8fbff 100%);border:1px solid #dbe7ff;border-radius:14px;padding:16px 18px;margin:0 0 18px;">
-                  <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#0E38B1;font-weight:700;">${escapeHtml(startTitle)}</p>
-                  <p style="margin:0 0 12px;font-size:15px;line-height:1.7;color:#334155;">${escapeHtml(startBody)}</p>
-                  <p style="margin:0 0 10px;"><a href="${articleUrl}" style="display:inline-block;background:#0E38B1;color:#ffffff;text-decoration:none;padding:12px 18px;border-radius:999px;font-weight:700;font-size:14px;">${escapeHtml(primaryCtaLabel)}</a></p>
-                  <p style="margin:0 0 10px;"><a href="${servicesUrl}" style="display:inline-block;background:#ffffff;color:#0E38B1;text-decoration:none;padding:10px 16px;border-radius:999px;font-weight:700;font-size:14px;border:1px solid #0E38B1;">${escapeHtml(secondaryCtaLabel)}</a></p>
-                  <p style="margin:0;"><a href="${contactUrl}" style="display:inline-block;background:#ffffff;color:#1f2937;text-decoration:none;padding:10px 16px;border-radius:999px;font-weight:700;font-size:14px;border:1px solid #d1d5db;">${escapeHtml(tertiaryCtaLabel)}</a></p>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td style="background:#f8fbff;padding:20px 34px 30px;border:1px solid #e8edf7;border-top:0;border-radius:0 0 18px 18px;">
-                <p style="margin:0 0 4px;color:#64748b;font-size:13px;line-height:1.6;">${escapeHtml(closing)}</p>
-                <p style="margin:0;font-weight:700;color:#0f172a;font-size:14px;">${escapeHtml(signature)}</p>
-                <p style="margin:8px 0 0;font-size:13px;color:#64748b;line-height:1.6;"><a href="https://www.gocloudeg.com" style="color:#0E38B1;text-decoration:none;">www.gocloudeg.com</a> • <a href="mailto:marketing@gocloudeg.com" style="color:#0E38B1;text-decoration:none;">marketing@gocloudeg.com</a></p>
-                <p style="margin:10px 0 0;font-size:12px;color:#64748b;line-height:1.6;"><a href="${preferencesUrl}" style="color:#0E38B1;text-decoration:none;">${escapeHtml(preferencesLabel)}</a> • <a href="${unsubscribeUrl}" style="color:#0E38B1;text-decoration:none;">${escapeHtml(unsubscribeLabel)}</a></p>
-              </td>
-            </tr>
-          </table>
+        <td style="padding:20px;text-align:${isArabic ? 'right' : 'left'};">
+          <h2 style="margin:0 0 10px;color:${EMAIL_COLORS.blueDark};font-size:18px;line-height:1.4;">${escapeHtml(blockTitle)}</h2>
+          <p style="margin:0 0 7px;color:${EMAIL_COLORS.muted};font-size:14px;line-height:1.6;">✓ ${escapeHtml(bulletOne)}</p>
+          <p style="margin:0 0 7px;color:${EMAIL_COLORS.muted};font-size:14px;line-height:1.6;">✓ ${escapeHtml(bulletTwo)}</p>
+          <p style="margin:0;color:${EMAIL_COLORS.muted};font-size:14px;line-height:1.6;">✓ ${escapeHtml(bulletThree)}</p>
         </td>
       </tr>
     </table>
-  </body>
-</html>`;
+    <h2 style="margin:24px 0 7px;color:${EMAIL_COLORS.blueDark};font-size:18px;line-height:1.4;">${escapeHtml(startTitle)}</h2>
+    <p style="margin:0 0 16px;color:${EMAIL_COLORS.muted};font-size:14px;line-height:1.7;">${escapeHtml(startBody)}</p>
+    <p style="margin:0 0 10px;">${renderEmailButton(articleUrl, primaryCtaLabel)}</p>
+    <p style="margin:0;">${renderEmailButton(servicesUrl, secondaryCtaLabel, true)} &nbsp; <a href="${contactUrl}" style="color:${EMAIL_COLORS.blue};font-size:13px;font-weight:700;text-decoration:underline;">${escapeHtml(tertiaryCtaLabel)}</a></p>`;
+  const html = renderEmailShell({
+    lang: locale,
+    dir: isArabic ? 'rtl' : 'ltr',
+    subject,
+    preview,
+    eyebrow: isArabic ? 'مرحبًا بك' : 'Welcome to GoCloud',
+    title: isArabic ? 'ابدأ رحلتك مع GoCloud' : 'Practical insights, delivered clearly',
+    content: welcomeContent,
+    preferencesUrl,
+    unsubscribeUrl
+  });
 
   return {
     subject,
@@ -465,38 +500,63 @@ function buildWelcomeSingleLanguageEmail(entry, locale) {
 function buildWelcomeBilingualEmail(entry) {
   const english = buildWelcomeSingleLanguageEmail(entry, 'en');
   const arabic = buildWelcomeSingleLanguageEmail(entry, 'ar');
+  const subject = `${(entry.subjectOptions && entry.subjectOptions[0]) || 'Welcome to GoCloud: practical insights for smarter growth'} | GoCloud`;
+  const content = `
+    <div style="padding-bottom:26px;border-bottom:1px solid ${EMAIL_COLORS.border};">
+      <p style="margin:0 0 14px;color:${EMAIL_COLORS.blue};font-size:12px;font-weight:700;line-height:1.4;text-transform:uppercase;">English</p>
+      ${extractEmailContent(english.bodyHtml)}
+    </div>
+    <div dir="rtl" style="padding-top:26px;text-align:right;">
+      <p style="margin:0 0 14px;color:${EMAIL_COLORS.blue};font-size:12px;font-weight:700;line-height:1.4;">العربية</p>
+      ${extractEmailContent(arabic.bodyHtml)}
+    </div>`;
 
   return {
-    subject: `${(entry.subjectOptions && entry.subjectOptions[0]) || 'Welcome to GoCloud: practical insights for smarter growth'} | GoCloud`,
+    subject,
     previewText: english.previewText,
     bodyText: ['English', '', english.bodyText, '', 'العربية', '', arabic.bodyText].join('\n'),
-    bodyHtml: `<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${escapeHtml((entry.subjectOptions && entry.subjectOptions[0]) || entry.title || 'Welcome to GoCloud')}</title>
-  </head>
-  <body style="margin:0;padding:24px;background:#f5f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
-    <div style="display:none;max-height:0;overflow:hidden;opacity:0;font-size:1px;line-height:1px;color:#f5f7fb;">${escapeHtml('Welcome to GoCloud in English and Arabic')}</div>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;background:#f5f7fb;padding:0;margin:0;">
+    bodyHtml: renderEmailShell({
+      lang: 'en',
+      dir: 'ltr',
+      subject,
+      preview: 'Welcome to GoCloud in English and Arabic',
+      eyebrow: 'Welcome · مرحبًا',
+      title: 'Welcome to GoCloud',
+      content,
+      preferencesUrl: PREF_URL_PLACEHOLDER,
+      unsubscribeUrl: UNSUB_URL_PLACEHOLDER
+    })
+  };
+}
+
+function renderCampaignContent({
+  greeting,
+  intro,
+  featured,
+  title,
+  preview,
+  articleUrl,
+  articleLabel,
+  consultationUrl,
+  consultationLabel,
+  supportText,
+  isArabic
+}) {
+  return `
+    <p style="margin:0 0 10px;font-size:15px;line-height:1.7;color:${EMAIL_COLORS.ink};">${escapeHtml(greeting)}</p>
+    <p style="margin:0 0 22px;font-size:15px;line-height:1.7;color:${EMAIL_COLORS.muted};">${escapeHtml(intro)}</p>
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:separate;border-spacing:0;background:${EMAIL_COLORS.blueSoft};border-left:4px solid ${EMAIL_COLORS.green};">
       <tr>
-        <td align="center" style="padding:0;">
-          <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:760px;border-collapse:separate;border-spacing:0;">
-            <tr>
-              <td style="background:#ffffff;padding:14px;border:1px solid #e8edf7;border-radius:18px;">${extractBodyInnerHtml(english.bodyHtml)}</td>
-            </tr>
-            <tr><td style="height:14px;"></td></tr>
-            <tr>
-              <td style="background:#ffffff;padding:14px;border:1px solid #e8edf7;border-radius:18px;" dir="rtl">${extractBodyInnerHtml(arabic.bodyHtml)}</td>
-            </tr>
-          </table>
+        <td style="padding:20px;text-align:${isArabic ? 'right' : 'left'};">
+          <p style="margin:0 0 7px;color:${EMAIL_COLORS.blue};font-size:12px;font-weight:700;line-height:1.4;">${escapeHtml(featured)}</p>
+          <h2 style="margin:0 0 9px;color:${EMAIL_COLORS.blueDark};font-size:21px;line-height:1.4;font-weight:700;overflow-wrap:anywhere;word-break:break-word;">${escapeHtml(title)}</h2>
+          <p style="margin:0;color:${EMAIL_COLORS.muted};font-size:14px;line-height:1.7;">${escapeHtml(preview)}</p>
         </td>
       </tr>
     </table>
-  </body>
-</html>`
-  };
+    <p style="margin:20px 0 10px;">${renderEmailButton(articleUrl, articleLabel)}</p>
+    <p style="margin:0;">${renderEmailButton(consultationUrl, consultationLabel, true)}</p>
+    <p style="margin:12px 0 0;font-size:13px;line-height:1.7;color:${EMAIL_COLORS.muted};">${escapeHtml(supportText)}</p>`;
 }
 
 function buildSingleLanguageEmail(entry, post, locale) {
@@ -547,13 +607,6 @@ function buildSingleLanguageEmail(entry, post, locale) {
   const preheader = isArabic
     ? `مقال جديد من GoCloud: ${title}`
     : `New GoCloud insight: ${title}`;
-  const footerLine = isArabic
-    ? 'تحويل رقمي • ERP • سحابة • أتمتة'
-    : 'Digital transformation • ERP • Cloud • Automation';
-  const ctaTitle = isArabic ? 'هل تحتاج إلى خطة شخصية؟' : 'Need a tailored plan?';
-  const ctaBody = isArabic
-    ? 'نساعدك في اختيار الخطوة التالية بثقة ومنطق عملي.'
-    : 'We can help you identify the right next step with clarity and practical guidance.';
   const ctaLink = isArabic ? 'اطلب استشارة' : 'Book a consultation';
   const consultationMessage = isArabic
     ? `مرحباً، قرأت نشرة GoCloud عن "${title}" وأرغب في استشارة سريعة.`
@@ -561,14 +614,6 @@ function buildSingleLanguageEmail(entry, post, locale) {
   const consultationUrl = `https://wa.me/201017383815?text=${encodeURIComponent(consultationMessage)}`;
   const preferencesUrl = PREF_URL_PLACEHOLDER;
   const unsubscribeUrl = UNSUB_URL_PLACEHOLDER;
-  const preferencesLabel = isArabic ? 'إدارة تفضيلاتك' : 'Manage preferences';
-  const unsubscribeLabel = isArabic ? 'إلغاء الاشتراك' : 'Unsubscribe';
-  const socialPrefix = isArabic ? 'تابعنا:' : 'Follow us:';
-  const socialLinks = [
-    `<a href="${withUtmParams('https://www.linkedin.com/company/gocloud-co', { utm_source: 'newsletter', utm_medium: 'email', utm_campaign: utmCampaign, utm_content: `linkedin-${utmContent}` })}" style="color:#0E38B1;text-decoration:none;">LinkedIn</a>`,
-    `<a href="${withUtmParams('https://www.youtube.com/@GoCloudeg', { utm_source: 'newsletter', utm_medium: 'email', utm_campaign: utmCampaign, utm_content: `youtube-${utmContent}` })}" style="color:#0E38B1;text-decoration:none;">YouTube</a>`,
-    `<a href="${withUtmParams('https://www.facebook.com/GoCloudEg/', { utm_source: 'newsletter', utm_medium: 'email', utm_campaign: utmCampaign, utm_content: `facebook-${utmContent}` })}" style="color:#0E38B1;text-decoration:none;">Facebook</a>`
-  ].join(' • ');
 
   const textLines = [
     greeting,
@@ -595,60 +640,30 @@ function buildSingleLanguageEmail(entry, post, locale) {
     'marketing@gocloudeg.com'
   ];
 
-  const html = `<!doctype html>
-<html lang="${locale}" dir="${isArabic ? 'rtl' : 'ltr'}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${escapeHtml(entry.subjectOptions[0] || entry.title)}</title>
-  </head>
-  <body style="margin:0;padding:24px;background:#f5f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
-    <div style="display:none;max-height:0;overflow:hidden;opacity:0;font-size:1px;line-height:1px;color:#f5f7fb;">${escapeHtml(preheader)}</div>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;background:#f5f7fb;padding:0;margin:0;">
-      <tr>
-        <td align="center" style="padding:0;">
-          <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:700px;border-collapse:separate;border-spacing:0;">
-            <tr>
-              <td style="background:linear-gradient(135deg,#0E38B1 0%,#113ADC 100%);padding:30px 34px;border-radius:18px 18px 0 0;color:#ffffff;">
-                <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;opacity:0.92;">GoCloud Newsletter</p>
-                <h1 style="margin:0;font-size:26px;line-height:1.25;font-weight:700;">${escapeHtml(isArabic ? 'نشرة GoCloud' : 'GoCloud Newsletter')}</h1>
-                <p style="margin:10px 0 0;font-size:14px;opacity:0.92;">${escapeHtml(isArabic ? 'رؤى عملية ومحتوى عملي لقيادة التحول الرقمي' : 'Practical insights for smarter digital transformation')}</p>
-              </td>
-            </tr>
-            <tr>
-              <td style="background:#ffffff;padding:28px 34px 24px;border-left:1px solid #e8edf7;border-right:1px solid #e8edf7;">
-                <p style="margin:0 0 12px;font-size:15px;">${escapeHtml(greeting)}</p>
-                <p style="margin:0 0 18px;font-size:15px;line-height:1.7;">${escapeHtml(intro)}</p>
-                <div style="background:#f8fbff;border:1px solid #e2e8f0;border-radius:14px;padding:18px 20px;margin:0 0 18px;">
-                  <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#64748b;">${escapeHtml(featured)}</p>
-                  <h2 style="margin:0 0 8px;font-size:21px;line-height:1.35;color:#0f172a;">${escapeHtml(title)}</h2>
-                  <p style="margin:0;font-size:15px;line-height:1.7;color:#475569;">${escapeHtml(preview)}</p>
-                </div>
-                <div style="background:linear-gradient(135deg,#eef4ff 0%,#f8fbff 100%);border:1px solid #dbe7ff;border-radius:14px;padding:16px 18px;margin:0 0 18px;">
-                  <p style="margin:0 0 6px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#0E38B1;font-weight:700;">${escapeHtml(ctaTitle)}</p>
-                  <p style="margin:0 0 10px;font-size:15px;line-height:1.7;color:#334155;">${escapeHtml(ctaBody)}</p>
-                  <p style="margin:0;"><a href="${consultationUrl}" style="display:inline-block;background:#0E38B1;color:#ffffff;text-decoration:none;padding:11px 16px;border-radius:999px;font-weight:700;font-size:14px;">${escapeHtml(ctaLink)}</a></p>
-                </div>
-                <p style="margin:0 0 18px;"><a href="${articleUrl}" style="display:inline-block;background:#0E38B1;color:#ffffff;text-decoration:none;padding:12px 20px;border-radius:999px;font-weight:700;font-size:14px;">${escapeHtml(ctaLabel)}</a></p>
-                <p style="margin:0 0 14px;font-size:15px;line-height:1.7;color:#475569;">${escapeHtml(supportText)}</p>
-              </td>
-            </tr>
-            <tr>
-              <td style="background:#f8fbff;padding:20px 34px 30px;border:1px solid #e8edf7;border-top:0;border-radius:0 0 18px 18px;">
-                <p style="margin:0 0 4px;color:#64748b;font-size:13px;line-height:1.6;">${escapeHtml(closing)}</p>
-                <p style="margin:0;font-weight:700;color:#0f172a;font-size:14px;">${escapeHtml(signature)}</p>
-                <p style="margin:6px 0 0;font-size:13px;color:#64748b;line-height:1.6;">${escapeHtml(footerLine)}</p>
-                <p style="margin:8px 0 0;font-size:13px;color:#64748b;line-height:1.6;"><a href="https://www.gocloudeg.com" style="color:#0E38B1;text-decoration:none;">www.gocloudeg.com</a> • <a href="mailto:marketing@gocloudeg.com" style="color:#0E38B1;text-decoration:none;">marketing@gocloudeg.com</a></p>
-                <p style="margin:10px 0 0;font-size:12px;color:#64748b;line-height:1.6;"><a href="${preferencesUrl}" style="color:#0E38B1;text-decoration:none;">${escapeHtml(preferencesLabel)}</a> • <a href="${unsubscribeUrl}" style="color:#0E38B1;text-decoration:none;">${escapeHtml(unsubscribeLabel)}</a></p>
-                <p style="margin:10px 0 0;font-size:12px;color:#64748b;line-height:1.6;">${escapeHtml(socialPrefix)} ${socialLinks}</p>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </body>
-</html>`;
+  const content = renderCampaignContent({
+    greeting,
+    intro,
+    featured,
+    title,
+    preview,
+    articleUrl,
+    articleLabel: ctaLabel,
+    consultationUrl,
+    consultationLabel: ctaLink,
+    supportText,
+    isArabic
+  });
+  const html = renderEmailShell({
+    lang: locale,
+    dir: isArabic ? 'rtl' : 'ltr',
+    subject: personalizedSubject,
+    preview: preheader,
+    eyebrow: isArabic ? 'نشرة GoCloud' : 'GoCloud Newsletter',
+    title,
+    content,
+    preferencesUrl,
+    unsubscribeUrl
+  });
 
   return {
     subject: isArabic ? `${personalizedSubject} | GoCloud` : personalizedSubject,
@@ -665,9 +680,6 @@ function buildBilingualEmail(entry, post) {
 
   const english = buildSingleLanguageEmail(entry, post, 'en');
   const arabic = buildSingleLanguageEmail(entry, post, 'ar');
-  const englishSectionHtml = extractBodyInnerHtml(english.bodyHtml);
-  const arabicSectionHtml = extractBodyInnerHtml(arabic.bodyHtml);
-  const utmCampaign = toUtmSafe(entry.id || 'newsletter', 'newsletter');
 
   const subject = `${entry.subjectOptions[0] || entry.title} | GoCloud`;
   const previewText = `${english.previewText}`;
@@ -682,64 +694,28 @@ function buildBilingualEmail(entry, post) {
     arabic.bodyText
   ].join('\n');
 
-  const htmlBody = `<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${escapeHtml(subject)}</title>
-  </head>
-  <body style="margin:0;padding:24px;background:#f5f7fb;font-family:Arial,Helvetica,sans-serif;color:#0f172a;">
-    <div style="display:none;max-height:0;overflow:hidden;opacity:0;font-size:1px;line-height:1px;color:#f5f7fb;">${escapeHtml('Bilingual update from GoCloud with an Arabic and English perspective')}</div>
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;background:#f5f7fb;padding:0;margin:0;">
-      <tr>
-        <td align="center" style="padding:0;">
-          <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:760px;border-collapse:separate;border-spacing:0;">
-            <tr>
-              <td style="background:linear-gradient(135deg,#0E38B1 0%,#113ADC 100%);padding:30px 34px;border-radius:18px 18px 0 0;color:#ffffff;">
-                <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;opacity:0.92;">GoCloud Newsletter</p>
-                <h1 style="margin:0;font-size:26px;line-height:1.25;font-weight:700;">${escapeHtml(entry.theme)}</h1>
-                <p style="margin:10px 0 0;font-size:14px;opacity:0.92;">${escapeHtml('Practical insights for smarter digital transformation')}</p>
-              </td>
-            </tr>
-            <tr>
-              <td style="background:#ffffff;padding:28px 34px 24px;border-left:1px solid #e8edf7;border-right:1px solid #e8edf7;">
-                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;margin:0 0 16px;">
-                  <tr>
-                    <td style="padding:0 6px 0 0;width:50%;">
-                      <a href="#section-en" style="display:block;background:#eef4ff;border:1px solid #dbe7ff;border-radius:999px;padding:10px 12px;text-align:center;font-size:13px;font-weight:700;color:#0E38B1;text-decoration:none;">English</a>
-                    </td>
-                    <td style="padding:0 0 0 6px;width:50%;">
-                      <a href="#section-ar" style="display:block;background:#fef3e2;border:1px solid #fde6bf;border-radius:999px;padding:10px 12px;text-align:center;font-size:13px;font-weight:700;color:#a16207;text-decoration:none;">العربية</a>
-                    </td>
-                  </tr>
-                </table>
-                <div style="background:#f8fbff;border:1px solid #e2e8f0;border-radius:14px;padding:16px 18px;margin-bottom:16px;">
-                  <a id="section-en" style="display:block;position:relative;top:-8px;"></a>
-                  <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#64748b;">English</p>
-                  <div style="padding:4px 0;">${englishSectionHtml}</div>
-                </div>
-                <div style="background:#f8fbff;border:1px solid #e2e8f0;border-radius:14px;padding:16px 18px;">
-                  <a id="section-ar" style="display:block;position:relative;top:-8px;"></a>
-                  <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#64748b;">العربية</p>
-                  <div style="padding:4px 0;" dir="rtl">${arabicSectionHtml}</div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td style="background:#f8fbff;padding:20px 34px 30px;border:1px solid #e8edf7;border-top:0;border-radius:0 0 18px 18px;">
-                <p style="margin:0;font-size:13px;color:#64748b;line-height:1.6;">GoCloud • Digital transformation • ERP • Cloud • Automation</p>
-                <p style="margin:8px 0 0;font-size:13px;color:#64748b;line-height:1.6;"><a href="https://www.gocloudeg.com" style="color:#0E38B1;text-decoration:none;">www.gocloudeg.com</a> • <a href="mailto:marketing@gocloudeg.com" style="color:#0E38B1;text-decoration:none;">marketing@gocloudeg.com</a></p>
-                <p style="margin:10px 0 0;font-size:12px;color:#64748b;line-height:1.6;"><a href="${PREF_URL_PLACEHOLDER}" style="color:#0E38B1;text-decoration:none;">Manage preferences</a> • <a href="${UNSUB_URL_PLACEHOLDER}" style="color:#0E38B1;text-decoration:none;">Unsubscribe</a></p>
-                <p style="margin:10px 0 0;font-size:12px;color:#64748b;line-height:1.6;">Follow us: <a href="${withUtmParams('https://www.linkedin.com/company/gocloud-co', { utm_source: 'newsletter', utm_medium: 'email', utm_campaign: utmCampaign, utm_content: 'linkedin-bilingual' })}" style="color:#0E38B1;text-decoration:none;">LinkedIn</a> • <a href="${withUtmParams('https://www.youtube.com/@GoCloudeg', { utm_source: 'newsletter', utm_medium: 'email', utm_campaign: utmCampaign, utm_content: 'youtube-bilingual' })}" style="color:#0E38B1;text-decoration:none;">YouTube</a> • <a href="${withUtmParams('https://www.facebook.com/GoCloudEg/', { utm_source: 'newsletter', utm_medium: 'email', utm_campaign: utmCampaign, utm_content: 'facebook-bilingual' })}" style="color:#0E38B1;text-decoration:none;">Facebook</a></p>
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-    </table>
-  </body>
-</html>`;
+  const englishContent = extractEmailContent(english.bodyHtml);
+  const arabicContent = extractEmailContent(arabic.bodyHtml);
+  const bilingualContent = `
+    <div style="padding-bottom:26px;border-bottom:1px solid ${EMAIL_COLORS.border};">
+      <p style="margin:0 0 14px;color:${EMAIL_COLORS.blue};font-size:12px;font-weight:700;line-height:1.4;text-transform:uppercase;">English</p>
+      ${englishContent}
+    </div>
+    <div dir="rtl" style="padding-top:26px;text-align:right;">
+      <p style="margin:0 0 14px;color:${EMAIL_COLORS.blue};font-size:12px;font-weight:700;line-height:1.4;">العربية</p>
+      ${arabicContent}
+    </div>`;
+  const htmlBody = renderEmailShell({
+    lang: 'en',
+    dir: 'ltr',
+    subject,
+    preview: previewText,
+    eyebrow: 'GoCloud Newsletter · English + العربية',
+    title: entry.theme,
+    content: bilingualContent,
+    preferencesUrl: PREF_URL_PLACEHOLDER,
+    unsubscribeUrl: UNSUB_URL_PLACEHOLDER
+  });
 
   return {
     subject,
@@ -886,17 +862,18 @@ async function createTransporter() {
     auth: candidate.auth ? { user, pass } : undefined
   }));
 
+  let lastError = null;
   for (const transportConfig of transportOptions) {
     const transport = nodemailer.createTransport(transportConfig);
     try {
       await transport.verify();
       return transport;
     } catch (error) {
-      continue;
+      lastError = error;
     }
   }
 
-  return null;
+  throw lastError || new Error('SMTP transport verification failed.');
 }
 
 function getPreferredLanguage(subscriber) {
@@ -1119,6 +1096,9 @@ async function runCli() {
     });
 
     console.log(JSON.stringify(result, null, 2));
+    if (result.status === 'skipped') {
+      process.exitCode = 1;
+    }
     return result;
   }
 
