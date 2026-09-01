@@ -1,5 +1,129 @@
 [
   {
+    "id": "when-does-business-need-custom-odoo-module",
+    "slug": "when-does-business-need-custom-odoo-module",
+    "title": "متى تحتاج شركتك إلى تطوير موديول مخصص في Odoo؟",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "دليل عملي يساعدك على التمييز بين إعداد Odoo وتخصيصه وتطوير موديول جديد، مع معايير واضحة لحساب القيمة وتجنب التخصيص الزائد.",
+    "author": "فريق GoCloud",
+    "date": "2026-09-15",
+    "image": "images/odoo-custom-module-guide.jpg",
+    "tags": [
+      "Odoo",
+      "تطوير Odoo",
+      "موديول مخصص",
+      "تخصيص ERP",
+      "تكامل الأنظمة",
+      "التحول الرقمي"
+    ],
+    "featured": true,
+    "title_i18n": {
+      "ar": "متى تحتاج شركتك إلى تطوير موديول مخصص في Odoo؟",
+      "en": "When Does Your Business Need a Custom Odoo Module?"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "دليل عملي يساعدك على التمييز بين إعداد Odoo وتخصيصه وتطوير موديول جديد، مع معايير واضحة لحساب القيمة وتجنب التخصيص الزائد.",
+      "en": "A practical guide to choosing between Odoo configuration, customization, and a new module, with clear criteria for measuring value and avoiding over-customization."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "Odoo",
+        "en": "Odoo"
+      },
+      {
+        "ar": "تطوير Odoo",
+        "en": "Odoo Development"
+      },
+      {
+        "ar": "موديول مخصص",
+        "en": "Custom Module"
+      },
+      {
+        "ar": "تخصيص ERP",
+        "en": "ERP Customization"
+      },
+      {
+        "ar": "تكامل الأنظمة",
+        "en": "System Integration"
+      },
+      {
+        "ar": "التحول الرقمي",
+        "en": "Digital Transformation"
+      }
+    ]
+  },
+  {
+    "id": "odoo-data-migration-guide",
+    "slug": "odoo-data-migration-guide",
+    "title": "دليل عملي لنقل البيانات إلى Odoo دون تعطيل عمليات الشركة",
+    "category": "odoo",
+    "categoryLabel": "تطبيقات أودو",
+    "excerpt": "خطة عملية لترحيل بيانات العملاء والموردين والمنتجات والأرصدة إلى Odoo بأمان، من التنظيف والربط إلى الاختبار والإطلاق وخطة الرجوع.",
+    "author": "فريق GoCloud",
+    "date": "2026-09-01",
+    "image": "images/odoo-data-migration-guide.jpg",
+    "tags": [
+      "Odoo",
+      "ترحيل البيانات",
+      "تنفيذ Odoo",
+      "تخطيط ERP",
+      "جودة البيانات",
+      "إطلاق النظام"
+    ],
+    "featured": true,
+    "title_i18n": {
+      "ar": "دليل عملي لنقل البيانات إلى Odoo دون تعطيل عمليات الشركة",
+      "en": "A Practical Guide to Migrating Data to Odoo Without Disrupting Operations"
+    },
+    "categoryLabel_i18n": {
+      "ar": "تطبيقات أودو",
+      "en": "Odoo Applications"
+    },
+    "excerpt_i18n": {
+      "ar": "خطة عملية لترحيل بيانات العملاء والموردين والمنتجات والأرصدة إلى Odoo بأمان، من التنظيف والربط إلى الاختبار والإطلاق وخطة الرجوع.",
+      "en": "A practical plan for safely migrating customers, suppliers, products, and balances to Odoo, from cleansing and mapping to testing, go-live, and rollback."
+    },
+    "author_i18n": {
+      "ar": "فريق GoCloud",
+      "en": "GoCloud Team"
+    },
+    "tags_i18n": [
+      {
+        "ar": "Odoo",
+        "en": "Odoo"
+      },
+      {
+        "ar": "ترحيل البيانات",
+        "en": "Data Migration"
+      },
+      {
+        "ar": "تنفيذ Odoo",
+        "en": "Odoo Implementation"
+      },
+      {
+        "ar": "تخطيط ERP",
+        "en": "ERP Planning"
+      },
+      {
+        "ar": "جودة البيانات",
+        "en": "Data Quality"
+      },
+      {
+        "ar": "إطلاق النظام",
+        "en": "System Go-Live"
+      }
+    ]
+  },
+  {
     "id": "odoo-multi-branch-inventory-control",
     "slug": "odoo-multi-branch-inventory-control",
     "title": "إدارة المخزون متعدد الفروع مع Odoo: كيف توحّد البيانات وتسرّع التحويلات وتقلّل الفاقد؟",

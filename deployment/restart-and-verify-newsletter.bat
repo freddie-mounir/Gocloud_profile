@@ -13,6 +13,10 @@ set "TASK_NAME=GoCloudApiSupervisor"
 set "SUPERVISOR_SCRIPT=%API_DIR%\run-api-supervisor.ps1"
 set "MONITOR_TASK_NAME=GoCloudApiHealthMonitor"
 set "MONITOR_SCRIPT=%API_DIR%\monitor-api-health.ps1"
+set "NEWSLETTER_SEND_TASK_NAME=GoCloudNewsletterSend"
+set "NEWSLETTER_SEND_SCRIPT=%API_DIR%\newsletter-send-task.ps1"
+set "SERVICE_WATCHDOG_TASK_NAME=GoCloudServiceWatchdog"
+set "SERVICE_WATCHDOG_SCRIPT=%API_DIR%\service-watchdog.ps1"
 set "LOCAL_PORT=3001"
 set "LOCAL_HEALTH_URL=http://127.0.0.1:3001/api/health"
 set "HEALTH_WAIT_SECONDS=60"
@@ -41,6 +45,20 @@ if errorlevel 1 (
   call :log "[WARN] Monitor task could not be created: %MONITOR_TASK_NAME%"
 ) else (
   call :log "[PASS] Monitor task ready: %MONITOR_TASK_NAME%"
+)
+
+call :ensure_newsletter_send_task_exists
+if errorlevel 1 (
+  call :log "[WARN] Newsletter send task could not be created: %NEWSLETTER_SEND_TASK_NAME%"
+) else (
+  call :log "[PASS] Newsletter send task ready: %NEWSLETTER_SEND_TASK_NAME%"
+)
+
+call :ensure_service_watchdog_task_exists
+if errorlevel 1 (
+  call :log "[WARN] Service watchdog task could not be created: %SERVICE_WATCHDOG_TASK_NAME%"
+) else (
+  call :log "[PASS] Service watchdog task ready: %SERVICE_WATCHDOG_TASK_NAME%"
 )
 
 set /a attempt=1
@@ -219,6 +237,45 @@ if errorlevel 1 (
 
 schtasks /Run /TN "%MONITOR_TASK_NAME%" >> "%LOG_FILE%" 2>&1
 call :log "[PASS] Monitor task created: %MONITOR_TASK_NAME%"
+exit /b 0
+
+:ensure_newsletter_send_task_exists
+schtasks /Query /TN "%NEWSLETTER_SEND_TASK_NAME%" >nul 2>&1
+if not errorlevel 1 exit /b 0
+
+if not exist "%NEWSLETTER_SEND_SCRIPT%" (
+  call :log "[ERROR] Newsletter send script not found: %NEWSLETTER_SEND_SCRIPT%"
+  exit /b 1
+)
+
+call :log "[INFO] Creating newsletter send task %NEWSLETTER_SEND_TASK_NAME%"
+schtasks /Create /F /TN "%NEWSLETTER_SEND_TASK_NAME%" /SC DAILY /ST 08:00 /RU SYSTEM /RL HIGHEST /TR "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"%NEWSLETTER_SEND_SCRIPT%\"" >> "%LOG_FILE%" 2>&1
+if errorlevel 1 (
+  call :log "[ERROR] Failed to create newsletter send task: %NEWSLETTER_SEND_TASK_NAME%"
+  exit /b 1
+)
+
+call :log "[PASS] Newsletter send task created: %NEWSLETTER_SEND_TASK_NAME%"
+exit /b 0
+
+:ensure_service_watchdog_task_exists
+schtasks /Query /TN "%SERVICE_WATCHDOG_TASK_NAME%" >nul 2>&1
+if not errorlevel 1 exit /b 0
+
+if not exist "%SERVICE_WATCHDOG_SCRIPT%" (
+  call :log "[ERROR] Service watchdog script not found: %SERVICE_WATCHDOG_SCRIPT%"
+  exit /b 1
+)
+
+call :log "[INFO] Creating service watchdog task %SERVICE_WATCHDOG_TASK_NAME%"
+schtasks /Create /F /TN "%SERVICE_WATCHDOG_TASK_NAME%" /SC MINUTE /MO 15 /RU SYSTEM /RL HIGHEST /TR "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"%SERVICE_WATCHDOG_SCRIPT%\"" >> "%LOG_FILE%" 2>&1
+if errorlevel 1 (
+  call :log "[ERROR] Failed to create service watchdog task: %SERVICE_WATCHDOG_TASK_NAME%"
+  exit /b 1
+)
+
+schtasks /Run /TN "%SERVICE_WATCHDOG_TASK_NAME%" >> "%LOG_FILE%" 2>&1
+call :log "[PASS] Service watchdog task created: %SERVICE_WATCHDOG_TASK_NAME%"
 exit /b 0
 
 :ensure_api_dependencies

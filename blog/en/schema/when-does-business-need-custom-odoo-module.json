@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "inLanguage": "en",
+  "headline": "When Does Your Business Need a Custom Odoo Module?",
+  "description": "A practical guide to choosing between Odoo configuration, customization, and a new module, with clear criteria for measuring value and avoiding over-customization.",
+  "image": "https://www.gocloudeg.com/images/odoo-custom-module-guide.jpg",
+  "datePublished": "2026-09-15",
+  "author": {
+    "@type": "Person",
+    "name": "GoCloud Team"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GoCloud",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.gocloudeg.com/images/gocloud-logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.gocloudeg.com/blog/en/when-does-business-need-custom-odoo-module.html"
+  }
+}

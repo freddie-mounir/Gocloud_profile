@@ -1,0 +1,17 @@
+[
+  {
+    "email": "walid.azhary@gocloudeg.com",
+    "status": "Confirmed / Active",
+    "preferredLanguage": "bilingual",
+    "frequency": "bi-weekly",
+    "source": "Newsletter test send",
+    "tags": [
+      "Newsletter",
+      "Test"
+    ],
+    "createdAt": "2026-08-11T17:26:00.598Z",
+    "updatedAt": "2026-08-27T10:16:40.056Z",
+    "confirmedAt": "2026-08-11T17:26:00.598Z",
+    "mailingListStatus": "active"
+  }
+]
